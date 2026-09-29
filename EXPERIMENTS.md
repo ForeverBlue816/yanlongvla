@@ -25,3 +25,15 @@ External numbers are labelled quoted. Byte accounting is analytic, never measure
 - openpi: `UV_PROJECT_ENVIRONMENT="$VLA_ROOT/envs/openpi" UV_LINK_MODE=copy uv sync --frozen --python 3.11 --no-dev`, in pinned openpi checkout. Copy mode prevents transformers patches modifying shared cache files.
 - LIBERO: `uv venv --python 3.8 "$VLA_ROOT/envs/libero"`; `uv pip sync --python "$VLA_ROOT/envs/libero/bin/python" "$VLA_ROOT/src/openpi/examples/libero/requirements.txt" "$VLA_ROOT/src/openpi/third_party/libero/requirements.txt" --extra-index-url https://download.pytorch.org/whl/cu113 --index-strategy unsafe-best-match`.
 - Result at entry: installation still running; no inference result.
+
+## E001b — 2026-09-29 UTC — installation completed and rendering verified
+
+- Code revision: `18d827e` for simulator; `d9b3969` for setup finalization. Commands: `bash scripts/finish_setup.sh 4145099`; `sbatch slurm/simulator.sbatch`.
+- Both isolated environments installed successfully. Applied the pinned upstream transformers replacements to the copied local transformers **4.53.2** package. Server uses Python **3.11** / torch **2.7.1**; client uses Python **3.8** / torch **1.11.0+cu113**. Full package snapshots are local under `runs/`.
+- Fixed first LIBERO import attempt by adding the upstream-documented `third_party/libero` path to PYTHONPATH; editable install alone did not expose the package. Four suites enumerate **10 tasks each**.
+- Measured simulator check: Slurm job **176286**, actual GPU **NVIDIA L40S**, GPU memory **49,140 MiB**, driver **595.71.05**. **10** dummy steps completed; both camera outputs **256×256×3**, finite robot position. Initialization plus stepping took **13.994649287982611 seconds** (not policy latency or a benchmark score).
+- Result: headless EGL simulator check **passed**. Artifact: local `research/results/simulator_smoke.json`.
+- Submitted jobs: conversion **176289**, parameter audit/BF16 kernels **176290**, dependent policy smoke **176291**, AQLM kernels **176292**. No complete G0 success evaluation submitted at this entry.
+- Additional preparation: frozen **256** observation indices, each with **8** noise seeds (local `datasets/libero-calibration/observation_manifest.json`, script revision `c304385`). No activations collected before G0.
+- Validation: **5** coverage tests passed (`python3 -m unittest discover -s tests -v`, source `657f759`); empty G0 run reports **0/6000**, status pending, no success estimate.
+- Conclusion: simulator is operational; policy/task performance remains unmeasured until dependent jobs complete.
