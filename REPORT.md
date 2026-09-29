@@ -1,6 +1,6 @@
 # 当前实验报告 — 2026-09-29
 
-**模型/数据已落盘，L40S 仿真检查、模型参数审计和 BF16 线性层计时已完成。策略与小规模闭环冒烟已通过，完整 G0 已启动；当前没有完整 LIBERO 成功率或量化收益。**
+**G0 最新状态：passed；完整实测结果与置信区间见文末更新。尚无量化收益结论。**
 
 ## 主要发现
 
@@ -45,7 +45,7 @@ LIBERO EGL 仿真已通过：两路 **256×256×3** 图像、**10** 步 dummy ac
 | 校准观测 | 固定 256 个观测 × 8 个噪声种子；尚未缓存激活 | E001b |
 | PyTorch 转换 | 96 GiB 重跑完成，实际使用的参数与归一化资产检查通过 | E004b |
 | 策略冒烟 | 有限动作，固定噪声重复差异 0；单任务真实闭环 2/2 成功，仅为冒烟 | E006 |
-| G0 | pending；6000 回合已提交，作业 176324 / 176325，报告作业 176326 | E007 |
+| G0 | passed；完整结果见文末 | G0 evaluation update |
 | G1 / G1b / G2 | not started | 实验记录 |
 
 官方平均 **96.85%** 是 **quoted**，不是本项目实测（E000）。
@@ -57,3 +57,21 @@ LIBERO EGL 仿真已通过：两路 **256×256×3** 图像、**10** 步 dummy ac
 下一步：检查完整 BF16 G0 结果并在失败时停留调试；补齐 VPTQ/W4 内核对比；G0 通过后再推进诊断及含保留参数开销的量化基线。G0 结束后会自动追加统计到此仓库（E007）。
 
 命令、代码版本、失败原因与完整数字见 [EXPERIMENTS.md](EXPERIMENTS.md)；模型权重、数据、实现代码和原始日志保存在本地 `/projects/yanlongvla`。
+
+## G0 evaluation update — 2026-09-29T18:31:50.996876+00:00
+
+Status: **passed**; observed **6000 / 6000** planned episodes.
+
+Report generator code: `21c919bf482d6ed8d19c7e96b07ca85236008acb`. Commands: `python scripts/launch_g0.py` (two workers), then `python scripts/publish_g0_summary.py`. Exact evaluation code and worker job IDs are in the launch ledger entry.
+
+Seeds: [7, 17, 27]; 50 episodes/task. two-sided 95% Student t across the three seed-level means; df=2; clipped to [0,100]. Describes seed variation on fixed tasks, not independent rollout uncertainty.
+
+| Suite | Per-seed success % | Mean % | 95% CI % | Absolute gap vs quoted (pp) |
+|---|---|---:|---|---:|
+| libero_spatial | [98.2, 98.0, 98.6] | 98.266667 | [97.50775005991878, 99.02558327341455] | 0.533333 |
+| libero_object | [98.8, 99.2, 98.2] | 98.733333 | [97.48301143741116, 99.9836552292555] | 0.533333 |
+| libero_goal | [96.8, 98.8, 97.2] | 97.600000 | [94.97103575680975, 100] | 0.400000 |
+| libero_10 | [91.8, 93.4, 93.4] | 92.866667 | [90.57191854404732, 95.16141478928603] | 0.466667 |
+| overall | [96.4, 97.35, 96.85] | 96.866667 | [95.68615661219496, 98.04717672113836] | 0.016667 |
+
+G0 passed the predeclared coverage and tolerance check. Diagnostics may begin; no quantization or method gain is claimed here.

@@ -111,3 +111,21 @@ External numbers are labelled quoted. Byte accounting is analytic, never measure
 - Per-episode JSONL outputs go to `runs/g0/`. G0 is **pending** until all planned results exist and meet the predefined tolerance. Exceptions abort their worker and are reported as infrastructure errors.
 - The dependent report job validates coverage, computes seed-level confidence intervals, and appends only report text to the existing public repository. If the public checkout has local edits or publication fails, validated results remain locally; it does not publish code/data/logs.
 - Result at this entry: jobs submitted; no complete G0 success estimate. No diagnostics/quantization stage has been started.
+
+## G0 evaluation update — 2026-09-29T18:31:50.996876+00:00
+
+Status: **passed**; observed **6000 / 6000** planned episodes.
+
+Report generator code: `21c919bf482d6ed8d19c7e96b07ca85236008acb`. Commands: `python scripts/launch_g0.py` (two workers), then `python scripts/publish_g0_summary.py`. Exact evaluation code and worker job IDs are in the launch ledger entry.
+
+Seeds: [7, 17, 27]; 50 episodes/task. two-sided 95% Student t across the three seed-level means; df=2; clipped to [0,100]. Describes seed variation on fixed tasks, not independent rollout uncertainty.
+
+| Suite | Per-seed success % | Mean % | 95% CI % | Absolute gap vs quoted (pp) |
+|---|---|---:|---|---:|
+| libero_spatial | [98.2, 98.0, 98.6] | 98.266667 | [97.50775005991878, 99.02558327341455] | 0.533333 |
+| libero_object | [98.8, 99.2, 98.2] | 98.733333 | [97.48301143741116, 99.9836552292555] | 0.533333 |
+| libero_goal | [96.8, 98.8, 97.2] | 97.600000 | [94.97103575680975, 100] | 0.400000 |
+| libero_10 | [91.8, 93.4, 93.4] | 92.866667 | [90.57191854404732, 95.16141478928603] | 0.466667 |
+| overall | [96.4, 97.35, 96.85] | 96.866667 | [95.68615661219496, 98.04717672113836] | 0.016667 |
+
+G0 passed the predeclared coverage and tolerance check. Diagnostics may begin; no quantization or method gain is claimed here.
