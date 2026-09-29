@@ -37,3 +37,33 @@ External numbers are labelled quoted. Byte accounting is analytic, never measure
 - Additional preparation: frozen **256** observation indices, each with **8** noise seeds (local `datasets/libero-calibration/observation_manifest.json`, script revision `c304385`). No activations collected before G0.
 - Validation: **5** coverage tests passed (`python3 -m unittest discover -s tests -v`, source `657f759`); empty G0 run reports **0/6000**, status pending, no success estimate.
 - Conclusion: simulator is operational; policy/task performance remains unmeasured until dependent jobs complete.
+
+## E002 — 2026-09-29 UTC — model enumeration and analytic budget audit
+
+- Code revision: `d9b3969`; pinned openpi as E000. Command: `sbatch slurm/audit.sbatch` → `python scripts/audit_model.py`, job **176290**.
+- Result: passed; unique instantiated parameter total **3,616,757,520**. SigLIP **412,442,352**; vision projector **2,361,344**; embeddings **526,647,296**; language transformer **1,981,884,416**; expert attention/MLP **311,427,072**; expert AdaRMS **116,505,600**; unused expert lm_head **263,323,648**; action I/O **66,592**; timestep MLP **2,099,200**.
+- Method: instantiate pinned model on PyTorch meta device; enumerate unique named_parameters and every expert Linear. This measures constructor inventory, not yet loaded checkpoint inventory. Full map: [MODEL_MAP.md](MODEL_MAP.md); raw inventory is local `research/results/model_audit.json`.
+- **Analytic storage lower bound**, not measured device memory: retain all noneligible parameters at idealized **16 bits**, count the unused head as stored. Retained share **25.22843566244939%**; retained-only floor **4.036549705991902 bpw**. Eligible Linear **3 bpw** gives whole-model **6.2796966361184205 bpw**; eligible **2 bpw** gives **5.531980992742914 bpw**. Excludes codebooks/scales and native FP32 overhead, so actual storage can be higher.
+- **Analytic one-read/ten-read model** (backbone once, active expert ten times, unused head excluded; not physical DRAM measurements): expert share **59.53480204951186% / 64.39249805645642% / 65.51468975454617%** at eligible **16 / 3 / 2** bits, respectively. Limitations and byte totals in MODEL_MAP.md.
+- Conclusion: whole-model targets require explicit retained-weight accounting. Removing a provably unused head, embedding storage choices, and physically stored code planes must be evaluated; per-step decoding masks alone do not reduce stored code planes.
+
+## E003 — 2026-09-29 UTC — BF16 kernel baseline
+
+- Code snapshot: `d9b3969` (benchmark source unchanged since `a23436a`). Job **176290**, command: `python scripts/bench_bf16.py --output results/bf16_kernel.json`.
+- Hardware/software: **NVIDIA L40S**, torch **2.7.1+cu126**. Batch **1**. **100** warmups, **20** timing groups, **100** forwards/group; synchronized CUDA events. Each number below is the median of group-average milliseconds.
+
+| Tokens | 1024→4096 BF16 ms | 4096→1024 BF16 ms |
+|---:|---:|---:|
+| 1 | 0.00788351982831955 | 0.00920575976371765 |
+| 10 | 0.007864319980144502 | 0.010762240290641784 |
+| 64 | 0.009943040013313293 | 0.012328479886054993 |
+
+- All outputs finite. Synthetic tensors, uncompiled torch.nn.functional.linear; clocks/co-tenancy not controlled. These are kernel microbenchmarks, not end-to-end policy latency. Raw groups local: `research/results/bf16_kernel.json`.
+- VPTQ and W4A16 not measured yet. AQLM first attempt recorded below; no VQ speedup conclusion.
+
+## E004 — 2026-09-29 UTC — failed preparation attempts (preserved)
+
+- Code revision: `d9b3969`.
+- Conversion: `sbatch slurm/convert.sbatch`, job **176289**. Requested **8 CPUs / 96 GiB**; cluster submission policy actually assigned **24 GiB**, confirmed with `sacct`. Job ended **OUT_OF_MEMORY**. No valid converted checkpoint or policy success result produced. Dependent smoke **176291** never ran.
+- AQLM: `sbatch slurm/aqlm.sbatch`, job **176292**; upstream revision `e79a896ed6656fe4ed06193d42d004e7d0bbdbb2`. Failed before timing: `RuntimeError: Ninja is required to load C++ extensions`. Attempt artifact preserved locally as `research/results/aqlm_kernel_attempt1.json`. **No measured AQLM rows**.
+- Repair: request enough CPU cores to receive required memory under cluster policy; install Ninja in the isolated environment and expose its binary. Retest rather than substitute a non-kernel implementation.
