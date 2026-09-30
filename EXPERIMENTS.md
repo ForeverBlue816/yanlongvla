@@ -301,3 +301,53 @@ E020 source/automation follow-up: figure and dependency-gated CPU summary source
 - Protocol fixed before method outcomes:2000suite-stratified hierarchical task/episode bootstrap resamples,RNG20260930,95%percentile intervals for policy success and paired difference versus originalFP. These intervals condition on one evaluationseed and the stated task/initial-state sampling model; they are not across-seed robustness intervals. Resampling is CPU analysis, not newpolicyrollouts or extraexperimentseeds. G2 point-estimate margins remain unchanged.
 - Command `python scripts/paired_eval_statistics.py --reference fp=/projects/yanlongvla/runs/g0 --output results/fp_seed7_full_interval.json`. Reused only the historical **seed7** records, all4suites ×10tasks ×50episodes, exactcoverage **2000/2000**. FP success **1928/2000=96.4%**; conditional hierarchicalbootstrap95%interval **[93.79875%,98.30125%]**. This differs in estimand from the earlier three-seed t interval and is reported separately. No newGPUexperiment was run.
 - Tests **3passed**:known all-fail/all-success exactintervals, identicalpolicies must have exactlyzero paired-differenceuncertainty despite nonzero marginaluncertainty, and shape/boolean protocolenforcement. Command `python -m unittest discover -s tests -p test_paired_eval_statistics.py -v`. This prepares finalreportstatistics; noStep3quantizer was fitted before the pendingD3decision.
+
+## E022 — 2026-09-30 UTC — complete D3 report export and null-result uncertainty
+
+- CPU analysis/report preparation only, source **26dabfd**; no additional rollout, GPU allocation or experiment seed. `scripts/export_d3_evidence.py` requires all11clean/perturbed conditions to pass the existing exact coverage/pairing checks, then recomputes the full diagnostic summary and source metrics. It exports an11-row aggregate CSV, a reviewable Markdown evidence table, the summary and SHA256 provenance. It does not publish files or write CONFIG decisions. Negative paired MMD estimates are preserved; the clean self-comparison row is excluded from the ten-condition proxy correlation.
+- Real incomplete-grid preflight command: `python scripts/export_d3_evidence.py --offline /projects/yanlongvla/runs/d3/offline-177484 --screen /projects/yanlongvla/runs/d3/screen_1 --magnitude 1 --output results/d3_screen_1_evidence`. At1037/2200totalrecords, it returned intentional waiting exit2 with `table_exported=false`; no incomplete final table was produced. Python compilation passed. Complete-data export remains to be run and reviewed when D3 finishes.
+- Repaired an uncertainty-reporting omission: a complete, informative grid with both proxy associations nonpositive must retain its preregistered correlation intervals. Previously only the positive-selection branch computed them. This does not change proxy selection, severity escalation, tolerance thresholds or Step3 readiness; a nonpositive result still declares no supported proxy and does not open the method gate.
+- Regression command `python -m unittest discover -s tests -p test_d3_decisions.py -v`: **15passed**. Added a clearly synthetic test-only reversed-association fixture: it must retain negative correlation intervals, preserve exactlyzero paired correlation difference for identical metrics, and keep the method gate closed. Temporary test values are not experiment evidence or reported measurements.
+- Original fourL40S screening jobs177565/177582 remain RUNNING; dependency-gated CPU summary177591 remains pending. Existing inference processes and frozen worker assignment are unchanged.
+
+## E023 — 2026-09-30 UTC — undefined relative proxy gain handled before method outcomes
+
+- Protocol clarification only; no newexperiment, data selection or proxy choice. Paired-U MMD can yield negative estimates (already retained in D3), so the component-(c)5%relative-gain rule needs an explicit denominator condition. CONFIG now evaluates `(b-c)/b >= .05` only for finite estimates with `b>0`. If b<=0, report the relative gain as undefined, preserve signed raw values, do not claim the component gate passed, and stop further component refinement. Positive-baseline comparisons retain exactly the user’s5%criterion; no outcome-dependent clipping or estimator substitution.
+- Required initial PTQ rows and ablations are still required; this only defines how to handle a mathematically undefined percentage. D3 remains pending, and no quantizer is fitted or method outcome available. No additional gate is imposed on finite positive-baseline comparisons, and downstream LIBERO effect remains separately measured.
+- Confirmed historical offline extension177537 completed one newamplitude in6m15s;177529 completed two in10m59s. These are measured GPUjob walltimes, not estimates of a future closed-loop grid. Do not preemptively run more offline amplitudes before the D3 proxy decision establishes their need.
+
+## E024 — 2026-09-30 UTC — user explicitly confirms physical-storage matching
+
+- Asked whether the main(a)–(d)2/3bpw table should match physical stored bpw or average decoded/read bpw, using the concrete3stored/2read code-plane example. User explicitly selected **actual stored bpw matched, read bytes reported separately**, preserving the existing accounting contract. CONFIG and PHASE record the exact answer.
+- No experiment or estimate changed. This resolves the earlier requirement ambiguity before quantizer fitting: every deployed code plane, codebook and metadata tensor counts in stored bpw; per-step decoding controls reads and cannot masquerade as storage reduction. The main table no longer claims simultaneous exact-read equality. Allocation/read constraints must be documented before method outcomes, and actual read usage remains a mandatory column.
+
+## E025 — 2026-09-30 UTC — exact five-point screening boundary
+
+- Source **c29c98f** repairs percentage arithmetic, not the5ppcriterion: compute integer successes*100/episodecount before converting to the reported ratio. With200episodes this preserves exact0.5ppincrements. A standalone check found15count-pairs whose old division-then-multiplication arithmetic rounded an exact5ppdifference below5; e.g105versus115successes. No observed-outcome threshold was changed.
+- **16D3tests passed**, including the exact105/115boundary and existing coverage, proxy, tolerance and uncertainty tests. Command `python -m unittest discover -s tests -p test_d3_decisions.py -v`. This screen's actual93.5–98.5%range is exactly5pp under both arithmetic forms.
+
+## E026 — 2026-09-30 UTC — D3 complete; diagnostic entry gate resolved
+
+- Both homogeneous-L40S worker jobs completed exit0:0: **177565** elapsed1:23:04 and **177582** elapsed1:24:50. Their full frozen assignments cover all2000noisyepisodes. Reuse the200cleanepisodes from177530. CPU summary **177591** completed exit0:0 in30s. All11conditions pass exactsuite/task/episode coverage, seed7, pairedpolicy-noise seeds, condition metadata and infrastructure-error checks. No additional seeds or dropped observations.
+- Final recomputation/export source **c29c98f**, command `python scripts/export_d3_evidence.py --offline /projects/yanlongvla/runs/d3/offline-177484 --screen /projects/yanlongvla/runs/d3/screen_1 --magnitude 1 --output results/d3_screen_1_evidence`. Output11aggregate rows, summary, reviewed evidence Markdown and sourceSHA256provenance. All60offlineconditions are recomputed from savedactions.
+- Ten perturbed successrates have **6distinctvalues**, range **93.5–98.5%**, exactly **5.0pp**. The preregistered rule requires extension only for fewerthan3values or spreadstrictlyless5pp; therefore **no additional stronger-amplitude screen is required**.
+
+| Perturbed step | Spatial successes/100 | LIBERO-10 successes/100 | Overall success % |
+|---|---:|---:|---:|
+| clean | 100 | 91 | 95.5 |
+| 0 | 100 | 93 | 96.5 |
+| 1 | 100 | 92 | 96.0 |
+| 2 | 99 | 96 | 97.5 |
+| 3 | 98 | 94 | 96.0 |
+| 4 | 99 | 94 | 96.5 |
+| 5 | 99 | 94 | 96.5 |
+| 6 | 99 | 95 | 97.0 |
+| 7 | 100 | 97 | 98.5 |
+| 8 | 99 | 95 | 97.0 |
+| 9 | 98 | 89 | 93.5 |
+
+- Selected proxy: **relative action MSE**, Spearman withfailure **0.37660779150979**, conditional pairedbootstrap95%CI **[-0.14775683240585313,0.7766690943782905]**. MMD Spearman **-0.27782541996623855**, CI **[-0.4878139466552834,0.5072412974582058]**. Paired MSE-minus-MMDcorrelationCI **[-0.19466746259248993,0.8493312877573959]**.2000suite-stratifiedtask/episode resamples,RNG20260930,conditionaloneeval seed andtenfixedperturbations. Both the selected correlation and its differenceinterval crosszero: the choice follows the frozen operationalrule, but strong or stable prediction of success is **not established**.
+- MSE tolerance amplitudes and inverse-energy weights from E018 now become the selectedD3allocation curve. Alltenamplitudes bracketed; amplitude max/min **5.236884488900706**, energy ratio **27.424959150088803** -> **per-step depth ON**. Step3-6norm1MSE outlierconcentration remains a limitation; no observation was removed. MMD's unbracketed threshold need not be extended because it was not selected.
+- CONFIG records allthreefinaldecisions BEFORE quantizer implementation: **D1incoherent;D2subsetsON;D3MSEandper-stepdepthON**. Machine-readable entrygate `results/method_entry_gate.json` hashes the reviewed sources. Accounting/diagnostic entrygate is passed; no PTQ fitting or method gain is claimed in this entry. Main-table actualstorage matching follows the user's E024 clarification.
+
+E026 export-format follow-up: final aggregateCSV uses LF line endings, regenerated with exporter source **e2aa387**. SHA256 comparison against the previousCSV after CRLF-to-LF normalization passed exactly; all numerical/source text is unchanged. Updated provenance records the final exporter/summarizer hashes.

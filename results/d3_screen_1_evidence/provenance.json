@@ -1,0 +1,39 @@
+{
+  "screening_sha256": {
+    "clean/libero_10_seed7.jsonl": "97b6ba5970c0095a2e6655c823e68fc75712f02db6de397213015745306596ce",
+    "clean/libero_spatial_seed7.jsonl": "f4dbf5aa40fee63d876cb8f191a8bf0dfc3f4d5ffa07c041e50cb66bcaf343c5",
+    "0/libero_10_seed7.jsonl": "f58c6dec54fd7986ed5d1cdac194713b588cb78c6ad7f72cdf1150c25b552eed",
+    "0/libero_spatial_seed7.jsonl": "5a435b8f2a25a91387ff2ffbdd86233b897dffeb256b9cf0c445719fa21af228",
+    "1/libero_10_seed7.jsonl": "94de96039680f92947c62ccc0fc3f245765a74bf299adbd5668d162093e13362",
+    "1/libero_spatial_seed7.jsonl": "20064bb2ab92f11fbc8c7ace37bc694b18476a61d08a6c79cbf18597c49dc385",
+    "2/libero_10_seed7.jsonl": "f27886f2baeb5fd52f7fd93be650f3016e237e5783b9b61365531e5b68279f35",
+    "2/libero_spatial_seed7.jsonl": "10786cb7fb4fda8333f29b652621a37368c8894dddd27868f079d45c778750ab",
+    "3/libero_10_seed7.jsonl": "5ac8447a2facb1111e0c917652a9ced09669a99c97f76c033b6b6355ccdf2da3",
+    "3/libero_spatial_seed7.jsonl": "23ee8b06bae4fedd574641d37f0870d0ad7604d0ff202b8f1173b63a9c4efeca",
+    "4/libero_10_seed7.jsonl": "21f4a43796f202f0ca2c64fa196ab483c81303552ca55a6d7b8e5e5ce66436c4",
+    "4/libero_spatial_seed7.jsonl": "586af4365353c30f44e1419273fe45cbdbd8fc26236d6b8d65394c2f28455b2c",
+    "5/libero_10_seed7.jsonl": "e2a0283103ef7f630dc31c3d2ee953425b4463148034da9914b803348c5d8aab",
+    "5/libero_spatial_seed7.jsonl": "3e9762a2d1cec1d275a708b4619bc2c0b9a2794705712c93eba565d5e037d831",
+    "6/libero_10_seed7.jsonl": "aa1b72bc16aebde8e3aad0af17fcabaa41096a6c5787d9ad28e9646a8a791262",
+    "6/libero_spatial_seed7.jsonl": "e6fd32edc0532b99d8f173f21c52aef082c983933d536baa974b8cfa40015490",
+    "7/libero_10_seed7.jsonl": "1e9f14f16d02d84928f869471d64a1ce06ee5c0fa87111ad11ff864d40cea2c7",
+    "7/libero_spatial_seed7.jsonl": "2c9f1d3116bdec5818c1bc1f6283e9e5be30dc762f1638a80f2b86cbc693aba7",
+    "8/libero_10_seed7.jsonl": "5914cb5d4a262e0f08a1b3b93b9536b59e2e5f41a5fe9b91fc4d90c7b0d5db01",
+    "8/libero_spatial_seed7.jsonl": "b783dbe454112767d5942768f7af81b04fa85db62487d500fdfd0acf9bc45c31",
+    "9/libero_10_seed7.jsonl": "89d8a640b9e726e63adfcc6fd0b1dc015f01a7d85d9aacae857bb0c9ce4bfdec",
+    "9/libero_spatial_seed7.jsonl": "bd320e7bae11d99ad52c29c79eb693d34f2221253455d503c4b19b75af6eb29e"
+  },
+  "offline_sha256": {
+    "noise_0.01_actions.npy": "9090c458db8c497ed1344009a614c338863b37e28790daa8779c71f284ecaff3",
+    "noise_0.03_actions.npy": "0ec401b113d524a746920336c9dc9bd091c6c4698cc99c79a55dffb39a5fb957",
+    "noise_0.1_actions.npy": "07aaa8596a3056039d016e3f01a048ca3be0409eafda3c62c21140ae5bd5a130",
+    "noise_0.3_actions.npy": "c191458c19332e7745db72b2d2c36dcb2175d9e2d8e446d7499e4961c4207dc7",
+    "noise_1_actions.npy": "8aa6ce581aee1a361a345c012caed6576d64b45a3e29b20b287cea63603c4156",
+    "noise_3_actions.npy": "cb671465d8d832f6456d2b8f2216bfeecb9551e87d0ecc913c44997c21dba5f7",
+    "reference_actions.npy": "df7f7b9091ac9e117a86d51f7fb2c15ad4baac8443dbdba5418878d4b3ccf979"
+  },
+  "source_revision": "e2aa387afa5695f1a7ef953f7ba9be44782a71f6",
+  "exporter_sha256": "27c7c05eb4181d034aaa6182a91840cc44da14a4a3604a7368ce10ebad9cb035",
+  "summarizer_sha256": "c58e776a5bd4d9eb7bd3733e66f0a7eed25ecadac99546fd4fda4737db5b1968",
+  "scope": "Aggregate results only; no raw rollout, image, model or dataset publication"
+}
