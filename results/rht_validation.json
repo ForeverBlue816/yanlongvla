@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "criterion": "predeclared global-relative executed5x7 MSE<=1e-4, native BF16 folded weights/input output; FP32 butterfly arithmetic",
+  "observations": 256,
+  "noise_seed": 0,
+  "metrics": {
+    "median_relative_mse": 7.884616332640643e-07,
+    "trimmed_mean_10pct_relative_mse": 8.282999407820782e-07,
+    "mean_per_observation_relative_mse": 8.761357543796128e-07,
+    "mean_based_global_relative_mse": 8.658168454498749e-07,
+    "absolute_mse": 1.8725737657576269e-07,
+    "trim_count_per_tail": 25,
+    "zero_energy_reference_observations": 0,
+    "largest_error_observation": 255,
+    "largest_error_energy_share": 0.013378286497716548
+  },
+  "per_observation_quantiles": [
+    2.6309746666192834e-07,
+    7.884616332640643e-07,
+    1.7224469117917516e-06,
+    2.332838228188285e-06
+  ],
+  "max_absolute": 0.0032532811164855957,
+  "layers": 126,
+  "retained_tensor_sha256": "6b9b41e07c6c2c982bc9b72b2bdd4abe6db6f19f2c057fce38824e913d127954",
+  "retained_tensors_exact": true,
+  "gpu": "NVIDIA L40S",
+  "elapsed_seconds": 297.0124248409993
+}
