@@ -1,0 +1,167 @@
+{
+  "status": "offline_complete_screening_pending",
+  "observations": 256,
+  "trajectories": 40,
+  "noise_seed": 0,
+  "projection": "first5x7 executed actions",
+  "reference": "original FP; compact-reference metrics also reported",
+  "rows": [
+    {
+      "variant": "a_M3",
+      "nominal_index_bpw": 3,
+      "expert_quantizable_linear_bpw": 3.056850548946496,
+      "all_quantizable_linear_bpw": 14.509470868434684,
+      "whole_model_bpw": 14.115285062045798,
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 12395449800,
+        "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+        "dense_cache_bytes": 622854144,
+        "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 2.368819694056762e-05,
+        "trimmed_mean_10pct_relative_mse": 2.756161610246058e-05,
+        "mean_per_observation_relative_mse": 3.231609327667054e-05,
+        "mean_based_global_relative_mse": 3.107445962500992e-05,
+        "absolute_mse": 6.74165990816622e-06,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 199,
+        "largest_error_energy_share": 0.023600579715562706
+      },
+      "versus_compact": {
+        "median_relative_mse": 1.6376034170258847e-05,
+        "trimmed_mean_10pct_relative_mse": 1.979592875338768e-05,
+        "mean_per_observation_relative_mse": 2.4544849803302174e-05,
+        "mean_based_global_relative_mse": 2.361426657232433e-05,
+        "absolute_mse": 5.114577733899632e-06,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 199,
+        "largest_error_energy_share": 0.02677764904095799
+      },
+      "d3b_prediction_before_screening": {
+        "source_sha256": "002fe69bed0ad777653bffb306af6ade670efc5d91a4621de8f035ae38b03337",
+        "rule": "Gaussian-noise MSE transfer, recorded before this variant screening; confirmed only by actual screening",
+        "first_failed_mse": 0.003672679735475301,
+        "previous_measured_mse": 0.0005751541783343518,
+        "predicted_gate": "pass",
+        "success_curve_monotone": false
+      },
+      "checkpoint_sha256": "dcad06aad4a9aba4209d2c68399e6d1a6eb55a8a511812e68e7035ca22c50a38",
+      "peak_allocated_bytes": 6733987840,
+      "gpu": "NVIDIA L40S",
+      "tensor_payload_bytes": 5916834380,
+      "checkpoint_file_bytes": 5917042564
+    },
+    {
+      "variant": "a_M2",
+      "nominal_index_bpw": 2,
+      "expert_quantizable_linear_bpw": 2.0435929731889204,
+      "all_quantizable_linear_bpw": 14.392784435958777,
+      "whole_model_bpw": 14.021185744139224,
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 12001005000,
+        "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+        "dense_cache_bytes": 622854144,
+        "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 0.00011810384260785703,
+        "trimmed_mean_10pct_relative_mse": 0.00013753840431318226,
+        "mean_per_observation_relative_mse": 0.00016437715758555973,
+        "mean_based_global_relative_mse": 0.00016195514607488535,
+        "absolute_mse": 3.513646024388138e-05,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 101,
+        "largest_error_energy_share": 0.024694168067517654
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.0001096591616006426,
+        "trimmed_mean_10pct_relative_mse": 0.0001316623023551718,
+        "mean_per_observation_relative_mse": 0.0001602617576969958,
+        "mean_based_global_relative_mse": 0.00015778839302950717,
+        "absolute_mse": 3.417514574017477e-05,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 115,
+        "largest_error_energy_share": 0.02672161938421038
+      },
+      "d3b_prediction_before_screening": {
+        "source_sha256": "002fe69bed0ad777653bffb306af6ade670efc5d91a4621de8f035ae38b03337",
+        "rule": "Gaussian-noise MSE transfer, recorded before this variant screening; confirmed only by actual screening",
+        "first_failed_mse": 0.003672679735475301,
+        "previous_measured_mse": 0.0005751541783343518,
+        "predicted_gate": "pass",
+        "success_curve_monotone": false
+      },
+      "checkpoint_sha256": "f271800d1743ade0829619eaac31584a5fa426587b1ccafd37a6ebf48ec4a4ff",
+      "peak_allocated_bytes": 6673014784,
+      "gpu": "NVIDIA L40S",
+      "tensor_payload_bytes": 5877389900,
+      "checkpoint_file_bytes": 5877598084
+    },
+    {
+      "variant": "a_M1",
+      "nominal_index_bpw": 1,
+      "expert_quantizable_linear_bpw": 1.0303353974313447,
+      "all_quantizable_linear_bpw": 14.276098003482872,
+      "whole_model_bpw": 13.92708642623265,
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 11606560200,
+        "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+        "dense_cache_bytes": 622854144,
+        "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 0.004293291299053229,
+        "trimmed_mean_10pct_relative_mse": 0.004555169872839609,
+        "mean_per_observation_relative_mse": 0.011369502965382777,
+        "mean_based_global_relative_mse": 0.01067681545496013,
+        "absolute_mse": 0.002316354316960104,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 130,
+        "largest_error_energy_share": 0.17497903533796286
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.004202272744676825,
+        "trimmed_mean_10pct_relative_mse": 0.004481843257139869,
+        "mean_per_observation_relative_mse": 0.011306706865881777,
+        "mean_based_global_relative_mse": 0.010621126988158982,
+        "absolute_mse": 0.0023004135841434036,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 130,
+        "largest_error_energy_share": 0.17627116532082313
+      },
+      "d3b_prediction_before_screening": {
+        "source_sha256": "002fe69bed0ad777653bffb306af6ade670efc5d91a4621de8f035ae38b03337",
+        "rule": "Gaussian-noise MSE transfer, recorded before this variant screening; confirmed only by actual screening",
+        "first_failed_mse": 0.003672679735475301,
+        "previous_measured_mse": 0.0005751541783343518,
+        "predicted_gate": "fail",
+        "success_curve_monotone": false
+      },
+      "checkpoint_sha256": "ea5b1730f5291db1ae6d531bdcb76e41b70bf60437b55c326315e94a4f599ec2",
+      "peak_allocated_bytes": 6633570304,
+      "gpu": "NVIDIA L40S",
+      "tensor_payload_bytes": 5837945420,
+      "checkpoint_file_bytes": 5838153604
+    }
+  ],
+  "source_sha256": {
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/method/a_M3/offline/result.json": "9b6691d165a9e272e30d4356d1fe1521cf190e9fed15a36c146715a99523b1d6",
+    "/projects/yanlongvla/models/hd_srvq_a_M3/vq.json": "9e5aaaf75d14da70f8b2aaaaa881b003d7726ee1b5ff763a125925440c1eda09",
+    "/projects/yanlongvla/runs/method/a_M3/offline/actions.npy": "21448aabb945fb6a10038f8abe07521f79462e99c5b9961698badd52611c5710",
+    "/projects/yanlongvla/runs/method/a_M2/offline/result.json": "89301284ab99e21593609db6d2efc2085f3e229e22d0e626fdd1c7e0b9a99514",
+    "/projects/yanlongvla/models/hd_srvq_a_M2/vq.json": "bf01f084ad559548d83bcce0b452e918ee032eb097189020800ff76151cd5057",
+    "/projects/yanlongvla/runs/method/a_M2/offline/actions.npy": "d56090c8b694e7ea88a324c0a49aa69f5478ce1d99af19dbf2e341b953bba588",
+    "/projects/yanlongvla/runs/method/a_M1/offline/result.json": "318fe3bc52524024516934154ed34115f57a9a8d44f4b46b725351b8a61b6232",
+    "/projects/yanlongvla/models/hd_srvq_a_M1/vq.json": "d352bac4b02b6139de1fc09f37db1824dbf5ef47a9fafb0cfe2be35ca7d0ffda",
+    "/projects/yanlongvla/runs/method/a_M1/offline/actions.npy": "b0fbd3dfa5da9556f44917392760a4bc24b189cd9edaa52e14be22758efce5b3"
+  },
+  "limitations": "D3b prediction is a heuristic recorded before each variant screening; no LIBERO gate or measured bpw knee inferred. Reads are logical models; quality evaluation uses separately reported BF16 dense caches."
+}

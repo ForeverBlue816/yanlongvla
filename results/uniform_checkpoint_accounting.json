@@ -1,6 +1,6 @@
 {
-  "status": "assembled",
-  "policy_validation": "pending strict policy reload and heldout evaluation",
+  "status": "assembled_and_strict_policy_reload_passed",
+  "policy_validation": "All3deployments pass strictall-tensorreload/retainedidentity,256heldoutobservations and4exactrepeatchecks; no LIBERO result yet",
   "rows": [
     {
       "nominal_index_bpw": 3,
@@ -38,5 +38,6 @@
       "checkpoint_sha256": "ea5b1730f5291db1ae6d531bdcb76e41b70bf60437b55c326315e94a4f599ec2",
       "metadata_sha256": "d352bac4b02b6139de1fc09f37db1824dbf5ef47a9fafb0cfe2be35ca7d0ffda"
     }
-  ]
+  ],
+  "offline_export_sha256": "17d3f2ea395cdc443f137c53d4c26fcf6a61ec62c5b72e3157b99f4c7b3592db"
 }

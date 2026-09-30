@@ -1,6 +1,6 @@
 # 当前实验报告 — 2026-09-30
 
-**当前阶段：优先验证 HD-SR-VQ 自身的效果。所有新实验均采用单 seed。G0、单 seed 核算与 checkpoint 重载均已通过；原 D1–D3 诊断已完成；稳健 D3 已完成并明确保留删失界，D3b 全部1000个扰动回合已完成，方法评估入口已通过；(a)三个实际存储档位已组装，动作验证排队中，尚无量化方法收益结论。**
+**当前阶段：优先验证 HD-SR-VQ 自身的效果。所有新实验均采用单 seed。G0、单 seed 核算与 checkpoint 重载均已通过；原 D1–D3 诊断已完成；稳健 D3 已完成并明确保留删失界，D3b 全部1000个扰动回合已完成，方法评估入口已通过；(a)三档完整动作验证已完成，LIBERO筛选开始；尚无(b)–(d)收益或量化成功率结论。**
 
 ## D3 后补充：当前执行方案与已完成重算（E027）
 
@@ -33,9 +33,9 @@ D3b 同时扰动全部10步，所有步骤复用同一固定权重噪声方向�
 
 异常观测的32次干净采样也已完成：执行窗口夹爪符号27次为`-----`，4次`+----`，1次`++---`；第一主成分解释82.73%的样本方差，在0.5/1倍Scott带宽下有双峰，2倍带宽下合并为单峰。有两类夹爪命令时序和带宽敏感的双峰迹象，**尚不能稳健确认多模态，也不能据此断言单模态**。[逐次采样摘要](results/observation186_noise/draw_summary.csv)及[分析说明](results/observation186_noise/summary.json)。该检查仅针对一个观测，不增加LIBERO实验seed。
 
-**量化实现进展（E030）**：一个真实2048×1024的q_proj层已完成M3拟合，耗时18.20秒，部署payload803850bytes；保存重载和全部10个mask的独立重构逐元素一致。这是实现检查，不是策略效果结论。**全部126层×M3/M2/M1，共378份层级拟合已完成**，四个拟合作业均正常结束；三个完整checkpoint已组装完毕，整策略MSE/成功率尚未测量。运行期间四张L40S负责诊断/screening，两张A6000和两张5090拟合，合计八卡；拟合完成后已释放对应GPU。新增5090先通过CUDA数值检查和真实已拟合层重构检查，所有策略动作/成功率比较仍在L40S。
+**量化实现进展（E030）**：一个真实2048×1024的q_proj层已完成M3拟合，耗时18.20秒，部署payload803850bytes；保存重载和全部10个mask的独立重构逐元素一致。这是实现检查，不是策略效果结论。**全部126层×M3/M2/M1，共378份层级拟合已完成**，四个拟合作业均正常结束；三个完整checkpoint已组装并通过严格策略重载；整策略MSE已完成，成功率仍在筛选。运行期间四张L40S负责诊断/screening，两张A6000和两张5090拟合，合计八卡；拟合完成后已释放对应GPU。新增5090先通过CUDA数值检查和真实已拟合层重构检查，所有策略动作/成功率比较仍在L40S。
 
-**(a) 部署存储已实测核算（E032），动作验证尚在排队**。下表骨干仍为native BF16/FP32，所以全体Linear及whole-model位宽明显高于仅action expert位宽。读取量将在实际策略重载验证后补入，不能从名义位宽冒充实测读取。
+**(a) 部署存储已实测核算并通过严格策略重载（E032/E034）**。下表骨干仍为native BF16/FP32，所以全体Linear及whole-model位宽明显高于仅action expert位宽。读取量见下面的离线方法表；明确区分压缩表示逻辑读取和当前实际质量评估所用的BF16解码缓存路径。
 
 | 名义索引bpw | expert quantizable-Linear bpw | 全体quantizable-Linear bpw | whole-model bpw | 全部张量payload bytes |
 |---|---:|---:|---:|---:|
@@ -43,7 +43,23 @@ D3b 同时扰动全部10步，所有步骤复用同一固定权重噪声方向�
 | 2 | 2.043593 | 14.392784 | 14.021186 | 5,877,389,900 |
 | 1 | 1.030335 | 14.276098 | 13.927086 | 5,837,945,420 |
 
-[实际checkpoint核算与哈希](results/uniform_checkpoint_accounting.json)。D3b入口验收任务177820通过；三个离线验证177836/177837/177838完成后，四卡筛选177842自动接续。每档200个episode、seed7，全部保持单seed。
+[实际checkpoint核算与哈希](results/uniform_checkpoint_accounting.json)。D3b入口验收177820已通过；实际离线任务177845/177846/177853全部完成。筛选采用177854/177855两组独立绑定的双卡worker（最多四张L40S），每档200个episode、seed7。历史仅排队的布局按集群规则重提，未重复执行或丢弃任何结果。
+
+## 首批方法参考(a)：完整离线结果（E034）
+
+256个held-out观测、40条与校准完全分离的轨迹、noise0，评估执行窗口前5×7。所有张量严格重载、全部保留张量一致，四个固定观测重复推理逐元素一致。以下为相对**原始FP**的全局动作MSE，包含默认int8 embedding的固定误差。
+
+| (a)名义索引bpw | expert Linear实际bpw | whole-model bpw | 动作相对MSE | 压缩表示逻辑读取 bytes/inference | 当前BF16缓存路径逻辑读取 bytes/inference |
+|---|---:|---:|---:|---:|---:|
+| 3 | 3.056851 | 14.115285 | 3.10745e-05 | 12,395,449,800 | 17,436,048,840 |
+| 2 | 2.043593 | 14.021186 | 0.000161955 | 12,001,005,000 | 17,436,048,840 |
+| 1 | 1.030335 | 13.927086 | 0.0106768 | 11,606,560,200 | 17,436,048,840 |
+
+[全部数值、绝对MSE、compact参考MSE及来源哈希](results/method_offline/summary.json)、[可下载CSV](results/method_offline/table.csv)。三档额外BF16解码缓存均为622,854,144bytes，不包含在部署checkpoint中，但计入运行时内存；上表均为参数逻辑读取，**不是DRAM测量或已实现的压缩内核加速**。保留模块的读取用同一固定核算观测，未将其误称为整个LIBERO平均。
+
+D3b规则在screening前记录的预测是：名义3/2bpw通过，1bpw失败；1bpw的MSE约0.01068已高于D3b首次掉点的0.00367。**这是候选退化档的预测，实测位宽拐点及G2仍待完整LIBERO筛选**；不凭MSE跳过任何(a)筛选。
+
+校准-only结构检查（E033）：固定的(b*)最低码平面读取预算，加上每步至少读一层且所有存储平面都须使用，迫使每层只有一步能读全M。126层的校准最优选择在M2/M3均为最后一步，因此候选(b)与(b*)完全相同；若对应档位进入后续网格，将共用结果。这限制了该预算下“学习逐步分配”的独立贡献，不能把同配置的重复运行当作不同方法证据。(b**)及条件码本/affine仍需单独验证；(c)/(d)尚无实测策略收益。
 
 可下载 [全部60个稳健曲线点](results/d3_robust/curves.csv)、[稳健/裁剪/mean-based容忍度与来源哈希](results/d3_robust/summary.json)。
 
@@ -135,15 +151,20 @@ D3 的 MMD 现在对单 seed 下的观测/动作样本集合计算，衡量跨�
 
 ## HD-SR-VQ 方法表
 
-下表的目标为 action-expert quantizable-Linear **3.0 / 2.0 bpw**，backbone 保持 BF16（上游规定保留 FP32 的张量继续保留）。表中尚无测量值；按用户明确选择，主表配平**实际存储 bpw**，读取量单独报告。平均只读两层的三层码平面 checkpoint 仍按实际三层存储计费（E024）。
+按最新addendum，先完整筛选(a)的名义M3/M2/M1，再选实测退化档及上一档；若(a)3bpw已达标，跳过该档(b)–(d)。骨干保持native BF16/FP32，默认int8 embedding。主表配平**实际expert存储bpw**，读取量单独报告；候选自适应预算尚未由完整筛选选定。
 
-| Variant | 组成 | 实测 Linear bpw | whole-model bpw | bytes/read inference | Held-out proxy | Screening success | Full success / CI |
+| Variant | 组成 | expert Linear实际bpw | whole-model bpw | 压缩逻辑 / 当前缓存逻辑 bytes/inference | Held-out相对MSE | Screening success | Full success / CI |
 |---|---|---:|---:|---:|---:|---:|---|
-| (a) | uniform depth / prefix / shared codebooks | pending | pending | pending | pending | pending | pending |
-| (b) | D3-weighted per-step depth | pending | pending | pending | pending | pending | pending |
-| (c) | (b) + conditional centroids + affine | pending | pending | pending | pending | pending | pending |
-| (d) | (c) + subset swap + heterogeneous objective | pending | pending | pending | pending | pending | 仅 D2 启用时运行 |
-| whole model | 最佳 expert + SigLIP/Gemma 量化 | pending | pending | pending | pending | pending | pending |
+| (a) M3 | uniform / prefix / shared | 3.056851 | 14.115285 | 12,395,449,800 / 17,436,048,840 | 3.10745e-05 | running | pending |
+| (a) M2 | uniform / prefix / shared | 2.043593 | 14.021186 | 12,001,005,000 / 17,436,048,840 | 0.000161955 | running | pending |
+| (a) M1 | uniform / prefix / shared | 1.030335 | 13.927086 | 11,606,560,200 / 17,436,048,840 | 0.0106768 | running | pending |
+| (b) / (b*) | 当前候选分配相同，选中后共用结果 | pending | pending | pending | pending | pending | pending |
+| (b**) | 前8步1层，第8步2层，末步全读 | pending | pending | pending | pending | pending | pending |
+| (c) | 条件centroids + affine | pending | pending | pending | pending | pending | pending |
+| (d) | (c) + subset swap + heterogeneous objective | pending | pending | pending | pending | pending | pending |
+| whole model | 最佳expert + SigLIP/Gemma量化 | pending | pending | pending | pending | pending | pending |
+
+M1的所有非空prefix/subset都相同，不能以重复运行制造消融；额外affine等元数据若无法装入同一实际存储预算，必须标记不可行。读取是固定核算观测下的逻辑张量模型，非DRAM/速度测量；当前使用额外BF16缓存的质量评估路径。
 
 晋级结果的置信区间将使用配对、按 suite 分层的 task/episode bootstrap，明确限定为单 seed 下的区间。作为预先固定的全协议参考，已有 FP seed7 的 **1928/2000=96.4%**，其该口径 95% 区间为 **[93.79875%, 98.30125%]**；这与下文历史“三 seed 均值的 t 区间”含义不同。没有新增 FP rollout（E021）。
 
@@ -151,7 +172,7 @@ D3 的 MMD 现在对单 seed 下的观测/动作样本集合计算，衡量跨�
 
 ## 当前支持的结论
 
-已经支持的结论是 FP 复现通过，无用输出头在完整单 seed 校准对照中可以无误差移除，int8 embedding 的平均动作误差通过设定门槛；D1 显示两种评分排名高度一致，按预设规则放弃相干评分贡献；D2 的非交换性和有效主角度支持继续测试 subset；D3 按预定规则选择 MSE 并保留逐步深度，但其成功率关联区间跨零。按步深度、条件质心、affine 和 subset 解码的实际量化收益仍待方法表验证。因此目前不能声称 HD-SR-VQ 提高成功率或优于任何外部方法。
+当前最强的量化证据是：骨干保持native精度时，均匀参考(a)将action-expert保存到实际2.0436bpw，在256个独立held-out观测上相对原始FP动作MSE为1.62e-4；压至1.0303bpw后上升到0.01068。**LIBERO成功率仍在筛选，因此尚未确认量化成功率门槛，也未验证HD-SR-VQ自提组件的收益。** D1使相干评分贡献被放弃；D2保留subset试验；稳健D3的早期步骤容忍度仍右删失，采用的是公开说明的保守操作权重。当前读取约束下(b)候选与(b*)相同，学习分配的独立贡献因而受限；条件质心、affine和subset是否有效须等后续匹配存储表。不能声称提高成功率或优于外部方法。
 
 外部 GPTQ/AWQ/ActQuant 基线全部延后。此前 AQLM 在 10 tokens 的两个形状上约 **4x** 慢于 BF16 的 CUDA Graph 测量保留于 E005；这只是内核微测，不是本方法端到端结果。方法表完成前不继续内核工作。
 
