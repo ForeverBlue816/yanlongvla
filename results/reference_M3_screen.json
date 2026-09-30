@@ -1,0 +1,83 @@
+{
+  "status": "complete_single_reference",
+  "row": {
+    "variant": "a_M3",
+    "nominal_index_bpw": 3,
+    "expert_quantizable_linear_bpw": 3.056850548946496,
+    "all_quantizable_linear_bpw": 14.509470868434684,
+    "whole_model_bpw": 14.115285062045798,
+    "reads": {
+      "logical_compressed_decoder_bytes_per_inference": 12395449800,
+      "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+      "dense_cache_bytes": 622854144,
+      "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+    },
+    "absolute_mse": 6.74165990816622e-06,
+    "relative_mse": 3.107445962500992e-05,
+    "compact_relative_mse": 2.361426657232433e-05,
+    "d3b_prediction_before_screening": {
+      "source_sha256": "002fe69bed0ad777653bffb306af6ade670efc5d91a4621de8f035ae38b03337",
+      "rule": "Gaussian-noise MSE transfer, recorded before this variant screening; confirmed only by actual screening",
+      "first_failed_mse": 0.003672679735475301,
+      "previous_measured_mse": 0.0005751541783343518,
+      "predicted_gate": "pass",
+      "success_curve_monotone": false
+    },
+    "screen": {
+      "status": "complete",
+      "completed": 200,
+      "expected": 200,
+      "missing": 0,
+      "success_percent": 96.5,
+      "successes": 193,
+      "suites": {
+        "libero_spatial": {
+          "successes": 99,
+          "episodes": 100,
+          "success_percent": 99.0
+        },
+        "libero_10": {
+          "successes": 94,
+          "episodes": 100,
+          "success_percent": 94.0
+        }
+      }
+    },
+    "checkpoint_sha256": "dcad06aad4a9aba4209d2c68399e6d1a6eb55a8a511812e68e7035ca22c50a38"
+  },
+  "original_fp_successes": 193,
+  "episodes": 200,
+  "pass_fp_minus_1p5": true,
+  "skip_adaptive_nominal3": true,
+  "other_reference_screens": "pending; no complete knee decision yet",
+  "source_sha256": {
+    "/projects/yanlongvla/runs/method/a_M3/offline/result.json": "9b6691d165a9e272e30d4356d1fe1521cf190e9fed15a36c146715a99523b1d6",
+    "/projects/yanlongvla/models/hd_srvq_a_M3/vq.json": "9e5aaaf75d14da70f8b2aaaaa881b003d7726ee1b5ff763a125925440c1eda09",
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/method/a_M3/offline/actions.npy": "21448aabb945fb6a10038f8abe07521f79462e99c5b9961698badd52611c5710",
+    "/projects/yanlongvla/runs/method/a_M3/screen/worker0_manifest.json": "0a98881a5c724355a28c8f751ba33b86c42ab63b89f63998eb69f3eb7a46d753",
+    "/projects/yanlongvla/runs/method/a_M3/screen/worker1_manifest.json": "716bb216a68af82595a0dbb47897e0fecb76c7b76dd0ec556f64d911d7af351f",
+    "/projects/yanlongvla/runs/method/a_M3/screen/worker2_manifest.json": "84fc4995b455a01df85acb6be03d09d7169f5fade8f622482206d095ce067134",
+    "/projects/yanlongvla/runs/method/a_M3/screen/worker3_manifest.json": "fa28f501019ed135904d601482d917aed6545c2175ce78d140481eaed007092c",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task0_seed7.jsonl": "4445ca172478b76983fabb9e22814d1606d6d75a9863c47718cf71e193548361",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task1_seed7.jsonl": "ee87cfc0c98966281d8ac46f788f2dfce54f501838a24045b7a500e461491ede",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task2_seed7.jsonl": "f9e6127bb5fb3fbf777b3554f691219772896cefc26bd2326a49a65af5529cfe",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task3_seed7.jsonl": "9b9b0fbda3b4138a0e12fa9982313892c4b406d11626e3a263e094d844e1b73e",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task4_seed7.jsonl": "b9112813e72522a87ab442fbf584651a3c8e8b4c6fbc711543438aecd1279bad",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task5_seed7.jsonl": "03fa3b5170aaec29e308f937558ddbeefd44fc3b41783e44302291e0f1141012",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task6_seed7.jsonl": "68afbc875c6d4f97194cfbcdc77c023812c123f8c4b4d74066f29a616f07e14c",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task7_seed7.jsonl": "0eb910b609c1424f713d328a01299c94ddc1dc082e23756d87b8a99e4916ad32",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task8_seed7.jsonl": "c71c63a1726aae2a396884e0f2de14ebe55293b1c3e8c43177b001d7cdb9d40c",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_10_task9_seed7.jsonl": "a207919811630baf2571df5e555b89d470b19c8cbd740e5bad0b5271fb8f96e7",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task0_seed7.jsonl": "a30265884dbbbc0cfb6549f03a559fdb2f5e13a74ee7051e2819a4b02b163ea9",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task1_seed7.jsonl": "982af9146a1453fee9eaeb86036028669a874b89e62a9fcb86bdddc246386e9f",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task2_seed7.jsonl": "64ccb3f4f091a1dc0c5d6de606c50f18e2bf2cffdd38cf8bb5dd9d769cb19b9a",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task3_seed7.jsonl": "96172a01292069c720516570cef31410d2a195ff9682adb404bd3e22971317d3",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task4_seed7.jsonl": "f301839796b3bdb79339201a48d5432e47f45a092fb4ad77b1049a6d6ccdb414",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task5_seed7.jsonl": "24c131b27985ffffaee773f39f11ca49a36ab53fc1e4f9b4bfc17a2e4aa6cd35",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task6_seed7.jsonl": "999726720e074385cdd27aa37a70e76932de69ac99d1810e372cf5fc40209b42",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task7_seed7.jsonl": "0c75dce8dd5cac3a8c739c5627036030a4d5478d9073906a163c1d2a9f7b5552",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task8_seed7.jsonl": "5daca5283dcef37ad1534eaea003530afc7cab901aa4d13801569c6968a2a962",
+    "/projects/yanlongvla/runs/method/a_M3/screen/libero_spatial_task9_seed7.jsonl": "c6b9ac2232b05b8b4a0dc1e282e4830a704290f1ee96aee64c820befc5c0eceb"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "analytical_before_adaptive_outcomes",
+  "expert_elements": 311427072,
+  "uniform_M1_payload_bytes": 40109292,
+  "full_conditional_affine_minimum_payload_bytes": 41030892,
+  "minimum_common_low_bpw": 1.0540096398555872,
+  "policy": "If measured knee includesM1, retain actual1.030335reference as the knee evidence and report full(c)/(d)infeasible at that exact budget. Run matched main variants at the common minimum conditional/affine budget, with a newly allocated uniform-per-step(a) reference; no padding or hidden overhead. Higher selected level retains its measured uniform(a) actual payload target. Freeze final selected levels after all3reference screens.",
+  "note": "Single-subset M1 has no subset selection or step-depth benefit; heterogeneous recalibration can still differ. No adaptive policy has been fitted/evaluated yet."
+}

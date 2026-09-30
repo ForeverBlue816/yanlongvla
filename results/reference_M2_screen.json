@@ -1,0 +1,82 @@
+{
+  "status": "complete_single_reference",
+  "row": {
+    "variant": "a_M2",
+    "nominal_index_bpw": 2,
+    "expert_quantizable_linear_bpw": 2.0435929731889204,
+    "all_quantizable_linear_bpw": 14.392784435958777,
+    "whole_model_bpw": 14.021185744139224,
+    "reads": {
+      "logical_compressed_decoder_bytes_per_inference": 12001005000,
+      "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+      "dense_cache_bytes": 622854144,
+      "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+    },
+    "absolute_mse": 3.513646024388138e-05,
+    "relative_mse": 0.00016195514607488535,
+    "compact_relative_mse": 0.00015778839302950717,
+    "d3b_prediction_before_screening": {
+      "source_sha256": "002fe69bed0ad777653bffb306af6ade670efc5d91a4621de8f035ae38b03337",
+      "rule": "Gaussian-noise MSE transfer, recorded before this variant screening; confirmed only by actual screening",
+      "first_failed_mse": 0.003672679735475301,
+      "previous_measured_mse": 0.0005751541783343518,
+      "predicted_gate": "pass",
+      "success_curve_monotone": false
+    },
+    "screen": {
+      "status": "complete",
+      "completed": 200,
+      "expected": 200,
+      "missing": 0,
+      "success_percent": 95.5,
+      "successes": 191,
+      "suites": {
+        "libero_spatial": {
+          "successes": 98,
+          "episodes": 100,
+          "success_percent": 98.0
+        },
+        "libero_10": {
+          "successes": 93,
+          "episodes": 100,
+          "success_percent": 93.0
+        }
+      }
+    },
+    "checkpoint_sha256": "f271800d1743ade0829619eaac31584a5fa426587b1ccafd37a6ebf48ec4a4ff"
+  },
+  "original_fp_successes": 193,
+  "episodes": 200,
+  "pass_fp_minus_1p5": true,
+  "other_reference_screens": "Wait for complete M1/2/3 grid before knee decision",
+  "source_sha256": {
+    "/projects/yanlongvla/runs/method/a_M2/offline/result.json": "89301284ab99e21593609db6d2efc2085f3e229e22d0e626fdd1c7e0b9a99514",
+    "/projects/yanlongvla/models/hd_srvq_a_M2/vq.json": "bf01f084ad559548d83bcce0b452e918ee032eb097189020800ff76151cd5057",
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/method/a_M2/offline/actions.npy": "d56090c8b694e7ea88a324c0a49aa69f5478ce1d99af19dbf2e341b953bba588",
+    "/projects/yanlongvla/runs/method/a_M2/screen/worker0_manifest.json": "72d2c98d08cc123a8ea93a539624d4988aab9d40b0f00f0cffc281d25c4f6d0d",
+    "/projects/yanlongvla/runs/method/a_M2/screen/worker1_manifest.json": "2943752fc7c938027e2d6972efa4090952b6bef619ee57d2879ba63a007c042f",
+    "/projects/yanlongvla/runs/method/a_M2/screen/worker2_manifest.json": "26cdf65454afeb3314edb4bf10bca5aae513adb086166f032f90ec7845225492",
+    "/projects/yanlongvla/runs/method/a_M2/screen/worker3_manifest.json": "aa782f37a9c4578791e4ed7dd2d18a1fcfd2b45338d6b2af370e5d54d534df3e",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task0_seed7.jsonl": "2e18de797b56b0d2e8184cd5ef3131da0528616b6ec7dfcdf408ae8f86ea1f87",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task1_seed7.jsonl": "2203c4bf7e310f0dfc64a2dbc5c5eefd34caa0d5cbad9f3f7e37870650c8f1ff",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task2_seed7.jsonl": "377463506ad00bf032330c100cefc29b0d7cbbfc9d6e989b22ae0cf5e8505d77",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task3_seed7.jsonl": "c402987ddc417d4d6e60e3c230dddf60dcbd9f8d490ff2311a8587bb752effd0",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task4_seed7.jsonl": "e5ff6aa716a787773fe0b41122cd63b6bd503874ef564367d956f8214cb6e19f",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task5_seed7.jsonl": "5990ae97e08360f10cd8e8e6a70564fd999112cd2b2f884535fcf87a0638664d",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task6_seed7.jsonl": "7c18eb9773142c1e7e20791f2628677085e8b25dca14c204c35055ab95c4eeb9",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task7_seed7.jsonl": "7135e8c5006e4cf62189a58d8680504f0765a05448d669f2295f91203e0f13a2",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task8_seed7.jsonl": "9058f5278d2cdf59093bfdb436ce2a9284d2f2c0b45ca50aebd2b22e053a8415",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_10_task9_seed7.jsonl": "e365c5576b36ff65e18aabb4337aebec4cb5b9d2257b9fa05f93f3b8ec76a27b",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task0_seed7.jsonl": "19076e8ada8fb18deb93288e02e5967f99be9714fbf59efda195a193986f041e",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task1_seed7.jsonl": "d49d8e0754814d8d058415e6fda656a5930e5486723d991183affb8a6156139f",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task2_seed7.jsonl": "eaadf2dee5e731e33e5a1f0431069650457df891acf6bc75251185cc5e1c3b1a",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task3_seed7.jsonl": "e5434eee7ba383a3d900f8c42fa374894770b0af6a48e5f79b93309ffea9832a",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task4_seed7.jsonl": "638fa19dec41b99ca02c504d8f764c119003aecfa927d6e59908b8036e894a5b",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task5_seed7.jsonl": "c779d86eed6957b7bdd73069f93b5900b661d52e672b38672793cc755f4ce555",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task6_seed7.jsonl": "b5ec637a046d1c6900af1ec3787b273ed0534da003fe554b441a7ee888514b62",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task7_seed7.jsonl": "4adaa4d3aaedfc9710fd1c17d3d2275b156df5a805c8c543406a4208d806fd2e",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task8_seed7.jsonl": "2d3efcf64f2bef2200e61807624db1d598dd89778efa778eb47387b0f9bcaf82",
+    "/projects/yanlongvla/runs/method/a_M2/screen/libero_spatial_task9_seed7.jsonl": "0137a64fbf9c257f8051ca1c45c6adde23364839b800b3fc1df2930c27e0a2b1"
+  }
+}
