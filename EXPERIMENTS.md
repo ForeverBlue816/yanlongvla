@@ -231,3 +231,38 @@ D3 job **177477** stopped at its first clean sampler check for the same float64-
 - Informative-amplitude screening jobs **177538** (oddsteps, afterok177537) and **177539** (clean+evensteps, afterok177530), command template `sbatch --dependency=afterok:<prior> --export='ALL,VLA_D3_WORKER=<1|0>,VLA_NOISE_MAGNITUDE=1,VLA_ACCOUNTING_RESULT=/projects/yanlongvla/runs/accounting/177454/result.json,VLA_ROUNDTRIP_RESULT=/projects/yanlongvla/runs/accounting/roundtrip-177463.json' slurm/d3_screen.sbatch`. Each noisy condition retains two suites x10eps/task xseed7; reference job177530 completes the existing clean rows. New screen_1/clean links to that same reference, with explicit provenance; dependency prevents concurrent duplicate clean episodes. No changed episode counts or additional seeds.
 - Updated summarizer tests: **12 passed**, adding generic next-measured-amplitude selection, rejection of incomplete offline severities and explicit no-measurement tolerance state. Command `python -m unittest discover -s tests -p test_d3_decisions.py -v`. Gates stay pending until exact paired screening coverage and supported tolerance/proxy decisions.
 - Added measured D1/D2 diagnostic-selection figure and complete layer/pair CSV sources, source e8148e5. Rendered alignment and collision audits passed; minimum PDF glyph7pt. No data subsampling; 627 rank-deficient angle units are explicitly retained as unavailable in the source CSV. Figure reports descriptive single-seed diagnostics, not quantization gains. Report environment is isolated from active policy runtimes.
+
+## E017 — 2026-09-30 UTC — D3 error concentration and metadata-aware budget audit
+
+- Additional analysis of existing amplitude1.0 action arrays; **no new experiment seeds or observations**. For each step, sum squared physical executed5x7 action errors per observation, then divide by the total. One observation (frozen manifest index186) contributes **99.72%,99.56%,99.18%,98.06%** of MSE error at steps3/4/5/6 respectively (rounded). At step9 the largest single-observation share is only **1.29%**. Local evidence: `runs/d3/offline-177484/noise_1_error_decomposition.json`. All observations are retained; thresholds and selection rules are unchanged. This explains why paired action MSE and marginal MMD can disagree; only the planned success association will select a proxy.
+- Analytic expert storage inventory from accounting177454, not a fitted quantizer result: **126** Linear layers, **311,427,072** eligible weights, **230,400** output channels, summed input dimension**202,752**. Assuming FP16 codebooks/row scales, uint8 index planes, ten uint8 masks per layer and explicit int8 RHT signs, uniform depth1/2/3 occupies **1.0303353974313447 /2.0435929731889204 /3.056850548946496 expert bpw**, before conditional books/affine. Evidence: `research/results/expert_budget_analytic.json`. Count real deployment metadata; nominal2/3 index bits do not meet actual2/3bpw automatically. This audit prepares the accounting contract; Step3 fitting remains gated on D3.
+- Public report and measured D1/D2 figure/source-data publication succeeded at commit **5eca3a0** in the report-only repository. No implementation, model checkpoint, calibration dataset or raw simulator log was published.
+
+- Reproducible E017 analysis command: `python scripts/audit_d3_and_expert_budget.py --root /projects/yanlongvla --output results/expert_budget_analytic.json`; both outputs include source SHA256 values.
+- Aggregation repair: the new noise_1_error_decomposition.json analysis sidecar matched an overly broad noise_*.json pattern, so one live summary attempt failed with KeyError before producing a new summary. Restrict condition discovery to numeric magnitude filenames and validate filename/metadata consistency; sidecars remain preserved. New numeric-grid JSON writes are atomic. No experiment arrays or prior metric values changed. Regression checks cover sidecars and incorrectly named numeric artifacts.
+
+
+## E018 — 2026-09-30 UTC — six-amplitude offline grid and exact paired compact screen
+
+- Offline extension **177537** completed, source **e8148e5**. Complete combined grid: **0.01/0.03/0.1/0.3/1.0/3.0**, ten individually perturbed flow steps at each magnitude, 256observations xone noise seed0, **60** conditions. Command in E016. Strict recomputation from every raw action array passed after the E017 sidecar-discovery repair; **14** aggregator regression tests pass.
+- All ten **MSE** amplitude tolerances are now bracketed by measured data under threshold1e-3. First-crossing log-log interpolation yields the following candidates; these are conditional on using MSE, not the final D3 weights because success association remains pending.
+
+| Step | MSE-threshold amplitude | Candidate mean-one inverse-energy weight |
+|---|---:|---:|
+| 0 | 2.32621903 | 0.161649939 |
+| 1 | 2.30985408 | 0.16394858 |
+| 2 | 2.26562221 | 0.170412624 |
+| 3 | 0.890404584 | 1.10332123 |
+| 4 | 0.885882223 | 1.11461473 |
+| 5 | 0.881461843 | 1.12582196 |
+| 6 | 0.88475139 | 1.11746581 |
+| 7 | 1.90290207 | 0.241570487 |
+| 8 | 1.54185305 | 0.367951675 |
+| 9 | 0.444199033 | 4.43324296 |
+
+- MSE amplitude max/min ratio **5.2368844889**, energy ratio **27.4249591501**. This candidate does not trigger the ratio<2 per-step-depth kill. All MMD0.01 tolerances remain right-censored at amplitude3.0; defer more amplitudes until success association establishes whether MMD is needed. Neither proxy is called validated from these offline curves alone.
+- Clean reference **177530** completed all **200** episodes: spatial **100/100**, libero_10 **91/100**, overall **191/200=95.5%**. Existing original FP seed7 records for the EXACT same episodes0..9 give **97/100**, **96/100**, overall **193/200=96.5%**. Paired outcomes:4improvements,6regressions, compact-minus-FP **−1.0 percentage point**. No new FP rollout was run; single-seed metadata/coverage/noise pairing all verified. Embedding passed its offline MSE criterion, but its closed-loop success is not exactly unchanged. These 200 paired episodes do not establish statistical equivalence or across-seed robustness.
+- Command: `python scripts/compare_compact_screen.py --runs /projects/yanlongvla/runs --output results/compact_screen_pairing.json`. The D3 reference remains the compact int8-embedding policy, while G2 comparisons must retain the original FP reference as well; do not hide this1point reference difference.
+- Informative norm1.0 noisy screening jobs **177538/177539** are RUNNING. Exact expected coverage is200episodes perstep x10steps, plus reused200clean episodes; one evaluation seed7 throughout. No complete noise-condition result or final proxy is claimed at this entry.
+
+E017/E018 analysis, pairing and summary implementation: **c4645305c3c7a69acad1e5f588c49e538b0df62d**. Noisy screen workers retain their launch source e8148e5; the aggregator repair does not alter running policies.
