@@ -196,3 +196,38 @@ D3 job **177477** stopped at its first clean sampler check for the same float64-
 - Rank audit uses existing moments and the already allocated GPU, no new observations or seeds: `srun --jobid=177484 --overlap --ntasks=1 --cpus-per-task=1 .../python -u scripts/audit_d2_rank.py --result .../runs/d2/177481/result.json`. Raw covariance commutators remain defined for rank-deficient inputs; kappa independently prevents the subset-off kill, so excluding null-space angles does not drive the decision.
 - **Decision: subset decoding ON; retain variant (d) for actual comparison.** Recorded in CONFIG.md. This supports testing step heterogeneity, not a success-rate or quantization-gain claim. D2 covariance/statistics stage elapsed **55.72510534799994 s**, excluding prior input capture.
 - D3 offline repair job **177484** passed exact native-precision cached-sampler comparison and is producing the noise grid. Screening now uses disjoint single-seed worker jobs **177486 / 177487**, respectively clean+even steps and odd steps; obsolete unsharded pending job **177482** canceled. No duplicated conditions, references or experiment seeds; at most two allocated GPUs.
+
+## E015 — 2026-09-30 UTC — complete D3 offline initial grid; informative-amplitude amendment
+
+- Offline job **177484** completed 256 observations x noise seed0 x ten individual flow-step perturbations at relative weight norms **0.01,0.03,0.1** (30 conditions). Cached sampler matches official outputs at native float64 precision. All arrays remain local in `runs/d3/offline-177484`. Independent summary recomputes MSE and MMD from every saved action array and validates the recorded numbers.
+- At norm **0.1**, executed-window relative MSE ranges from **7.376259206710607e-7** to **2.4720643562405932e-5** across steps; all are below the preregistered MSE tolerance threshold **1e-3**. MMD is likewise below **0.01** at all measured norms/steps. Thus every initial tolerance is right-censored at amplitude0.1; no allocation weights or final proxy are claimed.
+- Before using any perturbed LIBERO success outcomes, amend noise severity using only this completed offline evidence: stop the weak **0.03** screen, extend offline to **0.3/1.0**, then **3.0** if needed; choose the smallest measured norm whose maximum step relative MSE reaches **1e-3** for the ten-condition screening comparison. The previous 0.03/0.1 schedule would consume rollouts at action deviations smaller than the already accepted embedding threshold. This resource-saving design amendment is explicit, not a claimed completed 0.03 screening or a hidden metric/gate change.
+- Canceled live screen jobs **177486/177487** and preserve their partial rows. Continue the same clean reference seed7 episodes without repeating completed episode IDs. Noise cases will use the unchanged two-suite x 10eps/task x one-seed protocol; insufficient success spread requires the next measured larger amplitude.
+- D3 summarizer tests: **10 passed**, covering exact/partial coverage, duplicates, seed/condition mismatch, boolean results, no tolerance extrapolation, ceiling-limited rejection, correlation direction, no-positive-association reporting and paired bootstrap identity. Implementation: scripts/summarize_d3.py; tests/test_d3_decisions.py. Bootstrap uncertainty conditions on this one evaluation seed and adds no new rollouts.
+
+
+## E016 — 2026-09-30 UTC — D3 informative amplitude measured; single-seed screen queued
+
+- Offline source **da77d21**, aggregation/figure source **e8148e5**. Extension job **177529** completed relative norms **0.3 / 1.0**, all 256 observations x noise0 x ten flow-step conditions, reusing the original reference actions in artifact177484. Together with E015, the combined grid contains **50** completed conditions. The independent summarizer reads every completed noise JSON and recomputes its metrics from the raw action arrays; the extension-only result.json is not the combined inventory.
+- Exact177529 command: `sbatch --export='ALL,VLA_DIAGNOSTIC=D3,VLA_D3_OFFLINE_DIR=/projects/yanlongvla/runs/d3/offline-177484,VLA_D3_MAGNITUDES=0.3 1.0,VLA_ACCOUNTING_RESULT=/projects/yanlongvla/runs/accounting/177454/result.json,VLA_ROUNDTRIP_RESULT=/projects/yanlongvla/runs/accounting/roundtrip-177463.json' slurm/diagnostic.sbatch`.
+- Real-policy zero-noise controls at clean, step0 and step9 all give native-precision maximum action difference **0.0**. Realized per-layer norm at requested0.3 spans **[0.2999967634677887, 0.3000122904777527]**, confirming the applied perturbation scale. Native selected precisions and unaffected steps are preserved.
+- At0.3, maximum relative action MSE is **0.00027698567335199964**. At1.0, maximum is **0.014214520278667467** (step9). Thus **1.0** is the smallest measured amplitude crossing the predeclared max-step MSE1e-3 screening criterion. This choice uses offline metrics only, not noisy rollout success. No final offline proxy or per-step depth decision is claimed.
+- Measured1.0 grid (MSE is physical executed5x7; MMD is paired marginal U-statistic):
+
+| Flow step (0-based) | Relative action MSE | MMD² |
+|---|---:|---:|
+| 0 | 2.24094453377e-06 | 8.22422865229e-08 |
+| 1 | 2.76384750953e-06 | 1.10234276611e-07 |
+| 2 | 4.6806219928e-06 | 1.61186139336e-07 |
+| 3 | 0.00207001111642 | -2.2138041001e-09 |
+| 4 | 0.00210493659764 | 1.15142886354e-07 |
+| 5 | 0.00210944688719 | 5.59252605495e-07 |
+| 6 | 0.00197881918619 | 1.99935731077e-06 |
+| 7 | 0.000119974032663 | 9.23759749993e-06 |
+| 8 | 0.00058080793839 | 5.16585603097e-05 |
+| 9 | 0.0142145202787 | 0.00285095384247 |
+
+- At this point five MSE tolerances (steps0,1,2,7,8) and all ten MMD tolerances remain right-censored at norm1.0. Measured extension to **3.0**, job **177537**, command `sbatch --dependency=afterok:177529 --export='ALL,VLA_DIAGNOSTIC=D3,VLA_D3_OFFLINE_DIR=/projects/yanlongvla/runs/d3/offline-177484,VLA_D3_MAGNITUDES=3.0,VLA_ACCOUNTING_RESULT=/projects/yanlongvla/runs/accounting/177454/result.json,VLA_ROUNDTRIP_RESULT=/projects/yanlongvla/runs/accounting/roundtrip-177463.json' slurm/diagnostic.sbatch`.
+- Informative-amplitude screening jobs **177538** (oddsteps, afterok177537) and **177539** (clean+evensteps, afterok177530), command template `sbatch --dependency=afterok:<prior> --export='ALL,VLA_D3_WORKER=<1|0>,VLA_NOISE_MAGNITUDE=1,VLA_ACCOUNTING_RESULT=/projects/yanlongvla/runs/accounting/177454/result.json,VLA_ROUNDTRIP_RESULT=/projects/yanlongvla/runs/accounting/roundtrip-177463.json' slurm/d3_screen.sbatch`. Each noisy condition retains two suites x10eps/task xseed7; reference job177530 completes the existing clean rows. New screen_1/clean links to that same reference, with explicit provenance; dependency prevents concurrent duplicate clean episodes. No changed episode counts or additional seeds.
+- Updated summarizer tests: **12 passed**, adding generic next-measured-amplitude selection, rejection of incomplete offline severities and explicit no-measurement tolerance state. Command `python -m unittest discover -s tests -p test_d3_decisions.py -v`. Gates stay pending until exact paired screening coverage and supported tolerance/proxy decisions.
+- Added measured D1/D2 diagnostic-selection figure and complete layer/pair CSV sources, source e8148e5. Rendered alignment and collision audits passed; minimum PDF glyph7pt. No data subsampling; 627 rank-deficient angle units are explicitly retained as unavailable in the source CSV. Figure reports descriptive single-seed diagnostics, not quantization gains. Report environment is isolated from active policy runtimes.

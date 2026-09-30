@@ -1,0 +1,9 @@
+# Diagnostic selection figure QA
+
+Working report export: 174 × 78 mm; Python/matplotlib; editable PDF/SVG and 600-dpi PNG. Source data: `d1_layer_source.csv` (126 rows) and `d2_pair_source.csv` (5670 rows, including 627 rows with explicitly unavailable rank-deficient angles). Figure metadata records exact pooled statistics. All measured units are retained; no random subsampling.
+
+Rendered alignment passed at 1.5 pt tolerance, with no exemptions. PDF text audit found a minimum 7 pt, above the 5 pt floor. Collision audit passed with 0 failures and 0 warnings. Source preflight passed with 0 failures; two reviewed warnings are expected: this report includes a PNG preview rather than a TIFF submission raster, and dimensions are computed from millimetres rather than detected as a literal inch value. These are working report assets; final conference submission specifications have not been asserted.
+
+Visual review: both panels have aligned plot areas and legible labels; all points remain within axes; dashed lines show preregistered cutoffs. In panel a, the orange pooled statistic is distinct from the 126 layer summaries; the global decision is not obtained by averaging those layer correlations. In panel b, repeated input aliases can overlap, and transparency is a visual density aid, not an independent-sample claim. The plot includes only the 5043 identifiable top-32 angle units; the reported κ median still uses all 5670 pairs. No across-seed uncertainty or method-performance gain is implied.
+
+Data provenance: D1 artifact 177465; D2 artifact 177481 with its rank audit. Calibration: 256 observations from 60 episodes, one noise seed0, ten flow steps and ten suffix tokens. No raster scientific source image is altered; only measured scatter marks are rasterized inside the PDF. PDF/SVG labels remain editable.

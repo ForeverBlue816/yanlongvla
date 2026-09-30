@@ -1,0 +1,13 @@
+{
+  "d1_layer_count": 126,
+  "d1_groups": 38928384,
+  "d1_pooled_spearman": 0.9919422777792508,
+  "d1_pooled_top10_overlap": 0.9202330227373904,
+  "d2_all_pairs": 5670,
+  "d2_valid_angle_pairs": 5043,
+  "d2_excluded_rank_deficient": 627,
+  "d2_median_kappa_all_pairs": 0.23349341750144958,
+  "d2_valid_angle_median": 81.04753875732422,
+  "experiment_seeds": 1,
+  "uncertainty": "descriptive fixed calibration set; no across-seed or iid-frame interval"
+}
