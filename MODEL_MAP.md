@@ -249,3 +249,8 @@ These are arithmetic lower bounds, excluding codebook/scale metadata. All retain
 - `src/openpi/models_pytorch/gemma_pytorch.py`: model construction and prefix/expert routing.
 - `src/openpi/models_pytorch/transformers_replace/models/gemma/modeling_gemma.py`: AdaRMS and gated residual.
 - `src/openpi/policies/libero_policy.py`, `examples/libero/main.py`: action slicing and replan window.
+
+
+## Reserved tensor audit after D3 — E027
+
+Paper primary rate is quantizable-Linear bpw; whole-model rate is secondary. The complete41-tensor >1Melement inventory is [large_reserved_tensors.csv](results/reserved_floor/large_reserved_tensors.csv), including all37protected FP32 AdaRMS matrices andboth protected FP32 timeMLP weights. [Analytical floors](results/reserved_floor/summary.json) count packed embedding/scales and preserve norms,biases,timeMLP,AdaRMS. Int4embedding and reservedint8 are accounting scenarios, not validated deployments.

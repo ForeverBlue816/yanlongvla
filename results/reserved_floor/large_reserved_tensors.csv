@@ -1,0 +1,42 @@
+name,shape,elements,dtype,native_payload_bytes,role,protected,int8_scenario_payload_bytes
+paligemma_with_expert.paligemma.model.multi_modal_projector.linear.weight,2048x1152,2359296,torch.bfloat16,4718592,vision-language projector,False,2367488
+paligemma_with_expert.paligemma.model.language_model.embed_tokens.codes,257152x2048,526647296,torch.int8,526647296,language token embedding,False,526647296
+paligemma_with_expert.gemma_expert.model.layers.0.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.0.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.1.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.1.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.2.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.2.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.3.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.3.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.4.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.4.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.5.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.5.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.6.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.6.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.7.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.7.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.8.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.8.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.9.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.9.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.10.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.10.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.11.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.11.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.12.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.12.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.13.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.13.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.14.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.14.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.15.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.15.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.16.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.16.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.17.input_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.layers.17.post_attention_layernorm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+paligemma_with_expert.gemma_expert.model.norm.dense.weight,3072x1024,3145728,torch.float32,12582912,normalization / AdaRMS projection (protected),True,12582912
+time_mlp_in.weight,1024x1024,1048576,torch.float32,4194304,time MLP (protected),True,4194304
+time_mlp_out.weight,1024x1024,1048576,torch.float32,4194304,time MLP (protected),True,4194304

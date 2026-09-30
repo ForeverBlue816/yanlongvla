@@ -1,0 +1,444 @@
+{
+  "classification": "analytical counterfactual; not accuracy-tested except scenario(i)embedding",
+  "active_original_elements": 3353433872,
+  "eligible_linear_elements": 2704306176,
+  "minimum_index_plane_bytes": 338038272,
+  "scenarios": [
+    {
+      "scenario": "int8_embedding_native_other_reserved",
+      "reserved_payload_bytes": 1012077920,
+      "reserved_only_bpw": 2.414427619284213,
+      "plus_minimum_one_index_plane_bpw": 3.2208565751613545
+    },
+    {
+      "scenario": "int4_embedding_native_other_reserved",
+      "reserved_payload_bytes": 748754272,
+      "reserved_only_bpw": 1.7862389433155936,
+      "plus_minimum_one_index_plane_bpw": 2.5926678991927354
+    },
+    {
+      "scenario": "int8_embedding_and_eligible_large_reserved",
+      "reserved_payload_bytes": 1009726816,
+      "reserved_only_bpw": 2.4088187918202073,
+      "plus_minimum_one_index_plane_bpw": 3.215247747697349
+    }
+  ],
+  "large_reserved_tensors": [
+    {
+      "name": "paligemma_with_expert.paligemma.model.multi_modal_projector.linear.weight",
+      "shape": "2048x1152",
+      "elements": 2359296,
+      "dtype": "torch.bfloat16",
+      "native_payload_bytes": 4718592,
+      "role": "vision-language projector",
+      "protected": false,
+      "int8_scenario_payload_bytes": 2367488
+    },
+    {
+      "name": "paligemma_with_expert.paligemma.model.language_model.embed_tokens.codes",
+      "shape": "257152x2048",
+      "elements": 526647296,
+      "dtype": "torch.int8",
+      "native_payload_bytes": 526647296,
+      "role": "language token embedding",
+      "protected": false,
+      "int8_scenario_payload_bytes": 526647296
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.0.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.0.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.1.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.1.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.2.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.2.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.3.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.3.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.4.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.4.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.5.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.5.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.6.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.6.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.7.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.7.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.8.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.8.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.9.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.9.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.10.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.10.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.11.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.11.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.12.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.12.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.13.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.13.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.14.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.14.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.15.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.15.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.16.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.16.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.17.input_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.layers.17.post_attention_layernorm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "paligemma_with_expert.gemma_expert.model.norm.dense.weight",
+      "shape": "3072x1024",
+      "elements": 3145728,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 12582912,
+      "role": "normalization / AdaRMS projection (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 12582912
+    },
+    {
+      "name": "time_mlp_in.weight",
+      "shape": "1024x1024",
+      "elements": 1048576,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 4194304,
+      "role": "time MLP (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 4194304
+    },
+    {
+      "name": "time_mlp_out.weight",
+      "shape": "1024x1024",
+      "elements": 1048576,
+      "dtype": "torch.float32",
+      "native_payload_bytes": 4194304,
+      "role": "time MLP (protected)",
+      "protected": true,
+      "int8_scenario_payload_bytes": 4194304
+    }
+  ],
+  "int8_scale_layout": "FP32 per output row; int4 token embedding packed pairs with existing FP32 row scale",
+  "exclusions": "norms, biases, time MLP and AdaRMS projections retain native dtypes; all VQ books/scales/masks omitted from these lower bounds",
+  "source_sha256": {
+    "results/accounting_status.json": "510731da34229a553e21c9bb184b061f8a8b4ad425acb174c6438d57ebfea2b8",
+    "results/model_audit.json": "aa4016cbc4b1da0a4fc8a3f7ec708381533e8b32adcead051ce432d67fb22ad0"
+  }
+}
