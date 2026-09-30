@@ -68,6 +68,8 @@ D3 的 MMD 现在对单 seed 下的观测/动作样本集合计算，衡量跨�
 | (d) | (c) + subset swap + heterogeneous objective | pending | pending | pending | pending | pending | 仅 D2 启用时运行 |
 | whole model | 最佳 expert + SigLIP/Gemma 量化 | pending | pending | pending | pending | pending | pending |
 
+晋级结果的置信区间将使用配对、按 suite 分层的 task/episode bootstrap，明确限定为单 seed 下的区间。作为预先固定的全协议参考，已有 FP seed7 的 **1928/2000=96.4%**，其该口径 95% 区间为 **[93.79875%, 98.30125%]**；这与下文历史“三 seed 均值的 t 区间”含义不同。没有新增 FP rollout（E021）。
+
 (c) 内部会分别测 centroids only、affine only、both；若 (c) 对 (b) 的代理改善不足 **5%**，如实报告并停止该组件的细化。先完成 PTQ 表，再考虑冻结 codes 的 KD 独立行。筛选协议为 spatial + libero_10，各 **10 eps/task、1 seed**；晋级配置使用四套件各 **50 eps/task、1 seed**。完整门槛与实验命令记录在 EXPERIMENTS。
 
 ## 当前支持的结论
