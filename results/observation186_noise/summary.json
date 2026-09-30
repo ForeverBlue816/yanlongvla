@@ -1,0 +1,43 @@
+{
+  "task": "pick up the black bowl on the ramekin and place it on the plate",
+  "observations": 1,
+  "noise_draws": 32,
+  "pc1_variance_fraction": 0.827294044523669,
+  "kde": [
+    {
+      "scott_multiplier": 0.5,
+      "peak_count": 2,
+      "peak_locations": [
+        -1.6071376025999244,
+        0.31687663090067675
+      ]
+    },
+    {
+      "scott_multiplier": 1.0,
+      "peak_count": 2,
+      "peak_locations": [
+        -1.6357019708597424,
+        0.31687663090067675
+      ]
+    },
+    {
+      "scott_multiplier": 2.0,
+      "peak_count": 1,
+      "peak_locations": [
+        0.30259444677076797
+      ]
+    }
+  ],
+  "gripper_sign_patterns": {
+    "-----": 27,
+    "+----": 4,
+    "++---": 1
+  },
+  "empirical_two_mode_evidence": false,
+  "decision": "no bandwidth-stable two-mode conclusion on PC1 from these32draws",
+  "limitations": "exploratory32draw sample; KDE peaks have no significance test; absence of two PC1modes does not establish35Dunimodality; gripper sign patterns reported independently",
+  "source_sha256": {
+    "/projects/yanlongvla/runs/d3b/offline/observation186_clean_32draws.npy": "020bdd6ee48a777339c673cfdc484616984a4ca828551ebded4900d1c3f901a3",
+    "/projects/yanlongvla/runs/d3b/offline/observation186.json": "8416541a54ac1f47c38db37c5894515f7e2e6c0bdd229259c314216f837f19d4"
+  }
+}

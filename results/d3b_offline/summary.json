@@ -1,0 +1,75 @@
+{
+  "status": "offline_complete_screening_pending",
+  "observations": 256,
+  "trajectories": 40,
+  "noise_seed": 0,
+  "window": "first5executedactions x7dimensions",
+  "conditions": [
+    {
+      "amplitude": 0.03,
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "original_fp_relative_mse": 1.5584081340724868e-05,
+      "original_fp_absolute_mse": 3.380994477400589e-06,
+      "median_per_observation_relative_mse": 1.4114077540328847e-05,
+      "trimmed_mean_10pct_relative_mse": 1.4427670126076562e-05,
+      "compact_relative_mse": 5.930380014965655e-06
+    },
+    {
+      "amplitude": 0.1,
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "original_fp_relative_mse": 6.215387933589655e-05,
+      "original_fp_absolute_mse": 1.3484395915884924e-05,
+      "median_per_observation_relative_mse": 5.463926518714143e-05,
+      "trimmed_mean_10pct_relative_mse": 5.7895369368200665e-05,
+      "compact_relative_mse": 5.166905312908122e-05
+    },
+    {
+      "amplitude": 0.3,
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "original_fp_relative_mse": 0.0005751541783343518,
+      "original_fp_absolute_mse": 0.0001247807334989094,
+      "median_per_observation_relative_mse": 0.0004894003921806461,
+      "trimmed_mean_10pct_relative_mse": 0.000536332385416382,
+      "compact_relative_mse": 0.0005533126349755915
+    },
+    {
+      "amplitude": 0.6,
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "original_fp_relative_mse": 0.003672679735475301,
+      "original_fp_absolute_mse": 0.0007967944745291915,
+      "median_per_observation_relative_mse": 0.0033543371262842025,
+      "trimmed_mean_10pct_relative_mse": 0.0034809405669953535,
+      "compact_relative_mse": 0.0036129502520750364
+    },
+    {
+      "amplitude": 1.0,
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "original_fp_relative_mse": 0.025373133538494925,
+      "original_fp_absolute_mse": 0.005504746958925254,
+      "median_per_observation_relative_mse": 0.021224878505598413,
+      "trimmed_mean_10pct_relative_mse": 0.021790892296289825,
+      "compact_relative_mse": 0.025223297900072085
+    }
+  ],
+  "scope": "same fixed weight direction applied toALL10steps; report-only aggregate; no success threshold inferred without full screening",
+  "source_sha256": {
+    "/projects/yanlongvla/runs/d3b/offline/summary.json": "02a4085012ed82bd4de4de01dbef751511a40b9d58bb4437d82c299881508caa",
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/d3b/offline/compact_reference_actions.npy": "818da70ed4593b99914af4169a50b640ab1dd013817229e968b031632a3ec0d9",
+    "/projects/yanlongvla/runs/d3b/offline/noise_0.03_actions.npy": "1285800b3d6ed9efbeff25985e9724b9427bce47cbb7d8f4a2506d3eaee92402",
+    "/projects/yanlongvla/runs/d3b/offline/noise_0.1_actions.npy": "68349f275d55bb8e9b22fd3169d05dd163a82954bdf03de8c5401aeae979fc90",
+    "/projects/yanlongvla/runs/d3b/offline/noise_0.3_actions.npy": "436d3efe132a52624c3e8661d492c9335a558fab32764aa3cbc17434c4e1dfbb",
+    "/projects/yanlongvla/runs/d3b/offline/noise_0.6_actions.npy": "2527cb73bece14a77b856f5dda4f15de93d4d13d3aa4db49b936c272bd9621d2",
+    "/projects/yanlongvla/runs/d3b/offline/noise_1_actions.npy": "7d46fdcc2e8894b1d594c61be0de352df26b45701bf8c8aa5d337376384564ba"
+  }
+}
