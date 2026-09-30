@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "scope": "CPU-only deployment/reuse integration check, no new policy inference or rollout; temporary shadow directory removed",
+  "reference_variant": "a_M1",
+  "reused_rows": 200,
+  "initialization_idempotent": true,
+  "tampered_episode_rejected": true,
+  "tampered_protocol_rejected": true,
+  "completed_source_artifacts_unchanged": true,
+  "contract_audit_sha256": "6c1aab32e334020b432b12150ec27ef22a386e06501579151b12d2795c239636",
+  "source_commit": "7c92b4985f12bc338b23aadff0f9b51a4e9ac056",
+  "source_files_checked": 24,
+  "contract_files_checked": 97
+}
