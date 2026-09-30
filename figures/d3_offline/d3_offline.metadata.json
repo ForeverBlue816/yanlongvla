@@ -1,0 +1,19 @@
+{
+  "measured_conditions": 60,
+  "observations": 256,
+  "noise_seed": 0,
+  "action_projection": "Executed first5x7",
+  "conditional_mse_amplitude_ratio": 5.236884488900706,
+  "mmd_tolerance_status": "needs_measured_extension",
+  "interval_definition": "Panel c bars are measured amplitude brackets, not uncertainty intervals; markers use first-crossing log-log interpolation",
+  "proxy_choice": "Pending matched LIBERO screening; no final allocation weights selected",
+  "sources": {
+    "noise_1_actions.npy": "8aa6ce581aee1a361a345c012caed6576d64b45a3e29b20b287cea63603c4156",
+    "noise_0.1_actions.npy": "07aaa8596a3056039d016e3f01a048ca3be0409eafda3c62c21140ae5bd5a130",
+    "noise_0.01_actions.npy": "9090c458db8c497ed1344009a614c338863b37e28790daa8779c71f284ecaff3",
+    "noise_3_actions.npy": "cb671465d8d832f6456d2b8f2216bfeecb9551e87d0ecc913c44997c21dba5f7",
+    "reference_actions.npy": "df7f7b9091ac9e117a86d51f7fb2c15ad4baac8443dbdba5418878d4b3ccf979",
+    "noise_0.03_actions.npy": "0ec401b113d524a746920336c9dc9bd091c6c4698cc99c79a55dffb39a5fb957",
+    "noise_0.3_actions.npy": "c191458c19332e7745db72b2d2c36dcb2175d9e2d8e446d7499e4961c4207dc7"
+  }
+}
