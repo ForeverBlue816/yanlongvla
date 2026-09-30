@@ -1,62 +1,50 @@
-# 当前实验报告 — 2026-09-29
+# 当前实验报告 — 2026-09-30
 
-**G0 最新状态：passed；完整实测结果与置信区间见文末更新。尚无量化收益结论。**
+**当前阶段：优先验证 HD-SR-VQ 自身的效果。G0 已通过；完整存储核算正在验证。尚无 (a)–(d) 的方法收益结论。**
 
-## 主要发现
+## 当前进展
 
-- 锁定版本的 `pi05_libero` 实际动作块为 **10×32**，LIBERO 有效 **7** 维，执行窗口 **K=5**；通用默认值 **50×32** 不适用于此配置（E000）。
-- 模型构造器含 **3,616,757,520** 个独立参数，其中 **263,323,648** 个属于动作推理未调用的 expert `lm_head`。这部分目前仍计入存储，移除前需要验证（E002）。
-- **预算约束：**当前全部构造参数中，规定保留的张量按理想 **16 bit** 计，单独就占 **4.03655 bpw**；可量化 Linear 用 **3 bpw** 时，合计是 **6.27970 whole-model bpw**，且还没算码本等开销。这是基于参数枚举的算术下界，不是实测显存。全模型低位宽目标需要先处理实际存储方案，按步减少解码深度不能自动减少已存储的码平面（E002）。
-- ActQuant 官方代码已公开。其 **3.0 backbone bpw** 对应 **5.6 whole-model bpw**，必须区分（**quoted**，E000）。
+- FP 复现：6,000 次 rollout，四套件平均成功率 **96.8667%**，三种子均值的 95% t 区间 **[95.6862%, 98.0472%]**；完整分套件结果见下文。
+- Step 1 小样本对照：两个 lm_head 的调用次数均为 **0**；移除后 **32** 个配对动作块逐元素一致。VLM lm_head 与 embedding 共享权重，embedding 保留一份（E009）。
+- int8 逐行 absmax embedding：小样本执行窗口相对 MSE **9.66268e-5**，门槛 **1e-4**；最大单样本相对 MSE **0.00350129**，最大绝对动作差 **0.122290**。这是接近门槛且存在尾部误差的初测，不能代替完整验证（E009）。
+- 完整 **256 观测 x 8 seeds** 核算作业 **177438** 已提交；通过前不发布新的 bpw 结论、不把 int8 embedding 设为已验证默认。模型和数据仍放在 `/projects/yanlongvla`。
+- 方法离线验证集已冻结：与校准数据的 **60** 条轨迹完全分离的 **40** 条训练轨迹、**256** 个观测 x **8** seeds；不参与诊断或拟合（E008）。
 
-完整逐层 Linear、AdaRMS 关系和字节模型见 [MODEL_MAP.md](MODEL_MAP.md)。
+## 核算与诊断决定
 
-## 已测量的基础结果
+量化 Linear bpw 使用实际保存的索引、码本及相关元数据；whole-model bpw 计全部存储张量、别名只计一次，分母移除已验证无用的头。每次推理的读取量单列，按实际模块调用和 embedding 行查找统计逻辑读取；它不是 GPU DRAM 测量。按步少读码平面不自动降低模型存储。
 
-L40S，torch **2.7.1+cu126**，batch **1**；以下为 CUDA event 测得的 BF16 Linear 时间，单位 **ms**。**100** 次预热后，取 **20** 组、每组 **100** 次调用的组均值中位数。合成输入、热缓存测试，非策略端到端延迟（E003）。
+| 配置 | quantizable-Linear bpw | whole-model bpw | bytes read / inference |
+|---|---:|---:|---:|
+| 去无用头 + int8 embedding | 完整核算待完成 | 完整核算待完成 | 完整核算待完成 |
 
-| Tokens | 1024→4096 | 4096→1024 |
-|---:|---:|---:|
-| 1 | 0.007884 | 0.009206 |
-| 10 | 0.007864 | 0.010762 |
-| 64 | 0.009943 | 0.012328 |
-
-AQLM 已编译并通过正确性检查。补充 CUDA Graph 对比以减少 Python 调用开销（E005）：
-
-| Tokens | 形状 | BF16 graph ms | AQLM graph ms | AQLM/BF16 |
-|---:|---|---:|---:|---:|
-| 1 | 1024→4096 | 0.005832 | 0.007507 | 1.287× |
-| 1 | 4096→1024 | 0.007990 | 0.006536 | 0.818× |
-| 10 | 1024→4096 | 0.005897 | 0.023546 | 3.993× |
-| 10 | 4096→1024 | 0.006004 | 0.023869 | 3.975× |
-| 64 | 1024→4096 | 0.009234 | 0.027812 | 3.012× |
-| 64 | 4096→1024 | 0.010795 | 0.029051 | 2.691× |
-
-**当前 AQLM 路径在 64 tokens 下仍慢于 BF16，不能宣称这一场景加速。**单 token 的一个形状有收益，不能推广为端到端收益。VPTQ、W4A16 尚未测量；量化模型的实际存储及成功率也尚未验证（E005）。
-
-LIBERO EGL 仿真已通过：两路 **256×256×3** 图像、**10** 步 dummy action，状态有限。该检查没有运行策略，不是任务成功率（E001b）。
-
-## 资产和门槛
-
-| 项目 | 当前状态 | 证据 |
+| 诊断 | 当前决定 | 证据状态 |
 |---|---|---|
-| 官方 checkpoint | 16 个对象，12,439,085,481 bytes，已校验 | E000 |
-| 校准数据 | 60 条训练轨迹，覆盖 40 个任务，1,205,270,267 parquet bytes | E000 |
-| 校准观测 | 固定 256 个观测 × 8 个噪声种子；尚未缓存激活 | E001b |
-| PyTorch 转换 | 96 GiB 重跑完成，实际使用的参数与归一化资产检查通过 | E004b |
-| 策略冒烟 | 有限动作，固定噪声重复差异 0；单任务真实闭环 2/2 成功，仅为冒烟 | E006 |
-| G0 | passed；完整结果见文末 | G0 evaluation update |
-| G1 / G1b / G2 | not started | 实验记录 |
+| D1 相干/非相干分数 | pending | 实现已准备，未运行 |
+| D2 subset decoding | pending | 实现已准备，未运行 |
+| D3 容忍曲线及 MSE/MMD 代理 | pending | 注入与度量已准备，未运行 |
 
-官方平均 **96.85%** 是 **quoted**，不是本项目实测（E000）。
+全部使用 **10** 个 flow steps、每步 **10** 个 suffix tokens、执行窗口 **K=5**、有效维度 **7**。每层输入缓存包括全部 token；同值 Q/K/V、gate/up 输入先验证再共享存储。三个诊断决定写入本地 CONFIG 后才进入方法比较。D4 延后。
 
-## 当前支持的结论与下一步
+## HD-SR-VQ 方法表
 
-当前证据支持：实验资产与 GPU 仿真可用，并已发现必须处理的配置、转换和全模型位宽预算问题；尚无 HD-SR-VQ 效果结论。
+下表的目标为 action-expert quantizable-Linear **3.0 / 2.0 bpw**，backbone 保持 BF16（上游规定保留 FP32 的张量继续保留）。表中尚无测量值；实际开销和读取量必须匹配后才比较效果。
 
-下一步：检查完整 BF16 G0 结果并在失败时停留调试；补齐 VPTQ/W4 内核对比；G0 通过后再推进诊断及含保留参数开销的量化基线。G0 结束后会自动追加统计到此仓库（E007）。
+| Variant | 组成 | 实测 Linear bpw | whole-model bpw | bytes/read inference | Held-out proxy | Screening success | Full success / CI |
+|---|---|---:|---:|---:|---:|---:|---|
+| (a) | uniform depth / prefix / shared codebooks | pending | pending | pending | pending | pending | pending |
+| (b) | D3-weighted per-step depth | pending | pending | pending | pending | pending | pending |
+| (c) | (b) + conditional centroids + affine | pending | pending | pending | pending | pending | pending |
+| (d) | (c) + subset swap + heterogeneous objective | pending | pending | pending | pending | pending | 仅 D2 启用时运行 |
+| whole model | 最佳 expert + SigLIP/Gemma 量化 | pending | pending | pending | pending | pending | pending |
 
-命令、代码版本、失败原因与完整数字见 [EXPERIMENTS.md](EXPERIMENTS.md)；模型权重、数据、实现代码和原始日志保存在本地 `/projects/yanlongvla`。
+(c) 内部会分别测 centroids only、affine only、both；若 (c) 对 (b) 的代理改善不足 **5%**，如实报告并停止该组件的细化。先完成 PTQ 表，再考虑冻结 codes 的 KD 独立行。筛选协议为 spatial + libero_10，各 **10 eps/task、1 seed**；晋级配置使用四套件各 **50 eps/task、3 seeds**。完整门槛与实验命令记录在 EXPERIMENTS。
+
+## 当前支持的结论
+
+已经支持的结论是 FP 复现通过，且无用输出头在小样本真实校准推理中可以无误差移除。int8 embedding 仍须通过完整误差门槛；相干分数、按步深度、条件质心、affine 和 subset 解码是否改善量化质量均未得到验证。因此目前不能声称 HD-SR-VQ 提高成功率或优于任何外部方法。
+
+外部 GPTQ/AWQ/ActQuant 基线全部延后。此前 AQLM 在 10 tokens 的两个形状上约 **4x** 慢于 BF16 的 CUDA Graph 测量保留于 E005；这只是内核微测，不是本方法端到端结果。方法表完成前不继续内核工作。
 
 ## G0 evaluation update — 2026-09-29T18:31:50.996876+00:00
 

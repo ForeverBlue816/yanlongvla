@@ -129,3 +129,20 @@ Seeds: [7, 17, 27]; 50 episodes/task. two-sided 95% Student t across the three s
 | overall | [96.4, 97.35, 96.85] | 96.866667 | [95.68615661219496, 98.04717672113836] | 0.016667 |
 
 G0 passed the predeclared coverage and tolerance check. Diagnostics may begin; no quantization or method gain is claimed here.
+
+## E008 — 2026-09-30 UTC — method-first phase and held-out split
+
+- User phase override: external GPTQ/AWQ/ActQuant baselines and D4 deferred. Accounting -> D1/D2/D3 -> action-expert (a)–(d), then whole model. No additional kernel work before the method table; no KD before PTQ results. Local authority: `PHASE_2026-09-30.md`, decisions/status in `CONFIG.md`.
+- G0 complete results remain the FP reference; no full G0 rerun submitted.
+- Source `d293cff`: `python3 scripts/prepare_heldout.py`. Pinned dataset revision `a4336d589d589045d1c56423ffdf3b88a0e19b1f`; fixed seed **20260930** selected **40** distinct training episodes (one per task) outside all **60** calibration episodes, **256** held-out observations x **8** seeds. Downloaded and SHA256 recorded: **881,632,142 bytes**. Local manifest/checksums: `datasets/libero-heldout/download_verified.json`. Held-out observations are prohibited from diagnostic fitting, allocation, codebook and affine fitting.
+- Prepared diagnostic implementations are not measured results. D2 aggregates median commutator over Linear-layer/step-pair units and median of each pair's maximum top-32 principal angle; this conservative angle aggregation was frozen before D2 observations.
+
+## E009 — 2026-09-30 UTC — Step-1 paired pilot, not the full accounting gate
+
+- Source `5cc764813449508f2219a82b1b5edc09231dcb08`; command `sbatch --export=ALL,VLA_OBSERVATIONS=16,VLA_SEEDS=2 slurm/accounting.sbatch`; job **177425**, completed successfully on **L40S**. Samples: first **16** frozen calibration observations x seeds **0,1**, **32** action chunks per configuration. Native BF16/retained-FP32 policy; real LeRobot observations use native training transforms.
+- Hook calls: expert lm_head **0**, VLM lm_head **0**. VLM head shares the exact embedding weight storage. Expert head contains **263,323,648** weights. Unique original elements **3,616,757,520**; after head removal **3,353,433,872**. Removed both module heads, retained the single tied embedding storage.
+- Native vs heads removed: action max absolute difference **0.0**, executed-window/full-action MSE **0.0** over all **32** pairs. Expert first-layer hooks observed exactly **10** suffix tokens on every call.
+- Embedding implementation: signed int8 round(absmax-row-scaled weights), range **[-127,127]**, FP32 per-row scale, BF16 gathered output; only requested rows dequantized. Compared with the same original native actions and same fixed noise.
+- Executed **5x7** actions: MSE **1.7387334377437334e-05**, reference mean-square **0.17994315104630054**, relative MSE **9.662681950569744e-05**. Full **10x7** relative MSE **5.745782083636663e-05**. Largest absolute action difference **0.12228983640670776**; maximum per-pair relative MSE **0.003501288320115805**. Aggregate barely meets **1e-4** on the pilot; tail errors are explicitly retained, not averaged away from the report.
+- Local evidence: `runs/accounting/177425/result.json`, per-configuration actions/flow states and module-read ledgers. These are a pilot, not proof over the full calibration manifest or a LIBERO success result. No bpw claim is promoted from this pilot.
+- Full validation submitted as job **177438**, source **d293cff**, command `sbatch --export=ALL,VLA_OBSERVATIONS=256,VLA_SEEDS=8,VLA_EXPORT_FLAG=--export slurm/accounting.sbatch`. Status at entry: **pending**. Strict head removal equivalence and full-coverage embedding relative MSE gate must pass before the compact model is the default.
