@@ -1,0 +1,374 @@
+{
+  "status": "complete",
+  "rows": [
+    {
+      "amplitude": 0.0,
+      "screen": {
+        "status": "complete",
+        "completed": 200,
+        "expected": 200,
+        "missing": 0,
+        "success_percent": 95.5,
+        "successes": 191,
+        "suites": {
+          "libero_spatial": {
+            "successes": 100,
+            "episodes": 100,
+            "success_percent": 100.0
+          },
+          "libero_10": {
+            "successes": 91,
+            "episodes": 100,
+            "success_percent": 91.0
+          }
+        }
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 8.989491863183051e-06,
+        "trimmed_mean_10pct_relative_mse": 9.7340041318551e-06,
+        "mean_per_observation_relative_mse": 1.109865875347906e-05,
+        "mean_based_global_relative_mse": 1.0944278454644644e-05,
+        "absolute_mse": 2.3743808958178013e-06,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 115,
+        "largest_error_energy_share": 0.022334982891253928
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.0,
+        "trimmed_mean_10pct_relative_mse": 0.0,
+        "mean_per_observation_relative_mse": 0.0,
+        "mean_based_global_relative_mse": 0.0,
+        "absolute_mse": 0.0,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 0,
+        "largest_error_energy_share": 0.0
+      }
+    },
+    {
+      "amplitude": 0.03,
+      "screen": {
+        "status": "complete",
+        "completed": 200,
+        "expected": 200,
+        "missing": 0,
+        "success_percent": 98.5,
+        "successes": 197,
+        "suites": {
+          "libero_spatial": {
+            "successes": 100,
+            "episodes": 100,
+            "success_percent": 100.0
+          },
+          "libero_10": {
+            "successes": 97,
+            "episodes": 100,
+            "success_percent": 97.0
+          }
+        }
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 1.4114077540328847e-05,
+        "trimmed_mean_10pct_relative_mse": 1.4427670126076562e-05,
+        "mean_per_observation_relative_mse": 1.6081418283856283e-05,
+        "mean_based_global_relative_mse": 1.5584081340724868e-05,
+        "absolute_mse": 3.380994477400589e-06,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 115,
+        "largest_error_energy_share": 0.025206797271985996
+      },
+      "versus_compact": {
+        "median_relative_mse": 5.026012807883971e-06,
+        "trimmed_mean_10pct_relative_mse": 5.496527772657843e-06,
+        "mean_per_observation_relative_mse": 6.084213344814079e-06,
+        "mean_based_global_relative_mse": 5.930380014965655e-06,
+        "absolute_mse": 1.2844519005157151e-06,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 105,
+        "largest_error_energy_share": 0.017381790441120145
+      }
+    },
+    {
+      "amplitude": 0.1,
+      "screen": {
+        "status": "complete",
+        "completed": 200,
+        "expected": 200,
+        "missing": 0,
+        "success_percent": 97.0,
+        "successes": 194,
+        "suites": {
+          "libero_spatial": {
+            "successes": 99,
+            "episodes": 100,
+            "success_percent": 99.0
+          },
+          "libero_10": {
+            "successes": 95,
+            "episodes": 100,
+            "success_percent": 95.0
+          }
+        }
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 5.463926518714143e-05,
+        "trimmed_mean_10pct_relative_mse": 5.7895369368200665e-05,
+        "mean_per_observation_relative_mse": 6.398778047740376e-05,
+        "mean_based_global_relative_mse": 6.215387933589655e-05,
+        "absolute_mse": 1.3484395915884924e-05,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 105,
+        "largest_error_energy_share": 0.016726941324628115
+      },
+      "versus_compact": {
+        "median_relative_mse": 4.407182054656341e-05,
+        "trimmed_mean_10pct_relative_mse": 4.739082650254668e-05,
+        "mean_per_observation_relative_mse": 5.273672624529605e-05,
+        "mean_based_global_relative_mse": 5.166905312908122e-05,
+        "absolute_mse": 1.1190920872189702e-05,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 105,
+        "largest_error_energy_share": 0.022078555234208947
+      }
+    },
+    {
+      "amplitude": 0.3,
+      "screen": {
+        "status": "complete",
+        "completed": 200,
+        "expected": 200,
+        "missing": 0,
+        "success_percent": 97.0,
+        "successes": 194,
+        "suites": {
+          "libero_spatial": {
+            "successes": 100,
+            "episodes": 100,
+            "success_percent": 100.0
+          },
+          "libero_10": {
+            "successes": 94,
+            "episodes": 100,
+            "success_percent": 94.0
+          }
+        }
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 0.0004894003921806461,
+        "trimmed_mean_10pct_relative_mse": 0.000536332385416382,
+        "mean_per_observation_relative_mse": 0.000579987522795043,
+        "mean_based_global_relative_mse": 0.0005751541783343518,
+        "absolute_mse": 0.0001247807334989094,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 105,
+        "largest_error_energy_share": 0.020987624913658326
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.0004758931754278641,
+        "trimmed_mean_10pct_relative_mse": 0.0005124506569688402,
+        "mean_per_observation_relative_mse": 0.0005562806964161749,
+        "mean_based_global_relative_mse": 0.0005533126349755915,
+        "absolute_mse": 0.00011984113392063505,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 105,
+        "largest_error_energy_share": 0.022699973923278927
+      }
+    },
+    {
+      "amplitude": 0.6,
+      "screen": {
+        "status": "complete",
+        "completed": 200,
+        "expected": 200,
+        "missing": 0,
+        "success_percent": 93.5,
+        "successes": 187,
+        "suites": {
+          "libero_spatial": {
+            "successes": 98,
+            "episodes": 100,
+            "success_percent": 98.0
+          },
+          "libero_10": {
+            "successes": 89,
+            "episodes": 100,
+            "success_percent": 89.0
+          }
+        }
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 0.0033543371262842025,
+        "trimmed_mean_10pct_relative_mse": 0.0034809405669953535,
+        "mean_per_observation_relative_mse": 0.003622237330232737,
+        "mean_based_global_relative_mse": 0.003672679735475301,
+        "absolute_mse": 0.0007967944745291915,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 114,
+        "largest_error_energy_share": 0.013113890598104376
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.0032609168141831037,
+        "trimmed_mean_10pct_relative_mse": 0.0034161800611888877,
+        "mean_per_observation_relative_mse": 0.0035602486026469608,
+        "mean_based_global_relative_mse": 0.0036129502520750364,
+        "absolute_mse": 0.0007825233469078772,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 114,
+        "largest_error_energy_share": 0.013928010577579938
+      }
+    },
+    {
+      "amplitude": 1.0,
+      "screen": {
+        "status": "complete",
+        "completed": 200,
+        "expected": 200,
+        "missing": 0,
+        "success_percent": 87.0,
+        "successes": 174,
+        "suites": {
+          "libero_spatial": {
+            "successes": 95,
+            "episodes": 100,
+            "success_percent": 95.0
+          },
+          "libero_10": {
+            "successes": 79,
+            "episodes": 100,
+            "success_percent": 79.0
+          }
+        }
+      },
+      "versus_original_fp": {
+        "median_relative_mse": 0.021224878505598413,
+        "trimmed_mean_10pct_relative_mse": 0.021790892296289825,
+        "mean_per_observation_relative_mse": 0.024623466330998527,
+        "mean_based_global_relative_mse": 0.025373133538494925,
+        "absolute_mse": 0.005504746958925254,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 246,
+        "largest_error_energy_share": 0.07726655971802138
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.020969263542400866,
+        "trimmed_mean_10pct_relative_mse": 0.021617061756592375,
+        "mean_per_observation_relative_mse": 0.024470992625766522,
+        "mean_based_global_relative_mse": 0.025223297900072085,
+        "absolute_mse": 0.005463075358284483,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 246,
+        "largest_error_energy_share": 0.07775082297573499
+      }
+    }
+  ],
+  "table": [
+    {
+      "amplitude": 0.0,
+      "successes": 191,
+      "success_percent": 95.5,
+      "mse": 1.0944278454644644e-05,
+      "absolute_mse": 2.3743808958178013e-06,
+      "compact_relative_mse": 0.0
+    },
+    {
+      "amplitude": 0.03,
+      "successes": 197,
+      "success_percent": 98.5,
+      "mse": 1.5584081340724868e-05,
+      "absolute_mse": 3.380994477400589e-06,
+      "compact_relative_mse": 5.930380014965655e-06
+    },
+    {
+      "amplitude": 0.1,
+      "successes": 194,
+      "success_percent": 97.0,
+      "mse": 6.215387933589655e-05,
+      "absolute_mse": 1.3484395915884924e-05,
+      "compact_relative_mse": 5.166905312908122e-05
+    },
+    {
+      "amplitude": 0.3,
+      "successes": 194,
+      "success_percent": 97.0,
+      "mse": 0.0005751541783343518,
+      "absolute_mse": 0.0001247807334989094,
+      "compact_relative_mse": 0.0005533126349755915
+    },
+    {
+      "amplitude": 0.6,
+      "successes": 187,
+      "success_percent": 93.5,
+      "mse": 0.003672679735475301,
+      "absolute_mse": 0.0007967944745291915,
+      "compact_relative_mse": 0.0036129502520750364
+    },
+    {
+      "amplitude": 1.0,
+      "successes": 174,
+      "success_percent": 87.0,
+      "mse": 0.025373133538494925,
+      "absolute_mse": 0.005504746958925254,
+      "compact_relative_mse": 0.025223297900072085
+    }
+  ],
+  "gate_threshold": {
+    "fp_successes": 193,
+    "episodes": 200,
+    "margin_points": 1.5,
+    "criterion": "strictly below FP-1.5pp fails; integer success-count arithmetic",
+    "mse_reference": "original FP executed5x7 global-relative MSE; compact-relative also reported",
+    "success_monotone_nonincreasing": false,
+    "mse_monotone_nondecreasing": true,
+    "status": "first_measured_failure",
+    "first_failure": {
+      "amplitude": 0.6,
+      "successes": 187,
+      "success_percent": 93.5,
+      "mse": 0.003672679735475301,
+      "absolute_mse": 0.0007967944745291915,
+      "compact_relative_mse": 0.0036129502520750364
+    },
+    "preceding_measurement": {
+      "amplitude": 0.3,
+      "successes": 194,
+      "success_percent": 97.0,
+      "mse": 0.0005751541783343518,
+      "absolute_mse": 0.0001247807334989094,
+      "compact_relative_mse": 0.0005533126349755915
+    }
+  },
+  "bpw_prediction": "pending measured(a)MSE and screening; Gaussian noise does not itself measure a quantization knee",
+  "source_sha256": {
+    "/projects/yanlongvla/runs/d3/screen_1/clean/libero_10_seed7.jsonl": "97b6ba5970c0095a2e6655c823e68fc75712f02db6de397213015745306596ce",
+    "/projects/yanlongvla/runs/d3/screen_1/clean/libero_spatial_seed7.jsonl": "f4dbf5aa40fee63d876cb8f191a8bf0dfc3f4d5ffa07c041e50cb66bcaf343c5",
+    "/projects/yanlongvla/runs/d3b/screen/0.03/libero_10_seed7.jsonl": "5abf1999b01a4e8a5f36fe7d978765a0bf60282fc41397a6e340203cf256808c",
+    "/projects/yanlongvla/runs/d3b/screen/0.03/libero_spatial_seed7.jsonl": "6964bbe64d95c48e7b583c2fafd509235c2436f7ec3f0914c5522ca4f9399507",
+    "/projects/yanlongvla/runs/d3b/screen/0.1/libero_10_seed7.jsonl": "8ae1ac5f8be58762454bf9455729559ce05ee1f027963bf5e084e36983f3f9c6",
+    "/projects/yanlongvla/runs/d3b/screen/0.1/libero_spatial_seed7.jsonl": "22a6b8557da3b62d3868d3366a28b5358c396c7c566bbb0d3196e6d758b938a4",
+    "/projects/yanlongvla/runs/d3b/screen/0.3/libero_10_seed7.jsonl": "f6c83402b146823b3b600c3a58b92d1e439422490a333e7bc4338e90dc04166a",
+    "/projects/yanlongvla/runs/d3b/screen/0.3/libero_spatial_seed7.jsonl": "8deee869a8d3f9e4bc4c81895cbd3d14a5d6fbab9d4cfd303278746aa6ee5bda",
+    "/projects/yanlongvla/runs/d3b/screen/0.6/libero_10_seed7.jsonl": "a6eb54772ebc73317a6f96cca781b2f13647104687b8c177933ae1937e7a1864",
+    "/projects/yanlongvla/runs/d3b/screen/0.6/libero_spatial_seed7.jsonl": "c5bfe195656adac7ef7a16b2051b28f61b72e00b1e71f179a8ab7d899fee7bd3",
+    "/projects/yanlongvla/runs/d3b/screen/1/libero_10_seed7.jsonl": "1b693e49cfbc61ae1d00feaa97cfc526c14da483853c558dbd6ed226c99a6523",
+    "/projects/yanlongvla/runs/d3b/screen/1/libero_spatial_seed7.jsonl": "fb7e5b09e4d37de8e86f657fe518e7a3c07be558f360884f0c72f08a60fc6b77",
+    "/projects/yanlongvla/runs/d3b/offline/summary.json": "02a4085012ed82bd4de4de01dbef751511a40b9d58bb4437d82c299881508caa",
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/d3b/offline/compact_reference_actions.npy": "818da70ed4593b99914af4169a50b640ab1dd013817229e968b031632a3ec0d9",
+    "/projects/yanlongvla/runs/d3b/offline/noise_0.03_actions.npy": "1285800b3d6ed9efbeff25985e9724b9427bce47cbb7d8f4a2506d3eaee92402",
+    "/projects/yanlongvla/runs/d3b/offline/noise_0.1_actions.npy": "68349f275d55bb8e9b22fd3169d05dd163a82954bdf03de8c5401aeae979fc90",
+    "/projects/yanlongvla/runs/d3b/offline/noise_0.3_actions.npy": "436d3efe132a52624c3e8661d492c9335a558fab32764aa3cbc17434c4e1dfbb",
+    "/projects/yanlongvla/runs/d3b/offline/noise_0.6_actions.npy": "2527cb73bece14a77b856f5dda4f15de93d4d13d3aa4db49b936c272bd9621d2",
+    "/projects/yanlongvla/runs/d3b/offline/noise_1_actions.npy": "7d46fdcc2e8894b1d594c61be0de352df26b45701bf8c8aa5d337376384564ba"
+  }
+}

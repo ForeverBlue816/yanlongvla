@@ -1,0 +1,42 @@
+{
+  "status": "assembled",
+  "policy_validation": "pending strict policy reload and heldout evaluation",
+  "rows": [
+    {
+      "nominal_index_bpw": 3,
+      "tensor_payload_bytes": 5916834380,
+      "expert_quantizable_elements": 311427072,
+      "active_original_elements": 3353433872,
+      "expert_quantizable_linear_bpw": 3.056850548946496,
+      "all_quantizable_linear_bpw": 14.509470868434684,
+      "whole_model_bpw": 14.115285062045798,
+      "checkpoint_file_bytes": 5917042564,
+      "checkpoint_sha256": "dcad06aad4a9aba4209d2c68399e6d1a6eb55a8a511812e68e7035ca22c50a38",
+      "metadata_sha256": "9e5aaaf75d14da70f8b2aaaaa881b003d7726ee1b5ff763a125925440c1eda09"
+    },
+    {
+      "nominal_index_bpw": 2,
+      "tensor_payload_bytes": 5877389900,
+      "expert_quantizable_elements": 311427072,
+      "active_original_elements": 3353433872,
+      "expert_quantizable_linear_bpw": 2.0435929731889204,
+      "all_quantizable_linear_bpw": 14.392784435958777,
+      "whole_model_bpw": 14.021185744139224,
+      "checkpoint_file_bytes": 5877598084,
+      "checkpoint_sha256": "f271800d1743ade0829619eaac31584a5fa426587b1ccafd37a6ebf48ec4a4ff",
+      "metadata_sha256": "bf01f084ad559548d83bcce0b452e918ee032eb097189020800ff76151cd5057"
+    },
+    {
+      "nominal_index_bpw": 1,
+      "tensor_payload_bytes": 5837945420,
+      "expert_quantizable_elements": 311427072,
+      "active_original_elements": 3353433872,
+      "expert_quantizable_linear_bpw": 1.0303353974313447,
+      "all_quantizable_linear_bpw": 14.276098003482872,
+      "whole_model_bpw": 13.92708642623265,
+      "checkpoint_file_bytes": 5838153604,
+      "checkpoint_sha256": "ea5b1730f5291db1ae6d531bdcb76e41b70bf60437b55c326315e94a4f599ec2",
+      "metadata_sha256": "d352bac4b02b6139de1fc09f37db1824dbf5ef47a9fafb0cfe2be35ca7d0ffda"
+    }
+  ]
+}
