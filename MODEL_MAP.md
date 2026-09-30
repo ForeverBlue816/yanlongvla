@@ -1,5 +1,29 @@
 # π₀.₅ LIBERO model map
 
+## Current deployment accounting — 2026-09-30
+
+Measured hook/action evidence: E011. All new experiments use one seed, overriding the earlier protocol. Both language-output heads are removed; the language embedding remains stored once. Expert head calls = 0, VLM head calls = 0, and all 256 paired single-seed action chunks remain identical at the recorded precision after removal.
+
+| Item | Current value |
+|---|---:|
+| Active original unique weight elements | 3,353,433,872 |
+| Eligible Linear weight elements (all components) | 2,704,306,176 |
+| Eligible expert attention/MLP weight elements | 311,427,072 |
+| Native-dtype payload after removing heads | 6,946,308,960 bytes |
+| Payload after adding row-int8 language embedding | 6,420,690,272 bytes |
+| Int8 embedding codes + FP32 row scales | 527,675,904 bytes |
+| Whole-model bpw with int8 embedding (before VQ) | 15.317291 |
+| Logical tensor reads / action chunk, first frozen observation | 17,434,020,060 bytes |
+
+Storage includes every persistent tensor; container/header bytes are separate. Logical reads count three vision calls, one language pass and ten expert calls, with distinct lookup rows per embedding invocation. They are not DRAM counters and exclude KV/activation/cache effects. Original native FP32 normalization/conditioning and action/time tensors are preserved.
+
+Budget implication, analytically calculated from the measured tensor inventory: retained tensors excluding eligible Linear weights use 1,012,077,920 bytes, a 2.414428 whole-model-bpw floor at the current native dtypes. If every eligible Linear retains at least one 8-bit index per 8 weights, even an ideal one-plane representation needs at least 3.220857 whole-model bpw before codebook/scales/mask overhead. Thus the later 3.0/2.5 whole-model targets need a separately validated retained-tensor or allocation change; they do not follow automatically from int8 embeddings and head removal. This is a budget bound under those explicit assumptions, not a measured quantized-model result. The action-expert-only comparison proceeds first as requested.
+
+## Historical constructor audit (E002; not current deployment denominator)
+
+The following original inventory includes the now-removed expert head. Its old arithmetic tables describe the constructor, and are superseded by the current accounting above for all new results.
+
+
 Pinned openpi: `215abfb217dbac7d5f1273282331b9b1866c0479`. Evidence: E002 in EXPERIMENTS.md.
 
 ## Source configuration
