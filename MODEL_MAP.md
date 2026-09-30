@@ -260,3 +260,5 @@ E032 uniform VQ deployment artifacts:126expertLinears /311427072originalweights,
 E034 allthreeuniformdeploymentsnowpassstrictpolicyreloadandretainedtensoridentity,256heldoutobservations/noise0. LogicalcompressedreadsM3/M2/M1=12,395,449,800/12,001,005,000/11,606,560,200bytes/inference atfixedaccountingobservation; qualityfallbackactuallyuses17,436,048,840logicalparameterbytes and622,854,144bytes densecache(allthree). These are logicaltensormodels, notDRAMmeasurements; no runtimecompressedkernelclaim.
 
 E035/E036 adaptive v2 artifact format stores only deployed conditional subset books, FP16 per-channel affine tensors, codes/row_scale/RHT signs/ten masks. Metadata-inclusive minimum full(c)/(d) is41,030,892bytes =1.0540096398555872expertbpw; original M1 budget is infeasible for those full components. Strict real-layer storage/forward pilot passes; full adaptive policy deployment remains pending.
+
+E038 allreference(a)screeningcomplete: M3/M2/M1=193/191/193 of200, allpass. No user-definedsuccessknee found. M1actualexpert1.030335/whole13.927086; fullmodel remains mostlynative precision. Adaptiveformat/implementationverified, but noadaptivepolicyexperiment yet.

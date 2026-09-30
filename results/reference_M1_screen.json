@@ -1,0 +1,81 @@
+{
+  "status": "complete_single_reference",
+  "row": {
+    "variant": "a_M1",
+    "nominal_index_bpw": 1,
+    "expert_quantizable_linear_bpw": 1.0303353974313447,
+    "all_quantizable_linear_bpw": 14.276098003482872,
+    "whole_model_bpw": 13.92708642623265,
+    "reads": {
+      "logical_compressed_decoder_bytes_per_inference": 11606560200,
+      "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+      "dense_cache_bytes": 622854144,
+      "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+    },
+    "absolute_mse": 0.002316354316960104,
+    "relative_mse": 0.01067681545496013,
+    "compact_relative_mse": 0.010621126988158982,
+    "d3b_prediction_before_screening": {
+      "source_sha256": "002fe69bed0ad777653bffb306af6ade670efc5d91a4621de8f035ae38b03337",
+      "rule": "Gaussian-noise MSE transfer, recorded before this variant screening; confirmed only by actual screening",
+      "first_failed_mse": 0.003672679735475301,
+      "previous_measured_mse": 0.0005751541783343518,
+      "predicted_gate": "fail",
+      "success_curve_monotone": false
+    },
+    "screen": {
+      "status": "complete",
+      "completed": 200,
+      "expected": 200,
+      "missing": 0,
+      "success_percent": 96.5,
+      "successes": 193,
+      "suites": {
+        "libero_spatial": {
+          "successes": 98,
+          "episodes": 100,
+          "success_percent": 98.0
+        },
+        "libero_10": {
+          "successes": 95,
+          "episodes": 100,
+          "success_percent": 95.0
+        }
+      }
+    },
+    "checkpoint_sha256": "ea5b1730f5291db1ae6d531bdcb76e41b70bf60437b55c326315e94a4f599ec2"
+  },
+  "original_fp_successes": 193,
+  "episodes": 200,
+  "pass_fp_minus_1p5": true,
+  "source_sha256": {
+    "/projects/yanlongvla/runs/method/a_M1/offline/result.json": "318fe3bc52524024516934154ed34115f57a9a8d44f4b46b725351b8a61b6232",
+    "/projects/yanlongvla/models/hd_srvq_a_M1/vq.json": "d352bac4b02b6139de1fc09f37db1824dbf5ef47a9fafb0cfe2be35ca7d0ffda",
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/method/a_M1/offline/actions.npy": "b0fbd3dfa5da9556f44917392760a4bc24b189cd9edaa52e14be22758efce5b3",
+    "/projects/yanlongvla/runs/method/a_M1/screen/worker0_manifest.json": "43e5b6e31b51326e8ccd0ce8952f1eb429be1e0256445bc0972326448abdbbb8",
+    "/projects/yanlongvla/runs/method/a_M1/screen/worker1_manifest.json": "4f464ac5c05a775c39e1eac4717180bc13eb6da02e3e5ff85f94dfe53bf6b4f7",
+    "/projects/yanlongvla/runs/method/a_M1/screen/worker2_manifest.json": "44a92a6b414f149fde38509f823e55a3879bfdb5fce6c0559400b33c3b528bf0",
+    "/projects/yanlongvla/runs/method/a_M1/screen/worker3_manifest.json": "5ecf9253f66fccd21638086720033796a6e69017657ab8d8ba11ffcdcccd330b",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task0_seed7.jsonl": "999e035ad8ee5b92dc9994498d08216dae7a2696effff1403d4ee3defab8beef",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task1_seed7.jsonl": "f1567094c08f43b474818df0ccf7cf77f22dac1d3a4cc8cf82c2859fff632f05",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task2_seed7.jsonl": "86d933481d49cae5cfbac0ebac4f7aef69af8bf6245901d04f3a986809e923ed",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task3_seed7.jsonl": "7e6c1859611a4d2ca53d65e748eaf81e07485c9af2eea425f75cc3718bfb14f5",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task4_seed7.jsonl": "b38c9d85decef54da3209707dd11a23f33c1abc00d406a11c9e41db6f7af4f3f",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task5_seed7.jsonl": "7180b0ce48f51a0322242ba410c48a06fb5a9b9d04eba2d790bc4206ad6dfb14",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task6_seed7.jsonl": "0364876602eaa04db9cfbdd2a0978ef5e0db65b7687b1effc4416d2aed4ab753",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task7_seed7.jsonl": "ce91de830d87406d2c3bbb9374d19da2137a4061ad1671fadce67167505fda9c",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task8_seed7.jsonl": "853801ed296badbcd2d38f4f3b0606072d717d88ec1a01bc1e07e718e21e2d01",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_10_task9_seed7.jsonl": "b4091d40d2804b4490061ef78c4fa3b2ccb4226533948458f9090ff3f2293366",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task0_seed7.jsonl": "edfe27dccf2f2b6055931e4156a664e5228c3c94a9a2c1df7fd2d8ce1e6d902b",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task1_seed7.jsonl": "b3afb8c0e96274d42e56f52b4baaeb99be3cfa1a8d4406cb0888fbd82867158a",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task2_seed7.jsonl": "90e3fb171bd24aebf944a0c33995ff9ae777c7aeffc2d36ef2bea81b439bfca1",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task3_seed7.jsonl": "3d8bf050ae3df33be4b89db01cbce196827debcc9f854de2ba9627d2a6f695e3",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task4_seed7.jsonl": "d1acb207e8b9709b037ed8958b1bc92a4a8cd3be73b4a2e5fa745c204c9df434",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task5_seed7.jsonl": "30b99e81c81a33cdb6b1df0567a08483dad64a745733549d459302342358c42f",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task6_seed7.jsonl": "80e326779d2180d420f67b978a0580ee1378de7d826a9a1a8ec70adaf8f538fc",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task7_seed7.jsonl": "17c2d2b2ededc452e033bdb71426a32c8b39107f9ba6ae3f33833ed4753ad765",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task8_seed7.jsonl": "e5bd18d413a1a7a0fcdd3492bc22e84ea5ad303b080fcfc007a3da1a4153164f",
+    "/projects/yanlongvla/runs/method/a_M1/screen/libero_spatial_task9_seed7.jsonl": "35807fc4c8107e6a868e2e8324c28a5722c5589684593ac47ca04438959eed40"
+  }
+}
