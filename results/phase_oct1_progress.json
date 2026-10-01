@@ -1,0 +1,122 @@
+{
+  "timestamp_utc": "2026-10-01T05:59:33.564275+00:00",
+  "scope": "Progress only: no partial success estimate or new policy-quality result",
+  "P1": {
+    "a_M1": {
+      "completed_episode_rows": 903,
+      "total_required": 2000,
+      "reused_screening": 200,
+      "new_completed": 703,
+      "per_suite_completed": {
+        "libero_10": 100,
+        "libero_spatial": 340,
+        "libero_object": 200,
+        "libero_goal": 263
+      },
+      "status": "in_progress"
+    },
+    "a_M2": {
+      "completed_episode_rows": 200,
+      "total_required": 2000,
+      "reused_screening": 200,
+      "new_completed": 0,
+      "per_suite_completed": {
+        "libero_10": 100,
+        "libero_spatial": 100
+      },
+      "status": "in_progress"
+    }
+  },
+  "P2": {
+    "calibration": "complete_256_observations_288_layers",
+    "layer_fitting": {
+      "M3": {
+        "completed_layers": 199,
+        "total_required": 288,
+        "by_worker": {
+          "3": 50,
+          "1": 50,
+          "0": 49,
+          "2": 50
+        },
+        "status": "fitting_in_progress"
+      },
+      "M2": {
+        "completed_layers": 199,
+        "total_required": 288,
+        "by_worker": {
+          "3": 50,
+          "1": 50,
+          "0": 49,
+          "2": 50
+        },
+        "status": "fitting_in_progress"
+      }
+    },
+    "recipe_sha256": "6e9f152f6bfbc879cf6349730b2d4dee5040e7cadd9cfffca3f14a41624ed813"
+  },
+  "P3": "offline_and_paired_screen_queued_no_results",
+  "P4": "uniform_export_offline_screen_pipeline_prepared_no_GPU_jobs_yet",
+  "jobs": [
+    {
+      "job": "178972",
+      "state": "PENDING",
+      "name": "vla-backbone-offline",
+      "node_or_reason": "(Dependency)"
+    },
+    {
+      "job": "178999",
+      "state": "PENDING",
+      "name": "vla-p1-full-single",
+      "node_or_reason": "(Priority)"
+    },
+    {
+      "job": "179000",
+      "state": "PENDING",
+      "name": "vla-p1-full-single",
+      "node_or_reason": "(Priority)"
+    },
+    {
+      "job": "179057",
+      "state": "PENDING",
+      "name": "vla-backbone-fit-single",
+      "node_or_reason": "(Priority)"
+    },
+    {
+      "job": "178974",
+      "state": "PENDING",
+      "name": "vla-reserved-validation",
+      "node_or_reason": "(Dependency)"
+    },
+    {
+      "job": "178967",
+      "state": "PENDING",
+      "name": "vla-p1-full-summary",
+      "node_or_reason": "(Dependency)"
+    },
+    {
+      "job": "178966",
+      "state": "PENDING",
+      "name": "vla-backbone-export",
+      "node_or_reason": "(Dependency)"
+    },
+    {
+      "job": "178947",
+      "state": "RUNNING",
+      "name": "vla-p1-full-2gpu",
+      "node_or_reason": "gpu-l40-1"
+    },
+    {
+      "job": "179056",
+      "state": "RUNNING",
+      "name": "vla-backbone-fit-single",
+      "node_or_reason": "gpu-a6000-1"
+    },
+    {
+      "job": "179014",
+      "state": "RUNNING",
+      "name": "vla-backbone-fit",
+      "node_or_reason": "gpu-5090-2"
+    }
+  ]
+}
