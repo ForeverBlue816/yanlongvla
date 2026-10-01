@@ -1,0 +1,61 @@
+{
+  "timestamp_utc": "2026-10-01T16:30:19.628294+00:00",
+  "status": "storage_accounted_quality_pending",
+  "classification": "Independent safetensors header, shapes, dtypes, contiguous offsets and file-length validation; GPU strict reload/MSE/rollouts pending. Native biases are reserved, not quantized Linear weights.",
+  "rows": [
+    {
+      "variant": "bb_M3_ae_M2_fp32",
+      "status": "header_accounted_quality_pending",
+      "tensor_payload_bytes": 1525378532,
+      "checkpoint_file_bytes": 1525766428,
+      "expert_payload_bytes": 79553772,
+      "expert_quantizable_linear_bpw": 2.0435929731889204,
+      "backbone_quantizable_linear_bpw": 3.0210283118423686,
+      "all_quantizable_linear_bpw": 2.9084671572336047,
+      "whole_model_bpw": 3.6389649302140765,
+      "reserved_bytes_excluding_quantized_backbone_and_expert": 542205320,
+      "native_backbone_bias_bytes_in_reserved": 543456,
+      "checkpoint_sha256_from_export": "2b3e8058dc24db788b8f62611a83c64aaf87c790e6efa78bd95df249e8d51b1d",
+      "tables": "float32",
+      "embedding": "int8_absmax_row",
+      "heldout_mse": null,
+      "bytes_read_per_inference": null
+    },
+    {
+      "variant": "bb_M2_ae_M2_fp32",
+      "status": "header_accounted_quality_pending",
+      "tensor_payload_bytes": 1225088996,
+      "checkpoint_file_bytes": 1225476780,
+      "expert_payload_bytes": 79553772,
+      "expert_quantizable_linear_bpw": 2.0435929731889204,
+      "backbone_quantizable_linear_bpw": 2.017084450247262,
+      "all_quantizable_linear_bpw": 2.0201371636404533,
+      "whole_model_bpw": 2.9225899010064036,
+      "reserved_bytes_excluding_quantized_backbone_and_expert": 542205320,
+      "native_backbone_bias_bytes_in_reserved": 543456,
+      "checkpoint_sha256_from_export": "a4cfd235e2bcde4ea2199b721c2d3dcb7d6c98ce05d3c579b432736341c83201",
+      "tables": "float32",
+      "embedding": "int8_absmax_row",
+      "heldout_mse": null,
+      "bytes_read_per_inference": null
+    },
+    {
+      "variant": "evening_b_star_M2",
+      "status": "header_accounted_quality_pending",
+      "tensor_payload_bytes": 5877389900,
+      "checkpoint_file_bytes": 5877598084,
+      "expert_payload_bytes": 79553772,
+      "expert_quantizable_linear_bpw": 2.0435929731889204,
+      "backbone_quantizable_linear_bpw": null,
+      "all_quantizable_linear_bpw": 14.392784435958777,
+      "whole_model_bpw": 14.021185744139224,
+      "reserved_bytes_excluding_quantized_backbone_and_expert": null,
+      "native_backbone_bias_bytes_in_reserved": 0,
+      "checkpoint_sha256_from_export": "8c2120add521d9656faee42c2bed81d8fb5f2c2f0e045626ea1f6838c2716e04",
+      "tables": "native conditioning for BF16-backbone isolation",
+      "embedding": "int8_absmax_row",
+      "heldout_mse": null,
+      "bytes_read_per_inference": null
+    }
+  ]
+}

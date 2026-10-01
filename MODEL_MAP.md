@@ -1,5 +1,10 @@
 # Evening deployment update — E053
 
+## Evening composition storage audit — 2026-10-02
+
+Independent safetensors-header validation confirms backbone M3/M2 + expert M2 + FP32 AdaRMS tables + int8 embedding payloads of1,525,378,532/1,225,088,996bytes. Actual all-Linear bpw2.908467/2.020137; whole-model3.638965/2.922590. Both have542,205,320reserved bytes, including543,456native backbone bias bytes; biases remain excluded from quantizable-Linear numerators. ExpertM2 actual2.043593bpw. These are assembled storage measurements; combined-policy accuracy is still pending. [Accounting](results/evening_checkpoint_accounting.json).
+
+
 Deployment now composes backbone M3/M2 with expert M2, int8 embedding and validated FP32 AdaRMS tables. The denominator remains the original active weights; all tables, scales and masks count. Expert-M2 default is conditional on full validation. The group64 packed-int4 candidate costs 4.25 embedding bpw including FP16 scales; it is not the failed per-row int4 candidate. Current c/d affine read overhead exceeds the requested 1.1× M1 expert budget; see `results/evening_preflight.json`. New assembled payloads are independently header-validated: M3-backbone/M2-expert 1,525,378,532 bytes (3.6389649302 whole-model bpw); M2-backbone/M2-expert 1,225,088,996 bytes (2.9225899010 bpw). Quality is still pending. See `results/evening_deployment_exports.json`.
 
 # π₀.₅ LIBERO model map

@@ -8,9 +8,18 @@
 
 解析预核算（不是新效果实测）：M1 expert 401,081,580 bytes/inference；b* 440,526,060，1.098345×；当前 c/d 显式 affine 读取 449,742,060，1.121323×，超过1.1×目标。固定两码平面不等于元数据字节完全相等，报告将列出实际存储差额。此消融尚无新 MSE 或成功率结论。[核算结果](results/evening_preflight.json)。
 
-Home 清理仅删除超过7天的 pip 下载/轮子缓存753项，4,704,449,360字节；环境、实验、日志、检查点保留。本地删除清单已保存。
+Home 清理已完成：删除超过7天的旧pip下载/轮子缓存及可再生成的Triton/CUDA编译缓存，合计33,705个文件、**7,560,856,033bytes（约7.56GB）**。环境、源码、实验输出、日志、数据集及检查点保留；本地逐文件清单已保存。[清理汇总](results/home_cleanup_20261002.json)。
 
 两个新组合已完成组装并独立从 safetensors 字节偏移核算：backboneM3+expertM2+FP32表+int8 为 **1,525,378,532 bytes / 3.638965 whole-model bpw**；backboneM2 对应 **1,225,088,996 bytes / 2.922590 bpw**。原始参数分母保留，37处表均为FP32，已删除原time/AdaRMS矩阵。这里只确认序列化存储，离线MSE和成功率均待测。[新组合核算](results/evening_deployment_exports.json)。控制作业179687已提交初始离线验证179695，c/d两组拟合179688/179689正在运行或排队。
+
+两种新部署组合已完成组装与独立文件头核算，下面是**实际存储**，动作精度和 LIBERO 尚待验证。两档 expert 都为2.043593实际bpw，保留张量均为542,205,320bytes（含原生bias），FP32表与int8已计入：
+
+| 组合 | 骨干 Linear bpw | 全部 Linear bpw | whole-model bpw | 张量payload bytes | bytes/inference | 新动作MSE / medium成功率 |
+|---|---:|---:|---:|---:|---|---|
+| backbone M3 + expert M2 + FP32表 | 3.021028 | 2.908467 | 3.638965 | 1,525,378,532 | 待离线实测核算 | 待测 |
+| backbone M2 + expert M2 + FP32表 | 2.017084 | 2.020137 | 2.922590 | 1,225,088,996 | 待离线实测核算 | 待测 |
+
+[独立存储核算](results/evening_checkpoint_accounting.json)。b*的BF16骨干隔离配置也已组装，expert实际存储与uniform M2完全相同；c/d元数据额外开销仍按上面的预核算单列。这些结果不能替代组合的严格GPU重载、held-out MSE和medium评估。
 
 ## 以下为已完成结果及历史进度快照
 
