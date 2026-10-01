@@ -1,0 +1,94 @@
+{
+  "status": "complete_calibration",
+  "observations": 256,
+  "noise_seed": 0,
+  "expert_variant": "a_M1",
+  "quantizable_backbone_layers": 288,
+  "backbone_weight_elements": 2392879104,
+  "canonical_input_moments": 180,
+  "components": {
+    "SigLIP": {
+      "layers": 162,
+      "groups": 51383808,
+      "nonzero_groups": 48480048
+    },
+    "Gemma": {
+      "layers": 126,
+      "groups": 247726080,
+      "nonzero_groups": 234094592
+    }
+  },
+  "zero_fisher_layers": [
+    {
+      "layer": "paligemma_with_expert.paligemma.model.language_model.layers.17.self_attn.q_proj",
+      "forward_calls": 257,
+      "backward_calls": 0
+    },
+    {
+      "layer": "paligemma_with_expert.paligemma.model.language_model.layers.17.mlp.gate_proj",
+      "forward_calls": 257,
+      "backward_calls": 0
+    },
+    {
+      "layer": "paligemma_with_expert.paligemma.model.language_model.layers.17.mlp.up_proj",
+      "forward_calls": 257,
+      "backward_calls": 0
+    },
+    {
+      "layer": "paligemma_with_expert.paligemma.model.language_model.layers.17.self_attn.o_proj",
+      "forward_calls": 257,
+      "backward_calls": 0
+    },
+    {
+      "layer": "paligemma_with_expert.paligemma.model.language_model.layers.17.mlp.down_proj",
+      "forward_calls": 257,
+      "backward_calls": 0
+    }
+  ],
+  "worker_checks": [
+    {
+      "worker": 0,
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "torch": "2.7.1+cu128",
+      "cuda": "12.8",
+      "validation": [
+        {
+          "kind": "differentiable_unroll_vs_same_device_M1",
+          "max_abs": 0.0,
+          "scope": "calibration implementation check, not policy quality evaluation"
+        },
+        {
+          "kind": "same_probe_prefix_gradient_repeat",
+          "max_absolute": 0.0,
+          "exact": true
+        }
+      ],
+      "elapsed_seconds": 2833.983258193999
+    },
+    {
+      "worker": 1,
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "torch": "2.7.1+cu128",
+      "cuda": "12.8",
+      "validation": [
+        {
+          "kind": "differentiable_unroll_vs_same_device_M1",
+          "max_abs": 0.0,
+          "scope": "calibration implementation check, not policy quality evaluation"
+        },
+        {
+          "kind": "same_probe_prefix_gradient_repeat",
+          "max_absolute": 0.0,
+          "exact": true
+        }
+      ],
+      "elapsed_seconds": 2819.4316460769624
+    }
+  ],
+  "metric": "mean_observation sum_prefix_module_calls ||RHT(per_call d(executed physical action Rademacher projection)/dW)_group8||^2; full ten-step flow gradient through prefix KV; zero-gradient unused prefix output branches retained and reported",
+  "interpretation": "Finite differentiable prefix-KV action-Fisher signals with exact same-device forward/repeat checks. Zero-sensitivity final-prefix output branches are retained and separately Hessian-weighted. This is calibration evidence, not a quantized-policy quality result.",
+  "source_sha256": {
+    "/projects/yanlongvla/runs/backbone/calibration/worker0_complete.json": "70604d3601f88096fa0d5454df122aa0c221b5af18885bfc6c97b47a23606d91",
+    "/projects/yanlongvla/runs/backbone/calibration/worker1_complete.json": "37b5d7120312636d7339cbec06e7fc8010af043cc625144dcaf12782b5a03392"
+  }
+}
