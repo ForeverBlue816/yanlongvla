@@ -1,0 +1,42 @@
+{
+  "status": "assembled_not_quality_validated",
+  "timestamp_utc": "2026-10-01T16:27:44.603156+00:00",
+  "rows": [
+    {
+      "variant": "bb_M3_ae_M2_fp32",
+      "checkpoint_sha256": "2b3e8058dc24db788b8f62611a83c64aaf87c790e6efa78bd95df249e8d51b1d",
+      "tensor_payload_bytes": 1525378532,
+      "whole_model_bpw": 3.6389649302140765,
+      "expert_quantizable_linear_bpw": 2.0435929731889204,
+      "backbone_quantizable_linear_bpw": 3.0210283118423686,
+      "table_dtype": "float32",
+      "active_original_elements": 3353433872,
+      "status": "assembled_header_accounting_validated",
+      "heldout_MSE": "pending",
+      "screening": "pending",
+      "medium_success": "pending",
+      "independent_header_payload_bytes": 1525378532,
+      "conditioning_sites": 37,
+      "embedding": "int8"
+    },
+    {
+      "variant": "bb_M2_ae_M2_fp32",
+      "checkpoint_sha256": "a4cfd235e2bcde4ea2199b721c2d3dcb7d6c98ce05d3c579b432736341c83201",
+      "tensor_payload_bytes": 1225088996,
+      "whole_model_bpw": 2.9225899010064036,
+      "expert_quantizable_linear_bpw": 2.0435929731889204,
+      "backbone_quantizable_linear_bpw": 2.017084450247262,
+      "table_dtype": "float32",
+      "active_original_elements": 3353433872,
+      "status": "assembled_header_accounting_validated",
+      "heldout_MSE": "pending",
+      "screening": "pending",
+      "medium_success": "pending",
+      "independent_header_payload_bytes": 1225088996,
+      "conditioning_sites": 37,
+      "embedding": "int8"
+    }
+  ],
+  "source_revision": "f82aeae",
+  "scope": "Serialized payload independently recomputed from safetensors byte offsets; no accuracy or deployment-default claim"
+}
