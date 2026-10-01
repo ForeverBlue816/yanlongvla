@@ -1,0 +1,18 @@
+{
+  "status": "analytical_preflight",
+  "authority": "ADDENDUM_2026-10-01_EVENING.md",
+  "classification": "analytical tensor reads; no rollout or DRAM measurement",
+  "expert_M1_payload_bytes": 40109292,
+  "expert_M2_payload_bytes": 79553772,
+  "expert_M1_read_bytes": 401081580,
+  "b_star_read_bytes": 440526060,
+  "b_star_read_ratio": 1.0983452792820851,
+  "c_explicit_affine_read_bytes": 449742060,
+  "c_explicit_affine_read_ratio": 1.1213231482732267,
+  "c_read_target_feasible_with_current_representation": false,
+  "read_target_ratio": 1.1,
+  "c_minimum_payload_bytes": 81913068,
+  "group64_embedding_actual_bpw": 4.25,
+  "note": "c/d use identical read depths; swaps do not alter total plane reads. d storage depends on distinct used subsets. No metadata excluded.",
+  "c_minimum_stored_overhead_bytes": 2359296
+}

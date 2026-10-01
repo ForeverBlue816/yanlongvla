@@ -1,3 +1,7 @@
+# Evening deployment update — E053
+
+Deployment now composes backbone M3/M2 with expert M2, int8 embedding and validated FP32 AdaRMS tables. The denominator remains the original active weights; all tables, scales and masks count. Expert-M2 default is conditional on full validation. The group64 packed-int4 candidate costs 4.25 embedding bpw including FP16 scales; it is not the failed per-row int4 candidate. Current c/d affine read overhead exceeds the requested 1.1× M1 expert budget; see `results/evening_preflight.json`. New assembled-payload and quality results remain pending.
+
 # π₀.₅ LIBERO model map
 
 ## Current deployment accounting — 2026-10-01
