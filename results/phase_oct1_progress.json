@@ -1,28 +1,30 @@
 {
-  "timestamp_utc": "2026-10-01T05:59:33.564275+00:00",
+  "timestamp_utc": "2026-10-01T07:26:02.748220+00:00",
+  "timestamp_singapore": "2026-10-01T15:26:02.748220+08:00",
   "scope": "Progress only: no partial success estimate or new policy-quality result",
   "P1": {
     "a_M1": {
-      "completed_episode_rows": 903,
+      "completed_episode_rows": 1100,
       "total_required": 2000,
       "reused_screening": 200,
-      "new_completed": 703,
+      "new_completed": 900,
       "per_suite_completed": {
-        "libero_10": 100,
+        "libero_10": 260,
         "libero_spatial": 340,
         "libero_object": 200,
-        "libero_goal": 263
+        "libero_goal": 300
       },
       "status": "in_progress"
     },
     "a_M2": {
-      "completed_episode_rows": 200,
+      "completed_episode_rows": 509,
       "total_required": 2000,
       "reused_screening": 200,
-      "new_completed": 0,
+      "new_completed": 309,
       "per_suite_completed": {
         "libero_10": 100,
-        "libero_spatial": 100
+        "libero_spatial": 300,
+        "libero_object": 109
       },
       "status": "in_progress"
     }
@@ -31,44 +33,47 @@
     "calibration": "complete_256_observations_288_layers",
     "layer_fitting": {
       "M3": {
-        "completed_layers": 199,
+        "completed_layers": 255,
         "total_required": 288,
         "by_worker": {
-          "3": 50,
-          "1": 50,
-          "0": 49,
-          "2": 50
+          "3": 72,
+          "1": 55,
+          "0": 56,
+          "2": 72
         },
         "status": "fitting_in_progress"
       },
       "M2": {
-        "completed_layers": 199,
+        "completed_layers": 254,
         "total_required": 288,
         "by_worker": {
-          "3": 50,
-          "1": 50,
-          "0": 49,
-          "2": 50
+          "3": 72,
+          "1": 54,
+          "0": 56,
+          "2": 72
         },
         "status": "fitting_in_progress"
       }
     },
-    "recipe_sha256": "6e9f152f6bfbc879cf6349730b2d4dee5040e7cadd9cfffca3f14a41624ed813"
+    "recipe_sha256": "6e9f152f6bfbc879cf6349730b2d4dee5040e7cadd9cfffca3f14a41624ed813",
+    "completed_shards": [
+      2,
+      3
+    ],
+    "resumed_shards": [
+      0,
+      1
+    ]
   },
   "P3": "offline_and_paired_screen_queued_no_results",
-  "P4": "uniform_export_offline_screen_pipeline_prepared_no_GPU_jobs_yet",
+  "P4": "uniform_pipeline_prepared_no_GPU_jobs_yet",
+  "P5": "single_seed_paper_draft_completed_pending_P1",
   "jobs": [
-    {
-      "job": "178972",
-      "state": "PENDING",
-      "name": "vla-backbone-offline",
-      "node_or_reason": "(Dependency)"
-    },
     {
       "job": "178999",
       "state": "PENDING",
       "name": "vla-p1-full-single",
-      "node_or_reason": "(Priority)"
+      "node_or_reason": "(Resources)"
     },
     {
       "job": "179000",
@@ -77,10 +82,16 @@
       "node_or_reason": "(Priority)"
     },
     {
-      "job": "179057",
+      "job": "178972",
       "state": "PENDING",
-      "name": "vla-backbone-fit-single",
-      "node_or_reason": "(Priority)"
+      "name": "vla-backbone-offline",
+      "node_or_reason": "(Dependency)"
+    },
+    {
+      "job": "179131",
+      "state": "PENDING",
+      "name": "vla-backbone-pipeline",
+      "node_or_reason": "(Dependency)"
     },
     {
       "job": "178974",
@@ -107,16 +118,10 @@
       "node_or_reason": "gpu-l40-1"
     },
     {
-      "job": "179056",
-      "state": "RUNNING",
-      "name": "vla-backbone-fit-single",
-      "node_or_reason": "gpu-a6000-1"
-    },
-    {
       "job": "179014",
       "state": "RUNNING",
       "name": "vla-backbone-fit",
-      "node_or_reason": "gpu-5090-2"
+      "node_or_reason": "gpu-5090-5"
     }
   ]
 }

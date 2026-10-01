@@ -514,3 +514,9 @@ At05:46UTC the cluster preempted P2 job178961, after its workers2/3 each complet
 Snapshot 2026-10-01T05:59:33.564275+00:00: M1903/2000 including200 reused; M2200/2000. M3/M2 fitted layer totals 199/199, each target288. Recipe still 6e9f152f6bfbc879cf6349730b2d4dee5040e7cadd9cfffca3f14a41624ed813. No newly completed scientific quality conclusion.
 
 E044 live follow-up:179056 has actually started on a single A6000, reused all50 prior layers per depth and reached the next real fit(index202). Current actual resources: twoRTX5090 plus oneA6000 for fitting, twoL40S for M1; remainingworker3RTX5090 and extraP1L40S stillqueued.
+
+## E045 — 2026-10-01 15:26（新加坡时间）: live progress and recovered fitting allocation
+
+P1 M1=1100/2000 and M2=509/2000, each includes200validated reused screen episodes. Logicalworkers0/1 finished their M1 assignments and moved to M2; workers2/3 stillqueued, so neither full policy result exists. Do not derive a final success estimate from partial data.
+
+P2 workers2/3 jobs179056/179057 verifiedCOMPLETED0:0; both produced72/72layers for eachdepth. Overall M3/M2 savedlayers=255/254 of288each. Remaining pair179014 had Restarts=2 and wasqueued at firstcheck. Proposed splitting onlywhilePENDING was guarded; the second check found it alreadyRUNNING since07:24:12UTC, so neither cancellation nor replacement occurred. Logs confirm exact savedlayer reuse and fitting resumed at missingM2layer216/217. Dispatcher successfully restored as179131, afteroffline178972; no duplicate dispatcher. ActiveGPUs2L40S(policy)+2RTX5090(fitting). P3/P4 stillnotmeasured; P5draftalreadywritten. Same frozenfitrecipe6e9f152f6bfbc879cf6349730b2d4dee5040e7cadd9cfffca3f14a41624ed813; no source/protocol/test changes in this status turn.
