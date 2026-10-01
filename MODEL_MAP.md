@@ -17,7 +17,7 @@ Measured hook/action evidence: E011. All new experiments use one seed, overridin
 
 Storage includes every persistent tensor; container/header bytes are separate. Logical reads count three vision calls, one language pass and ten expert calls, with distinct lookup rows per embedding invocation. They are not DRAM counters and exclude KV/activation/cache effects. Original native FP32 normalization/conditioning and action/time tensors are preserved.
 
-Budget implication, analytically calculated from the measured tensor inventory: retained tensors excluding eligible Linear weights use 1,012,077,920 bytes, a 2.414428 whole-model-bpw floor at the current native dtypes. If every eligible Linear retains at least one 8-bit index per 8 weights, even an ideal one-plane representation needs at least 3.220857 whole-model bpw before codebook/scales/mask overhead. Thus the later 3.0/2.5 whole-model targets need a separately validated retained-tensor or allocation change; they do not follow automatically from int8 embeddings and head removal. This is a budget bound under those explicit assumptions, not a measured quantized-model result. The 2026-10-01 phase now starts backbone quantization concurrently with full expert validation and authorizes fixed-timestep AdaRMS folding plus validated int4 embeddings; revised deployed floors remain pending.
+Budget implication, analytically calculated from the measured tensor inventory: retained tensors excluding eligible Linear weights use 1,012,077,920 bytes, a 2.414428 whole-model-bpw floor at the current native dtypes. If every eligible Linear retains at least one 8-bit index per 8 weights, even an ideal one-plane representation needs at least 3.220857 whole-model bpw before codebook/scales/mask overhead. Thus the later 3.0/2.5 whole-model targets need a separately validated retained-tensor or allocation change; they do not follow automatically from int8 embeddings and head removal. This is a budget bound under those explicit assumptions, not a measured quantized-model result. The 2026-10-01 phase now starts backbone quantization concurrently with full expert validation and authorizes fixed-timestep AdaRMS folding plus validated int4 embeddings; independent P3 deployment floors and action validation are now measured below; these changes are not yet composed into P2 artifacts.
 
 ## Exported backbone RVQ artifacts — 2026-10-01 (offline validated; LIBERO pending)
 
@@ -28,7 +28,18 @@ All288backboneLinear layers fitted at M3 and M2, with the validated uniformM1 ex
 | M3 | 3.021028 | 2.791781 | 4.665800 | 1,955,806,652 |
 | M2 | 2.017084 | 1.903451 | 3.949425 | 1,655,517,116 |
 
-Both retain1,012,077,920bytes outside eligibleLinear representations, including native conditioning and int8embedding. P3folding/int4gates pending. Expertpayload40,109,292bytes (1.030335bpw) unchanged. Denominator3,353,433,872originalactiveelements unchanged. Dense quality-runtime caches excluded fromcheckpoint bytes and tobe reported separately; compresseddecoder logicalreads M3=6,394,054,428 andM2=5,989,670,172bytes/inference; currentdensefallback reads17,437,380,732bytes plus5,408,612,352bytes densecache. No measuredDRAM/kernelclaim. [Full storage aggregate](results/backbone_checkpoint_accounting.json).
+Both retain1,012,077,920bytes outside eligibleLinear representations, including native conditioning and int8embedding. P3 is independently validated below; these P2 artifacts still use the original retained layout. Expertpayload40,109,292bytes (1.030335bpw) unchanged. Denominator3,353,433,872originalactiveelements unchanged. Dense quality-runtime caches excluded fromcheckpoint bytes and tobe reported separately; compresseddecoder logicalreads M3=6,394,054,428 andM2=5,989,670,172bytes/inference; currentdensefallback reads17,437,380,732bytes plus5,408,612,352bytes densecache. No measuredDRAM/kernelclaim. [Full storage aggregate](results/backbone_checkpoint_accounting.json).
+
+## P3 measured reserved-tensor deployment — 2026-10-01
+
+On all256calibrationobservations, fixed-ten-step FP32 tables preserve native full10x7 actions bit-identically (maxabs0). FP16 tables fail the1e-6 gate (maxabs.0813788513). Selected FP32 tables+schedule occupy4,546,600bytes, replacing474,419,200bytes of39matrices+theirbiases. Original active-element denominator remains3,353,433,872.
+
+| Embedding with exact FP32 tables | Reserved bytes | Reserved-only whole-model bpw floor | Offline relative action MSE | Decision |
+|---|---:|---:|---:|---|
+| int8 row absmax | 542,205,320 | 1.293493 | 1.99510e-5 | Keep int8 |
+| int4, FP16 row scale | 278,367,368 | 0.664077 | 0.03763057 | Reject: offline gate fails |
+
+Both artifacts strictly reload and repeat native/canonical actions exactly. Int4 paired200episode screening is still pending, but cannot reverse the failed offline prerequisite. These are native-Linear P3 artifacts, not composed backbone RVQ results. Quantized-Linear bytes must be added to the listed floors; .664077 is a rejected candidate floor. [Complete measured aggregate](results/reserved_offline.json).
 
 ## Historical constructor audit (E002; not current deployment denominator)
 

@@ -1,18 +1,18 @@
 {
-  "timestamp_utc": "2026-10-01T11:16:22.627628+00:00",
-  "timestamp_singapore": "2026-10-01T19:16:22.627628+08:00",
-  "scope": "Complete backbonefit/export/offline action measurements; incompleteP1andP2screen",
+  "timestamp_utc": "2026-10-01T11:27:31.258235+00:00",
+  "timestamp_singapore": "2026-10-01T19:27:31.258235+08:00",
+  "scope": "P2 offline and P3 independent offline validation complete; P1 full and P2/P3 screenings incomplete",
   "P1": {
     "a_M1": {
-      "completed_episode_rows": 1813,
+      "completed_episode_rows": 1847,
       "total_required": 2000,
       "reused_screening": 200,
-      "new_completed": 1613,
+      "new_completed": 1647,
       "per_suite_completed": {
-        "libero_10": 313,
-        "libero_spatial": 500,
+        "libero_10": 347,
+        "libero_goal": 500,
         "libero_object": 500,
-        "libero_goal": 500
+        "libero_spatial": 500
       },
       "status": "in_progress"
     },
@@ -23,9 +23,9 @@
       "new_completed": 900,
       "per_suite_completed": {
         "libero_10": 300,
-        "libero_spatial": 300,
+        "libero_goal": 250,
         "libero_object": 250,
-        "libero_goal": 250
+        "libero_spatial": 300
       },
       "status": "in_progress"
     }
@@ -47,20 +47,32 @@
     "exports": "M3_and_M2_complete",
     "rht_relative_mse": 2.011595740639109e-06,
     "offline": "complete_256heldout40trajectories_M3andM2",
-    "quality_validation": "M3screen_queued",
+    "quality_validation": "M3screen_running_pair01_second_pair_queued",
     "relative_action_mse": {
       "bb_M3_ae_M1": 0.017078292602001867,
       "bb_M2_ae_M1": 0.043004072610800054
     }
   },
-  "P3": "running_256observation_fold_and_embedding_validation",
+  "P3": {
+    "offline": "complete_256calibration_observations",
+    "selected_table_dtype": "float32",
+    "fold_max_absolute_action_difference": 0.0,
+    "fp16_table_gate_passed": false,
+    "embedding": "keep_int8",
+    "int4_offline_relative_mse": 0.03763056753889389,
+    "int4_offline_gate_passed": false,
+    "int8_reserved_bytes": 542205320,
+    "int8_reserved_only_whole_model_bpw_floor": 1.2934927974032224,
+    "paired_int4_screening": "queued_179385",
+    "scope": "native backbone, separate from P2 quantized artifacts"
+  },
   "P4": "uniform_pipeline_prepared_no_GPU_jobs_yet",
   "P5": "single_seed_paper_draft_completed_pending_P1",
   "jobs": [
     {
-      "job": "179375",
+      "job": "179385",
       "state": "PENDING",
-      "name": "vla-backbone-screen",
+      "name": "vla-reserved-screen",
       "node_or_reason": "(Priority)"
     },
     {
@@ -94,9 +106,9 @@
       "node_or_reason": "gpu-l40-2"
     },
     {
-      "job": "178974",
+      "job": "179375",
       "state": "RUNNING",
-      "name": "vla-reserved-validation",
+      "name": "vla-backbone-screen",
       "node_or_reason": "gpu-l40-2"
     }
   ]
