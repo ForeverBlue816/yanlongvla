@@ -21,9 +21,9 @@ Budget implication, analytically calculated from the measured tensor inventory: 
 
 Expert M1 full-protocol quality update:1869/2000=93.45% versusoriginalFP1928/2000=96.40%, paired difference-2.95pp (95%CI[-6.10,+.30]pp). Expertactual1.030335bpw does not establish lossless performance; nativebackbone/int8 whole-model13.927086bpw. [Full quality result](results/p1_M1_full.json).
 
-## Exported backbone RVQ artifacts — 2026-10-01 (offline validated; LIBERO pending)
+## Exported backbone RVQ artifacts — 2026-10-01 (M3 screening passed; full protocol pending)
 
-All288backboneLinear layers fitted at M3 and M2, with the validated uniformM1 expert fixed. The two self-contained local artifacts are `models/hd_srvq_bb_M3_ae_M1` and `models/hd_srvq_bb_M2_ae_M1`. Independent safetensors shape/dtype/offset/file-size accounting agrees with export metadata. Strictpolicy reload and256held-out action checks nowcomplete; originalFP relativeMSE M3=.0170782926020,M2=.0430040726108. LIBEROsuccess pending.
+All288backboneLinear layers fitted at M3 and M2, with the validated uniformM1 expert fixed. The two self-contained local artifacts are `models/hd_srvq_bb_M3_ae_M1` and `models/hd_srvq_bb_M2_ae_M1`. Independent safetensors shape/dtype/offset/file-size accounting agrees with export metadata. Strictpolicy reload and256held-out action checks nowcomplete; originalFP relativeMSE M3=.0170782926020,M2=.0430040726108. M3 screening now190/200=95.0%, exactlyFP-1.5pp; paired95%CI[-8,+5]pp. M2screen and backbonefull pending. [Complete M3 screening](results/backbone_M3_screen.json).
 
 | Backbone depth | Backbone Linear bpw | All Linear bpw | Whole-model bpw | All stored tensor bytes |
 |---|---:|---:|---:|---:|

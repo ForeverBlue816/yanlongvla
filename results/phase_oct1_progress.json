@@ -1,7 +1,7 @@
 {
-  "timestamp_utc": "2026-10-01T13:13:05.859705+00:00",
-  "timestamp_singapore": "2026-10-01T21:13:05.859705+08:00",
-  "scope": "M1 full protocol and P3 complete; M2 full and backbone M3 screen still in progress",
+  "timestamp_utc": "2026-10-01T13:24:08.946184+00:00",
+  "timestamp_singapore": "2026-10-01T21:24:08.946184+08:00",
+  "scope": "M1 full and P3 complete; backbone M3 screening passes exactly at threshold; M2 backbone screening submitted",
   "P1": {
     "a_M1": {
       "completed_episode_rows": 2000,
@@ -99,14 +99,14 @@
       }
     },
     "a_M2": {
-      "completed_episode_rows": 1414,
+      "completed_episode_rows": 1481,
       "total_required": 2000,
       "reused_screening": 200,
-      "new_completed": 1214,
+      "new_completed": 1281,
       "per_suite_completed": {
         "libero_10": 300,
         "libero_goal": 250,
-        "libero_object": 364,
+        "libero_object": 431,
         "libero_spatial": 500
       },
       "status": "in_progress"
@@ -129,20 +129,120 @@
     "exports": "M3_and_M2_complete",
     "rht_relative_mse": 2.011595740639109e-06,
     "offline": "complete_256heldout40trajectories_M3andM2",
-    "quality_validation": "M3screen_running_pair01_second_pair_queued",
+    "quality_validation": "M3_complete_pass_190_of200_M2_screen_submitted",
     "relative_action_mse": {
       "bb_M3_ae_M1": 0.017078292602001867,
       "bb_M2_ae_M1": 0.043004072610800054
     },
     "M3_screen_progress": {
-      "completed_episode_rows": 193,
+      "completed_episode_rows": 200,
       "total_required": 200,
+      "status": "complete",
+      "successes": 190,
+      "gate_passed": true,
       "per_suite_completed": {
-        "libero_10": 93,
-        "libero_spatial": 100
+        "libero_spatial": 100,
+        "libero_10": 100
+      }
+    },
+    "M3_screen_result": {
+      "variant": "bb_M3_ae_M1",
+      "expert_quantizable_linear_bpw": 1.0303353974313447,
+      "all_quantizable_linear_bpw": 2.7917807247576985,
+      "whole_model_bpw": 4.665800434188493,
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 6394054428,
+        "logical_actual_dense_fallback_bytes_per_inference": 17437380732,
+        "dense_cache_bytes": 5408612352,
+        "scope": "constant backbone depth; three vision calls and one language prefix per action chunk; actual quality path reuses dense BF16 reconstructions; no DRAM/kernel claim"
       },
-      "status": "in_progress_awaiting_complete_validation"
-    }
+      "absolute_mse": 0.003705166298119045,
+      "relative_mse": 0.017078292602001867,
+      "compact_relative_mse": 0.017014743038429155,
+      "d3b_prediction_before_screening": {
+        "predicted_gate": "unresolved",
+        "reason": "D3b noise-to-VQ knee prediction was falsified by expert M1; do not reuse it as a validated backbone predictor"
+      },
+      "screen": {
+        "status": "complete",
+        "completed": 200,
+        "expected": 200,
+        "missing": 0,
+        "success_percent": 95.0,
+        "successes": 190,
+        "suites": {
+          "libero_spatial": {
+            "successes": 98,
+            "episodes": 100,
+            "success_percent": 98.0
+          },
+          "libero_10": {
+            "successes": 92,
+            "episodes": 100,
+            "success_percent": 92.0
+          }
+        }
+      },
+      "checkpoint_sha256": "4e2abd005a75f68bf3b95d72ec40fc54031dd2592b3e4dd850f9c0d64869686c",
+      "backbone_nominal_index_bpw": 3,
+      "backbone_quantizable_linear_bpw": 3.0210283118423686,
+      "pass_fp_minus_1p5": true,
+      "paired_statistics": {
+        "successes": 190,
+        "episodes": 200,
+        "success_percent": 95.0,
+        "success_ci95_percent": [
+          90.0,
+          99.0
+        ],
+        "difference_from_reference_pp": -1.5,
+        "paired_difference_ci95_pp": [
+          -8.000000000000014,
+          5.0
+        ],
+        "paired_improvements": 7,
+        "paired_regressions": 10,
+        "suites": {
+          "libero_spatial": {
+            "successes": 98,
+            "episodes": 100,
+            "success_percent": 98.0,
+            "success_ci95_percent": [
+              92.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 1.0,
+            "paired_difference_ci95_pp": [
+              -6.0,
+              7.0
+            ],
+            "paired_improvements": 3,
+            "paired_regressions": 2
+          },
+          "libero_10": {
+            "successes": 92,
+            "episodes": 100,
+            "success_percent": 92.0,
+            "success_ci95_percent": [
+              83.0,
+              99.0
+            ],
+            "difference_from_reference_pp": -4.0,
+            "paired_difference_ci95_pp": [
+              -15.0,
+              7.0
+            ],
+            "paired_improvements": 4,
+            "paired_regressions": 8
+          }
+        }
+      }
+    },
+    "M2_screen_jobs": [
+      "179479",
+      "179480"
+    ],
+    "M2_screen_summary_job": "179481"
   },
   "P3": {
     "offline": "complete_256calibration_observations",
@@ -166,7 +266,19 @@
   "P5": "revised_after_M1_full_protocol_measured_2p95pp_loss_no_loss_claim_removed",
   "jobs": [
     {
-      "job": "179377",
+      "job": "179480",
+      "state": "PENDING",
+      "name": "vla-backbone-screen",
+      "node_or_reason": "(Priority)"
+    },
+    {
+      "job": "179479",
+      "state": "PENDING",
+      "name": "vla-backbone-screen",
+      "node_or_reason": "(Priority)"
+    },
+    {
+      "job": "179481",
       "state": "PENDING",
       "name": "vla-backbone-pipeline",
       "node_or_reason": "(Dependency)"
@@ -187,12 +299,6 @@
       "job": "178999",
       "state": "RUNNING",
       "name": "vla-p1-full-single",
-      "node_or_reason": "gpu-l40-2"
-    },
-    {
-      "job": "179375",
-      "state": "RUNNING",
-      "name": "vla-backbone-screen",
       "node_or_reason": "gpu-l40-2"
     }
   ]

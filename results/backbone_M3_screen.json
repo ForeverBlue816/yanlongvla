@@ -1,0 +1,251 @@
+{
+  "status": "complete_M3_screen",
+  "rows": [
+    {
+      "variant": "bb_M3_ae_M1",
+      "expert_quantizable_linear_bpw": 1.0303353974313447,
+      "all_quantizable_linear_bpw": 2.7917807247576985,
+      "whole_model_bpw": 4.665800434188493,
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 6394054428,
+        "logical_actual_dense_fallback_bytes_per_inference": 17437380732,
+        "dense_cache_bytes": 5408612352,
+        "scope": "constant backbone depth; three vision calls and one language prefix per action chunk; actual quality path reuses dense BF16 reconstructions; no DRAM/kernel claim"
+      },
+      "absolute_mse": 0.003705166298119045,
+      "relative_mse": 0.017078292602001867,
+      "compact_relative_mse": 0.017014743038429155,
+      "d3b_prediction_before_screening": {
+        "predicted_gate": "unresolved",
+        "reason": "D3b noise-to-VQ knee prediction was falsified by expert M1; do not reuse it as a validated backbone predictor"
+      },
+      "screen": {
+        "status": "complete",
+        "completed": 200,
+        "expected": 200,
+        "missing": 0,
+        "success_percent": 95.0,
+        "successes": 190,
+        "suites": {
+          "libero_spatial": {
+            "successes": 98,
+            "episodes": 100,
+            "success_percent": 98.0
+          },
+          "libero_10": {
+            "successes": 92,
+            "episodes": 100,
+            "success_percent": 92.0
+          }
+        }
+      },
+      "checkpoint_sha256": "4e2abd005a75f68bf3b95d72ec40fc54031dd2592b3e4dd850f9c0d64869686c",
+      "backbone_nominal_index_bpw": 3,
+      "backbone_quantizable_linear_bpw": 3.0210283118423686,
+      "pass_fp_minus_1p5": true,
+      "paired_statistics": {
+        "successes": 190,
+        "episodes": 200,
+        "success_percent": 95.0,
+        "success_ci95_percent": [
+          90.0,
+          99.0
+        ],
+        "difference_from_reference_pp": -1.5,
+        "paired_difference_ci95_pp": [
+          -8.000000000000014,
+          5.0
+        ],
+        "paired_improvements": 7,
+        "paired_regressions": 10,
+        "suites": {
+          "libero_spatial": {
+            "successes": 98,
+            "episodes": 100,
+            "success_percent": 98.0,
+            "success_ci95_percent": [
+              92.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 1.0,
+            "paired_difference_ci95_pp": [
+              -6.0,
+              7.0
+            ],
+            "paired_improvements": 3,
+            "paired_regressions": 2
+          },
+          "libero_10": {
+            "successes": 92,
+            "episodes": 100,
+            "success_percent": 92.0,
+            "success_ci95_percent": [
+              83.0,
+              99.0
+            ],
+            "difference_from_reference_pp": -4.0,
+            "paired_difference_ci95_pp": [
+              -15.0,
+              7.0
+            ],
+            "paired_improvements": 4,
+            "paired_regressions": 8
+          }
+        }
+      }
+    }
+  ],
+  "backbone_M3_gate_passed": true,
+  "required_successes": 190,
+  "paired_statistics": {
+    "reference": "original_fp",
+    "protocol": {
+      "suites": [
+        "libero_spatial",
+        "libero_10"
+      ],
+      "tasks_per_suite": 10,
+      "episodes_per_task": 10,
+      "evaluation_seed": 7
+    },
+    "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+    "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+    "resamples": 2000,
+    "resampling_rng_seed": 20260930,
+    "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+    "policies": {
+      "original_fp": {
+        "successes": 193,
+        "episodes": 200,
+        "success_percent": 96.5,
+        "success_ci95_percent": [
+          92.0,
+          99.5
+        ],
+        "difference_from_reference_pp": 0.0,
+        "paired_difference_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "paired_improvements": 0,
+        "paired_regressions": 0,
+        "suites": {
+          "libero_spatial": {
+            "successes": 97,
+            "episodes": 100,
+            "success_percent": 97.0,
+            "success_ci95_percent": [
+              92.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "libero_10": {
+            "successes": 96,
+            "episodes": 100,
+            "success_percent": 96.0,
+            "success_ci95_percent": [
+              88.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          }
+        }
+      },
+      "bb_M3_ae_M1": {
+        "successes": 190,
+        "episodes": 200,
+        "success_percent": 95.0,
+        "success_ci95_percent": [
+          90.0,
+          99.0
+        ],
+        "difference_from_reference_pp": -1.5,
+        "paired_difference_ci95_pp": [
+          -8.000000000000014,
+          5.0
+        ],
+        "paired_improvements": 7,
+        "paired_regressions": 10,
+        "suites": {
+          "libero_spatial": {
+            "successes": 98,
+            "episodes": 100,
+            "success_percent": 98.0,
+            "success_ci95_percent": [
+              92.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 1.0,
+            "paired_difference_ci95_pp": [
+              -6.0,
+              7.0
+            ],
+            "paired_improvements": 3,
+            "paired_regressions": 2
+          },
+          "libero_10": {
+            "successes": 92,
+            "episodes": 100,
+            "success_percent": 92.0,
+            "success_ci95_percent": [
+              83.0,
+              99.0
+            ],
+            "difference_from_reference_pp": -4.0,
+            "paired_difference_ci95_pp": [
+              -15.0,
+              7.0
+            ],
+            "paired_improvements": 4,
+            "paired_regressions": 8
+          }
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "/projects/yanlongvla/runs/g0/libero_spatial_seed7.jsonl": "c48c9ce9e91db0ed941a81a4e685272cad073fbdf4894946d2d3cfbe8be7a960",
+    "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/offline/result.json": "3fefb28f75783fca79c368fa0a8a26cc2038b6b4b582d48588f677735fca156e",
+    "/projects/yanlongvla/models/hd_srvq_bb_M3_ae_M1/vq.json": "149ae1f825f8b30a6fac6754001244b44fc62dc1a18082ca3e755141a546e299",
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/offline/actions.npy": "58e4cef1ce71ae67dfa1c1c1f72f5cfbd80bf0f04beb137b33df981422cae1ea",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/worker0_manifest.json": "546cef6d95b062f1f81d671e068afef717672ff566dd93f590445d969658957c",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/worker1_manifest.json": "6c4b0582df549ba29584e3cde65e35a97a8da18a87941d00b015e5f1479ba5a9",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/worker2_manifest.json": "7fd68ae93a7f3a8f0b30531238c94650bf3c7dc411fa08a312e5acf3a6bc00c6",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/worker3_manifest.json": "1e2bd5a69b5ea9ca6015931f06510278d77070cf21247e25df779c26d444bd5d",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task0_seed7.jsonl": "6854f52eb55f575887d94badf2af1f7f1602ffa074d0f13ae70d1fe26af8e3a4",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task1_seed7.jsonl": "eea304c41b496f3694af6dd82161391af7762cd5a90ac8008e5eb5bb2ad13f3e",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task2_seed7.jsonl": "53a9f52541b56dda0d5c625ba66cd2f966ba2f2db4cef40953ccc7847ceaa91f",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task3_seed7.jsonl": "58ae7c46c36d0bf076f19394961ef2b67be36253fce28a1fa0a1002edb218cb9",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task4_seed7.jsonl": "ec6e10029286556a62bb36a11832cba44edb860afe6597516cfd4bba85f420f0",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task5_seed7.jsonl": "3aac842cd38851bd97e969dc02962fdf1a994a633d79490f8e657ec4b51036fa",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task6_seed7.jsonl": "6b46f047f0ee11397a9010f716ccfb9418ceeeda8f63993e8ae2c8ef6fb547b0",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task7_seed7.jsonl": "24077090abae229352269feb7e1432591efabbeaa1f36598dc02a3d444d6c1ff",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task8_seed7.jsonl": "689ca7bc76079114f33fd0fd632bd84e8d828dd1fd6e96b531e91140d7a38f95",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_10_task9_seed7.jsonl": "a0324c5764d58ccad4f0c41c046b0e40f4f9691218089a91965d9a7adbfcbd95",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task0_seed7.jsonl": "46832a63314e2dd7afce03d3f74cc513a39a37cbbceb35ed390e7a3f97516674",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task1_seed7.jsonl": "d17a16e531c4fd203662cb9d85bbbee342541df18ebba96a61fa9650ace796dd",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task2_seed7.jsonl": "7697dcfb655d6d91e7fcfed8df26976e74fa6be752a8403a35f1bf7f2fa3f9ba",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task3_seed7.jsonl": "f0625ac56c4e178de2a2215c65fac3d688492329e175cc7004ef7269c5608bef",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task4_seed7.jsonl": "3cb4cd047023a5c9c6370ccdc2f7f4be2bf2de525bd85fe49133bd9233a37e21",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task5_seed7.jsonl": "a63bdffdce5ec0e6de20f40ac471b1a5e6cc115ca5964b9c9a104499b29d342a",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task6_seed7.jsonl": "e9b11907827d694fe0a0004323583e56293330a31fd760ad5519e70afc9e0c9a",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task7_seed7.jsonl": "68c533985e5ffeb8327aad4e305a65e59e2c24ae16a76de0b39da1c7e6314e07",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task8_seed7.jsonl": "8af179cf0af825339afb0d4f7887edf1fb929400d96825788bcd8c615f9e6bc6",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/screen/libero_spatial_task9_seed7.jsonl": "36f050b04ec5e22d0f8d3b02f373e883c36928905c89474de722afad7100a17c"
+  }
+}
