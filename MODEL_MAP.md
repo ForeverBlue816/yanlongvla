@@ -19,6 +19,17 @@ Storage includes every persistent tensor; container/header bytes are separate. L
 
 Budget implication, analytically calculated from the measured tensor inventory: retained tensors excluding eligible Linear weights use 1,012,077,920 bytes, a 2.414428 whole-model-bpw floor at the current native dtypes. If every eligible Linear retains at least one 8-bit index per 8 weights, even an ideal one-plane representation needs at least 3.220857 whole-model bpw before codebook/scales/mask overhead. Thus the later 3.0/2.5 whole-model targets need a separately validated retained-tensor or allocation change; they do not follow automatically from int8 embeddings and head removal. This is a budget bound under those explicit assumptions, not a measured quantized-model result. The 2026-10-01 phase now starts backbone quantization concurrently with full expert validation and authorizes fixed-timestep AdaRMS folding plus validated int4 embeddings; revised deployed floors remain pending.
 
+## Exported backbone RVQ artifacts — 2026-10-01 (policy validation pending)
+
+All288backboneLinear layers fitted at M3 and M2, with the validated uniformM1 expert fixed. The two self-contained local artifacts are `models/hd_srvq_bb_M3_ae_M1` and `models/hd_srvq_bb_M2_ae_M1`. Independent safetensors shape/dtype/offset/file-size accounting agrees with export metadata; no full-policy accuracy result yet.
+
+| Backbone depth | Backbone Linear bpw | All Linear bpw | Whole-model bpw | All stored tensor bytes |
+|---|---:|---:|---:|---:|
+| M3 | 3.021028 | 2.791781 | 4.665800 | 1,955,806,652 |
+| M2 | 2.017084 | 1.903451 | 3.949425 | 1,655,517,116 |
+
+Both retain1,012,077,920bytes outside eligibleLinear representations, including native conditioning and int8embedding. P3folding/int4gates pending. Expertpayload40,109,292bytes (1.030335bpw) unchanged. Denominator3,353,433,872originalactiveelements unchanged. Dense quality-runtime caches excluded fromcheckpoint bytes and tobe reported separately; reads pending runtime accounting. [Full storage aggregate](results/backbone_checkpoint_accounting.json).
+
 ## Historical constructor audit (E002; not current deployment denominator)
 
 The following original inventory includes the now-removed expert head. Its old arithmetic tables describe the constructor, and are superseded by the current accounting above for all new results.

@@ -1,0 +1,53 @@
+{
+  "status": "exported_checkpoints_accounted",
+  "timestamp_utc": "2026-10-01T08:56:16.743679+00:00",
+  "scope": "Independent actualsafetensorsheader element/dtype/offset accounting; uniform backbone plus fixed expertM1 and int8embedding; native conditioning tensors retained. Policy strictreload/RHT/actionMSE/success pending; dense runtime caches excluded fromserializedpayload, no DRAM claim.",
+  "rows": [
+    {
+      "variant": "bb_M3_ae_M1",
+      "backbone_quantizable_elements": 2392879104,
+      "expert_quantizable_elements": 311427072,
+      "active_original_elements": 3353433872,
+      "tensor_payload_bytes": 1955806652,
+      "checkpoint_file_bytes": 1956204580,
+      "backbone_quantizable_linear_bpw": 3.0210283118423686,
+      "expert_quantizable_linear_bpw": 1.0303353974313447,
+      "all_quantizable_linear_bpw": 2.7917807247576985,
+      "whole_model_bpw": 4.665800434188493,
+      "checkpoint_sha256": "4e2abd005a75f68bf3b95d72ec40fc54031dd2592b3e4dd850f9c0d64869686c",
+      "fit_recipe_sha256": "6e9f152f6bfbc879cf6349730b2d4dee5040e7cadd9cfffca3f14a41624ed813",
+      "backbone_layers": 288,
+      "expert_layers": 126,
+      "backbone_payload_bytes": 903619440,
+      "expert_payload_bytes": 40109292,
+      "reserved_tensor_bytes": 1012077920,
+      "held_out_mse": null,
+      "screening_success": null,
+      "logical_bytes_read_per_inference": null,
+      "status": "exported_header_accounting_verified_policy_validation_pending"
+    },
+    {
+      "variant": "bb_M2_ae_M1",
+      "backbone_quantizable_elements": 2392879104,
+      "expert_quantizable_elements": 311427072,
+      "active_original_elements": 3353433872,
+      "tensor_payload_bytes": 1655517116,
+      "checkpoint_file_bytes": 1655915044,
+      "backbone_quantizable_linear_bpw": 2.017084450247262,
+      "expert_quantizable_linear_bpw": 1.0303353974313447,
+      "all_quantizable_linear_bpw": 1.903450731164547,
+      "whole_model_bpw": 3.94942540498082,
+      "checkpoint_sha256": "099a4ecb7330337e94274cda643df5df0fc71305bf5940165c106ef27448b81d",
+      "fit_recipe_sha256": "6e9f152f6bfbc879cf6349730b2d4dee5040e7cadd9cfffca3f14a41624ed813",
+      "backbone_layers": 288,
+      "expert_layers": 126,
+      "backbone_payload_bytes": 603329904,
+      "expert_payload_bytes": 40109292,
+      "reserved_tensor_bytes": 1012077920,
+      "held_out_mse": null,
+      "screening_success": null,
+      "logical_bytes_read_per_inference": null,
+      "status": "exported_header_accounting_verified_policy_validation_pending"
+    }
+  ]
+}
