@@ -1,28 +1,28 @@
 {
-  "timestamp_utc": "2026-10-01T08:58:12.957392+00:00",
-  "timestamp_singapore": "2026-10-01T16:58:12.957392+08:00",
-  "scope": "Complete backbonefit/export/storage accounting, incompleteP1; no newqualitymetric",
+  "timestamp_utc": "2026-10-01T11:16:22.627628+00:00",
+  "timestamp_singapore": "2026-10-01T19:16:22.627628+08:00",
+  "scope": "Complete backbonefit/export/offline action measurements; incompleteP1andP2screen",
   "P1": {
     "a_M1": {
-      "completed_episode_rows": 1122,
+      "completed_episode_rows": 1813,
       "total_required": 2000,
       "reused_screening": 200,
-      "new_completed": 922,
+      "new_completed": 1613,
       "per_suite_completed": {
-        "libero_10": 260,
-        "libero_spatial": 362,
-        "libero_object": 200,
-        "libero_goal": 300
+        "libero_10": 313,
+        "libero_spatial": 500,
+        "libero_object": 500,
+        "libero_goal": 500
       },
       "status": "in_progress"
     },
     "a_M2": {
-      "completed_episode_rows": 1084,
+      "completed_episode_rows": 1100,
       "total_required": 2000,
       "reused_screening": 200,
-      "new_completed": 884,
+      "new_completed": 900,
       "per_suite_completed": {
-        "libero_10": 284,
+        "libero_10": 300,
         "libero_spatial": 300,
         "libero_object": 250,
         "libero_goal": 250
@@ -45,34 +45,34 @@
       }
     },
     "exports": "M3_and_M2_complete",
-    "quality_validation": "queued_L40S_normal_QoS_concurrent_job_limit"
+    "rht_relative_mse": 2.011595740639109e-06,
+    "offline": "complete_256heldout40trajectories_M3andM2",
+    "quality_validation": "M3screen_queued",
+    "relative_action_mse": {
+      "bb_M3_ae_M1": 0.017078292602001867,
+      "bb_M2_ae_M1": 0.043004072610800054
+    }
   },
-  "P3": "offline_and_paired_screen_queued_no_results",
+  "P3": "running_256observation_fold_and_embedding_validation",
   "P4": "uniform_pipeline_prepared_no_GPU_jobs_yet",
   "P5": "single_seed_paper_draft_completed_pending_P1",
   "jobs": [
     {
-      "job": "179000",
+      "job": "179375",
       "state": "PENDING",
-      "name": "vla-p1-full-single",
+      "name": "vla-backbone-screen",
       "node_or_reason": "(Priority)"
     },
     {
-      "job": "178972",
+      "job": "179376",
       "state": "PENDING",
-      "name": "vla-backbone-offline",
-      "node_or_reason": "(QOSMaxJobsPerUserLimit)"
+      "name": "vla-backbone-screen",
+      "node_or_reason": "(Priority)"
     },
     {
-      "job": "179131",
+      "job": "179377",
       "state": "PENDING",
       "name": "vla-backbone-pipeline",
-      "node_or_reason": "(Dependency)"
-    },
-    {
-      "job": "178974",
-      "state": "PENDING",
-      "name": "vla-reserved-validation",
       "node_or_reason": "(Dependency)"
     },
     {
@@ -82,16 +82,22 @@
       "node_or_reason": "(Dependency)"
     },
     {
+      "job": "179000",
+      "state": "RUNNING",
+      "name": "vla-p1-full-single",
+      "node_or_reason": "gpu-l40-1"
+    },
+    {
       "job": "178999",
       "state": "RUNNING",
       "name": "vla-p1-full-single",
       "node_or_reason": "gpu-l40-2"
     },
     {
-      "job": "178947",
+      "job": "178974",
       "state": "RUNNING",
-      "name": "vla-p1-full-2gpu",
-      "node_or_reason": "gpu-l40-1"
+      "name": "vla-reserved-validation",
+      "node_or_reason": "gpu-l40-2"
     }
   ]
 }

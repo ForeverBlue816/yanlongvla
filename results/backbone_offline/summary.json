@@ -1,0 +1,190 @@
+{
+  "status": "complete_offline",
+  "timestamp_utc": "2026-10-01T11:13:55.372779+00:00",
+  "scope": "256heldout observations from40disjoint trajectories; executedfirst5x7,noise0, originalFP reference. BackboneM3/M2 withuniformexpertM1/int8embedding. No LIBERO outcome yet; no noise-derived gate prediction.",
+  "rows": [
+    {
+      "variant": "bb_M3_ae_M1",
+      "checkpoint_sha256": "4e2abd005a75f68bf3b95d72ec40fc54031dd2592b3e4dd850f9c0d64869686c",
+      "backbone_quantizable_linear_bpw": 3.0210283118423686,
+      "expert_quantizable_linear_bpw": 1.0303353974313447,
+      "all_quantizable_linear_bpw": 2.7917807247576985,
+      "whole_model_bpw": 4.665800434188493,
+      "tensor_payload_bytes": 1955806652,
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "versus_original_fp": {
+        "median_relative_mse": 0.005392941118111767,
+        "trimmed_mean_10pct_relative_mse": 0.005750890264440724,
+        "mean_per_observation_relative_mse": 0.018503780667436118,
+        "mean_based_global_relative_mse": 0.017078292602001867,
+        "absolute_mse": 0.003705166298119045,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 242,
+        "largest_error_energy_share": 0.19277152613540402
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.005316726988249913,
+        "trimmed_mean_10pct_relative_mse": 0.005650708291828336,
+        "mean_per_observation_relative_mse": 0.018419874817486866,
+        "mean_based_global_relative_mse": 0.017014743038429155,
+        "absolute_mse": 0.003685197066182179,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 242,
+        "largest_error_energy_share": 0.19416632526543234
+      },
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 6394054428,
+        "logical_actual_dense_fallback_bytes_per_inference": 17437380732,
+        "dense_cache_bytes": 5408612352,
+        "scope": "constant backbone depth; three vision calls and one language prefix per action chunk; actual quality path reuses dense BF16 reconstructions; no DRAM/kernel claim"
+      },
+      "strict_reload_all_tensors": true,
+      "retained_tensors_exact": true,
+      "fixed_noise_repeat_indices": [
+        0,
+        63,
+        127,
+        255
+      ],
+      "exact_repeat_diagnostics": [
+        {
+          "native_dtype": "float64",
+          "recorded_dtype": "float32",
+          "native_repeat_max_abs": 0.0,
+          "recorded_repeat_max_abs": 0.0,
+          "mixed_precision_comparison_max_abs": 4.1089057933874074e-08,
+          "index": 0
+        },
+        {
+          "native_dtype": "float64",
+          "recorded_dtype": "float32",
+          "native_repeat_max_abs": 0.0,
+          "recorded_repeat_max_abs": 0.0,
+          "mixed_precision_comparison_max_abs": 2.836978429954229e-08,
+          "index": 63
+        },
+        {
+          "native_dtype": "float64",
+          "recorded_dtype": "float32",
+          "native_repeat_max_abs": 0.0,
+          "recorded_repeat_max_abs": 0.0,
+          "mixed_precision_comparison_max_abs": 5.1233649323023656e-08,
+          "index": 127
+        },
+        {
+          "native_dtype": "float64",
+          "recorded_dtype": "float32",
+          "native_repeat_max_abs": 0.0,
+          "recorded_repeat_max_abs": 0.0,
+          "mixed_precision_comparison_max_abs": 5.9124171780666757e-08,
+          "index": 255
+        }
+      ],
+      "gpu": "NVIDIA L40S",
+      "elapsed_seconds": 317.03840650699567,
+      "peak_allocated_bytes": 7796702208,
+      "screening_success": null,
+      "independent_saved_array_metrics_match": true
+    },
+    {
+      "variant": "bb_M2_ae_M1",
+      "checkpoint_sha256": "099a4ecb7330337e94274cda643df5df0fc71305bf5940165c106ef27448b81d",
+      "backbone_quantizable_linear_bpw": 2.017084450247262,
+      "expert_quantizable_linear_bpw": 1.0303353974313447,
+      "all_quantizable_linear_bpw": 1.903450731164547,
+      "whole_model_bpw": 3.94942540498082,
+      "tensor_payload_bytes": 1655517116,
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "versus_original_fp": {
+        "median_relative_mse": 0.012348650371260551,
+        "trimmed_mean_10pct_relative_mse": 0.01471250460638246,
+        "mean_per_observation_relative_mse": 0.047659511455592524,
+        "mean_based_global_relative_mse": 0.043004072610800054,
+        "absolute_mse": 0.009329810902802053,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 241,
+        "largest_error_energy_share": 0.13559909399805603
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.012152617876664246,
+        "trimmed_mean_10pct_relative_mse": 0.014544738699156588,
+        "mean_per_observation_relative_mse": 0.04749397908152102,
+        "mean_based_global_relative_mse": 0.04287979189238207,
+        "absolute_mse": 0.009287268278069609,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 241,
+        "largest_error_energy_share": 0.13613838681609353
+      },
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 5989670172,
+        "logical_actual_dense_fallback_bytes_per_inference": 17437380732,
+        "dense_cache_bytes": 5408612352,
+        "scope": "constant backbone depth; three vision calls and one language prefix per action chunk; actual quality path reuses dense BF16 reconstructions; no DRAM/kernel claim"
+      },
+      "strict_reload_all_tensors": true,
+      "retained_tensors_exact": true,
+      "fixed_noise_repeat_indices": [
+        0,
+        63,
+        127,
+        255
+      ],
+      "exact_repeat_diagnostics": [
+        {
+          "native_dtype": "float64",
+          "recorded_dtype": "float32",
+          "native_repeat_max_abs": 0.0,
+          "recorded_repeat_max_abs": 0.0,
+          "mixed_precision_comparison_max_abs": 2.9349446317716854e-08,
+          "index": 0
+        },
+        {
+          "native_dtype": "float64",
+          "recorded_dtype": "float32",
+          "native_repeat_max_abs": 0.0,
+          "recorded_repeat_max_abs": 0.0,
+          "mixed_precision_comparison_max_abs": 2.9406607149340402e-08,
+          "index": 63
+        },
+        {
+          "native_dtype": "float64",
+          "recorded_dtype": "float32",
+          "native_repeat_max_abs": 0.0,
+          "recorded_repeat_max_abs": 0.0,
+          "mixed_precision_comparison_max_abs": 2.7436554472792807e-08,
+          "index": 127
+        },
+        {
+          "native_dtype": "float64",
+          "recorded_dtype": "float32",
+          "native_repeat_max_abs": 0.0,
+          "recorded_repeat_max_abs": 0.0,
+          "mixed_precision_comparison_max_abs": 4.6684563104193444e-08,
+          "index": 255
+        }
+      ],
+      "gpu": "NVIDIA L40S",
+      "elapsed_seconds": 306.4479419339914,
+      "peak_allocated_bytes": 7487772160,
+      "screening_success": null,
+      "independent_saved_array_metrics_match": true
+    }
+  ],
+  "source_sha256": {
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/offline/result.json": "3fefb28f75783fca79c368fa0a8a26cc2038b6b4b582d48588f677735fca156e",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M1/offline/actions.npy": "58e4cef1ce71ae67dfa1c1c1f72f5cfbd80bf0f04beb137b33df981422cae1ea",
+    "/projects/yanlongvla/models/hd_srvq_bb_M3_ae_M1/vq.json": "149ae1f825f8b30a6fac6754001244b44fc62dc1a18082ca3e755141a546e299",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M1/offline/result.json": "2b556d815c6dd396d4bb797f1141144ee5edbd10a591197610007fc6d1e92a5c",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M1/offline/actions.npy": "756abf8a430b208b994cba6f785ca451c11fb08d2f21d7d8caeb2d7a8ceb0d83",
+    "/projects/yanlongvla/models/hd_srvq_bb_M2_ae_M1/vq.json": "e4a9b1d2b0099e1e60b12024f08d650c2e2b2c905d94528e65c3a4c9bd2edde1"
+  }
+}

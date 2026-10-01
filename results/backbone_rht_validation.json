@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "observations": 256,
+  "noise_seed": 0,
+  "expert_variant": "a_M1",
+  "backbone_layers": 288,
+  "metrics": {
+    "median_relative_mse": 1.5384485816461247e-06,
+    "trimmed_mean_10pct_relative_mse": 1.6967569039565436e-06,
+    "mean_per_observation_relative_mse": 2.135867707891802e-06,
+    "mean_based_global_relative_mse": 2.011595740639109e-06,
+    "absolute_mse": 4.0264611459490095e-07,
+    "trim_count_per_tail": 25,
+    "zero_energy_reference_observations": 0,
+    "largest_error_observation": 186,
+    "largest_error_energy_share": 0.05841095409091331
+  },
+  "max_absolute_action_error": 0.07587981224060059,
+  "per_observation_quantiles": [
+    4.628027431635861e-07,
+    1.5384485816461247e-06,
+    4.258670428598968e-06,
+    3.4484362660279036e-05
+  ],
+  "retained_tensors_exact": true,
+  "retained_tensor_sha256": "1d707cd754685e3f97f5324bd3be1921e98bc2c523cead82ce9eb9458e4aebbd",
+  "rht_blocks": {
+    "1152": [
+      1024,
+      128
+    ],
+    "4304": [
+      4096,
+      128,
+      64,
+      16
+    ],
+    "2048": [
+      2048
+    ],
+    "16384": [
+      16384
+    ]
+  },
+  "criterion": "calibration executed5x7 global-relative MSE<=1e-4 vs same expertM1/nativebackbone; gates P2 screening, no heldout fitting or threshold adjustment",
+  "gpu": "NVIDIA L40S",
+  "elapsed_seconds": 396.4592275600007,
+  "source_result_sha256": "844ee4232e7deb2fe599d0c1cca2b6743a89b5648578d61b2a139c7a10e302a4",
+  "scope": "RHT-only calibration action agreement with fixed expertM1; not quantized-backbone quality or LIBERO success"
+}

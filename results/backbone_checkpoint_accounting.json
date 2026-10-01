@@ -1,7 +1,7 @@
 {
   "status": "exported_checkpoints_accounted",
   "timestamp_utc": "2026-10-01T08:56:16.743679+00:00",
-  "scope": "Independent actualsafetensorsheader element/dtype/offset accounting; uniform backbone plus fixed expertM1 and int8embedding; native conditioning tensors retained. Policy strictreload/RHT/actionMSE/success pending; dense runtime caches excluded fromserializedpayload, no DRAM claim.",
+  "scope": "Independent actualsafetensorsheader element/dtype/offset accounting; uniform backbone plus fixed expertM1 and int8embedding; native conditioning retained. Strict policyreload/RHT/actionMSE completed; LIBERO pending. Dense runtime caches excluded fromserializedpayload and reported separately; logical reads are not measuredDRAM.",
   "rows": [
     {
       "variant": "bb_M3_ae_M1",
@@ -21,10 +21,10 @@
       "backbone_payload_bytes": 903619440,
       "expert_payload_bytes": 40109292,
       "reserved_tensor_bytes": 1012077920,
-      "held_out_mse": null,
+      "held_out_mse": 0.017078292602001867,
       "screening_success": null,
-      "logical_bytes_read_per_inference": null,
-      "status": "exported_header_accounting_verified_policy_validation_pending"
+      "logical_bytes_read_per_inference": 6394054428,
+      "status": "exported_header_accounting_and_offline_actions_verified_screen_pending"
     },
     {
       "variant": "bb_M2_ae_M1",
@@ -44,10 +44,11 @@
       "backbone_payload_bytes": 603329904,
       "expert_payload_bytes": 40109292,
       "reserved_tensor_bytes": 1012077920,
-      "held_out_mse": null,
+      "held_out_mse": 0.043004072610800054,
       "screening_success": null,
-      "logical_bytes_read_per_inference": null,
-      "status": "exported_header_accounting_verified_policy_validation_pending"
+      "logical_bytes_read_per_inference": 5989670172,
+      "status": "exported_header_accounting_and_offline_actions_verified_screen_pending"
     }
-  ]
+  ],
+  "offline_validated_utc": "2026-10-01T11:16:22.627628+00:00"
 }
