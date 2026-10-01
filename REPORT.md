@@ -1,6 +1,19 @@
-# 当前实验报告 — 2026-09-30
+# 当前实验报告 — 2026-10-01
 
 **当前阶段：优先验证 HD-SR-VQ 自身的效果。所有新实验均采用单 seed。G0、单 seed 核算与 checkpoint 重载均已通过；原 D1–D3 诊断已完成；稳健 D3 已完成并明确保留删失界，D3b 全部1000个扰动回合已完成，方法评估入口已通过；(a)三档完整动作验证已完成；3/2/1 bpw screening分别为193/200、191/200、193/200，全部通过FP−1.5pp门槛；未找到预定的成功率拐点。尚无(b)–(d)收益结论。**
+
+
+## 2026-10-01 新阶段（E041，执行中，尚无新增完整质量结论）
+
+按用户新优先级启动 P1/P2，全部新实验仍为单 seed。P1：M1先于M2，各补1800个episode，复用已验收200个screening episode；完整结果将对原始FP seed7报告四套件逐项与整体的配对bootstrap区间，libero_10单列。双L40S作业178947已开始M1，第二组双L40S178948仍排队；不会把部分回合成功率作为完整结果。
+
+P2关键路径：实际骨干为288个Linear、2,392,879,104个原始权重元素，准备M3/M2，expert固定为已验证M1。两张5090上的真实观测试跑178955通过：可微十步采样与同设备M1前向逐元素一致、重复action-Fisher一致，且视觉和语言KV均有非零信号。这是校准实现验证，不是新量化模型的效果。完整256观测校准178957因重复检查使用累计差分而引入约4e-28的浮点相消误差，在第一观测检查处停止；改为两个独立零初始化累加器直接比较，完全一致的门槛未变。替代校准178962将通过后自动衔接178960/178961，共两张A6000和两张5090拟合。所有held-out/成功率评估仍限L40S。
+
+P3将检验固定十步AdaRMS常量表与int4 embedding；当前尚无验证结果，不把FP16表默认视为精确。旧下界表为原布局历史核算，新增FP16 embedding scale及常量折叠后的下界将另报。P4已按新要求改为低于1bpw的三个配置及拐点处匹配读取量，待P2启动后的空闲拟合资源；实际存储仍单独列出。P1–P3完成前不做外部基线或内核。
+
+论文段落草案（单seed，P1待完成）：
+
+On the 200-episode, seed-7 LIBERO screening protocol, uniform vector quantization of the flow action expert at approximately 1 bpw (1.0303 actual stored quantizable-Linear bpw) matches the full-precision reference point estimate, 193/200 successes, with a paired difference of 0 pp and a conditional 95% interval of [-5.0, +5.5] pp. Thus no loss is observed in this screening sample, while equivalence and full-protocol robustness remain unestablished pending P1. Under the specified minimum-read budget, calibration-optimal prefix-depth allocation assigns the full depth to the final Euler step in all 126 action-expert Linear layers at M2 and M3. This agrees with the single-step tolerance curve and the final-step projection argument; because this budget permits only one full-depth step, the finding concerns its placement, not optimality among unrestricted schedules. These are single-seed observations with a BF16 backbone and int8 embeddings (13.9271 whole-model bpw for expert M1), not whole-model 1 bpw compression.
 
 ## D3 后补充：当前执行方案与已完成重算（E027）
 
@@ -69,7 +82,7 @@ D3b规则在screening前记录的预测是：名义3/2bpw通过，1bpw失败；1
 
 每档均核验四个worker的checkpoint/离线哈希、全部200个配对episode与无错误记录；两组GPU作业正常结束，CPU177859验收通过。[完整参考表及配对统计](results/method_reference/summary.json)、[CSV](results/method_reference/table.csv)、[M1单项证据](results/reference_M1_screen.json)。1bpw与FP有7个episode改善、7个退步；净差0pp的单seed配对条件95%区间为**[−5.0,+5.5]pp**。相同总成功数不等于逐episode等价，也不能证明没有性能损失；2bpw略低也不证明1bpw优于2bpw。
 
-**3/2/1均未下降≥3pp，预设网格内没有成功率拐点。** 按原补充规则，自适应消融网格为空，3bpw继续跳过。已撤下尚未开始的依赖作业；一组worker发现空网格后正常退出，没有开始候选拟合。下一步方案需要在“继续约1.054/2.044bpw的MSE消融”和“先确认1bpw四套件成功率”之间调整。当前没有把任何档位事后改称实测拐点，(b)–(d)的收益仍未测。
+**3/2/1均未下降≥3pp，预设网格内没有成功率拐点。** 按原补充规则，自适应消融网格为空，3bpw继续跳过。已撤下尚未开始的依赖作业；一组worker发现空网格后正常退出，没有开始候选拟合。2026-10-01新阶段已明确调整为：先完成M1/M2四套件验证，同时量化骨干，再向低于1bpw探索；原有空网格不再阻塞该新阶段。当前没有把任何档位事后改称实测拐点，(b)–(d)的收益仍未测。
 
 
 校准-only结构检查（E033）：固定的(b*)最低码平面读取预算，加上每步至少读一层且所有存储平面都须使用，迫使每层只有一步能读全M。126层的校准最优选择在M2/M3均为最后一步，因此候选(b)与(b*)完全相同；若对应档位进入后续网格，将共用结果。这限制了该预算下“学习逐步分配”的独立贡献，不能把同配置的重复运行当作不同方法证据。(b**)及条件码本/affine仍需单独验证；(c)/(d)尚无实测策略收益。
