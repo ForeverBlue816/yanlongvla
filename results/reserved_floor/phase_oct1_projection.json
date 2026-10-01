@@ -1,0 +1,48 @@
+{
+  "status": "analytical_projection_not_quality_validated",
+  "original_active_denominator": 3353433872,
+  "original_reserved_payload_bytes": 1012077920,
+  "removed_conditioning_matrices": 39,
+  "removed_biases": 39,
+  "removed_tensor_payload_bytes": 474419200,
+  "projection": [
+    {
+      "table_dtype": "float16",
+      "embedding_bits": 8,
+      "embedding_scale_dtype": "float32",
+      "reserved_payload_bytes": 539932040,
+      "reserved_only_whole_model_bpw_floor": 1.2880696279911614,
+      "table_and_schedule_bytes": 2273320
+    },
+    {
+      "table_dtype": "float16",
+      "embedding_bits": 4,
+      "embedding_scale_dtype": "float16",
+      "reserved_payload_bytes": 276094088,
+      "reserved_only_whole_model_bpw_floor": 0.658654021014791,
+      "table_and_schedule_bytes": 2273320
+    },
+    {
+      "table_dtype": "float32",
+      "embedding_bits": 8,
+      "embedding_scale_dtype": "float32",
+      "reserved_payload_bytes": 542205320,
+      "reserved_only_whole_model_bpw_floor": 1.2934927974032224,
+      "table_and_schedule_bytes": 4546600
+    },
+    {
+      "table_dtype": "float32",
+      "embedding_bits": 4,
+      "embedding_scale_dtype": "float16",
+      "reserved_payload_bytes": 278367368,
+      "reserved_only_whole_model_bpw_floor": 0.6640771904268521,
+      "table_and_schedule_bytes": 4546600
+    }
+  ],
+  "scope": "Requires measured fixed-schedule action gate and embedding action/screening gates; neither FP16 table precision nor int4 embedding quality assumed",
+  "source_sha256": {
+    "/projects/yanlongvla/research/results/model_audit.json": "aa4016cbc4b1da0a4fc8a3f7ec708381533e8b32adcead051ce432d67fb22ad0",
+    "/projects/yanlongvla/research/results/accounting_status.json": "510731da34229a553e21c9bb184b061f8a8b4ad425acb174c6438d57ebfea2b8",
+    "/projects/yanlongvla/research/results/reserved_floor/summary.json": "4708cc89fff1ec327e9a938a10164cfdb630b560c97976f15bc1b2a5f9565bca"
+  }
+}
