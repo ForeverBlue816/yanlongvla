@@ -3,15 +3,30 @@
 **当前阶段：优先验证 HD-SR-VQ 自身的效果。所有新实验均采用单 seed。G0、单 seed 核算与 checkpoint 重载均已通过；原 D1–D3 诊断已完成；稳健 D3 已完成并明确保留删失界，D3b 全部1000个扰动回合已完成，方法评估入口已通过；(a)三档完整动作验证已完成；3/2/1 bpw screening分别为193/200、191/200、193/200，全部通过FP−1.5pp门槛；未找到预定的成功率拐点。尚无(b)–(d)收益结论。**
 
 
-## 2026-10-01 新阶段（执行中；P2/P3离线完成，LIBERO仍待完整验收）
+## 2026-10-01 新阶段（执行中；M1全协议与P3完成，M2和骨干仍在评估）
 
-进度快照 **2026-10-01 19:27（新加坡时间）**：P1的M1已记录1847/2000回合，M2为1100/2000（各含复用200），仍未完成全量验收。骨干M3/M2完整held-out动作相对MSE为**0.0170783 / 0.0430041**，M3 LIBERO screening已运行。P3离线已完成：FP32时间表动作完全一致，净省约470MB；int4 embedding未过离线门槛，继续使用int8，其配对screening已排队。当前四张L40S运行：两张P1、两张P2。[进度快照](results/phase_oct1_progress.json)。
+进度快照 **2026-10-01 21:13（新加坡时间）**：**M1四套件全协议完成：1869/2000=93.45%，相对FP 1928/2000=96.40%下降2.95pp，配对95%CI [-6.10,+0.30]pp。不能再声称1bpw无损。** M2已记录1414/2000回合；骨干M3 screening已执行193/200回合，尚未完整验收。P3离线与200集筛选均完成：FP32时间表精确保留动作并净省约470MB；int4筛选190/200达门槛，但离线MSE失败，默认仍为int8。[进度快照](results/phase_oct1_progress.json)。
+
+P1的M1完整结果（E049）：四套件各500回合、seed7，1800新回合加200严格验收复用回合。全部40任务、四个worker manifest、checkpoint/离线结果/运行源码哈希与episode配对通过既定检查。
+
+| 套件 | FP成功数 / 500 | M1成功数 / 500 | M1成功率（95%CI） | 相对FP差值 pp（配对95%CI） |
+|---|---:|---:|---:|---:|
+| libero_spatial | 491 | 481 | 96.20% [92.60, 98.80] | -2.00 [-6.20, +1.40] |
+| libero_object | 494 | 468 | 93.60% [87.20, 98.60] | -5.20 [-11.21, -0.60] |
+| libero_goal | 484 | 473 | 94.60% [87.80, 99.00] | -2.20 [-8.40, +2.20] |
+| libero_10 | 459 | 447 | 89.40% [84.60, 93.60] | -2.40 [-10.80, +8.20] |
+| 合计（2000回合） | 1928 | 1869 | 93.45% [90.85, 95.75] | -2.95 [-6.10, +0.30] |
+
+此前screening的193/200与FP同分仍为真实历史结果，但推广到全协议出现下降，最大点估计下降在libero_object（-5.20pp）。整体配对区间跨0，不能证明等价或无损；区间仅条件于单seed和预定任务/episode重采样模型，不是跨seed稳健性。M1 expert实际存储1.030335bpw，骨干仍原生BF16、embedding为int8，whole-model13.927086bpw。原≥3pp拐点规则针对指定screening，本次全协议-2.95pp不改变该定义。P2按原计划固定M1继续，但报告必须注明M1的全协议损失；尚无量化骨干全协议结果。
+
+[M1完整统计、每套件置信区间与来源哈希](results/p1_M1_full.json)。M2仍在执行；未提前写出P1两配置完成标记或启动依赖完整P1的P4。
+
 
 按用户新优先级启动 P1/P2，全部新实验仍为单 seed。P1：M1先于M2，各补1800个episode，复用已验收200个screening episode；完整结果将对原始FP seed7报告四套件逐项与整体的配对bootstrap区间，libero_10单列。双L40S作业178947已开始M1；原排队的第二组178948已拆为两个单L40S作业178999/179000，以利用单张空闲卡；四个逻辑worker的覆盖与配对协议不变；不会把部分回合成功率作为完整结果。
 
-P2关键路径：实际骨干为288个Linear、2,392,879,104个原始权重元素，M3/M2已全部拟合与导出，expert固定为已验证M1。两张5090上的真实观测试跑178955通过：可微十步采样与同设备M1前向逐元素一致、重复action-Fisher一致，且视觉和语言KV均有非零信号。这是校准实现验证，不是新量化模型的效果。完整256观测校准178957因重复检查使用累计差分而引入约4e-28的浮点相消误差，在第一观测检查处停止；改为两个独立零初始化累加器直接比较，完全一致的门槛未变。替代校准 **178962已完整通过256观测验收**，覆盖288个Linear和180组共享输入矩。两张5090已实际开始M3/M2拟合（178961）。A6000因预计排队约15小时，其尚未启动的两个分片已按速度优先改交额外两张已验证的5090（179014），179014随后也已获配，一度四张5090同时拟合。05:46UTC其中一组178961被集群抢占，已保存结果保留；剩余worker2/3已拆成单A6000续跑179056和单5090续跑179057，以利用零散资源。卡数以带时间戳的进度快照为准。第三张L40S随后获配，第四张仍排队；所有held-out/成功率评估仍限L40S。 [完整骨干校准验收](results/backbone_calibration.json)记录了两分片前向/梯度重复检查均精确一致；Gemma最后一层的q/o/MLP共五个prefix输出分支没有动作梯度，单独用H重建，其余按action-Fisher拟合。校准结果不等于策略效果；新完成的量化动作MSE见下表，LIBERO成功率仍待评估。
+P2关键路径：实际骨干为288个Linear、2,392,879,104个原始权重元素，M3/M2已全部拟合与导出，expert按计划固定为已通过screening的M1，其全协议损失见上表。两张5090上的真实观测试跑178955通过：可微十步采样与同设备M1前向逐元素一致、重复action-Fisher一致，且视觉和语言KV均有非零信号。这是校准实现验证，不是新量化模型的效果。完整256观测校准178957因重复检查使用累计差分而引入约4e-28的浮点相消误差，在第一观测检查处停止；改为两个独立零初始化累加器直接比较，完全一致的门槛未变。替代校准 **178962已完整通过256观测验收**，覆盖288个Linear和180组共享输入矩。两张5090已实际开始M3/M2拟合（178961）。A6000因预计排队约15小时，其尚未启动的两个分片已按速度优先改交额外两张已验证的5090（179014），179014随后也已获配，一度四张5090同时拟合。05:46UTC其中一组178961被集群抢占，已保存结果保留；剩余worker2/3已拆成单A6000续跑179056和单5090续跑179057，以利用零散资源。卡数以带时间戳的进度快照为准。第三张L40S随后获配，第四张仍排队；所有held-out/成功率评估仍限L40S。 [完整骨干校准验收](results/backbone_calibration.json)记录了两分片前向/梯度重复检查均精确一致；Gemma最后一层的q/o/MLP共五个prefix输出分支没有动作梯度，单独用H重建，其余按action-Fisher拟合。校准结果不等于策略效果；新完成的量化动作MSE见下表，LIBERO成功率仍待评估。
 
-P2导出和双L40S held-out验证已完成，M3先行screening已运行；门槛通过后继续M2/full评估。P3离线验证完成：采用精确FP32表，int4失败保留int8；200集配对筛选已排队。新的实测保留张量下界见下表，旧下界为历史布局核算。P4的三个均匀配置已接通拟合、打包导出、独立L40S离线动作验证和配对screening，尚未启动GPU实验；P1/P3完整结束并释放卡后，自动申请四张拟合卡，为P2保留至多四张评估卡，总量不超过八卡。实测拐点处的匹配读取量消融仍待后续。含码本、scale、mask、RHT符号的解析expert位宽依次为0.543593、0.517906、1.070108bpw（对应名义0.5/0.5/1.0）；16项码本的索引须真实按4bit打包。实际结果与读取量将另列。P1–P3完成前不做外部基线或内核。
+P2导出和双L40S held-out验证已完成，M3先行screening已运行；门槛通过后继续M2/full评估。P3离线与配对筛选完成：采用精确FP32表；int4筛选190/200，但离线失败，保留int8。新的实测保留张量下界见下表，旧下界为历史布局核算。P4的三个均匀配置已接通拟合、打包导出、独立L40S离线动作验证和配对screening，尚未启动GPU实验；P1/P3完整结束并释放卡后，自动申请四张拟合卡，为P2保留至多四张评估卡，总量不超过八卡。实测拐点处的匹配读取量消融仍待后续。含码本、scale、mask、RHT符号的解析expert位宽依次为0.543593、0.517906、1.070108bpw（对应名义0.5/0.5/1.0）；16项码本的索引须真实按4bit打包。实际结果与读取量将另列。P1–P3完成前不做外部基线或内核。
 
 
 P2骨干**完整离线动作结果已完成（E047）**：256个观测来自40条独立held-out轨迹，noise0，执行窗口前5×7，对原始FP计算全局相对MSE。全部张量严格重载、保留张量逐元素一致，四个固定观测的原始输出与FP32存档重复检查均逐元素一致。expert固定1.030335bpw，embedding为int8，原生AdaRMS/timeMLP尚未折叠：
@@ -36,14 +51,14 @@ P3保留张量验证已完成（E048）：固定十步、37个AdaRMS站点，全
 | FP32 / int8 | 542,205,320 | 1.293493 | 1.99510e-5 | 通过，保留为默认 |
 | FP32 / int4（FP16逐行scale） | 278,367,368 | 0.664077 | 0.03763057 | 未通过1e-4门槛，不采用 |
 
-Int8下保留张量由1,012,077,920降至542,205,320bytes；表中下界只计保留张量，仍需加上量化Linear的存储。**0.664077是精度门槛失败的int4候选核算，不能作为可用部署结论。** Int4的200集seed7配对screening仍按要求排队；即使screening通过，也不满足“离线与screening都通过”的采用条件。上述P3实验使用原生骨干，尚未与P2量化checkpoint合并验收，不能把两组结果拼接成整模型精度结论。原生Linear的两个P3checkpoint总payload为5,950,817,672/5,686,979,720bytes，whole-model为14.196356/13.566940bpw；尚无该部署的独立读取量测量。
+Int8下保留张量由1,012,077,920降至542,205,320bytes；表中下界只计保留张量，仍需加上量化Linear的存储。**0.664077是精度门槛失败的int4候选核算，不能作为可用部署结论。** Int4的200集seed7配对screening已完整验收：spatial98/100、libero_10为92/100，合计190/200=95.0%，相对FP为-1.5pp，配对95%CI [-7.0,+3.5]pp，成功率门槛通过。由于离线MSE失败，仍不满足双门槛，不采用int4。[完整配对结果](results/reserved_validation.json)。上述P3实验使用原生骨干，尚未与P2量化checkpoint合并验收，不能把两组结果拼接成整模型精度结论。原生Linear的两个P3checkpoint总payload为5,950,817,672/5,686,979,720bytes，whole-model为14.196356/13.566940bpw；尚无该部署的独立读取量测量。
 
 [完整离线结果、严格重载与独立数组复核](results/reserved_offline.json)。[事前解析核算](results/reserved_floor/phase_oct1_projection.json)保留作对照，实测payload与其一致。
 
 
-论文段落草案（单seed，P1待完成）：
+论文段落草案（单seed；M1全协议完成，M2待完成，已修正无损表述）：
 
-On the 200-episode, seed-7 LIBERO screening protocol, uniform vector quantization of the flow action expert at approximately 1 bpw (1.0303 actual stored quantizable-Linear bpw) matches the full-precision reference point estimate, 193/200 successes, with a paired difference of 0 pp and a conditional 95% interval of [-5.0, +5.5] pp. Thus no loss is observed in this screening sample, while equivalence and full-protocol robustness remain unestablished pending P1. Under the specified minimum-read budget, calibration-optimal prefix-depth allocation assigns the full depth to the final Euler step in all 126 action-expert Linear layers at M2 and M3. This agrees with the single-step tolerance curve and the final-step projection argument; because this budget permits only one full-depth step, the finding concerns its placement, not optimality among unrestricted schedules. These are single-seed observations with a BF16 backbone and int8 embeddings (13.9271 whole-model bpw for expert M1), not whole-model 1 bpw compression.
+On the four-suite LIBERO protocol with 50 episodes per task and seed 7, uniform vector quantization of the flow action expert at 1.0303 actual stored quantizable-Linear bpw achieves 1869/2000 successes (93.45%), compared with 1928/2000 (96.40%) for the full-precision reference. The paired difference is -2.95 percentage points, with a conditional 95% bootstrap interval of [-6.10, +0.30] points; the earlier equal 200-episode screening point estimate therefore does not establish lossless compression or equivalence. The largest suite-level point-estimate decrease is on LIBERO-Object (-5.20 points). Under the specified minimum-read budget, calibration-optimal prefix-depth allocation assigns full depth to the final Euler step in all 126 action-expert Linear layers at M2 and M3, consistent with the single-step tolerance curve and final-step projection argument. Because that budget permits only one full-depth step, this result concerns its placement, not unrestricted schedule optimality, and its downstream benefit remains unmeasured. These results are conditional on one seed, a BF16 backbone and int8 embeddings (13.9271 whole-model bpw); M2 full validation remains in progress.
 
 ## D3 后补充：当前执行方案与已完成重算（E027）
 

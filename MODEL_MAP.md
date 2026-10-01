@@ -19,6 +19,8 @@ Storage includes every persistent tensor; container/header bytes are separate. L
 
 Budget implication, analytically calculated from the measured tensor inventory: retained tensors excluding eligible Linear weights use 1,012,077,920 bytes, a 2.414428 whole-model-bpw floor at the current native dtypes. If every eligible Linear retains at least one 8-bit index per 8 weights, even an ideal one-plane representation needs at least 3.220857 whole-model bpw before codebook/scales/mask overhead. Thus the later 3.0/2.5 whole-model targets need a separately validated retained-tensor or allocation change; they do not follow automatically from int8 embeddings and head removal. This is a budget bound under those explicit assumptions, not a measured quantized-model result. The 2026-10-01 phase now starts backbone quantization concurrently with full expert validation and authorizes fixed-timestep AdaRMS folding plus validated int4 embeddings; independent P3 deployment floors and action validation are now measured below; these changes are not yet composed into P2 artifacts.
 
+Expert M1 full-protocol quality update:1869/2000=93.45% versusoriginalFP1928/2000=96.40%, paired difference-2.95pp (95%CI[-6.10,+.30]pp). Expertactual1.030335bpw does not establish lossless performance; nativebackbone/int8 whole-model13.927086bpw. [Full quality result](results/p1_M1_full.json).
+
 ## Exported backbone RVQ artifacts — 2026-10-01 (offline validated; LIBERO pending)
 
 All288backboneLinear layers fitted at M3 and M2, with the validated uniformM1 expert fixed. The two self-contained local artifacts are `models/hd_srvq_bb_M3_ae_M1` and `models/hd_srvq_bb_M2_ae_M1`. Independent safetensors shape/dtype/offset/file-size accounting agrees with export metadata. Strictpolicy reload and256held-out action checks nowcomplete; originalFP relativeMSE M3=.0170782926020,M2=.0430040726108. LIBEROsuccess pending.
@@ -39,7 +41,7 @@ On all256calibrationobservations, fixed-ten-step FP32 tables preserve native ful
 | int8 row absmax | 542,205,320 | 1.293493 | 1.99510e-5 | Keep int8 |
 | int4, FP16 row scale | 278,367,368 | 0.664077 | 0.03763057 | Reject: offline gate fails |
 
-Both artifacts strictly reload and repeat native/canonical actions exactly. Int4 paired200episode screening is still pending, but cannot reverse the failed offline prerequisite. These are native-Linear P3 artifacts, not composed backbone RVQ results. Quantized-Linear bytes must be added to the listed floors; .664077 is a rejected candidate floor. [Complete measured aggregate](results/reserved_offline.json).
+Both artifacts strictly reload and repeat native/canonical actions exactly. Int4 paired200episode screening is complete:190/200=95.0%, -1.5pp versusFP, paired95%CI[-7.0,+3.5]pp. The screen gate passes, but does not reverse the failed offline prerequisite. [Complete paired validation](results/reserved_validation.json). These are native-Linear P3 artifacts, not composed backbone RVQ results. Quantized-Linear bytes must be added to the listed floors; .664077 is a rejected candidate floor. [Complete measured aggregate](results/reserved_offline.json).
 
 ## Historical constructor audit (E002; not current deployment denominator)
 

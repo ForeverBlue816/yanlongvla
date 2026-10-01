@@ -1,0 +1,506 @@
+{
+  "status": "complete",
+  "offline_embedding_gate_passed": false,
+  "screen_pass_fp_minus_1p5": true,
+  "selected_embedding": "int8_fallback",
+  "candidate": {
+    "format": "hd-srvq-reserved-v1",
+    "embedding": "int4_absmax_fp16_scale",
+    "table_dtype": "float32",
+    "table_sites": [
+      "paligemma_with_expert.gemma_expert.model.layers.0.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.0.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.1.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.1.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.2.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.2.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.3.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.3.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.4.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.4.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.5.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.5.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.6.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.6.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.7.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.7.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.8.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.8.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.9.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.9.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.10.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.10.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.11.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.11.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.12.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.12.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.13.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.13.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.14.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.14.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.15.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.15.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.16.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.16.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.17.input_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.layers.17.post_attention_layernorm.dense",
+      "paligemma_with_expert.gemma_expert.model.norm.dense"
+    ],
+    "tensor_payload_bytes": 5686979720,
+    "reserved_bytes": 278367368,
+    "reserved_only_whole_model_bpw_floor": 0.6640771904268521,
+    "whole_model_bpw": 13.566940484461117,
+    "active_original_elements": 3353433872,
+    "checkpoint_sha256": "3aae3a1ee7c133f92ed7696c79f35bf29a5625b660180e8b9a404ad85d00401d",
+    "checkpoint_file_bytes": 5687108288,
+    "offline_gate_passed": false,
+    "offline_metrics": {
+      "median_relative_mse": 0.03632066197168099,
+      "trimmed_mean_10pct_relative_mse": 0.03679519110317689,
+      "mean_per_observation_relative_mse": 0.039203662050862446,
+      "mean_based_global_relative_mse": 0.03763056753889389,
+      "absolute_mse": 0.008150219065270843,
+      "trim_count_per_tail": 25,
+      "zero_energy_reference_observations": 0,
+      "largest_error_observation": 84,
+      "largest_error_energy_share": 0.04773455198544321
+    },
+    "source_checkpoint": "pi05_libero_trimmed",
+    "exact_fold_max_abs": 0.0
+  },
+  "screen": {
+    "status": "complete",
+    "completed": 200,
+    "expected": 200,
+    "missing": 0,
+    "success_percent": 95.0,
+    "successes": 190,
+    "suites": {
+      "libero_spatial": {
+        "successes": 98,
+        "episodes": 100,
+        "success_percent": 98.0
+      },
+      "libero_10": {
+        "successes": 92,
+        "episodes": 100,
+        "success_percent": 92.0
+      }
+    }
+  },
+  "paired_statistics": {
+    "reference": "original_fp",
+    "protocol": {
+      "suites": [
+        "libero_spatial",
+        "libero_10"
+      ],
+      "tasks_per_suite": 10,
+      "episodes_per_task": 10,
+      "evaluation_seed": 7
+    },
+    "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+    "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+    "resamples": 2000,
+    "resampling_rng_seed": 20260930,
+    "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+    "policies": {
+      "original_fp": {
+        "successes": 193,
+        "episodes": 200,
+        "success_percent": 96.5,
+        "success_ci95_percent": [
+          92.0,
+          99.5
+        ],
+        "difference_from_reference_pp": 0.0,
+        "paired_difference_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "paired_improvements": 0,
+        "paired_regressions": 0,
+        "suites": {
+          "libero_spatial": {
+            "successes": 97,
+            "episodes": 100,
+            "success_percent": 97.0,
+            "success_ci95_percent": [
+              92.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "libero_10": {
+            "successes": 96,
+            "episodes": 100,
+            "success_percent": 96.0,
+            "success_ci95_percent": [
+              88.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          }
+        }
+      },
+      "fold_int4": {
+        "successes": 190,
+        "episodes": 200,
+        "success_percent": 95.0,
+        "success_ci95_percent": [
+          87.5,
+          99.5
+        ],
+        "difference_from_reference_pp": -1.5,
+        "paired_difference_ci95_pp": [
+          -7.0,
+          3.5
+        ],
+        "paired_improvements": 5,
+        "paired_regressions": 8,
+        "suites": {
+          "libero_spatial": {
+            "successes": 98,
+            "episodes": 100,
+            "success_percent": 98.0,
+            "success_ci95_percent": [
+              94.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 1.0,
+            "paired_difference_ci95_pp": [
+              -5.0,
+              7.0
+            ],
+            "paired_improvements": 3,
+            "paired_regressions": 2
+          },
+          "libero_10": {
+            "successes": 92,
+            "episodes": 100,
+            "success_percent": 92.0,
+            "success_ci95_percent": [
+              78.0,
+              100.0
+            ],
+            "difference_from_reference_pp": -4.0,
+            "paired_difference_ci95_pp": [
+              -14.0,
+              3.0
+            ],
+            "paired_improvements": 2,
+            "paired_regressions": 6
+          }
+        }
+      }
+    }
+  },
+  "fold_and_embedding_accounting": {
+    "status": "complete_offline",
+    "native_action_dtype": "float64",
+    "archive_dtype": "float32",
+    "fold_gate_comparison_precision": "native action outputs preserved without rounding in float64",
+    "observations": 256,
+    "noise_seed": 0,
+    "fold_results": [
+      {
+        "dtype": "float16",
+        "passed": false,
+        "max_absolute_action_difference": 0.08137885130593181,
+        "action_comparison_precision": "native outputs preserved in float64; MSE uses canonical FP32 archives",
+        "bit_identical": false,
+        "metrics": {
+          "median_relative_mse": 1.6694592672067464e-06,
+          "trimmed_mean_10pct_relative_mse": 1.7242498586786813e-06,
+          "mean_per_observation_relative_mse": 7.2030351252776775e-06,
+          "mean_based_global_relative_mse": 5.32689135055407e-06,
+          "absolute_mse": 1.153725130481736e-06,
+          "trim_count_per_tail": 25,
+          "zero_energy_reference_observations": 0,
+          "largest_error_observation": 11,
+          "largest_error_energy_share": 0.6660159678109663
+        },
+        "table_payload_bytes": 2273320
+      },
+      {
+        "dtype": "float32",
+        "passed": true,
+        "max_absolute_action_difference": 0.0,
+        "action_comparison_precision": "native outputs preserved in float64; MSE uses canonical FP32 archives",
+        "bit_identical": true,
+        "metrics": {
+          "median_relative_mse": 0.0,
+          "trimmed_mean_10pct_relative_mse": 0.0,
+          "mean_per_observation_relative_mse": 0.0,
+          "mean_based_global_relative_mse": 0.0,
+          "absolute_mse": 0.0,
+          "trim_count_per_tail": 25,
+          "zero_energy_reference_observations": 0,
+          "largest_error_observation": 0,
+          "largest_error_energy_share": 0.0
+        },
+        "table_payload_bytes": 4546600
+      }
+    ],
+    "embedding_results": [
+      {
+        "format": "hd-srvq-reserved-v1",
+        "embedding": "int8_absmax_row",
+        "table_dtype": "float32",
+        "table_sites": [
+          "paligemma_with_expert.gemma_expert.model.layers.0.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.0.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.1.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.1.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.2.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.2.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.3.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.3.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.4.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.4.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.5.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.5.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.6.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.6.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.7.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.7.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.8.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.8.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.9.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.9.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.10.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.10.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.11.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.11.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.12.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.12.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.13.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.13.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.14.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.14.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.15.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.15.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.16.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.16.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.17.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.17.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.norm.dense"
+        ],
+        "tensor_payload_bytes": 5950817672,
+        "reserved_bytes": 542205320,
+        "reserved_only_whole_model_bpw_floor": 1.2934927974032224,
+        "whole_model_bpw": 14.196356091437488,
+        "active_original_elements": 3353433872,
+        "checkpoint_sha256": "debe03eacfbe0de84a7f9780f743b66a4b9325ce091759d283fefd133293284f",
+        "checkpoint_file_bytes": 5950946240,
+        "offline_gate_passed": true,
+        "offline_metrics": {
+          "median_relative_mse": 9.208509597967124e-06,
+          "trimmed_mean_10pct_relative_mse": 9.793316023264285e-06,
+          "mean_per_observation_relative_mse": 2.495178670198562e-05,
+          "mean_based_global_relative_mse": 1.995099412293451e-05,
+          "absolute_mse": 4.321087437859752e-06,
+          "trim_count_per_tail": 25,
+          "zero_energy_reference_observations": 0,
+          "largest_error_observation": 11,
+          "largest_error_energy_share": 0.44990317143039327
+        },
+        "source_checkpoint": "pi05_libero_trimmed",
+        "exact_fold_max_abs": 0.0,
+        "strict_reload_all_tensors": true,
+        "repeat_indices": [
+          0,
+          63,
+          127,
+          255
+        ],
+        "exact_repeat_diagnostics": [
+          {
+            "native_dtype": "float64",
+            "recorded_dtype": "float32",
+            "native_repeat_max_abs": 0.0,
+            "recorded_repeat_max_abs": 0.0,
+            "mixed_precision_comparison_max_abs": 2.9156684844267033e-08,
+            "index": 0
+          },
+          {
+            "native_dtype": "float64",
+            "recorded_dtype": "float32",
+            "native_repeat_max_abs": 0.0,
+            "recorded_repeat_max_abs": 0.0,
+            "mixed_precision_comparison_max_abs": 2.719539404782978e-08,
+            "index": 63
+          },
+          {
+            "native_dtype": "float64",
+            "recorded_dtype": "float32",
+            "native_repeat_max_abs": 0.0,
+            "recorded_repeat_max_abs": 0.0,
+            "mixed_precision_comparison_max_abs": 2.8682231922871892e-08,
+            "index": 127
+          },
+          {
+            "native_dtype": "float64",
+            "recorded_dtype": "float32",
+            "native_repeat_max_abs": 0.0,
+            "recorded_repeat_max_abs": 0.0,
+            "mixed_precision_comparison_max_abs": 5.6587934338381274e-08,
+            "index": 255
+          }
+        ]
+      },
+      {
+        "format": "hd-srvq-reserved-v1",
+        "embedding": "int4_absmax_fp16_scale",
+        "table_dtype": "float32",
+        "table_sites": [
+          "paligemma_with_expert.gemma_expert.model.layers.0.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.0.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.1.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.1.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.2.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.2.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.3.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.3.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.4.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.4.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.5.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.5.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.6.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.6.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.7.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.7.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.8.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.8.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.9.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.9.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.10.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.10.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.11.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.11.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.12.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.12.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.13.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.13.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.14.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.14.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.15.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.15.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.16.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.16.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.17.input_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.layers.17.post_attention_layernorm.dense",
+          "paligemma_with_expert.gemma_expert.model.norm.dense"
+        ],
+        "tensor_payload_bytes": 5686979720,
+        "reserved_bytes": 278367368,
+        "reserved_only_whole_model_bpw_floor": 0.6640771904268521,
+        "whole_model_bpw": 13.566940484461117,
+        "active_original_elements": 3353433872,
+        "checkpoint_sha256": "3aae3a1ee7c133f92ed7696c79f35bf29a5625b660180e8b9a404ad85d00401d",
+        "checkpoint_file_bytes": 5687108288,
+        "offline_gate_passed": false,
+        "offline_metrics": {
+          "median_relative_mse": 0.03632066197168099,
+          "trimmed_mean_10pct_relative_mse": 0.03679519110317689,
+          "mean_per_observation_relative_mse": 0.039203662050862446,
+          "mean_based_global_relative_mse": 0.03763056753889389,
+          "absolute_mse": 0.008150219065270843,
+          "trim_count_per_tail": 25,
+          "zero_energy_reference_observations": 0,
+          "largest_error_observation": 84,
+          "largest_error_energy_share": 0.04773455198544321
+        },
+        "source_checkpoint": "pi05_libero_trimmed",
+        "exact_fold_max_abs": 0.0,
+        "strict_reload_all_tensors": true,
+        "repeat_indices": [
+          0,
+          63,
+          127,
+          255
+        ],
+        "exact_repeat_diagnostics": [
+          {
+            "native_dtype": "float64",
+            "recorded_dtype": "float32",
+            "native_repeat_max_abs": 0.0,
+            "recorded_repeat_max_abs": 0.0,
+            "mixed_precision_comparison_max_abs": 2.975344659539303e-08,
+            "index": 0
+          },
+          {
+            "native_dtype": "float64",
+            "recorded_dtype": "float32",
+            "native_repeat_max_abs": 0.0,
+            "recorded_repeat_max_abs": 0.0,
+            "mixed_precision_comparison_max_abs": 2.9033869530792344e-08,
+            "index": 63
+          },
+          {
+            "native_dtype": "float64",
+            "recorded_dtype": "float32",
+            "native_repeat_max_abs": 0.0,
+            "recorded_repeat_max_abs": 0.0,
+            "mixed_precision_comparison_max_abs": 2.6998520086252142e-08,
+            "index": 127
+          },
+          {
+            "native_dtype": "float64",
+            "recorded_dtype": "float32",
+            "native_repeat_max_abs": 0.0,
+            "recorded_repeat_max_abs": 0.0,
+            "mixed_precision_comparison_max_abs": 2.9740214291251732e-08,
+            "index": 255
+          }
+        ]
+      }
+    ],
+    "original_denominator_retained": true,
+    "screening_status": "pending_200_paired_episodes",
+    "gpu": "NVIDIA L40S",
+    "elapsed_seconds": 420.19775579401175
+  },
+  "source_sha256": {
+    "/projects/yanlongvla/models/pi05_libero_fold_int4/reserved.json": "3def9c24e3c1c454c0dd39dc474eb8442ad4dbf8153cc77bc398648307e9252f",
+    "/projects/yanlongvla/runs/reserved/result.json": "b2351ca65cba1ef850d2d0b6e94f129eb595d398ee72ec78a1dee0bfa3fe686b",
+    "/projects/yanlongvla/runs/reserved/int4_screen/worker0_manifest.json": "e3ffcaead0ea5449987a88572d2734873c76d7f7b16dd380d5353c3f4ab05bfd",
+    "/projects/yanlongvla/runs/reserved/int4_screen/worker1_manifest.json": "1d1b16a46a5d1aa1853aeaa19890417d20bfadeaf2c9bfb3591c49ab938c536f",
+    "/projects/yanlongvla/runs/reserved/int4_screen/worker2_manifest.json": "4b3e53cc3b89e6109b6ad22ddccfd92375ee72b7306a01d98fb3879cd2a29cbb",
+    "/projects/yanlongvla/runs/reserved/int4_screen/worker3_manifest.json": "2bbb3f0f17be548c60ad03dda7bebd372e11758246e86dea4c0aa461df57fcd7",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task0_seed7.jsonl": "6e088fcd6687f3d02e9b195ef825293b6a470ffb9086698cb41c6bffee51f2d0",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task1_seed7.jsonl": "dc12b89da53a390ff9fd1e5283420cf4d5c6fcc985459fd06bd85790176a1d54",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task2_seed7.jsonl": "2b752dc574a877ae92565c64d6f984c58ee9a17b9b63258bb0e6425790bdaa0c",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task3_seed7.jsonl": "c5d5ebdd09b4853f5dec047d9cd2b6a9e3f53144491c4f1c1e5ba0bd78b9e45d",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task4_seed7.jsonl": "fa9ce4ba8a3d78037f9a39ce5e19ec7ad7659c493925e037b4157260ca9029d5",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task5_seed7.jsonl": "8be0f9bba7a8b15f27f01182a6bc3fd11e2c19b9e9f4754892a9a4a608bd398f",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task6_seed7.jsonl": "6126cbd023259f0a8314fe1a473b0bc6fc8e37764f298d133fe60ec3ae3cc97f",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task7_seed7.jsonl": "8c4b4c39e587d46bb8b00a5ea0853726ac490114aadeb029bd4fe92aa3a34477",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task8_seed7.jsonl": "63c53b22f49618f4cac442e24e00e4f51bcbb6f77f80a1ef3d83065c4711e052",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_10_task9_seed7.jsonl": "82387824edd36e0536be8d074601686f3b5a1d793cfc9b321091eca0d4709464",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task0_seed7.jsonl": "52c528d9af1163a8cde776fc8f50787fd6eb51351c820b4911f6cf24daa6af5a",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task1_seed7.jsonl": "078781376a811063d24f64cda7df3c32ec316a84408c2f2e6b5135beec07edd6",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task2_seed7.jsonl": "870d33bd7abb4c92d31d7c34c32b389e3b92f3fabcee894f62da8cd49e1657eb",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task3_seed7.jsonl": "4cab38baaf6836a161baae4c4e3662ba162842957b64ed4258d4561c48fbf6ea",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task4_seed7.jsonl": "4473e48fd665407561086d22fafeac45792d10176c0f0efef443651ac8911a5d",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task5_seed7.jsonl": "187bb4f9f4b3ff81e340ef2ba42f54b6e31dd4e9ad0de94da4c9abb6f729cacc",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task6_seed7.jsonl": "ca2473c7542702060e34efabe4e8541e62e67398d4d0c138c2f29fa618a32c51",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task7_seed7.jsonl": "a4056b721d74202fa78917e17a7b045586339c63b8c181611942b497f66b7e6c",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task8_seed7.jsonl": "079b9b847e8a71ecfb869f1bef98720686f9d757bef0aaf590740ebdb2b798b3",
+    "/projects/yanlongvla/runs/reserved/int4_screen/libero_spatial_task9_seed7.jsonl": "2d66bdf0645d9173e0402bf1c878b0cea6b63de70b3790a760c79c8e614b8288",
+    "/projects/yanlongvla/runs/g0/libero_spatial_seed7.jsonl": "c48c9ce9e91db0ed941a81a4e685272cad073fbdf4894946d2d3cfbe8be7a960",
+    "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192"
+  }
+}
