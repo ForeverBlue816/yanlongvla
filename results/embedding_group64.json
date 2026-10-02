@@ -1,0 +1,60 @@
+{
+  "status": "complete",
+  "variant": "embedding_g64_fp32",
+  "checkpoint_sha256": "9537b62ee05ce5af352c9c8a955161e7cfd2067336a4a710e7659aad8c123f81",
+  "observations": 256,
+  "noise_seed": 0,
+  "calibration_not_heldout": true,
+  "versus_original_fp": {
+    "median_relative_mse": 5.6068865920573275e-05,
+    "trimmed_mean_10pct_relative_mse": 6.443766440398184e-05,
+    "mean_per_observation_relative_mse": 9.338197544002435e-05,
+    "mean_based_global_relative_mse": 8.246323803397018e-05,
+    "absolute_mse": 1.7860306095935825e-05,
+    "trim_count_per_tail": 25,
+    "zero_energy_reference_observations": 0,
+    "largest_error_observation": 11,
+    "largest_error_energy_share": 0.12855087919176675
+  },
+  "offline_gate_passed": true,
+  "gate": 0.0001,
+  "next_action": "200 episode crash screening",
+  "strict_reload_all_tensors": true,
+  "exact_repeat_diagnostics": [
+    {
+      "index": 0,
+      "native_dtype": "float64",
+      "recorded_dtype": "float32",
+      "native_repeat_max_abs": 0.0,
+      "recorded_repeat_max_abs": 0.0,
+      "mixed_precision_comparison_max_abs": 5.714547635093936e-08
+    },
+    {
+      "index": 63,
+      "native_dtype": "float64",
+      "recorded_dtype": "float32",
+      "native_repeat_max_abs": 0.0,
+      "recorded_repeat_max_abs": 0.0,
+      "mixed_precision_comparison_max_abs": 5.557614568552083e-08
+    },
+    {
+      "index": 127,
+      "native_dtype": "float64",
+      "recorded_dtype": "float32",
+      "native_repeat_max_abs": 0.0,
+      "recorded_repeat_max_abs": 0.0,
+      "mixed_precision_comparison_max_abs": 5.008423320518318e-08
+    },
+    {
+      "index": 255,
+      "native_dtype": "float64",
+      "recorded_dtype": "float32",
+      "native_repeat_max_abs": 0.0,
+      "recorded_repeat_max_abs": 0.0,
+      "mixed_precision_comparison_max_abs": 5.271291714237236e-08
+    }
+  ],
+  "stored_embedding_bpw": 4.25,
+  "reserved_bytes": 294310792,
+  "reserved_only_whole_model_bpw_floor": 0.7021120516671396
+}

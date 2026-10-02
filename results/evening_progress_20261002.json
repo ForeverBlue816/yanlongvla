@@ -1,0 +1,75 @@
+{
+  "timestamp_singapore": "2026-10-02T09:35:52.348013+08:00",
+  "source_revision": "0688a97165c3de0fb740edb0bf1b6333d1ae840b",
+  "status": "M2_full_passed_medium_in_progress",
+  "expert_default": "M2",
+  "M2_full_successes": 1923,
+  "M2_full_episodes": 2000,
+  "M2_success_percent": 96.15,
+  "FP_success_percent": 96.39999999999999,
+  "M2_difference_pp": -0.25,
+  "M2_paired_difference_ci95_pp": [
+    -1.3999999999999777,
+    0.7500000000000142
+  ],
+  "M2_margin_passed": true,
+  "P1_verified_source_hashes": 98,
+  "rows": [
+    {
+      "variant": "bb_M3_ae_M2_fp32",
+      "relative_mse": 0.01304601522565916,
+      "whole_model_bpw": 3.6389649302140765,
+      "medium_completed": 886,
+      "medium_expected": 1000,
+      "medium_per_suite": {
+        "libero_10": 160,
+        "libero_spatial": 250,
+        "libero_object": 250,
+        "libero_goal": 226
+      },
+      "error_files": [],
+      "offline_sha256": "e41e77eff127d3262befc1909968f5f0398e82f3ed138493d9935fe13cce85c3"
+    },
+    {
+      "variant": "bb_M2_ae_M2_fp32",
+      "relative_mse": 0.037216964264135996,
+      "whole_model_bpw": 2.9225899010064036,
+      "medium_completed": 600,
+      "medium_expected": 1000,
+      "medium_per_suite": {
+        "libero_10": 175,
+        "libero_spatial": 175,
+        "libero_object": 125,
+        "libero_goal": 125
+      },
+      "error_files": [],
+      "offline_sha256": "4f340736699cfae4cdd064575eceb1990ef1019077e7cbc05fc824d232c6c2b1"
+    },
+    {
+      "variant": "evening_b_star_M2",
+      "relative_mse": 0.003971979837180978,
+      "whole_model_bpw": 14.021185744139224,
+      "medium_completed": 0,
+      "medium_expected": 1000,
+      "medium_per_suite": {},
+      "error_files": [],
+      "offline_sha256": "a936c59a13440634fd8fdaf249d0b10b5a520f91b51658ce46f1db7dd5b10fd7"
+    }
+  ],
+  "ablation_fit_layers_per_variant": {
+    "b_star": 126,
+    "c_both": 126,
+    "d": 126
+  },
+  "p4_fit_layers_per_variant": {
+    "g16_k256_M1": 126,
+    "g8_k16_M1": 126,
+    "g16_k256_M2": 126
+  },
+  "c_d_offline_and_medium": "pending",
+  "p4_action_MSE": "pending; no rollouts",
+  "live_jobs": {
+    "controller": "179698",
+    "deployments_medium": "179902"
+  }
+}
