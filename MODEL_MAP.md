@@ -1,3 +1,7 @@
+# E055 — M3-backbone/M2-expert medium complete
+
+The int8/FP32-table composition at3.6389649302wholebpw completes seed7 medium974/1000 vsmatchingFP970/1000 (+0.4pp; paired95%CI[-1.50,+2.30]pp). This is a medium pass, not full validation. The2.9225899010bpw M2-backbone candidate is still running; no final comparison/promotion yet. See `results/evening_deployment_M3_medium.json`.
+
 # E054 — M2 expert default confirmed
 
 The complete single-seed 2000-episode protocol gives M2 1923 successes versus FP1928, a0.25pp loss (paired95%CI[-1.40,+0.75]pp), passing the≤1.5pp gate. Current backboneM3/M2 +expertM2 +FP32table +int8 combinations have validated held-out actionMSE0.01304601522565916/0.037216964264135996; their medium/full accuracy is not yet established. Group64int4 embedding passes its standalone calibrationMSE gate (8.246323803397018e-5) and completes200-episode screening; combined deployments remainint8. See `results/p1_full.json`, `results/embedding_group64.json`, `results/evening_progress_20261002.json`.

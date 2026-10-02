@@ -1,0 +1,178 @@
+{
+  "timestamp_singapore": "2026-10-02T11:07:18.309510+08:00",
+  "status": "backbone_M3_medium_complete_M2_running",
+  "M3_medium": {
+    "successes": 974,
+    "episodes": 1000,
+    "success_percent": 97.39999999999999,
+    "success_ci95_percent": [
+      95.6,
+      98.8
+    ],
+    "difference_from_reference_pp": 0.4,
+    "paired_difference_ci95_pp": [
+      -1.5,
+      2.302499999999997
+    ],
+    "paired_improvements": 22,
+    "paired_regressions": 18,
+    "suites": {
+      "libero_spatial": {
+        "successes": 247,
+        "episodes": 250,
+        "success_percent": 98.8,
+        "success_ci95_percent": [
+          96.8,
+          100.0
+        ],
+        "difference_from_reference_pp": 0.4,
+        "paired_difference_ci95_pp": [
+          -2.000000000000014,
+          3.200000000000003
+        ],
+        "paired_improvements": 4,
+        "paired_regressions": 3
+      },
+      "libero_object": {
+        "successes": 246,
+        "episodes": 250,
+        "success_percent": 98.4,
+        "success_ci95_percent": [
+          95.6,
+          100.0
+        ],
+        "difference_from_reference_pp": -0.8,
+        "paired_difference_ci95_pp": [
+          -2.8000000000000114,
+          0.7999999999999972
+        ],
+        "paired_improvements": 1,
+        "paired_regressions": 3
+      },
+      "libero_goal": {
+        "successes": 243,
+        "episodes": 250,
+        "success_percent": 97.2,
+        "success_ci95_percent": [
+          94.39999999999999,
+          99.6
+        ],
+        "difference_from_reference_pp": 0.8,
+        "paired_difference_ci95_pp": [
+          -3.200000000000003,
+          5.200000000000003
+        ],
+        "paired_improvements": 6,
+        "paired_regressions": 4
+      },
+      "libero_10": {
+        "successes": 238,
+        "episodes": 250,
+        "success_percent": 95.19999999999999,
+        "success_ci95_percent": [
+          88.8,
+          99.6
+        ],
+        "difference_from_reference_pp": 1.2,
+        "paired_difference_ci95_pp": [
+          -3.999999999999986,
+          7.200000000000003
+        ],
+        "paired_improvements": 11,
+        "paired_regressions": 8
+      }
+    }
+  },
+  "matching_FP_medium": {
+    "successes": 970,
+    "episodes": 1000,
+    "success_percent": 97.0,
+    "success_ci95_percent": [
+      94.3,
+      98.9
+    ],
+    "difference_from_reference_pp": 0.0,
+    "paired_difference_ci95_pp": [
+      0.0,
+      0.0
+    ],
+    "paired_improvements": 0,
+    "paired_regressions": 0,
+    "suites": {
+      "libero_spatial": {
+        "successes": 246,
+        "episodes": 250,
+        "success_percent": 98.4,
+        "success_ci95_percent": [
+          96.0,
+          100.0
+        ],
+        "difference_from_reference_pp": 0.0,
+        "paired_difference_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "paired_improvements": 0,
+        "paired_regressions": 0
+      },
+      "libero_object": {
+        "successes": 248,
+        "episodes": 250,
+        "success_percent": 99.2,
+        "success_ci95_percent": [
+          97.2,
+          100.0
+        ],
+        "difference_from_reference_pp": 0.0,
+        "paired_difference_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "paired_improvements": 0,
+        "paired_regressions": 0
+      },
+      "libero_goal": {
+        "successes": 241,
+        "episodes": 250,
+        "success_percent": 96.39999999999999,
+        "success_ci95_percent": [
+          92.4,
+          99.2
+        ],
+        "difference_from_reference_pp": 0.0,
+        "paired_difference_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "paired_improvements": 0,
+        "paired_regressions": 0
+      },
+      "libero_10": {
+        "successes": 235,
+        "episodes": 250,
+        "success_percent": 94.0,
+        "success_ci95_percent": [
+          83.6,
+          99.6
+        ],
+        "difference_from_reference_pp": 0.0,
+        "paired_difference_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "paired_improvements": 0,
+        "paired_regressions": 0
+      }
+    }
+  },
+  "M2_medium_episodes_completed": 850,
+  "M2_medium_episodes_required": 1000,
+  "M2_medium_error_files": [],
+  "live_jobs": {
+    "controller": "179698",
+    "medium": "179902"
+  },
+  "c_d_policy_export_offline_medium": "not started; fitting complete; serialized after deployments medium",
+  "p4_policy_offline": "not started; fitting complete; no rollouts",
+  "verified_M3_source_hashes": 49
+}
