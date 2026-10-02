@@ -1,3 +1,9 @@
+# E059 — Evening pipeline complete; final d result
+
+All authorized evening branches completed successfully by2026-10-02 22:44:40Singapore; no active GPU/CPU jobs. M3-backbone/M2-expert/FP32-table/int8 full remains1948/2000=97.4% at3.638965wholebpw. No M2-backbone full evaluation was launched, in accordance with the frozen selection rule.
+
+Final d expert isolation medium is966/1000=96.6%, versusM1941/M2968/b*963/c962 andFP970. d stores81,913,068expertbytes/2.104199bpw and reads449,742,060logicalbytes per inference (1.121323×M1), hence fails the1.1×read ceiling despite+2.5pp point-estimate recovery. d relativeactionMSE0.004484082144878243 is61.55%higher than c; its+0.4pp medium increment overc does not meet the1.5pp alternative component gate. b* alone meets the combined target by point estimate, with recoveryCI crossing0. Full statistics and229source hashes: [complete ablations](results/evening_ablations_medium.json). No model/runtime tensors changed during this audit.
+
 # E058 — Quantized-backbone full validation complete
 
 M3 backbone + expert M2 + FP32 AdaRMS tables + int8 completes full seed7:1948/2000=97.4%, matchingFP1928/2000=96.4%; paired difference+1.0pp,95%CI[-0.35,+2.65]pp. Actual whole-model storage remains3.638965bpw/1,525,378,532tensorbytes. Meets the operational≤1.5pp loss gate, without a superiority/equivalence claim. M2-backbone98.2% remains medium-only. [Full result](results/evening_deployment_full.json).

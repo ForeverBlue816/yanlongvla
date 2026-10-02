@@ -1,0 +1,60 @@
+{
+  "status": "complete_current_evening_pipeline",
+  "audited_singapore": "2026-10-03T00:53:59+08:00",
+  "experiment_end_singapore": "2026-10-02T22:43:40+08:00",
+  "controller_end_singapore": "2026-10-02T22:44:40+08:00",
+  "source_revision": "23bc10faac53e7ddfd4851b6f34d236c11fd964f",
+  "source_sha256": {
+    "evening_ablations_medium.json": "fb2fc426e280f2a668ee63e2149bd089ce8494e4b54ebdaf3758a9d819df51e8"
+  },
+  "verified_ablation_source_files": 229,
+  "active_jobs": 0,
+  "active_gpus": 0,
+  "controller_job": "180278",
+  "final_ablation_job": "180151",
+  "exit_status": "COMPLETED/0:0",
+  "comparison_frames": [
+    {
+      "variant": "evening_b_star_M2",
+      "expert_payload_bytes": 79553772,
+      "expert_logical_read_bytes": 440526060,
+      "storage_reference": "a_M2",
+      "stored_byte_delta_vs_M2": 0,
+      "exact_storage_matched": true,
+      "read_reference": "a_M1",
+      "read_ratio_vs_M1": 1.0983452792820851,
+      "recovery_vs_matching_medium_M1_pp": 2.2,
+      "target_passed": true
+    },
+    {
+      "variant": "evening_c_M2",
+      "expert_payload_bytes": 81913068,
+      "expert_logical_read_bytes": 449742060,
+      "storage_reference": "a_M2",
+      "stored_byte_delta_vs_M2": 2359296,
+      "exact_storage_matched": false,
+      "read_reference": "a_M1",
+      "read_ratio_vs_M1": 1.1213231482732267,
+      "recovery_vs_matching_medium_M1_pp": 2.1,
+      "target_passed": false
+    },
+    {
+      "variant": "evening_d_M2",
+      "expert_payload_bytes": 81913068,
+      "expert_logical_read_bytes": 449742060,
+      "storage_reference": "a_M2",
+      "stored_byte_delta_vs_M2": 2359296,
+      "exact_storage_matched": false,
+      "read_reference": "a_M1",
+      "read_ratio_vs_M1": 1.1213231482732267,
+      "recovery_vs_matching_medium_M1_pp": 2.5,
+      "target_passed": false
+    }
+  ],
+  "d_increment": {
+    "success_gain_vs_c_pp": 0.4,
+    "relative_mse_increase_vs_c": 0.6155183705666056,
+    "meets_5percent_mse_or_1p5pp_success_gate": false
+  },
+  "scope": "Current evening addendum only; no extra seeds, P4 rollouts, new refinements or external baselines launched."
+}
