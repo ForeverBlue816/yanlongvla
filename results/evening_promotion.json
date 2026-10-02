@@ -1,0 +1,7 @@
+{
+  "status": "selected",
+  "variant": "bb_M3_ae_M2_fp32",
+  "expert_default_confirmed": true,
+  "criterion": "Lowest held-out MSE among medium FP-minus-1.5pp passes; screening crash check only",
+  "M2_full_sha256": "7875c4b461d6213545f30fdfc6bf2a5f2aac892c6b56c2817b557a5e8040dc50"
+}

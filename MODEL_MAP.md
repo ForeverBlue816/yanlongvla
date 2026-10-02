@@ -1,3 +1,7 @@
+# E057 — Scheduling update; checkpoint quality results unchanged
+
+User-requested independent execution now retains ablation job180151 and adds four single-L40S workers180284–180287 under controller180278 (up to6GPUs, ceiling8). P4 exports are complete; two offline workers are allocated and the third is waiting for a GPU. P4 remains rollout-free, with no completed action-MSE result yet. Strict selection chose M3-backbone/M2-expert/FP32-table/int8 by the existing minimum-held-out-MSE rule; the2000-episode full protocol reuses1000validated medium episodes. No new full/P4 quality result is claimed. [Promotion](results/evening_promotion.json); [schedule snapshot](results/evening_parallel_schedule_20261002.json).
+
 # E056 — Both M2-expert backbone compositions complete medium
 
 Both compositions retain P3 FP32 tables and int8 embeddings. Medium is four suites × ten tasks × 25 episodes, seed 7; matched FP is 970/1000 (97.0%). M3 backbone: 974/1000 (97.4%), +0.4pp, paired 95% CI [-1.50,+2.30]pp. M2 backbone: 982/1000 (98.2%), +1.2pp, paired 95% CI [-1.00,+3.80]pp. Both pass the operational FP-minus-1.5pp point-estimate gate; neither has completed full validation.

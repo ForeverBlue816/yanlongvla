@@ -1,0 +1,149 @@
+{
+  "timestamp_singapore": "2026-10-02T14:07:44+08:00",
+  "status": "parallel_work_running",
+  "source_revision": "32f887880b538a540b490eb6318be09fd1955c28",
+  "old_cpu_controller": "179698",
+  "new_cpu_controller": "180278",
+  "preserved_gpu_job": "180151",
+  "jobs": {
+    "parallel_worker0": {
+      "job": "180284",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=rose",
+        "--qos=rose",
+        "--time=06:00:00",
+        "--requeue",
+        "--export=ALL,VLA_PARALLEL_WORKER=0",
+        "/projects/yanlongvla/research/slurm/evening_parallel_worker.sbatch"
+      ],
+      "status": "RUNNING",
+      "gpu_count": 1,
+      "full_worker": 0,
+      "p4_offline": [
+        "lowbit_g16_k256_M1"
+      ],
+      "exit_code": null
+    },
+    "parallel_worker1": {
+      "job": "180285",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=rose",
+        "--qos=override-limits-but-killable",
+        "--time=06:00:00",
+        "--requeue",
+        "--export=ALL,VLA_PARALLEL_WORKER=1",
+        "/projects/yanlongvla/research/slurm/evening_parallel_worker.sbatch"
+      ],
+      "status": "RUNNING",
+      "gpu_count": 1,
+      "full_worker": 1,
+      "p4_offline": [
+        "lowbit_g8_k16_M1"
+      ],
+      "exit_code": null
+    },
+    "parallel_worker2": {
+      "job": "180286",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=rose",
+        "--qos=override-limits-but-killable",
+        "--time=06:00:00",
+        "--requeue",
+        "--export=ALL,VLA_PARALLEL_WORKER=2",
+        "/projects/yanlongvla/research/slurm/evening_parallel_worker.sbatch"
+      ],
+      "status": "PENDING",
+      "gpu_count": 1,
+      "full_worker": 2,
+      "p4_offline": [
+        "lowbit_g16_k256_M2"
+      ],
+      "exit_code": null
+    },
+    "parallel_worker3": {
+      "job": "180287",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=rose",
+        "--qos=override-limits-but-killable",
+        "--time=06:00:00",
+        "--requeue",
+        "--export=ALL,VLA_PARALLEL_WORKER=3",
+        "/projects/yanlongvla/research/slurm/evening_parallel_worker.sbatch"
+      ],
+      "status": "PENDING",
+      "gpu_count": 1,
+      "full_worker": 3,
+      "p4_offline": [],
+      "exit_code": null
+    }
+  },
+  "queue_snapshot": [
+    "180287|PENDING|gres/gpu:l40:1|(Priority)",
+    "180286|PENDING|gres/gpu:l40:1|(Priority)",
+    "180151|RUNNING|gres/gpu:l40:2|gpu-l40-2",
+    "180284|RUNNING|gres/gpu:l40:1|gpu-l40-2",
+    "180285|RUNNING|gres/gpu:l40:1|gpu-l40-2",
+    "180278|RUNNING|N/A|cpu-2"
+  ],
+  "maximum_gpu_count": 6,
+  "user_gpu_ceiling": 8,
+  "actual_running_gpus_at_snapshot": 4,
+  "ablation_medium_completed": {
+    "evening_b_star_M2": 500,
+    "evening_c_M2": 147,
+    "evening_d_M2": 0
+  },
+  "promotion": {
+    "status": "selected",
+    "variant": "bb_M3_ae_M2_fp32",
+    "expert_default_confirmed": true,
+    "criterion": "Lowest held-out MSE among medium FP-minus-1.5pp passes; screening crash check only",
+    "M2_full_sha256": "7875c4b461d6213545f30fdfc6bf2a5f2aac892c6b56c2817b557a5e8040dc50"
+  },
+  "full_protocol": {
+    "total_episodes": 2000,
+    "reuse_validated_medium": 1000,
+    "new_episodes": 1000,
+    "evaluation_seed": 7,
+    "logical_workers": 4
+  },
+  "p4": [
+    {
+      "variant": "lowbit_g16_k256_M1",
+      "checkpoint_export": "complete",
+      "checkpoint_sha256": "fb0893f5c4de31fb8cd6fc75f6d6e71ae634ee1093a9588e35a38b7e0efb3b5b",
+      "expert_stored_bpw": 0.5435929731889204,
+      "offline_status": "running",
+      "rollouts": "forbidden"
+    },
+    {
+      "variant": "lowbit_g8_k16_M1",
+      "checkpoint_export": "complete",
+      "checkpoint_sha256": "f9dc64364fae1232c7daa17c92cbfeaf95a0410b6e3d324698fbd09e5acf49b4",
+      "expert_stored_bpw": 0.5179064201586174,
+      "offline_status": "running",
+      "rollouts": "forbidden"
+    },
+    {
+      "variant": "lowbit_g16_k256_M2",
+      "checkpoint_export": "complete",
+      "checkpoint_sha256": "bd13a3e62c729b85950e6f51e361a4acdb1bccd1fc8203e2a71c7d77a60ddc31",
+      "expert_stored_bpw": 1.070108124704072,
+      "offline_status": "pending_gpu_allocation",
+      "rollouts": "forbidden"
+    }
+  ],
+  "validation": {
+    "scheduler_unit_tests": 7,
+    "shell_syntax": "passed",
+    "existing_rollout_contract": "unchanged"
+  }
+}
