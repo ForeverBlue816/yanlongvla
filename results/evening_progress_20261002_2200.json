@@ -1,0 +1,36 @@
+{
+  "timestamp_singapore": "2026-10-02T22:08:27+08:00",
+  "status": "full_p4_b_star_c_complete_d_running",
+  "ablation_medium_completed": {
+    "evening_b_star_M2": 1000,
+    "evening_c_M2": 1000,
+    "evening_d_M2": 881
+  },
+  "full": {
+    "variant": "bb_M3_ae_M2_fp32",
+    "successes": 1948,
+    "episodes": 2000,
+    "reference_successes": 1928,
+    "paired_difference_pp": 1.0,
+    "paired_ci95_pp": [
+      -0.35,
+      2.65
+    ],
+    "whole_model_bpw": 3.6389649302140765
+  },
+  "controller_job": "180278",
+  "remaining_gpu_job": "180151",
+  "active_gpus": 2,
+  "p4": "complete_offline_only",
+  "remaining_time_estimate_minutes": [
+    40,
+    60
+  ],
+  "estimate_scope": "D medium only; based on remaining task durations, conditional on no interruption. Not a measured finish time.",
+  "validated_source_hash_counts": {
+    "full": 49,
+    "p4": 6,
+    "ablation_bc": 184
+  },
+  "source_revision": "319c4ef65d090a6dfbb6673a80b9b778bcc3b083"
+}

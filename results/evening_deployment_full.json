@@ -1,0 +1,339 @@
+{
+  "status": "complete",
+  "stage": "full",
+  "rows": [
+    {
+      "variant": "bb_M3_ae_M2_fp32",
+      "relative_mse": 0.01304601522565916,
+      "absolute_mse": 0.0028303564686082408,
+      "expert_stored_bpw": 2.0435929731889204,
+      "whole_model_bpw": 3.6389649302140765,
+      "reads": {
+        "expert_compressed_decoder_bytes": 795526380,
+        "logical_compressed_decoder_bytes_per_inference": 2048853828,
+        "logical_actual_dense_fallback_bytes_per_inference": 12697735332,
+        "dense_cache_bytes": 5408612352,
+        "scope": "Logical weight/tensor reads, not measured GPU DRAM. Expert budget includes codes, books, scales, affine, masks and signs. Vision charged three calls; fixed FP32 tables replace conditioning projections."
+      },
+      "statistics": {
+        "successes": 1948,
+        "episodes": 2000,
+        "success_percent": 97.39999999999999,
+        "success_ci95_percent": [
+          95.65,
+          98.8
+        ],
+        "difference_from_reference_pp": 1.0,
+        "paired_difference_ci95_pp": [
+          -0.34999999999999465,
+          2.6500000000000057
+        ],
+        "paired_improvements": 57,
+        "paired_regressions": 37,
+        "suites": {
+          "libero_spatial": {
+            "successes": 496,
+            "episodes": 500,
+            "success_percent": 99.2,
+            "success_ci95_percent": [
+              98.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 1.0,
+            "paired_difference_ci95_pp": [
+              -0.7999999999999972,
+              3.4000000000000057
+            ],
+            "paired_improvements": 9,
+            "paired_regressions": 4
+          },
+          "libero_object": {
+            "successes": 495,
+            "episodes": 500,
+            "success_percent": 99.0,
+            "success_ci95_percent": [
+              97.6,
+              100.0
+            ],
+            "difference_from_reference_pp": 0.2,
+            "paired_difference_ci95_pp": [
+              -1.2000000000000028,
+              1.5999999999999943
+            ],
+            "paired_improvements": 5,
+            "paired_regressions": 4
+          },
+          "libero_goal": {
+            "successes": 489,
+            "episodes": 500,
+            "success_percent": 97.8,
+            "success_ci95_percent": [
+              95.8,
+              99.4
+            ],
+            "difference_from_reference_pp": 1.0,
+            "paired_difference_ci95_pp": [
+              -1.4000000000000057,
+              3.799999999999997
+            ],
+            "paired_improvements": 13,
+            "paired_regressions": 8
+          },
+          "libero_10": {
+            "successes": 468,
+            "episodes": 500,
+            "success_percent": 93.60000000000001,
+            "success_ci95_percent": [
+              87.2,
+              98.4
+            ],
+            "difference_from_reference_pp": 1.7999999999999998,
+            "paired_difference_ci95_pp": [
+              -2.5999999999999943,
+              7.004999999999987
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 21
+          }
+        }
+      }
+    }
+  ],
+  "paired_statistics": {
+    "reference": "original_fp",
+    "protocol": {
+      "suites": [
+        "libero_spatial",
+        "libero_object",
+        "libero_goal",
+        "libero_10"
+      ],
+      "tasks_per_suite": 10,
+      "episodes_per_task": 50,
+      "evaluation_seed": 7
+    },
+    "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+    "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+    "resamples": 2000,
+    "resampling_rng_seed": 20260930,
+    "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+    "policies": {
+      "original_fp": {
+        "successes": 1928,
+        "episodes": 2000,
+        "success_percent": 96.39999999999999,
+        "success_ci95_percent": [
+          93.79875,
+          98.30125000000001
+        ],
+        "difference_from_reference_pp": 0.0,
+        "paired_difference_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "paired_improvements": 0,
+        "paired_regressions": 0,
+        "suites": {
+          "libero_spatial": {
+            "successes": 491,
+            "episodes": 500,
+            "success_percent": 98.2,
+            "success_ci95_percent": [
+              96.0,
+              99.8
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "libero_object": {
+            "successes": 494,
+            "episodes": 500,
+            "success_percent": 98.8,
+            "success_ci95_percent": [
+              97.39999999999999,
+              99.8
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "libero_goal": {
+            "successes": 484,
+            "episodes": 500,
+            "success_percent": 96.8,
+            "success_ci95_percent": [
+              94.19999999999999,
+              99.0
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "libero_10": {
+            "successes": 459,
+            "episodes": 500,
+            "success_percent": 91.8,
+            "success_ci95_percent": [
+              82.19999999999999,
+              98.2
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          }
+        }
+      },
+      "bb_M3_ae_M2_fp32": {
+        "successes": 1948,
+        "episodes": 2000,
+        "success_percent": 97.39999999999999,
+        "success_ci95_percent": [
+          95.65,
+          98.8
+        ],
+        "difference_from_reference_pp": 1.0,
+        "paired_difference_ci95_pp": [
+          -0.34999999999999465,
+          2.6500000000000057
+        ],
+        "paired_improvements": 57,
+        "paired_regressions": 37,
+        "suites": {
+          "libero_spatial": {
+            "successes": 496,
+            "episodes": 500,
+            "success_percent": 99.2,
+            "success_ci95_percent": [
+              98.0,
+              100.0
+            ],
+            "difference_from_reference_pp": 1.0,
+            "paired_difference_ci95_pp": [
+              -0.7999999999999972,
+              3.4000000000000057
+            ],
+            "paired_improvements": 9,
+            "paired_regressions": 4
+          },
+          "libero_object": {
+            "successes": 495,
+            "episodes": 500,
+            "success_percent": 99.0,
+            "success_ci95_percent": [
+              97.6,
+              100.0
+            ],
+            "difference_from_reference_pp": 0.2,
+            "paired_difference_ci95_pp": [
+              -1.2000000000000028,
+              1.5999999999999943
+            ],
+            "paired_improvements": 5,
+            "paired_regressions": 4
+          },
+          "libero_goal": {
+            "successes": 489,
+            "episodes": 500,
+            "success_percent": 97.8,
+            "success_ci95_percent": [
+              95.8,
+              99.4
+            ],
+            "difference_from_reference_pp": 1.0,
+            "paired_difference_ci95_pp": [
+              -1.4000000000000057,
+              3.799999999999997
+            ],
+            "paired_improvements": 13,
+            "paired_regressions": 8
+          },
+          "libero_10": {
+            "successes": 468,
+            "episodes": 500,
+            "success_percent": 93.60000000000001,
+            "success_ci95_percent": [
+              87.2,
+              98.4
+            ],
+            "difference_from_reference_pp": 1.7999999999999998,
+            "paired_difference_ci95_pp": [
+              -2.5999999999999943,
+              7.004999999999987
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 21
+          }
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "/projects/yanlongvla/runs/g0/libero_spatial_seed7.jsonl": "c48c9ce9e91db0ed941a81a4e685272cad073fbdf4894946d2d3cfbe8be7a960",
+    "/projects/yanlongvla/runs/g0/libero_object_seed7.jsonl": "3d68187984edcf6096dc6f95191285614bae448d4f13f078463e69a1ef0e53b2",
+    "/projects/yanlongvla/runs/g0/libero_goal_seed7.jsonl": "f16b3ae379e754fd0bac6cd93565ad22b4f2f167e3b2396ac37e4e5c5d05d2f8",
+    "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/offline/result.json": "e41e77eff127d3262befc1909968f5f0398e82f3ed138493d9935fe13cce85c3",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/worker0_manifest.json": "e4f6b977076c958620bbe22890d875fcf84ab728e4cbb7132c4572b1dadd1c8d",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/worker1_manifest.json": "e6896094765c3536653575b70c7ae994cc0f5a983d06dbfcc355ae6a28de9564",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/worker2_manifest.json": "34d75d023c3b771ef9c3d97d7f17708c24ffbd493f02ea46f4343e0393418ef3",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/worker3_manifest.json": "10638108a5604da3a0aa01caf831eb246e4dd4484db57a5d2eecb6ebe867448c",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task0_seed7.jsonl": "cd10707c7bf2a950c0332872fe0a5b432d3eb28f24dab740c3bc3082d92b24e8",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task1_seed7.jsonl": "4ecd474a4fa4d7945b315f82eb5b3565e1d5a716e2c79370a33cd66feeb83c57",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task2_seed7.jsonl": "837b443cd96a6212cc111571c2cdf350a6373e643a2c9ad73d8bda0a3dd67411",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task3_seed7.jsonl": "0cefbe64c0fef4017845dd250a6d94f7f0162e2520569dca667b5a3b31d651ff",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task4_seed7.jsonl": "4381e420cec0c469827c84a79fb0cab8dba400019213cb778a0f9b7731547a4d",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task5_seed7.jsonl": "1f37e347ed3f04c5013f199d81cb7a3631d165c4f3b8f80915ecc613799d4199",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task6_seed7.jsonl": "60f425ee3895c7da4d457b97e5eacc87e4c1d538b856fd443bf0080acf54f5fa",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task7_seed7.jsonl": "80e40703100a85e776dc4ec62bff08f9929400c5079c1937cd6bb1de13f0d75b",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task8_seed7.jsonl": "1ceb8165c6cd4e3b6244eff99774bb46e4829dd1f194a813ba33d7c3b776cc07",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_10_task9_seed7.jsonl": "7e46cdaa00554adf41b0673350aa9506e2e4a04df7034b6e62410a1f8e493076",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task0_seed7.jsonl": "b9d75620679879e3b7e556f91bbea2ffe2e47c8cb9b78b2ab9b3cb6feaa18627",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task1_seed7.jsonl": "18d1f5c4014ec9db29e2fba6653c0456e1ee1fea6891903e859e7214937546a4",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task2_seed7.jsonl": "882e4dd958896d92756ee9a56ee895644c45543ad636b21ae8ee921bf2ef481c",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task3_seed7.jsonl": "42b10b75784f59bdb4c8f59a0aa0e2499cf8669dd9b806f81bbc806af9d3817b",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task4_seed7.jsonl": "be3d729883247c51f49d4fc4f40f3fc31c38c93dba6c350f012b70247c3712b3",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task5_seed7.jsonl": "6583a5a577b0488277040489db15b3ce6924e466661ac7c2a78f80d15a3434bb",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task6_seed7.jsonl": "d5ade8817ad7fb9ce1cef54014410ecd39af24b2e01af8cacd2d71d93fe5ac0a",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task7_seed7.jsonl": "90272bc48744509d523e4cfd1975e9005cb290139afc4e2f3d73902465afc33e",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task8_seed7.jsonl": "d1e9bbe05ee2122da54ee49e0962be9331b0ab1acb4c43cc024bab93f0e4e924",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_goal_task9_seed7.jsonl": "48676079381b6d9bbcf1d31f1d84f68ada2b04e982e620d71f507ecc80671acd",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task0_seed7.jsonl": "91afce8f368efde0c9bea5277d0623b93f10b9f4e79d9edf6a1c9c9f93a1e90e",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task1_seed7.jsonl": "3788762de26845c220d342f830d7c71dc1c67919e0796c4e26d0790687bb2d9f",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task2_seed7.jsonl": "26a5052677aa29596fa5bfc156edfd5c56cb049207284b0360d45629d2a9a867",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task3_seed7.jsonl": "5cd1dfa9b08172fd2a88a833328e7662295b111ce2f39d56118fc18faead0c61",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task4_seed7.jsonl": "d1a2d441f2d405088cef62397d43f804ed97b55b650709f9fa0c8863f0380d4d",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task5_seed7.jsonl": "729de2af43d5d804c70d51165e826388d878892d5f052ce29f58d9dff3d7185b",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task6_seed7.jsonl": "96c74e2ab03445fe13c60a3990bfeed9255cae294a82c51a3d5c1f04f5fd1039",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task7_seed7.jsonl": "fabf0865c0e82c11b9b844bca2d540b4f63da5ab55c81bace52027ba74678d1a",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task8_seed7.jsonl": "9df484de48f38ec516ed1efaf510bd0ce6461ba3b15e2c7197d5f2a04ac2c18e",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_object_task9_seed7.jsonl": "20543fe0236725ab9632f1585641969ce35e2fa00da09d6b823a81b7fce468e6",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task0_seed7.jsonl": "4deee9c9f2a2a2450aaaa5dc043e1b4a10306eb613d1af039c8c54bfe2077599",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task1_seed7.jsonl": "fc52bf0189e2339848787c57d90d60c0cbd5838bba62d506aec081f9fd6c2088",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task2_seed7.jsonl": "579f5ca544175de421964c41a1d105828cf711c721fdf5a0a721b7704254c2eb",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task3_seed7.jsonl": "88ab1edb939688a67b824241fda13162374f1260f9e5c0058d12e1196f970b81",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task4_seed7.jsonl": "02c0f8636b643b14be2c6ef462aa82bf8cc788a8b705b4c9a17be39357dad183",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task5_seed7.jsonl": "341cc3d6ffa983fe1be45f6a17492d4b47f917c4636144cba4c79d73cfe9d801",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task6_seed7.jsonl": "06daab0f533a04d88b9356361720535f7eb42000b23511d0d6fdb7d36a51886c",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task7_seed7.jsonl": "24e7ab0c08920079ae165336c7244225d304b291828b8bd820cee4e3f1092d6a",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task8_seed7.jsonl": "b390553aa2389c6e421a255d878555d4aa3df78f148a646fc5c50968665b84e7",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/full/libero_spatial_task9_seed7.jsonl": "451fd179e741970e3a2d6964de7dafbdbf0598282e5a002a9274b2f51733d801"
+  },
+  "screening_role": "crash check only"
+}

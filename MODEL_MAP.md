@@ -1,3 +1,11 @@
+# E058 — Quantized-backbone full validation complete
+
+M3 backbone + expert M2 + FP32 AdaRMS tables + int8 completes full seed7:1948/2000=97.4%, matchingFP1928/2000=96.4%; paired difference+1.0pp,95%CI[-0.35,+2.65]pp. Actual whole-model storage remains3.638965bpw/1,525,378,532tensorbytes. Meets the operational≤1.5pp loss gate, without a superiority/equivalence claim. M2-backbone98.2% remains medium-only. [Full result](results/evening_deployment_full.json).
+
+In BF16-backbone medium isolation, b*=963/1000 versusM1=941/M2=968; +2.2pp recovery at1.098345×M1 logical reads meets the target by point estimate only (pairedrecoveryCI[-0.90,+5.30]pp). b* stores79,553,772bytes, exactly uniformM2 storage. c=962/1000 but449,742,060readbytes/1.121323×M1 fails the1.1×budget; stored81,913,068bytes includes2,359,296extra bytes. No measuredDRAM/speed claim. d pending. [Comparison frames](results/evening_bc_comparison_frames.json).
+
+P4 allthree offline validations complete, no rollouts: actualexpertbpw0.543593/0.517906/1.070108 and relativeactionMSE0.07653418/0.11357073/0.00741770 forgroup16-K256-M1/group8-K16-M1/group16-K256-M2 respectively. [P4 offline](results/evening_p4_offline.json). Older pending sections below are historical.
+
 # E057 — Scheduling update; checkpoint quality results unchanged
 
 User-requested independent execution now retains ablation job180151 and adds four single-L40S workers180284–180287 under controller180278 (up to6GPUs, ceiling8). P4 exports are complete; two offline workers are allocated and the third is waiting for a GPU. P4 remains rollout-free, with no completed action-MSE result yet. Strict selection chose M3-backbone/M2-expert/FP32-table/int8 by the existing minimum-held-out-MSE rule; the2000-episode full protocol reuses1000validated medium episodes. No new full/P4 quality result is claimed. [Promotion](results/evening_promotion.json); [schedule snapshot](results/evening_parallel_schedule_20261002.json).

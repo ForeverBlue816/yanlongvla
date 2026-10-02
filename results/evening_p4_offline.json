@@ -1,0 +1,182 @@
+{
+  "status": "complete_offline_only",
+  "rows": [
+    {
+      "status": "complete",
+      "checkpoint": "/projects/yanlongvla/models/hd_srvq_lowbit_g16_k256_M1",
+      "checkpoint_sha256": "fb0893f5c4de31fb8cd6fc75f6d6e71ae634ee1093a9588e35a38b7e0efb3b5b",
+      "variant": "lowbit_g16_k256_M1",
+      "expert_quantizable_linear_bpw": 0.5435929731889204,
+      "all_quantizable_linear_bpw": 14.220044894798184,
+      "whole_model_bpw": 13.881883576322391,
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 11417079240,
+        "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+        "dense_cache_bytes": 622854144,
+        "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+      },
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "versus_original_fp": {
+        "median_relative_mse": 0.05615507479878268,
+        "trimmed_mean_10pct_relative_mse": 0.05661550213848776,
+        "mean_per_observation_relative_mse": 0.07730366257189916,
+        "mean_based_global_relative_mse": 0.076534184390261,
+        "absolute_mse": 0.016604228962770216,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 241,
+        "largest_error_energy_share": 0.062231010877041804
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.055807638666628384,
+        "trimmed_mean_10pct_relative_mse": 0.05638868811269113,
+        "mean_per_observation_relative_mse": 0.07713418825856817,
+        "mean_based_global_relative_mse": 0.07637773286194766,
+        "absolute_mse": 0.016542535871907092,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 241,
+        "largest_error_energy_share": 0.06243352530905913
+      },
+      "strict_reload_all_tensors": true,
+      "retained_tensors_exact": true,
+      "fixed_noise_repeat_indices": [
+        0,
+        63,
+        127,
+        255
+      ],
+      "peak_allocated_bytes": 6615212032,
+      "gpu": "NVIDIA L40S",
+      "elapsed_seconds": 261.04383930697804,
+      "nominal_index_bpw": 0.5,
+      "d3b_prediction_before_screening": {
+        "predicted_gate": "unresolved",
+        "reason": "P4 offline only by evening addendum; no success prediction or rollout knee"
+      }
+    },
+    {
+      "status": "complete",
+      "checkpoint": "/projects/yanlongvla/models/hd_srvq_lowbit_g8_k16_M1",
+      "checkpoint_sha256": "f9dc64364fae1232c7daa17c92cbfeaf95a0410b6e3d324698fbd09e5acf49b4",
+      "variant": "lowbit_g8_k16_M1",
+      "expert_quantizable_linear_bpw": 0.5179064201586174,
+      "all_quantizable_linear_bpw": 14.21708683920855,
+      "whole_model_bpw": 13.879498114641814,
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 11407079880,
+        "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+        "dense_cache_bytes": 622854144,
+        "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+      },
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "versus_original_fp": {
+        "median_relative_mse": 0.07878598510091742,
+        "trimmed_mean_10pct_relative_mse": 0.086707812307744,
+        "mean_per_observation_relative_mse": 0.11385159868965308,
+        "mean_based_global_relative_mse": 0.11357073480727668,
+        "absolute_mse": 0.02463937519206178,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 241,
+        "largest_error_energy_share": 0.03863588068681708
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.07879266128603177,
+        "trimmed_mean_10pct_relative_mse": 0.0864311699002989,
+        "mean_per_observation_relative_mse": 0.11363680244488393,
+        "mean_based_global_relative_mse": 0.11335867894434874,
+        "absolute_mse": 0.024552182194493438,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 241,
+        "largest_error_energy_share": 0.03875577365178897
+      },
+      "strict_reload_all_tensors": true,
+      "retained_tensors_exact": true,
+      "fixed_noise_repeat_indices": [
+        0,
+        63,
+        127,
+        255
+      ],
+      "peak_allocated_bytes": 6614244352,
+      "gpu": "NVIDIA L40S",
+      "elapsed_seconds": 276.98553245997755,
+      "nominal_index_bpw": 0.5,
+      "d3b_prediction_before_screening": {
+        "predicted_gate": "unresolved",
+        "reason": "P4 offline only by evening addendum; no success prediction or rollout knee"
+      }
+    },
+    {
+      "status": "complete",
+      "checkpoint": "/projects/yanlongvla/models/hd_srvq_lowbit_g16_k256_M2",
+      "checkpoint_sha256": "bd13a3e62c729b85950e6f51e361a4acdb1bccd1fc8203e2a71c7d77a60ddc31",
+      "variant": "lowbit_g16_k256_M2",
+      "expert_quantizable_linear_bpw": 1.070108124704072,
+      "all_quantizable_linear_bpw": 14.280678218589403,
+      "whole_model_bpw": 13.930780044318704,
+      "reads": {
+        "logical_compressed_decoder_bytes_per_inference": 11622043080,
+        "logical_actual_dense_fallback_bytes_per_inference": 17436048840,
+        "dense_cache_bytes": 622854144,
+        "scope": "first fixed accounting observation for retained modules; masks/RHT included; excludes KV/activations/hardware cache effects; no measuredDRAM or fusedkernel claim"
+      },
+      "observations": 256,
+      "trajectories": 40,
+      "noise_seed": 0,
+      "versus_original_fp": {
+        "median_relative_mse": 0.0029743346499756865,
+        "trimmed_mean_10pct_relative_mse": 0.003258555365382048,
+        "mean_per_observation_relative_mse": 0.00788731777707479,
+        "mean_based_global_relative_mse": 0.007417695235576023,
+        "absolute_mse": 0.0016092823233016232,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 130,
+        "largest_error_energy_share": 0.25616974847460705
+      },
+      "versus_compact": {
+        "median_relative_mse": 0.002962134752610343,
+        "trimmed_mean_10pct_relative_mse": 0.003239432983314366,
+        "mean_per_observation_relative_mse": 0.007877169494011602,
+        "mean_based_global_relative_mse": 0.007413106204404246,
+        "absolute_mse": 0.0016055932889533417,
+        "trim_count_per_tail": 25,
+        "zero_energy_reference_observations": 0,
+        "largest_error_observation": 130,
+        "largest_error_energy_share": 0.2568687785022747
+      },
+      "strict_reload_all_tensors": true,
+      "retained_tensors_exact": true,
+      "fixed_noise_repeat_indices": [
+        0,
+        63,
+        127,
+        255
+      ],
+      "peak_allocated_bytes": 6635708416,
+      "gpu": "NVIDIA L40S",
+      "elapsed_seconds": 241.65577693100204,
+      "nominal_index_bpw": 1.0,
+      "d3b_prediction_before_screening": {
+        "predicted_gate": "unresolved",
+        "reason": "P4 offline only by evening addendum; no success prediction or rollout knee"
+      }
+    }
+  ],
+  "source_sha256": {
+    "/projects/yanlongvla/runs/method/lowbit_g16_k256_M1/offline/result.json": "f2f90f155f910e7979a61b16984b2e0ee12cfc948b77cc3be7133b476956ccd9",
+    "/projects/yanlongvla/runs/method/lowbit_g16_k256_M1/offline/actions.npy": "8222a96659a2ab6abee631658aa64de3aa3894d4cb61d664599a378462a69eda",
+    "/projects/yanlongvla/runs/method/lowbit_g8_k16_M1/offline/result.json": "7f789cdefb5358ba6c7982d6081f22137baf726c4aa78fa9f34716643691015e",
+    "/projects/yanlongvla/runs/method/lowbit_g8_k16_M1/offline/actions.npy": "58cdaaa4bb0735284edace2094f21cae324c3ce8fca36d814a07994be9293af8",
+    "/projects/yanlongvla/runs/method/lowbit_g16_k256_M2/offline/result.json": "34f409554ac137b23ef15cc1b16df95bb66a91fb88e36fef9a25a807d72292c5",
+    "/projects/yanlongvla/runs/method/lowbit_g16_k256_M2/offline/actions.npy": "74b42c20cf541b53203fc5e1109743a2d3d075daa3dfa5d23793761e3b833297"
+  },
+  "rollouts": "forbidden by addendum"
+}
