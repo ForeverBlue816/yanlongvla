@@ -621,3 +621,19 @@ Read-only validation/report update, source revision `71ef6da020deeb5a1f1b205e4b4
 Strict manifest/checkpoint/offline/source-contract/episode/noise/reuse checks passed; all49recorded source hashes independently rechecked. M3backbone +M2expert +FP32tables +int8 has974/1000=97.4% versus matching seed7 FP970/1000=97.0%, difference+0.4pp, paired95%CI[-1.5,+2.3025]pp, successCI[95.6,98.8]%,22improvements/18regressions. Four suites (250each): spatial247vs246, object246vs248, goal243vs241, libero10238vs235. Correct FP reference is four explicit `*_seed7.jsonl` files restricted to episodes0–24; other evaluation seeds are excluded. Passes operational medium FP-minus1.5pp gate by point estimate; no full-protocol or generalization/equivalence claim. Wholemodel3.6389649302140765bpw, heldoutMSE.01304601522565916 unchanged. Source `results/evening_deployment_M3_medium.json`.
 
 M2backbone counterpart still running: 850/1000episodes at snapshot, noerrorfiles; no partialsuccess headline or final ranking. GPUjob179902 normalprogress on2L40S, controller179698 waits. Bothc/d andP4 have complete layerfits but policyexport/offline/medium have NOTstarted; current controller serializes those stages after deployments_medium. No new c/d/P4 quality result. PreviousexpertM2 fullpass andgroup64embedding gate remainunchanged. Snapshot `results/evening_progress_20261002_1100.json`.
+
+
+## E056 — 2026-10-02T13:46:46+08:00 — completed M2-backbone medium and report-only GitHub publication
+
+Report-update parent revision `1486fb1e15d699ed1b30e107a6c4418409b90f35`. No runtime, model, experiment protocol, scheduling, or checkpoint changes. Existing two-L40S job179902 completed0:0 at2026-10-02T03:53:27UTC (11:53:27 Singapore). Revalidated using the existing strict collector:
+
+```bash
+source scripts/env.sh
+"$VLA_ROOT/envs/report/bin/python" -u scripts/summarize_evening.py --root "$VLA_ROOT" --variants bb_M3_ae_M2_fp32 bb_M2_ae_M2_fp32 --stage medium --name deployments
+```
+
+Protocol: four suites × ten tasks ×25 episodes, seed7, exact matching FP episode IDs; paired suite-stratified hierarchical task/episode bootstrap,2000 resamples with analysis RNG20260930 (not a new rollout seed). Complete worker ownership/checkpoint/offline/source/noise/reuse checks passed; all94 aggregate source SHA256 values independently rechecked. Held-out MSE independently recomputed from the256 saved executed-action observations by the collector. No new GPU evaluation run.
+
+FP970/1000=97.0%. M3backbone+M2expert974/1000=97.4%, +0.4pp, paired95%CI[-1.50,+2.3025]pp; whole3.6389649302140765bpw, heldoutMSE0.01304601522565916. M2backbone+M2expert982/1000=98.2%, +1.2pp, paired95%CI[-1.00,+3.80]pp; success95%CI[96.90,99.30]%,26improvements/14regressions; whole2.9225899010064036bpw, heldoutMSE0.037216964264135996. Suite success counts (spatial/object/goal/long,250each): FP246/248/241/235; M3 247/246/243/238; M2 248/250/242/242. Both retain FP32 tables and int8embedding. Payloads1,525,378,532/1,225,088,996bytes and logical compressed reads2,048,853,828/1,644,469,572bytes/inference remain unchanged; no measured DRAM or speed claim.
+
+Both pass the predefined medium FP-minus1.5pp point-estimate gate; no M2/M3 mixed fallback triggered. Conditional single-seed CIs include zero; no equivalence/superiority/generalization conclusion. Selection remains minimum held-out MSE among passes, not maximum observed medium success. No composition full result or submitted full job exists at this snapshot. c/d policy offline job180133 completed0:0; ablation medium180151 is running, CPUcontroller179698 waits. P4 policy actionMSE remains pending/offline-only. Public scope: REPORT.md, MODEL_MAP.md, append-only EXPERIMENTS.md, and results/evening_deployments_medium.json; scripts/configs/raw episodes/checkpoints are not included.

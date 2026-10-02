@@ -1,3 +1,14 @@
+# E056 — Both M2-expert backbone compositions complete medium
+
+Both compositions retain P3 FP32 tables and int8 embeddings. Medium is four suites × ten tasks × 25 episodes, seed 7; matched FP is 970/1000 (97.0%). M3 backbone: 974/1000 (97.4%), +0.4pp, paired 95% CI [-1.50,+2.30]pp. M2 backbone: 982/1000 (98.2%), +1.2pp, paired 95% CI [-1.00,+3.80]pp. Both pass the operational FP-minus-1.5pp point-estimate gate; neither has completed full validation.
+
+| Backbone + expert M2 | Tensor payload bytes | Whole-model bpw | Held-out relative action MSE | Logical compressed reads per inference (bytes) |
+|---|---:|---:|---:|---:|
+| M3 + FP32 tables + int8 | 1,525,378,532 | 3.638965 | 0.01304602 | 2,048,853,828 |
+| M2 + FP32 tables + int8 | 1,225,088,996 | 2.922590 | 0.03721696 | 1,644,469,572 |
+
+Expert actual storage remains 2.043593 bpw; expert logical reads are 795,526,380 bytes/inference in both. Logical reads are representation accounting, not measured DRAM traffic or latency. Source: [complete medium comparison](results/evening_deployments_medium.json) and [checkpoint accounting](results/evening_checkpoint_accounting.json). No tensor layout or runtime source changed in this report update. Older pending statements below are historical snapshots.
+
 # E055 — M3-backbone/M2-expert medium complete
 
 The int8/FP32-table composition at3.6389649302wholebpw completes seed7 medium974/1000 vsmatchingFP970/1000 (+0.4pp; paired95%CI[-1.50,+2.30]pp). This is a medium pass, not full validation. The2.9225899010bpw M2-backbone candidate is still running; no final comparison/promotion yet. See `results/evening_deployment_M3_medium.json`.

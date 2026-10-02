@@ -1,5 +1,30 @@
 # 当前实验报告 — 2026-10-02
 
+## 2026-10-02 更新（E056）：两档 backbone + expert M2 的 medium 全部完成
+
+**Backbone M2 + expert M2 达到 982/1000＝98.2%，相对匹配 FP 的 97.0% 为 +1.2pp，配对 95% CI [-1.00,+3.80]pp。** 两档组合均采用 P3 FP32 AdaRMS 表与 int8 embedding，满足预定 medium 的 FP−1.5pp 点估计门槛。M2 骨干未触发混合 M2/M3 回退。
+
+协议为四套件 ×10任务 ×25 eps/task ×seed7，共1000回合；相同 FP episode 配对，使用2000次按套件分层、任务/episode层级的 bootstrap。四个 worker 的覆盖、checkpoint/离线结果/源码合同、复用回合与噪声种子均通过严格汇总检查；94份来源哈希独立一致。原始200回合 screening 仅作崩溃检查。
+
+| 组合 | 成功数 / 1000 | 成功率 | 相对 FP 差值 pp（配对95%CI） | whole-model bpw | held-out 相对动作 MSE |
+|---|---:|---:|---:|---:|---:|
+| 匹配原始 FP | 970 | 97.0% | 0 | — | — |
+| Backbone M3 + expert M2 | 974 | 97.4% | +0.4 [-1.50,+2.30] | 3.638965 | 0.01304602 |
+| Backbone M2 + expert M2 | 982 | 98.2% | +1.2 [-1.00,+3.80] | 2.922590 | 0.03721696 |
+
+| 套件（每项250回合） | FP 成功数 | M3 backbone 成功数 | M2 backbone 成功数 |
+|---|---:|---:|---:|
+| LIBERO-Spatial | 246 | 247 | 248 |
+| LIBERO-Object | 248 | 246 | 250 |
+| LIBERO-Goal | 241 | 243 | 242 |
+| LIBERO-10 | 235 | 238 | 242 |
+
+M2 组合有26个配对改善、14个退化；整体成功率95%CI [96.90%,99.30%]。区间条件于单一评估 seed，且两档配对差值区间都包含0；这不是优于FP、无损、等价或跨seed稳健性的证据。M2 的点估计更高、存储更小，M3 的 held-out MSE 更低。冻结的晋级规则仍是通过 medium 门槛者中选择 held-out MSE 最低者；不根据这次成功率改写选择规则。**两档组合的 full protocol 尚未完成，也尚未提交。**
+
+作业179902在2026-10-02 11:53（新加坡）正常完成。后续 b*/c/d 的离线验证已完成，medium 作业180151正在执行；P4 完整策略动作MSE仍待后续，仅离线。以下旧进度快照以本节为准。
+
+[完整统计、每套件置信区间与94份来源哈希](results/evening_deployments_medium.json)。
+
 ## 2026-10-02 11:05（新加坡）进度（E055）
 
 **Backbone M3 + expert M2 的 medium 已完整通过：974/1000=97.4%**，相同seed7、相同episode的FP为970/1000=97.0%；差值 **+0.4pp**，配对95%CI **[-1.50,+2.30]pp**。四套件各250回合，全部覆盖、来源合同与复用检查通过，49份来源哈希独立一致。whole-model仍为3.638965bpw、held-out相对MSE0.01304602。通过预定medium门槛，但尚无该组合的full结果；等另一档完成后再按既定规则选择。[M3完整medium统计](results/evening_deployment_M3_medium.json)。
