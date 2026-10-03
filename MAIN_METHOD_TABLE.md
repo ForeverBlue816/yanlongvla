@@ -25,3 +25,10 @@ Backbone M2 + FlowVQ versus FP: +0.55 pp, paired 95% CI [-1.45, +2.90] pp.
 Backbone M3 + FlowVQ versus backbone M3 + uniform M2: -0.60 pp, paired 95% CI [-2.25, +0.85] pp. No matching M2-backbone uniform full result exists.
 
 Sources: [complete machine-readable evidence](results/flowvq_main_complete.json), [independent accounting](results/flowvq_main_accounting.json), [paired held-out MSE](results/flowvq_main_offline.json).
+
+
+## X0 — activation provenance audit (2026-10-03 evening)
+
+**Both deployed FlowVQ experts were fit using BF16-backbone activations, with int8 embedding. Neither was refit on the M2 or M3 quantized backbone.** The conditional centroids and subset affine use the same uncentered per-step input moments from 256 observations / 60 calibration trajectories, noise seed0. All 126 expert artifacts match each deployed checkpoint exactly; all 288 eligible source backbone weights match the native BF16 reference exactly. Historical cache-loader revisions and the moment hashes were checked.
+
+The M3 whole-model held-out relative MSE advantage (0.00730857 versus uniform M2 0.0130460, seed0 action noise) therefore **remains unexplained**. It cannot be attributed to calibration on quantized-backbone activations. This audit does not establish an alternative causal mechanism. Evidence: [X0 audit](results/story_x0.json).

@@ -1,8 +1,10 @@
-# 2026-10-03：主方法完整验证
+# Current result — FlowVQ main-method end-to-end validation complete
 
-`hd_srvq_bb_M3_flowvq_fp32` 与 `hd_srvq_bb_M2_flowvq_fp32` 均通过严格重载、保留张量一致性、256 个 held-out 观测 / 40 条轨迹及完整 seed-7 LIBERO 协议。FlowVQ expert 使用 b* 前九步单码本、末步双码本，条件质心和每子集 affine；组合保留 FP32 AdaRMS 表与 int8 embedding。
+Both quantized-backbone FlowVQ policies now have strict reload, paired held-out MSE, independent safetensors accounting, and full four-suite seed7 validation. The authoritative five-row result is [MAIN_METHOD_TABLE.md](MAIN_METHOD_TABLE.md); all paired intervals and source hashes are in [complete evidence](results/flowvq_main_complete.json). The requested table is complete; no deferred experiment is authorized or dispatched by this controller.
 
-M3/M2 组合 whole-model bpw 分别为 3.644593 / 2.928218，held-out 相对动作 MSE 为 0.00730857 / 0.04291682，完整成功率为 96.80% / 96.95%。读取量是逻辑张量计数，实际质量运行使用 BF16 解码缓存。精确字节、统一基线、配对区间及来源见 [最终主方法表格](MAIN_METHOD_TABLE.md)。
+# 2026-10-03 main-method compositions
+
+New standalone deployable checkpoints: `models/hd_srvq_bb_M3_flowvq_fp32` and `models/hd_srvq_bb_M2_flowvq_fp32`. Both use the exact accepted `evening_c_M2` expert: b* prefix masks [1,1,1,1,1,1,1,1,1,3], conditional-centroid codebooks and per-subset affine, with FP32 AdaRMS tables and int8 embedding. Independent whole-model bpw 3.6445933006309184 / 2.928218271423245. Strict reload and held-out relative MSE 0.007308567466560175 / 0.0429168180781574 verified. Full evaluation pending; no BF16-backbone c episode reuse. See [current phase](MAIN_METHOD_2026-10-03.md).
 
 # E059 — Evening pipeline complete; final d result
 
@@ -338,3 +340,6 @@ E034 allthreeuniformdeploymentsnowpassstrictpolicyreloadandretainedtensoridentit
 E035/E036 adaptive v2 artifact format stores only deployed conditional subset books, FP16 per-channel affine tensors, codes/row_scale/RHT signs/ten masks. Metadata-inclusive minimum full(c)/(d) is41,030,892bytes =1.0540096398555872expertbpw; original M1 budget is infeasible for those full components. Strict real-layer storage/forward pilot passes; full adaptive policy deployment remains pending.
 
 E038 allreference(a)screeningcomplete: M3/M2/M1=193/191/193 of200, allpass. No user-definedsuccessknee found. M1actualexpert1.030335/whole13.927086; fullmodel remains mostlynative precision. Adaptiveformat/implementationverified, but noadaptivepolicyexperiment yet.
+
+
+2026-10-03 evening story round: two plain layer-Hessian M2/M3 backbone + uniformM2 expert checkpoints are being fit under models/story_plain_layers; deployment IDs story_plain_bb_M2_ae_M2_fp32 and story_plain_bb_M3_ae_M2_fp32 remain pending assembly. Reduced-step runtime reuses the original checkpoint with independently captured FP32 schedule tables in runs/story_round/tables/n{1,2,5};1-step exact native-action validation passed. Do not treat these as new completed policy results. X0 proves both existing FlowVQ experts were calibrated on BF16-backbone/int8-embedding activations.

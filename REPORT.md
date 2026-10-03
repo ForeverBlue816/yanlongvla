@@ -1,10 +1,14 @@
-# 2026-10-03：FlowVQ 主方法端到端验证完成
+# Current result — FlowVQ main-method end-to-end validation complete
 
-两组均完成四套件 × 50 episodes/task × seed 7，共各 2000 回合。M3 backbone + FlowVQ 为 **1936/2000（96.80%）**，M2 backbone + FlowVQ 为 **1939/2000（96.95%）**，FP 为 **1928/2000（96.40%）**。最终五行结果见 [主方法表格](MAIN_METHOD_TABLE.md)，包括独立 safetensors 字节核算、Linear/whole-model bpw、逻辑读取量、严格重载、held-out MSE、medium 和 full。
+Both quantized-backbone FlowVQ policies now have strict reload, paired held-out MSE, independent safetensors accounting, and full four-suite seed7 validation. The authoritative five-row result is [MAIN_METHOD_TABLE.md](MAIN_METHOD_TABLE.md); all paired intervals and source hashes are in [complete evidence](results/flowvq_main_complete.json). The requested table is complete; no deferred experiment is authorized or dispatched by this controller.
 
-对 FP 的配对差值分别为 +0.40 pp（95% CI [-0.80, +1.60]）和 +0.55 pp（[-1.45, +2.90]）。M3 + FlowVQ 对匹配 uniform M2 full 的差值为 -0.60 pp（[-2.25, +0.85]）。这些区间均跨 0，不能声称显著优势；区间条件于单个评测 seed。M2 backbone + uniform M2 保持 medium only。
+# 2026-10-03 进度核查：每组 500/2000，最终表格未完成
 
-两份检查点使用既定 b* 逐步深度、条件质心和每子集 affine，保留 FP32 AdaRMS 表与 int8 embedding。Bytes read 是压缩表示的逻辑读取模型；质量评测实际使用 BF16 解码缓存，不是实测 DRAM 或延迟。全部 331 份来源哈希及完整覆盖均复核一致，最终本地证据提交为 `52dc036`。详见 [完整统计](results/flowvq_main_complete.json) 和 [实验记录](EXPERIMENTS.md)。
+本次初始核查时，两组 FlowVQ 各完成 500 个唯一回合（25%），不能据此报告完整成功率或配对区间。恢复后已有 4 张 L40S 正在补跑，最后一对 worker 等待作业名额。原汇总进程因 Slurm 数据库连接失败退出，现已加入查询重试并重启；待运行作业转入普通 rose 队列。检查点、已完成回合和评测协议保持不变。见 [恢复记录与作业状态](WORK_STATE.md) 和 [进度证据](results/flowvq_main_progress_20261003.json)。
+
+# 2026-10-03 主方法端到端验证：offline 完成，full 待完成
+
+仅推进用户指定的两组 FlowVQ 组合。两份检查点已组装并通过严格重载、保留张量一致性和完整 held-out 检查；独立 safetensors 核算见 [accounting](results/flowvq_main_accounting.json)。M3+FlowVQ 相对动作 MSE 为 **0.00730857**，匹配 uniform 为 **0.01304602**；M2+FlowVQ 为 **0.04291682**，匹配 uniform 为 **0.03721696**。两组都必须完成 seed7 的 2000 回合，当前不能声称 full 结果或最终表格完成。新任务定义见 [main-method protocol](MAIN_METHOD_2026-10-03.md)，作业唯一登记在 `runs/flowvq_main/jobs.json`；没有启动其他实验分支。
 
 # 当前实验报告 — 2026-10-03
 
@@ -420,3 +424,78 @@ Seeds: [7, 17, 27]; 50 episodes/task. two-sided 95% Student t across the three s
 | overall | [96.4, 97.35, 96.85] | 96.866667 | [95.68615661219496, 98.04717672113836] | 0.016667 |
 
 G0 passed the predeclared coverage and tolerance check. Diagnostics may begin; no quantization or method gain is claimed here.
+
+
+## X0 — activation provenance audit (2026-10-03 evening)
+
+**Both deployed FlowVQ experts were fit using BF16-backbone activations, with int8 embedding. Neither was refit on the M2 or M3 quantized backbone.** The conditional centroids and subset affine use the same uncentered per-step input moments from 256 observations / 60 calibration trajectories, noise seed0. All 126 expert artifacts match each deployed checkpoint exactly; all 288 eligible source backbone weights match the native BF16 reference exactly. Historical cache-loader revisions and the moment hashes were checked.
+
+The M3 whole-model held-out relative MSE advantage (0.00730857 versus uniform M2 0.0130460, seed0 action noise) therefore **remains unexplained**. It cannot be attributed to calibration on quantized-backbone activations. This audit does not establish an alternative causal mechanism. Evidence: [X0 audit](results/story_x0.json).
+
+<!-- STORY_ROUND_20261003 -->
+## Evening story experiments — 2026-10-03
+
+Status: in_progress. All rollout results below are seed7 unless explicitly labeled seeds8/9. Held-out action MSE uses fixed latent noise0,256 observations from40 trajectories. Logical bytes exclude activation/KV traffic; dense fallback counts are retained in the JSON.
+
+X0: both deployed FlowVQ experts were fit on **BF16-backbone activations with int8 embedding**. The M3 MSE advantage remains unexplained; see [provenance audit](results/story_x0.json).
+
+### What makes it work
+
+| Backbone | Quantizer / expert | Held-out relative MSE | Medium success (seed7) | Paired Δ vs action-weighted uniform, pp (95% CI) |
+|---|---|---:|---:|---|
+| M2 | plain VQ (layer-Hessian), uniform M2 expert | pending | pending | pending |
+| M2 | Action-weighted backbone, uniform M2 expert | 0.03721696 | 982/1000 | accepted comparator |
+| M2 | Action-weighted backbone, FlowVQ expert | 0.04291682 | 964/1000 | accepted comparator |
+| M3 | plain VQ (layer-Hessian), uniform M2 expert | pending | pending | pending |
+| M3 | Action-weighted backbone, uniform M2 expert | 0.01304602 | 974/1000 | accepted comparator |
+| M3 | Action-weighted backbone, FlowVQ expert | 0.00730857 | 968/1000 | accepted comparator |
+
+The uniform M2 expert was already trained with an equal-step layer-Hessian objective. X1 removes action Fisher from backbone fitting and reuses that identical expert; FlowVQ additionally changes the expert depth schedule and conditional decoder. Paired held-out MSE differences and intervals are in the result JSON.
+
+### Reduced-step baseline
+
+| Model | Euler steps | Success /500 (seed7) | Held-out relative MSE vs 10-step FP | Logical bytes read | Δ vs matching 10-step row, pp (95% CI) |
+|---|---:|---:|---:|---:|---|
+| FP | 1 | pending | pending | pending | pending |
+| FP | 2 | pending | pending | pending | pending |
+| FP | 5 | pending | pending | pending | pending |
+| M2 + uniform M2 | 1 | pending | pending | pending | pending |
+| M2 + uniform M2 | 2 | pending | pending | pending | pending |
+| M2 + uniform M2 | 5 | pending | pending | pending | pending |
+| M2 + FlowVQ | 1 | pending | pending | pending | pending |
+| M2 + FlowVQ | 2 | pending | pending | pending | pending |
+| M2 + FlowVQ | 5 | pending | pending | pending | pending |
+
+Pending all nine reduced-step configurations; no equal-byte verdict yet.
+
+All reduced-step configurations use newly captured FP32 AdaRMS tables with exact native-action equality on256 held-out observations. FlowVQ reads depth1 before the last step and full depth2 at the last step for1/2/5 steps; conditional codebooks and affines are reused without refitting.
+
+### Jacobian and step tolerance
+
+Pending500 observations and complete JVP/direct-velocity evidence.
+
+### Action-noise dose response
+
+| Gaussian direction | Expected relative MSE | Success /500 (seed7) | Paired Δ vs FP, pp (95% CI) |
+|---|---:|---:|---|
+| isotropic | 0.0003 | pending | pending |
+| isotropic | 0.001 | pending | pending |
+| isotropic | 0.003 | pending | pending |
+| isotropic | 0.01 | pending | pending |
+| isotropic | 0.03 | pending | pending |
+| top5 | 0.01 | pending | pending |
+| orthogonal | 0.01 | pending | pending |
+
+Pending all seven dose configurations; no LIBERO sensitivity claim yet.
+
+Noise is Gaussian in the35-dimensional first5×7 physical commanded-action chunk, after output transforms and before simulator clipping. Scaling fixes expected relative MSE conditional on the clean chunk; realized MSE is reported separately. The top5/orthogonal bases use mean within-observation posterior covariance from256 calibration observations and16 latent draws per observation. This is a targeted noise experiment; its ceiling is not a universal equivalence between quantization errors and isotropic errors.
+
+### Seed robustness
+
+| Model | Seed7 /1000 | Seed8 /1000 | Seed9 /1000 | Mean ± sample std (%) |
+|---|---:|---:|---:|---|
+| FP | 970 | pending | pending | pending |
+| M2 + FlowVQ | 964 | pending | pending | pending |
+| M3 + FlowVQ | 968 | pending | pending | pending |
+
+Paired rollout intervals use2000 suite-stratified hierarchical task/episode bootstrap resamples and are conditional on the specified single evaluation seed. Across-seed standard deviations use only the three explicitly requested seeds. No deferred experiment was run. [Complete machine-readable state](results/story_round.json).
