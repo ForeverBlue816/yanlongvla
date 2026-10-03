@@ -1,3 +1,11 @@
+# X3 precision clarification — offline only
+
+The theory check now widens the identical accepted expert weights and sampler arithmetic toFP32 with TF32 disabled; the fixed observation-only backbone KV is widened for attention. Deployment and accepted rollouts remain BF16. JVP gains are primary, paired finite-amplitude slopes secondary, with explicit zero-run floor and factor-three stability checks. The native-BF16 pilot is preserved separately. First complete reduced-step row: FP1-step474/500 seed7, paired -1.4pp versus matchingFP10 (95%CI[-4.8,+1.2]); other configurations remain pending.
+
+# Evening story round — 2026-10-03 in progress
+
+X0 confirms both deployed FlowVQ experts used BF16-backbone activation moments with int8 embedding, not quantized-backbone activations. M3's MSE advantage remains unexplained. X1 fits plain layer-Hessian M2/M3 backbones with the identical uniform M2 expert; policy validation is pending. X2 reduced-step models use freshly captured FP32 AdaRMS tables and preserved backbone/embedding tensors. FP1-step exact-fold and heldout MSE0.009263133559734162 are verified; logical reads7,082,226,468 bytes. The one-observation X3 pilot uses native BF16 arithmetic; it exposed a small-perturbation rounding floor and is not a500-observation result. Current evidence: [story progress](results/story_progress_20261003.json). Main-method validation below is complete; older pending statements are historical snapshots.
+
 # Current result — FlowVQ main-method end-to-end validation complete
 
 Both quantized-backbone FlowVQ policies now have strict reload, paired held-out MSE, independent safetensors accounting, and full four-suite seed7 validation. The authoritative five-row result is [MAIN_METHOD_TABLE.md](MAIN_METHOD_TABLE.md); all paired intervals and source hashes are in [complete evidence](results/flowvq_main_complete.json). The requested table is complete; no deferred experiment is authorized or dispatched by this controller.
@@ -343,3 +351,11 @@ E038 allreference(a)screeningcomplete: M3/M2/M1=193/191/193 of200, allpass. No u
 
 
 2026-10-03 evening story round: two plain layer-Hessian M2/M3 backbone + uniformM2 expert checkpoints are being fit under models/story_plain_layers; deployment IDs story_plain_bb_M2_ae_M2_fp32 and story_plain_bb_M3_ae_M2_fp32 remain pending assembly. Reduced-step runtime reuses the original checkpoint with independently captured FP32 schedule tables in runs/story_round/tables/n{1,2,5};1-step exact native-action validation passed. Do not treat these as new completed policy results. X0 proves both existing FlowVQ experts were calibrated on BF16-backbone/int8-embedding activations.
+
+
+Latest user instruction (2026-10-03): do NOT add matched same-GPU control reruns; finish the requested experiments first. This supersedes the immediately preceding approval to rerun controls. No such control job was submitted. Reuse accepted comparators and explicitly label cross-device comparisons; paired episode CIs do not remove hardware/backend confounding. Preserve the running X2 L40S job and its matching accepted references. New rollout jobs use the fastest measured eligible GPU, after that type completes its ten-minute episode-throughput check. Offline work may retain L40S to resume frozen evidence. At most eight GPUs total.
+
+X1 assembled models: hd_srvq_story_plain_bb_M2_ae_M2_fp32 (SHA256 ed2266325ffbaaa0e110a8de8522a374edb600eec8d5d809561efa05c817240f) and M3 counterpart (84fc840cd00d428d4c754616fd06b5ec1dd91767a8f91d1205372add5b987259). Assembly is complete; held-out/rollout validation remains pending. X5 canceled; X6 LIBERO-10/Plus authorized; no extra same-GPU control checkpoints or rollouts.
+
+
+X1 M3 plain-VQ held-out validation complete: strict tensor reload,256 observations/40 trajectories, fixed noise0, relative MSE0.010938292660258468 onL40S. Medium evaluation is still pending; no policy-quality promotion follows from MSE alone.

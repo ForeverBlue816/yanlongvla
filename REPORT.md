@@ -1,3 +1,7 @@
+# Current evening round — in progress (2026-10-03)
+
+X1–X4 and X6 are active; X5 and additional same-GPU control reruns are dropped. The preceding main-method validation is complete, but this new evening round is **not complete**. New jobs prioritize measured episode throughput, reuse accepted comparators, and disclose hardware differences. See the [current evening tables](#evening-story-experiments--2026-10-03) and [live scheduling record](WORK_STATE.md). Older progress snapshots below are historical.
+
 # Current result — FlowVQ main-method end-to-end validation complete
 
 Both quantized-backbone FlowVQ policies now have strict reload, paired held-out MSE, independent safetensors accounting, and full four-suite seed7 validation. The authoritative five-row result is [MAIN_METHOD_TABLE.md](MAIN_METHOD_TABLE.md); all paired intervals and source hashes are in [complete evidence](results/flowvq_main_complete.json). The requested table is complete; no deferred experiment is authorized or dispatched by this controller.
@@ -435,7 +439,9 @@ The M3 whole-model held-out relative MSE advantage (0.00730857 versus uniform M2
 <!-- STORY_ROUND_20261003 -->
 ## Evening story experiments — 2026-10-03
 
-Status: in_progress. All rollout results below are seed7 unless explicitly labeled seeds8/9. Held-out action MSE uses fixed latent noise0,256 observations from40 trajectories. Logical bytes exclude activation/KV traffic; dense fallback counts are retained in the JSON.
+Status: in_progress. All rollout results below are seed7. X5 seeds8/9 are canceled. Held-out action MSE uses fixed latent noise0,256 observations from40 trajectories. Logical bytes exclude activation/KV traffic; dense fallback counts are retained in the JSON.
+
+**Latest user instruction: finish the core experiments first; do not add same-GPU control reruns.** New jobs use measured fast GPUs and reuse accepted L40S comparators. Where devices/backends differ, paired CIs describe episode sampling only and do not remove that confounding; differences cannot be attributed solely to the method. X2 remains on its original L40S allocation with matching references.
 
 X0: both deployed FlowVQ experts were fit on **BF16-backbone activations with int8 embedding**. The M3 MSE advantage remains unexplained; see [provenance audit](results/story_x0.json).
 
@@ -446,7 +452,7 @@ X0: both deployed FlowVQ experts were fit on **BF16-backbone activations with in
 | M2 | plain VQ (layer-Hessian), uniform M2 expert | pending | pending | pending |
 | M2 | Action-weighted backbone, uniform M2 expert | 0.03721696 | 982/1000 | accepted comparator |
 | M2 | Action-weighted backbone, FlowVQ expert | 0.04291682 | 964/1000 | accepted comparator |
-| M3 | plain VQ (layer-Hessian), uniform M2 expert | pending | pending | pending |
+| M3 | plain VQ (layer-Hessian), uniform M2 expert | 0.01093829 | pending | pending |
 | M3 | Action-weighted backbone, uniform M2 expert | 0.01304602 | 974/1000 | accepted comparator |
 | M3 | Action-weighted backbone, FlowVQ expert | 0.00730857 | 968/1000 | accepted comparator |
 
@@ -456,7 +462,7 @@ The uniform M2 expert was already trained with an equal-step layer-Hessian objec
 
 | Model | Euler steps | Success /500 (seed7) | Held-out relative MSE vs 10-step FP | Logical bytes read | Δ vs matching 10-step row, pp (95% CI) |
 |---|---:|---:|---:|---:|---|
-| FP | 1 | pending | pending | pending | pending |
+| FP | 1 | 474/500 | 0.00926313 | 7,082,226,468 | -1.40 [-4.80, +1.20] |
 | FP | 2 | pending | pending | pending | pending |
 | FP | 5 | pending | pending | pending | pending |
 | M2 + uniform M2 | 1 | pending | pending | pending | pending |
@@ -472,7 +478,11 @@ All reduced-step configurations use newly captured FP32 AdaRMS tables with exact
 
 ### Jacobian and step tolerance
 
-Pending500 observations and complete JVP/direct-velocity evidence.
+Pending500 observations with offline FP32 expert/sampler. JVP gains are primary; paired finite-amplitude slopes are cross-checks. Each step measures a two-zero-run floor and qualifies amplitudes only above10× that floor with <20% slope change per3× amplitude increase. The completed native-BF16 pilot is retained separately.
+
+Original weight-noise cross-check (existing256-observation calibration experiment, latent noise0): the gray curves are all eight early steps, each still below the1e-3 threshold at noise norm300. Steps8/9 cross at interpolated norms2.0216/0.45072 within brackets[1,3]/[0.3,1]. These are different injected quantities and a5×7 window, so no equality with the new10×7 velocity thresholds is assumed.
+
+![Original weight-noise D3 response, with censored early steps](figures/story_d3_crosscheck.png)
 
 ### Action-noise dose response
 
@@ -490,12 +500,58 @@ Pending all seven dose configurations; no LIBERO sensitivity claim yet.
 
 Noise is Gaussian in the35-dimensional first5×7 physical commanded-action chunk, after output transforms and before simulator clipping. Scaling fixes expected relative MSE conditional on the clean chunk; realized MSE is reported separately. The top5/orthogonal bases use mean within-observation posterior covariance from256 calibration observations and16 latent draws per observation. This is a targeted noise experiment; its ceiling is not a universal equivalence between quantization errors and isotropic errors.
 
-### Seed robustness
+### Harder evaluations (X6)
 
-| Model | Seed7 /1000 | Seed8 /1000 | Seed9 /1000 | Mean ± sample std (%) |
-|---|---:|---:|---:|---|
-| FP | 970 | pending | pending | pending |
-| M2 + FlowVQ | 964 | pending | pending | pending |
-| M3 + FlowVQ | 968 | pending | pending | pending |
+X6a: LIBERO-10 only,50 episodes/task, seed7. Reuse1750 accepted episodes; run only250 missing uniform-M2 episodes. Accepted and newly run episode counts and hardware are recorded separately.
 
-Paired rollout intervals use2000 suite-stratified hierarchical task/episode bootstrap resamples and are conditional on the specified single evaluation seed. Across-seed standard deviations use only the three explicitly requested seeds. No deferred experiment was run. [Complete machine-readable state](results/story_round.json).
+| Model | Success /500 | Paired Δ vs FP, pp (95% CI) |
+|---|---:|---|
+| FP | 459/500 | +0.00 [+0.00, +0.00] |
+| M2 + uniform M2 | pending | pending |
+| M2 + FlowVQ | 474/500 | +3.00 [-2.80, +11.40] |
+| M3 + FlowVQ | 462/500 | +0.60 [-2.40, +4.00] |
+
+Per-task successes (each completed cell has50 episodes):
+
+| LIBERO-10 task ID | FP | M2 + uniform M2 | M2 + FlowVQ | M3 + FlowVQ |
+|---:|---:|---:|---:|---:|
+| 0 | 49 | pending | 49 | 48 |
+| 1 | 50 | pending | 50 | 50 |
+| 2 | 48 | pending | 45 | 47 |
+| 3 | 47 | pending | 50 | 47 |
+| 4 | 49 | pending | 47 | 49 |
+| 5 | 49 | pending | 50 | 50 |
+| 6 | 44 | pending | 48 | 47 |
+| 7 | 50 | pending | 49 | 49 |
+| 8 | 26 | pending | 42 | 28 |
+| 9 | 47 | pending | 44 | 47 |
+
+X6b uses [official LIBERO-Plus](https://github.com/sylvestf/LIBERO-plus), [paper](https://arxiv.org/abs/2510.13626). The pinned revision enumerates10030 expanded tasks, evaluated once each. The comparison subset was fixed before rollouts:500 camera-viewpoint plus500 robot-initial-state instances per model, with FP reused from the full run. No subset is selected based on success differences.
+
+Full FP score: pending. Installation/compatibility status: installed_cpu_audit_passed_gpu_compatibility_pending.
+
+| Perturbation dimension | Model | Success /500 | Paired Δ vs FP, pp (95% CI) |
+|---|---|---:|---|
+| Camera Viewpoints | FP | pending | pending |
+| Camera Viewpoints | M2 + uniform M2 | pending | pending |
+| Camera Viewpoints | M2 + FlowVQ | pending | pending |
+| Camera Viewpoints | Expert-only uniform M1 | pending | pending |
+| Robot Initial States | FP | pending | pending |
+| Robot Initial States | M2 + uniform M2 | pending | pending |
+| Robot Initial States | M2 + FlowVQ | pending | pending |
+| Robot Initial States | Expert-only uniform M1 | pending | pending |
+
+Hardware assignments and raw per-task counts are in [X6a evidence](results/story_x6a.json) and [X6b evidence](results/story_x6b.json). X5 remains dropped; no extra seed or same-GPU control was queued.
+
+Paired rollout intervals use2000 suite-stratified hierarchical task/episode bootstrap resamples and are conditional on seed7. Intervals are pointwise95%, with no multiplicity correction across configurations or doses. No seed8/9 experiment is in this round. [Machine-readable state](results/story_round.json).
+
+GPU preflight (throughput only; alternating spatial/long task0, at least5 timed minutes of FP and5 of FlowVQ per device, excluding startup):
+
+| GPU | FP episodes/min | FlowVQ episodes/min |
+|---|---:|---:|
+| NVIDIA RTX 6000 Ada Generation | 5.325 | 1.415 |
+| NVIDIA RTX A6000 | 2.968 | 0.782 |
+| NVIDIA L40S | 6.955 | 1.807 |
+| NVIDIA GeForce RTX 5090 | 5.429 | 1.519 |
+
+Assignments compare identical completed episode prefixes. L40S led the completed four-type preflight; RTX PRO6000 remained unavailable and its unstarted preflight was deferred. No untested GPU type is assigned a new rollout. These task0 timings are workload-specific and are not benchmark success results.

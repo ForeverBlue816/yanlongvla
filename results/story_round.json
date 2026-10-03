@@ -1,10 +1,172 @@
 {
   "status": "in_progress",
-  "configurations": {},
+  "configurations": {
+    "x2_fp_n1": {
+      "configuration": {
+        "id": "x2_fp_n1",
+        "family": "X2",
+        "model": "original_fp",
+        "steps": 1,
+        "seed": 7,
+        "suites": [
+          "libero_spatial",
+          "libero_10"
+        ],
+        "episodes_per_task": 25,
+        "tasks_per_suite": 10
+      },
+      "successes": 474,
+      "episodes": 500,
+      "success_percent": 94.8,
+      "heldout_mse": 0.009263133559734162,
+      "reads": {
+        "logical_compressed_bytes_read": 7082226468,
+        "logical_dense_fallback_bytes_read": 7082226468,
+        "expert_compressed_bytes": 0,
+        "steps": 1,
+        "table_dtype": "float32",
+        "prompt_unique_embedding_rows": 15,
+        "vision_calls": 3,
+        "scope": "Independent safetensors offsets plus frozen invocation trace; logical parameter/metadata reads, excludes activation/KV traffic and physical DRAM/cache effects. Quality uses BF16 dense caches."
+      },
+      "evaluation_gpu": "NVIDIA L40S",
+      "comparator_gpu": "NVIDIA L40S",
+      "cross_device_comparison": false,
+      "additional_same_gpu_controls": false,
+      "paired_vs_ten_step": {
+        "reference": "original_fp",
+        "protocol": {
+          "suites": [
+            "libero_spatial",
+            "libero_10"
+          ],
+          "tasks_per_suite": 10,
+          "episodes_per_task": 25,
+          "evaluation_seed": 7
+        },
+        "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+        "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+        "resamples": 2000,
+        "resampling_rng_seed": 20260930,
+        "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+        "policies": {
+          "original_fp": {
+            "successes": 481,
+            "episodes": 500,
+            "success_percent": 96.2,
+            "success_ci95_percent": [
+              90.99999999999999,
+              99.2
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0,
+            "suites": {
+              "libero_spatial": {
+                "successes": 246,
+                "episodes": 250,
+                "success_percent": 98.4,
+                "success_ci95_percent": [
+                  96.0,
+                  100.0
+                ],
+                "difference_from_reference_pp": 0.0,
+                "paired_difference_ci95_pp": [
+                  0.0,
+                  0.0
+                ],
+                "paired_improvements": 0,
+                "paired_regressions": 0
+              },
+              "libero_10": {
+                "successes": 235,
+                "episodes": 250,
+                "success_percent": 94.0,
+                "success_ci95_percent": [
+                  83.6,
+                  99.6
+                ],
+                "difference_from_reference_pp": 0.0,
+                "paired_difference_ci95_pp": [
+                  0.0,
+                  0.0
+                ],
+                "paired_improvements": 0,
+                "paired_regressions": 0
+              }
+            }
+          },
+          "x2_fp_n1": {
+            "successes": 474,
+            "episodes": 500,
+            "success_percent": 94.8,
+            "success_ci95_percent": [
+              87.8,
+              99.0
+            ],
+            "difference_from_reference_pp": -1.4000000000000001,
+            "paired_difference_ci95_pp": [
+              -4.799999999999997,
+              1.2000000000000028
+            ],
+            "paired_improvements": 12,
+            "paired_regressions": 19,
+            "suites": {
+              "libero_spatial": {
+                "successes": 249,
+                "episodes": 250,
+                "success_percent": 99.6,
+                "success_ci95_percent": [
+                  98.0,
+                  100.0
+                ],
+                "difference_from_reference_pp": 1.2,
+                "paired_difference_ci95_pp": [
+                  -0.7999999999999972,
+                  3.5999999999999943
+                ],
+                "paired_improvements": 4,
+                "paired_regressions": 1
+              },
+              "libero_10": {
+                "successes": 225,
+                "episodes": 250,
+                "success_percent": 90.0,
+                "success_ci95_percent": [
+                  76.39,
+                  98.4
+                ],
+                "difference_from_reference_pp": -4.0,
+                "paired_difference_ci95_pp": [
+                  -10.000000000000014,
+                  0.7999999999999972
+                ],
+                "paired_improvements": 8,
+                "paired_regressions": 18
+              }
+            }
+          }
+        }
+      },
+      "paired_heldout_mse": {
+        "candidate_relative_mse": 0.009263133559734162,
+        "control_relative_mse": 0.0,
+        "relative_mse_delta": 0.009263133559734162,
+        "delta_ci95": [
+          0.004713508924334635,
+          0.01475705434428106
+        ],
+        "scope": "Paired40-trajectory bootstrap,256 heldout observations, first5x7 physical actions, fixed latent noise0,2000 analysis resamples"
+      }
+    }
+  },
   "pending": [
     "x1_plain_M2",
     "x1_plain_M3",
-    "x2_fp_n1",
     "x2_uniform_n1",
     "x2_flowvq_n1",
     "x2_fp_n2",
@@ -19,15 +181,885 @@
     "x4_iso_1e-2",
     "x4_iso_3e-2",
     "x4_top5_1e-2",
-    "x4_orthogonal_1e-2",
-    "x5_fp_seed8",
-    "x5_flowvq_M2_seed8",
-    "x5_flowvq_M3_seed8",
-    "x5_fp_seed9",
-    "x5_flowvq_M2_seed9",
-    "x5_flowvq_M3_seed9"
+    "x4_orthogonal_1e-2"
+  ],
+  "offline_completed": {
+    "x1_plain_M3": {
+      "heldout_mse": 0.010938292660258468,
+      "gpu": "NVIDIA L40S",
+      "observations": 256,
+      "trajectories": 40,
+      "source_sha256": "04249df5c316504e2e79936711776bd0cbc7a315f08ebdcdee455967287f4529"
+    },
+    "x2_uniform_n1": {
+      "heldout_mse": 0.0324664957492826,
+      "gpu": "NVIDIA L40S",
+      "observations": 256,
+      "trajectories": 40,
+      "source_sha256": "375fa887680b789422d36ba29f689525a6d3b4c682aa4f48a5897e36aa04cf6f"
+    },
+    "x2_flowvq_n1": {
+      "heldout_mse": 0.03176149099839512,
+      "gpu": "NVIDIA L40S",
+      "observations": 256,
+      "trajectories": 40,
+      "source_sha256": "3192c08b8aa59829d567e078bad3b69d7f395452427f460c96e23857dc0a46a5"
+    }
+  },
+  "throughput": [
+    {
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "gpu_type": "6000ada",
+      "timed_seconds": 654.8246875689656,
+      "fp_episodes_per_minute": 5.325024073603882,
+      "flowvq_episodes_per_minute": 1.4145390491536072,
+      "source_sha256": "03aacb999b40f52fa780570a35e93b79fdf1224bfe418b044c4827ed7e460f98",
+      "same_device_repeats_exact": true,
+      "accepted_l40_bit_equal": false
+    },
+    {
+      "gpu": "NVIDIA RTX A6000",
+      "gpu_type": "a6000",
+      "timed_seconds": 610.0249277930707,
+      "fp_episodes_per_minute": 2.968251045840131,
+      "flowvq_episodes_per_minute": 0.782227598318871,
+      "source_sha256": "6c38dc68fadf27d07bdc9237ac53db4d638a21d5daad87339e4a28ff5b433d15",
+      "same_device_repeats_exact": true,
+      "accepted_l40_bit_equal": false
+    },
+    {
+      "gpu": "NVIDIA L40S",
+      "gpu_type": "l40",
+      "timed_seconds": 642.6708995379158,
+      "fp_episodes_per_minute": 6.955359422230897,
+      "flowvq_episodes_per_minute": 1.8065813129627348,
+      "source_sha256": "47562ac6ad03d9044bd04403f27f6071e4cc5f2f198daf9b8d69d255e5f8441d",
+      "same_device_repeats_exact": true,
+      "accepted_l40_bit_equal": false
+    },
+    {
+      "gpu": "NVIDIA GeForce RTX 5090",
+      "gpu_type": "rtx5090",
+      "timed_seconds": 625.549300283019,
+      "fp_episodes_per_minute": 5.428601146568168,
+      "flowvq_episodes_per_minute": 1.5186158083970416,
+      "source_sha256": "f45319944bcde73d1f26394906e2c3d12010b7816b091f4c0cf0e2d05d518cd5",
+      "same_device_repeats_exact": true,
+      "accepted_l40_bit_equal": false
+    }
   ],
   "validation_issues": {},
+  "dropped_experiments": [
+    "X5"
+  ],
+  "x6_status": "pending",
+  "x6a": {
+    "status": "in_progress",
+    "seed": 7,
+    "episodes_per_task": 50,
+    "tasks": 10,
+    "progress": {
+      "original_fp": {
+        "episodes": 500,
+        "reused": 500,
+        "new_episodes": 0,
+        "complete": true,
+        "reused_gpu": "NVIDIA L40S",
+        "new_gpu": null
+      },
+      "bb_M2_ae_M2_fp32": {
+        "episodes": 250,
+        "reused": 250,
+        "new_episodes": 0,
+        "complete": false,
+        "reused_gpu": "NVIDIA L40S",
+        "new_gpu": null
+      },
+      "bb_M2_flowvq_fp32": {
+        "episodes": 500,
+        "reused": 500,
+        "new_episodes": 0,
+        "complete": true,
+        "reused_gpu": "NVIDIA L40S",
+        "new_gpu": null
+      },
+      "bb_M3_flowvq_fp32": {
+        "episodes": 500,
+        "reused": 500,
+        "new_episodes": 0,
+        "complete": true,
+        "reused_gpu": "NVIDIA L40S",
+        "new_gpu": null
+      }
+    },
+    "per_task": {
+      "original_fp": [
+        {
+          "task": 0,
+          "successes": 49,
+          "episodes": 50
+        },
+        {
+          "task": 1,
+          "successes": 50,
+          "episodes": 50
+        },
+        {
+          "task": 2,
+          "successes": 48,
+          "episodes": 50
+        },
+        {
+          "task": 3,
+          "successes": 47,
+          "episodes": 50
+        },
+        {
+          "task": 4,
+          "successes": 49,
+          "episodes": 50
+        },
+        {
+          "task": 5,
+          "successes": 49,
+          "episodes": 50
+        },
+        {
+          "task": 6,
+          "successes": 44,
+          "episodes": 50
+        },
+        {
+          "task": 7,
+          "successes": 50,
+          "episodes": 50
+        },
+        {
+          "task": 8,
+          "successes": 26,
+          "episodes": 50
+        },
+        {
+          "task": 9,
+          "successes": 47,
+          "episodes": 50
+        }
+      ],
+      "bb_M2_flowvq_fp32": [
+        {
+          "task": 0,
+          "successes": 49,
+          "episodes": 50
+        },
+        {
+          "task": 1,
+          "successes": 50,
+          "episodes": 50
+        },
+        {
+          "task": 2,
+          "successes": 45,
+          "episodes": 50
+        },
+        {
+          "task": 3,
+          "successes": 50,
+          "episodes": 50
+        },
+        {
+          "task": 4,
+          "successes": 47,
+          "episodes": 50
+        },
+        {
+          "task": 5,
+          "successes": 50,
+          "episodes": 50
+        },
+        {
+          "task": 6,
+          "successes": 48,
+          "episodes": 50
+        },
+        {
+          "task": 7,
+          "successes": 49,
+          "episodes": 50
+        },
+        {
+          "task": 8,
+          "successes": 42,
+          "episodes": 50
+        },
+        {
+          "task": 9,
+          "successes": 44,
+          "episodes": 50
+        }
+      ],
+      "bb_M3_flowvq_fp32": [
+        {
+          "task": 0,
+          "successes": 48,
+          "episodes": 50
+        },
+        {
+          "task": 1,
+          "successes": 50,
+          "episodes": 50
+        },
+        {
+          "task": 2,
+          "successes": 47,
+          "episodes": 50
+        },
+        {
+          "task": 3,
+          "successes": 47,
+          "episodes": 50
+        },
+        {
+          "task": 4,
+          "successes": 49,
+          "episodes": 50
+        },
+        {
+          "task": 5,
+          "successes": 50,
+          "episodes": 50
+        },
+        {
+          "task": 6,
+          "successes": 47,
+          "episodes": 50
+        },
+        {
+          "task": 7,
+          "successes": 49,
+          "episodes": 50
+        },
+        {
+          "task": 8,
+          "successes": 28,
+          "episodes": 50
+        },
+        {
+          "task": 9,
+          "successes": 47,
+          "episodes": 50
+        }
+      ]
+    },
+    "paired_vs_fp": {
+      "reference": "original_fp",
+      "protocol": {
+        "suites": [
+          "libero_10"
+        ],
+        "tasks_per_suite": 10,
+        "episodes_per_task": 50,
+        "evaluation_seed": 7
+      },
+      "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+      "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+      "resamples": 2000,
+      "resampling_rng_seed": 20260930,
+      "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+      "policies": {
+        "original_fp": {
+          "successes": 459,
+          "episodes": 500,
+          "success_percent": 91.8,
+          "success_ci95_percent": [
+            81.595,
+            98.2
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0,
+          "suites": {
+            "libero_10": {
+              "successes": 459,
+              "episodes": 500,
+              "success_percent": 91.8,
+              "success_ci95_percent": [
+                81.595,
+                98.2
+              ],
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            }
+          }
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 474,
+          "episodes": 500,
+          "success_percent": 94.8,
+          "success_ci95_percent": [
+            90.60000000000001,
+            98.20499999999997
+          ],
+          "difference_from_reference_pp": 3.0,
+          "paired_difference_ci95_pp": [
+            -2.799999999999997,
+            11.400000000000006
+          ],
+          "paired_improvements": 34,
+          "paired_regressions": 19,
+          "suites": {
+            "libero_10": {
+              "successes": 474,
+              "episodes": 500,
+              "success_percent": 94.8,
+              "success_ci95_percent": [
+                90.60000000000001,
+                98.20499999999997
+              ],
+              "difference_from_reference_pp": 3.0,
+              "paired_difference_ci95_pp": [
+                -2.799999999999997,
+                11.400000000000006
+              ],
+              "paired_improvements": 34,
+              "paired_regressions": 19
+            }
+          }
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 462,
+          "episodes": 500,
+          "success_percent": 92.4,
+          "success_ci95_percent": [
+            82.8,
+            98.0
+          ],
+          "difference_from_reference_pp": 0.6,
+          "paired_difference_ci95_pp": [
+            -2.4000000000000057,
+            4.0
+          ],
+          "paired_improvements": 26,
+          "paired_regressions": 23,
+          "suites": {
+            "libero_10": {
+              "successes": 462,
+              "episodes": 500,
+              "success_percent": 92.4,
+              "success_ci95_percent": [
+                82.8,
+                98.0
+              ],
+              "difference_from_reference_pp": 0.6,
+              "paired_difference_ci95_pp": [
+                -2.4000000000000057,
+                4.0
+              ],
+              "paired_improvements": 26,
+              "paired_regressions": 23
+            }
+          }
+        }
+      }
+    },
+    "pairwise": {
+      "original_fp": {
+        "reference": "original_fp",
+        "protocol": {
+          "suites": [
+            "libero_10"
+          ],
+          "tasks_per_suite": 10,
+          "episodes_per_task": 50,
+          "evaluation_seed": 7
+        },
+        "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+        "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+        "resamples": 2000,
+        "resampling_rng_seed": 20260930,
+        "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+        "policies": {
+          "original_fp": {
+            "successes": 459,
+            "episodes": 500,
+            "success_percent": 91.8,
+            "success_ci95_percent": [
+              81.595,
+              98.2
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0,
+            "suites": {
+              "libero_10": {
+                "successes": 459,
+                "episodes": 500,
+                "success_percent": 91.8,
+                "success_ci95_percent": [
+                  81.595,
+                  98.2
+                ],
+                "difference_from_reference_pp": 0.0,
+                "paired_difference_ci95_pp": [
+                  0.0,
+                  0.0
+                ],
+                "paired_improvements": 0,
+                "paired_regressions": 0
+              }
+            }
+          },
+          "bb_M2_flowvq_fp32": {
+            "successes": 474,
+            "episodes": 500,
+            "success_percent": 94.8,
+            "success_ci95_percent": [
+              90.60000000000001,
+              98.20499999999997
+            ],
+            "difference_from_reference_pp": 3.0,
+            "paired_difference_ci95_pp": [
+              -2.799999999999997,
+              11.400000000000006
+            ],
+            "paired_improvements": 34,
+            "paired_regressions": 19,
+            "suites": {
+              "libero_10": {
+                "successes": 474,
+                "episodes": 500,
+                "success_percent": 94.8,
+                "success_ci95_percent": [
+                  90.60000000000001,
+                  98.20499999999997
+                ],
+                "difference_from_reference_pp": 3.0,
+                "paired_difference_ci95_pp": [
+                  -2.799999999999997,
+                  11.400000000000006
+                ],
+                "paired_improvements": 34,
+                "paired_regressions": 19
+              }
+            }
+          },
+          "bb_M3_flowvq_fp32": {
+            "successes": 462,
+            "episodes": 500,
+            "success_percent": 92.4,
+            "success_ci95_percent": [
+              82.8,
+              98.0
+            ],
+            "difference_from_reference_pp": 0.6,
+            "paired_difference_ci95_pp": [
+              -2.4000000000000057,
+              4.0
+            ],
+            "paired_improvements": 26,
+            "paired_regressions": 23,
+            "suites": {
+              "libero_10": {
+                "successes": 462,
+                "episodes": 500,
+                "success_percent": 92.4,
+                "success_ci95_percent": [
+                  82.8,
+                  98.0
+                ],
+                "difference_from_reference_pp": 0.6,
+                "paired_difference_ci95_pp": [
+                  -2.4000000000000057,
+                  4.0
+                ],
+                "paired_improvements": 26,
+                "paired_regressions": 23
+              }
+            }
+          }
+        }
+      },
+      "bb_M2_flowvq_fp32": {
+        "reference": "bb_M2_flowvq_fp32",
+        "protocol": {
+          "suites": [
+            "libero_10"
+          ],
+          "tasks_per_suite": 10,
+          "episodes_per_task": 50,
+          "evaluation_seed": 7
+        },
+        "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+        "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+        "resamples": 2000,
+        "resampling_rng_seed": 20260930,
+        "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+        "policies": {
+          "original_fp": {
+            "successes": 459,
+            "episodes": 500,
+            "success_percent": 91.8,
+            "success_ci95_percent": [
+              81.595,
+              98.2
+            ],
+            "difference_from_reference_pp": -3.0,
+            "paired_difference_ci95_pp": [
+              -11.400000000000006,
+              2.799999999999997
+            ],
+            "paired_improvements": 19,
+            "paired_regressions": 34,
+            "suites": {
+              "libero_10": {
+                "successes": 459,
+                "episodes": 500,
+                "success_percent": 91.8,
+                "success_ci95_percent": [
+                  81.595,
+                  98.2
+                ],
+                "difference_from_reference_pp": -3.0,
+                "paired_difference_ci95_pp": [
+                  -11.400000000000006,
+                  2.799999999999997
+                ],
+                "paired_improvements": 19,
+                "paired_regressions": 34
+              }
+            }
+          },
+          "bb_M2_flowvq_fp32": {
+            "successes": 474,
+            "episodes": 500,
+            "success_percent": 94.8,
+            "success_ci95_percent": [
+              90.60000000000001,
+              98.20499999999997
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0,
+            "suites": {
+              "libero_10": {
+                "successes": 474,
+                "episodes": 500,
+                "success_percent": 94.8,
+                "success_ci95_percent": [
+                  90.60000000000001,
+                  98.20499999999997
+                ],
+                "difference_from_reference_pp": 0.0,
+                "paired_difference_ci95_pp": [
+                  0.0,
+                  0.0
+                ],
+                "paired_improvements": 0,
+                "paired_regressions": 0
+              }
+            }
+          },
+          "bb_M3_flowvq_fp32": {
+            "successes": 462,
+            "episodes": 500,
+            "success_percent": 92.4,
+            "success_ci95_percent": [
+              82.8,
+              98.0
+            ],
+            "difference_from_reference_pp": -2.4,
+            "paired_difference_ci95_pp": [
+              -9.399999999999991,
+              2.5999999999999948
+            ],
+            "paired_improvements": 12,
+            "paired_regressions": 24,
+            "suites": {
+              "libero_10": {
+                "successes": 462,
+                "episodes": 500,
+                "success_percent": 92.4,
+                "success_ci95_percent": [
+                  82.8,
+                  98.0
+                ],
+                "difference_from_reference_pp": -2.4,
+                "paired_difference_ci95_pp": [
+                  -9.399999999999991,
+                  2.5999999999999948
+                ],
+                "paired_improvements": 12,
+                "paired_regressions": 24
+              }
+            }
+          }
+        }
+      },
+      "bb_M3_flowvq_fp32": {
+        "reference": "bb_M3_flowvq_fp32",
+        "protocol": {
+          "suites": [
+            "libero_10"
+          ],
+          "tasks_per_suite": 10,
+          "episodes_per_task": 50,
+          "evaluation_seed": 7
+        },
+        "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+        "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+        "resamples": 2000,
+        "resampling_rng_seed": 20260930,
+        "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+        "policies": {
+          "original_fp": {
+            "successes": 459,
+            "episodes": 500,
+            "success_percent": 91.8,
+            "success_ci95_percent": [
+              81.595,
+              98.2
+            ],
+            "difference_from_reference_pp": -0.6,
+            "paired_difference_ci95_pp": [
+              -4.0,
+              2.4000000000000057
+            ],
+            "paired_improvements": 23,
+            "paired_regressions": 26,
+            "suites": {
+              "libero_10": {
+                "successes": 459,
+                "episodes": 500,
+                "success_percent": 91.8,
+                "success_ci95_percent": [
+                  81.595,
+                  98.2
+                ],
+                "difference_from_reference_pp": -0.6,
+                "paired_difference_ci95_pp": [
+                  -4.0,
+                  2.4000000000000057
+                ],
+                "paired_improvements": 23,
+                "paired_regressions": 26
+              }
+            }
+          },
+          "bb_M2_flowvq_fp32": {
+            "successes": 474,
+            "episodes": 500,
+            "success_percent": 94.8,
+            "success_ci95_percent": [
+              90.60000000000001,
+              98.20499999999997
+            ],
+            "difference_from_reference_pp": 2.4,
+            "paired_difference_ci95_pp": [
+              -2.5999999999999948,
+              9.399999999999991
+            ],
+            "paired_improvements": 24,
+            "paired_regressions": 12,
+            "suites": {
+              "libero_10": {
+                "successes": 474,
+                "episodes": 500,
+                "success_percent": 94.8,
+                "success_ci95_percent": [
+                  90.60000000000001,
+                  98.20499999999997
+                ],
+                "difference_from_reference_pp": 2.4,
+                "paired_difference_ci95_pp": [
+                  -2.5999999999999948,
+                  9.399999999999991
+                ],
+                "paired_improvements": 24,
+                "paired_regressions": 12
+              }
+            }
+          },
+          "bb_M3_flowvq_fp32": {
+            "successes": 462,
+            "episodes": 500,
+            "success_percent": 92.4,
+            "success_ci95_percent": [
+              82.8,
+              98.0
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0,
+            "suites": {
+              "libero_10": {
+                "successes": 462,
+                "episodes": 500,
+                "success_percent": 92.4,
+                "success_ci95_percent": [
+                  82.8,
+                  98.0
+                ],
+                "difference_from_reference_pp": 0.0,
+                "paired_difference_ci95_pp": [
+                  0.0,
+                  0.0
+                ],
+                "paired_improvements": 0,
+                "paired_regressions": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "source_sha256": {
+      "/projects/yanlongvla/research/results/flowvq_main_complete.json": "135da42cad40d16980daed756c61992fd34c922904dc663c6d1302697824ec50",
+      "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task0_seed7.jsonl": "1a631754c6054b5a79f0dc53c7df523201a4895b87cbe63e0f7f436e448e93a5",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task1_seed7.jsonl": "1d979d429d01af092e2d6df4d7daf73734b39dd36102125ff891dcf179499833",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task2_seed7.jsonl": "36dc40c059f2a0aa4ceb0dc662ba753491b684ca3a75afe53eaf168b2f60c571",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task3_seed7.jsonl": "309d4f0cf40e2ce368c74cb3e29347ba3dbb8b6dfe5244ffaf39f11af4a7cafa",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task4_seed7.jsonl": "73dee428bbf3d9b51ebd7b6c88862dc3e2ee5740d5058f0c59c457e8db5a5921",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task5_seed7.jsonl": "a60a91513030e4644b7fd580a1a107465e214da38baa634213ea2b66b983d8a0",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task6_seed7.jsonl": "fc17a9b4a654a6c382d23a9b843de9eb562a3320c5afeb35e8a9936272274687",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task7_seed7.jsonl": "20f381f6c1c5c5fff9b1bf8209acb8a52131cd478c45736c8f6546d07e6e2744",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task8_seed7.jsonl": "6d1f59201c91b449e7edae95bf56696709a6d78451f7a0a6a8b13d782a34d951",
+      "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task9_seed7.jsonl": "e10f6de31c1bb0eac936ef32ff583a4f100ce6be822039839d993c4d391340ad",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task0_seed7.jsonl": "37c4978cb619258cbd22ccea3c17c94cd0bf8cf0fecd4791e5a60fe152847684",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task1_seed7.jsonl": "aec7368784977eed25908895e00f431fea5fcd3d97aa36a2af951471dbf6fee2",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task2_seed7.jsonl": "2e85d4f051955d691bfd3468ed742824daefee91b3dfcd042bc57cf9d6b4e821",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task3_seed7.jsonl": "ec6de27c54b2f8d23d322e975282cac83291a9dea0a7cf7e40846bd94e6cc2f0",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task4_seed7.jsonl": "0e4ae39a761c589219d8c0335a5d23c2cd0e15ae6e44c06f2c8a7d4f99c06340",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task5_seed7.jsonl": "03dcee768cb3461d7f45799000090558da5968932c6b129594b5d12ff528582b",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task6_seed7.jsonl": "c392ee8011806758f7127706feb02847152a8651799d2114c8e19a762b781dbe",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task7_seed7.jsonl": "0013599ad1eeae1c8d2558965e5b17544843c74f3e5e2b70f0b84784d232d4e2",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task8_seed7.jsonl": "339ba9403b294e0887e1ba22781ba90feb78c4cb80665a2d8979afe22471440f",
+      "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task9_seed7.jsonl": "3e9a7aa032ea09e315959429aae10dcb6b6549086fd7060b002f818c0d27000f",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task0_seed7.jsonl": "37c4978cb619258cbd22ccea3c17c94cd0bf8cf0fecd4791e5a60fe152847684",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task1_seed7.jsonl": "aec7368784977eed25908895e00f431fea5fcd3d97aa36a2af951471dbf6fee2",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task2_seed7.jsonl": "2e85d4f051955d691bfd3468ed742824daefee91b3dfcd042bc57cf9d6b4e821",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task3_seed7.jsonl": "ec6de27c54b2f8d23d322e975282cac83291a9dea0a7cf7e40846bd94e6cc2f0",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task4_seed7.jsonl": "0e4ae39a761c589219d8c0335a5d23c2cd0e15ae6e44c06f2c8a7d4f99c06340",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task5_seed7.jsonl": "03dcee768cb3461d7f45799000090558da5968932c6b129594b5d12ff528582b",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task6_seed7.jsonl": "c392ee8011806758f7127706feb02847152a8651799d2114c8e19a762b781dbe",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task7_seed7.jsonl": "0013599ad1eeae1c8d2558965e5b17544843c74f3e5e2b70f0b84784d232d4e2",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task8_seed7.jsonl": "339ba9403b294e0887e1ba22781ba90feb78c4cb80665a2d8979afe22471440f",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task9_seed7.jsonl": "3e9a7aa032ea09e315959429aae10dcb6b6549086fd7060b002f818c0d27000f",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task0_seed7.jsonl": "2f8c5c1efe0b16a43c41b5b06efa6565f8dfdf4f2b18abda2965038157d29a2f",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task1_seed7.jsonl": "6185ebef6a95c78108222687bbd7f693aa25de9a766b9494440440d812d064d1",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task2_seed7.jsonl": "afcca66686f497714b178ae237f9c070280bc9d0fde297fb6052fde0dec443ff",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task3_seed7.jsonl": "b4d2440bcec7ec168527588dc0569b6162a4a733a1c56ad0d9860d3ea4bd3604",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task4_seed7.jsonl": "21db1302fae6fb2bad99230cc9e0225bb857ea5dd099b9e7985a2f9e1cabfd70",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task5_seed7.jsonl": "846055c75fca8b881a93723be8f11aee94e09de3f72edc69731e08cc8cfcf27d",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task6_seed7.jsonl": "5499b0aaadc652c53a1ad474cfe6af0f8f3ca18c2fd3d5fd8cefa0caf117ca44",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task7_seed7.jsonl": "3b6c2d91763da8437bd12b8e3f7b4108bc9280ec2ec75c32cf23f97a9cfaebdb",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task8_seed7.jsonl": "036e42aef7b385cbf4619d587c41395de2e494d1f0233a1fe2768d4524b4cfbe",
+      "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task9_seed7.jsonl": "0e58db2b8e7c12ddcb3a1b69529f2ff6513fc62d9dcb4083b01951de287bbe66",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task0_seed7.jsonl": "2f8c5c1efe0b16a43c41b5b06efa6565f8dfdf4f2b18abda2965038157d29a2f",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task1_seed7.jsonl": "6185ebef6a95c78108222687bbd7f693aa25de9a766b9494440440d812d064d1",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task2_seed7.jsonl": "afcca66686f497714b178ae237f9c070280bc9d0fde297fb6052fde0dec443ff",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task3_seed7.jsonl": "b4d2440bcec7ec168527588dc0569b6162a4a733a1c56ad0d9860d3ea4bd3604",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task4_seed7.jsonl": "21db1302fae6fb2bad99230cc9e0225bb857ea5dd099b9e7985a2f9e1cabfd70",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task5_seed7.jsonl": "846055c75fca8b881a93723be8f11aee94e09de3f72edc69731e08cc8cfcf27d",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task6_seed7.jsonl": "5499b0aaadc652c53a1ad474cfe6af0f8f3ca18c2fd3d5fd8cefa0caf117ca44",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task7_seed7.jsonl": "3b6c2d91763da8437bd12b8e3f7b4108bc9280ec2ec75c32cf23f97a9cfaebdb",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task8_seed7.jsonl": "036e42aef7b385cbf4619d587c41395de2e494d1f0233a1fe2768d4524b4cfbe",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task9_seed7.jsonl": "0e58db2b8e7c12ddcb3a1b69529f2ff6513fc62d9dcb4083b01951de287bbe66",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task0_seed7.jsonl": "7c814d6c8a548986e6931854ffc0c8a23b7f4e42397b97fbc2e72a2fbbb378af",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task1_seed7.jsonl": "4da8a8d905d923d573d5873dceb4c51aef464820581c0467c0326ed927a6ceaa",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task2_seed7.jsonl": "91cef8d4570419842aba6c90367ebd0e9d2aa7d4b7d6df6ce8000af158008f0c",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task3_seed7.jsonl": "6f3ea6707364ab435d6c7795138e89236297e6d6d3f1700eca4702d63158d62e",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task4_seed7.jsonl": "25fcf5e538d7518486a2e609ea5a5c26a887f425560be29e574cd8a98e9e47df",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task5_seed7.jsonl": "689f5ccebab9da4b1863927e8fd3a2a3fabeea0139fc5542b1a78280245a4d72",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task6_seed7.jsonl": "3a980ac64d2330005d764735291ab082bdadcc67acf74a8e96166ee10a48049c",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task7_seed7.jsonl": "2a7ee54495d0801ef1bafd6b4c91b71c32d6e5596d926c60ee461e913d09fa70",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task8_seed7.jsonl": "a4274c2c69384e494550914d219d79d2b26edddcb4ffef7a43f2fcf7118e94b8",
+      "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task9_seed7.jsonl": "30dcfad7d9ee6c1aa924ff1eb5f8d59df02a25ef51ae508f8b0d1b29fda31b79",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task0_seed7.jsonl": "7c814d6c8a548986e6931854ffc0c8a23b7f4e42397b97fbc2e72a2fbbb378af",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task1_seed7.jsonl": "4da8a8d905d923d573d5873dceb4c51aef464820581c0467c0326ed927a6ceaa",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task2_seed7.jsonl": "91cef8d4570419842aba6c90367ebd0e9d2aa7d4b7d6df6ce8000af158008f0c",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task3_seed7.jsonl": "6f3ea6707364ab435d6c7795138e89236297e6d6d3f1700eca4702d63158d62e",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task4_seed7.jsonl": "25fcf5e538d7518486a2e609ea5a5c26a887f425560be29e574cd8a98e9e47df",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task5_seed7.jsonl": "689f5ccebab9da4b1863927e8fd3a2a3fabeea0139fc5542b1a78280245a4d72",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task6_seed7.jsonl": "3a980ac64d2330005d764735291ab082bdadcc67acf74a8e96166ee10a48049c",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task7_seed7.jsonl": "2a7ee54495d0801ef1bafd6b4c91b71c32d6e5596d926c60ee461e913d09fa70",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task8_seed7.jsonl": "a4274c2c69384e494550914d219d79d2b26edddcb4ffef7a43f2fcf7118e94b8",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task9_seed7.jsonl": "30dcfad7d9ee6c1aa924ff1eb5f8d59df02a25ef51ae508f8b0d1b29fda31b79"
+    },
+    "additional_same_gpu_controls": false,
+    "scope": "LIBERO-10 only;500 episodes per model; accepted episodes copied verbatim. Only250 missing uniform-M2 episodes are new and may use a different measured GPU. Device/backend effects are a confound not captured by episode CIs. Paired task/episode bootstrap,2000 draws, pointwise95% intervals conditional on seed7. No selection based on observed winners."
+  },
+  "x6b": {
+    "status": "in_progress",
+    "installation": {
+      "status": "installed_cpu_audit_passed_gpu_compatibility_pending",
+      "started_utc": "2026-10-03T14:34:23.767964+00:00",
+      "deadline_utc": "2026-10-04T14:34:23.767980+00:00",
+      "upstream": "https://github.com/sylvestf/LIBERO-plus",
+      "upstream_revision": "4976dc30028e805ff8094b55501d532c48fec182",
+      "environment": "/projects/yanlongvla/envs/libero-plus",
+      "deployment_environment_unchanged": true,
+      "cpu_verified_utc": "2026-10-03T15:12:14.725006+00:00"
+    },
+    "seed": 7,
+    "full_fp": null,
+    "progress": {
+      "x6b_fp": {
+        "episodes": 0,
+        "required": 10030,
+        "subset_episodes": 0,
+        "subset_required": 1000,
+        "complete": false
+      },
+      "x6b_uniform": {
+        "episodes": 0,
+        "required": 1000,
+        "subset_episodes": 0,
+        "subset_required": 1000,
+        "complete": false
+      },
+      "x6b_flowvq": {
+        "episodes": 0,
+        "required": 1000,
+        "subset_episodes": 0,
+        "subset_required": 1000,
+        "complete": false
+      },
+      "x6b_expert_M1": {
+        "episodes": 0,
+        "required": 1000,
+        "subset_episodes": 0,
+        "subset_required": 1000,
+        "complete": false
+      }
+    },
+    "paired": {},
+    "three_way_separation_dimensions": [],
+    "validation_issues": {},
+    "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
+    "source_sha256": {},
+    "scope": "FP full10030 instances once; equal fixed500 camera+500 robot-initial-state instances per model, FP subset reused from full run. No extra same-GPU controls. Hardware/backend differences, where present, are not removed by paired CIs."
+  },
   "source_sha256": {
     "/projects/yanlongvla/runs/g0/libero_spatial_seed7.jsonl": "c48c9ce9e91db0ed941a81a4e685272cad073fbdf4894946d2d3cfbe8be7a960",
     "/projects/yanlongvla/runs/g0/libero_object_seed7.jsonl": "3d68187984edcf6096dc6f95191285614bae448d4f13f078463e69a1ef0e53b2",
@@ -298,58 +1330,37 @@
     "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_spatial_task6_seed7.jsonl": "0e8b0f0045dd73c09fbdfb258f40d8bc3075e7271ede12b6d4b56d6b53f5108a",
     "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_spatial_task7_seed7.jsonl": "0bc42b960b5f8816cced63abcb7016d4908d406a7826b3be72f1f19018b9dbab",
     "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_spatial_task8_seed7.jsonl": "49cc2f5aff4942b6592fad6c2ec5bc40455d71b37dac3359d91bd4e4762c3c7d",
-    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_spatial_task9_seed7.jsonl": "e3ff51b80e1e80686f2584b2cc858eef52ad1c6b1d5c67a4f82a2820aedb3609"
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_spatial_task9_seed7.jsonl": "e3ff51b80e1e80686f2584b2cc858eef52ad1c6b1d5c67a4f82a2820aedb3609",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/offline/result.json": "083c880360ee1c8805d7b1939f1422887f3789c82c72c87476ab39ecc3abdfea",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/offline/actions.npy": "0a2680651b00ae50044ade1509d0f7f95bc9b0c21dca70e6261b46ba5fd9579a",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task0_seed7.jsonl": "04988341dee2be2bfcf752aeb24c429077778b0f75b5a11972b5d9c4736332ea",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task1_seed7.jsonl": "764aaf37a55d7c6dabca76e1baac473b0403c4a544a89a76c573e4acfd96940d",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task2_seed7.jsonl": "a3affa40b2acd3fbbe6d7d599f136e147d7e67353caeeef2da80ab384357211d",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task3_seed7.jsonl": "a1b09b53cbda2add1258a910701cc452d34abfb6a54aa73707a3d3cfe71861cc",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task4_seed7.jsonl": "d75d3d423734e05d65a40d3f245098ea73c82e1ce9afd1f05141219139eb669a",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task5_seed7.jsonl": "8d8d2d7a420525574c8918f2a6b92cfd83b2ebe008642be9b8d0f5d9c3ffccad",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task6_seed7.jsonl": "8ddeb68042549dad9e84fad771e84c278450add648632ce0a47c7aa0e87958e5",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task7_seed7.jsonl": "a11f04e22e6628e79d2b00361cb4c52a342639916a4cd05733fa7590a87f377f",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task8_seed7.jsonl": "1515b34e2be31b5678b51da3c422167154a67c4dc1c9e0b436c0f643aec534a7",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_10_task9_seed7.jsonl": "4354d4b07843471ae56a1b9d3a0787a79dad98ede08d25737b19dfa5fbe28c0c",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task0_seed7.jsonl": "fc0cbabd4e9a45287b6858f966fafdc6c1f8dada5a634884e16427efb0e15f54",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task1_seed7.jsonl": "f6d565a97bb7443e4320c058026a29f13946e09fed0ca0bd2e419f3d58b6f8db",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task2_seed7.jsonl": "ce0bca609a5d2e0ffe26a5c6418d872d0c7599ab554e863c1cf7db899d63943a",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task3_seed7.jsonl": "fb1466415f30f8f5c66c34b2c78168ae8ab0f42275c15eb30995569589910533",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task4_seed7.jsonl": "23b5f3e316993b27a73c1230f37663295991f50b365575a5853a6b74ff114040",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task5_seed7.jsonl": "7ae48fed69963fedea78dd83f2835c5d3ca6888e36610baf5710e83498c7fa64",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task6_seed7.jsonl": "b8e1b6caf78a5c45dc514ea8965525c8f28a90b405dc6ee1f678e3c8f7e9be3c",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task7_seed7.jsonl": "db5b6000f46ea75d212df717bab0a10e6665f82e7655bdf5057e79384e360935",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task8_seed7.jsonl": "85880de058c77d3e76cc148ce9f296a00b28659df55b9376b7bfaeb91645eff1",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/libero_spatial_task9_seed7.jsonl": "9f1ae99ad83c609a3c09d3ea4e7582e10fff92e0f9f52f6e30bb8c52d085c508",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/worker0_manifest.json": "d20bf4fba940f28ab1fb4f0bb3fda2b7f998c185430cba524ae37262c6dd6a4e",
+    "/projects/yanlongvla/runs/story_round/x2_fp_n1/rollouts/worker1_manifest.json": "f8e615f797f34bd7bb6060e1922a56fd13ed6290d91c73babfd55d16471e97c1"
   },
-  "seeds": {
-    "original_fp": {
-      "successes": [
-        970,
-        null,
-        null
-      ],
-      "seeds": [
-        7,
-        8,
-        9
-      ],
-      "complete": false,
-      "mean_percent": null,
-      "sample_std_percent": null
-    },
-    "bb_M2_flowvq_fp32": {
-      "successes": [
-        964,
-        null,
-        null
-      ],
-      "seeds": [
-        7,
-        8,
-        9
-      ],
-      "complete": false,
-      "mean_percent": null,
-      "sample_std_percent": null
-    },
-    "bb_M3_flowvq_fp32": {
-      "successes": [
-        968,
-        null,
-        null
-      ],
-      "seeds": [
-        7,
-        8,
-        9
-      ],
-      "complete": false,
-      "mean_percent": null,
-      "sample_std_percent": null
-    }
-  },
+  "seeds": {},
   "theory": null,
   "reduced_step_verdict": "Pending all nine reduced-step configurations; no equal-byte verdict yet.",
   "reduced_step_paired_byte_budget": {},
   "dose_complete": false,
-  "dose_verdict": "Pending all seven dose configurations; no LIBERO sensitivity claim yet."
+  "dose_verdict": "Pending all seven dose configurations; no LIBERO sensitivity claim yet.",
+  "public_export_scope": "Aggregate experiment results and provenance only. Per-episode boolean cubes are omitted; no raw rollout logs, actions, model weights, code or configs are published."
 }

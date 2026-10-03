@@ -1,0 +1,51 @@
+{
+  "status": "in_progress",
+  "installation": {
+    "status": "installed_cpu_audit_passed_gpu_compatibility_pending",
+    "started_utc": "2026-10-03T14:34:23.767964+00:00",
+    "deadline_utc": "2026-10-04T14:34:23.767980+00:00",
+    "upstream": "https://github.com/sylvestf/LIBERO-plus",
+    "upstream_revision": "4976dc30028e805ff8094b55501d532c48fec182",
+    "environment": "/projects/yanlongvla/envs/libero-plus",
+    "deployment_environment_unchanged": true,
+    "cpu_verified_utc": "2026-10-03T15:12:14.725006+00:00"
+  },
+  "seed": 7,
+  "full_fp": null,
+  "progress": {
+    "x6b_fp": {
+      "episodes": 0,
+      "required": 10030,
+      "subset_episodes": 0,
+      "subset_required": 1000,
+      "complete": false
+    },
+    "x6b_uniform": {
+      "episodes": 0,
+      "required": 1000,
+      "subset_episodes": 0,
+      "subset_required": 1000,
+      "complete": false
+    },
+    "x6b_flowvq": {
+      "episodes": 0,
+      "required": 1000,
+      "subset_episodes": 0,
+      "subset_required": 1000,
+      "complete": false
+    },
+    "x6b_expert_M1": {
+      "episodes": 0,
+      "required": 1000,
+      "subset_episodes": 0,
+      "subset_required": 1000,
+      "complete": false
+    }
+  },
+  "paired": {},
+  "three_way_separation_dimensions": [],
+  "validation_issues": {},
+  "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
+  "source_sha256": {},
+  "scope": "FP full10030 instances once; equal fixed500 camera+500 robot-initial-state instances per model, FP subset reused from full run. No extra same-GPU controls. Hardware/backend differences, where present, are not removed by paired CIs."
+}

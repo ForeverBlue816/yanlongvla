@@ -1,82 +1,67 @@
 {
-  "timestamp_utc": "2026-10-03T13:23:17.353402+00:00",
-  "status": "running",
-  "x0": "complete_BF16_backbone_int8_embedding_M3_anomaly_unexplained",
-  "fits": {
-    "M2": 201,
-    "M3": 199
-  },
-  "fit_target_per_depth": 288,
-  "queued_jobs": [
+  "recorded_utc": "2026-10-03T15:24:33.510873+00:00",
+  "phase": "evening_round_in_progress",
+  "controller_job": "182432",
+  "active_jobs": [
     {
-      "job": 182228,
-      "kind": "fit",
-      "worker": 0,
-      "gpus": 1,
+      "job": 182317,
+      "kind": "x2_eval",
+      "state": "RUNNING",
+      "gpus": 2,
       "qos": "rose"
     },
     {
-      "job": 182229,
-      "kind": "fit",
-      "worker": 1,
-      "gpus": 1,
+      "job": 182418,
+      "kind": "x1_M3",
+      "state": "RUNNING",
+      "gpus": 2,
       "qos": "rose"
     },
     {
-      "job": 182230,
-      "kind": "fit",
-      "worker": 2,
+      "job": 182427,
+      "kind": "x1_M2",
+      "state": "PENDING",
+      "gpus": 2,
+      "qos": "override-limits-but-killable"
+    },
+    {
+      "job": 182430,
+      "kind": "x4_covariance",
+      "state": "PENDING",
       "gpus": 1,
       "qos": "override-limits-but-killable"
     },
     {
-      "job": 182231,
-      "kind": "fit",
-      "worker": 3,
-      "gpus": 1,
-      "qos": "override-limits-but-killable"
-    },
-    {
-      "job": 182237,
-      "kind": "x2_eval",
-      "worker": 0,
-      "workers": 2,
-      "configs": [
-        "x2_fp_n1",
-        "x2_uniform_n1",
-        "x2_flowvq_n1",
-        "x2_fp_n2",
-        "x2_uniform_n2",
-        "x2_flowvq_n2",
-        "x2_fp_n5",
-        "x2_uniform_n5",
-        "x2_flowvq_n5"
-      ],
-      "gpus": 1,
-      "qos": "override-limits-but-killable"
-    },
-    {
-      "job": 182238,
-      "kind": "x2_eval",
-      "worker": 1,
-      "workers": 2,
-      "configs": [
-        "x2_fp_n1",
-        "x2_uniform_n1",
-        "x2_flowvq_n1",
-        "x2_fp_n2",
-        "x2_uniform_n2",
-        "x2_flowvq_n2",
-        "x2_fp_n5",
-        "x2_uniform_n5",
-        "x2_flowvq_n5"
-      ],
+      "job": 182433,
+      "kind": "x3_fp32_pilot",
+      "state": "PENDING",
       "gpus": 1,
       "qos": "override-limits-but-killable"
     }
   ],
-  "x3": "implemented_direct_velocity_and_JVP_pilot_before500",
-  "x4": "implemented_covariance_then_noise_rollouts",
-  "x5": "controller_queue_after_X1_X2",
-  "deferred_started": false
+  "no_additional_same_gpu_controls": true,
+  "dropped_experiments": [
+    "X5"
+  ],
+  "priority": [
+    "X1",
+    "X2",
+    "X3/X4",
+    "X6a",
+    "X6b"
+  ],
+  "x1_assembled": true,
+  "x6a_accepted_reuse_episodes": 1750,
+  "x6a_remaining_episodes": 250,
+  "libero_plus_cpu_installation_audit": "passed",
+  "libero_plus_fp_compatibility": "pending",
+  "throughput_tested_types": [
+    "l40",
+    "rtx5090",
+    "6000ada",
+    "a6000"
+  ],
+  "throughput_leader": "l40",
+  "untested_deferred_type": "pro6000",
+  "tests_passed": 13
 }

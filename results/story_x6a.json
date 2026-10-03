@@ -1,0 +1,756 @@
+{
+  "status": "in_progress",
+  "seed": 7,
+  "episodes_per_task": 50,
+  "tasks": 10,
+  "progress": {
+    "original_fp": {
+      "episodes": 500,
+      "reused": 500,
+      "new_episodes": 0,
+      "complete": true,
+      "reused_gpu": "NVIDIA L40S",
+      "new_gpu": null
+    },
+    "bb_M2_ae_M2_fp32": {
+      "episodes": 250,
+      "reused": 250,
+      "new_episodes": 0,
+      "complete": false,
+      "reused_gpu": "NVIDIA L40S",
+      "new_gpu": null
+    },
+    "bb_M2_flowvq_fp32": {
+      "episodes": 500,
+      "reused": 500,
+      "new_episodes": 0,
+      "complete": true,
+      "reused_gpu": "NVIDIA L40S",
+      "new_gpu": null
+    },
+    "bb_M3_flowvq_fp32": {
+      "episodes": 500,
+      "reused": 500,
+      "new_episodes": 0,
+      "complete": true,
+      "reused_gpu": "NVIDIA L40S",
+      "new_gpu": null
+    }
+  },
+  "per_task": {
+    "original_fp": [
+      {
+        "task": 0,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 1,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 2,
+        "successes": 48,
+        "episodes": 50
+      },
+      {
+        "task": 3,
+        "successes": 47,
+        "episodes": 50
+      },
+      {
+        "task": 4,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 5,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 6,
+        "successes": 44,
+        "episodes": 50
+      },
+      {
+        "task": 7,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 8,
+        "successes": 26,
+        "episodes": 50
+      },
+      {
+        "task": 9,
+        "successes": 47,
+        "episodes": 50
+      }
+    ],
+    "bb_M2_flowvq_fp32": [
+      {
+        "task": 0,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 1,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 2,
+        "successes": 45,
+        "episodes": 50
+      },
+      {
+        "task": 3,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 4,
+        "successes": 47,
+        "episodes": 50
+      },
+      {
+        "task": 5,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 6,
+        "successes": 48,
+        "episodes": 50
+      },
+      {
+        "task": 7,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 8,
+        "successes": 42,
+        "episodes": 50
+      },
+      {
+        "task": 9,
+        "successes": 44,
+        "episodes": 50
+      }
+    ],
+    "bb_M3_flowvq_fp32": [
+      {
+        "task": 0,
+        "successes": 48,
+        "episodes": 50
+      },
+      {
+        "task": 1,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 2,
+        "successes": 47,
+        "episodes": 50
+      },
+      {
+        "task": 3,
+        "successes": 47,
+        "episodes": 50
+      },
+      {
+        "task": 4,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 5,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 6,
+        "successes": 47,
+        "episodes": 50
+      },
+      {
+        "task": 7,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 8,
+        "successes": 28,
+        "episodes": 50
+      },
+      {
+        "task": 9,
+        "successes": 47,
+        "episodes": 50
+      }
+    ]
+  },
+  "paired_vs_fp": {
+    "reference": "original_fp",
+    "protocol": {
+      "suites": [
+        "libero_10"
+      ],
+      "tasks_per_suite": 10,
+      "episodes_per_task": 50,
+      "evaluation_seed": 7
+    },
+    "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+    "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+    "resamples": 2000,
+    "resampling_rng_seed": 20260930,
+    "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+    "policies": {
+      "original_fp": {
+        "successes": 459,
+        "episodes": 500,
+        "success_percent": 91.8,
+        "success_ci95_percent": [
+          81.595,
+          98.2
+        ],
+        "difference_from_reference_pp": 0.0,
+        "paired_difference_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "paired_improvements": 0,
+        "paired_regressions": 0,
+        "suites": {
+          "libero_10": {
+            "successes": 459,
+            "episodes": 500,
+            "success_percent": 91.8,
+            "success_ci95_percent": [
+              81.595,
+              98.2
+            ],
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          }
+        }
+      },
+      "bb_M2_flowvq_fp32": {
+        "successes": 474,
+        "episodes": 500,
+        "success_percent": 94.8,
+        "success_ci95_percent": [
+          90.60000000000001,
+          98.20499999999997
+        ],
+        "difference_from_reference_pp": 3.0,
+        "paired_difference_ci95_pp": [
+          -2.799999999999997,
+          11.400000000000006
+        ],
+        "paired_improvements": 34,
+        "paired_regressions": 19,
+        "suites": {
+          "libero_10": {
+            "successes": 474,
+            "episodes": 500,
+            "success_percent": 94.8,
+            "success_ci95_percent": [
+              90.60000000000001,
+              98.20499999999997
+            ],
+            "difference_from_reference_pp": 3.0,
+            "paired_difference_ci95_pp": [
+              -2.799999999999997,
+              11.400000000000006
+            ],
+            "paired_improvements": 34,
+            "paired_regressions": 19
+          }
+        }
+      },
+      "bb_M3_flowvq_fp32": {
+        "successes": 462,
+        "episodes": 500,
+        "success_percent": 92.4,
+        "success_ci95_percent": [
+          82.8,
+          98.0
+        ],
+        "difference_from_reference_pp": 0.6,
+        "paired_difference_ci95_pp": [
+          -2.4000000000000057,
+          4.0
+        ],
+        "paired_improvements": 26,
+        "paired_regressions": 23,
+        "suites": {
+          "libero_10": {
+            "successes": 462,
+            "episodes": 500,
+            "success_percent": 92.4,
+            "success_ci95_percent": [
+              82.8,
+              98.0
+            ],
+            "difference_from_reference_pp": 0.6,
+            "paired_difference_ci95_pp": [
+              -2.4000000000000057,
+              4.0
+            ],
+            "paired_improvements": 26,
+            "paired_regressions": 23
+          }
+        }
+      }
+    }
+  },
+  "pairwise": {
+    "original_fp": {
+      "reference": "original_fp",
+      "protocol": {
+        "suites": [
+          "libero_10"
+        ],
+        "tasks_per_suite": 10,
+        "episodes_per_task": 50,
+        "evaluation_seed": 7
+      },
+      "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+      "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+      "resamples": 2000,
+      "resampling_rng_seed": 20260930,
+      "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+      "policies": {
+        "original_fp": {
+          "successes": 459,
+          "episodes": 500,
+          "success_percent": 91.8,
+          "success_ci95_percent": [
+            81.595,
+            98.2
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0,
+          "suites": {
+            "libero_10": {
+              "successes": 459,
+              "episodes": 500,
+              "success_percent": 91.8,
+              "success_ci95_percent": [
+                81.595,
+                98.2
+              ],
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            }
+          }
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 474,
+          "episodes": 500,
+          "success_percent": 94.8,
+          "success_ci95_percent": [
+            90.60000000000001,
+            98.20499999999997
+          ],
+          "difference_from_reference_pp": 3.0,
+          "paired_difference_ci95_pp": [
+            -2.799999999999997,
+            11.400000000000006
+          ],
+          "paired_improvements": 34,
+          "paired_regressions": 19,
+          "suites": {
+            "libero_10": {
+              "successes": 474,
+              "episodes": 500,
+              "success_percent": 94.8,
+              "success_ci95_percent": [
+                90.60000000000001,
+                98.20499999999997
+              ],
+              "difference_from_reference_pp": 3.0,
+              "paired_difference_ci95_pp": [
+                -2.799999999999997,
+                11.400000000000006
+              ],
+              "paired_improvements": 34,
+              "paired_regressions": 19
+            }
+          }
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 462,
+          "episodes": 500,
+          "success_percent": 92.4,
+          "success_ci95_percent": [
+            82.8,
+            98.0
+          ],
+          "difference_from_reference_pp": 0.6,
+          "paired_difference_ci95_pp": [
+            -2.4000000000000057,
+            4.0
+          ],
+          "paired_improvements": 26,
+          "paired_regressions": 23,
+          "suites": {
+            "libero_10": {
+              "successes": 462,
+              "episodes": 500,
+              "success_percent": 92.4,
+              "success_ci95_percent": [
+                82.8,
+                98.0
+              ],
+              "difference_from_reference_pp": 0.6,
+              "paired_difference_ci95_pp": [
+                -2.4000000000000057,
+                4.0
+              ],
+              "paired_improvements": 26,
+              "paired_regressions": 23
+            }
+          }
+        }
+      }
+    },
+    "bb_M2_flowvq_fp32": {
+      "reference": "bb_M2_flowvq_fp32",
+      "protocol": {
+        "suites": [
+          "libero_10"
+        ],
+        "tasks_per_suite": 10,
+        "episodes_per_task": 50,
+        "evaluation_seed": 7
+      },
+      "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+      "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+      "resamples": 2000,
+      "resampling_rng_seed": 20260930,
+      "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+      "policies": {
+        "original_fp": {
+          "successes": 459,
+          "episodes": 500,
+          "success_percent": 91.8,
+          "success_ci95_percent": [
+            81.595,
+            98.2
+          ],
+          "difference_from_reference_pp": -3.0,
+          "paired_difference_ci95_pp": [
+            -11.400000000000006,
+            2.799999999999997
+          ],
+          "paired_improvements": 19,
+          "paired_regressions": 34,
+          "suites": {
+            "libero_10": {
+              "successes": 459,
+              "episodes": 500,
+              "success_percent": 91.8,
+              "success_ci95_percent": [
+                81.595,
+                98.2
+              ],
+              "difference_from_reference_pp": -3.0,
+              "paired_difference_ci95_pp": [
+                -11.400000000000006,
+                2.799999999999997
+              ],
+              "paired_improvements": 19,
+              "paired_regressions": 34
+            }
+          }
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 474,
+          "episodes": 500,
+          "success_percent": 94.8,
+          "success_ci95_percent": [
+            90.60000000000001,
+            98.20499999999997
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0,
+          "suites": {
+            "libero_10": {
+              "successes": 474,
+              "episodes": 500,
+              "success_percent": 94.8,
+              "success_ci95_percent": [
+                90.60000000000001,
+                98.20499999999997
+              ],
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            }
+          }
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 462,
+          "episodes": 500,
+          "success_percent": 92.4,
+          "success_ci95_percent": [
+            82.8,
+            98.0
+          ],
+          "difference_from_reference_pp": -2.4,
+          "paired_difference_ci95_pp": [
+            -9.399999999999991,
+            2.5999999999999948
+          ],
+          "paired_improvements": 12,
+          "paired_regressions": 24,
+          "suites": {
+            "libero_10": {
+              "successes": 462,
+              "episodes": 500,
+              "success_percent": 92.4,
+              "success_ci95_percent": [
+                82.8,
+                98.0
+              ],
+              "difference_from_reference_pp": -2.4,
+              "paired_difference_ci95_pp": [
+                -9.399999999999991,
+                2.5999999999999948
+              ],
+              "paired_improvements": 12,
+              "paired_regressions": 24
+            }
+          }
+        }
+      }
+    },
+    "bb_M3_flowvq_fp32": {
+      "reference": "bb_M3_flowvq_fp32",
+      "protocol": {
+        "suites": [
+          "libero_10"
+        ],
+        "tasks_per_suite": 10,
+        "episodes_per_task": 50,
+        "evaluation_seed": 7
+      },
+      "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+      "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+      "resamples": 2000,
+      "resampling_rng_seed": 20260930,
+      "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+      "policies": {
+        "original_fp": {
+          "successes": 459,
+          "episodes": 500,
+          "success_percent": 91.8,
+          "success_ci95_percent": [
+            81.595,
+            98.2
+          ],
+          "difference_from_reference_pp": -0.6,
+          "paired_difference_ci95_pp": [
+            -4.0,
+            2.4000000000000057
+          ],
+          "paired_improvements": 23,
+          "paired_regressions": 26,
+          "suites": {
+            "libero_10": {
+              "successes": 459,
+              "episodes": 500,
+              "success_percent": 91.8,
+              "success_ci95_percent": [
+                81.595,
+                98.2
+              ],
+              "difference_from_reference_pp": -0.6,
+              "paired_difference_ci95_pp": [
+                -4.0,
+                2.4000000000000057
+              ],
+              "paired_improvements": 23,
+              "paired_regressions": 26
+            }
+          }
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 474,
+          "episodes": 500,
+          "success_percent": 94.8,
+          "success_ci95_percent": [
+            90.60000000000001,
+            98.20499999999997
+          ],
+          "difference_from_reference_pp": 2.4,
+          "paired_difference_ci95_pp": [
+            -2.5999999999999948,
+            9.399999999999991
+          ],
+          "paired_improvements": 24,
+          "paired_regressions": 12,
+          "suites": {
+            "libero_10": {
+              "successes": 474,
+              "episodes": 500,
+              "success_percent": 94.8,
+              "success_ci95_percent": [
+                90.60000000000001,
+                98.20499999999997
+              ],
+              "difference_from_reference_pp": 2.4,
+              "paired_difference_ci95_pp": [
+                -2.5999999999999948,
+                9.399999999999991
+              ],
+              "paired_improvements": 24,
+              "paired_regressions": 12
+            }
+          }
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 462,
+          "episodes": 500,
+          "success_percent": 92.4,
+          "success_ci95_percent": [
+            82.8,
+            98.0
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0,
+          "suites": {
+            "libero_10": {
+              "successes": 462,
+              "episodes": 500,
+              "success_percent": 92.4,
+              "success_ci95_percent": [
+                82.8,
+                98.0
+              ],
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            }
+          }
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "/projects/yanlongvla/research/results/flowvq_main_complete.json": "135da42cad40d16980daed756c61992fd34c922904dc663c6d1302697824ec50",
+    "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task0_seed7.jsonl": "1a631754c6054b5a79f0dc53c7df523201a4895b87cbe63e0f7f436e448e93a5",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task1_seed7.jsonl": "1d979d429d01af092e2d6df4d7daf73734b39dd36102125ff891dcf179499833",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task2_seed7.jsonl": "36dc40c059f2a0aa4ceb0dc662ba753491b684ca3a75afe53eaf168b2f60c571",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task3_seed7.jsonl": "309d4f0cf40e2ce368c74cb3e29347ba3dbb8b6dfe5244ffaf39f11af4a7cafa",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task4_seed7.jsonl": "73dee428bbf3d9b51ebd7b6c88862dc3e2ee5740d5058f0c59c457e8db5a5921",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task5_seed7.jsonl": "a60a91513030e4644b7fd580a1a107465e214da38baa634213ea2b66b983d8a0",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task6_seed7.jsonl": "fc17a9b4a654a6c382d23a9b843de9eb562a3320c5afeb35e8a9936272274687",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task7_seed7.jsonl": "20f381f6c1c5c5fff9b1bf8209acb8a52131cd478c45736c8f6546d07e6e2744",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task8_seed7.jsonl": "6d1f59201c91b449e7edae95bf56696709a6d78451f7a0a6a8b13d782a34d951",
+    "/projects/yanlongvla/runs/story_round/x6a/original_fp/rollouts/libero_10_task9_seed7.jsonl": "e10f6de31c1bb0eac936ef32ff583a4f100ce6be822039839d993c4d391340ad",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task0_seed7.jsonl": "37c4978cb619258cbd22ccea3c17c94cd0bf8cf0fecd4791e5a60fe152847684",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task1_seed7.jsonl": "aec7368784977eed25908895e00f431fea5fcd3d97aa36a2af951471dbf6fee2",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task2_seed7.jsonl": "2e85d4f051955d691bfd3468ed742824daefee91b3dfcd042bc57cf9d6b4e821",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task3_seed7.jsonl": "ec6de27c54b2f8d23d322e975282cac83291a9dea0a7cf7e40846bd94e6cc2f0",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task4_seed7.jsonl": "0e4ae39a761c589219d8c0335a5d23c2cd0e15ae6e44c06f2c8a7d4f99c06340",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task5_seed7.jsonl": "03dcee768cb3461d7f45799000090558da5968932c6b129594b5d12ff528582b",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task6_seed7.jsonl": "c392ee8011806758f7127706feb02847152a8651799d2114c8e19a762b781dbe",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task7_seed7.jsonl": "0013599ad1eeae1c8d2558965e5b17544843c74f3e5e2b70f0b84784d232d4e2",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task8_seed7.jsonl": "339ba9403b294e0887e1ba22781ba90feb78c4cb80665a2d8979afe22471440f",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task9_seed7.jsonl": "3e9a7aa032ea09e315959429aae10dcb6b6549086fd7060b002f818c0d27000f",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task0_seed7.jsonl": "37c4978cb619258cbd22ccea3c17c94cd0bf8cf0fecd4791e5a60fe152847684",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task1_seed7.jsonl": "aec7368784977eed25908895e00f431fea5fcd3d97aa36a2af951471dbf6fee2",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task2_seed7.jsonl": "2e85d4f051955d691bfd3468ed742824daefee91b3dfcd042bc57cf9d6b4e821",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task3_seed7.jsonl": "ec6de27c54b2f8d23d322e975282cac83291a9dea0a7cf7e40846bd94e6cc2f0",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task4_seed7.jsonl": "0e4ae39a761c589219d8c0335a5d23c2cd0e15ae6e44c06f2c8a7d4f99c06340",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task5_seed7.jsonl": "03dcee768cb3461d7f45799000090558da5968932c6b129594b5d12ff528582b",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task6_seed7.jsonl": "c392ee8011806758f7127706feb02847152a8651799d2114c8e19a762b781dbe",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task7_seed7.jsonl": "0013599ad1eeae1c8d2558965e5b17544843c74f3e5e2b70f0b84784d232d4e2",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task8_seed7.jsonl": "339ba9403b294e0887e1ba22781ba90feb78c4cb80665a2d8979afe22471440f",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task9_seed7.jsonl": "3e9a7aa032ea09e315959429aae10dcb6b6549086fd7060b002f818c0d27000f",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task0_seed7.jsonl": "2f8c5c1efe0b16a43c41b5b06efa6565f8dfdf4f2b18abda2965038157d29a2f",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task1_seed7.jsonl": "6185ebef6a95c78108222687bbd7f693aa25de9a766b9494440440d812d064d1",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task2_seed7.jsonl": "afcca66686f497714b178ae237f9c070280bc9d0fde297fb6052fde0dec443ff",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task3_seed7.jsonl": "b4d2440bcec7ec168527588dc0569b6162a4a733a1c56ad0d9860d3ea4bd3604",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task4_seed7.jsonl": "21db1302fae6fb2bad99230cc9e0225bb857ea5dd099b9e7985a2f9e1cabfd70",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task5_seed7.jsonl": "846055c75fca8b881a93723be8f11aee94e09de3f72edc69731e08cc8cfcf27d",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task6_seed7.jsonl": "5499b0aaadc652c53a1ad474cfe6af0f8f3ca18c2fd3d5fd8cefa0caf117ca44",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task7_seed7.jsonl": "3b6c2d91763da8437bd12b8e3f7b4108bc9280ec2ec75c32cf23f97a9cfaebdb",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task8_seed7.jsonl": "036e42aef7b385cbf4619d587c41395de2e494d1f0233a1fe2768d4524b4cfbe",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task9_seed7.jsonl": "0e58db2b8e7c12ddcb3a1b69529f2ff6513fc62d9dcb4083b01951de287bbe66",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task0_seed7.jsonl": "2f8c5c1efe0b16a43c41b5b06efa6565f8dfdf4f2b18abda2965038157d29a2f",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task1_seed7.jsonl": "6185ebef6a95c78108222687bbd7f693aa25de9a766b9494440440d812d064d1",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task2_seed7.jsonl": "afcca66686f497714b178ae237f9c070280bc9d0fde297fb6052fde0dec443ff",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task3_seed7.jsonl": "b4d2440bcec7ec168527588dc0569b6162a4a733a1c56ad0d9860d3ea4bd3604",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task4_seed7.jsonl": "21db1302fae6fb2bad99230cc9e0225bb857ea5dd099b9e7985a2f9e1cabfd70",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task5_seed7.jsonl": "846055c75fca8b881a93723be8f11aee94e09de3f72edc69731e08cc8cfcf27d",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task6_seed7.jsonl": "5499b0aaadc652c53a1ad474cfe6af0f8f3ca18c2fd3d5fd8cefa0caf117ca44",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task7_seed7.jsonl": "3b6c2d91763da8437bd12b8e3f7b4108bc9280ec2ec75c32cf23f97a9cfaebdb",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task8_seed7.jsonl": "036e42aef7b385cbf4619d587c41395de2e494d1f0233a1fe2768d4524b4cfbe",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_flowvq_fp32/rollouts/libero_10_task9_seed7.jsonl": "0e58db2b8e7c12ddcb3a1b69529f2ff6513fc62d9dcb4083b01951de287bbe66",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task0_seed7.jsonl": "7c814d6c8a548986e6931854ffc0c8a23b7f4e42397b97fbc2e72a2fbbb378af",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task1_seed7.jsonl": "4da8a8d905d923d573d5873dceb4c51aef464820581c0467c0326ed927a6ceaa",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task2_seed7.jsonl": "91cef8d4570419842aba6c90367ebd0e9d2aa7d4b7d6df6ce8000af158008f0c",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task3_seed7.jsonl": "6f3ea6707364ab435d6c7795138e89236297e6d6d3f1700eca4702d63158d62e",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task4_seed7.jsonl": "25fcf5e538d7518486a2e609ea5a5c26a887f425560be29e574cd8a98e9e47df",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task5_seed7.jsonl": "689f5ccebab9da4b1863927e8fd3a2a3fabeea0139fc5542b1a78280245a4d72",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task6_seed7.jsonl": "3a980ac64d2330005d764735291ab082bdadcc67acf74a8e96166ee10a48049c",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task7_seed7.jsonl": "2a7ee54495d0801ef1bafd6b4c91b71c32d6e5596d926c60ee461e913d09fa70",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task8_seed7.jsonl": "a4274c2c69384e494550914d219d79d2b26edddcb4ffef7a43f2fcf7118e94b8",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/full/libero_10_task9_seed7.jsonl": "30dcfad7d9ee6c1aa924ff1eb5f8d59df02a25ef51ae508f8b0d1b29fda31b79",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task0_seed7.jsonl": "7c814d6c8a548986e6931854ffc0c8a23b7f4e42397b97fbc2e72a2fbbb378af",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task1_seed7.jsonl": "4da8a8d905d923d573d5873dceb4c51aef464820581c0467c0326ed927a6ceaa",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task2_seed7.jsonl": "91cef8d4570419842aba6c90367ebd0e9d2aa7d4b7d6df6ce8000af158008f0c",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task3_seed7.jsonl": "6f3ea6707364ab435d6c7795138e89236297e6d6d3f1700eca4702d63158d62e",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task4_seed7.jsonl": "25fcf5e538d7518486a2e609ea5a5c26a887f425560be29e574cd8a98e9e47df",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task5_seed7.jsonl": "689f5ccebab9da4b1863927e8fd3a2a3fabeea0139fc5542b1a78280245a4d72",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task6_seed7.jsonl": "3a980ac64d2330005d764735291ab082bdadcc67acf74a8e96166ee10a48049c",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task7_seed7.jsonl": "2a7ee54495d0801ef1bafd6b4c91b71c32d6e5596d926c60ee461e913d09fa70",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task8_seed7.jsonl": "a4274c2c69384e494550914d219d79d2b26edddcb4ffef7a43f2fcf7118e94b8",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M3_flowvq_fp32/rollouts/libero_10_task9_seed7.jsonl": "30dcfad7d9ee6c1aa924ff1eb5f8d59df02a25ef51ae508f8b0d1b29fda31b79"
+  },
+  "additional_same_gpu_controls": false,
+  "scope": "LIBERO-10 only;500 episodes per model; accepted episodes copied verbatim. Only250 missing uniform-M2 episodes are new and may use a different measured GPU. Device/backend effects are a confound not captured by episode CIs. Paired task/episode bootstrap,2000 draws, pointwise95% intervals conditional on seed7. No selection based on observed winners."
+}
