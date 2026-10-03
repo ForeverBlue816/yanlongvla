@@ -1,0 +1,110 @@
+{
+  "status": "independent_offsets_verified",
+  "rows": [
+    {
+      "variant": "original_fp",
+      "checkpoint_sha256": "176031b21186751e49846ca4661c88a881695f290f8332f2bc185752b7b6c5d1",
+      "tensor_count": 811,
+      "tensor_payload_bytes": 6946308960,
+      "safetensors_header_bytes": 134752,
+      "checkpoint_file_bytes": 6946443712,
+      "linear_payload_bytes": 5408612352,
+      "linear_elements": 2704306176,
+      "active_original_elements": 3353433872,
+      "linear_bpw": 16.0,
+      "whole_model_bpw": 16.571214403240212,
+      "logical_bytes_read_per_inference": 17434050720,
+      "expert_logical_bytes": 0,
+      "logical_dense_fallback_bytes_per_inference": 17434050720,
+      "nonpersistent_buffer_logical_bytes": 8960,
+      "source_sha256": {
+        "/projects/yanlongvla/runs/accounting/177454/heads_removed_reads.json": "ea46c40a1f8cbd3cc0a1177d406b6c0b8a4ab74ebc9289cbf43cbff3583bd448"
+      },
+      "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+    },
+    {
+      "variant": "bb_M3_ae_M2_fp32",
+      "checkpoint_sha256": "2b3e8058dc24db788b8f62611a83c64aaf87c790e6efa78bd95df249e8d51b1d",
+      "tensor_count": 2428,
+      "tensor_payload_bytes": 1525378532,
+      "safetensors_header_bytes": 387896,
+      "checkpoint_file_bytes": 1525766428,
+      "linear_payload_bytes": 983173212,
+      "linear_elements": 2704306176,
+      "active_original_elements": 3353433872,
+      "linear_bpw": 2.9084671572336047,
+      "whole_model_bpw": 3.6389649302140765,
+      "logical_bytes_read_per_inference": 2048853828,
+      "expert_logical_bytes": 795526380,
+      "logical_dense_fallback_bytes_per_inference": 12697735332,
+      "nonpersistent_buffer_logical_bytes": 8960,
+      "source_sha256": {
+        "/projects/yanlongvla/runs/accounting/177454/int8_embedding_reads.json": "9c9754e51a1f74db4321ecc17a29d25dafc9a69ffdc0738fdcdf298db8b7c3cf"
+      },
+      "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+    },
+    {
+      "variant": "bb_M3_flowvq_fp32",
+      "checkpoint_sha256": "4152924c19d7ddbe29c08aee3edee549af65531ac6a3182037c517037f85d903",
+      "tensor_count": 3058,
+      "tensor_payload_bytes": 1527737828,
+      "safetensors_header_bytes": 477016,
+      "checkpoint_file_bytes": 1528214844,
+      "linear_payload_bytes": 985532508,
+      "linear_elements": 2704306176,
+      "active_original_elements": 3353433872,
+      "linear_bpw": 2.9154465326340326,
+      "whole_model_bpw": 3.6445933006309184,
+      "logical_bytes_read_per_inference": 1703069508,
+      "expert_logical_bytes": 449742060,
+      "logical_dense_fallback_bytes_per_inference": 12702343332,
+      "nonpersistent_buffer_logical_bytes": 8960,
+      "source_sha256": {
+        "/projects/yanlongvla/runs/accounting/177454/int8_embedding_reads.json": "9c9754e51a1f74db4321ecc17a29d25dafc9a69ffdc0738fdcdf298db8b7c3cf"
+      },
+      "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+    },
+    {
+      "variant": "bb_M2_ae_M2_fp32",
+      "checkpoint_sha256": "a4cfd235e2bcde4ea2199b721c2d3dcb7d6c98ce05d3c579b432736341c83201",
+      "tensor_count": 2428,
+      "tensor_payload_bytes": 1225088996,
+      "safetensors_header_bytes": 387784,
+      "checkpoint_file_bytes": 1225476780,
+      "linear_payload_bytes": 682883676,
+      "linear_elements": 2704306176,
+      "active_original_elements": 3353433872,
+      "linear_bpw": 2.0201371636404533,
+      "whole_model_bpw": 2.9225899010064036,
+      "logical_bytes_read_per_inference": 1644469572,
+      "expert_logical_bytes": 795526380,
+      "logical_dense_fallback_bytes_per_inference": 12697735332,
+      "nonpersistent_buffer_logical_bytes": 8960,
+      "source_sha256": {
+        "/projects/yanlongvla/runs/accounting/177454/int8_embedding_reads.json": "9c9754e51a1f74db4321ecc17a29d25dafc9a69ffdc0738fdcdf298db8b7c3cf"
+      },
+      "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+    },
+    {
+      "variant": "bb_M2_flowvq_fp32",
+      "checkpoint_sha256": "ea0a2a7e213ec0699bd533e290c13efc5e899a8e3e9481b67596c50262fdd7a7",
+      "tensor_count": 3058,
+      "tensor_payload_bytes": 1227448292,
+      "safetensors_header_bytes": 476888,
+      "checkpoint_file_bytes": 1227925180,
+      "linear_payload_bytes": 685242972,
+      "linear_elements": 2704306176,
+      "active_original_elements": 3353433872,
+      "linear_bpw": 2.027116539040881,
+      "whole_model_bpw": 2.928218271423245,
+      "logical_bytes_read_per_inference": 1298685252,
+      "expert_logical_bytes": 449742060,
+      "logical_dense_fallback_bytes_per_inference": 12702343332,
+      "nonpersistent_buffer_logical_bytes": 8960,
+      "source_sha256": {
+        "/projects/yanlongvla/runs/accounting/177454/int8_embedding_reads.json": "9c9754e51a1f74db4321ecc17a29d25dafc9a69ffdc0738fdcdf298db8b7c3cf"
+      },
+      "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+    }
+  ]
+}

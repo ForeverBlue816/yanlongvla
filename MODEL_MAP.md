@@ -1,3 +1,9 @@
+# 2026-10-03：主方法完整验证
+
+`hd_srvq_bb_M3_flowvq_fp32` 与 `hd_srvq_bb_M2_flowvq_fp32` 均通过严格重载、保留张量一致性、256 个 held-out 观测 / 40 条轨迹及完整 seed-7 LIBERO 协议。FlowVQ expert 使用 b* 前九步单码本、末步双码本，条件质心和每子集 affine；组合保留 FP32 AdaRMS 表与 int8 embedding。
+
+M3/M2 组合 whole-model bpw 分别为 3.644593 / 2.928218，held-out 相对动作 MSE 为 0.00730857 / 0.04291682，完整成功率为 96.80% / 96.95%。读取量是逻辑张量计数，实际质量运行使用 BF16 解码缓存。精确字节、统一基线、配对区间及来源见 [最终主方法表格](MAIN_METHOD_TABLE.md)。
+
 # E059 — Evening pipeline complete; final d result
 
 All authorized evening branches completed successfully by2026-10-02 22:44:40Singapore; no active GPU/CPU jobs. M3-backbone/M2-expert/FP32-table/int8 full remains1948/2000=97.4% at3.638965wholebpw. No M2-backbone full evaluation was launched, in accordance with the frozen selection rule.

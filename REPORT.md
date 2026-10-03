@@ -1,3 +1,11 @@
+# 2026-10-03：FlowVQ 主方法端到端验证完成
+
+两组均完成四套件 × 50 episodes/task × seed 7，共各 2000 回合。M3 backbone + FlowVQ 为 **1936/2000（96.80%）**，M2 backbone + FlowVQ 为 **1939/2000（96.95%）**，FP 为 **1928/2000（96.40%）**。最终五行结果见 [主方法表格](MAIN_METHOD_TABLE.md)，包括独立 safetensors 字节核算、Linear/whole-model bpw、逻辑读取量、严格重载、held-out MSE、medium 和 full。
+
+对 FP 的配对差值分别为 +0.40 pp（95% CI [-0.80, +1.60]）和 +0.55 pp（[-1.45, +2.90]）。M3 + FlowVQ 对匹配 uniform M2 full 的差值为 -0.60 pp（[-2.25, +0.85]）。这些区间均跨 0，不能声称显著优势；区间条件于单个评测 seed。M2 backbone + uniform M2 保持 medium only。
+
+两份检查点使用既定 b* 逐步深度、条件质心和每子集 affine，保留 FP32 AdaRMS 表与 int8 embedding。Bytes read 是压缩表示的逻辑读取模型；质量评测实际使用 BF16 解码缓存，不是实测 DRAM 或延迟。全部 331 份来源哈希及完整覆盖均复核一致，最终本地证据提交为 `52dc036`。详见 [完整统计](results/flowvq_main_complete.json) 和 [实验记录](EXPERIMENTS.md)。
+
 # 当前实验报告 — 2026-10-03
 
 ## 2026-10-03 最终验收（E059）：本轮实验全部完成

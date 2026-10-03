@@ -1,0 +1,168 @@
+{
+  "status": "complete_offline",
+  "rows": [
+    {
+      "candidate": "bb_M3_flowvq_fp32",
+      "uniform": "bb_M3_ae_M2_fp32",
+      "relative_mse_candidate": 0.007308567466560175,
+      "relative_mse_uniform": 0.01304601522565916,
+      "relative_mse_delta": -0.005737447759098983,
+      "relative_mse_delta_ci95": [
+        -0.014205504825779883,
+        0.0023221346859099955
+      ],
+      "fractional_mse_improvement": 0.43978545631423605,
+      "absolute_mse_candidate": 0.0015856068575294158,
+      "absolute_mse_uniform": 0.0028303564686082408,
+      "observations": 256,
+      "trajectories": 40,
+      "interval_scope": "Paired trajectory bootstrap of the same 256 frozen observations / 40 held-out trajectories; executed 5x7 actions, fixed noise0. 2000 resamples; analysis RNG 20260930, no new experiment seed."
+    },
+    {
+      "candidate": "bb_M2_flowvq_fp32",
+      "uniform": "bb_M2_ae_M2_fp32",
+      "relative_mse_candidate": 0.0429168180781574,
+      "relative_mse_uniform": 0.037216964264135996,
+      "relative_mse_delta": 0.005699853814021399,
+      "relative_mse_delta_ci95": [
+        7.475447049626273e-07,
+        0.012698739949601209
+      ],
+      "fractional_mse_improvement": -0.15315203501200259,
+      "absolute_mse_candidate": 0.009310880875003619,
+      "absolute_mse_uniform": 0.008074287337928261,
+      "observations": 256,
+      "trajectories": 40,
+      "interval_scope": "Paired trajectory bootstrap of the same 256 frozen observations / 40 held-out trajectories; executed 5x7 actions, fixed noise0. 2000 resamples; analysis RNG 20260930, no new experiment seed."
+    }
+  ],
+  "source_sha256": {
+    "/projects/yanlongvla/research/results/flowvq_main_accounting.json": "73afd17ccb54c45450d15e60c63258dbc82fd97e6c8a5b6da9373f2cfa8edb4c",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/offline/result.json": "e41e77eff127d3262befc1909968f5f0398e82f3ed138493d9935fe13cce85c3",
+    "/projects/yanlongvla/runs/method/bb_M3_ae_M2_fp32/offline/actions.npy": "abd7450e76cf1610ec39b9ac9167f1629473b9edcc38ab15c8bc53b17c7a924b",
+    "/projects/yanlongvla/models/hd_srvq_bb_M3_ae_M2_fp32/vq.json": "2aa12f0c9df6974844a5b95519053944efb36eda96d39dcc5f8b768732b38978",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/offline/result.json": "4f340736699cfae4cdd064575eceb1990ef1019077e7cbc05fc824d232c6c2b1",
+    "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/offline/actions.npy": "4f81673e5b943a17e46d5d55d977cf49113cd12ab48600dc78900cb1215f92ae",
+    "/projects/yanlongvla/models/hd_srvq_bb_M2_ae_M2_fp32/vq.json": "8530b15434997241bce80c70f5de4be363eef95739a079941c0dfa92b02ee869",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/offline/result.json": "6efca1a3fe8bf1170a691e30f9d3ab6804d959da4c36af80cacb02cb1bafc515",
+    "/projects/yanlongvla/runs/method/bb_M3_flowvq_fp32/offline/actions.npy": "2a3bb1e0f03dc09297d4e5512699ef838d5ba29703e5bf6236d65e4e15c383de",
+    "/projects/yanlongvla/models/hd_srvq_bb_M3_flowvq_fp32/vq.json": "930f4addc55bbc3b4a711578697229044acd2645cbf983b93a8afcd47a37ca03",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/offline/result.json": "a33af0d2395540182f03d7dadf39f64d436ae1b0c9b6a8b9226eb8cd32b85a48",
+    "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/offline/actions.npy": "cba0415fac84b82e28c49c592a96caa7c5b8c967632d79d2017346dcc8a83877",
+    "/projects/yanlongvla/models/hd_srvq_bb_M2_flowvq_fp32/vq.json": "99eb508c00485bb4cde2f54f6e616ee852500316337725dea74ab8665a5f6870",
+    "/projects/yanlongvla/datasets/libero-heldout/observation_manifest.json": "e4ca0f08b7191fb51291ee35e9adf42e0d6e87efb5dd0f144d7cbc712ede03bc",
+    "/projects/yanlongvla/runs/d3b/offline/original_fp_reference_actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c"
+  },
+  "accounting": {
+    "status": "independent_offsets_verified",
+    "rows": [
+      {
+        "variant": "original_fp",
+        "checkpoint_sha256": "176031b21186751e49846ca4661c88a881695f290f8332f2bc185752b7b6c5d1",
+        "tensor_count": 811,
+        "tensor_payload_bytes": 6946308960,
+        "safetensors_header_bytes": 134752,
+        "checkpoint_file_bytes": 6946443712,
+        "linear_payload_bytes": 5408612352,
+        "linear_elements": 2704306176,
+        "active_original_elements": 3353433872,
+        "linear_bpw": 16.0,
+        "whole_model_bpw": 16.571214403240212,
+        "logical_bytes_read_per_inference": 17434050720,
+        "expert_logical_bytes": 0,
+        "logical_dense_fallback_bytes_per_inference": 17434050720,
+        "nonpersistent_buffer_logical_bytes": 8960,
+        "source_sha256": {
+          "/projects/yanlongvla/runs/accounting/177454/heads_removed_reads.json": "ea46c40a1f8cbd3cc0a1177d406b6c0b8a4ab74ebc9289cbf43cbff3583bd448"
+        },
+        "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+      },
+      {
+        "variant": "bb_M3_ae_M2_fp32",
+        "checkpoint_sha256": "2b3e8058dc24db788b8f62611a83c64aaf87c790e6efa78bd95df249e8d51b1d",
+        "tensor_count": 2428,
+        "tensor_payload_bytes": 1525378532,
+        "safetensors_header_bytes": 387896,
+        "checkpoint_file_bytes": 1525766428,
+        "linear_payload_bytes": 983173212,
+        "linear_elements": 2704306176,
+        "active_original_elements": 3353433872,
+        "linear_bpw": 2.9084671572336047,
+        "whole_model_bpw": 3.6389649302140765,
+        "logical_bytes_read_per_inference": 2048853828,
+        "expert_logical_bytes": 795526380,
+        "logical_dense_fallback_bytes_per_inference": 12697735332,
+        "nonpersistent_buffer_logical_bytes": 8960,
+        "source_sha256": {
+          "/projects/yanlongvla/runs/accounting/177454/int8_embedding_reads.json": "9c9754e51a1f74db4321ecc17a29d25dafc9a69ffdc0738fdcdf298db8b7c3cf"
+        },
+        "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+      },
+      {
+        "variant": "bb_M3_flowvq_fp32",
+        "checkpoint_sha256": "4152924c19d7ddbe29c08aee3edee549af65531ac6a3182037c517037f85d903",
+        "tensor_count": 3058,
+        "tensor_payload_bytes": 1527737828,
+        "safetensors_header_bytes": 477016,
+        "checkpoint_file_bytes": 1528214844,
+        "linear_payload_bytes": 985532508,
+        "linear_elements": 2704306176,
+        "active_original_elements": 3353433872,
+        "linear_bpw": 2.9154465326340326,
+        "whole_model_bpw": 3.6445933006309184,
+        "logical_bytes_read_per_inference": 1703069508,
+        "expert_logical_bytes": 449742060,
+        "logical_dense_fallback_bytes_per_inference": 12702343332,
+        "nonpersistent_buffer_logical_bytes": 8960,
+        "source_sha256": {
+          "/projects/yanlongvla/runs/accounting/177454/int8_embedding_reads.json": "9c9754e51a1f74db4321ecc17a29d25dafc9a69ffdc0738fdcdf298db8b7c3cf"
+        },
+        "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+      },
+      {
+        "variant": "bb_M2_ae_M2_fp32",
+        "checkpoint_sha256": "a4cfd235e2bcde4ea2199b721c2d3dcb7d6c98ce05d3c579b432736341c83201",
+        "tensor_count": 2428,
+        "tensor_payload_bytes": 1225088996,
+        "safetensors_header_bytes": 387784,
+        "checkpoint_file_bytes": 1225476780,
+        "linear_payload_bytes": 682883676,
+        "linear_elements": 2704306176,
+        "active_original_elements": 3353433872,
+        "linear_bpw": 2.0201371636404533,
+        "whole_model_bpw": 2.9225899010064036,
+        "logical_bytes_read_per_inference": 1644469572,
+        "expert_logical_bytes": 795526380,
+        "logical_dense_fallback_bytes_per_inference": 12697735332,
+        "nonpersistent_buffer_logical_bytes": 8960,
+        "source_sha256": {
+          "/projects/yanlongvla/runs/accounting/177454/int8_embedding_reads.json": "9c9754e51a1f74db4321ecc17a29d25dafc9a69ffdc0738fdcdf298db8b7c3cf"
+        },
+        "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+      },
+      {
+        "variant": "bb_M2_flowvq_fp32",
+        "checkpoint_sha256": "ea0a2a7e213ec0699bd533e290c13efc5e899a8e3e9481b67596c50262fdd7a7",
+        "tensor_count": 3058,
+        "tensor_payload_bytes": 1227448292,
+        "safetensors_header_bytes": 476888,
+        "checkpoint_file_bytes": 1227925180,
+        "linear_payload_bytes": 685242972,
+        "linear_elements": 2704306176,
+        "active_original_elements": 3353433872,
+        "linear_bpw": 2.027116539040881,
+        "whole_model_bpw": 2.928218271423245,
+        "logical_bytes_read_per_inference": 1298685252,
+        "expert_logical_bytes": 449742060,
+        "logical_dense_fallback_bytes_per_inference": 12702343332,
+        "nonpersistent_buffer_logical_bytes": 8960,
+        "source_sha256": {
+          "/projects/yanlongvla/runs/accounting/177454/int8_embedding_reads.json": "9c9754e51a1f74db4321ecc17a29d25dafc9a69ffdc0738fdcdf298db8b7c3cf"
+        },
+        "read_scope": "Independent serialized offsets plus frozen module invocation trace. 10 expert steps; 3 vision calls; one language call; 15 distinct prompt embedding rows in the audited observation. Includes metadata and generated buffers, excludes activations/KV and physical DRAM/cache effects. Dense BF16 caches are used for quality rollouts."
+      }
+    ]
+  },
+  "strict_reload_both": true,
+  "uniform_reference_precision": "Stored full-precision metrics, not rounded prompt values"
+}
