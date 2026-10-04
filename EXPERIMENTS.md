@@ -805,3 +805,8 @@ Gate revalidated onCPU with scripts/story_cache_gate.ready()==True before task8 
 ## E071 — X4 complete and figure reviewed (2026-10-04)
 
 Strict summary accepted all seven X4 dose conditions (3500 episodes), with no validation issue. The largest tested isotropic dose 0.03 has 474/500 versus FP 481/500, -1.4 pp, paired 95% CI [-4.6, +1.8] pp. No dose establishes the requested 1.5 pp sensitivity criterion; no equivalence is inferred. The report-only Python figure uses all seven conditions. A visual review found hidden overlapping intervals at 0.01; the top5/orthogonal marks now use disclosed -5/+5 pt display offsets, preserving doses and estimates. An intermediate plotting autoscale error was caught and fixed before publication. Static, PDF-text, collision and final-size visual checks pass; the one-panel alignment check is not applicable. No evaluation source or accepted episode changed.
+
+
+## E072 — background report publication (2026-10-04)
+
+At the user’s request, stopped foreground polling and connected report-only milestone publication to the existing strict summarizer. Complete task8/X3/X6 results trigger GitHub commits; increasing incomplete episode counts do not. Private implementation and unreviewed new figures are excluded. Four publication tests passed, including temporary push failure and interrupted-copy recovery. Actual controller-triggered public commit ff110bc27c3f7e3646e3fb7ab8608aa6d407a75a succeeded at 2026-10-04T07:01:35.306031+00:00. No evaluation source, seed, observation or rollout protocol changed.

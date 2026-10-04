@@ -1,5 +1,5 @@
 {
-  "status": "in_progress",
+  "status": "complete",
   "protocol": {
     "suite": "libero_10",
     "task": 8,
@@ -20,13 +20,13 @@
     "scope": "200 fresh policy-noise rollouts per model, four repeats of50 official initial states; no newly generated states."
   },
   "progress": {
-    "original_fp": 187,
+    "original_fp": 200,
     "bb_M2_ae_M2_fp32": 200,
     "bb_M2_flowvq_fp32": 200,
     "bb_M3_flowvq_fp32": 200
   },
   "source_sha256": {
-    "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "fd8c15989c11301d2b008c9ee622c03599f06a9eff0e580ebc4e0e357c3cd0ee",
+    "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "e42afaa2372a9e31fa88c6c94f0feeb813071d33ea2b13f9083a7a1019720f45",
     "/projects/yanlongvla/runs/story_round/task8_followup/original_fp_manifest.json": "994163954ab9728057b79c2d770d84318745be9324b273b6b663e47627d50f5b",
     "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "fc6a9803644d3ca84a5b30f2319c3dc672897010383b5ee00fb07440cd91957f",
     "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32_manifest.json": "562aded3c01d7b8422c39111164e7b6d1c4255d2ff035d3a00b72f2585ff0b91",
@@ -34,5 +34,290 @@
     "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_flowvq_fp32_manifest.json": "851532a4474655900a79dba7704f3daef506667dea0defbe4b3f6dbf8588fa55",
     "/projects/yanlongvla/runs/story_round/task8_followup/bb_M3_flowvq_fp32.jsonl": "b51dcca520e32af7d922be950c8072a788b3c54b45950c6a33eb991c960d3b57",
     "/projects/yanlongvla/runs/story_round/task8_followup/bb_M3_flowvq_fp32_manifest.json": "b9259236dc0a819a16f6ff8f85652d65a4b20c4f9cd962795cafede3b76f72e2"
-  }
+  },
+  "paired": {
+    "reference": "original_fp",
+    "models": {
+      "original_fp": {
+        "successes": 112,
+        "episodes": 200,
+        "difference_pp": 0.0,
+        "net_successes": 0,
+        "paired_ci95_pp": [
+          0.0,
+          0.0
+        ],
+        "improvements": 0,
+        "regressions": 0
+      },
+      "bb_M2_ae_M2_fp32": {
+        "successes": 184,
+        "episodes": 200,
+        "difference_pp": 36.0,
+        "net_successes": 72,
+        "paired_ci95_pp": [
+          28.999999999999996,
+          43.5
+        ],
+        "improvements": 78,
+        "regressions": 6
+      },
+      "bb_M2_flowvq_fp32": {
+        "successes": 176,
+        "episodes": 200,
+        "difference_pp": 32.0,
+        "net_successes": 64,
+        "paired_ci95_pp": [
+          24.5,
+          40.0
+        ],
+        "improvements": 70,
+        "regressions": 6
+      },
+      "bb_M3_flowvq_fp32": {
+        "successes": 123,
+        "episodes": 200,
+        "difference_pp": 5.5,
+        "net_successes": 11,
+        "paired_ci95_pp": [
+          -2.5,
+          13.5
+        ],
+        "improvements": 39,
+        "regressions": 28
+      }
+    },
+    "resamples": 10000,
+    "method": "Paired bootstrap over50 initial-state clusters; each retains four policy-noise repeats; pointwise95%, conditional on seed7."
+  },
+  "pairwise": {
+    "original_fp": {
+      "reference": "original_fp",
+      "models": {
+        "original_fp": {
+          "successes": 112,
+          "episodes": 200,
+          "difference_pp": 0.0,
+          "net_successes": 0,
+          "paired_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "improvements": 0,
+          "regressions": 0
+        },
+        "bb_M2_ae_M2_fp32": {
+          "successes": 184,
+          "episodes": 200,
+          "difference_pp": 36.0,
+          "net_successes": 72,
+          "paired_ci95_pp": [
+            28.999999999999996,
+            43.5
+          ],
+          "improvements": 78,
+          "regressions": 6
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 176,
+          "episodes": 200,
+          "difference_pp": 32.0,
+          "net_successes": 64,
+          "paired_ci95_pp": [
+            24.5,
+            40.0
+          ],
+          "improvements": 70,
+          "regressions": 6
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 123,
+          "episodes": 200,
+          "difference_pp": 5.5,
+          "net_successes": 11,
+          "paired_ci95_pp": [
+            -2.5,
+            13.5
+          ],
+          "improvements": 39,
+          "regressions": 28
+        }
+      },
+      "resamples": 10000,
+      "method": "Paired bootstrap over50 initial-state clusters; each retains four policy-noise repeats; pointwise95%, conditional on seed7."
+    },
+    "bb_M2_ae_M2_fp32": {
+      "reference": "bb_M2_ae_M2_fp32",
+      "models": {
+        "original_fp": {
+          "successes": 112,
+          "episodes": 200,
+          "difference_pp": -36.0,
+          "net_successes": -72,
+          "paired_ci95_pp": [
+            -43.5,
+            -28.999999999999996
+          ],
+          "improvements": 6,
+          "regressions": 78
+        },
+        "bb_M2_ae_M2_fp32": {
+          "successes": 184,
+          "episodes": 200,
+          "difference_pp": 0.0,
+          "net_successes": 0,
+          "paired_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "improvements": 0,
+          "regressions": 0
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 176,
+          "episodes": 200,
+          "difference_pp": -4.0,
+          "net_successes": -8,
+          "paired_ci95_pp": [
+            -9.5,
+            1.5
+          ],
+          "improvements": 11,
+          "regressions": 19
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 123,
+          "episodes": 200,
+          "difference_pp": -30.5,
+          "net_successes": -61,
+          "paired_ci95_pp": [
+            -38.5,
+            -22.5
+          ],
+          "improvements": 5,
+          "regressions": 66
+        }
+      },
+      "resamples": 10000,
+      "method": "Paired bootstrap over50 initial-state clusters; each retains four policy-noise repeats; pointwise95%, conditional on seed7."
+    },
+    "bb_M2_flowvq_fp32": {
+      "reference": "bb_M2_flowvq_fp32",
+      "models": {
+        "original_fp": {
+          "successes": 112,
+          "episodes": 200,
+          "difference_pp": -32.0,
+          "net_successes": -64,
+          "paired_ci95_pp": [
+            -40.0,
+            -24.5
+          ],
+          "improvements": 6,
+          "regressions": 70
+        },
+        "bb_M2_ae_M2_fp32": {
+          "successes": 184,
+          "episodes": 200,
+          "difference_pp": 4.0,
+          "net_successes": 8,
+          "paired_ci95_pp": [
+            -1.5,
+            9.5
+          ],
+          "improvements": 19,
+          "regressions": 11
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 176,
+          "episodes": 200,
+          "difference_pp": 0.0,
+          "net_successes": 0,
+          "paired_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "improvements": 0,
+          "regressions": 0
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 123,
+          "episodes": 200,
+          "difference_pp": -26.5,
+          "net_successes": -53,
+          "paired_ci95_pp": [
+            -35.0,
+            -18.0
+          ],
+          "improvements": 10,
+          "regressions": 63
+        }
+      },
+      "resamples": 10000,
+      "method": "Paired bootstrap over50 initial-state clusters; each retains four policy-noise repeats; pointwise95%, conditional on seed7."
+    },
+    "bb_M3_flowvq_fp32": {
+      "reference": "bb_M3_flowvq_fp32",
+      "models": {
+        "original_fp": {
+          "successes": 112,
+          "episodes": 200,
+          "difference_pp": -5.5,
+          "net_successes": -11,
+          "paired_ci95_pp": [
+            -13.5,
+            2.5
+          ],
+          "improvements": 28,
+          "regressions": 39
+        },
+        "bb_M2_ae_M2_fp32": {
+          "successes": 184,
+          "episodes": 200,
+          "difference_pp": 30.5,
+          "net_successes": 61,
+          "paired_ci95_pp": [
+            22.5,
+            38.5
+          ],
+          "improvements": 66,
+          "regressions": 5
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 176,
+          "episodes": 200,
+          "difference_pp": 26.5,
+          "net_successes": 53,
+          "paired_ci95_pp": [
+            18.0,
+            35.0
+          ],
+          "improvements": 63,
+          "regressions": 10
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 123,
+          "episodes": 200,
+          "difference_pp": 0.0,
+          "net_successes": 0,
+          "paired_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "improvements": 0,
+          "regressions": 0
+        }
+      },
+      "resamples": 10000,
+      "method": "Paired bootstrap over50 initial-state clusters; each retains four policy-noise repeats; pointwise95%, conditional on seed7."
+    }
+  },
+  "original_gap": {
+    "fp_successes": 26,
+    "flowvq_M2_successes": 42,
+    "episodes": 50,
+    "net_successes": 16,
+    "difference_pp": 32.0
+  },
+  "verdict": "Task8 follow-up: M2 + FlowVQ vs FP is +64/200 successes (+32.0pp; paired95% CI[+24.5,+40.0]); a positive advantage persists with an interval excluding zero. The original16/50 gap is32pp; compare rates rather than demanding the same raw count at200 episodes."
 }

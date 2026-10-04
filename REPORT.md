@@ -1,6 +1,6 @@
-# Current experiment results — 2026-10-04 15:01 SGT
+# Current experiment results — 2026-10-04 15:07 SGT
 
-Validated X1/X2/X4 configurations: 18/18. X3 FP32: in progress. Task-8 paired follow-up: in_progress (787/800 episodes). X6a: in_progress; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
+Validated X1/X2/X4 configurations: 18/18. X3 FP32: in progress. Task-8 paired follow-up: complete (800/800 episodes). X6a: in_progress; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
 
 This report updates automatically when a complete result passes validation. Older dated sections below are historical.
 
@@ -573,9 +573,9 @@ Task8 protocol: seed7, episode IDs50–249,200 rollouts per model; the50 officia
 
 | Model | Follow-up successes /200 | Paired Δ vs FP, pp (95% CI) |
 |---|---:|---|
-| FP | pending (187/200 recorded) | pending |
-| M2 + uniform M2 | pending (200/200 recorded) | pending |
-| M2 + FlowVQ | pending (200/200 recorded) | pending |
-| M3 + FlowVQ | pending (200/200 recorded) | pending |
+| FP | 112/200 | +0.0 [+0.0,+0.0] |
+| M2 + uniform M2 | 184/200 | +36.0 [+29.0,+43.5] |
+| M2 + FlowVQ | 176/200 | +32.0 [+24.5,+40.0] |
+| M3 + FlowVQ | 123/200 | +5.5 [-2.5,+13.5] |
 
-Whether the original16/50 task8 advantage persists remains pending.
+Task8 follow-up: M2 + FlowVQ vs FP is +64/200 successes (+32.0pp; paired95% CI[+24.5,+40.0]); a positive advantage persists with an interval excluding zero. The original16/50 gap is32pp; compare rates rather than demanding the same raw count at200 episodes.
