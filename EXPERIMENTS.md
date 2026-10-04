@@ -946,3 +946,10 @@ All numerical details and raw-file hashes: results/decisions_round.json. Counts 
 {"G_H1": "passed", "H1": "complete", "H2": "complete", "H6": {"full": "in_progress", "install300": "complete", "medium1": "complete", "medium2": "complete", "plus": "complete", "plus2": "complete"}, "validated": ["fp", "uniform", "h1a", "h1b", "h1c", "h1d"]}
 
 All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
+
+
+### Decisions milestone — 2026-10-04T23:12:12.177062+00:00
+
+{"G_H1": "passed", "H1": "complete", "H2": "complete", "H6": {"full": "complete", "install300": "complete", "medium1": "complete", "medium2": "complete", "plus": "complete", "plus2": "complete"}, "validated": ["fp", "uniform", "h1a", "h1b", "h1c", "h1d"]}
+
+All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
