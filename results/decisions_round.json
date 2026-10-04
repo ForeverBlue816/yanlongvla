@@ -49,11 +49,15 @@
   },
   "H1": {
     "status": "in_progress",
-    "gate": "pending",
+    "gate": "passed",
     "gate_threshold": 148,
     "task8_counts": {
       "fp": 112,
-      "uniform": 184
+      "uniform": 184,
+      "h1a": 131,
+      "h1b": 172,
+      "h1c": 181,
+      "h1d": 118
     },
     "progress": {
       "fp": {
@@ -65,20 +69,20 @@
         "9": 0
       },
       "h1a": {
-        "8": 56,
-        "9": 0
+        "8": 200,
+        "9": 108
       },
       "h1b": {
-        "8": 42,
-        "9": 0
+        "8": 200,
+        "9": 1
       },
       "h1c": {
-        "8": 44,
-        "9": 0
+        "8": 200,
+        "9": 14
       },
       "h1d": {
-        "8": 56,
-        "9": 0
+        "8": 200,
+        "9": 94
       }
     },
     "tasks": {
@@ -128,6 +132,98 @@
             87.5,
             96.0
           ]
+        },
+        "h1a": {
+          "all_tasks": {
+            "successes": 131,
+            "episodes": 200,
+            "success_percent": 65.5,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": 9.5,
+          "paired_difference_ci95_pp": [
+            1.5,
+            17.5
+          ],
+          "success_ci95_percent": [
+            56.99999999999999,
+            74.0
+          ]
+        },
+        "h1b": {
+          "all_tasks": {
+            "successes": 172,
+            "episodes": 200,
+            "success_percent": 86.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": 30.0,
+          "paired_difference_ci95_pp": [
+            21.0,
+            38.5
+          ],
+          "success_ci95_percent": [
+            79.5,
+            92.0
+          ]
+        },
+        "h1c": {
+          "all_tasks": {
+            "successes": 181,
+            "episodes": 200,
+            "success_percent": 90.5,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": 34.5,
+          "paired_difference_ci95_pp": [
+            26.0,
+            43.0
+          ],
+          "success_ci95_percent": [
+            85.5,
+            95.0
+          ]
+        },
+        "h1d": {
+          "all_tasks": {
+            "successes": 118,
+            "episodes": 200,
+            "success_percent": 59.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": 3.0,
+          "paired_difference_ci95_pp": [
+            -6.5,
+            12.5
+          ],
+          "success_ci95_percent": [
+            48.5,
+            69.5
+          ]
         }
       }
     },
@@ -140,7 +236,11 @@
     ],
     "source_sha256": {
       "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "e42afaa2372a9e31fa88c6c94f0feeb813071d33ea2b13f9083a7a1019720f45",
-      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "fc6a9803644d3ca84a5b30f2319c3dc672897010383b5ee00fb07440cd91957f"
+      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "fc6a9803644d3ca84a5b30f2319c3dc672897010383b5ee00fb07440cd91957f",
+      "/projects/yanlongvla/runs/decisions_round/h1/h1a/task8.jsonl": "edf55877f386ec414bd55944d6bd6540f48a472fbce3718b487500e986279974",
+      "/projects/yanlongvla/runs/decisions_round/h1/h1b/task8.jsonl": "2ebd82e6718edc1fd77c4d2be17dbd6662845b6a399b62c14fd50475020412be",
+      "/projects/yanlongvla/runs/decisions_round/h1/h1c/task8.jsonl": "1c20a983e0817ce4911602d3295de3363728c8dc4931e3f006550a7e9cec4506",
+      "/projects/yanlongvla/runs/decisions_round/h1/h1d/task8.jsonl": "e916ae194e67638ce845dc1249fd8b78fff38961d617029c4360539650040512"
     },
     "exact_validation": {
       "h1a": {
@@ -171,7 +271,7 @@
     "normalization": "35 training-set action std; both unimodality criteria; fixed-k2 TV"
   },
   "H3": {
-    "status": "gated_on_H1",
+    "status": "ready_after_H2_H4_full; dose_runner_requires_implementation",
     "followup": "Reuse500 stored J_D9 matrices; directional gain energy requires additional derivative probes",
     "spectrum": {
       "status": "spectrum_complete_energy_projection_pending",
@@ -230,14 +330,14 @@
     "spectrum_sha256": "8e78e4e9979c8d0f1c0f313ecbf0588185efe5fb316f5e46df1ccf88cac02940"
   },
   "H4": {
-    "status": "gated_on_H1",
+    "status": "queued_or_in_progress",
     "failure_causes": "pending trajectory inspection; historical FP task8 failures need diagnostic replay",
     "component_isolation": {
       "status": "queued_or_gated"
     }
   },
   "H5": {
-    "status": "gated_on_H1",
+    "status": "gate_passed; calibration_requires_implementation",
     "gate": "at least30% TV reduction by either variant; otherwise no method found"
   },
   "H6": {

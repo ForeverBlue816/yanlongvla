@@ -1,6 +1,6 @@
-# Current experiments — Decisions, not actions — 2026-10-04 22:19 SGT
+# Current experiments — Decisions, not actions — 2026-10-04 23:14 SGT
 
-The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: in_progress; G-H1: pending. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
+The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: in_progress; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
 
 <!-- DECISIONS_ROUND_BEGIN -->
 ## Decisions, not actions
@@ -13,12 +13,12 @@ Active protocol: seed7, paired episode IDs, L40S persistent BF16 cache. The10,03
 |---|---|---|---|
 | fp | 112/200 (56.0%); Δ +0.0pp [+0.0, +0.0] | pending | N/A (N=0) |
 | uniform | 184/200 (92.0%); Δ +36.0pp [+29.0, +43.5] | pending | N/A (N=0) |
-| h1a | pending | pending | N/A (N=0) |
-| h1b | pending | pending | N/A (N=0) |
-| h1c | pending | pending | N/A (N=0) |
-| h1d | pending | pending | N/A (N=0) |
+| h1a | 131/200 (65.5%); Δ +9.5pp [+1.5, +17.5] | pending | N/A (N=0) |
+| h1b | 172/200 (86.0%); Δ +30.0pp [+21.0, +38.5] | pending | N/A (N=0) |
+| h1c | 181/200 (90.5%); Δ +34.5pp [+26.0, +43.0] | pending | N/A (N=0) |
+| h1d | 118/200 (59.0%); Δ +3.0pp [-6.5, +12.5] | pending | N/A (N=0) |
 
-G-H1 is pending; the hypothesis has not been accepted.
+G-H1 passes the predeclared half-gain criterion; this gate alone does not establish the full hypothesis.
 
 H1a: FP backbone, FP expert0–8 / uniform M2 expert9. H1b: M2 backbone, M2 expert0–8 / FP expert9. H1c: M2 backbone, FP expert throughout. H1d: FP backbone, uniform M2 expert throughout. No refitting.
 
@@ -30,17 +30,17 @@ Status: queued. The256 training-calibration observations,1600 evaluation-initial
 
 ### H3 — Decision-space dose response
 
-Status: gated_on_H1. The500 stored X3 Jacobians are retained. Per-observation SVD defines top3 right input directions and their orthogonal complements; left vectors are output-side only. Top10 singular values and unmodified complex eigenvalues, top5 energy projections, velocity/absolute units and the nine early-step perturbation conditions are tracked separately before comparison with X4.
+Status: ready_after_H2_H4_full; dose_runner_requires_implementation. The500 stored X3 Jacobians are retained. Per-observation SVD defines top3 right input directions and their orthogonal complements; left vectors are output-side only. Top10 singular values and unmodified complex eigenvalues, top5 energy projections, velocity/absolute units and the nine early-step perturbation conditions are tracked separately before comparison with X4.
 
 Stored-matrix follow-up: mean top10 singular values = [0.7720, 0.5823, 0.4909, 0.4301, 0.3821, 0.3417, 0.3053, 0.2744, 0.2461, 0.2228]. Mean of the three principal angles over124,750 observation pairs = 59.46°. This descriptive result alone does not establish a shared decision subspace. [Per-observation spectra and source hashes](results/decisions_spectrum.json). Directional gain-energy probes and dose-response rollouts remain pending.
 
 ### H4 — Component isolation and failure causes
 
-Status: gated_on_H1. Plain-VQ M2+M2 needs200 episodes on each task. Newly collected trajectories retain both camera views, simulator states and executed actions. Historical FP task8 outcomes lack trajectories; diagnostic replays and manual labels are required. No cause is inferred from a timeout alone.
+Status: queued_or_in_progress. Plain-VQ M2+M2 needs200 episodes on each task. Newly collected trajectories retain both camera views, simulator states and executed actions. Historical FP task8 outcomes lack trajectories; diagnostic replays and manual labels are required. No cause is inferred from a timeout alone.
 
 ### H5 — Decision-preserving calibration
 
-Status: gated_on_H1. H5a/H5b start only after G-H1 passes. G-H5 requires at least30% lower TV in one variant; otherwise report that no decision-preserving calibration was found.
+Status: gate_passed; calibration_requires_implementation. H5a/H5b start only after G-H1 passes. G-H5 requires at least30% lower TV in one variant; otherwise report that no decision-preserving calibration was found.
 
 ### Prediction verdict
 

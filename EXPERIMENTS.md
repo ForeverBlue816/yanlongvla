@@ -841,3 +841,12 @@ Strict CPU reuse audit passed: full uniform1250 existing episodes (1000 medium p
 {"G_H1": "pending", "H1": "in_progress", "H2": "queued", "H6": {"full": "queued_or_gated", "install300": "complete", "medium1": "queued_or_gated", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["h1a", "h1b", "h1c", "h1d"]}
 
 All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
+
+Background controller183897 now owns the round and report-only publication; its exact immutable launcher/command is in the new ledger. It resumes scheduler interruptions only (preemption/node failure/time limit, up to3 continuations), and never retries a failed numerical guard automatically. Implementation source fa907c5 plus the follow-up controller commit is local-only.
+
+
+### Decisions milestone — 2026-10-04T15:14:16.186160+00:00
+
+{"G_H1": "passed", "H1": "in_progress", "H2": "queued", "H6": {"full": "queued_or_gated", "install300": "complete", "medium1": "queued_or_gated", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["h1a", "h1b", "h1c", "h1d"]}
+
+All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
