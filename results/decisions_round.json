@@ -269,11 +269,11 @@
       },
       "h1b": {
         "8": 200,
-        "9": 105
+        "9": 200
       },
       "h1c": {
         "8": 200,
-        "9": 119
+        "9": 200
       },
       "h1d": {
         "8": 200,
@@ -437,6 +437,34 @@
           "status": "not_applicable_empty_scope"
         }
       },
+      "h1b": {
+        "all_tasks": {
+          "successes": 345,
+          "episodes": 400,
+          "success_percent": 86.25,
+          "status": "measured"
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 0,
+          "episodes": 0,
+          "success_percent": null,
+          "status": "not_applicable_empty_scope"
+        }
+      },
+      "h1c": {
+        "all_tasks": {
+          "successes": 341,
+          "episodes": 400,
+          "success_percent": 85.25,
+          "status": "measured"
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 0,
+          "episodes": 0,
+          "success_percent": null,
+          "status": "not_applicable_empty_scope"
+        }
+      },
       "h1d": {
         "all_tasks": {
           "successes": 300,
@@ -453,6 +481,7 @@
       }
     },
     "validated_models": [
+      "fp",
       "h1a",
       "h1b",
       "h1c",
@@ -464,11 +493,18 @@
       "/projects/yanlongvla/runs/decisions_round/h1/h1a/task8.jsonl": "edf55877f386ec414bd55944d6bd6540f48a472fbce3718b487500e986279974",
       "/projects/yanlongvla/runs/decisions_round/h1/h1a/task9.jsonl": "5fbecead7ed6f8fe3553c22c8a9e71878438888ba3ae98e0e09a83fbfdfa7267",
       "/projects/yanlongvla/runs/decisions_round/h1/h1b/task8.jsonl": "2ebd82e6718edc1fd77c4d2be17dbd6662845b6a399b62c14fd50475020412be",
+      "/projects/yanlongvla/runs/decisions_round/h1/h1b/task9.jsonl": "562926e0de1af0ab41dea8cd6303bf833ced3cb803575bfb795a56e5e7fed49d",
       "/projects/yanlongvla/runs/decisions_round/h1/h1c/task8.jsonl": "1c20a983e0817ce4911602d3295de3363728c8dc4931e3f006550a7e9cec4506",
+      "/projects/yanlongvla/runs/decisions_round/h1/h1c/task9.jsonl": "2ec7398df65d38f9697c57eb586a02f57106f517dac9f27fd3984b3c8cb972b3",
       "/projects/yanlongvla/runs/decisions_round/h1/h1d/task8.jsonl": "e916ae194e67638ce845dc1249fd8b78fff38961d617029c4360539650040512",
       "/projects/yanlongvla/runs/decisions_round/h1/h1d/task9.jsonl": "c3f21c504e220dc4a97426ee9922734752a1336036ac82095bf623220701096b"
     },
     "exact_validation": {
+      "fp": {
+        "calibration_observations": 256,
+        "component_comparisons": 2560,
+        "maximum_component_difference": 0.0
+      },
       "h1a": {
         "calibration_observations": 256,
         "component_comparisons": 2560,

@@ -1,4 +1,4 @@
-# Current experiments — Decisions, not actions — 2026-10-04 23:45 SGT
+# Current experiments — Decisions, not actions — 2026-10-05 00:13 SGT
 
 The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: in_progress; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
 

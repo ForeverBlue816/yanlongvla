@@ -862,3 +862,10 @@ H5 now optimizes backbone importance/codebooks using early0–5 velocity directi
 Operational handoff: stopped CPU183900; canceled pending-only H2183876 before any action banks/manifests existed; submitted seven-model H2 replacement183976 and CPU replacement183977 from immutable launcher snapshots. H1183870/183871 and task9 references183872 retained. Frozen six H1 source hashes independently checked unchanged against accepted validation. Pre-change preregistration/ledger archived under runs/decisions_round/prefix_update_20261005; new exact protocol, sources and launch commands recorded in the live preregistration/jobs ledger.
 
 Validation:13 Decisions unit tests and4 report-publication tests pass; Python and shell syntax checks pass. Tests cover H5 task9/manual-review gates, H4 incomplete/mismatched provenance, missing hybrid success endpoints, H3 primary/secondary reuse, and KV padding/local-vs-total energy. Commands: source scripts/env.sh; envs/openpi/bin/python -m unittest discover -s tests -p test_decisions_round.py; same command for test_story_publish.py; decisions_summary.py strictly revalidated existing H1 evidence. GPU KV-anchor execution remains queued, not measured. Public synchronization remains restricted to reports/results; no implementation push.
+
+
+### Decisions milestone — 2026-10-04T16:13:19.254167+00:00
+
+{"G_H1": "passed", "H1": "in_progress", "H2": "queued", "H6": {"full": "queued_or_gated", "install300": "complete", "medium1": "queued_or_gated", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["fp", "h1a", "h1b", "h1c", "h1d"]}
+
+All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
