@@ -1,0 +1,79 @@
+{
+  "status": "exact_actions_passed_throughput_pending",
+  "source_revision": "28676f284ceaca6b00983257f814b24391dc8fc8",
+  "action_checks": [
+    {
+      "status": "passed",
+      "model": "bb_M2_flowvq_fp32",
+      "observations": 256,
+      "noise_seed": 0,
+      "exact_actions": true,
+      "maximum_action_difference": 0.0,
+      "current_path_reconstruction_calls": 0,
+      "cache": {
+        "layers": 414,
+        "conditional_expert_layers": 126,
+        "persistent_bf16_bytes": 6031466496,
+        "reconstruction_after_load_forbidden": true,
+        "expert_schedule": "depth1 steps0-8, depth2 step9",
+        "cache_pointers_unchanged": true,
+        "cuda_graph_expert": true
+      },
+      "reference_sha256": "cba0415fac84b82e28c49c592a96caa7c5b8c967632d79d2017346dcc8a83877",
+      "source_sha256": {
+        "flowvq_cached_runtime.py": "968e28a34b80b033d883ee1a674720ddb8b53e8ce76eac9922972513d2d6b829",
+        "flowvq_graph_runtime.py": "ffd5eb9ea6e37456c344e1ce13a06949560d7618568817534a4956ad9ac74351",
+        "flowvq_graph_preflight.py": "c64c2fb872f5a5b82f6075c6abd950051f2a587307edb5c1646d0f9b43576794",
+        "flowvq_graph_server.py": "4cdf575bc0aec2ca9152fa1b200ca7696c97bfea43bfaae97b8bc4de5d8dd8e2"
+      },
+      "checkpoint_sha256": "ea0a2a7e213ec0699bd533e290c13efc5e899a8e3e9481b67596c50262fdd7a7",
+      "gpu": "NVIDIA L40S",
+      "torch": "2.7.1+cu126",
+      "cuda": "12.6"
+    },
+    {
+      "status": "passed",
+      "model": "bb_M3_flowvq_fp32",
+      "observations": 256,
+      "noise_seed": 0,
+      "exact_actions": true,
+      "maximum_action_difference": 0.0,
+      "current_path_reconstruction_calls": 0,
+      "cache": {
+        "layers": 414,
+        "conditional_expert_layers": 126,
+        "persistent_bf16_bytes": 6031466496,
+        "reconstruction_after_load_forbidden": true,
+        "expert_schedule": "depth1 steps0-8, depth2 step9",
+        "cache_pointers_unchanged": true,
+        "cuda_graph_expert": true
+      },
+      "reference_sha256": "2a3bb1e0f03dc09297d4e5512699ef838d5ba29703e5bf6236d65e4e15c383de",
+      "source_sha256": {
+        "flowvq_cached_runtime.py": "968e28a34b80b033d883ee1a674720ddb8b53e8ce76eac9922972513d2d6b829",
+        "flowvq_graph_runtime.py": "ffd5eb9ea6e37456c344e1ce13a06949560d7618568817534a4956ad9ac74351",
+        "flowvq_graph_preflight.py": "c64c2fb872f5a5b82f6075c6abd950051f2a587307edb5c1646d0f9b43576794",
+        "flowvq_graph_server.py": "4cdf575bc0aec2ca9152fa1b200ca7696c97bfea43bfaae97b8bc4de5d8dd8e2"
+      },
+      "checkpoint_sha256": "4152924c19d7ddbe29c08aee3edee549af65531ac6a3182037c517037f85d903",
+      "gpu": "NVIDIA L40S",
+      "torch": "2.7.1+cu126",
+      "cuda": "12.6"
+    }
+  ],
+  "graph_probe": {
+    "status": "passed_probe_only",
+    "observations": 4,
+    "compiled_transform_seconds": 0.3633461599383736,
+    "graph_seconds": 0.15895201474995702,
+    "exact_actions": true,
+    "gpu": "NVIDIA L40S"
+  },
+  "findings": [
+    "Existing accepted path already performed zero inference reconstruction calls.",
+    "Both BF16 expert variants remain resident; compiled RHT and graph replay remove evaluation launch overhead.",
+    "Initial capture failed on a CPU-created mask; masks are now materialized before capture.",
+    "Initial graph replay failed after observation0 because an outside-capture Euler dt tensor was not retained. Final runtime retains dt for graph lifetime; both full256 raw-action comparisons are exact.",
+    "Compiled-only FlowVQ throughput attempt failed on WebSocket keepalive during simulator initialization; no FlowVQ rate is reported for that attempt. Simulator setup precedes benchmark connection in the final preflight."
+  ]
+}

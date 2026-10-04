@@ -1,0 +1,29 @@
+{
+  "status": "in_progress",
+  "protocol": {
+    "suite": "libero_10",
+    "task": 8,
+    "seed": 7,
+    "episode_start": 50,
+    "episode_stop": 250,
+    "initial_states": 50,
+    "initial_state_mapping": "episode % 50",
+    "flow_steps": 10,
+    "replan": 5,
+    "noise_seed": "SeedSequence([7,8,episode])",
+    "models": [
+      "original_fp",
+      "bb_M2_ae_M2_fp32",
+      "bb_M2_flowvq_fp32",
+      "bb_M3_flowvq_fp32"
+    ],
+    "scope": "200 fresh policy-noise rollouts per model, four repeats of50 official initial states; no newly generated states."
+  },
+  "progress": {
+    "original_fp": 0,
+    "bb_M2_ae_M2_fp32": 0,
+    "bb_M2_flowvq_fp32": 0,
+    "bb_M3_flowvq_fp32": 0
+  },
+  "source_sha256": {}
+}

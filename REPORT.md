@@ -1,3 +1,7 @@
+# Evening progress — October4, Singapore time
+
+**X1 and X2 are complete and independently revalidated (6500 episodes). The whole round is still in progress.** X3 FP32 pilot passed; X4 and X6a are running; LIBERO-Plus GPU compatibility/full evaluation remains pending. A post-completion shell error had blocked priority promotion; it is now audited separately from scientific completion, with original failures preserved and immutable launchers for future jobs. No extra same-GPU controls or X5 seeds were added. See [current progress and recovery evidence](results/story_progress_20261004.json).
+
 # Current evening round — in progress (2026-10-03)
 
 X1–X4 and X6 are active; X5 and additional same-GPU control reruns are dropped. The preceding main-method validation is complete, but this new evening round is **not complete**. New jobs prioritize measured episode throughput, reuse accepted comparators, and disclose hardware differences. See the [current evening tables](#evening-story-experiments--2026-10-03) and [live scheduling record](WORK_STATE.md). Older progress snapshots below are historical.
@@ -441,7 +445,7 @@ The M3 whole-model held-out relative MSE advantage (0.00730857 versus uniform M2
 
 Status: in_progress. All rollout results below are seed7. X5 seeds8/9 are canceled. Held-out action MSE uses fixed latent noise0,256 observations from40 trajectories. Logical bytes exclude activation/KV traffic; dense fallback counts are retained in the JSON.
 
-**Latest user instruction: finish the core experiments first; do not add same-GPU control reruns.** New jobs use measured fast GPUs and reuse accepted L40S comparators. Where devices/backends differ, paired CIs describe episode sampling only and do not remove that confounding; differences cannot be attributed solely to the method. X2 remains on its original L40S allocation with matching references.
+**October 4 addendum:** new rollouts are gated on persistent BF16 FlowVQ weights, exact actions on256 observations and a fresh L40S preflight achieving at least90% of FP episodes/min. The targeted task8 comparison uses four models,200 episodes each,seed7,episode IDs50–249. X1 and all nine X2 configurations are already complete; accepted results are retained. Where devices/backends differ, paired CIs describe episode sampling only and do not remove that confounding.
 
 X0: both deployed FlowVQ experts were fit on **BF16-backbone activations with int8 embedding**. The M3 MSE advantage remains unexplained; see [provenance audit](results/story_x0.json).
 
@@ -449,30 +453,32 @@ X0: both deployed FlowVQ experts were fit on **BF16-backbone activations with in
 
 | Backbone | Quantizer / expert | Held-out relative MSE | Medium success (seed7) | Paired Δ vs action-weighted uniform, pp (95% CI) |
 |---|---|---:|---:|---|
-| M2 | plain VQ (layer-Hessian), uniform M2 expert | pending | pending | pending |
+| M2 | plain VQ (layer-Hessian), uniform M2 expert | 0.03942255 | 967/1000 | -1.50 [-3.40, +0.20] |
 | M2 | Action-weighted backbone, uniform M2 expert | 0.03721696 | 982/1000 | accepted comparator |
 | M2 | Action-weighted backbone, FlowVQ expert | 0.04291682 | 964/1000 | accepted comparator |
-| M3 | plain VQ (layer-Hessian), uniform M2 expert | 0.01093829 | pending | pending |
+| M3 | plain VQ (layer-Hessian), uniform M2 expert | 0.01093829 | 972/1000 | -0.20 [-1.80, +1.20] |
 | M3 | Action-weighted backbone, uniform M2 expert | 0.01304602 | 974/1000 | accepted comparator |
 | M3 | Action-weighted backbone, FlowVQ expert | 0.00730857 | 968/1000 | accepted comparator |
 
 The uniform M2 expert was already trained with an equal-step layer-Hessian objective. X1 removes action Fisher from backbone fitting and reuses that identical expert; FlowVQ additionally changes the expert depth schedule and conditional decoder. Paired held-out MSE differences and intervals are in the result JSON.
+
+Action-Fisher backbone weighting (the “action-aware” ablation label, not a method name) improves M2 held-out MSE and the medium point estimate (0.03721696 vs0.03942255;982 vs967/1000), but at M3 layer-Hessian has lower MSE (0.01093829 vs0.01304602) while action-Fisher gains only2/1000 (974 vs972), and neither paired medium-success interval excludes zero.
 
 ### Reduced-step baseline
 
 | Model | Euler steps | Success /500 (seed7) | Held-out relative MSE vs 10-step FP | Logical bytes read | Δ vs matching 10-step row, pp (95% CI) |
 |---|---:|---:|---:|---:|---|
 | FP | 1 | 474/500 | 0.00926313 | 7,082,226,468 | -1.40 [-4.80, +1.20] |
-| FP | 2 | pending | pending | pending | pending |
-| FP | 5 | pending | pending | pending | pending |
-| M2 + uniform M2 | 1 | pending | pending | pending | pending |
-| M2 + uniform M2 | 2 | pending | pending | pending | pending |
-| M2 + uniform M2 | 5 | pending | pending | pending | pending |
-| M2 + FlowVQ | 1 | pending | pending | pending | pending |
-| M2 + FlowVQ | 2 | pending | pending | pending | pending |
-| M2 + FlowVQ | 5 | pending | pending | pending | pending |
+| FP | 2 | 479/500 | 0.00329641 | 7,705,801,896 | -0.40 [-2.80, +1.80] |
+| FP | 5 | 478/500 | 0.00012443 | 9,576,528,180 | -0.60 [-3.00, +1.40] |
+| M2 + uniform M2 | 1 | 481/500 | 0.03246650 | 922,004,274 | -1.80 [-4.80, +0.60] |
+| M2 + uniform M2 | 2 | 478/500 | 0.03347114 | 1,002,278,196 | -2.40 [-5.40, +0.00] |
+| M2 + uniform M2 | 5 | 480/500 | 0.03690282 | 1,243,099,962 | -2.00 [-4.80, +0.20] |
+| M2 + FlowVQ | 1 | 472/500 | 0.03176149 | 922,925,874 | -1.80 [-4.80, +1.00] |
+| M2 + FlowVQ | 2 | 478/500 | 0.03443751 | 964,676,916 | -0.60 [-3.00, +1.80] |
+| M2 + FlowVQ | 5 | 480/500 | 0.04105918 | 1,089,930,042 | -0.20 [-2.00, +1.60] |
 
-Pending all nine reduced-step configurations; no equal-byte verdict yet.
+One-step uniform M2 achieves 481/500 versus10-step FlowVQ 481/500 (paired delta +0.00pp,95% CI[-2.40,+2.20]) with 29.00% fewer logical bytes (922,004,274 versus 1,298,685,252) and held-out MSE 0.03246650 versus 0.04291682; this establishes a cheaper baseline with a matching success point estimate on seed7, not statistical equivalence or noninferiority, and no requested lower-byte baseline shows a statistically significant success advantage over FlowVQ. Exact byte equality is absent from the requested discrete grid.
 
 All reduced-step configurations use newly captured FP32 AdaRMS tables with exact native-action equality on256 held-out observations. FlowVQ reads depth1 before the last step and full depth2 at the last step for1/2/5 steps; conditional codebooks and affines are reused without refitting.
 
@@ -488,12 +494,12 @@ Original weight-noise cross-check (existing256-observation calibration experimen
 
 | Gaussian direction | Expected relative MSE | Success /500 (seed7) | Paired Δ vs FP, pp (95% CI) |
 |---|---:|---:|---|
-| isotropic | 0.0003 | pending | pending |
-| isotropic | 0.001 | pending | pending |
-| isotropic | 0.003 | pending | pending |
-| isotropic | 0.01 | pending | pending |
-| isotropic | 0.03 | pending | pending |
-| top5 | 0.01 | pending | pending |
+| isotropic | 0.0003 | 482/500 | +0.20 [-2.20, +2.40] |
+| isotropic | 0.001 | 478/500 | -0.60 [-3.00, +1.60] |
+| isotropic | 0.003 | 479/500 | -0.40 [-2.80, +1.60] |
+| isotropic | 0.01 | 481/500 | +0.00 [-2.40, +2.40] |
+| isotropic | 0.03 | 474/500 | -1.40 [-4.60, +1.80] |
+| top5 | 0.01 | 481/500 | +0.00 [-2.00, +1.80] |
 | orthogonal | 0.01 | pending | pending |
 
 Pending all seven dose configurations; no LIBERO sensitivity claim yet.
@@ -555,3 +561,19 @@ GPU preflight (throughput only; alternating spatial/long task0, at least5 timed 
 | NVIDIA GeForce RTX 5090 | 5.429 | 1.519 |
 
 Assignments compare identical completed episode prefixes. L40S led the completed four-type preflight; RTX PRO6000 remained unavailable and its unstarted preflight was deferred. No untested GPU type is assigned a new rollout. These task0 timings are workload-specific and are not benchmark success results.
+
+
+### October4 evaluation runtime and task8 follow-up
+
+M2 and M3 FlowVQ both passed exact raw-action equality on256 observations with persistent BF16 depth1/depth2 weights and CUDA graph replay; maximum difference0 and no reconstruction after loading. The accepted path also had0 inference reconstruction calls, so input transforms and launch overhead were optimized. Fresh L40S episode throughput remains pending; dispatch requires at least90% of FP. [Validation](results/flowvq_runtime_validation.json).
+
+Task8 protocol: seed7, episode IDs50–249,200 rollouts per model; the50 official initial states repeat via episode modulo50, with distinct episode-derived policy noise. All four models share the same IDs and states. Intervals resample the50 initial-state clusters, retaining all four repeats.
+
+| Model | Follow-up successes /200 | Paired Δ vs FP, pp (95% CI) |
+|---|---:|---|
+| FP | pending (0/200 recorded) | pending |
+| M2 + uniform M2 | pending (0/200 recorded) | pending |
+| M2 + FlowVQ | pending (0/200 recorded) | pending |
+| M3 + FlowVQ | pending (0/200 recorded) | pending |
+
+Whether the original16/50 task8 advantage persists remains pending.

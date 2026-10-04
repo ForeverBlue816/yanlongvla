@@ -359,3 +359,12 @@ X1 assembled models: hd_srvq_story_plain_bb_M2_ae_M2_fp32 (SHA256 ed2266325ffbaa
 
 
 X1 M3 plain-VQ held-out validation complete: strict tensor reload,256 observations/40 trajectories, fixed noise0, relative MSE0.010938292660258468 onL40S. Medium evaluation is still pending; no policy-quality promotion follows from MSE alone.
+
+X1 plain-VQ medium validation complete, seed7: M2 backbone967/1000, M3 backbone972/1000, with held-out MSE0.03942254808560134 and0.010938292660258468. All nine reduced-step X2 configurations have500 accepted episodes each. Scientific completion audits preserve the two post-completion launcher failures; no checkpoint or inference runtime changed.
+
+
+## October4 evaluation runtime audit
+
+The accepted evening loader already prepares every expert subset at load time. FlowVQ has persistent BF16 depth1 (steps0–8) and depth2 (step9) reconstructions, with affine alpha included before BF16 rounding and beta added in FP32 before casting the output. The separate `flowvq_cached_runtime.py` evaluation path forbids reconstruction after loading and compiles the existing input Hadamard transform. It does not alter stored checkpoints, protected FP32 tensors or compressed-read accounting. Exact256-observation checks and a fresh L40S episode-throughput preflight gate new rollouts; no acceleration claim is established until that measurement completes. Dense-cache resident bytes are reported separately from serialized compressed bytes.
+
+The final separate evaluation runtime additionally captures the exact ten-step expert operation sequence as a CUDA graph, retaining both weight variants, FP32 tables, static KV/noise buffers and the outside-capture Euler dt tensor. Both M2/M3 compositions passed256/256 direct raw-action comparisons with maximum difference0 on L40S (results/flowvq_runtime_validation.json, source28676f2). Episode throughput remains pending; no compressed-kernel latency claim follows from this dense evaluation optimization.
