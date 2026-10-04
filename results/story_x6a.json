@@ -1,5 +1,5 @@
 {
-  "status": "in_progress",
+  "status": "complete",
   "seed": 7,
   "episodes_per_task": 50,
   "tasks": 10,
@@ -13,12 +13,12 @@
       "new_gpu": null
     },
     "bb_M2_ae_M2_fp32": {
-      "episodes": 459,
+      "episodes": 500,
       "reused": 250,
-      "new_episodes": 209,
-      "complete": false,
+      "new_episodes": 250,
+      "complete": true,
       "reused_gpu": "NVIDIA L40S",
-      "new_gpu": null
+      "new_gpu": "NVIDIA L40S"
     },
     "bb_M2_flowvq_fp32": {
       "episodes": 500,
@@ -87,6 +87,58 @@
       {
         "task": 9,
         "successes": 47,
+        "episodes": 50
+      }
+    ],
+    "bb_M2_ae_M2_fp32": [
+      {
+        "task": 0,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 1,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 2,
+        "successes": 46,
+        "episodes": 50
+      },
+      {
+        "task": 3,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 4,
+        "successes": 49,
+        "episodes": 50
+      },
+      {
+        "task": 5,
+        "successes": 50,
+        "episodes": 50
+      },
+      {
+        "task": 6,
+        "successes": 48,
+        "episodes": 50
+      },
+      {
+        "task": 7,
+        "successes": 48,
+        "episodes": 50
+      },
+      {
+        "task": 8,
+        "successes": 48,
+        "episodes": 50
+      },
+      {
+        "task": 9,
+        "successes": 40,
         "episodes": 50
       }
     ],
@@ -245,6 +297,40 @@
           }
         }
       },
+      "bb_M2_ae_M2_fp32": {
+        "successes": 478,
+        "episodes": 500,
+        "success_percent": 95.6,
+        "success_ci95_percent": [
+          91.0,
+          98.8
+        ],
+        "difference_from_reference_pp": 3.8,
+        "paired_difference_ci95_pp": [
+          -3.799999999999997,
+          14.799999999999983
+        ],
+        "paired_improvements": 37,
+        "paired_regressions": 18,
+        "suites": {
+          "libero_10": {
+            "successes": 478,
+            "episodes": 500,
+            "success_percent": 95.6,
+            "success_ci95_percent": [
+              91.0,
+              98.8
+            ],
+            "difference_from_reference_pp": 3.8,
+            "paired_difference_ci95_pp": [
+              -3.799999999999997,
+              14.799999999999983
+            ],
+            "paired_improvements": 37,
+            "paired_regressions": 18
+          }
+        }
+      },
       "bb_M2_flowvq_fp32": {
         "successes": 474,
         "episodes": 500,
@@ -366,6 +452,40 @@
             }
           }
         },
+        "bb_M2_ae_M2_fp32": {
+          "successes": 478,
+          "episodes": 500,
+          "success_percent": 95.6,
+          "success_ci95_percent": [
+            91.0,
+            98.8
+          ],
+          "difference_from_reference_pp": 3.8,
+          "paired_difference_ci95_pp": [
+            -3.799999999999997,
+            14.799999999999983
+          ],
+          "paired_improvements": 37,
+          "paired_regressions": 18,
+          "suites": {
+            "libero_10": {
+              "successes": 478,
+              "episodes": 500,
+              "success_percent": 95.6,
+              "success_ci95_percent": [
+                91.0,
+                98.8
+              ],
+              "difference_from_reference_pp": 3.8,
+              "paired_difference_ci95_pp": [
+                -3.799999999999997,
+                14.799999999999983
+              ],
+              "paired_improvements": 37,
+              "paired_regressions": 18
+            }
+          }
+        },
         "bb_M2_flowvq_fp32": {
           "successes": 474,
           "episodes": 500,
@@ -436,6 +556,160 @@
         }
       }
     },
+    "bb_M2_ae_M2_fp32": {
+      "reference": "bb_M2_ae_M2_fp32",
+      "protocol": {
+        "suites": [
+          "libero_10"
+        ],
+        "tasks_per_suite": 10,
+        "episodes_per_task": 50,
+        "evaluation_seed": 7
+      },
+      "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+      "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+      "resamples": 2000,
+      "resampling_rng_seed": 20260930,
+      "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+      "policies": {
+        "original_fp": {
+          "successes": 459,
+          "episodes": 500,
+          "success_percent": 91.8,
+          "success_ci95_percent": [
+            81.595,
+            98.2
+          ],
+          "difference_from_reference_pp": -3.8,
+          "paired_difference_ci95_pp": [
+            -14.799999999999983,
+            3.799999999999997
+          ],
+          "paired_improvements": 18,
+          "paired_regressions": 37,
+          "suites": {
+            "libero_10": {
+              "successes": 459,
+              "episodes": 500,
+              "success_percent": 91.8,
+              "success_ci95_percent": [
+                81.595,
+                98.2
+              ],
+              "difference_from_reference_pp": -3.8,
+              "paired_difference_ci95_pp": [
+                -14.799999999999983,
+                3.799999999999997
+              ],
+              "paired_improvements": 18,
+              "paired_regressions": 37
+            }
+          }
+        },
+        "bb_M2_ae_M2_fp32": {
+          "successes": 478,
+          "episodes": 500,
+          "success_percent": 95.6,
+          "success_ci95_percent": [
+            91.0,
+            98.8
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0,
+          "suites": {
+            "libero_10": {
+              "successes": 478,
+              "episodes": 500,
+              "success_percent": 95.6,
+              "success_ci95_percent": [
+                91.0,
+                98.8
+              ],
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            }
+          }
+        },
+        "bb_M2_flowvq_fp32": {
+          "successes": 474,
+          "episodes": 500,
+          "success_percent": 94.8,
+          "success_ci95_percent": [
+            90.60000000000001,
+            98.20499999999997
+          ],
+          "difference_from_reference_pp": -0.8,
+          "paired_difference_ci95_pp": [
+            -4.400000000000006,
+            2.799999999999997
+          ],
+          "paired_improvements": 13,
+          "paired_regressions": 17,
+          "suites": {
+            "libero_10": {
+              "successes": 474,
+              "episodes": 500,
+              "success_percent": 94.8,
+              "success_ci95_percent": [
+                90.60000000000001,
+                98.20499999999997
+              ],
+              "difference_from_reference_pp": -0.8,
+              "paired_difference_ci95_pp": [
+                -4.400000000000006,
+                2.799999999999997
+              ],
+              "paired_improvements": 13,
+              "paired_regressions": 17
+            }
+          }
+        },
+        "bb_M3_flowvq_fp32": {
+          "successes": 462,
+          "episodes": 500,
+          "success_percent": 92.4,
+          "success_ci95_percent": [
+            82.8,
+            98.0
+          ],
+          "difference_from_reference_pp": -3.2,
+          "paired_difference_ci95_pp": [
+            -12.600000000000009,
+            3.799999999999997
+          ],
+          "paired_improvements": 17,
+          "paired_regressions": 33,
+          "suites": {
+            "libero_10": {
+              "successes": 462,
+              "episodes": 500,
+              "success_percent": 92.4,
+              "success_ci95_percent": [
+                82.8,
+                98.0
+              ],
+              "difference_from_reference_pp": -3.2,
+              "paired_difference_ci95_pp": [
+                -12.600000000000009,
+                3.799999999999997
+              ],
+              "paired_improvements": 17,
+              "paired_regressions": 33
+            }
+          }
+        }
+      }
+    },
     "bb_M2_flowvq_fp32": {
       "reference": "bb_M2_flowvq_fp32",
       "protocol": {
@@ -483,6 +757,40 @@
               ],
               "paired_improvements": 19,
               "paired_regressions": 34
+            }
+          }
+        },
+        "bb_M2_ae_M2_fp32": {
+          "successes": 478,
+          "episodes": 500,
+          "success_percent": 95.6,
+          "success_ci95_percent": [
+            91.0,
+            98.8
+          ],
+          "difference_from_reference_pp": 0.8,
+          "paired_difference_ci95_pp": [
+            -2.799999999999997,
+            4.400000000000006
+          ],
+          "paired_improvements": 17,
+          "paired_regressions": 13,
+          "suites": {
+            "libero_10": {
+              "successes": 478,
+              "episodes": 500,
+              "success_percent": 95.6,
+              "success_ci95_percent": [
+                91.0,
+                98.8
+              ],
+              "difference_from_reference_pp": 0.8,
+              "paired_difference_ci95_pp": [
+                -2.799999999999997,
+                4.400000000000006
+              ],
+              "paired_improvements": 17,
+              "paired_regressions": 13
             }
           }
         },
@@ -606,6 +914,40 @@
             }
           }
         },
+        "bb_M2_ae_M2_fp32": {
+          "successes": 478,
+          "episodes": 500,
+          "success_percent": 95.6,
+          "success_ci95_percent": [
+            91.0,
+            98.8
+          ],
+          "difference_from_reference_pp": 3.2,
+          "paired_difference_ci95_pp": [
+            -3.799999999999997,
+            12.600000000000009
+          ],
+          "paired_improvements": 33,
+          "paired_regressions": 17,
+          "suites": {
+            "libero_10": {
+              "successes": 478,
+              "episodes": 500,
+              "success_percent": 95.6,
+              "success_ci95_percent": [
+                91.0,
+                98.8
+              ],
+              "difference_from_reference_pp": 3.2,
+              "paired_difference_ci95_pp": [
+                -3.799999999999997,
+                12.600000000000009
+              ],
+              "paired_improvements": 33,
+              "paired_regressions": 17
+            }
+          }
+        },
         "bb_M2_flowvq_fp32": {
           "successes": 474,
           "episodes": 500,
@@ -708,8 +1050,12 @@
     "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task5_seed7.jsonl": "0362e28b4ba4e8b6da5cdb406c6bfd9e8da68dcced56caa97f3c86106149bafa",
     "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task6_seed7.jsonl": "5da727f6b881150829e76e2b2cbe50a9595dab37991899ce11e0cb3ce7d6b496",
     "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task7_seed7.jsonl": "714afd8d30edfde6990bc88b8d1d8ca242f3123f9d56133f696249906fabc30c",
-    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task8_seed7.jsonl": "24a89fecab7f42c0bdeb3f844ec2076f5fe840a772d3f11aea15fbe2730a48fe",
-    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task9_seed7.jsonl": "d9f59d41cc2109863d73d1bbba700df4d932df15e24fe914fc8e5fa32f727226",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task8_seed7.jsonl": "1e8fbcbba96dd3413311677d61277876d450e419cba777114363575542b33191",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task9_seed7.jsonl": "c5cb295b056b9f9b5b72e6c08beb96579904ac4b6371cb0cb17f4da54f8bfb85",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/offline/result.json": "3d0162929fd16b80d4803cdf3e6e46e9ca9dd9b2f2eb5dda0daa66f2bcfab0ff",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/offline/actions.npy": "4f81673e5b943a17e46d5d55d977cf49113cd12ab48600dc78900cb1215f92ae",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/worker0_manifest.json": "28b70f441e3e0e6ddeb2a14268d8f7b8a0ebeb4716b7250e2924addf6f562c78",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/worker1_manifest.json": "a6aedc0082846eaff81e5afc8fae4a6a41c06a9adbd14f463e4518f7b2a46060",
     "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task0_seed7.jsonl": "2f8c5c1efe0b16a43c41b5b06efa6565f8dfdf4f2b18abda2965038157d29a2f",
     "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task1_seed7.jsonl": "6185ebef6a95c78108222687bbd7f693aa25de9a766b9494440440d812d064d1",
     "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task2_seed7.jsonl": "afcca66686f497714b178ae237f9c070280bc9d0fde297fb6052fde0dec443ff",

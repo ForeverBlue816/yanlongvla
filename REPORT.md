@@ -1,6 +1,6 @@
-# Current experiment results — 2026-10-04 15:07 SGT
+# Current experiment results — 2026-10-04 15:34 SGT
 
-Validated X1/X2/X4 configurations: 18/18. X3 FP32: in progress. Task-8 paired follow-up: complete (800/800 episodes). X6a: in_progress; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
+Validated X1/X2/X4 configurations: 18/18. X3 FP32: in progress. Task-8 paired follow-up: complete (800/800 episodes). X6a: complete; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
 
 This report updates automatically when a complete result passes validation. Older dated sections below are historical.
 
@@ -515,7 +515,7 @@ X6a: LIBERO-10 only,50 episodes/task, seed7. Reuse1750 accepted episodes; run on
 | Model | Success /500 | Paired Δ vs FP, pp (95% CI) |
 |---|---:|---|
 | FP | 459/500 | +0.00 [+0.00, +0.00] |
-| M2 + uniform M2 | pending | pending |
+| M2 + uniform M2 | 478/500 | +3.80 [-3.80, +14.80] |
 | M2 + FlowVQ | 474/500 | +3.00 [-2.80, +11.40] |
 | M3 + FlowVQ | 462/500 | +0.60 [-2.40, +4.00] |
 
@@ -523,16 +523,16 @@ Per-task successes (each completed cell has50 episodes):
 
 | LIBERO-10 task ID | FP | M2 + uniform M2 | M2 + FlowVQ | M3 + FlowVQ |
 |---:|---:|---:|---:|---:|
-| 0 | 49 | pending | 49 | 48 |
-| 1 | 50 | pending | 50 | 50 |
-| 2 | 48 | pending | 45 | 47 |
-| 3 | 47 | pending | 50 | 47 |
-| 4 | 49 | pending | 47 | 49 |
-| 5 | 49 | pending | 50 | 50 |
-| 6 | 44 | pending | 48 | 47 |
-| 7 | 50 | pending | 49 | 49 |
-| 8 | 26 | pending | 42 | 28 |
-| 9 | 47 | pending | 44 | 47 |
+| 0 | 49 | 50 | 49 | 48 |
+| 1 | 50 | 50 | 50 | 50 |
+| 2 | 48 | 46 | 45 | 47 |
+| 3 | 47 | 49 | 50 | 47 |
+| 4 | 49 | 49 | 47 | 49 |
+| 5 | 49 | 50 | 50 | 50 |
+| 6 | 44 | 48 | 48 | 47 |
+| 7 | 50 | 48 | 49 | 49 |
+| 8 | 26 | 48 | 42 | 28 |
+| 9 | 47 | 40 | 44 | 47 |
 
 X6b uses [official LIBERO-Plus](https://github.com/sylvestf/LIBERO-plus), [paper](https://arxiv.org/abs/2510.13626). The pinned revision enumerates10030 expanded tasks, evaluated once each. The comparison subset was fixed before rollouts:500 camera-viewpoint plus500 robot-initial-state instances per model, with FP reused from the full run. No subset is selected based on success differences.
 
