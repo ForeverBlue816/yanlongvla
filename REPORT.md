@@ -1,4 +1,4 @@
-# Current experiments — Decisions, not actions — 2026-10-05 03:41 SGT
+# Current experiments — Decisions, not actions — 2026-10-05 05:08 SGT
 
 The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: complete; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
 
@@ -74,7 +74,7 @@ Measured KV dose anchors (pooled squared energies over256 calibration observatio
 
 ### H4 — Component isolation and failure causes
 
-Status: queued_or_in_progress; task8 failure review: diagnostic_replay_pending. Plain-VQ M2+M2 needs200 episodes on each task. Newly collected trajectories retain both camera views, simulator states and executed actions. Historical FP task8 outcomes lack trajectories; diagnostic replays and manual labels for all88 failures are required. No cause is inferred from a timeout alone. Replay/original outcome disagreements remain explicit and never replace original success outcomes.
+Status: component_complete_failure_review_pending; task8 failure review: manual_cause_review_pending. Plain-VQ M2+M2 needs200 episodes on each task. Newly collected trajectories retain both camera views, simulator states and executed actions. Historical FP task8 outcomes lack trajectories; diagnostic replays and manual labels for all88 failures are required. No cause is inferred from a timeout alone. Replay/original outcome disagreements remain explicit and never replace original success outcomes.
 
 ### H5 — Decision-preserving calibration
 
@@ -90,7 +90,7 @@ Task8 supports the backbone attribution and passes G-H1; it does not support ear
 
 | Protocol | All tasks | Excluding LIBERO-10 tasks8/9 | Status |
 |---|---|---|---|
-| full | pending | pending | queued_or_gated |
+| full | pending | pending | in_progress |
 | medium1 | pending | pending | queued_or_gated |
 | medium2 | pending | pending | queued_or_gated |
 | plus2 | pending | pending | queued_or_gated |

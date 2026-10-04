@@ -6590,14 +6590,92 @@
     "appendix_spectrum_sha256": "8e78e4e9979c8d0f1c0f313ecbf0588185efe5fb316f5e46df1ccf88cac02940"
   },
   "H4": {
-    "status": "queued_or_in_progress",
+    "status": "component_complete_failure_review_pending",
     "failure_causes": "pending trajectory inspection; historical FP task8 failures need diagnostic replay",
     "component_isolation": {
-      "status": "queued_or_gated"
+      "status": "complete",
+      "all_tasks": {
+        "successes": 326,
+        "episodes": 400,
+        "success_percent": 81.5,
+        "status": "measured"
+      },
+      "excluding_libero10_tasks8_9": {
+        "successes": 0,
+        "episodes": 0,
+        "success_percent": null,
+        "status": "not_applicable_empty_scope"
+      },
+      "per_task": {
+        "8": {
+          "all_tasks": {
+            "successes": 188,
+            "episodes": 200,
+            "success_percent": 94.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": 38.0,
+          "paired_difference_ci95_pp": [
+            30.0,
+            46.0
+          ],
+          "success_ci95_percent": [
+            90.0,
+            97.5
+          ]
+        },
+        "9": {
+          "all_tasks": {
+            "successes": 138,
+            "episodes": 200,
+            "success_percent": 69.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": -24.5,
+          "paired_difference_ci95_pp": [
+            -34.5,
+            -15.0
+          ],
+          "success_ci95_percent": [
+            57.99999999999999,
+            79.0
+          ]
+        }
+      },
+      "source_sha256": {
+        "/projects/yanlongvla/runs/decisions_round/deploy/h4/worker0_manifest.json": "89954dc95cd1ed0770ea1823bf4518c16fe5cf01acb178ab20659302c6a7755a",
+        "/projects/yanlongvla/runs/decisions_round/deploy/h4/libero_10_task8.jsonl": "5675f5edb84fd489ddf0d9602900d7ca040ac84677c3051a0b467792b8b786f1",
+        "/projects/yanlongvla/runs/decisions_round/deploy/h4/worker1_manifest.json": "c229e4290100428e1ee945d4c52ec4a42e06ec7fa4e2d4f7a6a7709ff9749a9e",
+        "/projects/yanlongvla/runs/decisions_round/deploy/h4/libero_10_task9.jsonl": "69807227db42bdf15b099b82d2c0268823fdd638bc5c0ab2d823638963f9fc34"
+      },
+      "reads": {
+        "logical_compressed_bytes_read": 1644469572,
+        "logical_dense_fallback_bytes_read": 12697735332,
+        "expert_compressed_bytes": 795526380,
+        "steps": 10,
+        "table_dtype": "float32",
+        "prompt_unique_embedding_rows": 15,
+        "vision_calls": 3,
+        "scope": "Independent safetensors offsets plus frozen invocation trace; logical parameter/metadata reads, excludes activation/KV traffic and physical DRAM/cache effects. Quality uses BF16 dense caches."
+      },
+      "executed_chunk_mse": 0.008552792715099988
     },
     "task8_failure_review": {
-      "status": "diagnostic_replay_pending",
-      "expected_failures": 88
+      "status": "manual_cause_review_pending",
+      "expected_failures": 88,
+      "review_queue_sha256": "dbd99a4792b3db186cde984e72a8e13c228a874394b02f96aa763cc9c04540f9"
     }
   },
   "H5": {
@@ -6639,7 +6717,9 @@
   },
   "H6": {
     "full": {
-      "status": "queued_or_gated"
+      "status": "in_progress",
+      "complete_workers": 2,
+      "workers": 4
     },
     "medium1": {
       "status": "queued_or_gated"
