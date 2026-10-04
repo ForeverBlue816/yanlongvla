@@ -10,11 +10,39 @@
     "deployment_environment_unchanged": true,
     "cpu_verified_utc": "2026-10-03T15:12:14.725006+00:00"
   },
+  "compatibility": {
+    "status": "passed",
+    "configuration": {
+      "id": "x6b_fp",
+      "family": "X6b",
+      "model": "original_fp",
+      "steps": 10,
+      "seed": 7,
+      "suites": [],
+      "episodes_per_task": 1,
+      "tasks_per_suite": null
+    },
+    "episodes": 7,
+    "categories": [
+      "Background Textures",
+      "Camera Viewpoints",
+      "Language Instructions",
+      "Light Conditions",
+      "Objects Layout",
+      "Robot Initial States",
+      "Sensor Noise"
+    ],
+    "source_sha256": {
+      "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
+      "/projects/yanlongvla/runs/story_round/libero_plus/fp_pilot_rows.json": "bd9a1b18f32c690a2bdad139a6378bdcc14150529e59400f9e8f7723172d5956"
+    },
+    "scope": "FP checkpoint executes real Plus tasks with finite actions; episodes are reused in the full10030-task run. This is compatibility, not a full benchmark score."
+  },
   "seed": 7,
   "full_fp": null,
   "progress": {
     "x6b_fp": {
-      "episodes": 2193,
+      "episodes": 3548,
       "required": 10030,
       "subset_episodes": 1000,
       "subset_required": 1000,
@@ -47,16 +75,17 @@
   "validation_issues": {},
   "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
   "source_sha256": {
+    "/projects/yanlongvla/runs/story_round/libero_plus/fp_compatibility.json": "c8054fde3b98493546e235ac2e9dfac0ecde9d7f2ad04c8ce00dac2dd0dfc169",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "e534740ab52fbd8fdef2f8eb27251967ac938e8907a1e442f53802405b96f465",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "839becebb2d5d7e2468b4d81eed617258bf98601f294d31c33a15b89bfaf9677",
     "/projects/yanlongvla/runs/story_round/x6b_fp/offline/result.json": "2a3400c34b01515fc926ecf698e06e3a3c8f43dde46d9ba0030f25c1acd1e233",
     "/projects/yanlongvla/runs/story_round/x6b_fp/offline/actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1_manifest.json": "427c3b76869a1a550091e77904bf651b9eedf71e0cffd1e0267c88cb52e0731f",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "d6c418e3718ce349baf10826378c767cbd8f575447289aee613d52d8eec0f9ff",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "ba5bb014e991b78e8980b759c5f09127d537b2e932119e2b21d400a5535f6f5c",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2_manifest.json": "8bdc7154bdf9b3dff955d63c3abfb4684e4133396fcdf08cfb49a72f225d17d2",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "9f054fea0f6589519db2ee1e5f54864660d58e92b509251c4db1239c9bd438df",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "89d64ee375cb6f9db94f94158508e351974eace81e4b2f8f58c2904d49f1d229",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3_manifest.json": "bef3923769c2778b28eab8f0b901aaee117e048b5517778923d3de891131a834",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "cf4ad7a11951072c9a5fb0bd62ea4e2047452481e191c8fc9c77a2c70d263a6a",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "ed23f2458eb36b927c8a24aac6e53af045b713d0b1caac9e55ca912a9fea8cbe",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0_manifest.json": "1ca551b691dbd0ea15dd7b12b6bff883497f330a2bbc8485c8cdb88d484d5c32",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0.jsonl": "2049fe4cd7f406c15faba436eea59424d4a5e003929dcc8bdaea3f7a5787832a",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/offline/result.json": "b25ba52348e87ea6c57dcd41a8fa7b9f69b3908c46f3f18bbfd9d8675227b458",

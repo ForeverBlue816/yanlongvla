@@ -1,4 +1,4 @@
-# Current experiment results — 2026-10-04 19:37 SGT
+# Current experiment results — 2026-10-04 21:04 SGT
 
 Validated X1/X2/X4 configurations: 18/18. X3 FP32: complete. Task-8 paired follow-up: complete (800/800 episodes). X6a: complete; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
 
@@ -559,7 +559,7 @@ Per-task successes (each completed cell has50 episodes):
 
 X6b uses [official LIBERO-Plus](https://github.com/sylvestf/LIBERO-plus), [paper](https://arxiv.org/abs/2510.13626). The pinned revision enumerates10030 expanded tasks, evaluated once each. The comparison subset was fixed before rollouts:500 camera-viewpoint plus500 robot-initial-state instances per model, with FP reused from the full run. No subset is selected based on success differences.
 
-Full FP score: pending. Installation/compatibility status: installed_cpu_audit_passed_gpu_compatibility_pending.
+Full FP score: pending. GPU FP compatibility: passed.
 
 | Perturbation dimension | Model | Success /500 | Paired Δ vs FP, pp (95% CI) |
 |---|---|---:|---|
