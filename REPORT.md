@@ -1,4 +1,4 @@
-# Current experiments — Decisions, not actions — 2026-10-05 01:22 SGT
+# Current experiments — Decisions, not actions — 2026-10-05 03:41 SGT
 
 The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: complete; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
 
@@ -28,17 +28,49 @@ Post-task8 mechanism update: the main gain is driven by backbone quantization (H
 
 ### H2 — Mode shifts
 
-Status: queued. The256 training-calibration observations,1600 evaluation-initial-state observations (40×40), and256 observations from40 held-out trajectories remain separate banks. All models share32 latents per observation. Cluster the35 training-standardised action dimensions; silhouette k=2..4, primary threshold0.25 and sensitivities0.20/0.30. A centroid-distance/pooled-within-cluster-RMS ratio<2 also implies unimodality. Report disagreement and fixed-k2 TV. Correlations/scatters and task8/task9/control projections await action banks and manual physical interpretation.
+Status: complete. The256 training-calibration observations,1600 evaluation-initial-state observations (40×40), and256 observations from40 held-out trajectories remain separate banks. All models share32 latents per observation. Cluster the35 training-standardised action dimensions; silhouette k=2..4, primary threshold0.25 and sensitivities0.20/0.30. A centroid-distance/pooled-within-cluster-RMS ratio<2 also implies unimodality. Report disagreement and fixed-k2 TV. Correlations/scatters and task8/task9/control projections await action banks and manual physical interpretation.
 
 Seven model rows: FP, uniform M2 backbone+M2 expert, M3 backbone+M2 expert, plain-VQ M2 backbone+M2 expert, expert-only M1, H1a and H1d. New prediction: large mode-shift TV for2-bit backbones; near-zero TV for expert-only2-bit H1a/H1d and3-bit backbone. H1a/H1d receive the same all40-task offline evaluation; their40-task success correlations are N/A because only task8/9 success sets exist. The original five-model medium endpoints are unchanged.
+
+H2 correlations with signed task-success change (Spearman rho; full40-task endpoint and38-task exclusion robustness):
+
+| Model | Tasks | TV | Overall MSE | Within-mode MSE | Fixed-k2 TV |
+|---|---:|---:|---:|---:|---:|
+| bb_M2_ae_M2_fp32 | all40 | -0.0774 | -0.0220 | -0.0568 | -0.1014 |
+| bb_M2_ae_M2_fp32 | excluding8/9 | -0.0516 | 0.0082 | 0.0008 | -0.0772 |
+| bb_M3_ae_M2_fp32 | all40 | -0.1066 | 0.0273 | 0.0230 | 0.0060 |
+| bb_M3_ae_M2_fp32 | excluding8/9 | -0.1261 | 0.0466 | 0.0476 | 0.0054 |
+| story_plain_bb_M2_ae_M2_fp32 | all40 | -0.1829 | -0.1864 | -0.1495 | -0.3631 |
+| story_plain_bb_M2_ae_M2_fp32 | excluding8/9 | -0.1815 | -0.1272 | -0.0652 | -0.3629 |
+| a_M1 | all40 | -0.2435 | 0.2510 | 0.2430 | 0.0309 |
+| a_M1 | excluding8/9 | -0.2631 | 0.2977 | 0.2943 | 0.0589 |
+| h1a | all40 | N/A | N/A | N/A | N/A |
+| h1a | excluding8/9 | N/A | N/A | N/A | N/A |
+| h1d | all40 | N/A | N/A | N/A | N/A |
+| h1d | excluding8/9 | N/A | N/A | N/A | N/A |
+
+Scatters/cluster figures and physical descriptions await manual inspection; per-task metrics and every inspection artifact are in [H2 evidence](results/decisions_h2.json).
 
 ### H3 — Prefix-KV dose response
 
 Status: after_H2_H4_full; prefix_KV_rollout_requires_implementation. Perturb both K/V in the FP prefix cache with Gaussian noise, fixed through the expert trajectory. Three groups: all valid tokens, image only, language/state only. The pinned config has no state tokens: the third group is language only. Exclude padding and masked image slots. Primary doses0.003/0.01/0.03/0.1 use each selected group's own KV energy (squared Frobenius norm);12 conditions,500 paired episodes each (spatial+LIBERO-10,25/task,seed7). Secondary comparison uses0.01 total valid prefix energy for each of the three groups, separately reported; reuse the identical all-token0.01 condition. Always report local and total actual post-BF16 energy ratios. Zero-dose256-action identity is required before rollout.
 
-KV dose anchors: queued_after_H2_banks. Measure actual M2/M3 backbone KV error on256 calibration observations, separately for image and language/state tokens, reporting both local and total ratios and per-observation distributions. Mark these on the H3 plot beside the dose curves/X4 and state whether the fixed dose range brackets them. Existing SVD results and early-expert perturbation move to an appendix; new appendix GPU runs are allowed only on otherwise idle cards.
+KV dose anchors: complete. Measure actual M2/M3 backbone KV error on256 calibration observations, separately for image and language/state tokens, reporting both local and total ratios and per-observation distributions. Mark these on the H3 plot beside the dose curves/X4 and state whether the fixed dose range brackets them. Existing SVD results and early-expert perturbation move to an appendix; new appendix GPU runs are allowed only on otherwise idle cards.
 
 Appendix (superseded main H3): mean top10 singular values = [0.7720, 0.5823, 0.4909, 0.4301, 0.3821, 0.3417, 0.3053, 0.2744, 0.2461, 0.2228]. Mean of the three principal angles over124,750 observation pairs = 59.46°. This descriptive result alone does not establish a shared decision subspace. [Per-observation spectra and source hashes](results/decisions_spectrum.json). Any further early-expert directional probes/rollouts are idle-GPU appendix work only.
+
+Measured KV dose anchors (pooled squared energies over256 calibration observations):
+
+| Backbone | Token group | Local error ratio | Total error ratio | In primary dose range |
+|---|---|---:|---:|---|
+| bb_M2_ae_M2_fp32 | all | 0.0629402 | 0.0629402 | True |
+| bb_M2_ae_M2_fp32 | image | 0.0622505 | 0.0619696 | True |
+| bb_M2_ae_M2_fp32 | language_state | 0.215064 | 0.0009706 | False |
+| bb_M3_ae_M2_fp32 | all | 0.0143902 | 0.0143902 | True |
+| bb_M3_ae_M2_fp32 | image | 0.014173 | 0.014109 | True |
+| bb_M3_ae_M2_fp32 | language_state | 0.0623011 | 0.000281169 | True |
+
+[Per-observation KV errors, distributions and source hashes](results/decisions_kv_anchors.json). H3 curves/anchor plot remain pending until rollouts and figure review finish.
 
 ### H4 — Component isolation and failure causes
 
