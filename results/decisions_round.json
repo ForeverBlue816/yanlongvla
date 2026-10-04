@@ -6914,7 +6914,9 @@
       "executed_chunk_mse": 0.007261623950106441
     },
     "plus2": {
-      "status": "queued_or_gated"
+      "status": "in_progress",
+      "complete_workers": 1,
+      "workers": 2
     },
     "install300": {
       "reused_episodes": 300,
@@ -6942,7 +6944,7 @@
       }
     },
     "plus": {
-      "status": "in_progress",
+      "status": "four_original_subset_models_complete",
       "progress": {
         "x6b_fp": {
           "completed": 1000,
@@ -6987,8 +6989,18 @@
           }
         },
         "x6b_expert_M1": {
-          "completed": 500,
-          "required": 1000
+          "completed": 1000,
+          "required": 1000,
+          "all_tasks": {
+            "successes": 716,
+            "episodes": 1000,
+            "success_percent": 71.6
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 695,
+            "episodes": 951,
+            "success_percent": 73.08096740273396
+          }
         },
         "2bit_2steps": {
           "completed": null,
@@ -6996,7 +7008,120 @@
           "status": "pending"
         }
       },
-      "paired": {},
+      "paired": {
+        "all_tasks": {
+          "reference": "x6b_fp",
+          "episodes_per_model": 1000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "x6b_fp": {
+              "successes": 765,
+              "episodes": 1000,
+              "success_percent": 76.5,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "x6b_uniform": {
+              "successes": 704,
+              "episodes": 1000,
+              "success_percent": 70.39999999999999,
+              "difference_from_reference_pp": -6.1,
+              "paired_difference_ci95_pp": [
+                -10.798019667826594,
+                -1.7108084246459836
+              ],
+              "paired_improvements": 58,
+              "paired_regressions": 119
+            },
+            "x6b_flowvq": {
+              "successes": 696,
+              "episodes": 1000,
+              "success_percent": 69.6,
+              "difference_from_reference_pp": -6.9,
+              "paired_difference_ci95_pp": [
+                -12.181410358279951,
+                -2.116804283109302
+              ],
+              "paired_improvements": 59,
+              "paired_regressions": 128
+            },
+            "x6b_expert_M1": {
+              "successes": 716,
+              "episodes": 1000,
+              "success_percent": 71.6,
+              "difference_from_reference_pp": -4.9,
+              "paired_difference_ci95_pp": [
+                -9.440833924922668,
+                -0.4679683953117214
+              ],
+              "paired_improvements": 59,
+              "paired_regressions": 108
+            }
+          }
+        },
+        "excluding_libero10_tasks8_9": {
+          "reference": "x6b_fp",
+          "episodes_per_model": 951,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "x6b_fp": {
+              "successes": 740,
+              "episodes": 951,
+              "success_percent": 77.81282860147213,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "x6b_uniform": {
+              "successes": 695,
+              "episodes": 951,
+              "success_percent": 73.08096740273396,
+              "difference_from_reference_pp": -4.73186119873817,
+              "paired_difference_ci95_pp": [
+                -9.264258453193913,
+                -0.5364914137915769
+              ],
+              "paired_improvements": 56,
+              "paired_regressions": 101
+            },
+            "x6b_flowvq": {
+              "successes": 686,
+              "episodes": 951,
+              "success_percent": 72.13459516298633,
+              "difference_from_reference_pp": -5.678233438485805,
+              "paired_difference_ci95_pp": [
+                -10.567232543356704,
+                -1.149197818713121
+              ],
+              "paired_improvements": 59,
+              "paired_regressions": 113
+            },
+            "x6b_expert_M1": {
+              "successes": 695,
+              "episodes": 951,
+              "success_percent": 73.08096740273396,
+              "difference_from_reference_pp": -4.73186119873817,
+              "paired_difference_ci95_pp": [
+                -9.163566526169705,
+                -0.5828297702704468
+              ],
+              "paired_improvements": 54,
+              "paired_regressions": 99
+            }
+          }
+        }
+      },
       "installation": {
         "reused_episodes": 300,
         "required": 300,
@@ -7058,7 +7183,11 @@
         "/projects/yanlongvla/runs/story_round/x6b_expert_M1/offline/result.json": "f553f897edd85b2e9aa04565a41bba80cb67eede941dee1fa0e305c91a6f69b2",
         "/projects/yanlongvla/runs/story_round/x6b_expert_M1/offline/actions.npy": "b0fbd3dfa5da9556f44917392760a4bc24b189cd9edaa52e14be22758efce5b3",
         "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1_manifest.json": "59fddf5d6bc99bd449e1e08c7726c396de2ca075e718a79c6d8b857a24c0cf49",
-        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1.jsonl": "687ac608e2aafc24e3c35be25f66fc6abc9afc5bd6370ea9dc49b7ad956173eb"
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1.jsonl": "687ac608e2aafc24e3c35be25f66fc6abc9afc5bd6370ea9dc49b7ad956173eb",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker2_manifest.json": "b57b30d662fa47617b428296386a12f4311aa573ff95143e6f644e28898591a8",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker2.jsonl": "008a89ad15b07d245654828e2c0e8253dbbdcca8aba1e896429c51374af3b0c3",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3_manifest.json": "bd0c0c668be751f23818b08dccb2b6626cda50318776e34d8d7c2fcb26720717",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3.jsonl": "826a961d31efe71d3f6ddbfff9be7c3d221ce7a21e384f0e5b3998d71c1aee49"
       },
       "full_fp_status": "cancelled_by_user; partial rows archived; no full-set score",
       "scope": "Original paired500 camera+500 robot-state instances;300 installation cases are separate and never enter model comparison"
