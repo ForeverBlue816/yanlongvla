@@ -42,7 +42,7 @@
   "full_fp": null,
   "progress": {
     "x6b_fp": {
-      "episodes": 3548,
+      "episodes": 4516,
       "required": 10030,
       "subset_episodes": 1000,
       "subset_required": 1000,
@@ -77,15 +77,15 @@
   "source_sha256": {
     "/projects/yanlongvla/runs/story_round/libero_plus/fp_compatibility.json": "c8054fde3b98493546e235ac2e9dfac0ecde9d7f2ad04c8ce00dac2dd0dfc169",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "839becebb2d5d7e2468b4d81eed617258bf98601f294d31c33a15b89bfaf9677",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "eab7c4a6807b10af020db6612100fc1fe2ecdc3b9238a6a4eefde9a3cdc0ad75",
     "/projects/yanlongvla/runs/story_round/x6b_fp/offline/result.json": "2a3400c34b01515fc926ecf698e06e3a3c8f43dde46d9ba0030f25c1acd1e233",
     "/projects/yanlongvla/runs/story_round/x6b_fp/offline/actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1_manifest.json": "427c3b76869a1a550091e77904bf651b9eedf71e0cffd1e0267c88cb52e0731f",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "ba5bb014e991b78e8980b759c5f09127d537b2e932119e2b21d400a5535f6f5c",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "0690ed9164c386e643e012b717739fc0c00315af67ccdebf914e37b906c6c1c9",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2_manifest.json": "8bdc7154bdf9b3dff955d63c3abfb4684e4133396fcdf08cfb49a72f225d17d2",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "89d64ee375cb6f9db94f94158508e351974eace81e4b2f8f58c2904d49f1d229",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "fae27b3da7c6dcdaa59946fc4172a05b59e7fbd90020a3aa8faf010a55f5ee35",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3_manifest.json": "bef3923769c2778b28eab8f0b901aaee117e048b5517778923d3de891131a834",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "ed23f2458eb36b927c8a24aac6e53af045b713d0b1caac9e55ca912a9fea8cbe",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "7e6d602aeb8ad14618b29369f53cf895ecb72eb67971a61fce57c70bc8502c51",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0_manifest.json": "1ca551b691dbd0ea15dd7b12b6bff883497f330a2bbc8485c8cdb88d484d5c32",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0.jsonl": "2049fe4cd7f406c15faba436eea59424d4a5e003929dcc8bdaea3f7a5787832a",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/offline/result.json": "b25ba52348e87ea6c57dcd41a8fa7b9f69b3908c46f3f18bbfd9d8675227b458",

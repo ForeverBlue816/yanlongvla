@@ -1,8 +1,63 @@
-# Current experiment results — 2026-10-04 21:04 SGT
+# Current experiments — Decisions, not actions — 2026-10-04 22:19 SGT
 
-Validated X1/X2/X4 configurations: 18/18. X3 FP32: complete. Task-8 paired follow-up: complete (800/800 episodes). X6a: complete; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
+The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: in_progress; G-H1: pending. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
 
-This report updates automatically when a complete result passes validation. Older dated sections below are historical.
+<!-- DECISIONS_ROUND_BEGIN -->
+## Decisions, not actions
+
+Active protocol: seed7, paired episode IDs, L40S persistent BF16 cache. The10,030-instance FP LIBERO-Plus run is canceled; existing partial rows are archived, not a full-set score. Only the fixed500+500 comparison and a separate300-instance installation check remain. All success results in this round include the scope excluding LIBERO-10 tasks8/9. Older sections are historical.
+
+### H1 — Hybrid-step models
+
+| Model | Task8 /200 | Task9 /200 | Excluding tasks8/9 |
+|---|---|---|---|
+| fp | 112/200 (56.0%); Δ +0.0pp [+0.0, +0.0] | pending | N/A (N=0) |
+| uniform | 184/200 (92.0%); Δ +36.0pp [+29.0, +43.5] | pending | N/A (N=0) |
+| h1a | pending | pending | N/A (N=0) |
+| h1b | pending | pending | N/A (N=0) |
+| h1c | pending | pending | N/A (N=0) |
+| h1d | pending | pending | N/A (N=0) |
+
+G-H1 is pending; the hypothesis has not been accepted.
+
+H1a: FP backbone, FP expert0–8 / uniform M2 expert9. H1b: M2 backbone, M2 expert0–8 / FP expert9. H1c: M2 backbone, FP expert throughout. H1d: FP backbone, uniform M2 expert throughout. No refitting.
+
+Reject if H1a≥148/200, H1b<148/200, or H1c<148/200 on task8. Baseline112/200 versus184/200 gives a36pp gain; half is18pp. These task8-only counts have N=0 after exclusion. Intervals use paired50-initial-state-cluster bootstrap, retaining four noise repeats. Six-model bar chart awaits complete data and visual review.
+
+### H2 — Mode shifts
+
+Status: queued. The256 training-calibration observations,1600 evaluation-initial-state observations (40×40), and256 observations from40 held-out trajectories remain separate banks. All models share32 latents per observation. Cluster the35 training-standardised action dimensions; silhouette k=2..4, primary threshold0.25 and sensitivities0.20/0.30. A centroid-distance/pooled-within-cluster-RMS ratio<2 also implies unimodality. Report disagreement and fixed-k2 TV. Correlations/scatters and task8/task9/control projections await action banks and manual physical interpretation.
+
+### H3 — Decision-space dose response
+
+Status: gated_on_H1. The500 stored X3 Jacobians are retained. Per-observation SVD defines top3 right input directions and their orthogonal complements; left vectors are output-side only. Top10 singular values and unmodified complex eigenvalues, top5 energy projections, velocity/absolute units and the nine early-step perturbation conditions are tracked separately before comparison with X4.
+
+Stored-matrix follow-up: mean top10 singular values = [0.7720, 0.5823, 0.4909, 0.4301, 0.3821, 0.3417, 0.3053, 0.2744, 0.2461, 0.2228]. Mean of the three principal angles over124,750 observation pairs = 59.46°. This descriptive result alone does not establish a shared decision subspace. [Per-observation spectra and source hashes](results/decisions_spectrum.json). Directional gain-energy probes and dose-response rollouts remain pending.
+
+### H4 — Component isolation and failure causes
+
+Status: gated_on_H1. Plain-VQ M2+M2 needs200 episodes on each task. Newly collected trajectories retain both camera views, simulator states and executed actions. Historical FP task8 outcomes lack trajectories; diagnostic replays and manual labels are required. No cause is inferred from a timeout alone.
+
+### H5 — Decision-preserving calibration
+
+Status: gated_on_H1. H5a/H5b start only after G-H1 passes. G-H5 requires at least30% lower TV in one variant; otherwise report that no decision-preserving calibration was found.
+
+### Prediction verdict
+
+The new predictions are not yet established. Existing action-MSE/success discrepancies motivate this test but do not establish discrete-decision changes, final-step projection, or a successful calibration method.
+
+### H6 — Bookkeeping
+
+| Protocol | All tasks | Excluding LIBERO-10 tasks8/9 | Status |
+|---|---|---|---|
+| full | pending | pending | queued_or_gated |
+| medium1 | pending | pending | queued_or_gated |
+| medium2 | pending | pending | queued_or_gated |
+| plus2 | pending | pending | queued_or_gated |
+| install300 | 290/300 (96.7%) | 290/300 (96.7%) | complete |
+
+Machine-readable evidence: [decisions_round.json](results/decisions_round.json). Protocol changes and every released milestone are recorded in EXPERIMENTS.md.
+<!-- DECISIONS_ROUND_END -->
 
 # Current result — FlowVQ main-method end-to-end validation complete
 

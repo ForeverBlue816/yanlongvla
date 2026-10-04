@@ -815,3 +815,29 @@ At the user’s request, stopped foreground polling and connected report-only mi
 ## E073 — complete task8, X3 FP32 and X6a results (2026-10-04, 21:00 SGT)
 
 Independent task8 revalidation confirms 800 episode IDs, completion hashes, paired noise/state assignments and the 50-state cluster intervals. FP112/200; uniform M2 184/200; FlowVQ M2 176/200; FlowVQ M3 123/200. M2 FlowVQ retains the original +32 pp advantage over FP (95% CI[24.5,40.0]), but is -4 pp versus uniform M2 (CI[-9.5,1.5]). The 50 official states repeat four times; no independent-200-state claim is made. X3 completed all500 FP32 observations, 5000 threshold crossings and ten local-linearity checks with zero numerical floor/drift. Its primary JVP shape fit R²=-2.85357147 and finite-response fit R²=-1.75691972 do not support the tested single-parameter shape approximation. X6a is complete: 459/478/474/462 successes out of500 for FP/uniformM2/FlowVQ M2/FlowVQ M3; all paired versus-FP intervals include zero. X6b continues with its fixed subsets and one full FP evaluation. Corrected stale compatibility text using the seven-factor pilot’s verified source hashes. No evaluation source or rollout was changed.
+
+
+## E074 — Decisions round handoff (2026-10-04)
+
+User supplied DECISIONS_2026-10-05.md, then explicitly approved half-gain G-H1 threshold148/200; training-standardised35D clustering with silhouette0.25 (sensitivities0.20/0.30), centroid ratio<2, disagreement flags and fixed-k2 TV; and SVD/right input perturbation directions with pairwise principal angles. Settings are frozen in runs/decisions_round/preregistration.json. scancel183178 then183555183688183569 stopped the legacy controller/full FP and deferred pending M1; all old evidence retained. Exact handoff SHA and old ledger archived in runs/decisions_round/handoff.json.
+
+H1 submitted183870,183871,183872 via immutable launcher snapshots recorded with exact commands in runs/decisions_round/jobs.json. H2 submitted183876 similarly. No model refit. Four hybrids each passed2560 donor-step equality checks on256 calibration observations, graph/eager raw-action equality, and a separate256-observation/40-trajectory held-out evaluation. Maximum component difference0 for all four. Validation/result.json and immutable runtime/checkpoint hashes are retained per model. Existing generic cache_audit expert_schedule string is a legacy FlowVQ description and does not describe H1: H1 uses the explicit fp/q routes and uniform M2 for every q step. No per-inference reconstruction is allowed. Task8/9 new rollouts begin only after each exact guard. No success conclusion is available.
+
+H2 training-only35D std uses all9190 valid within-trajectory5-step windows from the original60 calibration trajectories; no evaluation statistics. Each inference model must match its accepted256 held-out action bank before latent sampling. New1600 observations come from40 official evaluation initial states per each of40 tasks after10 settling steps, not demos. The256 calibration and256 held-out-trajectory observations remain separate. Clustering implementation specifies centroid separation as minimum pairwise Euclidean centroid distance divided by pooled RMS Euclidean residual in standardised35D. Two fixed controls: spatial0 and goal0.
+
+CPU-only reuse of all500 accepted FP32 X3 Jacobians computed per-observation SVD and raw eigenvalues, and124750 pairs of top3 right subspaces. Mean singular values/principal angles and all source hashes: runs/decisions_round/h3/spectrum.json. This is a partial X3 follow-up, not completion of directional energy probes or H3 rollouts. H3/H5 implementation remains explicitly gated future work. H4 failure labels require trajectory inspection; historical task8 FP outcome-only logs cannot establish causes.
+
+New publication retains only reports/results/reviewed figures; full FP10030 canceled, no full-set score inferred. New300 installation instances are fixed across7 dimensions (43 each for first6 alphabetical categories,42 for last), exclude the pre-registered1000 comparison rows, and are independent of outcomes. All new success summaries report both all-task and excluding-LIBERO10-tasks8/9 scopes; task8/9-only exclusion is N/A with N=0. Five numerical/gate tests and four publication regression tests passed.
+
+H4 runner now chains FP task8 failure-only diagnostic replays after plain-VQ worker0, retaining original accepted quality outcomes and explicit successful-episode skip records. Recovered trajectories go to a manual review queue with replay-outcome agreement flags. No replay is added to any success denominator.
+
+The independently fixed300 installation instances were all found in accepted archived FP rows:290/300,96.67% for both all-task and excluding-LIBERO10-tasks8/9 scopes (this selection contains no excluded base tasks). They span all7 dimensions and are separate from the1000 comparison subset. No new installation rollouts will be scheduled. Full raw source hashes remain in decisions_round.json.H6.plus.source_sha256.
+
+Strict CPU reuse audit passed: full uniform1250 existing episodes (1000 medium plus250 additional LIBERO10 episodes), reduced-step medium500 each. No accepted episode is rerun. Eight Decisions tests plus four publication tests now pass, including gate rejection cancellation, exclusion denominators and preserving the new report section.
+
+
+### Decisions milestone — 2026-10-04T14:19:42.317935+00:00
+
+{"G_H1": "pending", "H1": "in_progress", "H2": "queued", "H6": {"full": "queued_or_gated", "install300": "complete", "medium1": "queued_or_gated", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["h1a", "h1b", "h1c", "h1d"]}
+
+All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.

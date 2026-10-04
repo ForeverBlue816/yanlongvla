@@ -1,0 +1,409 @@
+{
+  "round": "Decisions, not actions",
+  "status": "in_progress",
+  "preregistration": {
+    "G_H1": {
+      "fp_successes": 112,
+      "uniform_successes": 184,
+      "episodes": 200,
+      "half_gain_successes": 36,
+      "threshold_successes": 148,
+      "reject_if": "H1a>=148 OR H1b<148 OR H1c<148",
+      "approved_by_user": true,
+      "CI": "paired bootstrap over 50 initial-state clusters, 10000 draws, analysis seed 20261004; threshold uses point estimate"
+    },
+    "H2": {
+      "silhouette_k": [
+        2,
+        3,
+        4
+      ],
+      "primary_threshold": 0.25,
+      "sensitivity_thresholds": [
+        0.2,
+        0.3
+      ],
+      "normalize": "each of the35 executed action dimensions by training-set action std",
+      "second_unimodality": "inter-centroid distance / pooled within-cluster std < 2",
+      "disagreement_flag": true,
+      "fixed_k2_TV": true,
+      "controls": [
+        "libero_spatial:0",
+        "libero_goal:0"
+      ],
+      "approved_by_user": true,
+      "centroid_ratio_definition": "minimum pairwise centroid Euclidean distance / pooled RMS Euclidean residual over35 training-standardised dimensions"
+    },
+    "H3": {
+      "eigen_definition_status": "approved_SVD",
+      "approved_by_user": true,
+      "spectrum": "top10 singular values; original eigenvalues as-is for completeness",
+      "perturbation": "top3 right singular vectors per observation and orthogonal complement; input side",
+      "output_directions": "left singular vectors only for output-side action directions",
+      "stability": "mean principal angles between all pairs of top3 right subspaces across500 observations"
+    },
+    "H5": {
+      "status": "blocked_until_G_H1_pass",
+      "fisher_note": "cos gradient vanishes at teacher equality; evaluate at existing quantized student, subject to explicit protocol review before fitting"
+    }
+  },
+  "H1": {
+    "status": "in_progress",
+    "gate": "pending",
+    "gate_threshold": 148,
+    "task8_counts": {
+      "fp": 112,
+      "uniform": 184
+    },
+    "progress": {
+      "fp": {
+        "8": 200,
+        "9": 0
+      },
+      "uniform": {
+        "8": 200,
+        "9": 0
+      },
+      "h1a": {
+        "8": 56,
+        "9": 0
+      },
+      "h1b": {
+        "8": 42,
+        "9": 0
+      },
+      "h1c": {
+        "8": 44,
+        "9": 0
+      },
+      "h1d": {
+        "8": 56,
+        "9": 0
+      }
+    },
+    "tasks": {
+      "8": {
+        "fp": {
+          "all_tasks": {
+            "successes": 112,
+            "episodes": 200,
+            "success_percent": 56.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "success_ci95_percent": [
+            47.5,
+            64.0
+          ]
+        },
+        "uniform": {
+          "all_tasks": {
+            "successes": 184,
+            "episodes": 200,
+            "success_percent": 92.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": 36.0,
+          "paired_difference_ci95_pp": [
+            28.999999999999996,
+            43.5
+          ],
+          "success_ci95_percent": [
+            87.5,
+            96.0
+          ]
+        }
+      }
+    },
+    "aggregate": {},
+    "validated_models": [
+      "h1a",
+      "h1b",
+      "h1c",
+      "h1d"
+    ],
+    "source_sha256": {
+      "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "e42afaa2372a9e31fa88c6c94f0feeb813071d33ea2b13f9083a7a1019720f45",
+      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "fc6a9803644d3ca84a5b30f2319c3dc672897010383b5ee00fb07440cd91957f"
+    },
+    "exact_validation": {
+      "h1a": {
+        "calibration_observations": 256,
+        "component_comparisons": 2560,
+        "maximum_component_difference": 0.0
+      },
+      "h1b": {
+        "calibration_observations": 256,
+        "component_comparisons": 2560,
+        "maximum_component_difference": 0.0
+      },
+      "h1c": {
+        "calibration_observations": 256,
+        "component_comparisons": 2560,
+        "maximum_component_difference": 0.0
+      },
+      "h1d": {
+        "calibration_observations": 256,
+        "component_comparisons": 2560,
+        "maximum_component_difference": 0.0
+      }
+    },
+    "scope": "Tasks8/9 only; excluding them yields N=0 and N/A. Task8 FP/uniform references reused. Four noise repeats per50 official initial-state clusters; paired10000-draw bootstrap."
+  },
+  "H2": {
+    "status": "queued",
+    "normalization": "35 training-set action std; both unimodality criteria; fixed-k2 TV"
+  },
+  "H3": {
+    "status": "gated_on_H1",
+    "followup": "Reuse500 stored J_D9 matrices; directional gain energy requires additional derivative probes",
+    "spectrum": {
+      "status": "spectrum_complete_energy_projection_pending",
+      "observations": 500,
+      "window": [
+        10,
+        7
+      ],
+      "top10_singular_values_mean": [
+        0.7719615177235385,
+        0.5822739022664808,
+        0.49091428793556935,
+        0.43011077445426343,
+        0.38207845973104654,
+        0.3417403086104868,
+        0.30527720638921463,
+        0.2743514678608895,
+        0.2461076802213206,
+        0.222784219641341
+      ],
+      "top10_singular_values_std": [
+        0.1816692671727981,
+        0.1280249928462728,
+        0.11307549041234138,
+        0.11083361090964718,
+        0.10734963433271982,
+        0.10481771209920042,
+        0.10390397992979467,
+        0.10009476795279944,
+        0.09706506450616478,
+        0.09251540038222893
+      ],
+      "pairwise_top3_right_principal_angles": {
+        "pairs": 124750,
+        "mean_all_angles_degrees": 59.4590278453425,
+        "mean_by_angle_degrees": [
+          35.41666619492103,
+          60.981338255130815,
+          81.97907908597527
+        ],
+        "mean_largest_angle_degrees": 81.97907908597618,
+        "quantiles_largest_angle_degrees": [
+          65.76032109241126,
+          84.47214222527269,
+          89.56427325395343
+        ]
+      },
+      "subspace": "Top3 right singular vectors = eigenvectors of J_D9.T @ J_D9; input side. Left singular vectors used only for output-side energy projections.",
+      "interpretation": "Subspace stability is descriptive; no shared decision subspace or causal decision interpretation is inferred from an angle alone.",
+      "pending": [
+        "fraction of early-step gain energy in top5 directions with explicitly stated input/output coordinates",
+        "velocity-amplitude and absolute-unit gain tables",
+        "nine H3 rollout conditions after G-H1 passes"
+      ]
+    },
+    "spectrum_sha256": "8e78e4e9979c8d0f1c0f313ecbf0588185efe5fb316f5e46df1ccf88cac02940"
+  },
+  "H4": {
+    "status": "gated_on_H1",
+    "failure_causes": "pending trajectory inspection; historical FP task8 failures need diagnostic replay",
+    "component_isolation": {
+      "status": "queued_or_gated"
+    }
+  },
+  "H5": {
+    "status": "gated_on_H1",
+    "gate": "at least30% TV reduction by either variant; otherwise no method found"
+  },
+  "H6": {
+    "full": {
+      "status": "queued_or_gated"
+    },
+    "medium1": {
+      "status": "queued_or_gated"
+    },
+    "medium2": {
+      "status": "queued_or_gated"
+    },
+    "plus2": {
+      "status": "queued_or_gated"
+    },
+    "install300": {
+      "reused_episodes": 300,
+      "required": 300,
+      "remaining": 0,
+      "seven_dimensions": [
+        "Background Textures",
+        "Camera Viewpoints",
+        "Language Instructions",
+        "Light Conditions",
+        "Objects Layout",
+        "Robot Initial States",
+        "Sensor Noise"
+      ],
+      "status": "complete",
+      "all_tasks": {
+        "successes": 290,
+        "episodes": 300,
+        "success_percent": 96.66666666666667
+      },
+      "excluding_libero10_tasks8_9": {
+        "successes": 290,
+        "episodes": 300,
+        "success_percent": 96.66666666666667
+      }
+    },
+    "plus": {
+      "status": "in_progress",
+      "progress": {
+        "x6b_fp": {
+          "completed": 1000,
+          "required": 1000,
+          "all_tasks": {
+            "successes": 765,
+            "episodes": 1000,
+            "success_percent": 76.5
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 740,
+            "episodes": 951,
+            "success_percent": 77.81282860147213
+          }
+        },
+        "x6b_uniform": {
+          "completed": 1000,
+          "required": 1000,
+          "all_tasks": {
+            "successes": 704,
+            "episodes": 1000,
+            "success_percent": 70.4
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 695,
+            "episodes": 951,
+            "success_percent": 73.08096740273396
+          }
+        },
+        "x6b_flowvq": {
+          "completed": 1000,
+          "required": 1000,
+          "all_tasks": {
+            "successes": 696,
+            "episodes": 1000,
+            "success_percent": 69.6
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 686,
+            "episodes": 951,
+            "success_percent": 72.13459516298633
+          }
+        },
+        "x6b_expert_M1": {
+          "completed": 500,
+          "required": 1000
+        },
+        "2bit_2steps": {
+          "completed": null,
+          "required": 1000,
+          "status": "pending"
+        }
+      },
+      "paired": {},
+      "installation": {
+        "reused_episodes": 300,
+        "required": 300,
+        "remaining": 0,
+        "seven_dimensions": [
+          "Background Textures",
+          "Camera Viewpoints",
+          "Language Instructions",
+          "Light Conditions",
+          "Objects Layout",
+          "Robot Initial States",
+          "Sensor Noise"
+        ],
+        "status": "complete",
+        "all_tasks": {
+          "successes": 290,
+          "episodes": 300,
+          "success_percent": 96.66666666666667
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 290,
+          "episodes": 300,
+          "success_percent": 96.66666666666667
+        }
+      },
+      "source_sha256": {
+        "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "62d6d95bff695c97ffefcff8fb6aca0942d600509d59cb0f1ec175cac770ef5f",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/offline/result.json": "2a3400c34b01515fc926ecf698e06e3a3c8f43dde46d9ba0030f25c1acd1e233",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/offline/actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1_manifest.json": "427c3b76869a1a550091e77904bf651b9eedf71e0cffd1e0267c88cb52e0731f",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "1429ddfa2dfe293954c445cdb033c67345f1879c4c82cc7de02fe943826371df",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2_manifest.json": "8bdc7154bdf9b3dff955d63c3abfb4684e4133396fcdf08cfb49a72f225d17d2",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "22ade6e59567beedb058f75554543245600a50485c9273d8bef18683982d0a79",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3_manifest.json": "bef3923769c2778b28eab8f0b901aaee117e048b5517778923d3de891131a834",
+        "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "e398ff2052b5fd29a0787621a920937d42e675b0521ff724c1d8706bdec3e4fd",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0_manifest.json": "1ca551b691dbd0ea15dd7b12b6bff883497f330a2bbc8485c8cdb88d484d5c32",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0.jsonl": "2049fe4cd7f406c15faba436eea59424d4a5e003929dcc8bdaea3f7a5787832a",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/offline/result.json": "b25ba52348e87ea6c57dcd41a8fa7b9f69b3908c46f3f18bbfd9d8675227b458",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/offline/actions.npy": "4f81673e5b943a17e46d5d55d977cf49113cd12ab48600dc78900cb1215f92ae",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker1_manifest.json": "c57514f767d0487222310cc791da9172a59fec77d6807c99d8aa20666dc3717b",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker1.jsonl": "dde0ce5666a5f38d370974d16b2c639bdf06cdc0928b256ebf16419e032fcaa8",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker2_manifest.json": "8cd142652f72eb2db682109bd5deaf7db2ab62366864b045ab22291aea0eb688",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker2.jsonl": "ed177ab45c5db4c43b0e92008a046c50c89d257625bc2a8242981bd8e0a74ddb",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3_manifest.json": "59bec3e1dbedecf254f962f7eee0636e4c16309d9b1e451b58fb0305c74aba04",
+        "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3.jsonl": "c68e4155bc18b16720d2e7da585dc7407979e9dc5ff93cedddadb8427b6f8466",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker0_manifest.json": "85da655d01f8445e068ff66e231f4b2d88f9c3f313c383d58bfeb9b15dda29be",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker0.jsonl": "ee5d35ceee55e8ac385ae66d9c94966bd2feb67fa88adbae4d32491d3c3c7727",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/offline/result.json": "cc88c2e4e161e303cb3870e1b3a96ffb25450723711ca65e952f8e7e8dddb60f",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/offline/actions.npy": "cba0415fac84b82e28c49c592a96caa7c5b8c967632d79d2017346dcc8a83877",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker1_manifest.json": "2f4ac36b0cae4403f4d5b70b04f3014aba7454275be798c7f7974fde022d961c",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker1.jsonl": "7ccb62063571398c7796b87fee7283f55d4e9eb9f0446592f82c451c947c2f56",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2_manifest.json": "dea55979503cf7c8af3d191f3b2e570936791b96c9c183d12f0ebb05b7e9f4b8",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2.jsonl": "6a35f05c806a02fb9dd5002f2e15e1821d053279243b053ddb5f28775cca47f8",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3_manifest.json": "b1b2f361c3e77e5dde0827b232a389ae05e751fdc131cfbeadcaad308a682b3b",
+        "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3.jsonl": "f8d82f9c19e395296c744682194fcbead39d6d01a9f70c5dd83b7197b6dbe57e",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker0_manifest.json": "0fd7bbb8ba41e0af754423af58d583b277bee6dbde11a1c06c40f49d3112779e",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker0.jsonl": "3c6dc836ab44fd54bd8c95348347762895f546341492f5026ca9765d93b145b9",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/offline/result.json": "f553f897edd85b2e9aa04565a41bba80cb67eede941dee1fa0e305c91a6f69b2",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/offline/actions.npy": "b0fbd3dfa5da9556f44917392760a4bc24b189cd9edaa52e14be22758efce5b3",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1_manifest.json": "59fddf5d6bc99bd449e1e08c7726c396de2ca075e718a79c6d8b857a24c0cf49",
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1.jsonl": "687ac608e2aafc24e3c35be25f66fc6abc9afc5bd6370ea9dc49b7ad956173eb"
+      },
+      "full_fp_status": "cancelled_by_user; partial rows archived; no full-set score",
+      "scope": "Original paired500 camera+500 robot-state instances;300 installation cases are separate and never enter model comparison"
+    }
+  },
+  "cancelled": {
+    "full_plus_fp_10030": true,
+    "legacy_controller": true
+  },
+  "validation_issues": []
+}
