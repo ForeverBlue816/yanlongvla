@@ -1,6 +1,6 @@
-# Current experiment results — 2026-10-04 15:34 SGT
+# Current experiment results — 2026-10-04 15:54 SGT
 
-Validated X1/X2/X4 configurations: 18/18. X3 FP32: in progress. Task-8 paired follow-up: complete (800/800 episodes). X6a: complete; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
+Validated X1/X2/X4 configurations: 18/18. X3 FP32: complete. Task-8 paired follow-up: complete (800/800 episodes). X6a: complete; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
 
 This report updates automatically when a complete result passes validation. Older dated sections below are historical.
 
@@ -482,7 +482,30 @@ All reduced-step configurations use newly captured FP32 AdaRMS tables with exact
 
 ### Jacobian and step tolerance
 
-Pending500 observations with offline FP32 expert/sampler. JVP gains are primary; paired finite-amplitude slopes are cross-checks. Each step measures a two-zero-run floor and qualifies amplitudes only above10× that floor with <20% slope change per3× amplitude increase. The completed native-BF16 pilot is retained separately.
+500 calibration observations,10×7 sampler-state window. **Primary FP32 JVP gain fit:** R²=-2.8535714696893173; fitted norm=0.23318741737676563. Paired finite-amplitude cross-check: R²=-1.756919720563832; fitted norm=0.2178661077482137. JVP-measured last denoiser spectral norm mean=0.771962; trace/d mean=0.0874829; RMS norm mean=0.1767.
+
+Offline only: identical checkpoint expert weights widened to FP32; all expert/sampler arithmetic FP32, TF32 disabled. Backbone weights retain native BF16/FP32; prefix KV widened to FP32. Deployment unchanged.
+
+Paired finite-amplitude cross-check
+
+Local linearity verified in 10/10 steps. Signals must exceed10× the measured two-zero-run floor, and the energy-ratio slope must change by <20% when amplitude increases3×. Maximum zero-run squared-error floor: 0.0; maximum paired clean drift: 0.0. All qualifying amplitude pairs and per-observation counts are in the evidence; the native-BF16 pilot remains separate. Threshold crossings: 5000/5000 step-observation cases. Failures to cross remain explicitly censored; no finite value is invented. Isotropic slopes measure average squared gain, while spectral norm measures the largest directional gain.
+
+The original weight-noise D3 curve is retained as a censored cross-check: steps0–7 are lower bounds. Only step8 is uncensored in the0–8 fit range, so its shape-fit R² is not identifiable. [X3 evidence](results/story_x3.json).
+
+Figure export awaits visual review; numerical results are reported above.
+
+| Step k | JVP RMS gain ‖Gₖ‖ | Direct-velocity squared-gain slope | Regression R² | Velocity amplitude window | Local linearity verified |
+|---:|---:|---:|---:|---|---|
+| 0 | 0.190717 | 0.0539849 | 0.9999839207188462 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 1 | 0.224137 | 0.167561 | 0.9999956019513654 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 2 | 0.293512 | 0.0998254 | 0.9999984550019204 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 3 | 0.334743 | 0.0507299 | 0.99993579070915 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 4 | 0.358198 | 0.0677633 | 0.9999997679320562 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 5 | 0.299558 | 0.0501113 | 0.9999999997170406 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 6 | 0.185485 | 0.0174004 | 0.9999969552702297 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 7 | 0.13613 | 0.0138464 | 0.9999999735655041 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 8 | 0.183114 | 0.0333845 | 0.9999999963132304 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
+| 9 | 1 | 0.999964 | 0.9999999999615758 | [1e-05, 3.0000000000000004e-05, 9e-05] | True |
 
 Original weight-noise cross-check (existing256-observation calibration experiment, latent noise0): the gray curves are all eight early steps, each still below the1e-3 threshold at noise norm300. Steps8/9 cross at interpolated norms2.0216/0.45072 within brackets[1,3]/[0.3,1]. These are different injected quantities and a5×7 window, so no equality with the new10×7 velocity thresholds is assumed.
 

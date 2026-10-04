@@ -14,9 +14,9 @@
   "full_fp": null,
   "progress": {
     "x6b_fp": {
-      "episodes": 311,
+      "episodes": 737,
       "required": 10030,
-      "subset_episodes": 299,
+      "subset_episodes": 671,
       "subset_required": 1000,
       "complete": false
     },
@@ -48,11 +48,15 @@
   "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
   "source_sha256": {
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "112d64715f229803303f5072b48bea6db6230eb91370eb1130c4d1b77f245a23",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "8ae9a85302d5ded730d9ec147240ac06814f01eb90d8061d4b80fed04c6b0f0a",
     "/projects/yanlongvla/runs/story_round/x6b_fp/offline/result.json": "2a3400c34b01515fc926ecf698e06e3a3c8f43dde46d9ba0030f25c1acd1e233",
     "/projects/yanlongvla/runs/story_round/x6b_fp/offline/actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1_manifest.json": "427c3b76869a1a550091e77904bf651b9eedf71e0cffd1e0267c88cb52e0731f",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "7d430e3310c0bc328c352f9d94269d4f61db268e85809e580fd0a27bb561dc22"
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "eb20a274e5fddc85df4668ca7c635e3a828f063af998fcc9f339d55f03d23001",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2_manifest.json": "8bdc7154bdf9b3dff955d63c3abfb4684e4133396fcdf08cfb49a72f225d17d2",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "aa73ea633250f3bc2cb903958cd50ae093ac9e81b9af2fe9f1ebc5c4334fac27",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3_manifest.json": "bef3923769c2778b28eab8f0b901aaee117e048b5517778923d3de891131a834",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "fba4ecdaf9bd42e67366ad7946c6b2357b08dd734bec05725e6f38a3479ceec0"
   },
   "scope": "FP full10030 instances once; equal fixed500 camera+500 robot-initial-state instances per model, FP subset reused from full run. No extra same-GPU controls. Hardware/backend differences, where present, are not removed by paired CIs."
 }
