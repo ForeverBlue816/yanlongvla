@@ -1,4 +1,4 @@
-# Current experiments — Decisions, not actions — 2026-10-05 06:51 SGT
+# Current experiments — Decisions, not actions — 2026-10-05 06:55 SGT
 
 The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: complete; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
 
@@ -93,7 +93,7 @@ Task8 supports the backbone attribution and passes G-H1; it does not support ear
 | full | pending | pending | in_progress |
 | medium1 | 972/1000 (97.2%) | 934/950 (98.3%) | complete |
 | medium2 | 968/1000 (96.8%) | 931/950 (98.0%) | complete |
-| plus2 | pending | pending | in_progress |
+| plus2 | 705/1000 (70.5%) | 694/951 (73.0%) | complete |
 | install300 | 290/300 (96.7%) | 290/300 (96.7%) | complete |
 
 Machine-readable evidence: [decisions_round.json](results/decisions_round.json). Protocol changes and every released milestone are recorded in EXPERIMENTS.md.

@@ -6914,9 +6914,34 @@
       "executed_chunk_mse": 0.007261623950106441
     },
     "plus2": {
-      "status": "in_progress",
-      "complete_workers": 1,
-      "workers": 2
+      "status": "complete",
+      "all_tasks": {
+        "successes": 705,
+        "episodes": 1000,
+        "success_percent": 70.5
+      },
+      "excluding_libero10_tasks8_9": {
+        "successes": 694,
+        "episodes": 951,
+        "success_percent": 72.97581493165089
+      },
+      "source_sha256": {
+        "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker0_manifest.json": "1c2c2615027fb11a2d5ed5b5d4929bbf0141f2c30b7d5e8526f438cdaddd6cd5",
+        "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker0.jsonl": "0a617b9c6a21699897bc6abd2f44d97479429e9337c4d2ccf2e30cfb29788479",
+        "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker1_manifest.json": "1d66e42973861169108db73f1fdd5aef30d1e00ce86e7ec3bf43d8841fd494db",
+        "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker1.jsonl": "fffebfa137135f955d646ff48837e7ca5c099c7c8aea974954798a65ca41b98b"
+      },
+      "reads": {
+        "logical_compressed_bytes_read": 1002278196,
+        "logical_dense_fallback_bytes_read": 7707508884,
+        "expert_compressed_bytes": 159105276,
+        "steps": 2,
+        "table_dtype": "float32",
+        "prompt_unique_embedding_rows": 15,
+        "vision_calls": 3,
+        "scope": "Independent safetensors offsets plus frozen invocation trace; logical parameter/metadata reads, excludes activation/KV traffic and physical DRAM/cache effects. Quality uses BF16 dense caches."
+      },
+      "executed_chunk_mse": 0.007261623950106441
     },
     "install300": {
       "reused_episodes": 300,
@@ -6944,7 +6969,7 @@
       }
     },
     "plus": {
-      "status": "four_original_subset_models_complete",
+      "status": "complete",
       "progress": {
         "x6b_fp": {
           "completed": 1000,
@@ -7003,9 +7028,18 @@
           }
         },
         "2bit_2steps": {
-          "completed": null,
+          "completed": 1000,
           "required": 1000,
-          "status": "pending"
+          "all_tasks": {
+            "successes": 705,
+            "episodes": 1000,
+            "success_percent": 70.5
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 694,
+            "episodes": 951,
+            "success_percent": 72.97581493165089
+          }
         }
       },
       "paired": {
@@ -7062,6 +7096,18 @@
               ],
               "paired_improvements": 59,
               "paired_regressions": 108
+            },
+            "2bit_2steps": {
+              "successes": 705,
+              "episodes": 1000,
+              "success_percent": 70.5,
+              "difference_from_reference_pp": -6.0,
+              "paired_difference_ci95_pp": [
+                -10.212749626236658,
+                -1.8210761320607942
+              ],
+              "paired_improvements": 54,
+              "paired_regressions": 114
             }
           }
         },
@@ -7117,6 +7163,18 @@
                 -0.5828297702704468
               ],
               "paired_improvements": 54,
+              "paired_regressions": 99
+            },
+            "2bit_2steps": {
+              "successes": 694,
+              "episodes": 951,
+              "success_percent": 72.9758149316509,
+              "difference_from_reference_pp": -4.837013669821241,
+              "paired_difference_ci95_pp": [
+                -9.384876474843367,
+                -0.9530716528920842
+              ],
+              "paired_improvements": 53,
               "paired_regressions": 99
             }
           }
@@ -7187,7 +7245,11 @@
         "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker2_manifest.json": "b57b30d662fa47617b428296386a12f4311aa573ff95143e6f644e28898591a8",
         "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker2.jsonl": "008a89ad15b07d245654828e2c0e8253dbbdcca8aba1e896429c51374af3b0c3",
         "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3_manifest.json": "bd0c0c668be751f23818b08dccb2b6626cda50318776e34d8d7c2fcb26720717",
-        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3.jsonl": "826a961d31efe71d3f6ddbfff9be7c3d221ce7a21e384f0e5b3998d71c1aee49"
+        "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3.jsonl": "826a961d31efe71d3f6ddbfff9be7c3d221ce7a21e384f0e5b3998d71c1aee49",
+        "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker0_manifest.json": "1c2c2615027fb11a2d5ed5b5d4929bbf0141f2c30b7d5e8526f438cdaddd6cd5",
+        "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker0.jsonl": "0a617b9c6a21699897bc6abd2f44d97479429e9337c4d2ccf2e30cfb29788479",
+        "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker1_manifest.json": "1d66e42973861169108db73f1fdd5aef30d1e00ce86e7ec3bf43d8841fd494db",
+        "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker1.jsonl": "fffebfa137135f955d646ff48837e7ca5c099c7c8aea974954798a65ca41b98b"
       },
       "full_fp_status": "cancelled_by_user; partial rows archived; no full-set score",
       "scope": "Original paired500 camera+500 robot-state instances;300 installation cases are separate and never enter model comparison"
