@@ -1,6 +1,6 @@
-# Current experiments — Decisions, not actions — 2026-10-05 00:17 SGT
+# Current experiments — Decisions, not actions — 2026-10-05 01:22 SGT
 
-The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: in_progress; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
+The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: complete; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
 
 <!-- DECISIONS_ROUND_BEGIN -->
 ## Decisions, not actions
@@ -11,12 +11,12 @@ Active protocol: seed7, paired episode IDs, L40S persistent BF16 cache. The10,03
 
 | Model | Task8 /200 | Task9 /200 | Excluding tasks8/9 |
 |---|---|---|---|
-| fp | 112/200 (56.0%); Δ +0.0pp [+0.0, +0.0] | pending | N/A (N=0) |
-| uniform | 184/200 (92.0%); Δ +36.0pp [+29.0, +43.5] | pending | N/A (N=0) |
-| h1a | 131/200 (65.5%); Δ +9.5pp [+1.5, +17.5] | pending | N/A (N=0) |
-| h1b | 172/200 (86.0%); Δ +30.0pp [+21.0, +38.5] | pending | N/A (N=0) |
-| h1c | 181/200 (90.5%); Δ +34.5pp [+26.0, +43.0] | pending | N/A (N=0) |
-| h1d | 118/200 (59.0%); Δ +3.0pp [-6.5, +12.5] | pending | N/A (N=0) |
+| fp | 112/200 (56.0%); Δ +0.0pp [+0.0, +0.0] | 187/200 (93.5%); Δ +0.0pp [+0.0, +0.0] | N/A (N=0) |
+| uniform | 184/200 (92.0%); Δ +36.0pp [+29.0, +43.5] | 167/200 (83.5%); Δ -10.0pp [-17.0, -4.0] | N/A (N=0) |
+| h1a | 131/200 (65.5%); Δ +9.5pp [+1.5, +17.5] | 186/200 (93.0%); Δ -0.5pp [-5.0, +3.5] | N/A (N=0) |
+| h1b | 172/200 (86.0%); Δ +30.0pp [+21.0, +38.5] | 173/200 (86.5%); Δ -7.0pp [-13.5, -1.5] | N/A (N=0) |
+| h1c | 181/200 (90.5%); Δ +34.5pp [+26.0, +43.0] | 160/200 (80.0%); Δ -13.5pp [-20.5, -7.0] | N/A (N=0) |
+| h1d | 118/200 (59.0%); Δ +3.0pp [-6.5, +12.5] | 182/200 (91.0%); Δ -2.5pp [-7.5, +2.0] | N/A (N=0) |
 
 G-H1 passes the predeclared half-gain criterion; this gate alone does not establish the full hypothesis.
 
@@ -46,7 +46,7 @@ Status: queued_or_in_progress; task8 failure review: diagnostic_replay_pending. 
 
 ### H5 — Decision-preserving calibration
 
-Status: blocked_on_prerequisites. Start only after G-H1 passes, all six paired task9 sets finish, and H4 task8 manual failure-cause analysis is complete. Blockers: H1_task9_six_paired_200_episode_sets_incomplete, H4_task8_failure_cause_review_incomplete.
+Status: blocked_on_prerequisites. Start only after G-H1 passes, all six paired task9 sets finish, and H4 task8 manual failure-cause analysis is complete. Blockers: H4_task8_failure_cause_review_incomplete.
 
 Backbone-only objective: match early-step0–5 velocity directions under quantized versus FP prefix KV, averaged over8 paired latents. Both sides use the same frozen uniform-M2 expert and the same teacher x_k/t_k. H5a uses direction-loss gradient importance to refit backbone codebooks/codes. H5b fine-tunes backbone codebooks only; codes, scales, norms, embeddings/projections and expert stay frozen. The old terminal-action MSE term and expert optimization are removed. Same60 training-calibration episodes, bpw, evaluation protocols and≤1GPU-day fine-tune cap. G-H5 still requires at least30% lower TV in one variant; otherwise report that no decision-preserving calibration was found.
 

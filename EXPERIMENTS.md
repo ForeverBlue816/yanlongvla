@@ -876,3 +876,10 @@ All numerical details and raw-file hashes: results/decisions_round.json. Counts 
 {"G_H1": "passed", "H1": "in_progress", "H2": "queued", "H6": {"full": "queued_or_gated", "install300": "complete", "medium1": "queued_or_gated", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["fp", "uniform", "h1a", "h1b", "h1c", "h1d"]}
 
 All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
+
+
+### Decisions milestone — 2026-10-04T17:22:56.763886+00:00
+
+{"G_H1": "passed", "H1": "complete", "H2": "queued", "H6": {"full": "queued_or_gated", "install300": "complete", "medium1": "queued_or_gated", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["fp", "uniform", "h1a", "h1b", "h1c", "h1d"]}
+
+All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.

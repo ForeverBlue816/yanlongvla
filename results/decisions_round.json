@@ -243,7 +243,7 @@
     }
   },
   "H1": {
-    "status": "in_progress",
+    "status": "complete",
     "gate": "passed",
     "gate_threshold": 148,
     "task8_counts": {
@@ -257,11 +257,11 @@
     "progress": {
       "fp": {
         "8": 200,
-        "9": 12
+        "9": 200
       },
       "uniform": {
         "8": 200,
-        "9": 0
+        "9": 200
       },
       "h1a": {
         "8": 200,
@@ -420,9 +420,177 @@
             69.5
           ]
         }
+      },
+      "9": {
+        "fp": {
+          "all_tasks": {
+            "successes": 187,
+            "episodes": 200,
+            "success_percent": 93.5,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "success_ci95_percent": [
+            89.5,
+            97.0
+          ]
+        },
+        "uniform": {
+          "all_tasks": {
+            "successes": 167,
+            "episodes": 200,
+            "success_percent": 83.5,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": -10.0,
+          "paired_difference_ci95_pp": [
+            -17.0,
+            -4.0
+          ],
+          "success_ci95_percent": [
+            75.5,
+            90.5
+          ]
+        },
+        "h1a": {
+          "all_tasks": {
+            "successes": 186,
+            "episodes": 200,
+            "success_percent": 93.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": -0.5,
+          "paired_difference_ci95_pp": [
+            -5.0,
+            3.5000000000000004
+          ],
+          "success_ci95_percent": [
+            88.0,
+            97.0
+          ]
+        },
+        "h1b": {
+          "all_tasks": {
+            "successes": 173,
+            "episodes": 200,
+            "success_percent": 86.5,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": -7.000000000000001,
+          "paired_difference_ci95_pp": [
+            -13.5,
+            -1.5
+          ],
+          "success_ci95_percent": [
+            79.0,
+            92.5
+          ]
+        },
+        "h1c": {
+          "all_tasks": {
+            "successes": 160,
+            "episodes": 200,
+            "success_percent": 80.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": -13.5,
+          "paired_difference_ci95_pp": [
+            -20.5,
+            -7.000000000000001
+          ],
+          "success_ci95_percent": [
+            72.0,
+            87.0
+          ]
+        },
+        "h1d": {
+          "all_tasks": {
+            "successes": 182,
+            "episodes": 200,
+            "success_percent": 91.0,
+            "status": "measured"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 0,
+            "episodes": 0,
+            "success_percent": null,
+            "status": "not_applicable_empty_scope"
+          },
+          "difference_pp": -2.5,
+          "paired_difference_ci95_pp": [
+            -7.5,
+            2.0
+          ],
+          "success_ci95_percent": [
+            85.5,
+            95.5
+          ]
+        }
       }
     },
     "aggregate": {
+      "fp": {
+        "all_tasks": {
+          "successes": 299,
+          "episodes": 400,
+          "success_percent": 74.75,
+          "status": "measured"
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 0,
+          "episodes": 0,
+          "success_percent": null,
+          "status": "not_applicable_empty_scope"
+        }
+      },
+      "uniform": {
+        "all_tasks": {
+          "successes": 351,
+          "episodes": 400,
+          "success_percent": 87.75,
+          "status": "measured"
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 0,
+          "episodes": 0,
+          "success_percent": null,
+          "status": "not_applicable_empty_scope"
+        }
+      },
       "h1a": {
         "all_tasks": {
           "successes": 317,
@@ -491,6 +659,8 @@
     "source_sha256": {
       "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "e42afaa2372a9e31fa88c6c94f0feeb813071d33ea2b13f9083a7a1019720f45",
       "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "fc6a9803644d3ca84a5b30f2319c3dc672897010383b5ee00fb07440cd91957f",
+      "/projects/yanlongvla/runs/decisions_round/h1/fp/task9.jsonl": "994cad4c0645657cc0dbae8afe479bd06ed1f9f3273387263273a7549a90fce9",
+      "/projects/yanlongvla/runs/decisions_round/h1/uniform/task9.jsonl": "f2b3e37173c1bdb11dbe125359b59177368b9e058f10a3085f6770c7b5e157d7",
       "/projects/yanlongvla/runs/decisions_round/h1/h1a/task8.jsonl": "edf55877f386ec414bd55944d6bd6540f48a472fbce3718b487500e986279974",
       "/projects/yanlongvla/runs/decisions_round/h1/h1a/task9.jsonl": "5fbecead7ed6f8fe3553c22c8a9e71878438888ba3ae98e0e09a83fbfdfa7267",
       "/projects/yanlongvla/runs/decisions_round/h1/h1b/task8.jsonl": "2ebd82e6718edc1fd77c4d2be17dbd6662845b6a399b62c14fd50475020412be",
@@ -804,7 +974,6 @@
     "readiness": {
       "status": "blocked",
       "blockers": [
-        "H1_task9_six_paired_200_episode_sets_incomplete",
         "H4_task8_failure_cause_review_incomplete"
       ]
     }
