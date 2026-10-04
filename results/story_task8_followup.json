@@ -20,10 +20,19 @@
     "scope": "200 fresh policy-noise rollouts per model, four repeats of50 official initial states; no newly generated states."
   },
   "progress": {
-    "original_fp": 0,
-    "bb_M2_ae_M2_fp32": 0,
-    "bb_M2_flowvq_fp32": 0,
-    "bb_M3_flowvq_fp32": 0
+    "original_fp": 19,
+    "bb_M2_ae_M2_fp32": 39,
+    "bb_M2_flowvq_fp32": 28,
+    "bb_M3_flowvq_fp32": 26
   },
-  "source_sha256": {}
+  "source_sha256": {
+    "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "98177353764126e09f6b2cb7208a49db28f8f50bc94866762484647f4e3bab46",
+    "/projects/yanlongvla/runs/story_round/task8_followup/original_fp_manifest.json": "994163954ab9728057b79c2d770d84318745be9324b273b6b663e47627d50f5b",
+    "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "c501e0a8838b58cde8a4a2856fbb304c850dd8aa4cf447893acc3376ad388413",
+    "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32_manifest.json": "562aded3c01d7b8422c39111164e7b6d1c4255d2ff035d3a00b72f2585ff0b91",
+    "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_flowvq_fp32.jsonl": "ea89289d8da50e05c9fda8eebab579ca091af1f3a4a6648edddc6799dcca86a0",
+    "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_flowvq_fp32_manifest.json": "851532a4474655900a79dba7704f3daef506667dea0defbe4b3f6dbf8588fa55",
+    "/projects/yanlongvla/runs/story_round/task8_followup/bb_M3_flowvq_fp32.jsonl": "e2e0f3e09a616bce21fbdb7346780d94404701327c1d89d63d0d82ae777fa8f6",
+    "/projects/yanlongvla/runs/story_round/task8_followup/bb_M3_flowvq_fp32_manifest.json": "b9259236dc0a819a16f6ff8f85652d65a4b20c4f9cd962795cafede3b76f72e2"
+  }
 }

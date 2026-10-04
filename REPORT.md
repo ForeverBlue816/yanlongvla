@@ -1,10 +1,10 @@
 # Evening progress — October4, Singapore time
 
-**X1 and X2 are complete and independently revalidated (6500 episodes). The whole round is still in progress.** X3 FP32 pilot passed; X4 and X6a are running; LIBERO-Plus GPU compatibility/full evaluation remains pending. A post-completion shell error had blocked priority promotion; it is now audited separately from scientific completion, with original failures preserved and immutable launchers for future jobs. No extra same-GPU controls or X5 seeds were added. See [current progress and recovery evidence](results/story_progress_20261004.json).
+**X1, X2 and X4 are complete; the whole round remains in progress.** The new L40S runtime passes exact actions on 256 observations per FlowVQ model and reaches 6.688 episodes/min versus FP 7.297, within 10%. All four task-8 jobs are running on the paired 200-episode follow-up. X3 continues in FP32; X6a retains its completed episodes and resumes by priority, followed by LIBERO-Plus compatibility/full evaluation. No extra same-GPU controls or X5 seeds were added. See the [validated runtime evidence](results/flowvq_cached_preflight.json) and [current experiment state](results/story_round.json).
 
 # Current evening round — in progress (2026-10-03)
 
-X1–X4 and X6 are active; X5 and additional same-GPU control reruns are dropped. The preceding main-method validation is complete, but this new evening round is **not complete**. New jobs prioritize measured episode throughput, reuse accepted comparators, and disclose hardware differences. See the [current evening tables](#evening-story-experiments--2026-10-03) and [live scheduling record](WORK_STATE.md). Older progress snapshots below are historical.
+X3, the task-8 follow-up and X6 remain in progress; X1, X2 and X4 are complete, while X5 and additional same-GPU control reruns are dropped. The preceding main-method validation is complete, but this new evening round is **not complete**. New jobs prioritize measured episode throughput, reuse accepted comparators, and disclose hardware differences. See the [current evening tables](#evening-story-experiments--2026-10-03) and [live scheduling record](WORK_STATE.md). Older progress snapshots below are historical.
 
 # Current result — FlowVQ main-method end-to-end validation complete
 
@@ -462,7 +462,7 @@ X0: both deployed FlowVQ experts were fit on **BF16-backbone activations with in
 
 The uniform M2 expert was already trained with an equal-step layer-Hessian objective. X1 removes action Fisher from backbone fitting and reuses that identical expert; FlowVQ additionally changes the expert depth schedule and conditional decoder. Paired held-out MSE differences and intervals are in the result JSON.
 
-Action-Fisher backbone weighting (the “action-aware” ablation label, not a method name) improves M2 held-out MSE and the medium point estimate (0.03721696 vs0.03942255;982 vs967/1000), but at M3 layer-Hessian has lower MSE (0.01093829 vs0.01304602) while action-Fisher gains only2/1000 (974 vs972), and neither paired medium-success interval excludes zero.
+Action-Fisher backbone weighting (the “action-aware” ablation label, not a method name) improves M2 held-out MSE and the medium point estimate (0.03721696 vs 0.03942255; 982 vs 967/1000), but at M3 layer-Hessian has lower MSE (0.01093829 vs 0.01304602) while action-Fisher gains only 2/1000 (974 vs 972), and neither paired medium-success interval excludes zero.
 
 ### Reduced-step baseline
 
@@ -500,11 +500,15 @@ Original weight-noise cross-check (existing256-observation calibration experimen
 | isotropic | 0.01 | 481/500 | +0.00 [-2.40, +2.40] |
 | isotropic | 0.03 | 474/500 | -1.40 [-4.60, +1.80] |
 | top5 | 0.01 | 481/500 | +0.00 [-2.00, +1.80] |
-| orthogonal | 0.01 | pending | pending |
+| orthogonal | 0.01 | 486/500 | +1.00 [-1.00, +3.20] |
 
-Pending all seven dose configurations; no LIBERO sensitivity claim yet.
+First tested isotropic relative-MSE dose with ≥1.5pp point-estimate loss: not reached through0.03. This seed/protocol does not establish sensitivity to Gaussian action-noise MSE differences in the1e-3–1e-2 range; this is not proof of indistinguishability.
 
 Noise is Gaussian in the35-dimensional first5×7 physical commanded-action chunk, after output transforms and before simulator clipping. Scaling fixes expected relative MSE conditional on the clean chunk; realized MSE is reported separately. The top5/orthogonal bases use mean within-observation posterior covariance from256 calibration observations and16 latent draws per observation. This is a targeted noise experiment; its ceiling is not a universal equivalence between quantization errors and isotropic errors.
+
+![Paired success change under commanded-action noise](figures/story_x4.png)
+
+Points show paired success differences against FP, with pointwise 95% intervals from 2000 suite-stratified task/episode bootstrap resamples (500 paired episodes per condition, seed 7; no multiplicity correction). Top5 and orthogonal points at dose 0.01 are offset horizontally by 5 pt for visibility; their doses are identical to the isotropic point. All seven requested conditions are shown. [PDF](figures/story_x4.pdf), [SVG](figures/story_x4.svg), [source data](results/story_source_data.csv), [visual review](figures/story_x4.qa.json).
 
 ### Harder evaluations (X6)
 
@@ -565,15 +569,15 @@ Assignments compare identical completed episode prefixes. L40S led the completed
 
 ### October4 evaluation runtime and task8 follow-up
 
-M2 and M3 FlowVQ both passed exact raw-action equality on256 observations with persistent BF16 depth1/depth2 weights and CUDA graph replay; maximum difference0 and no reconstruction after loading. The accepted path also had0 inference reconstruction calls, so input transforms and launch overhead were optimized. Fresh L40S episode throughput remains pending; dispatch requires at least90% of FP. [Validation](results/flowvq_runtime_validation.json).
+Fresh L40S persistent-cache preflight: FP 7.297, FlowVQ 6.688 episodes/min (0.917× FP); status: passed. Both M2 and M3 FlowVQ passed exact raw-action equality on 256 observations each, with maximum difference 0 and no reconstruction after load. The depth-1 weights for steps 0–8 and depth-2 weights for step 9 remain persistent BF16 tensors. The existing loader also had zero inference reconstruction calls; compiled input transforms and expert CUDA graph replay resolved the measured overhead. These are dense-cache evaluation timings, distinct from compressed-storage/logical-read accounting. [Evidence](results/flowvq_cached_preflight.json).
 
 Task8 protocol: seed7, episode IDs50–249,200 rollouts per model; the50 official initial states repeat via episode modulo50, with distinct episode-derived policy noise. All four models share the same IDs and states. Intervals resample the50 initial-state clusters, retaining all four repeats.
 
 | Model | Follow-up successes /200 | Paired Δ vs FP, pp (95% CI) |
 |---|---:|---|
-| FP | pending (0/200 recorded) | pending |
-| M2 + uniform M2 | pending (0/200 recorded) | pending |
-| M2 + FlowVQ | pending (0/200 recorded) | pending |
-| M3 + FlowVQ | pending (0/200 recorded) | pending |
+| FP | pending (19/200 recorded) | pending |
+| M2 + uniform M2 | pending (39/200 recorded) | pending |
+| M2 + FlowVQ | pending (28/200 recorded) | pending |
+| M3 + FlowVQ | pending (26/200 recorded) | pending |
 
 Whether the original16/50 task8 advantage persists remains pending.

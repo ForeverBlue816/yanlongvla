@@ -1,0 +1,56 @@
+{
+  "automatic_checks": [
+    {
+      "tool": "validate_figure.py",
+      "exit_code": 0,
+      "output": "Nature Figure Static Preflight\nsource: /projects/_hdd/yanlongvla/research/scripts/story_plots.py\nbackend: python\n\n[PASS] SOURCE-SYNTAX: Python source parses successfully\n[PASS] FONT-FAMILY: A publication-safe sans-serif family is configured\n  - sans-serif\n[PASS] FONT-SIZE: All detected text sizes are at least 5 pt (minimum 7 pt)\n[PASS] FONT-GLYPH-FLOOR: No mathtext superscript/subscript expression detected\n[PASS] LEGEND-LABEL-CASE: Detected literal legend labels start with display-style capitalization\n[PASS] COLOR-MAP: No rainbow/jet/hsv color mapping detected\n[PASS] EDITABLE-TEXT: SVG and PDF editable-text settings are configured\n[PASS] EXPORT-VECTOR: Both SVG and PDF exports are present\n[WARN] EXPORT-RASTER: PNG preview is present but no TIFF submission raster was found\n[PASS] RASTER-DPI: A raster export of at least 600 dpi is configured\n  - 600\n[PASS] FINAL-WIDTH: Detected width 88.9 mm matches a common journal column width\n[PASS] DATA-SAMPLING: No high-confidence row-sampling operation detected\n[PASS] DATA-EXCLUSION: No high-confidence missing-data exclusion detected\n[PASS] DEMO-DATA: No obvious simulated-data generator detected\n[PASS] LOG-GUARD: A logarithmic transform/axis and a positivity or pseudocount guard were both detected\n  - eps\n[PASS] INTERP-MONOTONIC: No NumPy interpolation requiring an increasing x-grid detected\n[PASS] UNCERTAINTY-ENCODING: No stochastic aggregate requiring a variability audit was inferred\n[PASS] ROTATION-ANCHOR: No rotated Matplotlib text detected\n[PASS] ANNOTATION-WORKAROUND: No high-risk hard-coded label height or opaque white text mask detected\n[PASS] PANEL-ALIGNMENT-GATE: Render-time panel-alignment gate is wired into the plotting source\n  - require_matplotlib_panel_alignment(\n[PASS] BACKEND-EXCLUSIVE: No obvious cross-backend plotting reference found for python\n\nsummary: 20 pass, 1 warn, 0 fail\nverdict: READY FOR VISUAL QA\nnote: static preflight does not validate statistics, source-data truth, or rendered appearance\n"
+    },
+    {
+      "tool": "audit_pdf_text.py",
+      "exit_code": 0,
+      "output": "Nature Figure PDF Text Audit\npdf: /projects/yanlongvla/research/figures/story_x4.pdf\nminimum required: 5 pt\nminimum found: 5.6 pt\ntext runs: 18\nbelow minimum: 0\nverdict: PASS\nnote: Tf scanning does not replace final-size visual inspection or account for every PDF transform\n"
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "exit_code": 0,
+      "output": "Nature Figure Rendered Collision Audit\npdf: /projects/yanlongvla/research/figures/story_x4.pdf\npages: 1\nvisible text boxes: 16\nstroke paths: 51\n\n\nsummary: 0 fail, 0 warn, 0 contained fill overlays, 0 contained image overlays\nverdict: PASS\nnote: contained overlays can be intentional; WARN findings need final-size visual review\n"
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "reviewed_utc": "2026-10-04T05:53:39.227277+00:00",
+    "backend": "Python/matplotlib",
+    "final_dimensions_mm": [
+      88.9,
+      86.36
+    ],
+    "pdf_sha256": "ba6bf9ed75bfe0a1fe80dd5126ad03702ff8b2609d174364a3941083513bb777",
+    "core_conclusion": "No requested dose establishes a loss relative to FP on this single-seed protocol; intervals do not establish equivalence.",
+    "archetype": "single-panel quantitative comparison",
+    "data_mapping": {
+      "x": "configuration.dose (expected relative commanded-action MSE)",
+      "y": "paired_vs_ten_step.policies[configuration.id].difference_from_reference_pp",
+      "interval": "paired_difference_ci95_pp (pointwise 95% paired hierarchical bootstrap)",
+      "group": "configuration.direction"
+    },
+    "coverage": {
+      "conditions": 7,
+      "episodes_per_condition": 500,
+      "excluded_conditions": 0,
+      "seeds": [
+        7
+      ]
+    },
+    "panel_a": {
+      "unique_claim": "Paired dose response relative to FP across all seven requested noise conditions.",
+      "summary": "Paired success difference in percentage points.",
+      "uncertainty": "2000 suite-stratified hierarchical task/episode bootstrap resamples; conditional on seed 7; no multiplicity correction.",
+      "visual_findings": "All markers and intervals are visible; at dose 0.01 top5 and orthogonal use -5/+5 pt display-only offsets. Log-axis labels, zero and -1.5 pp references, endpoint intervals and legend are legible without clipping. Shape and line styles preserve distinction without color.",
+      "alignment": "Not applicable: single panel.",
+      "collision": "PASS: no failures or warnings.",
+      "pass": true
+    },
+    "export_warning_resolution": "PDF/SVG with editable text and 600 dpi PNG suffice for this research report; no journal submission or TIFF requirement is claimed.",
+    "revision_note": "An intermediate display-transform autoscaling error was caught before publication and corrected by deriving bounds from true data before applying point offsets."
+  }
+}

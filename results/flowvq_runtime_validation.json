@@ -1,5 +1,5 @@
 {
-  "status": "exact_actions_passed_throughput_pending",
+  "status": "passed",
   "source_revision": "28676f284ceaca6b00983257f814b24391dc8fc8",
   "action_checks": [
     {
@@ -75,5 +75,12 @@
     "Initial capture failed on a CPU-created mask; masks are now materialized before capture.",
     "Initial graph replay failed after observation0 because an outside-capture Euler dt tensor was not retained. Final runtime retains dt for graph lifetime; both full256 raw-action comparisons are exact.",
     "Compiled-only FlowVQ throughput attempt failed on WebSocket keepalive during simulator initialization; no FlowVQ rate is reported for that attempt. Simulator setup precedes benchmark connection in the final preflight."
-  ]
+  ],
+  "throughput_preflight_sha256": "55949dab5713e16832f66477da366bc5ffad704ad41a17cd0e57a3895fe450ed",
+  "throughput": {
+    "fp_episodes_per_minute": 7.297335777215148,
+    "flowvq_episodes_per_minute": 6.688334414194821,
+    "flowvq_over_fp_ratio": 0.9165446977345014,
+    "target_minimum_ratio": 0.9
+  }
 }
