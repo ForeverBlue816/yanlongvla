@@ -257,7 +257,7 @@
     "progress": {
       "fp": {
         "8": 200,
-        "9": 0
+        "9": 12
       },
       "uniform": {
         "8": 200,
@@ -482,6 +482,7 @@
     },
     "validated_models": [
       "fp",
+      "uniform",
       "h1a",
       "h1b",
       "h1c",
@@ -501,6 +502,11 @@
     },
     "exact_validation": {
       "fp": {
+        "calibration_observations": 256,
+        "component_comparisons": 2560,
+        "maximum_component_difference": 0.0
+      },
+      "uniform": {
         "calibration_observations": 256,
         "component_comparisons": 2560,
         "maximum_component_difference": 0.0
