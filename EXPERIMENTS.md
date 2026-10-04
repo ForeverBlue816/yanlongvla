@@ -897,3 +897,17 @@ All numerical details and raw-file hashes: results/decisions_round.json. Counts 
 {"G_H1": "passed", "H1": "complete", "H2": "complete", "H6": {"full": "in_progress", "install300": "complete", "medium1": "queued_or_gated", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["fp", "uniform", "h1a", "h1b", "h1c", "h1d"]}
 
 All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
+
+
+### Decisions milestone — 2026-10-04T21:11:17.668040+00:00
+
+{"G_H1": "passed", "H1": "complete", "H2": "complete", "H6": {"full": "in_progress", "install300": "complete", "medium1": "in_progress", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["fp", "uniform", "h1a", "h1b", "h1c", "h1d"]}
+
+All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
+
+
+### Decisions milestone — 2026-10-04T21:13:02.439293+00:00
+
+{"G_H1": "passed", "H1": "complete", "H2": "complete", "H6": {"full": "in_progress", "install300": "complete", "medium1": "complete", "medium2": "queued_or_gated", "plus": "in_progress", "plus2": "queued_or_gated"}, "validated": ["fp", "uniform", "h1a", "h1b", "h1c", "h1d"]}
+
+All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
