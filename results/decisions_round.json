@@ -32,19 +32,214 @@
         "libero_goal:0"
       ],
       "approved_by_user": true,
-      "centroid_ratio_definition": "minimum pairwise centroid Euclidean distance / pooled RMS Euclidean residual over35 training-standardised dimensions"
+      "centroid_ratio_definition": "minimum pairwise centroid Euclidean distance / pooled RMS Euclidean residual over35 training-standardised dimensions",
+      "models": [
+        "original_fp",
+        "bb_M2_ae_M2_fp32",
+        "bb_M3_ae_M2_fp32",
+        "story_plain_bb_M2_ae_M2_fp32",
+        "a_M1",
+        "h1a",
+        "h1d"
+      ],
+      "prediction": "large TV for2-bit backbones; near-zero for expert-only2-bit H1a/H1d and3-bit backbone",
+      "hybrid_success_endpoint": "task8/9 only; no40-task medium correlations"
     },
     "H3": {
+      "status": "prefix_rollout_requires_implementation",
+      "target": "FP prefix KV, both K/V, all layers, held fixed through10 expert steps",
+      "conditions": [
+        {
+          "id": "local_all_0.003",
+          "scope": "all",
+          "dose": 0.003,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_all_0.01",
+          "scope": "all",
+          "dose": 0.01,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_all_0.03",
+          "scope": "all",
+          "dose": 0.03,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_all_0.1",
+          "scope": "all",
+          "dose": 0.1,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_image_0.003",
+          "scope": "image",
+          "dose": 0.003,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_image_0.01",
+          "scope": "image",
+          "dose": 0.01,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_image_0.03",
+          "scope": "image",
+          "dose": 0.03,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_image_0.1",
+          "scope": "image",
+          "dose": 0.1,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_language_state_0.003",
+          "scope": "language_state",
+          "dose": 0.003,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_language_state_0.01",
+          "scope": "language_state",
+          "dose": 0.01,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_language_state_0.03",
+          "scope": "language_state",
+          "dose": 0.03,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_language_state_0.1",
+          "scope": "language_state",
+          "dose": 0.1,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "total_all_0.01",
+          "scope": "all",
+          "dose": 0.01,
+          "scaling": "all_valid_prefix_energy",
+          "endpoint": "secondary",
+          "reuse": "local_all_0.01"
+        },
+        {
+          "id": "total_image_0.01",
+          "scope": "image",
+          "dose": 0.01,
+          "scaling": "all_valid_prefix_energy",
+          "endpoint": "secondary",
+          "reuse": null
+        },
+        {
+          "id": "total_language_state_0.01",
+          "scope": "language_state",
+          "dose": 0.01,
+          "scaling": "all_valid_prefix_energy",
+          "endpoint": "secondary",
+          "reuse": null
+        }
+      ],
+      "episodes_per_condition": 500,
+      "suites": [
+        "libero_spatial",
+        "libero_10"
+      ],
+      "episodes_per_task": 25,
+      "episode_ids": [
+        0,
+        24
+      ],
+      "seed": 7,
+      "unique_conditions": 14,
+      "primary_scaling": "selected-group KV squared Frobenius energy",
+      "secondary_scaling": "0.01 total valid prefix KV energy; separate report",
+      "report_ratios": [
+        "local",
+        "total"
+      ],
+      "exclude_padding": true,
+      "state_tokens": 0,
+      "state_token_audit": "pinned pi05_libero discrete_state_input=False; language_state group is language only",
+      "zero_dose_guard": "exact256 actions before rollout",
+      "anchors": {
+        "models": [
+          "bb_M2_ae_M2_fp32",
+          "bb_M3_ae_M2_fp32"
+        ],
+        "observations": 256,
+        "bank": "calibration",
+        "metric": "squared KV error relative to FP KV energy",
+        "groups": [
+          "all",
+          "image",
+          "language_state"
+        ],
+        "plot": "mark measured anchors and report whether fixed dose range brackets them"
+      },
+      "approved_by_user": true
+    },
+    "H5": {
+      "status": "blocked_on_task9_and_H4_task8_review",
+      "prerequisites": [
+        "G_H1_pass",
+        "six_complete_paired_task9_sets",
+        "H4_task8_manual_failure_cause_review_complete"
+      ],
+      "expert": "identical frozen uniform M2 on both teacher/student sides",
+      "teacher": "FP prefix KV; teacher x_k held fixed for paired velocities",
+      "steps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "latents": 8,
+      "velocity_direction": "cosine on native10x32 velocity; same x_k,t_k for both prefixes",
+      "H5a": "squared direction-loss gradients at quantized student as backbone importance; refit backbone codebooks/codes",
+      "H5b": "backbone codebooks only; mean1-cos loss; codes/scales/norms/embeddings/projections/expert frozen; <=1GPU-day",
+      "terminal_MSE_loss": false,
+      "fitting_data": "existing60 calibration training episodes only",
+      "G_H5": "at least30%TV reduction by either variant, else no method found",
+      "implementation_status": "pending",
+      "approved_by_user": true
+    },
+    "direction_update": "2026-10-05 post-H1 task8; user-approved local-energy primary scaling",
+    "mechanism": {
+      "component_evidence": "backbone drives main task8 effect; H1a retains small significant effect",
+      "working_mechanism": "decisions set in VLM prefix KV; expert sets action precision",
+      "direct_KV_causal_test": "pending_H3",
+      "within_mode_precision_test": "pending_H2"
+    },
+    "H3_appendix": {
       "eigen_definition_status": "approved_SVD",
       "approved_by_user": true,
       "spectrum": "top10 singular values; original eigenvalues as-is for completeness",
       "perturbation": "top3 right singular vectors per observation and orthogonal complement; input side",
       "output_directions": "left singular vectors only for output-side action directions",
-      "stability": "mean principal angles between all pairs of top3 right subspaces across500 observations"
-    },
-    "H5": {
-      "status": "blocked_until_G_H1_pass",
-      "fisher_note": "cos gradient vanishes at teacher equality; evaluate at existing quantized student, subject to explicit protocol review before fitting"
+      "stability": "mean principal angles between all pairs of top3 right subspaces across500 observations",
+      "status": "existing_spectrum_retained; new early-expert perturbation only on otherwise idle GPUs",
+      "superseded_as_main_H3": true
     }
   },
   "H1": {
@@ -70,19 +265,19 @@
       },
       "h1a": {
         "8": 200,
-        "9": 108
+        "9": 200
       },
       "h1b": {
         "8": 200,
-        "9": 1
+        "9": 105
       },
       "h1c": {
         "8": 200,
-        "9": 14
+        "9": 119
       },
       "h1d": {
         "8": 200,
-        "9": 94
+        "9": 200
       }
     },
     "tasks": {
@@ -227,7 +422,36 @@
         }
       }
     },
-    "aggregate": {},
+    "aggregate": {
+      "h1a": {
+        "all_tasks": {
+          "successes": 317,
+          "episodes": 400,
+          "success_percent": 79.25,
+          "status": "measured"
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 0,
+          "episodes": 0,
+          "success_percent": null,
+          "status": "not_applicable_empty_scope"
+        }
+      },
+      "h1d": {
+        "all_tasks": {
+          "successes": 300,
+          "episodes": 400,
+          "success_percent": 75.0,
+          "status": "measured"
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 0,
+          "episodes": 0,
+          "success_percent": null,
+          "status": "not_applicable_empty_scope"
+        }
+      }
+    },
     "validated_models": [
       "h1a",
       "h1b",
@@ -238,9 +462,11 @@
       "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "e42afaa2372a9e31fa88c6c94f0feeb813071d33ea2b13f9083a7a1019720f45",
       "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "fc6a9803644d3ca84a5b30f2319c3dc672897010383b5ee00fb07440cd91957f",
       "/projects/yanlongvla/runs/decisions_round/h1/h1a/task8.jsonl": "edf55877f386ec414bd55944d6bd6540f48a472fbce3718b487500e986279974",
+      "/projects/yanlongvla/runs/decisions_round/h1/h1a/task9.jsonl": "5fbecead7ed6f8fe3553c22c8a9e71878438888ba3ae98e0e09a83fbfdfa7267",
       "/projects/yanlongvla/runs/decisions_round/h1/h1b/task8.jsonl": "2ebd82e6718edc1fd77c4d2be17dbd6662845b6a399b62c14fd50475020412be",
       "/projects/yanlongvla/runs/decisions_round/h1/h1c/task8.jsonl": "1c20a983e0817ce4911602d3295de3363728c8dc4931e3f006550a7e9cec4506",
-      "/projects/yanlongvla/runs/decisions_round/h1/h1d/task8.jsonl": "e916ae194e67638ce845dc1249fd8b78fff38961d617029c4360539650040512"
+      "/projects/yanlongvla/runs/decisions_round/h1/h1d/task8.jsonl": "e916ae194e67638ce845dc1249fd8b78fff38961d617029c4360539650040512",
+      "/projects/yanlongvla/runs/decisions_round/h1/h1d/task9.jsonl": "c3f21c504e220dc4a97426ee9922734752a1336036ac82095bf623220701096b"
     },
     "exact_validation": {
       "h1a": {
@@ -268,12 +494,175 @@
   },
   "H2": {
     "status": "queued",
+    "models": [
+      "original_fp",
+      "bb_M2_ae_M2_fp32",
+      "bb_M3_ae_M2_fp32",
+      "story_plain_bb_M2_ae_M2_fp32",
+      "a_M1",
+      "h1a",
+      "h1d"
+    ],
     "normalization": "35 training-set action std; both unimodality criteria; fixed-k2 TV"
   },
   "H3": {
-    "status": "ready_after_H2_H4_full; dose_runner_requires_implementation",
-    "followup": "Reuse500 stored J_D9 matrices; directional gain energy requires additional derivative probes",
-    "spectrum": {
+    "status": "after_H2_H4_full; prefix_KV_rollout_requires_implementation",
+    "protocol": {
+      "status": "prefix_rollout_requires_implementation",
+      "target": "FP prefix KV, both K/V, all layers, held fixed through10 expert steps",
+      "conditions": [
+        {
+          "id": "local_all_0.003",
+          "scope": "all",
+          "dose": 0.003,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_all_0.01",
+          "scope": "all",
+          "dose": 0.01,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_all_0.03",
+          "scope": "all",
+          "dose": 0.03,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_all_0.1",
+          "scope": "all",
+          "dose": 0.1,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_image_0.003",
+          "scope": "image",
+          "dose": 0.003,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_image_0.01",
+          "scope": "image",
+          "dose": 0.01,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_image_0.03",
+          "scope": "image",
+          "dose": 0.03,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_image_0.1",
+          "scope": "image",
+          "dose": 0.1,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_language_state_0.003",
+          "scope": "language_state",
+          "dose": 0.003,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_language_state_0.01",
+          "scope": "language_state",
+          "dose": 0.01,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_language_state_0.03",
+          "scope": "language_state",
+          "dose": 0.03,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "local_language_state_0.1",
+          "scope": "language_state",
+          "dose": 0.1,
+          "scaling": "selected_group_energy",
+          "endpoint": "primary"
+        },
+        {
+          "id": "total_all_0.01",
+          "scope": "all",
+          "dose": 0.01,
+          "scaling": "all_valid_prefix_energy",
+          "endpoint": "secondary",
+          "reuse": "local_all_0.01"
+        },
+        {
+          "id": "total_image_0.01",
+          "scope": "image",
+          "dose": 0.01,
+          "scaling": "all_valid_prefix_energy",
+          "endpoint": "secondary",
+          "reuse": null
+        },
+        {
+          "id": "total_language_state_0.01",
+          "scope": "language_state",
+          "dose": 0.01,
+          "scaling": "all_valid_prefix_energy",
+          "endpoint": "secondary",
+          "reuse": null
+        }
+      ],
+      "episodes_per_condition": 500,
+      "suites": [
+        "libero_spatial",
+        "libero_10"
+      ],
+      "episodes_per_task": 25,
+      "episode_ids": [
+        0,
+        24
+      ],
+      "seed": 7,
+      "unique_conditions": 14,
+      "primary_scaling": "selected-group KV squared Frobenius energy",
+      "secondary_scaling": "0.01 total valid prefix KV energy; separate report",
+      "report_ratios": [
+        "local",
+        "total"
+      ],
+      "exclude_padding": true,
+      "state_tokens": 0,
+      "state_token_audit": "pinned pi05_libero discrete_state_input=False; language_state group is language only",
+      "zero_dose_guard": "exact256 actions before rollout",
+      "anchors": {
+        "models": [
+          "bb_M2_ae_M2_fp32",
+          "bb_M3_ae_M2_fp32"
+        ],
+        "observations": 256,
+        "bank": "calibration",
+        "metric": "squared KV error relative to FP KV energy",
+        "groups": [
+          "all",
+          "image",
+          "language_state"
+        ],
+        "plot": "mark measured anchors and report whether fixed dose range brackets them"
+      },
+      "approved_by_user": true
+    },
+    "kv_anchors": {
+      "status": "queued_after_H2_banks"
+    },
+    "appendix_spectrum": {
       "status": "spectrum_complete_energy_projection_pending",
       "observations": 500,
       "window": [
@@ -327,18 +716,56 @@
         "nine H3 rollout conditions after G-H1 passes"
       ]
     },
-    "spectrum_sha256": "8e78e4e9979c8d0f1c0f313ecbf0588185efe5fb316f5e46df1ccf88cac02940"
+    "appendix_spectrum_sha256": "8e78e4e9979c8d0f1c0f313ecbf0588185efe5fb316f5e46df1ccf88cac02940"
   },
   "H4": {
     "status": "queued_or_in_progress",
     "failure_causes": "pending trajectory inspection; historical FP task8 failures need diagnostic replay",
     "component_isolation": {
       "status": "queued_or_gated"
+    },
+    "task8_failure_review": {
+      "status": "diagnostic_replay_pending",
+      "expected_failures": 88
     }
   },
   "H5": {
-    "status": "gate_passed; calibration_requires_implementation",
-    "gate": "at least30% TV reduction by either variant; otherwise no method found"
+    "status": "blocked_on_prerequisites",
+    "protocol": {
+      "status": "blocked_on_task9_and_H4_task8_review",
+      "prerequisites": [
+        "G_H1_pass",
+        "six_complete_paired_task9_sets",
+        "H4_task8_manual_failure_cause_review_complete"
+      ],
+      "expert": "identical frozen uniform M2 on both teacher/student sides",
+      "teacher": "FP prefix KV; teacher x_k held fixed for paired velocities",
+      "steps": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "latents": 8,
+      "velocity_direction": "cosine on native10x32 velocity; same x_k,t_k for both prefixes",
+      "H5a": "squared direction-loss gradients at quantized student as backbone importance; refit backbone codebooks/codes",
+      "H5b": "backbone codebooks only; mean1-cos loss; codes/scales/norms/embeddings/projections/expert frozen; <=1GPU-day",
+      "terminal_MSE_loss": false,
+      "fitting_data": "existing60 calibration training episodes only",
+      "G_H5": "at least30%TV reduction by either variant, else no method found",
+      "implementation_status": "pending",
+      "approved_by_user": true
+    },
+    "gate": "at least30% TV reduction by either variant; otherwise no method found",
+    "readiness": {
+      "status": "blocked",
+      "blockers": [
+        "H1_task9_six_paired_200_episode_sets_incomplete",
+        "H4_task8_failure_cause_review_incomplete"
+      ]
+    }
   },
   "H6": {
     "full": {

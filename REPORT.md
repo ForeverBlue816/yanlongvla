@@ -1,4 +1,4 @@
-# Current experiments — Decisions, not actions — 2026-10-04 23:14 SGT
+# Current experiments — Decisions, not actions — 2026-10-04 23:45 SGT
 
 The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: in_progress; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
 
@@ -24,27 +24,35 @@ H1a: FP backbone, FP expert0–8 / uniform M2 expert9. H1b: M2 backbone, M2 expe
 
 Reject if H1a≥148/200, H1b<148/200, or H1c<148/200 on task8. Baseline112/200 versus184/200 gives a36pp gain; half is18pp. These task8-only counts have N=0 after exclusion. Intervals use paired50-initial-state-cluster bootstrap, retaining four noise repeats. Six-model bar chart awaits complete data and visual review.
 
+Post-task8 mechanism update: the main gain is driven by backbone quantization (H1c181/200 versus full uniform184/200); expert-only H1d118/200 is close to FP112/200. Last-step-only H1a131/200 gives a smaller significant +9.5pp (paired95% CI[1.5,17.5]). Similar counts do not establish equivalence. The working mechanism is that decisions are set in the VLM prefix/KV cache and the expert sets action precision. Direct KV causality and within-mode precision remain to be tested in H3/H2; the early-expert decision account is no longer the main hypothesis.
+
 ### H2 — Mode shifts
 
 Status: queued. The256 training-calibration observations,1600 evaluation-initial-state observations (40×40), and256 observations from40 held-out trajectories remain separate banks. All models share32 latents per observation. Cluster the35 training-standardised action dimensions; silhouette k=2..4, primary threshold0.25 and sensitivities0.20/0.30. A centroid-distance/pooled-within-cluster-RMS ratio<2 also implies unimodality. Report disagreement and fixed-k2 TV. Correlations/scatters and task8/task9/control projections await action banks and manual physical interpretation.
 
-### H3 — Decision-space dose response
+Seven model rows: FP, uniform M2 backbone+M2 expert, M3 backbone+M2 expert, plain-VQ M2 backbone+M2 expert, expert-only M1, H1a and H1d. New prediction: large mode-shift TV for2-bit backbones; near-zero TV for expert-only2-bit H1a/H1d and3-bit backbone. H1a/H1d receive the same all40-task offline evaluation; their40-task success correlations are N/A because only task8/9 success sets exist. The original five-model medium endpoints are unchanged.
 
-Status: ready_after_H2_H4_full; dose_runner_requires_implementation. The500 stored X3 Jacobians are retained. Per-observation SVD defines top3 right input directions and their orthogonal complements; left vectors are output-side only. Top10 singular values and unmodified complex eigenvalues, top5 energy projections, velocity/absolute units and the nine early-step perturbation conditions are tracked separately before comparison with X4.
+### H3 — Prefix-KV dose response
 
-Stored-matrix follow-up: mean top10 singular values = [0.7720, 0.5823, 0.4909, 0.4301, 0.3821, 0.3417, 0.3053, 0.2744, 0.2461, 0.2228]. Mean of the three principal angles over124,750 observation pairs = 59.46°. This descriptive result alone does not establish a shared decision subspace. [Per-observation spectra and source hashes](results/decisions_spectrum.json). Directional gain-energy probes and dose-response rollouts remain pending.
+Status: after_H2_H4_full; prefix_KV_rollout_requires_implementation. Perturb both K/V in the FP prefix cache with Gaussian noise, fixed through the expert trajectory. Three groups: all valid tokens, image only, language/state only. The pinned config has no state tokens: the third group is language only. Exclude padding and masked image slots. Primary doses0.003/0.01/0.03/0.1 use each selected group's own KV energy (squared Frobenius norm);12 conditions,500 paired episodes each (spatial+LIBERO-10,25/task,seed7). Secondary comparison uses0.01 total valid prefix energy for each of the three groups, separately reported; reuse the identical all-token0.01 condition. Always report local and total actual post-BF16 energy ratios. Zero-dose256-action identity is required before rollout.
+
+KV dose anchors: queued_after_H2_banks. Measure actual M2/M3 backbone KV error on256 calibration observations, separately for image and language/state tokens, reporting both local and total ratios and per-observation distributions. Mark these on the H3 plot beside the dose curves/X4 and state whether the fixed dose range brackets them. Existing SVD results and early-expert perturbation move to an appendix; new appendix GPU runs are allowed only on otherwise idle cards.
+
+Appendix (superseded main H3): mean top10 singular values = [0.7720, 0.5823, 0.4909, 0.4301, 0.3821, 0.3417, 0.3053, 0.2744, 0.2461, 0.2228]. Mean of the three principal angles over124,750 observation pairs = 59.46°. This descriptive result alone does not establish a shared decision subspace. [Per-observation spectra and source hashes](results/decisions_spectrum.json). Any further early-expert directional probes/rollouts are idle-GPU appendix work only.
 
 ### H4 — Component isolation and failure causes
 
-Status: queued_or_in_progress. Plain-VQ M2+M2 needs200 episodes on each task. Newly collected trajectories retain both camera views, simulator states and executed actions. Historical FP task8 outcomes lack trajectories; diagnostic replays and manual labels are required. No cause is inferred from a timeout alone.
+Status: queued_or_in_progress; task8 failure review: diagnostic_replay_pending. Plain-VQ M2+M2 needs200 episodes on each task. Newly collected trajectories retain both camera views, simulator states and executed actions. Historical FP task8 outcomes lack trajectories; diagnostic replays and manual labels for all88 failures are required. No cause is inferred from a timeout alone. Replay/original outcome disagreements remain explicit and never replace original success outcomes.
 
 ### H5 — Decision-preserving calibration
 
-Status: gate_passed; calibration_requires_implementation. H5a/H5b start only after G-H1 passes. G-H5 requires at least30% lower TV in one variant; otherwise report that no decision-preserving calibration was found.
+Status: blocked_on_prerequisites. Start only after G-H1 passes, all six paired task9 sets finish, and H4 task8 manual failure-cause analysis is complete. Blockers: H1_task9_six_paired_200_episode_sets_incomplete, H4_task8_failure_cause_review_incomplete.
+
+Backbone-only objective: match early-step0–5 velocity directions under quantized versus FP prefix KV, averaged over8 paired latents. Both sides use the same frozen uniform-M2 expert and the same teacher x_k/t_k. H5a uses direction-loss gradient importance to refit backbone codebooks/codes. H5b fine-tunes backbone codebooks only; codes, scales, norms, embeddings/projections and expert stay frozen. The old terminal-action MSE term and expert optimization are removed. Same60 training-calibration episodes, bpw, evaluation protocols and≤1GPU-day fine-tune cap. G-H5 still requires at least30% lower TV in one variant; otherwise report that no decision-preserving calibration was found.
 
 ### Prediction verdict
 
-The new predictions are not yet established. Existing action-MSE/success discrepancies motivate this test but do not establish discrete-decision changes, final-step projection, or a successful calibration method.
+Task8 supports the backbone attribution and passes G-H1; it does not support early expert steps as the main source of the gain. The small H1a effect must also be retained. Task9 replication, prefix-KV mode shifts and causality, within-mode precision, and any successful backbone calibration remain pending.
 
 ### H6 — Bookkeeping
 
