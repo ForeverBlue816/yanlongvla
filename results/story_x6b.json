@@ -14,9 +14,9 @@
   "full_fp": null,
   "progress": {
     "x6b_fp": {
-      "episodes": 742,
+      "episodes": 755,
       "required": 10030,
-      "subset_episodes": 675,
+      "subset_episodes": 677,
       "subset_required": 1000,
       "complete": false
     },
@@ -28,11 +28,11 @@
       "complete": true
     },
     "x6b_flowvq": {
-      "episodes": 0,
+      "episodes": 1000,
       "required": 1000,
-      "subset_episodes": 0,
+      "subset_episodes": 1000,
       "subset_required": 1000,
-      "complete": false
+      "complete": true
     },
     "x6b_expert_M1": {
       "episodes": 0,
@@ -48,15 +48,15 @@
   "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
   "source_sha256": {
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "f02c85693caece453a2a96b0216db5f27fa463ac2d6459366b3029cb1f137be4",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "a878df4f8decd90d2aad6675eb53ccb961570a9aaa843dec919601760e01581d",
     "/projects/yanlongvla/runs/story_round/x6b_fp/offline/result.json": "2a3400c34b01515fc926ecf698e06e3a3c8f43dde46d9ba0030f25c1acd1e233",
     "/projects/yanlongvla/runs/story_round/x6b_fp/offline/actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1_manifest.json": "427c3b76869a1a550091e77904bf651b9eedf71e0cffd1e0267c88cb52e0731f",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "eb20a274e5fddc85df4668ca7c635e3a828f063af998fcc9f339d55f03d23001",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "2b279f318887f94eead482c311c763deeeb427bb4a1b0201055e534e717decc9",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2_manifest.json": "8bdc7154bdf9b3dff955d63c3abfb4684e4133396fcdf08cfb49a72f225d17d2",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "d81de794869c9012ca5f45252250161e81d57989862654f678e9ef65f72e4b0a",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "8809ed4d0d3a69484baacea4a64741481f0fdfce97c91edc77053a04464ac64c",
     "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3_manifest.json": "bef3923769c2778b28eab8f0b901aaee117e048b5517778923d3de891131a834",
-    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "cb5daf19020c5985d7d098593c048eaea88bcfa11310e53e343e9e4432734db6",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "c2881a2a5ebc50ee8a3bb01472c100200e18da692d24b41ad898591095aa6f5c",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0_manifest.json": "1ca551b691dbd0ea15dd7b12b6bff883497f330a2bbc8485c8cdb88d484d5c32",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0.jsonl": "2049fe4cd7f406c15faba436eea59424d4a5e003929dcc8bdaea3f7a5787832a",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/offline/result.json": "b25ba52348e87ea6c57dcd41a8fa7b9f69b3908c46f3f18bbfd9d8675227b458",
@@ -66,7 +66,17 @@
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker2_manifest.json": "8cd142652f72eb2db682109bd5deaf7db2ab62366864b045ab22291aea0eb688",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker2.jsonl": "ed177ab45c5db4c43b0e92008a046c50c89d257625bc2a8242981bd8e0a74ddb",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3_manifest.json": "59bec3e1dbedecf254f962f7eee0636e4c16309d9b1e451b58fb0305c74aba04",
-    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3.jsonl": "c68e4155bc18b16720d2e7da585dc7407979e9dc5ff93cedddadb8427b6f8466"
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3.jsonl": "c68e4155bc18b16720d2e7da585dc7407979e9dc5ff93cedddadb8427b6f8466",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker0_manifest.json": "85da655d01f8445e068ff66e231f4b2d88f9c3f313c383d58bfeb9b15dda29be",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker0.jsonl": "ee5d35ceee55e8ac385ae66d9c94966bd2feb67fa88adbae4d32491d3c3c7727",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/offline/result.json": "cc88c2e4e161e303cb3870e1b3a96ffb25450723711ca65e952f8e7e8dddb60f",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/offline/actions.npy": "cba0415fac84b82e28c49c592a96caa7c5b8c967632d79d2017346dcc8a83877",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker1_manifest.json": "2f4ac36b0cae4403f4d5b70b04f3014aba7454275be798c7f7974fde022d961c",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker1.jsonl": "7ccb62063571398c7796b87fee7283f55d4e9eb9f0446592f82c451c947c2f56",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2_manifest.json": "dea55979503cf7c8af3d191f3b2e570936791b96c9c183d12f0ebb05b7e9f4b8",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2.jsonl": "6a35f05c806a02fb9dd5002f2e15e1821d053279243b053ddb5f28775cca47f8",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3_manifest.json": "b1b2f361c3e77e5dde0827b232a389ae05e751fdc131cfbeadcaad308a682b3b",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3.jsonl": "f8d82f9c19e395296c744682194fcbead39d6d01a9f70c5dd83b7197b6dbe57e"
   },
   "scope": "FP full10030 instances once; equal fixed500 camera+500 robot-initial-state instances per model, FP subset reused from full run. No extra same-GPU controls. Hardware/backend differences, where present, are not removed by paired CIs."
 }
