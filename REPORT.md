@@ -1,4 +1,4 @@
-# Current experiment results — 2026-10-04 17:46 SGT
+# Current experiment results — 2026-10-04 19:37 SGT
 
 Validated X1/X2/X4 configurations: 18/18. X3 FP32: complete. Task-8 paired follow-up: complete (800/800 episodes). X6a: complete; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
 
