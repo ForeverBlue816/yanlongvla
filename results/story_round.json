@@ -22,19 +22,19 @@
       "scope": "200 fresh policy-noise rollouts per model, four repeats of50 official initial states; no newly generated states."
     },
     "progress": {
-      "original_fp": 19,
-      "bb_M2_ae_M2_fp32": 39,
-      "bb_M2_flowvq_fp32": 28,
-      "bb_M3_flowvq_fp32": 26
+      "original_fp": 187,
+      "bb_M2_ae_M2_fp32": 200,
+      "bb_M2_flowvq_fp32": 200,
+      "bb_M3_flowvq_fp32": 200
     },
     "source_sha256": {
-      "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "98177353764126e09f6b2cb7208a49db28f8f50bc94866762484647f4e3bab46",
+      "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "fd8c15989c11301d2b008c9ee622c03599f06a9eff0e580ebc4e0e357c3cd0ee",
       "/projects/yanlongvla/runs/story_round/task8_followup/original_fp_manifest.json": "994163954ab9728057b79c2d770d84318745be9324b273b6b663e47627d50f5b",
-      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "c501e0a8838b58cde8a4a2856fbb304c850dd8aa4cf447893acc3376ad388413",
+      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32.jsonl": "fc6a9803644d3ca84a5b30f2319c3dc672897010383b5ee00fb07440cd91957f",
       "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_ae_M2_fp32_manifest.json": "562aded3c01d7b8422c39111164e7b6d1c4255d2ff035d3a00b72f2585ff0b91",
-      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_flowvq_fp32.jsonl": "ea89289d8da50e05c9fda8eebab579ca091af1f3a4a6648edddc6799dcca86a0",
+      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_flowvq_fp32.jsonl": "8608414ddab567d5c3100e438f8572645f45d5f380dbf44d0fe4755d3ee5349e",
       "/projects/yanlongvla/runs/story_round/task8_followup/bb_M2_flowvq_fp32_manifest.json": "851532a4474655900a79dba7704f3daef506667dea0defbe4b3f6dbf8588fa55",
-      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M3_flowvq_fp32.jsonl": "e2e0f3e09a616bce21fbdb7346780d94404701327c1d89d63d0d82ae777fa8f6",
+      "/projects/yanlongvla/runs/story_round/task8_followup/bb_M3_flowvq_fp32.jsonl": "b51dcca520e32af7d922be950c8072a788b3c54b45950c6a33eb991c960d3b57",
       "/projects/yanlongvla/runs/story_round/task8_followup/bb_M3_flowvq_fp32_manifest.json": "b9259236dc0a819a16f6ff8f85652d65a4b20c4f9cd962795cafede3b76f72e2"
     }
   },
@@ -15356,9 +15356,9 @@
         "new_gpu": null
       },
       "bb_M2_ae_M2_fp32": {
-        "episodes": 429,
+        "episodes": 447,
         "reused": 250,
-        "new_episodes": 179,
+        "new_episodes": 197,
         "complete": false,
         "reused_gpu": "NVIDIA L40S",
         "new_gpu": null
@@ -16049,10 +16049,10 @@
       "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task3_seed7.jsonl": "bb8d914b94f875c97f9224c78ca36cf30a71a5540d9a762d0f919acc72665b81",
       "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task4_seed7.jsonl": "107d1856d305d58c00974d0d2ad3349b2c8d102f402d0e7aa2c762b1f6cf216c",
       "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task5_seed7.jsonl": "0362e28b4ba4e8b6da5cdb406c6bfd9e8da68dcced56caa97f3c86106149bafa",
-      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task6_seed7.jsonl": "bf9030affbb92573cafcf2fc9fca325456bcbbe250b0d0d7e6f3681c8ae5f134",
-      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task7_seed7.jsonl": "e9c1cb8bde51182d85632ec4226619e29b5a8b7d7f52642837b24269949ca874",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task6_seed7.jsonl": "6f5a8771bc703249fc5a264f4a7505d4ad53e3d410bc68bc1ba72fb5bd72c2aa",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task7_seed7.jsonl": "714afd8d30edfde6990bc88b8d1d8ca242f3123f9d56133f696249906fabc30c",
       "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task8_seed7.jsonl": "339ba9403b294e0887e1ba22781ba90feb78c4cb80665a2d8979afe22471440f",
-      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task9_seed7.jsonl": "3e9a7aa032ea09e315959429aae10dcb6b6549086fd7060b002f818c0d27000f",
+      "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task9_seed7.jsonl": "9a90172bc81c9807fa285adddbf1cd79773558ae99e9b555d8d829ad9af7faff",
       "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task0_seed7.jsonl": "2f8c5c1efe0b16a43c41b5b06efa6565f8dfdf4f2b18abda2965038157d29a2f",
       "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task1_seed7.jsonl": "6185ebef6a95c78108222687bbd7f693aa25de9a766b9494440440d812d064d1",
       "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task2_seed7.jsonl": "afcca66686f497714b178ae237f9c070280bc9d0fde297fb6052fde0dec443ff",
@@ -16113,9 +16113,9 @@
     "full_fp": null,
     "progress": {
       "x6b_fp": {
-        "episodes": 0,
+        "episodes": 7,
         "required": 10030,
-        "subset_episodes": 0,
+        "subset_episodes": 1,
         "subset_required": 1000,
         "complete": false
       },
@@ -16145,7 +16145,12 @@
     "three_way_separation_dimensions": [],
     "validation_issues": {},
     "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
-    "source_sha256": {},
+    "source_sha256": {
+      "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
+      "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "93b0c4600eb5b5f36663aa55d730f6b512e182f0d1c149e749aef3eb36a2118a",
+      "/projects/yanlongvla/runs/story_round/x6b_fp/offline/result.json": "2a3400c34b01515fc926ecf698e06e3a3c8f43dde46d9ba0030f25c1acd1e233",
+      "/projects/yanlongvla/runs/story_round/x6b_fp/offline/actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c"
+    },
     "scope": "FP full10030 instances once; equal fixed500 camera+500 robot-initial-state instances per model, FP subset reused from full run. No extra same-GPU controls. Hardware/backend differences, where present, are not removed by paired CIs."
   },
   "source_sha256": {

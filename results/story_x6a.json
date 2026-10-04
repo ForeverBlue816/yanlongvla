@@ -13,9 +13,9 @@
       "new_gpu": null
     },
     "bb_M2_ae_M2_fp32": {
-      "episodes": 429,
+      "episodes": 447,
       "reused": 250,
-      "new_episodes": 179,
+      "new_episodes": 197,
       "complete": false,
       "reused_gpu": "NVIDIA L40S",
       "new_gpu": null
@@ -706,10 +706,10 @@
     "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task3_seed7.jsonl": "bb8d914b94f875c97f9224c78ca36cf30a71a5540d9a762d0f919acc72665b81",
     "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task4_seed7.jsonl": "107d1856d305d58c00974d0d2ad3349b2c8d102f402d0e7aa2c762b1f6cf216c",
     "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task5_seed7.jsonl": "0362e28b4ba4e8b6da5cdb406c6bfd9e8da68dcced56caa97f3c86106149bafa",
-    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task6_seed7.jsonl": "bf9030affbb92573cafcf2fc9fca325456bcbbe250b0d0d7e6f3681c8ae5f134",
-    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task7_seed7.jsonl": "e9c1cb8bde51182d85632ec4226619e29b5a8b7d7f52642837b24269949ca874",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task6_seed7.jsonl": "6f5a8771bc703249fc5a264f4a7505d4ad53e3d410bc68bc1ba72fb5bd72c2aa",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task7_seed7.jsonl": "714afd8d30edfde6990bc88b8d1d8ca242f3123f9d56133f696249906fabc30c",
     "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task8_seed7.jsonl": "339ba9403b294e0887e1ba22781ba90feb78c4cb80665a2d8979afe22471440f",
-    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task9_seed7.jsonl": "3e9a7aa032ea09e315959429aae10dcb6b6549086fd7060b002f818c0d27000f",
+    "/projects/yanlongvla/runs/story_round/x6a/bb_M2_ae_M2_fp32/rollouts/libero_10_task9_seed7.jsonl": "9a90172bc81c9807fa285adddbf1cd79773558ae99e9b555d8d829ad9af7faff",
     "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task0_seed7.jsonl": "2f8c5c1efe0b16a43c41b5b06efa6565f8dfdf4f2b18abda2965038157d29a2f",
     "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task1_seed7.jsonl": "6185ebef6a95c78108222687bbd7f693aa25de9a766b9494440440d812d064d1",
     "/projects/yanlongvla/runs/method/bb_M2_flowvq_fp32/full/libero_10_task2_seed7.jsonl": "afcca66686f497714b178ae237f9c070280bc9d0fde297fb6052fde0dec443ff",

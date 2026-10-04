@@ -14,9 +14,9 @@
   "full_fp": null,
   "progress": {
     "x6b_fp": {
-      "episodes": 0,
+      "episodes": 7,
       "required": 10030,
-      "subset_episodes": 0,
+      "subset_episodes": 1,
       "subset_required": 1000,
       "complete": false
     },
@@ -46,6 +46,11 @@
   "three_way_separation_dimensions": [],
   "validation_issues": {},
   "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
-  "source_sha256": {},
+  "source_sha256": {
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "93b0c4600eb5b5f36663aa55d730f6b512e182f0d1c149e749aef3eb36a2118a",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/offline/result.json": "2a3400c34b01515fc926ecf698e06e3a3c8f43dde46d9ba0030f25c1acd1e233",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/offline/actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c"
+  },
   "scope": "FP full10030 instances once; equal fixed500 camera+500 robot-initial-state instances per model, FP subset reused from full run. No extra same-GPU controls. Hardware/backend differences, where present, are not removed by paired CIs."
 }

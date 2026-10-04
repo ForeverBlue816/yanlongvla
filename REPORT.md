@@ -1,10 +1,8 @@
-# Evening progress — October4, Singapore time
+# Current experiment results — 2026-10-04 15:01 SGT
 
-**X1, X2 and X4 are complete; the whole round remains in progress.** The new L40S runtime passes exact actions on 256 observations per FlowVQ model and reaches 6.688 episodes/min versus FP 7.297, within 10%. All four task-8 jobs are running on the paired 200-episode follow-up. X3 continues in FP32; X6a retains its completed episodes and resumes by priority, followed by LIBERO-Plus compatibility/full evaluation. No extra same-GPU controls or X5 seeds were added. See the [validated runtime evidence](results/flowvq_cached_preflight.json) and [current experiment state](results/story_round.json).
+Validated X1/X2/X4 configurations: 18/18. X3 FP32: in progress. Task-8 paired follow-up: in_progress (787/800 episodes). X6a: in_progress; X6b: in_progress. The L40S throughput gate passed; M2 + FlowVQ reached 6.688 episodes/min versus FP 7.297, 8.35% lower, with exact actions on 256 observations for each FlowVQ model. Completed results and paired intervals are below; incomplete evaluations remain pending. [Machine-readable results](results/story_round.json).
 
-# Current evening round — in progress (2026-10-03)
-
-X3, the task-8 follow-up and X6 remain in progress; X1, X2 and X4 are complete, while X5 and additional same-GPU control reruns are dropped. The preceding main-method validation is complete, but this new evening round is **not complete**. New jobs prioritize measured episode throughput, reuse accepted comparators, and disclose hardware differences. See the [current evening tables](#evening-story-experiments--2026-10-03) and [live scheduling record](WORK_STATE.md). Older progress snapshots below are historical.
+This report updates automatically when a complete result passes validation. Older dated sections below are historical.
 
 # Current result — FlowVQ main-method end-to-end validation complete
 
@@ -569,15 +567,15 @@ Assignments compare identical completed episode prefixes. L40S led the completed
 
 ### October4 evaluation runtime and task8 follow-up
 
-Fresh L40S persistent-cache preflight: FP 7.297, FlowVQ 6.688 episodes/min (0.917× FP); status: passed. Both M2 and M3 FlowVQ passed exact raw-action equality on 256 observations each, with maximum difference 0 and no reconstruction after load. The depth-1 weights for steps 0–8 and depth-2 weights for step 9 remain persistent BF16 tensors. The existing loader also had zero inference reconstruction calls; compiled input transforms and expert CUDA graph replay resolved the measured overhead. These are dense-cache evaluation timings, distinct from compressed-storage/logical-read accounting. [Evidence](results/flowvq_cached_preflight.json).
+Fresh L40S persistent-cache preflight: FP 7.297, M2 + FlowVQ 6.688 episodes/min (0.917× FP); status: passed. Both M2 and M3 FlowVQ passed exact raw-action equality on 256 observations each, with maximum difference 0 and no reconstruction after load. The depth-1 weights for steps 0–8 and depth-2 weights for step 9 remain persistent BF16 tensors. The existing loader also had zero inference reconstruction calls; compiled input transforms and expert CUDA graph replay resolved the measured overhead. These are dense-cache evaluation timings, distinct from compressed-storage/logical-read accounting. [Evidence](results/flowvq_cached_preflight.json).
 
 Task8 protocol: seed7, episode IDs50–249,200 rollouts per model; the50 official initial states repeat via episode modulo50, with distinct episode-derived policy noise. All four models share the same IDs and states. Intervals resample the50 initial-state clusters, retaining all four repeats.
 
 | Model | Follow-up successes /200 | Paired Δ vs FP, pp (95% CI) |
 |---|---:|---|
-| FP | pending (19/200 recorded) | pending |
-| M2 + uniform M2 | pending (39/200 recorded) | pending |
-| M2 + FlowVQ | pending (28/200 recorded) | pending |
-| M3 + FlowVQ | pending (26/200 recorded) | pending |
+| FP | pending (187/200 recorded) | pending |
+| M2 + uniform M2 | pending (200/200 recorded) | pending |
+| M2 + FlowVQ | pending (200/200 recorded) | pending |
+| M3 + FlowVQ | pending (200/200 recorded) | pending |
 
 Whether the original16/50 task8 advantage persists remains pending.
