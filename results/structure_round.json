@@ -369,8 +369,1017 @@
   "H3b": {
     "conditions": {},
     "mix": null,
-    "guards": {},
-    "status": "pending"
+    "guards": {
+      "0": {
+        "zero": 256,
+        "unit": 256,
+        "sha256": "1c6836f9b2f08b55c008d937d323ef0774f93a13417d282dcecf9ae044388c45"
+      },
+      "1": {
+        "zero": 256,
+        "unit": 256,
+        "sha256": "468177fa6f0a3ff6b7c37a5969cd6ea447ee3ecf580a34bc26a3c3434b86981d"
+      },
+      "2": {
+        "zero": 256,
+        "unit": 256,
+        "sha256": "43a7c62d3cd8b3fc5d6fe920db933efac88379d991b1f35374107a1d242a9c1c"
+      },
+      "3": {
+        "zero": 256,
+        "unit": 256,
+        "sha256": "c2dbc6753f00b6ab803fc58df4b57da7475da48710e82f3c3b3009082cd3f0a6"
+      }
+    },
+    "status": "pending",
+    "bias_fraction": {
+      "image": {
+        "tokens": 131072,
+        "rows": [
+          {
+            "layer": 0,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.06326384930084078,
+            "mean_energy_fraction": 0.13172920037995808,
+            "fp_energy": 50881194.671875,
+            "error_energy": 1545918.0588378906,
+            "mean_energy": 203642.54974365234
+          },
+          {
+            "layer": 0,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11629919150790109,
+            "mean_energy_fraction": 0.2175432946734889,
+            "fp_energy": 41905953.8125,
+            "error_energy": 2605454.0576171875,
+            "mean_energy": 566799.0598144531
+          },
+          {
+            "layer": 1,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.06090563802905365,
+            "mean_energy_fraction": 0.20800026083916695,
+            "fp_energy": 67286437.046875,
+            "error_energy": 1199992.8178710938,
+            "mean_energy": 249598.81912231445
+          },
+          {
+            "layer": 1,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.14443297977027136,
+            "mean_energy_fraction": 0.25745714992281343,
+            "fp_energy": 19468600.24609375,
+            "error_energy": 1577475.1003417969,
+            "mean_energy": 406132.2434082031
+          },
+          {
+            "layer": 2,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.0639686669877896,
+            "mean_energy_fraction": 0.15139893350566352,
+            "fp_energy": 70936753.546875,
+            "error_energy": 1917269.1953125,
+            "mean_energy": 290272.5114135742
+          },
+          {
+            "layer": 2,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.12073440589138569,
+            "mean_energy_fraction": 0.17184154499354443,
+            "fp_energy": 16442648.35546875,
+            "error_energy": 1394779.9606933594,
+            "mean_energy": 239681.14337158203
+          },
+          {
+            "layer": 3,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.06013554109447464,
+            "mean_energy_fraction": 0.13210126090648366,
+            "fp_energy": 64643982.0,
+            "error_energy": 1769634.5297851562,
+            "mean_energy": 233770.95272827148
+          },
+          {
+            "layer": 3,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.12509848344721267,
+            "mean_energy_fraction": 0.1705414468042846,
+            "fp_energy": 16085413.25390625,
+            "error_energy": 1476068.0148925781,
+            "mean_energy": 251730.7748413086
+          },
+          {
+            "layer": 4,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.056030371688154654,
+            "mean_energy_fraction": 0.10079582051647026,
+            "fp_energy": 63983045.59375,
+            "error_energy": 1992826.0473632812,
+            "mean_energy": 200868.53659057617
+          },
+          {
+            "layer": 4,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11307245495511846,
+            "mean_energy_fraction": 0.1461070220332648,
+            "fp_energy": 17133541.796875,
+            "error_energy": 1499304.0085449219,
+            "mean_energy": 219058.84381103516
+          },
+          {
+            "layer": 5,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.05610234802147368,
+            "mean_energy_fraction": 0.10619719706318008,
+            "fp_energy": 75018808.84375,
+            "error_energy": 2223408.111328125,
+            "mean_energy": 236119.70935058594
+          },
+          {
+            "layer": 5,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.10088315591406903,
+            "mean_energy_fraction": 0.11241929053788935,
+            "fp_energy": 18686010.546875,
+            "error_energy": 1691659.9555664062,
+            "mean_energy": 190175.2120361328
+          },
+          {
+            "layer": 6,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.061847379074363384,
+            "mean_energy_fraction": 0.11370445811344011,
+            "fp_energy": 75656477.84375,
+            "error_energy": 2545137.3627929688,
+            "mean_energy": 289393.46466064453
+          },
+          {
+            "layer": 6,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11731751770926568,
+            "mean_energy_fraction": 0.09448978939201373,
+            "fp_energy": 20594227.1796875,
+            "error_energy": 2999758.8881835938,
+            "mean_energy": 283446.58557128906
+          },
+          {
+            "layer": 7,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.057262473328653224,
+            "mean_energy_fraction": 0.09338153512136453,
+            "fp_energy": 86564589.375,
+            "error_energy": 3039621.2299804688,
+            "mean_energy": 283844.4966430664
+          },
+          {
+            "layer": 7,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11135118752938748,
+            "mean_energy_fraction": 0.11761245783992917,
+            "fp_energy": 22165293.46875,
+            "error_energy": 2336737.1650390625,
+            "mean_energy": 274829.40130615234
+          },
+          {
+            "layer": 8,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.06541991482986557,
+            "mean_energy_fraction": 0.09105746763334334,
+            "fp_energy": 88902286.0625,
+            "error_energy": 4178470.201171875,
+            "mean_energy": 380480.91510009766
+          },
+          {
+            "layer": 8,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.09989256695327206,
+            "mean_energy_fraction": 0.08633967115170998,
+            "fp_energy": 27830548.5234375,
+            "error_energy": 3216456.7993164062,
+            "mean_energy": 277707.82232666016
+          },
+          {
+            "layer": 9,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.06228360721579863,
+            "mean_energy_fraction": 0.10844259838424203,
+            "fp_energy": 117573952.03125,
+            "error_energy": 4205897.802734375,
+            "mean_energy": 456098.48626708984
+          },
+          {
+            "layer": 9,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11423339774836008,
+            "mean_energy_fraction": 0.09005169243609461,
+            "fp_energy": 28957728.859375,
+            "error_energy": 4196225.3896484375,
+            "mean_energy": 377877.19818115234
+          },
+          {
+            "layer": 10,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.077099862031805,
+            "mean_energy_fraction": 0.13425615524349105,
+            "fp_energy": 127351667.125,
+            "error_energy": 5638682.359375,
+            "mean_energy": 757027.8142089844
+          },
+          {
+            "layer": 10,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11624034126148762,
+            "mean_energy_fraction": 0.10043167984848694,
+            "fp_energy": 39396344.9765625,
+            "error_energy": 5300281.7646484375,
+            "mean_energy": 532316.2012939453
+          },
+          {
+            "layer": 11,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.06487522546181063,
+            "mean_energy_fraction": 0.134920254222862,
+            "fp_energy": 145459988.4375,
+            "error_energy": 4537578.5712890625,
+            "mean_energy": 612211.2543945312
+          },
+          {
+            "layer": 11,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11944411552493961,
+            "mean_energy_fraction": 0.08706667918591494,
+            "fp_energy": 53239841.3125,
+            "error_energy": 8723972.537109375,
+            "mean_energy": 759567.3181152344
+          },
+          {
+            "layer": 12,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.07736024231187488,
+            "mean_energy_fraction": 0.12375342556945416,
+            "fp_energy": 143162665.875,
+            "error_energy": 6923220.923828125,
+            "mean_energy": 856772.3052978516
+          },
+          {
+            "layer": 12,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11208958622391678,
+            "mean_energy_fraction": 0.08421907679827235,
+            "fp_energy": 145139556.46875,
+            "error_energy": 21652390.30859375,
+            "mean_energy": 1823544.322265625
+          },
+          {
+            "layer": 13,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.07296635152019879,
+            "mean_energy_fraction": 0.11532729741281732,
+            "fp_energy": 140357419.4375,
+            "error_energy": 6479604.85546875,
+            "mean_energy": 747275.3162841797
+          },
+          {
+            "layer": 13,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.14902448224393308,
+            "mean_energy_fraction": 0.11000853778507422,
+            "fp_energy": 111492697.46875,
+            "error_energy": 22507915.3984375,
+            "mean_energy": 2476062.8615722656
+          },
+          {
+            "layer": 14,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.091532451843687,
+            "mean_energy_fraction": 0.1370528064696571,
+            "fp_energy": 259118560.375,
+            "error_energy": 15840204.37109375,
+            "mean_energy": 2170944.464111328
+          },
+          {
+            "layer": 14,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.12095557216432497,
+            "mean_energy_fraction": 0.08467575872791637,
+            "fp_energy": 520457318.125,
+            "error_energy": 89924448.515625,
+            "mean_energy": 7614420.90625
+          },
+          {
+            "layer": 15,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.07427818684743112,
+            "mean_energy_fraction": 0.12115297562631867,
+            "fp_energy": 228769057.5625,
+            "error_energy": 10418034.365234375,
+            "mean_energy": 1262175.8635253906
+          },
+          {
+            "layer": 15,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.12403629877341658,
+            "mean_energy_fraction": 0.110675060486535,
+            "fp_energy": 460724261.0,
+            "error_energy": 64045542.84375,
+            "mean_energy": 7088244.328125
+          },
+          {
+            "layer": 16,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.07744441180111468,
+            "mean_energy_fraction": 0.16262520898737176,
+            "fp_energy": 260227628.9375,
+            "error_energy": 9597225.697265625,
+            "mean_energy": 1560750.8347167969
+          },
+          {
+            "layer": 16,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.1291594040588985,
+            "mean_energy_fraction": 0.1500630947404591,
+            "fp_energy": 449850106.25,
+            "error_energy": 50008749.375,
+            "mean_energy": 7504467.6953125
+          },
+          {
+            "layer": 17,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.0714555909080904,
+            "mean_energy_fraction": 0.11680742802409383,
+            "fp_energy": 459403368.375,
+            "error_energy": 20081499.734375,
+            "mean_energy": 2345668.334838867
+          },
+          {
+            "layer": 17,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.09219368285540872,
+            "mean_energy_fraction": 0.16842672519791402,
+            "fp_energy": 9078481798.0,
+            "error_energy": 458146687.375,
+            "mean_energy": 77164146.21484375
+          }
+        ],
+        "joint_KV": [
+          {
+            "layer": 0,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.18558721982648899,
+            "mean_error_relative_KV_norm": 0.0911225680719324,
+            "fp_energy": 92787148.484375,
+            "error_energy": 4151372.116455078,
+            "mean_energy": 770441.6095581055
+          },
+          {
+            "layer": 1,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.23608951816532064,
+            "mean_error_relative_KV_norm": 0.08693917768939508,
+            "fp_energy": 86755037.29296875,
+            "error_energy": 2777467.9182128906,
+            "mean_energy": 655731.0625305176
+          },
+          {
+            "layer": 2,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.16000778666710666,
+            "mean_error_relative_KV_norm": 0.07787793224274886,
+            "fp_energy": 87379401.90234375,
+            "error_energy": 3312049.1560058594,
+            "mean_energy": 529953.6547851562
+          },
+          {
+            "layer": 3,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.14958293955978813,
+            "mean_error_relative_KV_norm": 0.07754959609680662,
+            "fp_energy": 80729395.25390625,
+            "error_energy": 3245702.5446777344,
+            "mean_energy": 485501.7275695801
+          },
+          {
+            "layer": 4,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.12024963952621182,
+            "mean_error_relative_KV_norm": 0.07195024227532484,
+            "fp_energy": 81116587.390625,
+            "error_energy": 3492130.055908203,
+            "mean_energy": 419927.3804016113
+          },
+          {
+            "layer": 5,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.10888569856331001,
+            "mean_error_relative_KV_norm": 0.06744878260426268,
+            "fp_energy": 93704819.390625,
+            "error_energy": 3915068.0668945312,
+            "mean_energy": 426294.92138671875
+          },
+          {
+            "layer": 6,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.10330942623697341,
+            "mean_error_relative_KV_norm": 0.07714623349793157,
+            "fp_energy": 96250705.0234375,
+            "error_energy": 5544896.2509765625,
+            "mean_energy": 572840.0502319336
+          },
+          {
+            "layer": 7,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.10391306845666289,
+            "mean_error_relative_KV_norm": 0.07168111141597817,
+            "fp_energy": 108729882.84375,
+            "error_energy": 5376358.395019531,
+            "mean_energy": 558673.8979492188
+          },
+          {
+            "layer": 8,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.08900544080871903,
+            "mean_error_relative_KV_norm": 0.07508941269755191,
+            "fp_energy": 116732834.5859375,
+            "error_energy": 7394927.000488281,
+            "mean_energy": 658188.7374267578
+          },
+          {
+            "layer": 9,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.09925773109400574,
+            "mean_error_relative_KV_norm": 0.07544160658872016,
+            "fp_energy": 146531680.890625,
+            "error_energy": 8402123.192382812,
+            "mean_energy": 833975.6844482422
+          },
+          {
+            "layer": 10,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.11786710340071019,
+            "mean_error_relative_KV_norm": 0.08793344172711495,
+            "fp_energy": 166748012.1015625,
+            "error_energy": 10938964.124023438,
+            "mean_energy": 1289344.0155029297
+          },
+          {
+            "layer": 11,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.10344028095182839,
+            "mean_error_relative_KV_norm": 0.08308894791494414,
+            "fp_energy": 198699829.75,
+            "error_energy": 13261551.108398438,
+            "mean_energy": 1371778.5725097656
+          },
+          {
+            "layer": 12,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.09379735067652344,
+            "mean_error_relative_KV_norm": 0.09642042806286381,
+            "fp_energy": 288302222.34375,
+            "error_energy": 28575611.232421875,
+            "mean_energy": 2680316.6275634766
+          },
+          {
+            "layer": 13,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.11119744461143,
+            "mean_error_relative_KV_norm": 0.11313106034170876,
+            "fp_energy": 251850116.90625,
+            "error_energy": 28987520.25390625,
+            "mean_energy": 3223338.1778564453
+          },
+          {
+            "layer": 14,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.09252018612345024,
+            "mean_error_relative_KV_norm": 0.11203644675740788,
+            "fp_energy": 779575878.5,
+            "error_energy": 105764652.88671875,
+            "mean_energy": 9785365.370361328
+          },
+          {
+            "layer": 15,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.11214100241537783,
+            "mean_error_relative_KV_norm": 0.11004976862273681,
+            "fp_energy": 689493318.5625,
+            "error_energy": 74463577.20898438,
+            "mean_energy": 8350420.191650391
+          },
+          {
+            "layer": 16,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.15208573501295342,
+            "mean_error_relative_KV_norm": 0.11298900683495602,
+            "fp_energy": 710077735.1875,
+            "error_energy": 59605975.072265625,
+            "mean_energy": 9065218.530029297
+          },
+          {
+            "layer": 17,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.1662591555514021,
+            "mean_error_relative_KV_norm": 0.09130284819649831,
+            "fp_energy": 9537885166.375,
+            "error_energy": 478228187.109375,
+            "mean_energy": 79509814.54968262
+          }
+        ]
+      },
+      "language": {
+        "tokens": 3555,
+        "rows": [
+          {
+            "layer": 0,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.033658858691481816,
+            "mean_energy_fraction": 0.13677981218504284,
+            "fp_energy": 1673746.3918457031,
+            "error_energy": 13863.293643951416,
+            "mean_energy": 1896.2187008857727
+          },
+          {
+            "layer": 0,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.03391784508048323,
+            "mean_energy_fraction": 0.1365476879629879,
+            "fp_energy": 1802544.6789550781,
+            "error_energy": 15186.51738357544,
+            "mean_energy": 2073.6838369369507
+          },
+          {
+            "layer": 1,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.041729729543487463,
+            "mean_energy_fraction": 0.15551388254699702,
+            "fp_energy": 919622.2370605469,
+            "error_energy": 10297.491453170776,
+            "mean_energy": 1601.4028763771057
+          },
+          {
+            "layer": 1,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.11472425918663087,
+            "mean_energy_fraction": 0.18257888673878236,
+            "fp_energy": 205520.4223022461,
+            "error_energy": 14815.453609466553,
+            "mean_energy": 2704.9890265464783
+          },
+          {
+            "layer": 2,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.123506388293403,
+            "mean_energy_fraction": 0.3138829856547651,
+            "fp_energy": 1298997.8123779297,
+            "error_energy": 63127.63049316406,
+            "mean_energy": 19814.689136505127
+          },
+          {
+            "layer": 2,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.21680575813171907,
+            "mean_energy_fraction": 0.3424968830232505,
+            "fp_energy": 334250.8987121582,
+            "error_energy": 45873.046688079834,
+            "mean_energy": 15711.375505447388
+          },
+          {
+            "layer": 3,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.11688619137189489,
+            "mean_energy_fraction": 0.30069803627298536,
+            "fp_energy": 1253426.2836914062,
+            "error_energy": 56950.1170501709,
+            "mean_energy": 17124.78836250305
+          },
+          {
+            "layer": 3,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.22399657998853667,
+            "mean_energy_fraction": 0.31207359196740037,
+            "fp_energy": 407187.12380981445,
+            "error_energy": 65466.60075378418,
+            "mean_energy": 20430.39725112915
+          },
+          {
+            "layer": 4,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.1188675794045006,
+            "mean_energy_fraction": 0.2762038260552197,
+            "fp_energy": 1454470.3435058594,
+            "error_energy": 74404.98235321045,
+            "mean_energy": 20550.940803527832
+          },
+          {
+            "layer": 4,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.21563964308573505,
+            "mean_energy_fraction": 0.28778218739830236,
+            "fp_energy": 393874.17083740234,
+            "error_energy": 63643.02317047119,
+            "mean_energy": 18315.328420639038
+          },
+          {
+            "layer": 5,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.12376464672484393,
+            "mean_energy_fraction": 0.24933765189119125,
+            "fp_energy": 1469290.8063964844,
+            "error_energy": 90263.69526672363,
+            "mean_energy": 22506.137828826904
+          },
+          {
+            "layer": 5,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.20990247833977013,
+            "mean_energy_fraction": 0.24741163341420602,
+            "fp_energy": 467374.95349121094,
+            "error_energy": 83230.10665893555,
+            "mean_energy": 20592.09663772583
+          },
+          {
+            "layer": 6,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.13801075947785255,
+            "mean_energy_fraction": 0.25188348711486114,
+            "fp_energy": 1405395.9541015625,
+            "error_energy": 106273.47789001465,
+            "mean_energy": 26768.534198760986
+          },
+          {
+            "layer": 6,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.21974712552546,
+            "mean_energy_fraction": 0.23552041474680044,
+            "fp_energy": 827387.8900756836,
+            "error_energy": 169639.5096282959,
+            "mean_energy": 39953.5676651001
+          },
+          {
+            "layer": 7,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.14099279704559667,
+            "mean_energy_fraction": 0.2495626966294608,
+            "fp_energy": 1705759.7639160156,
+            "error_energy": 135872.65090942383,
+            "mean_energy": 33908.74515914917
+          },
+          {
+            "layer": 7,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.22102470718895645,
+            "mean_energy_fraction": 0.24862021795932795,
+            "fp_energy": 582464.3817138672,
+            "error_energy": 114449.67872619629,
+            "mean_energy": 28454.504070281982
+          },
+          {
+            "layer": 8,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.15872965168061645,
+            "mean_energy_fraction": 0.2370262831798513,
+            "fp_energy": 1602205.3022460938,
+            "error_energy": 170309.07286071777,
+            "mean_energy": 40367.72653198242
+          },
+          {
+            "layer": 8,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.23232995420952324,
+            "mean_energy_fraction": 0.23211052312758454,
+            "fp_energy": 651883.6952514648,
+            "error_energy": 151595.28784179688,
+            "mean_energy": 35186.86156463623
+          },
+          {
+            "layer": 9,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.1313346754996013,
+            "mean_energy_fraction": 0.21250776905403337,
+            "fp_energy": 1827868.0314941406,
+            "error_energy": 148364.10328674316,
+            "mean_energy": 31528.52459716797
+          },
+          {
+            "layer": 9,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.22378723668004222,
+            "mean_energy_fraction": 0.20919007365648848,
+            "fp_energy": 790106.0819091797,
+            "error_energy": 189153.75158691406,
+            "mean_energy": 39569.087226867676
+          },
+          {
+            "layer": 10,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.15436696853425663,
+            "mean_energy_fraction": 0.21406732670893233,
+            "fp_energy": 1715730.0146484375,
+            "error_energy": 190988.5424194336,
+            "mean_energy": 40884.40670776367
+          },
+          {
+            "layer": 10,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.22987020669990427,
+            "mean_energy_fraction": 0.20518194803153023,
+            "fp_energy": 825043.4661865234,
+            "error_energy": 212472.65914916992,
+            "mean_energy": 43595.554107666016
+          },
+          {
+            "layer": 11,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.1367438148266037,
+            "mean_energy_fraction": 0.19469819492715837,
+            "fp_energy": 1567033.8248291016,
+            "error_energy": 150498.3812866211,
+            "mean_energy": 29301.763175964355
+          },
+          {
+            "layer": 11,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.2343978165807963,
+            "mean_energy_fraction": 0.18162341657523517,
+            "fp_energy": 1156135.6002197266,
+            "error_energy": 349738.99450683594,
+            "mean_energy": 63520.791091918945
+          },
+          {
+            "layer": 12,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.15549029922865398,
+            "mean_energy_fraction": 0.19500952129086577,
+            "fp_energy": 1426913.5435791016,
+            "error_energy": 176908.39506530762,
+            "mean_energy": 34498.821434020996
+          },
+          {
+            "layer": 12,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.24601628127011688,
+            "mean_energy_fraction": 0.192511862569956,
+            "fp_energy": 2238430.450439453,
+            "error_energy": 703742.5466308594,
+            "mean_energy": 135478.78842163086
+          },
+          {
+            "layer": 13,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.15524289598355,
+            "mean_energy_fraction": 0.2000414448093097,
+            "fp_energy": 1379042.9650878906,
+            "error_energy": 166142.7084197998,
+            "mean_energy": 33235.42743682861
+          },
+          {
+            "layer": 13,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.26798951451200975,
+            "mean_energy_fraction": 0.19384495656660122,
+            "fp_energy": 1611308.0579833984,
+            "error_energy": 596979.8558349609,
+            "mean_energy": 115721.53422546387
+          },
+          {
+            "layer": 14,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.18064580083931006,
+            "mean_energy_fraction": 0.1753517878244761,
+            "fp_energy": 1324056.857421875,
+            "error_energy": 246406.51034545898,
+            "mean_energy": 43207.822120666504
+          },
+          {
+            "layer": 14,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.22529346689009677,
+            "mean_energy_fraction": 0.17937846099107063,
+            "fp_energy": 6982391.8427734375,
+            "error_energy": 1975746.0388183594,
+            "mean_energy": 354406.2837524414
+          },
+          {
+            "layer": 15,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.194329476453832,
+            "mean_energy_fraction": 0.1993265749730378,
+            "fp_energy": 994894.3756103516,
+            "error_energy": 188490.35510253906,
+            "mean_energy": 37571.13689804077
+          },
+          {
+            "layer": 15,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.2794196311173221,
+            "mean_energy_fraction": 0.20439694692081645,
+            "fp_energy": 4696603.540527344,
+            "error_energy": 1794003.66796875,
+            "mean_energy": 366688.8724975586
+          },
+          {
+            "layer": 16,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.19424315139070292,
+            "mean_energy_fraction": 0.21053642594393693,
+            "fp_energy": 1502717.3696289062,
+            "error_energy": 269303.185836792,
+            "mean_energy": 56698.13024139404
+          },
+          {
+            "layer": 16,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.2690869915045433,
+            "mean_energy_fraction": 0.2341668900563001,
+            "fp_energy": 6727441.662597656,
+            "error_energy": 2080222.8309326172,
+            "mean_energy": 487119.3109436035
+          },
+          {
+            "layer": 17,
+            "kind": "K",
+            "mean_error_relative_KV_norm": 0.1992821806919458,
+            "mean_energy_fraction": 0.20005859791556127,
+            "fp_energy": 1941293.1247558594,
+            "error_energy": 385363.72341918945,
+            "mean_energy": 77095.32619476318
+          },
+          {
+            "layer": 17,
+            "kind": "V",
+            "mean_error_relative_KV_norm": 0.27156664866549274,
+            "mean_energy_fraction": 0.167657071854932,
+            "fp_energy": 4554063.5673828125,
+            "error_energy": 2003226.5939941406,
+            "mean_energy": 335855.1050109863
+          }
+        ],
+        "joint_KV": [
+          {
+            "layer": 0,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.13665846342549168,
+            "mean_error_relative_KV_norm": 0.03379339743561408,
+            "fp_energy": 3476291.0708007812,
+            "error_energy": 29049.811027526855,
+            "mean_energy": 3969.9025378227234
+          },
+          {
+            "layer": 1,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.17148095901068053,
+            "mean_error_relative_KV_norm": 0.06186613423499292,
+            "fp_energy": 1125142.659362793,
+            "error_energy": 25112.94506263733,
+            "mean_energy": 4306.391902923584
+          },
+          {
+            "layer": 2,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.3259251736838347,
+            "mean_error_relative_KV_norm": 0.1474848425133366,
+            "fp_energy": 1633248.711090088,
+            "error_energy": 109000.6771812439,
+            "mean_energy": 35526.064641952515
+          },
+          {
+            "layer": 3,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.30678151062484094,
+            "mean_error_relative_KV_norm": 0.1503836724713022,
+            "fp_energy": 1660613.4075012207,
+            "error_energy": 122416.71780395508,
+            "mean_energy": 37555.1856136322
+          },
+          {
+            "layer": 4,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.281541693244525,
+            "mean_error_relative_KV_norm": 0.14500900276316137,
+            "fp_energy": 1848344.5143432617,
+            "error_energy": 138048.00552368164,
+            "mean_energy": 38866.26922416687
+          },
+          {
+            "layer": 5,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.24841368387915097,
+            "mean_error_relative_KV_norm": 0.14917718325208323,
+            "fp_energy": 1936665.7598876953,
+            "error_energy": 173493.80192565918,
+            "mean_energy": 43098.234466552734
+          },
+          {
+            "layer": 6,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.24182298362969656,
+            "mean_error_relative_KV_norm": 0.17286677063595804,
+            "fp_energy": 2232783.844177246,
+            "error_energy": 275912.98751831055,
+            "mean_energy": 66722.10186386108
+          },
+          {
+            "layer": 7,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.24913178668562955,
+            "mean_error_relative_KV_norm": 0.16508783999745,
+            "fp_energy": 2288224.145629883,
+            "error_energy": 250322.32963562012,
+            "mean_energy": 62363.24922943115
+          },
+          {
+            "layer": 8,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.23471129105468014,
+            "mean_error_relative_KV_norm": 0.18308168109152068,
+            "fp_energy": 2254088.9974975586,
+            "error_energy": 321904.36070251465,
+            "mean_energy": 75554.58809661865
+          },
+          {
+            "layer": 9,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.21064844658558746,
+            "mean_error_relative_KV_norm": 0.1647953042386705,
+            "fp_energy": 2617974.1134033203,
+            "error_energy": 337517.8548736572,
+            "mean_energy": 71097.61182403564
+          },
+          {
+            "layer": 10,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.20938806627993678,
+            "mean_error_relative_KV_norm": 0.18234500786424274,
+            "fp_energy": 2540773.480834961,
+            "error_energy": 403461.2015686035,
+            "mean_energy": 84479.96081542969
+          },
+          {
+            "layer": 11,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.18555701504840932,
+            "mean_error_relative_KV_norm": 0.1846245400506985,
+            "fp_energy": 2723169.425048828,
+            "error_energy": 500237.37579345703,
+            "mean_energy": 92822.5542678833
+          },
+          {
+            "layer": 12,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.19301360142563245,
+            "mean_error_relative_KV_norm": 0.21534683303005606,
+            "fp_energy": 3665343.9940185547,
+            "error_energy": 880650.941696167,
+            "mean_energy": 169977.60985565186
+          },
+          {
+            "layer": 13,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.19519402077667397,
+            "mean_error_relative_KV_norm": 0.22318721711640913,
+            "fp_energy": 2990351.023071289,
+            "error_energy": 763122.5642547607,
+            "mean_energy": 148956.96166229248
+          },
+          {
+            "layer": 14,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.17893195767443038,
+            "mean_error_relative_KV_norm": 0.21878784869142381,
+            "fp_energy": 8306448.7001953125,
+            "error_energy": 2222152.5491638184,
+            "mean_energy": 397614.1058731079
+          },
+          {
+            "layer": 15,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.20391486919557913,
+            "mean_error_relative_KV_norm": 0.2665122036719815,
+            "fp_energy": 5691497.916137695,
+            "error_energy": 1982494.023071289,
+            "mean_energy": 404260.00939559937
+          },
+          {
+            "layer": 16,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.23145836109222778,
+            "mean_error_relative_KV_norm": 0.25705286721285064,
+            "fp_energy": 8230159.0322265625,
+            "error_energy": 2349526.016769409,
+            "mean_energy": 543817.4411849976
+          },
+          {
+            "layer": 17,
+            "kind": "joint_KV",
+            "mean_energy_fraction": 0.17288457890633369,
+            "mean_error_relative_KV_norm": 0.2521433155704346,
+            "fp_energy": 6495356.692138672,
+            "error_energy": 2388590.31741333,
+            "mean_energy": 412950.4312057495
+          }
+        ]
+      }
+    }
   },
   "branches": {
     "H4b_anchors": {

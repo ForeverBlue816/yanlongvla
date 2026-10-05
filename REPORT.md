@@ -3,7 +3,7 @@
 
 H3b has priority; all H5 evaluation requires completed H3b and complete H4 failure review. Seed7, at most8 GPUs. H2TV remains appendix-only diagnostic evidence. [Registered protocol](STRUCTURE_2026-10-05.md). [Validated evidence](results/structure_round.json).
 
-H3b: 0/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 0/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
+H3b: 4/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 0/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
 
 Mean-only and residual-only use per-observation layer/type means; H5d uses calibration-wide means. Random signs are shared acrossK/V and all layers for a given token. Token permutation preserves the receiving-position jointK/V error norm; layer permutation is retained. No new mechanism verdict before measured comparisons.
 
@@ -28,7 +28,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Current experiments — October5 causal follow-up — 2026-10-05 13:56 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 13:57 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
