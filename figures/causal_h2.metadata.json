@@ -1,0 +1,16 @@
+{
+  "conclusion": "TV separates model families in aggregate but fails the required top5 localization to tasks8/9.",
+  "question": "Does TV meet both user-defined conditions for a decision-change detector?",
+  "archetype": "quantitative grid",
+  "backend": "python",
+  "width_mm": 183,
+  "height_mm": 86,
+  "panels": {
+    "a": "all1600-observation empirical distributions expose overlap and zero masses",
+    "b": "task8/9 descending TV ranks test the decisive localization gate"
+  },
+  "sample": "40 tasks x40 paired evaluation initial observations,32 fixed latents,seed7",
+  "uncertainty": "empirical CDFs, no inferential bands; rank whiskers show ties, not confidence intervals",
+  "exclusions": "none; all1600 observations and all40 task ranks",
+  "verdict": "drop_metric_from_paper"
+}

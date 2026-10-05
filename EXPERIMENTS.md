@@ -953,3 +953,10 @@ All numerical details and raw-file hashes: results/decisions_round.json. Counts 
 {"G_H1": "passed", "H1": "complete", "H2": "complete", "H6": {"full": "complete", "install300": "complete", "medium1": "complete", "medium2": "complete", "plus": "complete", "plus2": "complete"}, "validated": ["fp", "uniform", "h1a", "h1b", "h1c", "h1d"]}
 
 All numerical details and raw-file hashes: results/decisions_round.json. Counts use the all-task and excluding-LIBERO10-tasks8/9 scopes.
+
+
+### Causal milestone — 2026-10-05T02:05:23.306001+00:00
+
+{"H3_completed": [], "H2": "drop_metric_from_paper", "H4": {"rerun": "queued", "labels": "pending"}, "H5": {"h5a": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5b": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c4": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c16": {"fit": "queued", "evaluation": "gated_on_H4_labels"}}}
+
+Full protocols, paired scopes and source hashes: results/causal_round.json.

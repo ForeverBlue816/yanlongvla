@@ -1,0 +1,338 @@
+{
+  "status": "complete",
+  "reused_validated_episodes": 5000,
+  "new_episodes": 0,
+  "protocol": "same preregistered500 camera +500 robot-initial-state instances,seed7; FP partial-full archive subset only, no full score",
+  "models": [
+    "x6b_fp",
+    "x6b_uniform",
+    "x6b_expert_M1",
+    "x6b_flowvq",
+    "2bit_2steps"
+  ],
+  "per_dimension": {
+    "Camera Viewpoints": {
+      "all_tasks": {
+        "reference": "x6b_fp",
+        "episodes_per_model": 500,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "x6b_fp": {
+            "successes": 372,
+            "episodes": 500,
+            "success_percent": 74.4,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "x6b_uniform": {
+            "successes": 346,
+            "episodes": 500,
+            "success_percent": 69.19999999999999,
+            "difference_from_reference_pp": -5.2,
+            "paired_difference_ci95_pp": [
+              -10.323570188492061,
+              -0.02262222503659071
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 51
+          },
+          "x6b_expert_M1": {
+            "successes": 350,
+            "episodes": 500,
+            "success_percent": 70.0,
+            "difference_from_reference_pp": -4.3999999999999995,
+            "paired_difference_ci95_pp": [
+              -9.9924292542466,
+              1.432606056467952
+            ],
+            "paired_improvements": 28,
+            "paired_regressions": 50
+          },
+          "x6b_flowvq": {
+            "successes": 341,
+            "episodes": 500,
+            "success_percent": 68.2,
+            "difference_from_reference_pp": -6.2,
+            "paired_difference_ci95_pp": [
+              -11.972827853174874,
+              -0.7852486506935707
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 60
+          },
+          "2bit_2steps": {
+            "successes": 349,
+            "episodes": 500,
+            "success_percent": 69.8,
+            "difference_from_reference_pp": -4.6,
+            "paired_difference_ci95_pp": [
+              -9.231976268302637,
+              0.16931031579575687
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 48
+          }
+        }
+      },
+      "excluding_libero10_tasks8_9": {
+        "reference": "x6b_fp",
+        "episodes_per_model": 475,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "x6b_fp": {
+            "successes": 364,
+            "episodes": 475,
+            "success_percent": 76.63157894736841,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "x6b_uniform": {
+            "successes": 344,
+            "episodes": 475,
+            "success_percent": 72.42105263157896,
+            "difference_from_reference_pp": -4.2105263157894735,
+            "paired_difference_ci95_pp": [
+              -9.34626897493525,
+              0.6471708135753534
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 45
+          },
+          "x6b_expert_M1": {
+            "successes": 346,
+            "episodes": 475,
+            "success_percent": 72.84210526315789,
+            "difference_from_reference_pp": -3.7894736842105265,
+            "paired_difference_ci95_pp": [
+              -9.490397617634157,
+              1.9352438028765355
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 45
+          },
+          "x6b_flowvq": {
+            "successes": 339,
+            "episodes": 475,
+            "success_percent": 71.36842105263158,
+            "difference_from_reference_pp": -5.263157894736842,
+            "paired_difference_ci95_pp": [
+              -10.90954778864664,
+              0.19757027419065015
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 54
+          },
+          "2bit_2steps": {
+            "successes": 348,
+            "episodes": 475,
+            "success_percent": 73.26315789473684,
+            "difference_from_reference_pp": -3.3684210526315788,
+            "paired_difference_ci95_pp": [
+              -8.317842560963912,
+              1.2466264509639775
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 41
+          }
+        }
+      }
+    },
+    "Robot Initial States": {
+      "all_tasks": {
+        "reference": "x6b_fp",
+        "episodes_per_model": 500,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "x6b_fp": {
+            "successes": 393,
+            "episodes": 500,
+            "success_percent": 78.60000000000001,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "x6b_uniform": {
+            "successes": 358,
+            "episodes": 500,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": -7.000000000000001,
+            "paired_difference_ci95_pp": [
+              -14.228679709862087,
+              -0.6057517210348575
+            ],
+            "paired_improvements": 33,
+            "paired_regressions": 68
+          },
+          "x6b_expert_M1": {
+            "successes": 366,
+            "episodes": 500,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": -5.4,
+            "paired_difference_ci95_pp": [
+              -12.22648630089818,
+              0.6546675501321897
+            ],
+            "paired_improvements": 31,
+            "paired_regressions": 58
+          },
+          "x6b_flowvq": {
+            "successes": 355,
+            "episodes": 500,
+            "success_percent": 71.0,
+            "difference_from_reference_pp": -7.6,
+            "paired_difference_ci95_pp": [
+              -14.795163836065976,
+              -0.7892291911741
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 68
+          },
+          "2bit_2steps": {
+            "successes": 356,
+            "episodes": 500,
+            "success_percent": 71.2,
+            "difference_from_reference_pp": -7.3999999999999995,
+            "paired_difference_ci95_pp": [
+              -13.934667364405044,
+              -1.3648062263184888
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 66
+          }
+        }
+      },
+      "excluding_libero10_tasks8_9": {
+        "reference": "x6b_fp",
+        "episodes_per_model": 476,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "x6b_fp": {
+            "successes": 376,
+            "episodes": 476,
+            "success_percent": 78.99159663865547,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "x6b_uniform": {
+            "successes": 351,
+            "episodes": 476,
+            "success_percent": 73.73949579831933,
+            "difference_from_reference_pp": -5.2521008403361344,
+            "paired_difference_ci95_pp": [
+              -11.622265790776199,
+              1.281954036041646
+            ],
+            "paired_improvements": 31,
+            "paired_regressions": 56
+          },
+          "x6b_expert_M1": {
+            "successes": 349,
+            "episodes": 476,
+            "success_percent": 73.31932773109243,
+            "difference_from_reference_pp": -5.6722689075630255,
+            "paired_difference_ci95_pp": [
+              -12.066619767033657,
+              0.6371936733157201
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 54
+          },
+          "x6b_flowvq": {
+            "successes": 347,
+            "episodes": 476,
+            "success_percent": 72.89915966386555,
+            "difference_from_reference_pp": -6.092436974789916,
+            "paired_difference_ci95_pp": [
+              -12.911729982759983,
+              0.37061537167652636
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 59
+          },
+          "2bit_2steps": {
+            "successes": 346,
+            "episodes": 476,
+            "success_percent": 72.68907563025209,
+            "difference_from_reference_pp": -6.302521008403361,
+            "paired_difference_ci95_pp": [
+              -12.783931760057731,
+              -0.3472615664434407
+            ],
+            "paired_improvements": 28,
+            "paired_regressions": 58
+          }
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0_manifest.json": "8a1430bbb8d7b38d4778a920a0840ff176f96ee04226304fe778be4e3a5ace3d",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker0.jsonl": "62d6d95bff695c97ffefcff8fb6aca0942d600509d59cb0f1ec175cac770ef5f",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/offline/result.json": "2a3400c34b01515fc926ecf698e06e3a3c8f43dde46d9ba0030f25c1acd1e233",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/offline/actions.npy": "b9df7ad75e67509eb6364e48ef5cfa4668b46223d072e9e77f6c901bd168dc5c",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1_manifest.json": "427c3b76869a1a550091e77904bf651b9eedf71e0cffd1e0267c88cb52e0731f",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker1.jsonl": "1429ddfa2dfe293954c445cdb033c67345f1879c4c82cc7de02fe943826371df",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2_manifest.json": "8bdc7154bdf9b3dff955d63c3abfb4684e4133396fcdf08cfb49a72f225d17d2",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker2.jsonl": "22ade6e59567beedb058f75554543245600a50485c9273d8bef18683982d0a79",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3_manifest.json": "bef3923769c2778b28eab8f0b901aaee117e048b5517778923d3de891131a834",
+    "/projects/yanlongvla/runs/story_round/x6b_fp/rollouts/worker3.jsonl": "e398ff2052b5fd29a0787621a920937d42e675b0521ff724c1d8706bdec3e4fd",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0_manifest.json": "1ca551b691dbd0ea15dd7b12b6bff883497f330a2bbc8485c8cdb88d484d5c32",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker0.jsonl": "2049fe4cd7f406c15faba436eea59424d4a5e003929dcc8bdaea3f7a5787832a",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/offline/result.json": "b25ba52348e87ea6c57dcd41a8fa7b9f69b3908c46f3f18bbfd9d8675227b458",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/offline/actions.npy": "4f81673e5b943a17e46d5d55d977cf49113cd12ab48600dc78900cb1215f92ae",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker1_manifest.json": "c57514f767d0487222310cc791da9172a59fec77d6807c99d8aa20666dc3717b",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker1.jsonl": "dde0ce5666a5f38d370974d16b2c639bdf06cdc0928b256ebf16419e032fcaa8",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker2_manifest.json": "8cd142652f72eb2db682109bd5deaf7db2ab62366864b045ab22291aea0eb688",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker2.jsonl": "ed177ab45c5db4c43b0e92008a046c50c89d257625bc2a8242981bd8e0a74ddb",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3_manifest.json": "59bec3e1dbedecf254f962f7eee0636e4c16309d9b1e451b58fb0305c74aba04",
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3.jsonl": "c68e4155bc18b16720d2e7da585dc7407979e9dc5ff93cedddadb8427b6f8466",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker0_manifest.json": "0fd7bbb8ba41e0af754423af58d583b277bee6dbde11a1c06c40f49d3112779e",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker0.jsonl": "3c6dc836ab44fd54bd8c95348347762895f546341492f5026ca9765d93b145b9",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/offline/result.json": "f553f897edd85b2e9aa04565a41bba80cb67eede941dee1fa0e305c91a6f69b2",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/offline/actions.npy": "b0fbd3dfa5da9556f44917392760a4bc24b189cd9edaa52e14be22758efce5b3",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1_manifest.json": "59fddf5d6bc99bd449e1e08c7726c396de2ca075e718a79c6d8b857a24c0cf49",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1.jsonl": "687ac608e2aafc24e3c35be25f66fc6abc9afc5bd6370ea9dc49b7ad956173eb",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker2_manifest.json": "b57b30d662fa47617b428296386a12f4311aa573ff95143e6f644e28898591a8",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker2.jsonl": "008a89ad15b07d245654828e2c0e8253dbbdcca8aba1e896429c51374af3b0c3",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3_manifest.json": "bd0c0c668be751f23818b08dccb2b6626cda50318776e34d8d7c2fcb26720717",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3.jsonl": "826a961d31efe71d3f6ddbfff9be7c3d221ce7a21e384f0e5b3998d71c1aee49",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker0_manifest.json": "85da655d01f8445e068ff66e231f4b2d88f9c3f313c383d58bfeb9b15dda29be",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker0.jsonl": "ee5d35ceee55e8ac385ae66d9c94966bd2feb67fa88adbae4d32491d3c3c7727",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/offline/result.json": "cc88c2e4e161e303cb3870e1b3a96ffb25450723711ca65e952f8e7e8dddb60f",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/offline/actions.npy": "cba0415fac84b82e28c49c592a96caa7c5b8c967632d79d2017346dcc8a83877",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker1_manifest.json": "2f4ac36b0cae4403f4d5b70b04f3014aba7454275be798c7f7974fde022d961c",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker1.jsonl": "7ccb62063571398c7796b87fee7283f55d4e9eb9f0446592f82c451c947c2f56",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2_manifest.json": "dea55979503cf7c8af3d191f3b2e570936791b96c9c183d12f0ebb05b7e9f4b8",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2.jsonl": "6a35f05c806a02fb9dd5002f2e15e1821d053279243b053ddb5f28775cca47f8",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3_manifest.json": "b1b2f361c3e77e5dde0827b232a389ae05e751fdc131cfbeadcaad308a682b3b",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3.jsonl": "f8d82f9c19e395296c744682194fcbead39d6d01a9f70c5dd83b7197b6dbe57e",
+    "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker0_manifest.json": "1c2c2615027fb11a2d5ed5b5d4929bbf0141f2c30b7d5e8526f438cdaddd6cd5",
+    "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker0.jsonl": "0a617b9c6a21699897bc6abd2f44d97479429e9337c4d2ccf2e30cfb29788479",
+    "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker1_manifest.json": "1d66e42973861169108db73f1fdd5aef30d1e00ce86e7ec3bf43d8841fd494db",
+    "/projects/yanlongvla/runs/decisions_round/deploy/plus2/worker1.jsonl": "fffebfa137135f955d646ff48837e7ca5c099c7c8aea974954798a65ca41b98b"
+  },
+  "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938"
+}

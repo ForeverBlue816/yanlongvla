@@ -1,6 +1,74 @@
-# Current experiments — Decisions, not actions — 2026-10-05 07:12 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 10:05 SGT
 
-The full10,030-instance FP LIBERO-Plus run is canceled. H1 is the first priority; H1 status: complete; G-H1: passed. H2–H5 stop if G-H1 rejects the hypothesis. Complete validated milestones publish automatically. [Machine-readable results](results/decisions_round.json). Older sections are historical.
+H3: in_progress; completed conditions: 0. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
+
+<!-- CAUSAL_ROUND_BEGIN -->
+## October5 causal follow-up
+
+Priority: H3 prefix-KV causal intervention → H2 detector verdict → H4 complete trajectory rerun/causes → paired Plus dimensions → H5. H5 fitting is authorized now; its evaluation waits for completed H4 labels. Seed7 only, at most8GPUs. Historical sections below do not override this round.
+
+### H3 — Prefix-KV intervention
+
+Status: in_progress.13 primary conditions ×500 paired episodes, including language-only0.3. Two additional equal-total-energy0.01 conditions retain the earlier secondary check; the all-token0.01 row is reused. Primary energy uses each token group's own KV norm. K/V noise is fixed through the ten expert steps, padding is excluded, and a separate RNG preserves policy-noise pairing. Zero-dose exact256-action checks passed on 4 workers.
+
+Prediction: language perturbation near the measured M2 local error0.215 reproduces task8 gain/task9 loss; image perturbation near0.062 does not. The specified0.1/0.3 and0.03/0.1 grids bracket these anchors; no interpolated response is counted as a measurement.
+
+| Condition | All500 | Excluding tasks8/9 (450) | Local energy | Total energy |
+|---|---|---|---:|---:|
+| No complete500-episode condition yet | pending | pending | pending | pending |
+
+### H2 — Detector verdict
+
+TV fails the user-specified joint detector criterion and is dropped from the paper as a decision-change metric. Group separation alone does not rescue failed task8/9 localization. Preserve these negative results and later H5 TV as diagnostic evidence, not a validated decision measure.
+
+| Model | Mean TV | Mean agreement | Task8 TV rank | Task9 TV rank | TV 25/50/75 percentiles |
+|---|---:|---:|---:|---:|---|
+| bb_M2_ae_M2_fp32 | 0.3950 | 0.6047 | 14 | 8 | 0.0000/0.0000/0.9062 |
+| story_plain_bb_M2_ae_M2_fp32 | 0.3541 | 0.6455 | 11 | 6 | 0.0000/0.0000/0.8750 |
+| bb_M3_ae_M2_fp32 | 0.0429 | 0.9571 | 5 | 6 | 0.0000/0.0000/0.0000 |
+| a_M1 | 0.0730 | 0.9270 | 12 | 4 | 0.0000/0.0000/0.0000 |
+| h1a | 0.0007 | 0.9993 | 14–40 | 14–40 | 0.0000/0.0000/0.0000 |
+| h1d | 0.0031 | 0.9969 | 9–11 | 3 | 0.0000/0.0000/0.0000 |
+
+All1600 evaluation observations per model. Full distributions, zero masses, paired cross-model differences, fixed-k2 robustness and rank ties: [source data](results/causal_h2_followup.json). Failed localization gate is reported despite the passing≥2x mean separation gate.
+
+![H2 distributions and task ranks](figures/causal_h2.png)
+
+
+### H4 — Full FP rerun and failure causes
+
+New FP task8 rerun: queued; cause labels: pending. All200 IDs50–249 require both camera views and simulator-state trajectories. Existing M2 task9 trajectories supply the matching failure review; earlier diagnostic replay does not replace this new full rerun.
+
+### LIBERO-Plus — Identical paired dimensions
+
+All requested comparators were already complete on the identical pre-registered instances and passed strict source/coverage checks; reuse5000 accepted model-episodes, with no full10030 score.
+
+| Dimension | Model | All instances | Excluding task8/9 bases | Paired Δ vs FP (all), pp |
+|---|---|---|---|---|
+| Camera Viewpoints | x6b_fp | 372/500 | 364/475 | +0.0 [+0.0,+0.0] |
+| Camera Viewpoints | x6b_uniform | 346/500 | 344/475 | -5.2 [-10.3,-0.0] |
+| Camera Viewpoints | x6b_expert_M1 | 350/500 | 346/475 | -4.4 [-10.0,+1.4] |
+| Camera Viewpoints | x6b_flowvq | 341/500 | 339/475 | -6.2 [-12.0,-0.8] |
+| Camera Viewpoints | 2bit_2steps | 349/500 | 348/475 | -4.6 [-9.2,+0.2] |
+| Robot Initial States | x6b_fp | 393/500 | 376/476 | +0.0 [+0.0,+0.0] |
+| Robot Initial States | x6b_uniform | 358/500 | 351/476 | -7.0 [-14.2,-0.6] |
+| Robot Initial States | x6b_expert_M1 | 366/500 | 349/476 | -5.4 [-12.2,+0.7] |
+| Robot Initial States | x6b_flowvq | 355/500 | 347/476 | -7.6 [-14.8,-0.8] |
+| Robot Initial States | 2bit_2steps | 356/500 | 346/476 | -7.4 [-13.9,-1.4] |
+
+### H5 — Backbone fitting, evaluation after H4
+
+H5a: early0–5 direction-gradient backbone weighting. H5b: backbone codebooks only, fixed uniform-M2 expert/codes/scales/norms,8 paired latents. H5c4/H5c16: valid-language-token input contributions weighted4x/16x in the layer Hessian. No held-out observations enter fitting. Every variant must report image/language KV errors, diagnostic TV, paired200 episodes/task8/task9, and medium1000. TV remains a failed detector, even if a fitter improves it.
+
+| Variant | Fitting | Evaluation |
+|---|---|---|
+| h5a | queued | gated_on_H4_labels |
+| h5b | queued | gated_on_H4_labels |
+| h5c4 | queued | gated_on_H4_labels |
+| h5c16 | queued | gated_on_H4_labels |
+
+Machine-readable [causal round](results/causal_round.json).
+<!-- CAUSAL_ROUND_END -->
 
 <!-- DECISIONS_ROUND_BEGIN -->
 ## Decisions, not actions

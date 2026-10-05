@@ -1,0 +1,92 @@
+{
+  "status": "in_progress",
+  "conditions": {},
+  "progress": {
+    "local_all_0.003": {
+      "completed_workers": 4,
+      "episodes": 300
+    },
+    "local_all_0.01": {
+      "completed_workers": 3,
+      "episodes": 298
+    },
+    "local_all_0.03": {
+      "completed_workers": 2,
+      "episodes": 198
+    },
+    "local_all_0.1": {
+      "completed_workers": 0,
+      "episodes": 119
+    },
+    "local_image_0.003": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "local_image_0.01": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "local_image_0.03": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "local_image_0.1": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "local_language_state_0.003": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "local_language_state_0.01": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "local_language_state_0.03": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "local_language_state_0.1": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "local_language_state_0.3": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "total_image_0.01": {
+      "completed_workers": 0,
+      "episodes": 0
+    },
+    "total_language_state_0.01": {
+      "completed_workers": 0,
+      "episodes": 0
+    }
+  },
+  "guards": {
+    "guard_worker2": {
+      "exact_zero_dose_observations": 256,
+      "independent_rng": true,
+      "source_sha256": "ec059277554995fdb1afc73991e6572c1488e5c45b83c68d7206d27c9991e564"
+    },
+    "guard_worker0": {
+      "exact_zero_dose_observations": 256,
+      "independent_rng": true,
+      "source_sha256": "b0e52bda4f9a9b2d0bdf74d24f8e7880c5edeb5bfe21270d03bee0380e8d4c18"
+    },
+    "guard_worker3": {
+      "exact_zero_dose_observations": 256,
+      "independent_rng": true,
+      "source_sha256": "5498d296c29239ef8fa5b5b2f6f45bcd37467d96d2251bf3d57f9abbdda438cb"
+    },
+    "guard_worker1": {
+      "exact_zero_dose_observations": 256,
+      "independent_rng": true,
+      "source_sha256": "30e4a6be1d8259b9bae1e7f285846db22485ea34931a092abede1d651ef470f0"
+    }
+  },
+  "primary_conditions": 13,
+  "secondary_unique_conditions": 2,
+  "reference_source_sha256": {},
+  "primary_complete": false
+}
