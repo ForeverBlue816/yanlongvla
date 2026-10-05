@@ -18,7 +18,7 @@
   "pending": {
     "a_M2": {
       "status": "pending_complete_1000",
-      "episodes": 576
+      "episodes": 818
     },
     "causal_h5a": {
       "status": "pending_complete_1000",
@@ -437,7 +437,7 @@
   },
   "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
   "calibration_coverage": {
-    "status": "source_mapping_in_progress",
+    "status": "source_mapped_generation_pending",
     "variants": [
       "coverage_mixed_backbone",
       "coverage_mixed_both"
@@ -452,6 +452,10 @@
     "preregistration": {
       "status": "preregistered",
       "sha256": "0c0f57f07910db24740d86649dff1d9ec0e55424310f38d40c56e8c90b83426a"
+    },
+    "source_mapping": {
+      "status": "complete",
+      "sha256": "9a871afc7fbf74bffee7a84413f3273a0b4d7b214ed1af09a808dbbe64b8ac40"
     },
     "failed_jobs": [],
     "coverage_mixed_backbone": {},
