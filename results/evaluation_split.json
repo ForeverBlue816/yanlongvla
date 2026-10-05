@@ -508,7 +508,7 @@
   },
   "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
   "calibration_coverage": {
-    "status": "source_mapped_generation_pending",
+    "status": "blocked_on_failed_stage",
     "variants": [
       "coverage_mixed_backbone",
       "coverage_mixed_both"
@@ -528,7 +528,9 @@
       "status": "complete",
       "sha256": "9a871afc7fbf74bffee7a84413f3273a0b4d7b214ed1af09a808dbbe64b8ac40"
     },
-    "failed_jobs": [],
+    "failed_jobs": [
+      185174
+    ],
     "coverage_mixed_backbone": {},
     "coverage_mixed_both": {},
     "background": {
