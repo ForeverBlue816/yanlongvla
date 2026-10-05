@@ -127345,7 +127345,10 @@
     },
     "h5c16": {
       "fit": {
-        "status": "pending"
+        "status": "complete",
+        "variant": "h5c16",
+        "checkpoint_sha256": "7eb03cf4f334a0a635db9f05ac1dc9410bf06ea9308c7577067954dd76d942ca",
+        "whole_model_bpw": 2.9225899010064036
       },
       "evaluation": {
         "status": "pending"
