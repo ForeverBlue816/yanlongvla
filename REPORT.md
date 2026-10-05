@@ -22,7 +22,7 @@ Calibration coverage: **blocked_on_failed_stage**. The primary mixed set keeps25
 
 H3b has priority; all H5 evaluation requires completed H3b and complete H4 failure review. Seed7, at most8 GPUs. H2TV remains appendix-only diagnostic evidence. [Registered protocol](STRUCTURE_2026-10-05.md). [Validated evidence](results/structure_round.json).
 
-H3b: 4/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 8/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
+H3b: 4/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 9/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
 
 Mean-only and residual-only use per-observation layer/type means; H5d uses calibration-wide means. Random signs are shared acrossK/V and all layers for a given token. Token permutation preserves the receiving-position jointK/V error norm; layer permutation is retained. No new mechanism verdict before measured comparisons.
 
@@ -35,6 +35,7 @@ Mean-only and residual-only use per-observation layer/type means; H5d uses calib
 | half | 131/200; Δ+9.5pp [2.0, 17.012499999999818] | 181/200; Δ-3.0pp [-8.0, 1.5] |
 | quarter | 133/200; Δ+10.5pp [2.5, 18.5] | 181/200; Δ-3.0pp [-8.0, 1.0] |
 | double | 38/200; Δ-37.0pp [-47.5, -26.5] | 41/200; Δ-73.0pp [-80.5, -65.0] |
+| token_permute | 47/200; Δ-32.5pp [-41.5, -23.5] | 99/200; Δ-44.0pp [-52.5, -35.5] |
 | layer_permute | 111/200; Δ-0.5pp [-10.5, 9.0] | 182/200; Δ-2.5pp [-7.5, 2.5] |
 
 H4b uses saved observations only, a5-step query grid and50-control-step windows, with the last50 steps excluded. Report undetected cases and0.5/1/2cm sensitivity. SuccessfulFP andM2 task9 episodes are additional phase controls. The15 historical “other” episodes are candidates, not15 proven cup-in failures;8 have final containment.
@@ -57,7 +58,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Current experiments — October5 causal follow-up — 2026-10-06 00:10 SGT
+# Current experiments — October5 causal follow-up — 2026-10-06 01:37 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
