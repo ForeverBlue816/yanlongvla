@@ -367,7 +367,92 @@
     "created_utc": "2026-10-05T05:10:43.070120+00:00"
   },
   "H3b": {
-    "conditions": {},
+    "conditions": {
+      "unit": {
+        "tasks": {
+          "8": {
+            "all_tasks": {
+              "successes": 180,
+              "episodes": 200,
+              "success_percent": 90.0,
+              "status": "measured"
+            },
+            "excluding_libero10_tasks8_9": {
+              "successes": 0,
+              "episodes": 0,
+              "success_percent": null,
+              "status": "not_applicable_empty_scope"
+            },
+            "difference_pp": 34.0,
+            "paired_difference_ci95_pp": [
+              26.0,
+              42.0
+            ],
+            "success_ci95_percent": [
+              85.5,
+              94.0
+            ],
+            "secondary_new_FP_rerun": {
+              "all_tasks": {
+                "successes": 180,
+                "episodes": 200,
+                "success_percent": 90.0,
+                "status": "measured"
+              },
+              "excluding_libero10_tasks8_9": {
+                "successes": 0,
+                "episodes": 0,
+                "success_percent": null,
+                "status": "not_applicable_empty_scope"
+              },
+              "difference_pp": 35.5,
+              "paired_difference_ci95_pp": [
+                28.000000000000004,
+                43.5
+              ],
+              "success_ci95_percent": [
+                85.5,
+                94.0
+              ]
+            }
+          },
+          "9": {
+            "all_tasks": {
+              "successes": 160,
+              "episodes": 200,
+              "success_percent": 80.0,
+              "status": "measured"
+            },
+            "excluding_libero10_tasks8_9": {
+              "successes": 0,
+              "episodes": 0,
+              "success_percent": null,
+              "status": "not_applicable_empty_scope"
+            },
+            "difference_pp": -13.5,
+            "paired_difference_ci95_pp": [
+              -20.5,
+              -7.000000000000001
+            ],
+            "success_ci95_percent": [
+              72.0,
+              87.0
+            ]
+          }
+        },
+        "source_sha256": {
+          "/projects/yanlongvla/runs/structure_20261005/rollouts/targeted/unit/libero_10_task8.jsonl": "c92efb822b1069e22052b2e9ec50cd848c9edb0a7dc3e5deb5e1b7b6ea7d53c2",
+          "/projects/yanlongvla/runs/structure_20261005/worker0_manifest.json": "304bfd9b221a9d47bd4c94a438a58c5b9472db62cae0f31a5621b87d399d1e0b",
+          "/projects/yanlongvla/runs/structure_20261005/guard_worker0.json": "1c6836f9b2f08b55c008d937d323ef0774f93a13417d282dcecf9ae044388c45",
+          "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "e42afaa2372a9e31fa88c6c94f0feeb813071d33ea2b13f9083a7a1019720f45",
+          "/projects/yanlongvla/runs/causal_20261005/h4_fp_task8/task8.jsonl": "5c99c59c610852c2393fc65758c5d775f7bf41712b9bab9c4200eb1f8236fc69",
+          "/projects/yanlongvla/runs/structure_20261005/rollouts/targeted/unit/libero_10_task9.jsonl": "1f794e08cc8ded933914075be64c9b3890f80653995f5cb89e2ae288a1097f7c",
+          "/projects/yanlongvla/runs/structure_20261005/worker1_manifest.json": "a72a6d443d1bffac404dff4dd7a5755b505a700fe9d00452ad2e42be24b6b3dd",
+          "/projects/yanlongvla/runs/structure_20261005/guard_worker1.json": "468177fa6f0a3ff6b7c37a5969cd6ea447ee3ecf580a34bc26a3c3434b86981d",
+          "/projects/yanlongvla/runs/decisions_round/h1/fp/task9.jsonl": "994cad4c0645657cc0dbae8afe479bd06ed1f9f3273387263273a7549a90fce9"
+        }
+      }
+    },
     "mix": null,
     "guards": {
       "0": {
