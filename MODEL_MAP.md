@@ -379,3 +379,8 @@ The final separate evaluation runtime additionally captures the exact ten-step e
 
 
 Evening structure round: H3b uses FPexpert with actual observation-specific quantized-prefix errors (not fulluniformM2expert). H5d retains the uniformM2backbone/expert checkpoint and adds per-layer/type calibration-mean cachedKV subtraction; extra correction bytes are reported separately. Expert-onlyuniformM2(a_M2) is the added fixedPlus comparator. New variants are evaluation-pending, not promoted methods.
+
+
+## 2026-10-05 calibration-coverage variants (registered, not yet fitted)
+
+`coverage_mixed_backbone`: refit288 backbone Linear layers at2bits using mixed256; retain all126 original-calibration uniformM2 expert layers. `coverage_mixed_both`: identical refitted backbone plus126 uniformM2 expert refits on the same mixed256. Both retain the original embedding/normalization/projection/FP32 table tensors and must match the original deployment payload exactly. Main set128original+64camera+64initial-state, original60 train episodes only. LIBERO-Plus fixed500+500 is primary for method comparisons; LIBERO full/medium remains the headline benchmark. See CALIBRATION_COVERAGE_2026-10-05.md.

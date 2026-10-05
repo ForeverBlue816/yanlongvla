@@ -1,3 +1,19 @@
+<!-- EVALUATION_SPLIT_BEGIN -->
+# Evaluation split and calibration coverage — October 5
+
+LIBERO four-suite full/medium evaluation retains the headline lossless claim and published-baseline comparison. **The fixed LIBERO-Plus 500 camera + 500 initial-state subset is now the primary method-variant benchmark**, including H5a/b/c/d, phase-weighted calibration, activation variants and calibration coverage. Each completed row is paired against FP and the original 2-bit backbone + uniform-M2 expert.
+
+| Model | Camera /500 | Initial state /500 | Combined /1000 | Paired Δ vs FP (pp; 95% CI) | Paired Δ vs original 2-bit (pp; 95% CI) |
+|---|---:|---:|---:|---:|---:|
+| FP | 372 | 393 | 765 | +0.00 [+0.00, +0.00] | +6.10 [+1.71, +10.80] |
+| original_2bit_uniform_M2 | 346 | 358 | 704 | -6.10 [-10.80, -1.71] | +0.00 [+0.00, +0.00] |
+
+Per-dimension paired differences, confidence intervals and discordant episode counts are in [the full table](results/evaluation_split.json). Partial evaluations have no success-rate row. The expert-only uniform-M2 run is reused; no duplicate evaluation is submitted.
+
+Calibration coverage: **source_mapping_in_progress**. The primary mixed set keeps256 observations from the original60 training episodes:128 unchanged +64 independently sampled camera perturbations +64 initial-state perturbations. Two equal-bit variants share the new backbone: (a) both backbone and expert refit; (b) backbone refit with the original expert. Each receives Plus1000 and LIBERO medium1000, paired against both references; image/language KV error and mean-error energy fractions are reported. Exact FP32 trace(J_D,9)/70 is measured on the128 perturbed observations and their matched clean counterparts. No Plus test instances enter calibration. [Protocol](CALIBRATION_COVERAGE_2026-10-05.md).
+
+<!-- EVALUATION_SPLIT_END -->
+
 <!-- STRUCTURE_ROUND_BEGIN -->
 # Evening update — structure, not magnitude
 
@@ -28,7 +44,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Current experiments — October5 causal follow-up — 2026-10-05 14:21 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 15:03 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
