@@ -1,3 +1,11 @@
+# October5 causal-round model map (supersedes historical pending statuses below)
+
+H3 uses the unchanged FP checkpoint with controlled prefix K/V noise;13 primary group-local conditions plus2 distinct equal-total-energy controls. There are no state tokens in this config. Native KV anchors: M2 image0.06225/language0.21506; M3 image0.01417/language0.06230.
+
+H5 output variants are planned as `hd_srvq_causal_h5a`, `hd_srvq_causal_h5b`, `hd_srvq_causal_h5c4`, and `hd_srvq_causal_h5c16`. GPU pilots/fitting are pending; these names do not yet imply existing validated checkpoints. H5a uses early velocity-direction backbone importance; H5b changes backbone codebooks only; H5c4/16 changes valid-language activation weighting in layer-Hessian calibration. All keep the exact uniformM2 expert and baseline tensor layout/bpw. H5 evaluation waits for full H4 failure labels. TV failed its detector gate and is diagnostic only. “Action-aware” remains an ablation label, not a method name.
+
+Current evidence: [causal round](results/causal_round.json), [H2 distributions](results/causal_h2_followup.json), [paired Plus dimensions](results/causal_plus_comparison.json). Four historical Plus comparators and plus2 all have the same accepted500 camera+500 initial-state records. No fullFP10030 restart.
+
 # X3 precision clarification — offline only
 
 The theory check now widens the identical accepted expert weights and sampler arithmetic toFP32 with TF32 disabled; the fixed observation-only backbone KV is widened for attention. Deployment and accepted rollouts remain BF16. JVP gains are primary, paired finite-amplitude slopes secondary, with explicit zero-run floor and factor-three stability checks. The native-BF16 pilot is preserved separately. First complete reduced-step row: FP1-step474/500 seed7, paired -1.4pp versus matchingFP10 (95%CI[-4.8,+1.2]); other configurations remain pending.

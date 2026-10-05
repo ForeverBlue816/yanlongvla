@@ -1,6 +1,6 @@
-# Current experiments — October5 causal follow-up — 2026-10-05 10:05 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 12:42 SGT
 
-H3: in_progress; completed conditions: 0. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
+H3: in_progress; completed conditions: 12. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
 <!-- CAUSAL_ROUND_BEGIN -->
 ## October5 causal follow-up
@@ -9,13 +9,24 @@ Priority: H3 prefix-KV causal intervention → H2 detector verdict → H4 comple
 
 ### H3 — Prefix-KV intervention
 
-Status: in_progress.13 primary conditions ×500 paired episodes, including language-only0.3. Two additional equal-total-energy0.01 conditions retain the earlier secondary check; the all-token0.01 row is reused. Primary energy uses each token group's own KV norm. K/V noise is fixed through the ten expert steps, padding is excluded, and a separate RNG preserves policy-noise pairing. Zero-dose exact256-action checks passed on 4 workers.
+Status: in_progress.13 primary conditions ×500 paired episodes, including language-only0.3. Two additional equal-total-energy0.01 conditions retain the earlier secondary check; the all-token0.01 row is reused. Primary energy uses each token group's own KV norm. K/V noise is fixed through the ten expert steps, padding is excluded, and a separate RNG preserves policy-noise pairing. Zero-dose exact256-action checks passed on 8 workers.
 
 Prediction: language perturbation near the measured M2 local error0.215 reproduces task8 gain/task9 loss; image perturbation near0.062 does not. The specified0.1/0.3 and0.03/0.1 grids bracket these anchors; no interpolated response is counted as a measurement.
 
 | Condition | All500 | Excluding tasks8/9 (450) | Local energy | Total energy |
 |---|---|---|---:|---:|
-| No complete500-episode condition yet | pending | pending | pending | pending |
+| local_all_0.003 | 478/500; Δ-0.6pp [-3.6,+2.0] | 445/450; Δ+0.4pp [-1.8,+2.4] | 0.0030027 | 0.0030027 |
+| local_all_0.01 | 480/500; Δ-0.2pp [-2.8,+2.0] | 444/450; Δ+0.2pp [-2.0,+2.2] | 0.010003 | 0.010003 |
+| local_all_0.03 | 482/500; Δ+0.2pp [-1.8,+2.2] | 445/450; Δ+0.4pp [-1.6,+2.2] | 0.030003 | 0.030003 |
+| local_all_0.1 | 471/500; Δ-2.0pp [-5.0,+0.6] | 434/450; Δ-2.0pp [-4.7,+0.7] | 0.1 | 0.1 |
+| local_image_0.003 | 482/500; Δ+0.2pp [-1.6,+2.0] | 443/450; Δ+0.0pp [-1.8,+1.8] | 0.0030027 | 0.0029877 |
+| local_image_0.01 | 479/500; Δ-0.4pp [-2.4,+1.4] | 441/450; Δ-0.4pp [-2.4,+1.3] | 0.010003 | 0.0099527 |
+| local_image_0.03 | 481/500; Δ+0.0pp [-2.2,+2.0] | 443/450; Δ+0.0pp [-2.0,+2.0] | 0.030003 | 0.029852 |
+| local_image_0.1 | 480/500; Δ-0.2pp [-3.0,+2.6] | 439/450; Δ-0.9pp [-3.6,+1.8] | 0.1 | 0.099502 |
+| local_language_state_0.003 | 478/500; Δ-0.6pp [-2.8,+1.4] | 442/450; Δ-0.2pp [-2.0,+1.8] | 0.0030027 | 1.4993e-05 |
+| local_language_state_0.01 | 480/500; Δ-0.2pp [-2.6,+2.0] | 443/450; Δ+0.0pp [-2.4,+2.2] | 0.010003 | 4.994e-05 |
+| local_language_state_0.03 | 482/500; Δ+0.2pp [-2.2,+2.8] | 441/450; Δ-0.4pp [-2.4,+1.6] | 0.030003 | 0.00015002 |
+| local_language_state_0.1 | 484/500; Δ+0.6pp [-1.2,+2.4] | 445/450; Δ+0.4pp [-1.1,+2.0] | 0.1 | 0.00050142 |
 
 ### H2 — Detector verdict
 
@@ -38,6 +49,11 @@ All1600 evaluation observations per model. Full distributions, zero masses, pair
 ### H4 — Full FP rerun and failure causes
 
 New FP task8 rerun: queued; cause labels: pending. All200 IDs50–249 require both camera views and simulator-state trajectories. Existing M2 task9 trajectories supply the matching failure review; earlier diagnostic replay does not replace this new full rerun.
+
+
+M2 task9 cause review: {"timeout_without_progress": 12, "other": 15, "collision_knockover": 6}. All33 failures; Single unblinded agent rater; cause is descriptive/proximate, not a proven internal decision; ambiguous cases use other. Both views at disclosed transfer/grasp-end/timeout snapshots and full-state summaries were inspected; this is not frame-by-frame human video coding.
+
+FP historical diagnostic replay reproduced49 of88 failures;39 became successes. Its reviewed labels do not describe the missing original failures. The new full200 run uses the exact historical FP server; diagnostic annotations transfer only on exact saved-array identity. Final FP cause distribution and any consistent-wrong-decision verdict remain pending.
 
 ### LIBERO-Plus — Identical paired dimensions
 
@@ -66,6 +82,9 @@ H5a: early0–5 direction-gradient backbone weighting. H5b: backbone codebooks o
 | h5b | queued | gated_on_H4_labels |
 | h5c4 | queued | gated_on_H4_labels |
 | h5c16 | queued | gated_on_H4_labels |
+
+[Annotated task9 failure gallery: all33 failures, both cameras and representative animations](H4_TASK9_FAILURE_GALLERY.md)
+
 
 Machine-readable [causal round](results/causal_round.json).
 <!-- CAUSAL_ROUND_END -->

@@ -960,3 +960,32 @@ All numerical details and raw-file hashes: results/decisions_round.json. Counts 
 {"H3_completed": [], "H2": "drop_metric_from_paper", "H4": {"rerun": "queued", "labels": "pending"}, "H5": {"h5a": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5b": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c4": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c16": {"fit": "queued", "evaluation": "gated_on_H4_labels"}}}
 
 Full protocols, paired scopes and source hashes: results/causal_round.json.
+
+
+### E076 — October5 GPU-idle causal round implementation
+
+2026-10-05T02:17:24.100698+00:00
+
+H3 source-frozen eight-worker launch: jobs184524–184527; first four workers exact256 zero-dose guard plus15 finite/energy/RNG checks.13 primary conditions (language0.3 added) and2 distinct secondary;7500 paired episodes total. Pre-rollout jobs184520–184523 canceled for resume-proof metadata fix before any quality rows. Old CPU183977 stopped; new causal controller owns scheduling/publication.
+
+CPU commands: envs/openpi/bin/python scripts/causal_h2_followup.py; scripts/causal_plus.py; scripts/causal_summary.py. H2 DROP: task8/9 ranks14/8 and11/6; aggregate2x separation alone passes. Strict Plus reuse5000 model-episodes, no duplicate rollout. H2 Python figure automated and rendered visual QA passed; report-only public commit3ef8232.
+
+H4 state-only reconstruction uses LIBERO ControlEnv with MUJOCO_GL=glx/PYOPENGL_PLATFORM=glx, no GPU rendering. Initial EGL/disable imports failed on CPU; glx import resolved it. State-restored terminal contact predicates mismatch saved failures in FP episodes69/178; saved outcomes remain authoritative. Earlier diagnostic replay:49/88 original failures reproduced,39 succeeded. Never infer a fullFP score from that selected sample. New full200 rerun uses original flowvq_graph_server.py FP path, with both camera views/states from decisions_client.py.
+
+Single unblinded agent visual/state annotations: M2task9 all33 failures (12 stalled timeouts,6 knock-overs,15 other);49 FP diagnostic failures (34 stalled timeouts,8 knock-overs,7 other). Both-view disclosed snapshots plus full-state summaries; not independent human video coding. No consistent wrong-object/order decision established. Transfer to new FP rerun requires exact trajectory-array identity; unreviewed/changed failures keep H5 evaluation closed.
+
+H5a/b/c4/c16 fitting and post-H4 offline+task8/task9+medium pipelines implemented with fail-closed GPU pilots, source/checkpoint contracts and seed7. GPU pilots not yet run, no model-quality claim. Training only256 observations from60 episodes; uniformM2 expert frozen. H5b fixed3epochs or23h budget, codebooks only. H5c adds4x/16x valid-language covariance contributions to original Hessian. CPU/syntax and publication gate tests recorded separately; do not mistake these for GPU validation.
+
+
+### E077 — failure gallery and background reporting repair
+
+2026-10-05T04:42:33.084352+00:00
+
+H3 had11/13 complete primary500-episode conditions at inspection. Controller184557 was repeatedly failing on H4 review metadata without a status field, delaying publication and dispatch but not terminating running rollouts. Controller184775 replaces it after a targeted metadata regression and5 publication tests passed. Publisher failures are now isolated from GPU dispatch. Real-frame task9 gallery covers all33 failures and representative episodes50/216/78 with complete saved-frame dual-view animations; labels remain single-rater descriptive evidence. Implementation sources for running H3 are unchanged.
+
+
+### Causal milestone — 2026-10-05T04:42:43.686313+00:00
+
+{"H3_completed": ["local_all_0.003", "local_all_0.01", "local_all_0.03", "local_all_0.1", "local_image_0.003", "local_image_0.01", "local_image_0.03", "local_image_0.1", "local_language_state_0.003", "local_language_state_0.01", "local_language_state_0.03", "local_language_state_0.1"], "H2": "drop_metric_from_paper", "H4": {"rerun": "queued", "labels": "pending"}, "H5": {"h5a": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5b": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c4": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c16": {"fit": "queued", "evaluation": "gated_on_H4_labels"}}}
+
+Full protocols, paired scopes and source hashes: results/causal_round.json.

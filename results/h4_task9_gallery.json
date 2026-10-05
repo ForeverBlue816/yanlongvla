@@ -1,0 +1,496 @@
+{
+  "status": "complete",
+  "generated_utc": "2026-10-05T04:40:41.477870+00:00",
+  "model": "bb_M2_ae_M2_fp32",
+  "suite": "libero_10",
+  "task": 9,
+  "seed": 7,
+  "episodes": 200,
+  "failures": 33,
+  "successes": 167,
+  "scope": "All failures; single unblinded agent descriptive labels",
+  "review_sha256": "5dfe10229a29f25d0ba153895c42f4f982a6d0c24cb8cd02e8dea1d28e9c8b42",
+  "representative_episodes": [
+    50,
+    216,
+    78
+  ],
+  "rows": [
+    {
+      "episode": 50,
+      "initial_state_index": 0,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[True, False]; target last grasp t=530, final upright-axis cosine=0.475. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "268074f16b5041412c8cdd267d522a71c9ddde58d6f5532ef20f5b59bea40700",
+      "evidence_sha256": "98faa74ed6d64bd5e8a7cdc33940d3d481b23a927ab008b087163e6b586f5f89",
+      "visual_sheet": "figures/h4_task9_sheet1.png"
+    },
+    {
+      "episode": 54,
+      "initial_state_index": 4,
+      "cause": "other",
+      "evidence_note": "Correct mug is transported and released near/inside the microwave region; final containment is true but door-close predicate is false. Incomplete placement/closure; evidence does not distinguish an alignment failure from an order error. Final goals=[True, False]; target last grasp t=428, final upright-axis cosine=0.844. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 428,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "3e1628ca2c5b7494f0ebef0f4ba2114d04da340d87fc27c01e9e0fe829c5de70",
+      "evidence_sha256": "4bed43c657417a35f007c2218d8d59f5557d11a0db60b6d1cab303be1f79fd91",
+      "visual_sheet": "figures/h4_task9_sheet1.png"
+    },
+    {
+      "episode": 70,
+      "initial_state_index": 20,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[True, False]; target last grasp t=530, final upright-axis cosine=0.747. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "422af8cf98dd2d882199f3f99b5130a8259027dbeef782ecaa067a35db8fc5f2",
+      "evidence_sha256": "6251ce2730477393175a59933accf7176770c19e0c0ff7f261bef6e32e73782e",
+      "visual_sheet": "figures/h4_task9_sheet1.png"
+    },
+    {
+      "episode": 73,
+      "initial_state_index": 23,
+      "cause": "other",
+      "evidence_note": "Correct mug is transported and released near/inside the microwave region; final containment is true but door-close predicate is false. Incomplete placement/closure; evidence does not distinguish an alignment failure from an order error. Final goals=[True, False]; target last grasp t=386, final upright-axis cosine=0.869. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 386,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "2553981c70e874eaa6c978ae1d74ce0d9d7228998cea584d4796fba35fc29b0b",
+      "evidence_sha256": "43ead5fe6b83ff28593e3922b551de127b4d64c54b71dd0b8b249d9873749648",
+      "visual_sheet": "figures/h4_task9_sheet1.png"
+    },
+    {
+      "episode": 75,
+      "initial_state_index": 25,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[False, False]; target last grasp t=431, final upright-axis cosine=-0.070. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 431,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "88d6fb141dfcfe6e23009a92849fb864715d8af8849953bc87636bc22ea06e47",
+      "evidence_sha256": "5db276198bb3f04f6243e8bfd3996052a251a1afadd550d59ee4f0f61ab2f2f2",
+      "visual_sheet": "figures/h4_task9_sheet1.png"
+    },
+    {
+      "episode": 78,
+      "initial_state_index": 28,
+      "cause": "other",
+      "evidence_note": "Correct mug is transported and released near/inside the microwave region; final containment is true but door-close predicate is false. Incomplete placement/closure; evidence does not distinguish an alignment failure from an order error. Final goals=[True, False]; target last grasp t=415, final upright-axis cosine=1.000. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 415,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "cee222d8e070f1e184d539ddb179d0be25dc61ac6b48db9df20246b54345e00c",
+      "evidence_sha256": "763b8a15f3d8d716c01e53f0212fcc24c489bc21954fb187fe54a5375b363ff9",
+      "visual_sheet": "figures/h4_task9_sheet1.png"
+    },
+    {
+      "episode": 80,
+      "initial_state_index": 30,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[True, False]; target last grasp t=407, final upright-axis cosine=0.130. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 407,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "74b3c2c6cef15167f93e60fe70ceaf3b63cdf8755ce845ba3ca07dec1c4db80e",
+      "evidence_sha256": "ec8bd2bc49ce065fb45a4f18bd17275b16c33dfdc251e1236e242af5abb5afcd",
+      "visual_sheet": "figures/h4_task9_sheet2.png"
+    },
+    {
+      "episode": 86,
+      "initial_state_index": 36,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[True, False]; target last grasp t=530, final upright-axis cosine=0.759. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "8ae55be0a06713aacaf29d739dfdf1d90ee0f85390f55752e156da9fc8ee7cd1",
+      "evidence_sha256": "ce0a157cc97d48d476dfcae7e6dc013828b48d5557f774bfb68f2b21bf044beb",
+      "visual_sheet": "figures/h4_task9_sheet2.png"
+    },
+    {
+      "episode": 87,
+      "initial_state_index": 37,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[False, False]; target last grasp t=470, final upright-axis cosine=0.863. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 470,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "35d0661001bb2aa74c5dd35ddf0eb69002095c621ea27dc53a18491fa38fbd41",
+      "evidence_sha256": "eb484b618f6f70896c35936d3c701ec414d31ac33fefe4add7e48b9c333cd71b",
+      "visual_sheet": "figures/h4_task9_sheet2.png"
+    },
+    {
+      "episode": 100,
+      "initial_state_index": 0,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[True, False]; target last grasp t=493, final upright-axis cosine=0.119. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 493,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "19fc092080ee9361c60efd2fa1a28db22e37dceefb22edfa573b86d81f927c0a",
+      "evidence_sha256": "d3429ce336ac73f27beee6845f796a0fd0e997a43fbcb7f7590ad8bb6fd0ab98",
+      "visual_sheet": "figures/h4_task9_sheet2.png"
+    },
+    {
+      "episode": 103,
+      "initial_state_index": 3,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[False, False]; target last grasp t=451, final upright-axis cosine=0.578. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 451,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "23b19fe1039ad86784dbf896e2e3dadefde784f4bdb91edf47f3c0dbb60cc9da",
+      "evidence_sha256": "524be4cc6ea1ea6fc1b9f66effd174871b2e048b520cf8af52caf7dc4ff1b617",
+      "visual_sheet": "figures/h4_task9_sheet2.png"
+    },
+    {
+      "episode": 104,
+      "initial_state_index": 4,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[False, False]; target last grasp t=530, final upright-axis cosine=0.782. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "8261f735ead312b6936107a18eeccd7b6ea1bba9d82ec999449a93af3919f287",
+      "evidence_sha256": "527e05f5767e29b56e70efa004e38a059fff974c454e9e9dceab450b6b974180",
+      "visual_sheet": "figures/h4_task9_sheet2.png"
+    },
+    {
+      "episode": 125,
+      "initial_state_index": 25,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[False, False]; target last grasp t=530, final upright-axis cosine=0.130. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "90a55957685c74a401fbc43f513004ab72c2b0670c1f35fab954742e0dc15a3b",
+      "evidence_sha256": "91f23fbdb70447a47b8e42da057ae3699a06d33c6a8eb0968e7b1610422d7d90",
+      "visual_sheet": "figures/h4_task9_sheet3.png"
+    },
+    {
+      "episode": 130,
+      "initial_state_index": 30,
+      "cause": "other",
+      "evidence_note": "Correct mug is transported and released near/inside the microwave region; final containment is true but door-close predicate is false. Incomplete placement/closure; evidence does not distinguish an alignment failure from an order error. Final goals=[True, False]; target last grasp t=268, final upright-axis cosine=0.893. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 268,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "6bcde6aee40bd15d978749e3de17dd43d84847ddd2b3831dd5f3949f13127b26",
+      "evidence_sha256": "47e12705c687c026f5e60db1bd499d03bf873c3264670a745e1a33c6ef8824b2",
+      "visual_sheet": "figures/h4_task9_sheet3.png"
+    },
+    {
+      "episode": 137,
+      "initial_state_index": 37,
+      "cause": "collision_knockover",
+      "evidence_note": "Target mug is visibly left tipped outside the microwave after grasp loss/release; final containment is false. This labels the observed knock-over, not an inferred intentional choice. Final goals=[False, False]; target last grasp t=314, final upright-axis cosine=-0.010. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 314,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "81daf162404b9c1b5f5cd39ae06a1d0f529551c8a939c5a42e18eb96f8bfa9cf",
+      "evidence_sha256": "f3f73030e8a907a389aea1efff76d8f42459394ec1f30ba6aae6b08459bc4bb0",
+      "visual_sheet": "figures/h4_task9_sheet3.png"
+    },
+    {
+      "episode": 145,
+      "initial_state_index": 45,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[True, False]; target last grasp t=530, final upright-axis cosine=0.830. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "9e3899d3307b0fe22e914ae152ad21096502cbbec350091449275b3278684bdb",
+      "evidence_sha256": "62ff3e07d2bd86353b6ee05409f7d32ef82ffe05d1c2405614e8c1d139ef8314",
+      "visual_sheet": "figures/h4_task9_sheet3.png"
+    },
+    {
+      "episode": 150,
+      "initial_state_index": 0,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[False, False]; target last grasp t=530, final upright-axis cosine=0.819. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "0dec759ab971fd9e5e37b6a7393cd593ef179a15b2c1b08addceb44e17d8aad1",
+      "evidence_sha256": "990f0d527be06c6cf72322c0c5ac2b3f55e2c8b778b5309aebf177fc778b2998",
+      "visual_sheet": "figures/h4_task9_sheet3.png"
+    },
+    {
+      "episode": 156,
+      "initial_state_index": 6,
+      "cause": "collision_knockover",
+      "evidence_note": "Target mug is visibly left tipped outside the microwave after grasp loss/release; final containment is false. This labels the observed knock-over, not an inferred intentional choice. Final goals=[False, False]; target last grasp t=162, final upright-axis cosine=0.005. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 162,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "bac2d4db3aed97a5bb6afc7eed61ed156289f33f787e29de0179da2809ea4f82",
+      "evidence_sha256": "494fec3538a7cc1c6fa7566b5beb719c33487b779723ac7cefc8aea2d0776183",
+      "visual_sheet": "figures/h4_task9_sheet3.png"
+    },
+    {
+      "episode": 159,
+      "initial_state_index": 9,
+      "cause": "other",
+      "evidence_note": "Correct mug is transported and released near/inside the microwave region; final containment is true but door-close predicate is false. Incomplete placement/closure; evidence does not distinguish an alignment failure from an order error. Final goals=[True, False]; target last grasp t=438, final upright-axis cosine=0.871. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 438,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "020678193b2b45a114b8eb4716ceb53d7e8ae906ff12ecdd8c773f9c4e26bf21",
+      "evidence_sha256": "e0ce00a2b215ff3777148a003660a4711b25c35107698f9e99de9f21d77bdc4b",
+      "visual_sheet": "figures/h4_task9_sheet4.png"
+    },
+    {
+      "episode": 173,
+      "initial_state_index": 23,
+      "cause": "other",
+      "evidence_note": "Correct mug is transported and released near/inside the microwave region; final containment is true but door-close predicate is false. Incomplete placement/closure; evidence does not distinguish an alignment failure from an order error. Final goals=[True, False]; target last grasp t=462, final upright-axis cosine=1.000. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 462,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "5c54dea3972e0f96f5047440b7fff3858ac78a635b338e1110fa8b97ed258a62",
+      "evidence_sha256": "23651a084e4d67c7c87ed835330c9393467a146b42b5cd97babde09bb1b193d0",
+      "visual_sheet": "figures/h4_task9_sheet4.png"
+    },
+    {
+      "episode": 175,
+      "initial_state_index": 25,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[False, False]; target last grasp t=312, final upright-axis cosine=-0.007. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 312,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "e6fbf0055be8d056398d9513fa9b17693748bf12a175898487aaad10d116063c",
+      "evidence_sha256": "127f74384813737e99d3d4544fc832dcb8cb88ced9e34fd885c979416073c93b",
+      "visual_sheet": "figures/h4_task9_sheet4.png"
+    },
+    {
+      "episode": 183,
+      "initial_state_index": 33,
+      "cause": "collision_knockover",
+      "evidence_note": "Target mug is visibly left tipped outside the microwave after grasp loss/release; final containment is false. This labels the observed knock-over, not an inferred intentional choice. Final goals=[False, False]; target last grasp t=235, final upright-axis cosine=-0.998. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 235,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "7f6c06b3ea29e43b44c1427d5d345d6fdc7b5c94a9f9bca8e5b4763f5a4b8d2b",
+      "evidence_sha256": "add87155d1603e9e8fcc419108ae2a5ff1c9852a43ca2b08bd1e927979b0943a",
+      "visual_sheet": "figures/h4_task9_sheet4.png"
+    },
+    {
+      "episode": 187,
+      "initial_state_index": 37,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[True, False]; target last grasp t=530, final upright-axis cosine=0.855. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "76be7686f2992416b4f65b256f557003191a634132bf2ac4f2019133938bdb0d",
+      "evidence_sha256": "77911ed538c006898a8dbf173ffbc15eda17e531ec49b23bdfd7456842a6243c",
+      "visual_sheet": "figures/h4_task9_sheet4.png"
+    },
+    {
+      "episode": 191,
+      "initial_state_index": 41,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[True, False]; target last grasp t=530, final upright-axis cosine=0.972. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "167fe8150bd49c4005d9ddabf60617f8588d61cd5df16cafabd65de7ca862bb9",
+      "evidence_sha256": "8e13e7a2a108c6b345f29dd77073aba23e3cc7f0a247d42fecb12f687c3dbf0b",
+      "visual_sheet": "figures/h4_task9_sheet4.png"
+    },
+    {
+      "episode": 200,
+      "initial_state_index": 0,
+      "cause": "collision_knockover",
+      "evidence_note": "Target mug is visibly left tipped outside the microwave after grasp loss/release; final containment is false. This labels the observed knock-over, not an inferred intentional choice. Final goals=[False, False]; target last grasp t=296, final upright-axis cosine=0.079. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 296,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "e7aea529fd42c0957aedba51878e7cdc0c91075eafab8d8833f1f0c4502a6a2b",
+      "evidence_sha256": "ae63a66e636b9973bbe00a9946c383b94b101ff47c2c01fbe25a684492c95506",
+      "visual_sheet": "figures/h4_task9_sheet5.png"
+    },
+    {
+      "episode": 204,
+      "initial_state_index": 4,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[True, False]; target last grasp t=530, final upright-axis cosine=0.684. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        true,
+        false
+      ],
+      "trajectory_sha256": "3718a005ba72695b05683d7c37d6233142d71d54e20cfada7301d8e70d34dadd",
+      "evidence_sha256": "0159d98c184877ccea5774ab06cbdc7a2b406235df68d970447599d424743ddc",
+      "visual_sheet": "figures/h4_task9_sheet5.png"
+    },
+    {
+      "episode": 211,
+      "initial_state_index": 11,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[False, False]; target last grasp t=298, final upright-axis cosine=-0.232. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 298,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "35215e8001a9ee19d8392344d95de3c049c9978bab36175a7fb6b48b24e03604",
+      "evidence_sha256": "a5e5e7b439b0dc4a83d0a565c8fdea9add725be86b09e191c7480d04680d92d9",
+      "visual_sheet": "figures/h4_task9_sheet5.png"
+    },
+    {
+      "episode": 216,
+      "initial_state_index": 16,
+      "cause": "collision_knockover",
+      "evidence_note": "Target mug is visibly left tipped outside the microwave after grasp loss/release; final containment is false. This labels the observed knock-over, not an inferred intentional choice. Final goals=[False, False]; target last grasp t=361, final upright-axis cosine=0.128. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 361,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "078b17d8a20efd710930a6c82ceec76d607fd1f2b3d93e3f6dbcd8450aa7fb88",
+      "evidence_sha256": "0758e88c70bc8f48bbcb4d597ada63ff6a846dbb8cd2a202191ad0b89fa0e71f",
+      "visual_sheet": "figures/h4_task9_sheet5.png"
+    },
+    {
+      "episode": 219,
+      "initial_state_index": 19,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[False, False]; target last grasp t=511, final upright-axis cosine=0.435. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 511,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "12fa58fc6ff3144e527bf4a21533870a72b7141eaa4ebd55e7a8ec19168874ff",
+      "evidence_sha256": "0ffb08d88cca6670194ee4d838e7578ce4d4015846696f4d57a445aa2f1dd06e",
+      "visual_sheet": "figures/h4_task9_sheet5.png"
+    },
+    {
+      "episode": 223,
+      "initial_state_index": 23,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[False, False]; target last grasp t=530, final upright-axis cosine=0.803. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "0095d7dba5aa66b651c1715a87ee8cb63821c5df181c3d42af8cbab1341ff79f",
+      "evidence_sha256": "9b8d121577bd35d5e108674696ae3233199f465b6b516210857a2acfa18b2e73",
+      "visual_sheet": "figures/h4_task9_sheet5.png"
+    },
+    {
+      "episode": 225,
+      "initial_state_index": 25,
+      "cause": "other",
+      "evidence_note": "Correct mug reaches the microwave mouth, tilts or catches near the door/frame, and the final placement/closure remains incomplete. Sparse visual evidence cannot uniquely separate contact obstruction, imperfect release, and slip. Final goals=[False, False]; target last grasp t=417, final upright-axis cosine=0.267. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 417,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "191757052572eb7d6061aad45872a77c156237bc93954f3301642e53404147b0",
+      "evidence_sha256": "c08276c18363a6af65c208152f1aa078e4e4219290768d8e780167ced3afd232",
+      "visual_sheet": "figures/h4_task9_sheet6.png"
+    },
+    {
+      "episode": 237,
+      "initial_state_index": 37,
+      "cause": "collision_knockover",
+      "evidence_note": "Target mug is visibly left tipped outside the microwave after grasp loss/release; final containment is false. This labels the observed knock-over, not an inferred intentional choice. Final goals=[False, False]; target last grasp t=343, final upright-axis cosine=0.089. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 343,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "bd2f68bdf51bcfa836a030a785b912c6dcb441ed09504a3018c8b21e346100f4",
+      "evidence_sha256": "90780d72e36084063815eded665fcb4e6fe43c9f0bf0d241257ff5a6ee115a17",
+      "visual_sheet": "figures/h4_task9_sheet6.png"
+    },
+    {
+      "episode": 248,
+      "initial_state_index": 48,
+      "cause": "timeout_without_progress",
+      "evidence_note": "After the correct mug is picked up, repeated insertion stalls at the microwave mouth; mug remains grasped through the time limit and the door remains open. Timeout denotes no further goal progress after the initial grasp, not zero movement throughout. Final goals=[False, False]; target last grasp t=530, final upright-axis cosine=0.367. Distractor mug never grasped and displacement <1e-6 m.",
+      "last_grasp_step": 530,
+      "final_predicates": [
+        false,
+        false
+      ],
+      "trajectory_sha256": "9afc022fff39c2f4fa7314e2fd1892585b081cc41f05eafa989b0f9cf33460eb",
+      "evidence_sha256": "64ec222c71e258fa2ee3ac5f5e9f509cb36fe029c422fddc6523036c182a0c35",
+      "visual_sheet": "figures/h4_task9_sheet6.png"
+    }
+  ],
+  "assets": {
+    "figures/h4_task9_sheet1.png": "1103930a941e62a7bb9ca4c25cb39b7b3b7b5671f49b2b1e3a76486c3879c8a1",
+    "figures/h4_task9_sheet2.png": "7dfbb01189377eaa89c19ac84750965766d019c74abdc88e558953c2824598d4",
+    "figures/h4_task9_sheet3.png": "143592f060cb16a022459fbea2d0692e7e5b3a03cb6b26499a69efa6e35077c5",
+    "figures/h4_task9_sheet4.png": "da842d1760e7c07b1fed2cdbcb56aa29fe7de8c4e48d80c6660b297caf256712",
+    "figures/h4_task9_sheet5.png": "74d04d9d482d3043cbafb71ead600cc3c9c0c8e665da2cbe43e936d29d5de356",
+    "figures/h4_task9_sheet6.png": "944f3c841202afe5ba0badc226176a83645b87b249998b45fa3564d66024e76e",
+    "figures/h4_task9_episode50.png": "856195ba86a2a2a544038a3d1985a9e5edbe276f231b9450a4eb323bc6e29928",
+    "figures/h4_task9_episode50.gif": "abc21dabc8425de2120e34dec70f63b272acbd438d4e16b561e2156291da7459",
+    "figures/h4_task9_episode216.png": "699faf6bb67ab22001343d0614df4d4c13920836983cee2ec1c00db52920dd70",
+    "figures/h4_task9_episode216.gif": "214dfdd0d293d779a3e98d43e0a33e4d9f0d61937077382a221f50744690eafa",
+    "figures/h4_task9_episode78.png": "e18e4890fbff83ee7fbf98351c778b7f9d17f353d28c0ae8dbf39a668b713d50",
+    "figures/h4_task9_episode78.gif": "cf74e2b4df412211e2f16209f25100b83ffc1ebf5369d072725ffac17c5f63d3"
+  }
+}
