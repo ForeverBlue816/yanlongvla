@@ -119676,7 +119676,2125 @@
       }
     },
     "Plus_J": {
-      "status": "pending"
+      "status": "complete",
+      "pairs": 200,
+      "unique_baseline_observations": 40,
+      "summary": {
+        "Camera Viewpoints": {
+          "observations": 100,
+          "unique_base_tasks": 40,
+          "plus_mean": 0.11726371567589897,
+          "baseline_mean": 0.1082203602024487,
+          "paired_mean_difference": 0.009043355473450252,
+          "paired_base_task_cluster_ci95": [
+            0.001337893581255935,
+            0.01745408818562035
+          ],
+          "plus_quantiles": [
+            0.05654789549963815,
+            0.0733679243496486,
+            0.09595891513994761,
+            0.11215701912130628,
+            0.1348769724369049,
+            0.17441795017038073,
+            0.1856337104524885
+          ],
+          "baseline_quantiles": [
+            0.044704663753509524,
+            0.059959072513239724,
+            0.0834301552602223,
+            0.10540990488869803,
+            0.126913916851793,
+            0.17728933606828962,
+            0.18586990918431964
+          ]
+        },
+        "Robot Initial States": {
+          "observations": 100,
+          "unique_base_tasks": 40,
+          "plus_mean": 0.131492476778371,
+          "baseline_mean": 0.1082203602024487,
+          "paired_mean_difference": 0.023272116575922284,
+          "paired_base_task_cluster_ci95": [
+            0.012927421465391609,
+            0.033150229004942786
+          ],
+          "plus_quantiles": [
+            0.05097762942314148,
+            0.0768591986809458,
+            0.10555107316800527,
+            0.12619842461177283,
+            0.1570634824889047,
+            0.1905351428048951,
+            0.2373144907610757
+          ],
+          "baseline_quantiles": [
+            0.044704663753509524,
+            0.059959072513239724,
+            0.0834301552602223,
+            0.10540990488869803,
+            0.126913916851793,
+            0.17728933606828962,
+            0.18586990918431964
+          ]
+        }
+      },
+      "rows": [
+        {
+          "index": 0,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09285847885268075,
+          "baseline": 0.07381232380867005,
+          "difference": 0.019046155044010707
+        },
+        {
+          "index": 1,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.07798092194965907,
+          "baseline": 0.0754441968032292,
+          "difference": 0.002536725146429872
+        },
+        {
+          "index": 2,
+          "suite": "libero_goal",
+          "base_task": "push_the_plate_to_the_front_of_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.10062868850571768,
+          "baseline": 0.10390184010778154,
+          "difference": -0.003273151602063859
+        },
+        {
+          "index": 3,
+          "suite": "libero_goal",
+          "base_task": "turn_on_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.08914368833814348,
+          "baseline": 0.1005575716495514,
+          "difference": -0.011413883311407913
+        },
+        {
+          "index": 4,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_top_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.13389612947191512,
+          "baseline": 0.16742435097694397,
+          "difference": -0.03352822150502885
+        },
+        {
+          "index": 5,
+          "suite": "libero_goal",
+          "base_task": "open_the_middle_drawer_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.15371010388646808,
+          "baseline": 0.14296082598822457,
+          "difference": 0.010749277898243509
+        },
+        {
+          "index": 6,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.10645980834960937,
+          "baseline": 0.17728933606828962,
+          "difference": -0.07082952771868024
+        },
+        {
+          "index": 7,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.10694664461272103,
+          "baseline": 0.11071377652032034,
+          "difference": -0.003767131907599308
+        },
+        {
+          "index": 8,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.08290893265179225,
+          "baseline": 0.044704663753509524,
+          "difference": 0.038204268898282726
+        },
+        {
+          "index": 9,
+          "suite": "libero_goal",
+          "base_task": "open_the_top_drawer_and_put_the_bowl_inside",
+          "category": "Camera Viewpoints",
+          "plus": 0.11893751450947353,
+          "baseline": 0.09104865108217512,
+          "difference": 0.027888863427298405
+        },
+        {
+          "index": 10,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.175460433108466,
+          "baseline": 0.18586990918431964,
+          "difference": -0.01040947607585363
+        },
+        {
+          "index": 11,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+          "category": "Camera Viewpoints",
+          "plus": 0.11361144185066223,
+          "baseline": 0.10531417386872428,
+          "difference": 0.008297267981937945
+        },
+        {
+          "index": 12,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09011468206133161,
+          "baseline": 0.10598713415009635,
+          "difference": -0.01587245208876474
+        },
+        {
+          "index": 13,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.11243504285812378,
+          "baseline": 0.09541190011160715,
+          "difference": 0.01702314274651663
+        },
+        {
+          "index": 14,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.10198382990700858,
+          "baseline": 0.08045153958456856,
+          "difference": 0.021532290322440015
+        },
+        {
+          "index": 15,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.12744521839278086,
+          "baseline": 0.1272399808679308,
+          "difference": 0.0002052375248500493
+        },
+        {
+          "index": 16,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_butter_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.13504076855523245,
+          "baseline": 0.11962874616895403,
+          "difference": 0.015412022386278423
+        },
+        {
+          "index": 17,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.11349503568240575,
+          "baseline": 0.0837142561163221,
+          "difference": 0.029780779566083646
+        },
+        {
+          "index": 18,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.12174134509904044,
+          "baseline": 0.08257785269192287,
+          "difference": 0.03916349240711757
+        },
+        {
+          "index": 19,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.08547927822385515,
+          "baseline": 0.10540990488869803,
+          "difference": -0.019930626664842882
+        },
+        {
+          "index": 20,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_the_rack",
+          "category": "Camera Viewpoints",
+          "plus": 0.17383928213800703,
+          "baseline": 0.1728700280189514,
+          "difference": 0.0009692541190556292
+        },
+        {
+          "index": 21,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.16364121181624278,
+          "baseline": 0.13540251169885908,
+          "difference": 0.02823870011738369
+        },
+        {
+          "index": 22,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.05654789549963815,
+          "baseline": 0.06364806294441223,
+          "difference": -0.007100167444774083
+        },
+        {
+          "index": 23,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_milk_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.1618961044720241,
+          "baseline": 0.12511250376701355,
+          "difference": 0.03678360070501055
+        },
+        {
+          "index": 24,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.18403539231845312,
+          "baseline": 0.14367691023009163,
+          "difference": 0.040358482088361486
+        },
+        {
+          "index": 25,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.10948872906821115,
+          "baseline": 0.09078922612326486,
+          "difference": 0.018699502944946295
+        },
+        {
+          "index": 26,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+          "category": "Camera Viewpoints",
+          "plus": 0.11793867094176157,
+          "baseline": 0.11003473401069641,
+          "difference": 0.007903936931065156
+        },
+        {
+          "index": 27,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+          "category": "Camera Viewpoints",
+          "plus": 0.0774977377482823,
+          "baseline": 0.06518862077168056,
+          "difference": 0.012309116976601739
+        },
+        {
+          "index": 28,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.12142969029290336,
+          "baseline": 0.13123067958014353,
+          "difference": -0.009800989287240172
+        },
+        {
+          "index": 29,
+          "suite": "libero_goal",
+          "base_task": "put_the_cream_cheese_in_the_bowl",
+          "category": "Camera Viewpoints",
+          "plus": 0.10215197290693011,
+          "baseline": 0.11380516716412135,
+          "difference": -0.011653194257191246
+        },
+        {
+          "index": 30,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.13173501576696123,
+          "baseline": 0.11101281898362296,
+          "difference": 0.020722196783338268
+        },
+        {
+          "index": 31,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.13921836359160286,
+          "baseline": 0.12680522884641374,
+          "difference": 0.012413134745189125
+        },
+        {
+          "index": 32,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.11492877006530762,
+          "baseline": 0.14188312717846463,
+          "difference": -0.02695435711315701
+        },
+        {
+          "index": 33,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.11031968423298427,
+          "baseline": 0.060107306923185076,
+          "difference": 0.050212377309799196
+        },
+        {
+          "index": 34,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.0744205721787044,
+          "baseline": 0.11550171545573644,
+          "difference": -0.04108114327703204
+        },
+        {
+          "index": 35,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.17418661798749652,
+          "baseline": 0.0650161828313555,
+          "difference": 0.10917043515614101
+        },
+        {
+          "index": 36,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.11095536521502904,
+          "baseline": 0.09265239323888506,
+          "difference": 0.018302971976143972
+        },
+        {
+          "index": 37,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09980836425508771,
+          "baseline": 0.11602704099246434,
+          "difference": -0.016218676737376633
+        },
+        {
+          "index": 38,
+          "suite": "libero_10",
+          "base_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+          "category": "Camera Viewpoints",
+          "plus": 0.06910527093069894,
+          "baseline": 0.05714261872427804,
+          "difference": 0.011962652206420905
+        },
+        {
+          "index": 39,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09699239390236991,
+          "baseline": 0.10391673105103628,
+          "difference": -0.0069243371486663735
+        },
+        {
+          "index": 40,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.10772914375577654,
+          "baseline": 0.07381232380867005,
+          "difference": 0.03391681994710649
+        },
+        {
+          "index": 41,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.07760152987071446,
+          "baseline": 0.0754441968032292,
+          "difference": 0.0021573330674852648
+        },
+        {
+          "index": 42,
+          "suite": "libero_goal",
+          "base_task": "push_the_plate_to_the_front_of_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.10229920659746443,
+          "baseline": 0.10390184010778154,
+          "difference": -0.001602633510317114
+        },
+        {
+          "index": 43,
+          "suite": "libero_goal",
+          "base_task": "turn_on_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.07359227452959333,
+          "baseline": 0.1005575716495514,
+          "difference": -0.02696529711995807
+        },
+        {
+          "index": 44,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_top_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.1417631472860064,
+          "baseline": 0.16742435097694397,
+          "difference": -0.02566120369093758
+        },
+        {
+          "index": 45,
+          "suite": "libero_goal",
+          "base_task": "open_the_middle_drawer_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.1450671911239624,
+          "baseline": 0.14296082598822457,
+          "difference": 0.0021063651357378366
+        },
+        {
+          "index": 46,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.15768860152789524,
+          "baseline": 0.17728933606828962,
+          "difference": -0.019600734540394377
+        },
+        {
+          "index": 47,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.11950808252607073,
+          "baseline": 0.11071377652032034,
+          "difference": 0.008794306005750388
+        },
+        {
+          "index": 48,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.06583656413214548,
+          "baseline": 0.044704663753509524,
+          "difference": 0.02113190037863595
+        },
+        {
+          "index": 49,
+          "suite": "libero_goal",
+          "base_task": "open_the_top_drawer_and_put_the_bowl_inside",
+          "category": "Camera Viewpoints",
+          "plus": 0.1716000999723162,
+          "baseline": 0.09104865108217512,
+          "difference": 0.08055144889014108
+        },
+        {
+          "index": 50,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.1653480589389801,
+          "baseline": 0.18586990918431964,
+          "difference": -0.020521850245339535
+        },
+        {
+          "index": 51,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+          "category": "Camera Viewpoints",
+          "plus": 0.11283560480390276,
+          "baseline": 0.10531417386872428,
+          "difference": 0.007521430935178472
+        },
+        {
+          "index": 52,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.08831732443400792,
+          "baseline": 0.10598713415009635,
+          "difference": -0.017669809716088433
+        },
+        {
+          "index": 53,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.11294371570859636,
+          "baseline": 0.09541190011160715,
+          "difference": 0.017531815596989214
+        },
+        {
+          "index": 54,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.09194854838507516,
+          "baseline": 0.08045153958456856,
+          "difference": 0.011497008800506595
+        },
+        {
+          "index": 55,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.12289746914591108,
+          "baseline": 0.1272399808679308,
+          "difference": -0.004342511722019729
+        },
+        {
+          "index": 56,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_butter_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.16195419771330696,
+          "baseline": 0.11962874616895403,
+          "difference": 0.04232545154435294
+        },
+        {
+          "index": 57,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.11841438072068351,
+          "baseline": 0.0837142561163221,
+          "difference": 0.03470012460436141
+        },
+        {
+          "index": 58,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09822331922394889,
+          "baseline": 0.08257785269192287,
+          "difference": 0.015645466532026017
+        },
+        {
+          "index": 59,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09715000305856977,
+          "baseline": 0.10540990488869803,
+          "difference": -0.008259901830128258
+        },
+        {
+          "index": 60,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_the_rack",
+          "category": "Camera Viewpoints",
+          "plus": 0.1656338095664978,
+          "baseline": 0.1728700280189514,
+          "difference": -0.007236218452453591
+        },
+        {
+          "index": 61,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.159394052198955,
+          "baseline": 0.13540251169885908,
+          "difference": 0.023991540500095915
+        },
+        {
+          "index": 62,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.09746373380933489,
+          "baseline": 0.06364806294441223,
+          "difference": 0.03381567086492265
+        },
+        {
+          "index": 63,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_milk_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.1583361165864127,
+          "baseline": 0.12511250376701355,
+          "difference": 0.033223612819399145
+        },
+        {
+          "index": 64,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.17578473346573967,
+          "baseline": 0.14367691023009163,
+          "difference": 0.032107823235648036
+        },
+        {
+          "index": 65,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.12877040249960764,
+          "baseline": 0.09078922612326486,
+          "difference": 0.03798117637634278
+        },
+        {
+          "index": 66,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+          "category": "Camera Viewpoints",
+          "plus": 0.11833432487079075,
+          "baseline": 0.11003473401069641,
+          "difference": 0.008299590860094339
+        },
+        {
+          "index": 67,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+          "category": "Camera Viewpoints",
+          "plus": 0.08963848948478699,
+          "baseline": 0.06518862077168056,
+          "difference": 0.024449868713106435
+        },
+        {
+          "index": 68,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.1856337104524885,
+          "baseline": 0.13123067958014353,
+          "difference": 0.054403030872344965
+        },
+        {
+          "index": 69,
+          "suite": "libero_goal",
+          "base_task": "put_the_cream_cheese_in_the_bowl",
+          "category": "Camera Viewpoints",
+          "plus": 0.1044730646269662,
+          "baseline": 0.11380516716412135,
+          "difference": -0.009332102537155149
+        },
+        {
+          "index": 70,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.12950645855494908,
+          "baseline": 0.11101281898362296,
+          "difference": 0.018493639571326118
+        },
+        {
+          "index": 71,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.13278907792908803,
+          "baseline": 0.12680522884641374,
+          "difference": 0.005983849082674297
+        },
+        {
+          "index": 72,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.1058121749332973,
+          "baseline": 0.14188312717846463,
+          "difference": -0.036070952245167334
+        },
+        {
+          "index": 73,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.06336983101708549,
+          "baseline": 0.060107306923185076,
+          "difference": 0.003262524093900411
+        },
+        {
+          "index": 74,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.10424200636999947,
+          "baseline": 0.11550171545573644,
+          "difference": -0.011259709085736966
+        },
+        {
+          "index": 75,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.1623045538152967,
+          "baseline": 0.0650161828313555,
+          "difference": 0.0972883709839412
+        },
+        {
+          "index": 76,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.11187899538448878,
+          "baseline": 0.09265239323888506,
+          "difference": 0.01922660214560372
+        },
+        {
+          "index": 77,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.10054401755332946,
+          "baseline": 0.11602704099246434,
+          "difference": -0.01548302343913488
+        },
+        {
+          "index": 78,
+          "suite": "libero_10",
+          "base_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+          "category": "Camera Viewpoints",
+          "plus": 0.06711520041738238,
+          "baseline": 0.05714261872427804,
+          "difference": 0.009972581693104339
+        },
+        {
+          "index": 79,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.10873959830829076,
+          "baseline": 0.10391673105103628,
+          "difference": 0.004822867257254476
+        },
+        {
+          "index": 80,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09167242220469883,
+          "baseline": 0.07381232380867005,
+          "difference": 0.017860098396028784
+        },
+        {
+          "index": 81,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.07668376479830061,
+          "baseline": 0.0754441968032292,
+          "difference": 0.0012395679950714111
+        },
+        {
+          "index": 82,
+          "suite": "libero_goal",
+          "base_task": "push_the_plate_to_the_front_of_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.08440288134983608,
+          "baseline": 0.10390184010778154,
+          "difference": -0.019498958757945467
+        },
+        {
+          "index": 83,
+          "suite": "libero_goal",
+          "base_task": "turn_on_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.1052899922643389,
+          "baseline": 0.1005575716495514,
+          "difference": 0.0047324206147875
+        },
+        {
+          "index": 84,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_top_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.13443428703716823,
+          "baseline": 0.16742435097694397,
+          "difference": -0.03299006393977574
+        },
+        {
+          "index": 85,
+          "suite": "libero_goal",
+          "base_task": "open_the_middle_drawer_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.1408673175743648,
+          "baseline": 0.14296082598822457,
+          "difference": -0.0020935084138597737
+        },
+        {
+          "index": 86,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.16000474521092006,
+          "baseline": 0.17728933606828962,
+          "difference": -0.017284590857369553
+        },
+        {
+          "index": 87,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.10615472452981131,
+          "baseline": 0.11071377652032034,
+          "difference": -0.00455905199050903
+        },
+        {
+          "index": 88,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.08312015448297773,
+          "baseline": 0.044704663753509524,
+          "difference": 0.038415490729468205
+        },
+        {
+          "index": 89,
+          "suite": "libero_goal",
+          "base_task": "open_the_top_drawer_and_put_the_bowl_inside",
+          "category": "Camera Viewpoints",
+          "plus": 0.17774061049733844,
+          "baseline": 0.09104865108217512,
+          "difference": 0.08669195941516332
+        },
+        {
+          "index": 90,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.17436308264732361,
+          "baseline": 0.18586990918431964,
+          "difference": -0.011506826536996029
+        },
+        {
+          "index": 91,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+          "category": "Camera Viewpoints",
+          "plus": 0.0847271978855133,
+          "baseline": 0.10531417386872428,
+          "difference": -0.02058697598321098
+        },
+        {
+          "index": 92,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.08649946366037642,
+          "baseline": 0.10598713415009635,
+          "difference": -0.01948767048971993
+        },
+        {
+          "index": 93,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_stove",
+          "category": "Camera Viewpoints",
+          "plus": 0.11122557435716901,
+          "baseline": 0.09541190011160715,
+          "difference": 0.015813674245561862
+        },
+        {
+          "index": 94,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.1149658066885812,
+          "baseline": 0.08045153958456856,
+          "difference": 0.03451426710401263
+        },
+        {
+          "index": 95,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+          "category": "Camera Viewpoints",
+          "plus": 0.11856298531804765,
+          "baseline": 0.1272399808679308,
+          "difference": -0.00867699554988316
+        },
+        {
+          "index": 96,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_butter_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.13482237373079572,
+          "baseline": 0.11962874616895403,
+          "difference": 0.0151936275618417
+        },
+        {
+          "index": 97,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate",
+          "category": "Camera Viewpoints",
+          "plus": 0.11857709714344569,
+          "baseline": 0.0837142561163221,
+          "difference": 0.03486284102712359
+        },
+        {
+          "index": 98,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09079958881650652,
+          "baseline": 0.08257785269192287,
+          "difference": 0.008221736124583642
+        },
+        {
+          "index": 99,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+          "category": "Camera Viewpoints",
+          "plus": 0.09855958989688328,
+          "baseline": 0.10540990488869803,
+          "difference": -0.0068503149918147516
+        },
+        {
+          "index": 100,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.11919523562703814,
+          "baseline": 0.07381232380867005,
+          "difference": 0.045382911818368094
+        },
+        {
+          "index": 101,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.10005007641656058,
+          "baseline": 0.0754441968032292,
+          "difference": 0.024605879613331383
+        },
+        {
+          "index": 102,
+          "suite": "libero_goal",
+          "base_task": "push_the_plate_to_the_front_of_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.11431059411593845,
+          "baseline": 0.10390184010778154,
+          "difference": 0.010408754008156912
+        },
+        {
+          "index": 103,
+          "suite": "libero_goal",
+          "base_task": "turn_on_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.12121256504740034,
+          "baseline": 0.1005575716495514,
+          "difference": 0.020654993397848945
+        },
+        {
+          "index": 104,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_top_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.10357579844338553,
+          "baseline": 0.16742435097694397,
+          "difference": -0.06384855253355844
+        },
+        {
+          "index": 105,
+          "suite": "libero_goal",
+          "base_task": "open_the_middle_drawer_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.1210828491619655,
+          "baseline": 0.14296082598822457,
+          "difference": -0.02187797682625907
+        },
+        {
+          "index": 106,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.1360430896282196,
+          "baseline": 0.17728933606828962,
+          "difference": -0.04124624644007002
+        },
+        {
+          "index": 107,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.09325374364852905,
+          "baseline": 0.11071377652032034,
+          "difference": -0.017460032871791292
+        },
+        {
+          "index": 108,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.08574253405843463,
+          "baseline": 0.044704663753509524,
+          "difference": 0.0410378703049251
+        },
+        {
+          "index": 109,
+          "suite": "libero_goal",
+          "base_task": "open_the_top_drawer_and_put_the_bowl_inside",
+          "category": "Robot Initial States",
+          "plus": 0.17810111982481822,
+          "baseline": 0.09104865108217512,
+          "difference": 0.0870524687426431
+        },
+        {
+          "index": 110,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.2373144907610757,
+          "baseline": 0.18586990918431964,
+          "difference": 0.05144458157675605
+        },
+        {
+          "index": 111,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+          "category": "Robot Initial States",
+          "plus": 0.08370117885725839,
+          "baseline": 0.10531417386872428,
+          "difference": -0.021612995011465894
+        },
+        {
+          "index": 112,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.1479605691773551,
+          "baseline": 0.10598713415009635,
+          "difference": 0.04197343502725874
+        },
+        {
+          "index": 113,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.1326547290597643,
+          "baseline": 0.09541190011160715,
+          "difference": 0.037242828948157156
+        },
+        {
+          "index": 114,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.08958935822759356,
+          "baseline": 0.08045153958456856,
+          "difference": 0.009137818643025
+        },
+        {
+          "index": 115,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.18222977008138383,
+          "baseline": 0.1272399808679308,
+          "difference": 0.054989789213453016
+        },
+        {
+          "index": 116,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_butter_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.11539561918803624,
+          "baseline": 0.11962874616895403,
+          "difference": -0.004233126980917781
+        },
+        {
+          "index": 117,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.1052636546748025,
+          "baseline": 0.0837142561163221,
+          "difference": 0.021549398558480398
+        },
+        {
+          "index": 118,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.14801591038703918,
+          "baseline": 0.08257785269192287,
+          "difference": 0.0654380576951163
+        },
+        {
+          "index": 119,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.15546267202922276,
+          "baseline": 0.10540990488869803,
+          "difference": 0.05005276714052473
+        },
+        {
+          "index": 120,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_the_rack",
+          "category": "Robot Initial States",
+          "plus": 0.11515113030161177,
+          "baseline": 0.1728700280189514,
+          "difference": -0.05771889771733964
+        },
+        {
+          "index": 121,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.19007642269134523,
+          "baseline": 0.13540251169885908,
+          "difference": 0.05467391099248614
+        },
+        {
+          "index": 122,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+          "category": "Robot Initial States",
+          "plus": 0.1262778205530984,
+          "baseline": 0.06364806294441223,
+          "difference": 0.06262975760868618
+        },
+        {
+          "index": 123,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_milk_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.16269211683954513,
+          "baseline": 0.12511250376701355,
+          "difference": 0.037579613072531576
+        },
+        {
+          "index": 124,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.16636371782847814,
+          "baseline": 0.14367691023009163,
+          "difference": 0.02268680759838651
+        },
+        {
+          "index": 125,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.16140097379684448,
+          "baseline": 0.09078922612326486,
+          "difference": 0.07061174767357963
+        },
+        {
+          "index": 126,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+          "category": "Robot Initial States",
+          "plus": 0.08460493513516017,
+          "baseline": 0.11003473401069641,
+          "difference": -0.025429798875536244
+        },
+        {
+          "index": 127,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+          "category": "Robot Initial States",
+          "plus": 0.07526183128356934,
+          "baseline": 0.06518862077168056,
+          "difference": 0.01007321051188878
+        },
+        {
+          "index": 128,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.1621458206857954,
+          "baseline": 0.13123067958014353,
+          "difference": 0.030915141105651855
+        },
+        {
+          "index": 129,
+          "suite": "libero_goal",
+          "base_task": "put_the_cream_cheese_in_the_bowl",
+          "category": "Robot Initial States",
+          "plus": 0.16383045315742492,
+          "baseline": 0.11380516716412135,
+          "difference": 0.05002528599330357
+        },
+        {
+          "index": 130,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.13399665270532882,
+          "baseline": 0.11101281898362296,
+          "difference": 0.022983833721705857
+        },
+        {
+          "index": 131,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.13368110997336252,
+          "baseline": 0.12680522884641374,
+          "difference": 0.006875881126948785
+        },
+        {
+          "index": 132,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.13392164707183837,
+          "baseline": 0.14188312717846463,
+          "difference": -0.007961480106626256
+        },
+        {
+          "index": 133,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.10736649036407471,
+          "baseline": 0.060107306923185076,
+          "difference": 0.047259183440889634
+        },
+        {
+          "index": 134,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.13905686565807887,
+          "baseline": 0.11550171545573644,
+          "difference": 0.02355515020234243
+        },
+        {
+          "index": 135,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.18388713938849313,
+          "baseline": 0.0650161828313555,
+          "difference": 0.11887095655713763
+        },
+        {
+          "index": 136,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.07499055010931832,
+          "baseline": 0.09265239323888506,
+          "difference": -0.017661843129566743
+        },
+        {
+          "index": 137,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.09767001611845834,
+          "baseline": 0.11602704099246434,
+          "difference": -0.018357024874006006
+        },
+        {
+          "index": 138,
+          "suite": "libero_10",
+          "base_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+          "category": "Robot Initial States",
+          "plus": 0.07694327064922878,
+          "baseline": 0.05714261872427804,
+          "difference": 0.019800651924950737
+        },
+        {
+          "index": 139,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.10011789372989109,
+          "baseline": 0.10391673105103628,
+          "difference": -0.003798837321145193
+        },
+        {
+          "index": 140,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.05097762942314148,
+          "baseline": 0.07381232380867005,
+          "difference": -0.02283469438552857
+        },
+        {
+          "index": 141,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.08678127782685416,
+          "baseline": 0.0754441968032292,
+          "difference": 0.011337081023624962
+        },
+        {
+          "index": 142,
+          "suite": "libero_goal",
+          "base_task": "push_the_plate_to_the_front_of_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.1124519807951791,
+          "baseline": 0.10390184010778154,
+          "difference": 0.008550140687397553
+        },
+        {
+          "index": 143,
+          "suite": "libero_goal",
+          "base_task": "turn_on_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.1277989889894213,
+          "baseline": 0.1005575716495514,
+          "difference": 0.0272414173398699
+        },
+        {
+          "index": 144,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_top_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.15649495720863343,
+          "baseline": 0.16742435097694397,
+          "difference": -0.010929393768310536
+        },
+        {
+          "index": 145,
+          "suite": "libero_goal",
+          "base_task": "open_the_middle_drawer_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.14214035442897252,
+          "baseline": 0.14296082598822457,
+          "difference": -0.0008204715592520506
+        },
+        {
+          "index": 146,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.12611902867044722,
+          "baseline": 0.17728933606828962,
+          "difference": -0.051170307397842396
+        },
+        {
+          "index": 147,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.11314834186008998,
+          "baseline": 0.11071377652032034,
+          "difference": 0.0024345653397696426
+        },
+        {
+          "index": 148,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.12104752830096653,
+          "baseline": 0.044704663753509524,
+          "difference": 0.076342864547457
+        },
+        {
+          "index": 149,
+          "suite": "libero_goal",
+          "base_task": "open_the_top_drawer_and_put_the_bowl_inside",
+          "category": "Robot Initial States",
+          "plus": 0.11770368388720921,
+          "baseline": 0.09104865108217512,
+          "difference": 0.02665503280503409
+        },
+        {
+          "index": 150,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.18740958060537066,
+          "baseline": 0.18586990918431964,
+          "difference": 0.0015396714210510198
+        },
+        {
+          "index": 151,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+          "category": "Robot Initial States",
+          "plus": 0.10759086183139256,
+          "baseline": 0.10531417386872428,
+          "difference": 0.002276687962668278
+        },
+        {
+          "index": 152,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.09959651827812195,
+          "baseline": 0.10598713415009635,
+          "difference": -0.006390615871974398
+        },
+        {
+          "index": 153,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.1416363205228533,
+          "baseline": 0.09541190011160715,
+          "difference": 0.04622442041124615
+        },
+        {
+          "index": 154,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.18160751632281713,
+          "baseline": 0.08045153958456856,
+          "difference": 0.10115597673824857
+        },
+        {
+          "index": 155,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.13859468868800573,
+          "baseline": 0.1272399808679308,
+          "difference": 0.011354707820074916
+        },
+        {
+          "index": 156,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_butter_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.12658153772354125,
+          "baseline": 0.11962874616895403,
+          "difference": 0.006952791554587223
+        },
+        {
+          "index": 157,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.15876905832971847,
+          "baseline": 0.0837142561163221,
+          "difference": 0.07505480221339636
+        },
+        {
+          "index": 158,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.10685915010316031,
+          "baseline": 0.08257785269192287,
+          "difference": 0.02428129741123744
+        },
+        {
+          "index": 159,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.14015182001250132,
+          "baseline": 0.10540990488869803,
+          "difference": 0.034741915123803285
+        },
+        {
+          "index": 160,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_the_rack",
+          "category": "Robot Initial States",
+          "plus": 0.227550779070173,
+          "baseline": 0.1728700280189514,
+          "difference": 0.05468075105122158
+        },
+        {
+          "index": 161,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.17437343512262618,
+          "baseline": 0.13540251169885908,
+          "difference": 0.038970923423767095
+        },
+        {
+          "index": 162,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate",
+          "category": "Robot Initial States",
+          "plus": 0.10326029147420611,
+          "baseline": 0.06364806294441223,
+          "difference": 0.039612228529793875
+        },
+        {
+          "index": 163,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_milk_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.1857760659285954,
+          "baseline": 0.12511250376701355,
+          "difference": 0.06066356216158186
+        },
+        {
+          "index": 164,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.09689357536179678,
+          "baseline": 0.14367691023009163,
+          "difference": -0.04678333486829485
+        },
+        {
+          "index": 165,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.17354467511177063,
+          "baseline": 0.09078922612326486,
+          "difference": 0.08275544898850577
+        },
+        {
+          "index": 166,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it",
+          "category": "Robot Initial States",
+          "plus": 0.20677574702671597,
+          "baseline": 0.11003473401069641,
+          "difference": 0.09674101301601956
+        },
+        {
+          "index": 167,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it",
+          "category": "Robot Initial States",
+          "plus": 0.10837321707180568,
+          "baseline": 0.06518862077168056,
+          "difference": 0.043184596300125125
+        },
+        {
+          "index": 168,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.1303721112864358,
+          "baseline": 0.13123067958014353,
+          "difference": -0.0008585682937077288
+        },
+        {
+          "index": 169,
+          "suite": "libero_goal",
+          "base_task": "put_the_cream_cheese_in_the_bowl",
+          "category": "Robot Initial States",
+          "plus": 0.11041157926831927,
+          "baseline": 0.11380516716412135,
+          "difference": -0.0033935878958020887
+        },
+        {
+          "index": 170,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.14390359776360648,
+          "baseline": 0.11101281898362296,
+          "difference": 0.03289077877998352
+        },
+        {
+          "index": 171,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.17582482951028006,
+          "baseline": 0.12680522884641374,
+          "difference": 0.04901960066386632
+        },
+        {
+          "index": 172,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.1362132251262665,
+          "baseline": 0.14188312717846463,
+          "difference": -0.005669902052198139
+        },
+        {
+          "index": 173,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.19925082496234348,
+          "baseline": 0.060107306923185076,
+          "difference": 0.1391435180391584
+        },
+        {
+          "index": 174,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.12306043250220162,
+          "baseline": 0.11550171545573644,
+          "difference": 0.007558717046465185
+        },
+        {
+          "index": 175,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.08541019984654018,
+          "baseline": 0.0650161828313555,
+          "difference": 0.020394017015184673
+        },
+        {
+          "index": 176,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE8_put_both_moka_pots_on_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.08955914293016706,
+          "baseline": 0.09265239323888506,
+          "difference": -0.0030932503087180013
+        },
+        {
+          "index": 177,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_ketchup_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.13529634135110039,
+          "baseline": 0.11602704099246434,
+          "difference": 0.01926930035863604
+        },
+        {
+          "index": 178,
+          "suite": "libero_10",
+          "base_task": "STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy",
+          "category": "Robot Initial States",
+          "plus": 0.11325510569981166,
+          "baseline": 0.05714261872427804,
+          "difference": 0.05611248697553362
+        },
+        {
+          "index": 179,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.10863740529332842,
+          "baseline": 0.10391673105103628,
+          "difference": 0.004720674242292139
+        },
+        {
+          "index": 180,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.06997162103652954,
+          "baseline": 0.07381232380867005,
+          "difference": -0.0038407027721405057
+        },
+        {
+          "index": 181,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.17782884155000958,
+          "baseline": 0.0754441968032292,
+          "difference": 0.10238464474678038
+        },
+        {
+          "index": 182,
+          "suite": "libero_goal",
+          "base_task": "push_the_plate_to_the_front_of_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.10186778817858015,
+          "baseline": 0.10390184010778154,
+          "difference": -0.0020340519292013914
+        },
+        {
+          "index": 183,
+          "suite": "libero_goal",
+          "base_task": "turn_on_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.11863143869808741,
+          "baseline": 0.1005575716495514,
+          "difference": 0.018073867048536016
+        },
+        {
+          "index": 184,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_top_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.11658967052187239,
+          "baseline": 0.16742435097694397,
+          "difference": -0.050834680455071585
+        },
+        {
+          "index": 185,
+          "suite": "libero_goal",
+          "base_task": "open_the_middle_drawer_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.16281211631638662,
+          "baseline": 0.14296082598822457,
+          "difference": 0.019851290328162047
+        },
+        {
+          "index": 186,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.103947457245418,
+          "baseline": 0.17728933606828962,
+          "difference": -0.07334187882287162
+        },
+        {
+          "index": 187,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.15117741823196412,
+          "baseline": 0.11071377652032034,
+          "difference": 0.04046364171164378
+        },
+        {
+          "index": 188,
+          "suite": "libero_10",
+          "base_task": "LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.10564687933240619,
+          "baseline": 0.044704663753509524,
+          "difference": 0.06094221557889666
+        },
+        {
+          "index": 189,
+          "suite": "libero_goal",
+          "base_task": "open_the_top_drawer_and_put_the_bowl_inside",
+          "category": "Robot Initial States",
+          "plus": 0.12232566561017717,
+          "baseline": 0.09104865108217512,
+          "difference": 0.03127701452800205
+        },
+        {
+          "index": 190,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.20912342412131174,
+          "baseline": 0.18586990918431964,
+          "difference": 0.023253514936992098
+        },
+        {
+          "index": 191,
+          "suite": "libero_10",
+          "base_task": "KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it",
+          "category": "Robot Initial States",
+          "plus": 0.05660586442266192,
+          "baseline": 0.10531417386872428,
+          "difference": -0.048708309446062366
+        },
+        {
+          "index": 192,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.11785201004573277,
+          "baseline": 0.10598713415009635,
+          "difference": 0.011864875895636423
+        },
+        {
+          "index": 193,
+          "suite": "libero_goal",
+          "base_task": "put_the_bowl_on_the_stove",
+          "category": "Robot Initial States",
+          "plus": 0.18360115034239632,
+          "baseline": 0.09541190011160715,
+          "difference": 0.08818925023078918
+        },
+        {
+          "index": 194,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.14674140300069535,
+          "baseline": 0.08045153958456856,
+          "difference": 0.06628986341612679
+        },
+        {
+          "index": 195,
+          "suite": "libero_goal",
+          "base_task": "put_the_wine_bottle_on_top_of_the_cabinet",
+          "category": "Robot Initial States",
+          "plus": 0.16370068533079965,
+          "baseline": 0.1272399808679308,
+          "difference": 0.03646070446286884
+        },
+        {
+          "index": 196,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_butter_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.1165419203894479,
+          "baseline": 0.11962874616895403,
+          "difference": -0.0030868257795061277
+        },
+        {
+          "index": 197,
+          "suite": "libero_spatial",
+          "base_task": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate",
+          "category": "Robot Initial States",
+          "plus": 0.13437917828559875,
+          "baseline": 0.0837142561163221,
+          "difference": 0.05066492216927665
+        },
+        {
+          "index": 198,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.10272581236703056,
+          "baseline": 0.08257785269192287,
+          "difference": 0.020147959675107685
+        },
+        {
+          "index": 199,
+          "suite": "libero_object",
+          "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+          "category": "Robot Initial States",
+          "plus": 0.1563815108367375,
+          "baseline": 0.10540990488869803,
+          "difference": 0.050971605948039456
+        }
+      ],
+      "source_sha256": {
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/capture_complete.json": "9eb760cb07aad48fd4df3d6167cc5e13ff653a2e61a953d02507cdb9c705053e",
+        "/projects/yanlongvla/research/scripts/structure_plus_j.py": "5a5024f76bd70dc282fab8203a81f2a41de6fbf0cebdbee2db1037ea979baef6",
+        "/projects/yanlongvla/research/scripts/structure_plus_capture.py": "2cef3f7d230457813a1176b9bdfb3e1b73e4515cb508290323dff5148f2189e7",
+        "/projects/yanlongvla/research/scripts/structure_plus_manifest.py": "631c84b1417d9353973b1f12d37a1551c425c9adb29335eff99e64d452d493d6",
+        "/projects/yanlongvla/research/scripts/story_theory_fp32.py": "909337a17bd59f6fdffc333dbeaa8d036ffb7ef1d8b42bc2abd7dfeb2c2ad634",
+        "/projects/yanlongvla/research/scripts/cached_flow.py": "9f5440c29ee34e0ab8429fb1c852f6372719e4fc66d30fb667ba0ff4dced8d9f",
+        "/projects/yanlongvla/research/scripts/compact_policy.py": "45a6a63a5cbc71a1171e8ce86de115bc2f9cfb74add6028913f2ca03f84d4423",
+        "/projects/yanlongvla/models/pi05_libero_trimmed/model.safetensors": "176031b21186751e49846ca4661c88a881695f290f8332f2bc185752b7b6c5d1",
+        "/projects/yanlongvla/envs/openpi/lib/python3.11/site-packages/transformers/models/gemma/modeling_gemma.py": "17eeb54e277939e58cd6f8a92719a275e36baf0c9f463b2754227d42f87aedde",
+        "/projects/_hdd/yanlongvla/src/openpi/src/openpi/models_pytorch/pi0_pytorch.py": "dcd7b6f508808ce4b7170a1720a4c62c6da04edae3652d16c94a469dca924e16",
+        "/projects/_hdd/yanlongvla/src/openpi/src/openpi/models_pytorch/gemma_pytorch.py": "225092e06509da0ae37bb9dca55c00d2804255bb1496f7c8700304b4c52a95eb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d3ac266c8663018a04b5f0b1c373a0dbc26476030e9d3d5be21973ed094771be.npz": "6f71e5f38da62a8ddbb860270acd127be3c6fbfb70b3781b42c21db09e86cf58",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/44fa8e02b15d1d21aebc65c260dce5b6b469e9901e00650ac021f4fd803f1692.npz": "99a85a2ea1dea80f620eabe6111238cb6924c772a6af36c85d3a67b189fdca83",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d3965c375321fb75be31a249dadb3c3d34fda4825479cd8958ffd1412666418e.npz": "06156eef43fa193899fed6a696614afbc59760fc1f6e073b68862923420689b8",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/68c8ea66e3dd8a2128bb697d156f253e6855338f4515128e04cd7c2bc2114e16.npz": "22c8e8b2557ae23880dd97271d47deb7825b9f0a2e948d5bfe7e44264709a604",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e5caddd56f0cda434173b5444bb7ac777d24ba4ab9a5a03228e0f119cf36b0ff.npz": "ced959aa4470e068d8db4c1337e0537d3d339cd641c2a6cc177e3040a1892be9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6758041d6baa4970db12a329b96aef914e6d46fc9e47b05df91d38428f4fb1ff.npz": "f52e7633b1194a20fa7f70bbccfe0d63cdb693b5c221a60484ea9fa0a3121213",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0c9d01f019618924e3bb494c9921597859523bdccee4ae216b22f2d9a99e3e88.npz": "026d2c3f4faac42200d02f18c06bdb1f78479309bf264e75ab9dd050b7d66200",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/00aac55ae2e696e8ea4332f595f4ada87d1412424311d6d3256704ddcc6235b5.npz": "7021392bdd593986a57b9835a64b15b2077d741d188179ad02dbf6622950e8e0",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d08a20aa3f4a553a0341753fdc8bc231d4e3ac1da2848b0509c7e6b94def42b9.npz": "5701146506d91bd863824d84e1e0ebe9914b3e3f6c9cfdf61c5ce488dc38914e",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/18b10a262bfa97289585775183c41c1e08a42a0911770d7ba65af3bddd2b0be0.npz": "b73a4a925378542fe90989f1aa7a4b65968cb18149b43e69b3a3538496973f8d",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/3a65c7da58790f8ef048e413b94efe0055a5b3fa41b39dfd4396f3c44c40e328.npz": "64dbfc4de443831257b3375d88141bd1a22ed6b68ca2ae15097520b3e4e5cbbe",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/8ec11237ea87e2fdf36d38e31aa307eefda77d512bbabb3f80b71bca18878136.npz": "2ec692a026530482d4512da933162f289466250f21752490e2643b41a1aa7e82",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/63d3bc77d0bb150e9400b836df068d5eef3dfe4f229032ee7236610a5af147d1.npz": "33377ac26b9bd29836769ec6d3648b6a4fe1624d4ad41f59b4a6ef66dc7c854b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/74f548591d2120495e10c0185ed07aea4087b08aa341dde6f8a35a68ca7f673b.npz": "ef17f48c9779b2a54720f9ffd3bc907a811d2a14cada7ae00c3c175d8014a2a7",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a83bf03508643aaaed0695b28299484694076bcbed58ac23a67a86e8137182a7.npz": "b27ac7f8deaff2a8e4f81bdb36b4c7114c932db3f134cc3706f4af02b2822048",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/5f2d25eda1b7a448d6845314860f93a54d1e94d9e2557ebeeaeb335d605b9894.npz": "9e81a630ac7b4dd46cdffab77029b640c179e396f2e82f992701407f976cdea1",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f36f5b6701e0e8d47a96f42cd6a57f95af2a7706c1fb822bfb5c6470dabcf759.npz": "2f512303c1f425ff96034c6e61606e8de153eb9ce9e67b34e989198be6ad2a72",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0e30316ec95d40c3e4f6fffb46af1d67694af7a934403ef9fafbdd2a2295d020.npz": "2168764a67520a88e6551198695caa903b38e3d43582b2624a05808915392fd5",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ae2dd87487c283ed35d324dde56e531cee54e517802f052a4ad0f5ca0b5847ec.npz": "59b670e3c7a25ff2a2c3285cae0cb4a1f4e8268b816ec7eea0b5509864099a18",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/1b04e179232ade2010221989257e913df78b5a39c78bef41ad7d16cb7a61e615.npz": "943d84e98c2cd0746b99522312e6f4628aa5b48dca6c902a2192d3b400f41658",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/1700d9dbb5f3525ee20843a0ba792f9e3f118296307182215820bda20b089810.npz": "a06c3eba1fbebf085bd08f9476071d7aa0833073c0fcded2d3fba171f130f64d",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/80aea69899a2678a80f3592d58977b2cc8549d6686384b740ce906827e70d413.npz": "0f04ab61583e651b95771d9844437ff4985ddc7b92fc3ec52f1603ea4eaee4fb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/16d1a3d8c5685ac628c6d24756ed703324206756b4868566af9c6e62e96aa015.npz": "a0e92355e592ebea696b019c154c148ceb9242d9d0b6113c9e1c9ae9d5ada373",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b17f45741da7e7c165400109bab3ec02934972fc8cf8aaa8956dfaf943adf315.npz": "4457127a555bf1a6a20088d9784024acf1e2c5588dfe5464b4014b5adfb28d71",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/cc52d8a2bf6bfc2f45b8170519da70fa87f69816de3b620ea96fb86fd555a491.npz": "e1e10fe42a0d01470f1a78ff697e81c6a1acdc07a1b5ee276dfd45810bda220e",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b7aec680c9e28c548a78a93a3e3e105a8149cf304543b45cfb32547f2334483b.npz": "7129ed175b99df56fdd7e910fb05dbeae16eed9cc819d01a91dc7fb5e3e08ed0",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b56c4df43270e2897b6a2b1053fd102861c1bfcbde53465c9395313f19141a67.npz": "9a5631da37db860f29ac12b3812db533ea49493b3428f3610c8d49292830f71a",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/09902880b89806f2cd0114dbeb238da2da7569dc79f9b3aaecd799aa8cfb0793.npz": "abbb619b3616c377ee8fb4f657af34fba2a0217082fe7af7be19eafaa814c845",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6a69120a2c22785420535590b3fc1c3d3e37acae718bdad78ea2c20e5afc55ab.npz": "08394b2a723fc59e20f75176c17d2b355c73167bc6018ce2cf0f1ff0d4b11051",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/c5392d415adee506616789ecb3cabd4a69fa53101b8a8552c984b98ff7bf07f4.npz": "56d5a6198789b4750b2361b34032392a99bbe668046dbfa0097150f0eb194d47",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/124f68ee5f2084e7877e007209616e0b5c1a766a2840f311cac9b9c29c8f9ced.npz": "be345955862dc41bd7d97d1a82f2c36a77524badaf51c39b8b5a9398a7ea0380",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/21e064f326af47c7939a1e8841dba120463fca817b57408f0fafa510549e9d2a.npz": "68c9721e58682453c6d222d135e6c06cbc5d85fbfd9b48cce2a3e48fbdb55beb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/2f8bc144492729dfdf97b2e6188da661e1cdfd2e9e57aaf91b54e6d61c8ce35c.npz": "242fad43c49a9b4f07ff3068d05fc3e8b7e3c8853cc0eb671b1b1dd7185abb6f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e938490503469272300aae14d6782005da33f88142a721bd975c63f670961f27.npz": "329e3876e967cdc201bd19e9a0fce7d43679f95e16f6be4e29fedaee744f397f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b9a95a3ec4b8818c55da65f2d6b5ef8930ed6e1a3d797b7536f19a22868d5008.npz": "efbaf9c3b966e74694deeff53cfd5d6fc2a97815ac6535dbd8a7819c384e8c8c",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/026d4f9f17ba758f0c76d8091575f524c472d83d1a53716e6070f713cc5e3892.npz": "d41303e737e48e45ba33870d96cf5c8e31e8dfacfa7796b507afd46585da85a1",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f3ac3e2afb943b6201a4f99ab366cb1a64585a3fafd75332c51cf0849cf88019.npz": "cd7a94b2395ddc52d81a4443c31291c8f6680ca7906692a246e924e1219126c9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a6c447aca90f25638e6d6a852736ef30e83d96728ed9ec0c683c8bd2593d6e87.npz": "e700787d3cc42f4f9346997a6e6fa58139c2f7540029cf2de8b665d5e0afb2b5",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ac0561a5c07f54586e928febd43d8a3cda9e141a866bc370d932151be7ca1bf5.npz": "04bfddcb206cc8ad2ed3e992d099980ef1cdcd5390864ba400780eece12ad77d",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/916a08dec216c1920f46e86c1e2459d476a94821d767e720b5b508ed90cc6c37.npz": "1cec3fa93dd063695a374928e7ea15e69ce6c3a1d8d779d71c30f8e57010d95d",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/42043e16caca31f43d5ef9231a4057a0f4703c5d79dccb17c17f8a751ab2820c.npz": "61abefcb208efc05814fbde44f6c69bfc81870e5f4d862484b3c59880bddf26b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f9709767d04c79da6790295ff35298a42f63d9065d4e8ce7d5abacbc31e4fd92.npz": "9a003c7c6fb9f5e03b32a8266f2649345d177dd3d8ab945dd17256718a5bbac1",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/1ab2be8d6b1dc5eb5c11979600a9a303c14970b6fe419a8656e39a15ffbc7a74.npz": "eeb21c7de72e924a8f6420c099ace42cf81d8cb3ccaae12f4bb4b5ba5e4e5406",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e06f47929d8d0d37f8ad21cab5ba59a4b02bccde6089823d2840cc5515551a83.npz": "582f09ed9a8ed04b49368ab33f5f6d3543ff57d8bfd7a5a9c9850598371b72ab",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/33e562a27fd241d7a900dd0c88c11e4a629f66dfc4b76dabca3ff7edd363d0eb.npz": "a7abca87205cf260ae150de99fc34dbacee9736f6ff1f0b84f37297f6c786656",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/dfb1bb96fc3304a471e39a454c1a309da33f6303e006a631a2c272bd8db357c8.npz": "cefca0e62954a1b78cc889eb226da7786c8327ce46b3906aefcbb3f9791486af",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/532e475b74a89ff6c8e75b5725efbf1e5a4feb6280123774260bf4414646eccf.npz": "5c34a8c341574f841cb033d1e7da8f908793b4e898533e1b0d2996fc43f16fbd",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a8756d6ff9e536d8433048ab5c95ef6d5c942430b9a524b1b2bd7347a7291272.npz": "95dcccf328ffe9f868bf8cf3adeb4ee56a6a6da36ff04bc4cae54ef4d8a8326f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/41b799ca41e8a6338c3e5f678f044e3d5c2c16ab7dc98b1948c254c94621b88f.npz": "395174d3932bee3ff43603b09459554a83e9eed41565c94ffd969d2ffa7521a5",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/1cedbcd5209cc4e25d47bba6c4f6c61618bcf8e9b29822d8a882f5345ad183fe.npz": "5e0e522cf58f551fa408a12d9f7431bb657b5ecc7f1b43fe4cd95d177049d6cb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/76702ad26e79dc49b4fb29330caa7758b15babef65c3c44bca4beb55b7be4bf1.npz": "bcaf31a8d89b2923cc9a2b57cba97107edf291e3f992c622cdb809929ba426e9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/7ff33595f667a84b96579aba49333aa901fca75a6726fa9412cdae9ce757fcc2.npz": "677192c73bc008e28a5a0d71ee1fe65ee9ef89e30327a18404be713b18de8c4b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/795e37ed8f8e60b9afbcb26ded2e98f0cab91354b35cc347411e2580989ca8fa.npz": "a38f001a0b791589309971b1f9e4d228b9768e35da811ded7eb3c08ec4e0f098",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e0bfb450023dd0b10723c21c01683a8b918822d5542b4dfc48f0005c53f3770b.npz": "12c6dc17d0d7b37bd3e41645f7e140f517d393c3908d90ddf9dc637888416ae8",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b94fda3e8f7f51111ca3272d4e919b6f1a67a6af34f34d8a20dd8f8466ae7dba.npz": "0c07678da5121216e840b9179a02a8f2bd39b9d7f1bf702dcb4dca1fda564a84",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/c991d9ee2e1c346803ef044287773357519790672fe382e746e5095c463d1c96.npz": "0b75145f72834df0820dbc10616a1f606faa7fab178f4da5cdb8665cfa48900f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b4b60a74a3917459ec8d22768861ce2380377c304293bac0ae3e47ab1b354a16.npz": "b18615f130561f5213d1cb5f69947486dcd84cc79e12349107a2226dc524ede5",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/cfcd3f82163a5f300554f2b587f520b7c09f50d5a528dd82d5b1fcf333499c54.npz": "f684bcd05358f4ad1e601858ca4b7cffc3606961f10eb23333a6edaf4710bda1",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/1dff494c7a824a05b1fa6c2e663448d37ad40fd236606f6741429490a9e16bcb.npz": "278896eb1113817cf2b7613f42fb6799140ebd4cf52004db50f70404ebc07895",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/45d3c959ed914c1dd08fed3d52e35517480ea42d520ad22a732c4afccdf0bffe.npz": "468b1f6041cc9f85cc3052159cc21b2376b61b97d82dbfadae00d8ca02729f4d",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/fe17862d298e968945609b96e2270dc0203c5e6096ca6e2e319dd0e5a66bcc46.npz": "012076fe28d26abe5ad57adadb9d751519c6a22df6e04b7386f38045f4cd8e6b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/00fcc6a1c64c8b314452215e4ebefd0a9135aad933a8a824c65a68db8ced350d.npz": "bbfb6a59a992789cf565713479c89e361d38ce1bcfd5bdc2978787c5a38cdcf9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/c39bc372a120a32d6c1438ccf067da55db12241dee2a3f3670060189a78e2c89.npz": "9178b3bceeaf7e30d5986b72018da7a57b9b882d1f915fe590fcca77e816618e",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/be83efd91a4cb25da8b884d087611f46c8099b2e12b077632bf7ff788e60d058.npz": "dce836bd2ccfc211234a47c1fbec4b9303cb19b365f8ae7a3408d7b4a0421a3a",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/688b0b8be76858adcfc491f84233c4fd4dcfeef46e7d0a467415cbe348dfc4cb.npz": "0594feb3a701138e2f96fa0200d398236b1ef57c6703945705393f2375ef6ade",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/3c6b3c2dd35ed042c53647c54342804024946caf94f9d83a0f4138aa58a0d225.npz": "df6191c27e201d8379ed3cb9ce019bcee6c1f63526f76e2dfdc9beea339b13bb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6a5838186798b928360aec1e1b6d84beaa1e4191d00674df3d23e581a39550f1.npz": "e366035860fc3bf05e6746772031026c75a07f9f3254f1619fcfcc3126e27093",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0f97115fe8c28fe3049d94068e3fefd7b377df3269e86573ee46d77a7959a93c.npz": "e1c839fe2d668ea45bd20ee1ebe99cb570722ae8bbfd9bf36f831f2b3edc6812",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/473fd99fb7655647e6109301b1bd1617e8e4a36205a014800abfea760729f443.npz": "0338a266d57f853d441d7af8ce7999bb7c0d809fa6738ceb28e6a897ad5033b3",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/945b3dc20590956558b49d3dce20643790b0806d5b93d987d32e86a015c71043.npz": "15b52878b54b25e96d1346249f9cb7ee08204a5935b18e29aa84790cf7139d98",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/bad5c0544632d7cbf1b5089a978dac3b1cbbb36055c49a0b906c9136159a7274.npz": "a38ce331f523680fc2113568ffc06114ca5b7a13edb028cb967dd38ac0b0297b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f2c7f0a08ebfe1d96bd778b27c7cbc34ee1c1e50ce363f9e470b153b84aa8a8f.npz": "88fc15dd18ba250c94f2fb46235924a7b8655c547aa8df76faf61ac96d4bc5aa",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/30a7f38354ea3ed8c161ef5547184477f6874fc26b2bc0257950373e51a97926.npz": "cda4b95ad5b847462045727909b5793cb4c0ae9c6fb6c7389af2d434df1229c4",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/383240533912bb34beabb78e27a5a703a3b4de01d14594c73277a79e0b0bcf5d.npz": "fefe40a11137e69b811b22d8839f15b6fa223a58aa996cf43029e205ee8cac5f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/79c2956d93644646cdf815c5f7ee888ef233db277ee13a1f8f4360bcb6206b91.npz": "067e28ac8ab3c883b8ce62d5b2bfa3f1f386e763bc92fc03d9e359687c270850",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/8e2fa6fef2711bf3312e3ecb4cd89a6263c87d7d0739dcc99dd73fa7a4662917.npz": "a8a16776c922b9b4d58f4cc4d5b1eb428fd1125d8452cc45694e5556731fffd2",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/195f17f8c677ae38f6a573d1708364f4a08d535dfd898650bd43bc8272775db9.npz": "07eeace78d4fbe1975a3020f68fc8dcd3cc479491b5eea6b8ae71bae606bbb40",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/aa8b03a7d0ec58dd2035f6ad39ac72b156eb199d05eba740e69dd6677a7f43b3.npz": "857934c09e1bdd730497c9c10e2c027a0ff2c0835c00f8076480da6fa0eea3fe",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6170f80fc91d05a2282df90b0366a4aaa24ceb6445ef6061902b674bab711853.npz": "0ba65f400f645efa4737da74ef50c17141c8542dd758b5cc8dd78bbdc3ce11d6",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/516871ef4585255b6a1171d3e51cfb2fdb0706602de657b820a9e2fbf508e501.npz": "7dd760cbbd85c29e7c9b3306e369b19b5d8e84aaa26b3976ab5156f786f059b9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/89ecbe20ed355dca9cb52423a9af98837cf4811babcb0bea93a8bc44a4b553d6.npz": "31bb6f0d56165b4b3e36ac2cbf5db40b0ad4ee16c357d47ee8d9a7bce34e2cec",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a9ece3b0144499d30133bcca6f0a19aa3c65b2d395f6855b8055feec62a4de00.npz": "89fc27080d212af55e1ec8e97740ea918d50fb09d585439a3150f05ef34ed6a3",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/5e3abbdc9b3fc52b0625b9de85be168ae82a06f1c0b23f821a1414d6bcc67bf8.npz": "59400f21389f7e22073cd9b4c2508f58be4207c7036d024417788f0fd62149fc",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0af6c7958e387f3269a4248acf55c54c7a45f079520d77bf5d6aa5184574e1b2.npz": "f0850579516d8e070a2a0228df7160e5bacf959e767f46fa574c9029337a809c",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e9babc4b92867d68208e419d3474975aa2059212e9ebdb342a5e6553cbd0dbd5.npz": "9ca65cb1812cbdeb629be25c62a57173442b597c2cdc9f0dc4820f655617b128",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/2924555b1634f2ad7a2287046ff2813874c0741db6a86986c9ca5cd6f2608cab.npz": "cefc37dcbbb9a5fc4c9c8edf3343a742e3b987b82447e849dfca9a74ce1aca76",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ae9cbe9a4e90ca8ea7fec9bee696a0c3fbad92e8bf35dc44e98959512decfa02.npz": "88da2dca0db707959bddcf435b2a6ae2ecfb38c4b87664811e239736dccb4370",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/35bda8559bc6ac89a02848b262bc3cf88080e8a0fe6b829887f9fa7ac23865e8.npz": "ccbe31bddc79d05e869a9ac74f3f672466ee94c4f6a22ffc98a59537fcfe8d6c",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/61a25630b31aa53362113464225493ce6518b0f67d569e557ac36901ceaf878b.npz": "a70b2b48c28f55b7aa4efb23c68073a4786d7cfa4f993bc07e03ca00b745d321",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/5dd1473e85602651d6530b346a646bc1bb0c8a04462814a4db46dacb371e64a7.npz": "33a9f1cc7e5307603b6a99dd3dd4bd918f5b4df77e5aefe9862b7b1e496ec1aa",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6cde49a076c6e4aa8bac5544b63aaae572624447c167efd90cec36b14e4792e9.npz": "425ad0e105ddeb48a834411a92da9e027ead633f3c810b14f199a3a085d73ec6",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/de34e8880ff9f94a15c240ec2b5485ed0db9da70146222d073e2fbff083f0f2b.npz": "c3233db6e1fd865a37a9004df346cc35f82b0e5165ce3dc9bced51189dbd0a84",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6fd5f3244753505da308a275e45ae29b2ee3111dd0d7f1757abb5a86285a33b3.npz": "3d865c4ac4a7bad320338ad0163695b283f186fbe85cd0c4f2ebcb895c24181c",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/730e288082f54bb85bc14a5ed278129f233e1c5b6df673c8ffbcc17baa063aae.npz": "d7be7452e001bf82f235b2930574a33f4adc1e09c3171372bd327e3fba2465e5",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ca4b675cc3ff565cc8913916854a0b9cac3b6fc62440e5ac8bc7f76eda660b94.npz": "e898384be418db543694bb96a121efdb4cc15022d4bfd43eec4ef5379c4341ba",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/1fe91c074e7906c844c6bdefe9c2630ec4685debc20260bf523ff4ed3f3f0f29.npz": "c8992f9c5edfa92c8e12ea6ff86acc2f52c2b769bdd90da0c9181944ce872867",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/4e951e3249d78e09226377e22117c379592766257f57233e6291d9d9c9461da4.npz": "00328cf65db98faf0f9e23a0c7850a8d437e9cfde24146f140478ee5d779c458",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/c49cea1a48188946cc6b78c54014ebd9b01b77171608dbad4921dcfe9eb7b7d8.npz": "61bc0ecc4edbccf8972fb226aa12901b49f19a7a2054abd5a582e4b966de9021",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b6b5c980b2a626e049db9981ddfa42d60543a7306a42ca0477444caa1df4b249.npz": "3346c83bd515e6e4d31ea72ccd16a707966007f6e8aa04b5aec60ed6fab8412a",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/8a7c4741278a914944a5012f568f1bbd57d67ced37df804e64b010cd7d9e1936.npz": "054b106859159719793783e715dba3dd7aea74e137deafabef25c5b6cd71849b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/9b1c911b7245bf80772f9d73cadadae70b27548dbea1f5150f0c38257b79534f.npz": "ce50c8da5789802eaf71c3f7bb959774b5633ebc4332c5c4aca8816a68dc96ca",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/9dc404a72b9bd5d25dfd435a276a3aeb9632639ebf9493b514cc57da9ffe845d.npz": "2db852a0929be992374d7956000f09211f0189aa59a4fe044d516eab96b723be",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0e03ff98bf97a6b32826b0871ac69a891e5fbc7690048c18d21bdf97db977d1d.npz": "e701d117ef7930d3345f1983e971e96fcdbf60198eb10af89d77045f0932b93a",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a8cafb40e6fd8f9798531707915a96c3735168c60cd82a2a0b3fb2c915098285.npz": "5ca152f282b1771b46d471cd5b21773ff2efac7d144258324de16ba5c3a376ae",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/844029ad2727c380a8fe8de4d5b84ab893ea6991d2c699afbde3ac1443976fa4.npz": "3bbfb80a808e25284e8ab59f4d42881ad4ec02b5c1131c9b4feb8ad438249a11",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e84a7903ecf62a5a9c167ae6e5dc42db26fa97d1ff8e1070c29eff5a3ca553ec.npz": "5f09c9e3d23f1b2740b8a6ad0c2775a91f303cc86129102c1f39f7cd0cd7e21f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/4c390042fb1754e4f64cbd8c67529f635ee02c9021eff40dd38410d44099ac20.npz": "bf221774eabfde24a43a1cf0bedbbd99a222cf07c4622e3357ff71841b95e671",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/25e37f96ee70e13b263a65adeaac2bd4c204d66f9d2c50d7b1e2862c8b45c281.npz": "6f04e5146b2564d4c39c368e092338772269ae62309a01046c700b35ae8f2f64",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0c04127908455a49fc72c9bb4609aca4ec04edfc0bc0fac752950dbb622e1e51.npz": "40e33f3d1b93a51100940151f11fe5e04ca53d45560dbe52cbf39365ad732b7f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6543c9d0180d759eac2f6308c122b6b93e5df7f62fb1102390f70682d33e9751.npz": "fa6d8e46b767c01c495108bb89c0e103f1088e5c4968db6a32d3cc0e1316e897",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/723bac2f71027c005e3d6c00a017b98321567de64e105e5e6f0cc65dcf23b8b0.npz": "8e88c794d60d3e2e6804d30ac8cb8d6e5b5681ccacfb8193b535e2882016e902",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/45aeac1345831e141fc58b9ea612683c47a352254e92cd5cbba5bb5b2ee68612.npz": "0bc93f05ef53988767779f99034f66cc35ac67f5f923b5cde794f1ce444a64bf",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ec4a1620e341f6b7051537a04df23ff2749f0b951d5561911ab1e0e7e5271167.npz": "8674622b7d78615a9a7b80cbe93bc9c49fb123337e640e88d584aca8e16d6113",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/981c3e74d99901a5cac66b142aac7bf96da634187d87b3af600532d2815b173c.npz": "ed74d3ed812eb96bc212ad28257e18b23c0c727611cffa36373b5c3053541b17",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/66799fae2330e2f5489f4dc06008842c89ee432dcafaa596c38859390de1f61a.npz": "bab85f7f5a660f4b2f89a420b9d251a3a940a5c31b94eb0c01a44e6ff6321aa4",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f30f809fbe8e4be6fcef540510c17909dc9a1120f35eec97fc1fab8b83915850.npz": "a12af3ed3c59df26cc4a7eeed25ae535dfa7ef654d17458030a0343293ccff32",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/fbb7ed2af97d1092031a476237c18f9437522b6384306aa8d7720e20710307a7.npz": "e30b8e233897e6eb6ee91596743f3941247b266212b4dfe5be07fd62ca514809",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0675028ab1e0145aa6645c4d1eaa69692176cccd3336c198042c83c48e953ac5.npz": "d4328b555b11ba0a7dde71c62b51bb345640bc19b5a095a05089311192fae64f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/060ec236cc964a819a217b8c70057b02f6feb312136aa7087c12fc9018029174.npz": "9e9a67aff7f18522519e2f88a25152561c1e610d17a4a3b4c2462b133759adc2",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/5b35197bf8bb4726598491badb28c5e34447f975ac04b76c12896b5e6eb54cd9.npz": "8cfc17fc4a1e20a842b7d3856e774203be4b29fe0b1a73c41ac21c10af29237a",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/55788bc65a6e0bf9ca1929794abb7a5e8ee7acf42e88630b8b3a12021de4f557.npz": "c59d6180933132e5c0b0dd06d655b40fc109db571e0a007d42d7865dcb76e994",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0b97ce46ae18a82573359c4e0937f9766a4df42a0045024f3b3568678cb64a8c.npz": "e8dfc150d0012dbcd19d336d6c7a10046d5f3a6cbac253cdeb5b98927917b657",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/9ad348a6c929c3d93d32af55c4452d3990314a2367edde3566f2c1be8fdb4b36.npz": "e1e6084dc71085dce0ffb31d8af038a787c4f8745bf2ed7566476aa17feea38e",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ac695b8af108c9c1c3d1f5551fd0dbb57948cbd6cee76392fd074ba99cf28bb1.npz": "f300637a2e9a39bbac0a6c0931c8e84fca60fb989729322e7c58ac3aac1a2973",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/c533964cea367b11b383ff4c255aa9479fad7cb701844da424cf878fe04edbef.npz": "90444d0009449db3ddcfdba1fd39ef29aec79becb8d0bb825e69bda23ff8fb72",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/2a697b88d374466cf627407af0433c7bf5c30a1f4da40d21068118415f433c4b.npz": "1559648df05c368876e086a3af751576d374de6fb5b434a771b6f32c68339700",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/35c8b95e71eb26ef844be0ca569cb8138149a28eb433b36be68eef96383b66ff.npz": "bbc73354494435b710a35bb23ca6a7774d820301360118249af0f14d2292f222",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6563e74a608e36f3a31e48fd410bb96cec5996899119bb89f0c498203827e850.npz": "07c6eb18ee70b71b82d235f0804421176415e9174cb4d845e1b49785b5d1f2a3",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/65051266f8f1f0a75aff61cc00ba03d4533f83ab2406d044eacef9754a3c1e38.npz": "facc99eeb2bca0594764c9950360b903bd8e8f77caf65b788aafe42afc8205e8",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b0eb8e2f233d647c93f26e8ebd56416629f832fb165b7cc08abbbf546411cc4f.npz": "d971bf2947a860b52c3fc9e38b524713cc94250c7b6511cb447854f3686bcdaa",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/79ffb75e8cf93c88fae3435c4797ad34df891df3e740dc971400795a3a7a7126.npz": "5976f8e5f4a76d8cf1553cad70247622ad4e2b9e423adae494a86ee6860766e4",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/602cc1ba30614407c795b9f7e36b038d0f2f693e6586c9438bbabb64c90cd448.npz": "d6b2eb7e74ebce3adde2bcf27e1d600de5a321af29806a88dc5df6f61977a150",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/5336f3e78408b1d6f03fc205ed140bcb36fbe3b38a4ec313171ae25a92e9b462.npz": "5b12ced18314aafc48dde56ad2ee676e8b952cdb74f0246804ee41da4e19d8d9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0465eb225b12a0635e648ada7ee5bcb0ed0449e36866d01a674174703f8b6db3.npz": "05c8e97b38227e5d3bee5cddbf9e4c009c1bff7248469bd9f655de80987707fc",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/3c839d628d63317a7f0295e0eda1290808a9316a47dafe60bfe95aefded74bd0.npz": "6568c5cab06d8d29d1ef2546834847d2126cb164f4b7904894914422e0cae2eb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ff48cc203a5ef1d5da2ef901078ca4eb00c980e217db26f2735169d7f3899aa6.npz": "90e14b12078bf1beda04159f4d828420be1fb2f956875ffbfaff0b9a1c373c3d",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/60ddf9442d95184872e08b3252b26c16d2bf5e4f8f1f0806d4dcbb454bfb5471.npz": "6e13289ceeded72cafcde0869206e430d17143a171a26d9a98d7ccab38c314f6",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/de77b71834d9fae5d82a6c856b053f8afe2ab0148795c2a898062b7119be07d6.npz": "c9ad34f64d912364edc4de8a32f771ef76c8f6728c98572cf592b87a0f95b1e7",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f7474d572623686c75d2b41da9cf21999024df04955b88981a308201fcaa3f5f.npz": "1ba261b3c2eabb69448e79f41ba947fee03f9eaa5f2b9ec285c5799d9455fc6b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b3ec411fda05eec0bd8f86eae9bf8cf2fcec3d8fc76ebdad969402bd185aadb4.npz": "d9b2143ad6b213881ff2ea98c49a4391d1b27ff296a16fa30e875999e196c7e2",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a5345c3d7d0df24fa5d4c576110756bedfeb357d26dc19d13edee800766870c9.npz": "e307523acd14d3d96ecf48f7ea71e9b3dea6ccfd8148ccbe255df7f864535604",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/218001e741c0e378fa8d972ffbfa3e8ebaf30f6e0dc1124080a2a413a00f3714.npz": "3cac0af2b61b4ce65bac981ba2c3794291e87b7e27fd422290865f00345bec6c",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/7d87bb86c092a8a9e76e35f0bb741dfbbb32f4383c97e57b2eb277949c8634b9.npz": "b1f0c50944d3be8c6da3365dbd0695dc7fd780d78cc16f161702f9adf571f870",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f2641d47cf4b640e12802fc64e8fdc5ab3e1591b39c08e5a71395b5e8fe57822.npz": "d7523d21f2e50439aaa78a4e437e466e10763c8fcd6e15da518ceca87a47a600",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/9a8d9819c745029844b83b2abf2b9e5f89d6b817a053868e8e8081bfbd78603c.npz": "410f63920d78f547e290635c4a00ba7634402eaf8c8df6f1a3e3243b9f7c7540",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/40abb31855c1cd298247643e15c333a72c68dd45de784e4e6485fa8d2441d7a1.npz": "547e819534f9bb8a01ab40da2e40b51985b7c67eda4c882b3cd977ffb2090545",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ce86148c1f8d98cba8961a52632f4869ea43a7026943a36875c99e8c8ea7e6b5.npz": "621942e12ca57440a7557b4affa91debc0296c8626f45e7eeaa9caa253262694",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/5780007f0fc6cb44207d92bf1231a9034590a5eec5b3e7b106036c1dc7da1919.npz": "b2b3203d3b0da787ae16e8ac6115585b05fd032c876e03c737cf2733af3d498f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/8aaf49bf71df5efdaa10ebdb5056e9a2e427bd8222db73a02c3bff2a512084f3.npz": "02d7ce3ee8d9719a2b6acee40df3b91d1949231ddfa1451e2bd3386841a0dc30",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/7c27a99e0dc59c929125c6c970320772fe62b3a337b68191db5258989d48b587.npz": "2139ba29ffe987d414448bc1812f8e88283cc7233799cf818685b4226df2a13f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/c17d0d0f862026fa9aa0ab3c9c9fa0de94912777c6554e5ebf60732269f32341.npz": "b2e1d2e166d56ac99810175f3db77e29c9ff5f129e6d24d67a0f197a4ab1a1df",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/fa37e6754d91fd7b15f565369e30c31b461d8db79a42d0877a76cd14111f9e37.npz": "125070c749538639faa60de4b0023b88f37d5501dd08070fdc7736fe15747a6c",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f5a3d4dcd80f7420fcd1abf5a50c9e873a33c36deb81d9082d6d394e59b251bc.npz": "b1da57f4f7f3fe7ed0b5e6dc7b835c600a3a7f4c0ed71193885db5582e76eee7",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/2522489935ca280281b914ab4427cecbda7c8dde5c032cb332b9dec4e034a854.npz": "ba2585e8a3e6c59436aa13f426c74401059fbb9f649092e62c4d432e34620aef",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/966bbf4230371622ca30bd9ef041204c8edd7be6aec0551a726c33bd5c2c94ed.npz": "11cbc7e3c5ada3b85b47bb9a3afbb8436941b194fef3c95cb01efd62d856d705",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d072547a47f5be8b6cbc19b7a2144935abd252a7ca24bc47cc2a1831b2632200.npz": "080f692ee24eff3a9713a6d1a6ad18ebd59b48b52c649eab28bdc3f08092f749",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/aa691ac10ef528808cfe43cf9143efcf606dce4d0e164c0af6389a742f885c73.npz": "0efa9680e0a1a7cf32dfa822d8831940adaf4b7d7017222a25b11522ab781955",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a0f6184697ebfb1c533322fdd5109a874e93cf03fc44c9573b99ef27f25a0fee.npz": "471826b683ddb9bc6c1d3f3fee49e2b897e9458f8004d7982ddae2299ca5e692",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d3173c1c44d907bab63fd3350245808e14300325581cb04a13df2c0f1dd9485a.npz": "290706e2875541cbd31852e97f9cc63f995ec1f18fe586d421a729d70cf38267",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e210d2a437ac4b019f9f792fdef2c12feecd6318d298e22ea2029cd5c2a20ce2.npz": "f01878586bb028a54c287b13e7621074ef238dce7ba167287612c3f27c7bcf5e",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d1ba5bc140a7476a84053858314101922bed9bc57e56f496d6bc600496137f79.npz": "a70990241698d8246f45f9058ec8790d0eacc9d9b088a5fc345c6938741fcbce",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/912db727dc263e5dd76aa6e4e22b317a9c211489a670fe079187ac8440333bdf.npz": "fa31216da674aa19caa5d75452510b68c978f2e6e960bc02ba99a3a6f1c7e81c",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e08d87e36d679f16e7672d5bb30acf2d84ea8af83a9dff8760aee2e43366bde9.npz": "4422d07ed1a051f837143b62a9c53208acb9a1733ed4be4ae6f538fec5e3cbb8",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/29fe15f9fb9be98672f448575cc02955b9cdeaaa200dad5353ff845867a31031.npz": "5645038f730ce6a2b872bcb991ca33ea52f3c8ee9c1112c780acaa958c659076",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/35edc07ddfaaf80f3cb4c910d730544bf8042741654bf0a38d71a5c7f3183905.npz": "ccb8e08e0381dd71960ef3586cb2d7ad02332f3069129ec8091c98d2b34262a6",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a20557090aa8b3759cb526d2ff31bfbdf2c5f87513afbe0af42cb4a9c43695f1.npz": "ff2fd4f3f48066cf774f689bdf344d6e7d1dce7758461550e1455b9cb49c783c",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/7d3beb6c453eb8cb97e9e9747faebcb99ed8513a7e8b9f78b977f4e47a60193f.npz": "e1ad3441676b0ccb246e64cf2c4304bc120d52bfc8df15e502225e57aab94de8",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/1e70059bdd109c51eb5a30facebe07513d326f35416f459be673af20b15d1a2b.npz": "7b7390cf7ae0c22d9d36c314e205e82099dea67355141db95333f532c66f0bf9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/24e28025d797f1cc9421296e784ab04e47b9455c2d4dd8302dafca16efebfd2c.npz": "99f052278a73854ed93cdf834708b06ab9ab2f3299b7b1d22a76677c02263700",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0df9abae4d642b845d6c18d3f32d64cb4749fa0481f238aeeb360413107ea391.npz": "073db76e46893cd44b6bb8cb614ecff34bc1d38ea9c058a6095ee14d570247ed",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ebec5b4b9597aa14dae52d436b232427f1e87a5a1a326ba0fe34844614c2440f.npz": "c3cc2e8c313a9a5978e57d0298b4dd4eeaff4bee991ac3b9f8f02724b68a1f16",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/648b7c6ba92d71f88296ef943e8cf3c6a5ee1d44bf8af2d7a4e0f98d3016141b.npz": "8264563ca3bd251c14988042a589e08eb716e6344cf4e0b98efd074cd673429b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/c37f579a5bb1d095300947eae3a6d8c315fd29a1cf6836420aabc077aff028f6.npz": "32276acfb0c585c17b376c80c633567b0f0806d53ee0565b50cd267479f32876",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/3afd2eb0372e19b899c718652920c4674163b341d1449042d829daec4b95cb02.npz": "f1d304613b4b8db199ab97925770532415a2fb2d23272c49093ee95bfdf452fc",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/242235f9efd623e1e9bcc4ac9827a31ca189c309fe6dcfd69b5c115700acc899.npz": "27de915114d1b1d58816ef80ec4e11ac26499699bc703fa80c598f9436aca27f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/4765b77867c47f0cdebc1ae7076095a70480e62dadfdf706b8a61d7ce3937cd5.npz": "3a18059f13dd418b6970d87d9a1e283b1f2170c988c34ad1d316710762949d1f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ed8c13b3b5834a2b0e580cf97c75b7805a22708d37af1c3ffdbe33956c015efd.npz": "89796bf0a8cbb343401adb8cf98c54990d1b34e07bb7b74d17f6a3923efcf698",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/c6493b3e31b8909bc438ac87fe972d63cc3c6027abc437f4ebc0614a3cc0d2eb.npz": "ac5bcb0df5cfea6e6d7bf1eaf4afba2cf52e2a229d1291b8ccf7d91dcdd00538",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/8629d5aad418a8b54db3dca16e2ef6eda2d2fce0bdbbc4c592d6ef010315d804.npz": "75179be1e3c1db54c7c276b52709ad56478511d7f2972ecd99fefda47208514f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/099542660f7c8775488994e01883215306e3cab0d9267fd1a575f5b8ff71369a.npz": "f57497774858fd4f7a82773951d48b9223863e1bfece92f4a201bdb3ee555aed",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a7280c44b41a1b2d3795b259c585c1a50dd1e50b4773e52bddf446adb3971b47.npz": "b5e958803e417e22441abb3bb470f7d7f06f2eea6b39a7c600403070e0409736",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/3e34ca219869d12ba209976e7fd5096d0e255fe6f3d8110342a6c494223ac5d4.npz": "c2d6df36f85ad3937314967b20323537b089f9595370d47dbc4ac72a83bef056",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/28a611b13c97b0c2b1cfb0f271a499d671b453f062ea80290200a484688486c6.npz": "c4707725927cdd15601162b191fa7f921e3746c3b36e534c5a54ff3cbce34f68",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/72768e3054720f63e4407a25618ca7dd57a81d18948d6fd1f9753234d5f47673.npz": "96475c77d9c2eb71246a497613f3201f4e4cfb64901843de041e10daef124169",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6f865d0b9961dd8bc5996ab8eaa476ac62ccaa390c63aafdbc81bddb95f5ed40.npz": "8fa8864fdf27285653eb57b43601aa8e5dfe7e6297c394dbf0f27c9c2dbd58c8",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/565da430d05e8b04415b7976737236779b39867a31f75a6039192332df8163d9.npz": "8ce290e19117e9d342003c6100f84b98658c012c64304207c73e6ce7534228f9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/83ffebe3f3c407851ef7a2dfa550bd9d1f40c41dcc8172fc0b26447a7cb71f16.npz": "4773bef67fc7d6935eddc67df5e6a9c31361c6e136b25b09e73ae3ce6d86a28b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/74d4423f010a656b849222d416c41ff97dedec240597588a315e48d7c56b0ee8.npz": "b1d4d2750376417cd04ad901357b5a787694e528599ddbe827adbe11fc191e93",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f1107c32ca4756da421bb22325d9058d28417f2d449bf766384e984265496ae7.npz": "9261bd83d962e57470d7b9eb21402a0e99b5282e3b1a2be2e7c321668a22b8dc",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/0be6c88a4fbef89076001c53e40b912771e82e86e825b8d9a8cfb1e30a182260.npz": "0661f51249cfcbbe1fcef43838acad58c076b09b7ffb052965d618c01aa16aab",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/9d6a86b90c94e994b9b228dd018ee7deba22bcafdf06f88e643d2ab57fe75ca5.npz": "117a77642c886877ced142161a9d9bfc7c0fd4849a1b8eea1fd8a3b20f56dfec",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/565b195f1035513a339c9a772a620fa5f716234ec0a6d583433a136b5736cf4e.npz": "16cd4f3d9ac875cd090fd947fa4b9b322431e7e851412238aac603616c99fb62",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a711fca1df9fb8c4659c8f809ed566edb8107ac9caba65a3bfc1f8f04f7f4647.npz": "9ad694444528540fc200a4f3249f675488a4750579a46e707d231f6dd6efb289",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/2ec07a4a4282dd80936a102b1298ee8f41b1c5a6109be224e5e87cde706cb0a6.npz": "a4272a2003f17b699517d07d40aa2eaa21a7a57d06351236399dc2941b63f084",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/34f4f5998bbd4b185b03168cc5736ca8bbd65fd91506b783db54806d9d1b5858.npz": "af2d5e1563a542cfbc3f753bd2b2d56a7581020181735d701c2ca9feda255a3a",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/24aea2d231d303b97e107e3565e4e5541923d520b0e1891545dff9028345b29a.npz": "34fc0aadb0f7c24b6aa8cd761937352277785557ec33bc8b8af0048968ad98c0",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/96043a87a4f7e751e2aa1d400a3c0acf98bc05b4f9d637e20b07466df9ef76cd.npz": "08ff60df3add56c199204d0f8dc7b78da1cd3355e63fb706ead9b69d2a6d03f8",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/5f6b8598b39c0dd4c6ea2a1ffb324e64412a1cc4d40f284f8a0176010acba238.npz": "de8218659a94fbebc7a4925b922c71a45b44382708b7a251e910699fa1afcaf3",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/697af62052c6a7da69be4a6211a907b62471e305914fed34c8995419391977f7.npz": "319a8749cfe7294c21f19b7dbd55ad84650b47f8de519490e2d0b71a07b3e467",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/139656b75318cd940d39f2877ad2e331807838eda6ceb1ccdc8a68a29f4f62e6.npz": "85f5bd4a352c68103f02526bc55f6060f6f475394fd33aa903f74e361ae55caf",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/76ed93c33c834b8601c4dbfe81a753a72d43fdb03403f141655f714d378246a3.npz": "ad71a48239d54fd256fa448765ddc9c932c5184badce582e0f5183064aae5d97",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/e93c3a7782189cc5a9b6a6f724593edf1b6814aea040173b013880a80cd1093e.npz": "9583e356c6e003dbdc556ec005b18711fea6042eb422174a6a410e9d323250cb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/36eed027019b05f89a5b2cc0ea892c220652a44e9dee0539c7947bfffd00bfa4.npz": "18e30a2918760ea8f8e876c850af0dd77b51228239df4f0dfb40baca7505a20e",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/66c5130d558ae1b3f9b4e487bc3a994b07b0dcbe20edd6de77d9321ae32f20c3.npz": "d0278adf19789a64f2bab86a5c321ea9835cb659feac60bea24b1f1fbf4fce99",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/86b728d216f5e0b5475f0d14e7d120dc2c6f185df6890dcec08504239b150f06.npz": "c87e5d5f01f55686be9965453df462a1553175e2a5d13a9cd808f4a5abaae62a",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/63680361371a8521f56f16797a1b0a713b74dc8eddd938c0c21159ad69fe12d4.npz": "43035f5866c5ef4ec164334e0b7f55200200e1df622e49a997ad1d252f3ba014",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/55baca4d9742fd75f327ac6c3b23382ce483279ffbb61ec006188f686d65b967.npz": "6217c3a7aa3cc1c48492371b374d5177829e3a37a444a3c5bde7e7988dab267f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/744a2537e7f2a65ed0fdd77d65a7d3f599abe2570eefa0848bae4161486223d3.npz": "a84cc5e1cf0608a4cf93cc1d951938af7136ff8290fd5f38db9a9e3e3aac967e",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/20af3d4cb66e22129429d8b9e5e3fa021cd0342cdf5723fbe18703170dd5f302.npz": "31573df457e49d007e17248f699d9ea788a859081cdb8f3dea4f138434eeedad",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f75a25dfcb8cdbb00347dc2d31bc097620d10b00e785a2ff320da0a625922d02.npz": "1dfda66e88201956c9088382e0b4533975449e5e1c005295987d0d0ba6a1d330",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ea46a739003a323e0f82703c0cdd7666c7f695f9cea3d817cccb61cebd0e878a.npz": "e3ea6bfed2672de1b280ca9162ffa996b7b187f30dc0bada10d72d8e3cbde713",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/35e208b49ece64eecf2cd6b8d563c07763b12d07c81157e7e123eda486f8cc55.npz": "684efb532efd7655fce2a5f27e99227e55f7eb804a674c8b6fb76b562a2b87d4",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/ab6b711c84a0e3fbed099f7e6cdf98dd3489a557e1b2b5c45f1017ac32c31505.npz": "d63df9e86130063a88bce6e765b8ebf04f4d16b07460ba06d2be5f1ded53f63d",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/904a0f3d06eb7e772179ec696b606a6906ed8da5a52b362887245f5ef7087516.npz": "1ae58456094eb0d5fc6c7294ab9b9477604b8d0bbe41c88eb58528553aad0491",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6805f3310826f11b76c3425b97b809e867ed78abe2d1c653fd8a7eb8292bd992.npz": "20cb74b3593f35b4106e6d3a15ce2a70468189368da1cd276f2d5b9fec77cf99",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d55ac5457f9d0b6b207f6b6915bb296d18567db4ec5fa907c3ba335bdbf7750c.npz": "c81dcdb8f264f7bbfb34044bdf659986c7db07c35d7e6794c9625ab02828fb66",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f35db9f843021198acaea340fa4faf66f87c1f8755bf93d07f1c1cd44a6b5fe3.npz": "90597346c413227f078393cff5e2bff1755a0dc6301a0846c16cb5b2a766aca3",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/8851337182be9ffe9ac3f20c7165aab057ecd480e25222e1b6ff6d3e2ff26ce8.npz": "9f5dfacfcb24d04284af463ce9c3cc15222469b33d187cbec276a5f760a4efc7",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/41379241fe0c46dff98a43570a7da9d903e3e956a7246a13d39d1567e51eb37a.npz": "75cab6205ef7df950f8079ccb520e4fc56f4b7b3549d26fb81de55a867116f8f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b3fee712f442fa2627969f6451d1fac84346b239f64e98d72d0a18b2273837c6.npz": "5410e8653e03ef739f74189b952cd3bf312a4b3d5052d8137735ed12b902b38f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/a98716e1199f2415e0b6a76520112b75628ac3a854831f8ed96527fa060bbd70.npz": "2e087baa2047a7bd8828d8200ccb90c905fa7d6fc27555fcb3c115024cb04491",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f7633a6bc2661d0bc9e513521cca5811e6a83d07bc4d18c23c001f2a24653910.npz": "aa67c61828f2a31c17fa65c1ab3a48bec460738c14ce404daec0a2921fb1c1f3",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d731e3b9baa8f71506238dbee5d14705a4636d21f26be1a4f4be6ade25196eb5.npz": "098ac5e4aa0a62fa291901f28df6dec8ec15c5048cb8949bce109b26ebfa314b",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6c7b3716f607babb06a77ff6530a63f72802f09da90fdaab33d77d75f69ad086.npz": "eecb38a8210839b12184e3189abf5352a2ebef9aae4080c38c50a3a9bd484abf",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/5e1d49eb6c4b4684a794e2845bca3a91478312febc50f3e9bd496874eeafacbe.npz": "6c03c2ccbeda152ecdf597198ec8af339fb165f19b42f6dbfcf55898bc8f67a5",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d0a7693c9bc093aeb78ce93d426b5330cd1bf4f53f0cb062b54efc80c8f5b43e.npz": "0f24893f48754780a8b32de821c894a942d6ad0c4a5a7ae68f0d15d7c935b684",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/6fecf222d6f4870b18a6172e63b50f279be6be6114fe41ae56f29773129575ee.npz": "cf3e0adb8ce58f83838ea186ce6f35b0a2ab1a9e46cc152271e324259df57c07",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/2f6ca6b384855c7b492a14ca5d936adcbde19e589155c57e2d4c20dafb00c9ef.npz": "c7c2ccc39ff6d12ca5899dc2d7c0cc0471eb7e425d18dc968791ecba9fdeb3b9",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/f4ccbee572a02a1884d9dd9903485c3a205e66f39c34ef9656641937861172c1.npz": "ccc4f5d25a6afbf2093af0f7e35ae2e1a4f8e3f36774359f87b4178af07ef6fb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/d7c024d56d48cefba2926ff91f38d4100392560b026b858e35731bf096e724d1.npz": "0eb8fc2aa2356284dff0940825fd99b84d7383a81d2dc27617aff32fc924f2b4",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/cc5794892cfac6d4a7c88342a6cc53651c999498e04bc67e3e5da1c09e2a1f66.npz": "1fc6025686b3f40c7ea9478a5dc55c71914bcd9695c56d1baccce7950ba3b702",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/878860ed1bf4d447f9c51218965967cccb9e33dc847747464d46f05f0283a4fc.npz": "410d4651f323a4557553f27b323f7d88a3211e0a9fc26bf254ce26428b978db3",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/1e583b4bcb283144a82658ee091bfdd064017c1ea73977c99f3e8661b4185865.npz": "48c25e52c5332184fde540ff995a816ab8e60fefb57fd5d58c09a2e4c6569968",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/4daa0a71d26c9c1dcead9633b4595a05817b4fa7c3a7aae3614f6ae35816a2e3.npz": "274fabd520546958768f579135ca614e208f96588546bd0ca654b1e5497a8436",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/53eccefa8d069b2740858801c81b7b9aae38aa00a1aff77301b035a5ec0818a3.npz": "56441ce9f0f8a9506dec753f6c8f902d419322a7b16d74acd2afd570b69a1a9f",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/52b808133e304c1f1e5b9b1b9ee083b9d56d4d5fc86d4f6be400174baaf2f1ba.npz": "c1c674bcb77726566f869eb23481b00b395d096a24f3284097230a573c4c9ec5",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/b3e7d64f9cc38f859ab0c45525b70ef3d39a4b697529770b2de014f6c84a6c13.npz": "8feeb09287b1c9d09f14c668c40baa2e5dba806653eec36cce91a31ba88c5f46",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/2a9325c27eb7ce4ef70a0fbf27b6372e91bf4bb93c488cb1c7ce4819b1b9ee07.npz": "6c88c508d67e62957bfa63af2d941f48aa3ae1ca07e7f4f245854b101dd6fa85",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/137c05a4a8b120cf26f5b20d105141c5ede23f8406e4fb4f0a76a0dfce464017.npz": "23020fe762cad7bfa90fd4290115e8769ed3b0a76828e7f5eef9b2f1860a74fb",
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/jacobians/185cd75825a469ec7a5c81811b5ce1a527f0ac72bed4e976fd2afdfbb510476a.npz": "24ead5979eef49da5a5bdbbdf5070652fff7b984e13cf75a6470f33a834a043f"
+      },
+      "interpretation": "Trace diagnostic, not a calibrated posterior variance; original and Plus simulator code differ, matching original task/state0/seed7, repeated baselines disclosed"
     },
     "Plus_M2": {
       "status": "pending"
