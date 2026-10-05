@@ -60,6 +60,10 @@ Prediction, not a measured conclusion: calibration coverage reduces the Plus dro
 
 Private scripts: `coverage_prepare.py`, `coverage_source.py`, `coverage_generate.py`, `coverage_fit.py`, `coverage_offline.py`, `coverage_trace.py`, `coverage_evaluate.py` and `coverage_schedule.py`. Parameters and mappings live under `runs/coverage_20261005` and `datasets/libero-calibration-coverage-mixed`. Generation code and parameters are hashed and logged. Reports/results only are published; private scripts and training images are not pushed.
 
-The existing bounded background dispatcher owns the added dependency graph: source mapping → rendering/clean replay validation → component calibration → fitting → assembly → guarded Plus/medium evaluation. The trace branch follows dataset validation. Running and pending GPU reservations together remain≤8. H3b/H4/Plus-M2/H5 work retains priority. No continuous user-session polling is required; validated milestones publish through the server-side controller.
+The existing bounded background dispatcher owns the added dependency graph: source mapping → rendering/clean replay validation → component calibration → fitting → assembly → guarded Plus/medium evaluation. The trace branch follows dataset validation. Coverage evaluation follows H3b completion; the H4 manual-label gate remains specific to H5, so it does not introduce an additional gate for this separately authorized calibration experiment. Running and pending GPU reservations together remain≤8. H3b/H4/Plus-M2/H5 work retains priority. No continuous user-session polling is required; validated milestones publish through the server-side controller.
 
-Initial implementation validation:16 focused CPU protocol/dispatch/publication tests passed. New GPU generation, fitting and action guards remain pending; CPU tests are not model-quality evidence. Source mapping job184972 is running independently of the client.
+Implementation validation:17 focused CPU protocol/dispatch/publication tests passed. New GPU generation, fitting and action guards remain pending; CPU tests are not model-quality evidence. Source mapping job184972 is running independently of the client.
+
+Controller185012 replaces184891 to load the new dependency graph; existing GPU jobs remain unchanged. Source-mapping job184972 was adopted into the same ledger, without resubmission.
+
+Active controller185015 incorporates the independent H3-only coverage-evaluation gate;185012 is replaced.

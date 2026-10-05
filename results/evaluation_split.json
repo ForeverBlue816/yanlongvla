@@ -11,12 +11,14 @@
   ],
   "models": [
     "FP",
-    "original_2bit_uniform_M2"
+    "original_2bit_uniform_M2",
+    "expert_only_M1",
+    "M2_FlowVQ"
   ],
   "pending": {
     "a_M2": {
       "status": "pending_complete_1000",
-      "episodes": 495
+      "episodes": 545
     },
     "causal_h5a": {
       "status": "pending_complete_1000",
@@ -78,6 +80,30 @@
             ],
             "paired_improvements": 58,
             "paired_regressions": 119
+          },
+          "expert_only_M1": {
+            "successes": 716,
+            "episodes": 1000,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": -4.9,
+            "paired_difference_ci95_pp": [
+              -9.440833924922668,
+              -0.4679683953117214
+            ],
+            "paired_improvements": 59,
+            "paired_regressions": 108
+          },
+          "M2_FlowVQ": {
+            "successes": 696,
+            "episodes": 1000,
+            "success_percent": 69.6,
+            "difference_from_reference_pp": -6.9,
+            "paired_difference_ci95_pp": [
+              -12.181410358279951,
+              -2.116804283109302
+            ],
+            "paired_improvements": 59,
+            "paired_regressions": 128
           }
         }
       },
@@ -110,6 +136,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "expert_only_M1": {
+            "successes": 716,
+            "episodes": 1000,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": 1.2,
+            "paired_difference_ci95_pp": [
+              -2.811380372593259,
+              5.104067494995186
+            ],
+            "paired_improvements": 90,
+            "paired_regressions": 78
+          },
+          "M2_FlowVQ": {
+            "successes": 696,
+            "episodes": 1000,
+            "success_percent": 69.6,
+            "difference_from_reference_pp": -0.8,
+            "paired_difference_ci95_pp": [
+              -3.6112954271975957,
+              1.7913073717549441
+            ],
+            "paired_improvements": 52,
+            "paired_regressions": 60
           }
         }
       }
@@ -144,6 +194,30 @@
             ],
             "paired_improvements": 25,
             "paired_regressions": 51
+          },
+          "expert_only_M1": {
+            "successes": 350,
+            "episodes": 500,
+            "success_percent": 70.0,
+            "difference_from_reference_pp": -4.3999999999999995,
+            "paired_difference_ci95_pp": [
+              -9.9924292542466,
+              1.432606056467952
+            ],
+            "paired_improvements": 28,
+            "paired_regressions": 50
+          },
+          "M2_FlowVQ": {
+            "successes": 341,
+            "episodes": 500,
+            "success_percent": 68.2,
+            "difference_from_reference_pp": -6.2,
+            "paired_difference_ci95_pp": [
+              -11.972827853174874,
+              -0.7852486506935707
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 60
           }
         }
       },
@@ -176,6 +250,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "expert_only_M1": {
+            "successes": 350,
+            "episodes": 500,
+            "success_percent": 70.0,
+            "difference_from_reference_pp": 0.8,
+            "paired_difference_ci95_pp": [
+              -4.61184931242969,
+              6.3846471657112795
+            ],
+            "paired_improvements": 41,
+            "paired_regressions": 37
+          },
+          "M2_FlowVQ": {
+            "successes": 341,
+            "episodes": 500,
+            "success_percent": 68.2,
+            "difference_from_reference_pp": -1.0,
+            "paired_difference_ci95_pp": [
+              -5.6357748075083345,
+              3.1691249315066234
+            ],
+            "paired_improvements": 26,
+            "paired_regressions": 31
           }
         }
       }
@@ -210,6 +308,30 @@
             ],
             "paired_improvements": 33,
             "paired_regressions": 68
+          },
+          "expert_only_M1": {
+            "successes": 366,
+            "episodes": 500,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": -5.4,
+            "paired_difference_ci95_pp": [
+              -12.22648630089818,
+              0.6546675501321897
+            ],
+            "paired_improvements": 31,
+            "paired_regressions": 58
+          },
+          "M2_FlowVQ": {
+            "successes": 355,
+            "episodes": 500,
+            "success_percent": 71.0,
+            "difference_from_reference_pp": -7.6,
+            "paired_difference_ci95_pp": [
+              -14.795163836065976,
+              -0.7892291911741
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 68
           }
         }
       },
@@ -242,6 +364,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "expert_only_M1": {
+            "successes": 366,
+            "episodes": 500,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": 1.6,
+            "paired_difference_ci95_pp": [
+              -4.584603983027005,
+              8.070367150794565
+            ],
+            "paired_improvements": 49,
+            "paired_regressions": 41
+          },
+          "M2_FlowVQ": {
+            "successes": 355,
+            "episodes": 500,
+            "success_percent": 71.0,
+            "difference_from_reference_pp": -0.6,
+            "paired_difference_ci95_pp": [
+              -4.2854469112672415,
+              2.923016815303281
+            ],
+            "paired_improvements": 26,
+            "paired_regressions": 29
           }
         }
       }
@@ -267,7 +413,27 @@
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker2_manifest.json": "8cd142652f72eb2db682109bd5deaf7db2ab62366864b045ab22291aea0eb688",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker2.jsonl": "ed177ab45c5db4c43b0e92008a046c50c89d257625bc2a8242981bd8e0a74ddb",
     "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3_manifest.json": "59bec3e1dbedecf254f962f7eee0636e4c16309d9b1e451b58fb0305c74aba04",
-    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3.jsonl": "c68e4155bc18b16720d2e7da585dc7407979e9dc5ff93cedddadb8427b6f8466"
+    "/projects/yanlongvla/runs/story_round/x6b_uniform/rollouts/worker3.jsonl": "c68e4155bc18b16720d2e7da585dc7407979e9dc5ff93cedddadb8427b6f8466",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker0_manifest.json": "0fd7bbb8ba41e0af754423af58d583b277bee6dbde11a1c06c40f49d3112779e",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker0.jsonl": "3c6dc836ab44fd54bd8c95348347762895f546341492f5026ca9765d93b145b9",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/offline/result.json": "f553f897edd85b2e9aa04565a41bba80cb67eede941dee1fa0e305c91a6f69b2",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/offline/actions.npy": "b0fbd3dfa5da9556f44917392760a4bc24b189cd9edaa52e14be22758efce5b3",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1_manifest.json": "59fddf5d6bc99bd449e1e08c7726c396de2ca075e718a79c6d8b857a24c0cf49",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker1.jsonl": "687ac608e2aafc24e3c35be25f66fc6abc9afc5bd6370ea9dc49b7ad956173eb",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker2_manifest.json": "b57b30d662fa47617b428296386a12f4311aa573ff95143e6f644e28898591a8",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker2.jsonl": "008a89ad15b07d245654828e2c0e8253dbbdcca8aba1e896429c51374af3b0c3",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3_manifest.json": "bd0c0c668be751f23818b08dccb2b6626cda50318776e34d8d7c2fcb26720717",
+    "/projects/yanlongvla/runs/story_round/x6b_expert_M1/rollouts/worker3.jsonl": "826a961d31efe71d3f6ddbfff9be7c3d221ce7a21e384f0e5b3998d71c1aee49",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker0_manifest.json": "85da655d01f8445e068ff66e231f4b2d88f9c3f313c383d58bfeb9b15dda29be",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker0.jsonl": "ee5d35ceee55e8ac385ae66d9c94966bd2feb67fa88adbae4d32491d3c3c7727",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/offline/result.json": "cc88c2e4e161e303cb3870e1b3a96ffb25450723711ca65e952f8e7e8dddb60f",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/offline/actions.npy": "cba0415fac84b82e28c49c592a96caa7c5b8c967632d79d2017346dcc8a83877",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker1_manifest.json": "2f4ac36b0cae4403f4d5b70b04f3014aba7454275be798c7f7974fde022d961c",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker1.jsonl": "7ccb62063571398c7796b87fee7283f55d4e9eb9f0446592f82c451c947c2f56",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2_manifest.json": "dea55979503cf7c8af3d191f3b2e570936791b96c9c183d12f0ebb05b7e9f4b8",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2.jsonl": "6a35f05c806a02fb9dd5002f2e15e1821d053279243b053ddb5f28775cca47f8",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3_manifest.json": "b1b2f361c3e77e5dde0827b232a389ae05e751fdc131cfbeadcaad308a682b3b",
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3.jsonl": "f8d82f9c19e395296c744682194fcbead39d6d01a9f70c5dd83b7197b6dbe57e"
   },
   "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
   "calibration_coverage": {
@@ -289,6 +455,73 @@
     },
     "failed_jobs": [],
     "coverage_mixed_backbone": {},
-    "coverage_mixed_both": {}
+    "coverage_mixed_both": {},
+    "background": {
+      "job": 185015,
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=rose",
+        "--qos=override-limits-but-killable",
+        "--job-name=vla-structure-controller",
+        "/projects/yanlongvla/runs/structure_20261005/launchers/structure_controller-91b5eba2654f14cee82eb059f684962ec598ed15a2f37f3e98a02afb9228e1e4.sbatch"
+      ],
+      "source_job": 184972,
+      "previous_controller": 185012,
+      "controller_sha256": "acb5139c6050c97983f4efe85fc6b475855da119c02e5ada72ef242822452e88"
+    },
+    "validation": {
+      "status": "passed",
+      "tests": 17,
+      "command": "python -m unittest test_coverage_protocol test_structure_dispatch test_story_publish",
+      "original_2bit_medium": {
+        "status": "complete",
+        "completed": 1000,
+        "expected": 1000,
+        "missing": 0,
+        "success_percent": 98.2,
+        "successes": 982,
+        "suites": {
+          "libero_spatial": {
+            "successes": 248,
+            "episodes": 250,
+            "success_percent": 99.2
+          },
+          "libero_object": {
+            "successes": 250,
+            "episodes": 250,
+            "success_percent": 100.0
+          },
+          "libero_goal": {
+            "successes": 242,
+            "episodes": 250,
+            "success_percent": 96.8
+          },
+          "libero_10": {
+            "successes": 242,
+            "episodes": 250,
+            "success_percent": 96.8
+          }
+        }
+      },
+      "unchanged_H3b_contracts": 4,
+      "unchanged_Plus_M2_contract": true,
+      "new_GPU_generation_fitting_guard": "pending",
+      "source_sha256": {
+        "/projects/yanlongvla/research/scripts/coverage_server.py": "81434c995dcd3f0e70fb653a9379d011a328d27df5bf114872d37c8cb2ade28d",
+        "/projects/yanlongvla/research/scripts/coverage_source.py": "dbc58c1092573b3325dc35a142d4fda5635feaba545d71419c860fa969841740",
+        "/projects/yanlongvla/research/scripts/coverage_source_job.py": "8900a5dc07e91a938c5ecd9af606f96177d0199bed32681c2e1e441ffd20c7d5",
+        "/projects/yanlongvla/research/scripts/coverage_prepare.py": "32647a7bbe1e770928aa99c64cc1a35c434e03143340224928ef948445895144",
+        "/projects/yanlongvla/research/scripts/coverage_trace.py": "eb4a105855945bb87e35e94abfdb0182c70b1dd45c4afac2eae334e0d8f107dc",
+        "/projects/yanlongvla/research/scripts/coverage_schedule.py": "73fa4d505c42bbf3c8655682cd6aac09033a3446c2b4b862b854c54952a828ab",
+        "/projects/yanlongvla/research/scripts/coverage_evaluate.py": "6c03035b52b9c63d79655b4d707104691a527a85315cf1f5d4637a6962311640",
+        "/projects/yanlongvla/research/scripts/coverage_protocol.py": "a5e6bd86aad037b9a6d43d85c2a67a131f28b9b7fe32e37794c5b0cd3f5303d7",
+        "/projects/yanlongvla/research/scripts/coverage_generate.py": "840af1db9a426964a491eba1238c8f555f55cad7e6c9f36c950c6dde34ce0ef8",
+        "/projects/yanlongvla/research/scripts/coverage_fit.py": "65ddc5dad0efc3f529c0feee47539505a11d5804d607a3b295065cc4dd6463d2",
+        "/projects/yanlongvla/research/scripts/coverage_offline.py": "fe8dfa6a850c8bc62f0a41618d6cd23a03688b9038d1829f07db3680a66d209e",
+        "/projects/yanlongvla/research/scripts/coverage_generate_job.py": "7fc4e12ecfbc809cc0ee9453d83c3705a7134905355a670959516b40ee49cc57"
+      },
+      "H4_gate_scope": "H5 only; coverage evaluation gated on completed H3b independently"
+    }
   }
 }

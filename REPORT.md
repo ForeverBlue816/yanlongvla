@@ -7,6 +7,8 @@ LIBERO four-suite full/medium evaluation retains the headline lossless claim and
 |---|---:|---:|---:|---:|---:|
 | FP | 372 | 393 | 765 | +0.00 [+0.00, +0.00] | +6.10 [+1.71, +10.80] |
 | original_2bit_uniform_M2 | 346 | 358 | 704 | -6.10 [-10.80, -1.71] | +0.00 [+0.00, +0.00] |
+| expert_only_M1 | 350 | 366 | 716 | -4.90 [-9.44, -0.47] | +1.20 [-2.81, +5.10] |
+| M2_FlowVQ | 341 | 355 | 696 | -6.90 [-12.18, -2.12] | -0.80 [-3.61, +1.79] |
 
 Per-dimension paired differences, confidence intervals and discordant episode counts are in [the full table](results/evaluation_split.json). Partial evaluations have no success-rate row. The expert-only uniform-M2 run is reused; no duplicate evaluation is submitted.
 
@@ -44,7 +46,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Current experiments — October5 causal follow-up — 2026-10-05 15:03 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 15:10 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
