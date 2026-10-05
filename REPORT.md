@@ -9,6 +9,7 @@ LIBERO four-suite full/medium evaluation retains the headline lossless claim and
 | original_2bit_uniform_M2 | 346 | 358 | 704 | -6.10 [-10.80, -1.71] | +0.00 [+0.00, +0.00] |
 | expert_only_M1 | 350 | 366 | 716 | -4.90 [-9.44, -0.47] | +1.20 [-2.81, +5.10] |
 | M2_FlowVQ | 341 | 355 | 696 | -6.90 [-12.18, -2.12] | -0.80 [-3.61, +1.79] |
+| a_M2 | 374 | 387 | 761 | -0.40 [-3.67, +2.73] | +5.70 [+1.52, +9.93] |
 
 Per-dimension paired differences, confidence intervals and discordant episode counts are in [the full table](results/evaluation_split.json). Partial evaluations have no success-rate row. The expert-only uniform-M2 run is reused; no duplicate evaluation is submitted.
 
@@ -21,13 +22,14 @@ Calibration coverage: **source_mapped_generation_pending**. The primary mixed se
 
 H3b has priority; all H5 evaluation requires completed H3b and complete H4 failure review. Seed7, at most8 GPUs. H2TV remains appendix-only diagnostic evidence. [Registered protocol](STRUCTURE_2026-10-05.md). [Validated evidence](results/structure_round.json).
 
-H3b: 4/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 1/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
+H3b: 4/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 2/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
 
 Mean-only and residual-only use per-observation layer/type means; H5d uses calibration-wide means. Random signs are shared acrossK/V and all layers for a given token. Token permutation preserves the receiving-position jointK/V error norm; layer permutation is retained. No new mechanism verdict before measured comparisons.
 
 | Condition | Task8 | Task9 |
 |---|---|---|
 | unit | 180/200; Δ+34.0pp [26.0, 42.0] | 160/200; Δ-13.5pp [-20.5, -7.000000000000001] |
+| residual | 174/200; Δ+31.0pp [23.5, 38.5] | 188/200; Δ+0.5pp [-3.0, 4.0] |
 
 H4b uses saved observations only, a5-step query grid and50-control-step windows, with the last50 steps excluded. Report undetected cases and0.5/1/2cm sensitivity. SuccessfulFP andM2 task9 episodes are additional phase controls. The15 historical “other” episodes are candidates, not15 proven cup-in failures;8 have final containment.
 
@@ -49,7 +51,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Current experiments — October5 causal follow-up — 2026-10-05 15:57 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 16:32 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

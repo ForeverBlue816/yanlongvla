@@ -13,13 +13,10 @@
     "FP",
     "original_2bit_uniform_M2",
     "expert_only_M1",
-    "M2_FlowVQ"
+    "M2_FlowVQ",
+    "a_M2"
   ],
   "pending": {
-    "a_M2": {
-      "status": "pending_complete_1000",
-      "episodes": 818
-    },
     "causal_h5a": {
       "status": "pending_complete_1000",
       "episodes": 0
@@ -104,6 +101,18 @@
             ],
             "paired_improvements": 59,
             "paired_regressions": 128
+          },
+          "a_M2": {
+            "successes": 761,
+            "episodes": 1000,
+            "success_percent": 76.1,
+            "difference_from_reference_pp": -0.4,
+            "paired_difference_ci95_pp": [
+              -3.6650426568976906,
+              2.7307991587040035
+            ],
+            "paired_improvements": 53,
+            "paired_regressions": 57
           }
         }
       },
@@ -160,6 +169,18 @@
             ],
             "paired_improvements": 52,
             "paired_regressions": 60
+          },
+          "a_M2": {
+            "successes": 761,
+            "episodes": 1000,
+            "success_percent": 76.1,
+            "difference_from_reference_pp": 5.7,
+            "paired_difference_ci95_pp": [
+              1.5175502253184383,
+              9.93393192639922
+            ],
+            "paired_improvements": 111,
+            "paired_regressions": 54
           }
         }
       }
@@ -218,6 +239,18 @@
             ],
             "paired_improvements": 29,
             "paired_regressions": 60
+          },
+          "a_M2": {
+            "successes": 374,
+            "episodes": 500,
+            "success_percent": 74.8,
+            "difference_from_reference_pp": 0.4,
+            "paired_difference_ci95_pp": [
+              -3.745197796229534,
+              4.423626856075459
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 27
           }
         }
       },
@@ -274,6 +307,18 @@
             ],
             "paired_improvements": 26,
             "paired_regressions": 31
+          },
+          "a_M2": {
+            "successes": 374,
+            "episodes": 500,
+            "success_percent": 74.8,
+            "difference_from_reference_pp": 5.6000000000000005,
+            "paired_difference_ci95_pp": [
+              0.23947852703519318,
+              10.831781682660951
+            ],
+            "paired_improvements": 51,
+            "paired_regressions": 23
           }
         }
       }
@@ -332,6 +377,18 @@
             ],
             "paired_improvements": 30,
             "paired_regressions": 68
+          },
+          "a_M2": {
+            "successes": 387,
+            "episodes": 500,
+            "success_percent": 77.4,
+            "difference_from_reference_pp": -1.2,
+            "paired_difference_ci95_pp": [
+              -5.596059201950867,
+              2.9765079365079403
+            ],
+            "paired_improvements": 24,
+            "paired_regressions": 30
           }
         }
       },
@@ -388,6 +445,18 @@
             ],
             "paired_improvements": 26,
             "paired_regressions": 29
+          },
+          "a_M2": {
+            "successes": 387,
+            "episodes": 500,
+            "success_percent": 77.4,
+            "difference_from_reference_pp": 5.800000000000001,
+            "paired_difference_ci95_pp": [
+              0.37188024733949554,
+              11.835998120465069
+            ],
+            "paired_improvements": 60,
+            "paired_regressions": 31
           }
         }
       }
@@ -433,7 +502,9 @@
     "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2_manifest.json": "dea55979503cf7c8af3d191f3b2e570936791b96c9c183d12f0ebb05b7e9f4b8",
     "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker2.jsonl": "6a35f05c806a02fb9dd5002f2e15e1821d053279243b053ddb5f28775cca47f8",
     "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3_manifest.json": "b1b2f361c3e77e5dde0827b232a389ae05e751fdc131cfbeadcaad308a682b3b",
-    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3.jsonl": "f8d82f9c19e395296c744682194fcbead39d6d01a9f70c5dd83b7197b6dbe57e"
+    "/projects/yanlongvla/runs/story_round/x6b_flowvq/rollouts/worker3.jsonl": "f8d82f9c19e395296c744682194fcbead39d6d01a9f70c5dd83b7197b6dbe57e",
+    "/projects/yanlongvla/runs/structure_20261005/plus/a_M2/complete.json": "2e214253ac83c48eb11d3341e7c9b114be4dca96a99b4fedee18d6faaa9e5d17",
+    "/projects/yanlongvla/runs/structure_20261005/plus/a_M2/episodes.jsonl": "0df9d6720a71778141eb3f03e985126b57a4a0ef3cb62987a2679d2af2fb6963"
   },
   "manifest_sha256": "46018433e8109dcf6c2f50ccd7cdbccee8e3e17691a370f12d47e772caa78938",
   "calibration_coverage": {
