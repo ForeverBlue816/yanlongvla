@@ -619,6 +619,90 @@
           "/projects/yanlongvla/runs/structure_20261005/guard_worker1.json": "468177fa6f0a3ff6b7c37a5969cd6ea447ee3ecf580a34bc26a3c3434b86981d",
           "/projects/yanlongvla/runs/decisions_round/h1/fp/task9.jsonl": "994cad4c0645657cc0dbae8afe479bd06ed1f9f3273387263273a7549a90fce9"
         }
+      },
+      "double": {
+        "tasks": {
+          "8": {
+            "all_tasks": {
+              "successes": 38,
+              "episodes": 200,
+              "success_percent": 19.0,
+              "status": "measured"
+            },
+            "excluding_libero10_tasks8_9": {
+              "successes": 0,
+              "episodes": 0,
+              "success_percent": null,
+              "status": "not_applicable_empty_scope"
+            },
+            "difference_pp": -37.0,
+            "paired_difference_ci95_pp": [
+              -47.5,
+              -26.5
+            ],
+            "success_ci95_percent": [
+              13.0,
+              26.0
+            ],
+            "secondary_new_FP_rerun": {
+              "all_tasks": {
+                "successes": 38,
+                "episodes": 200,
+                "success_percent": 19.0,
+                "status": "measured"
+              },
+              "excluding_libero10_tasks8_9": {
+                "successes": 0,
+                "episodes": 0,
+                "success_percent": null,
+                "status": "not_applicable_empty_scope"
+              },
+              "difference_pp": -35.5,
+              "paired_difference_ci95_pp": [
+                -46.0,
+                -24.5
+              ],
+              "success_ci95_percent": [
+                13.0,
+                26.0
+              ]
+            }
+          },
+          "9": {
+            "all_tasks": {
+              "successes": 41,
+              "episodes": 200,
+              "success_percent": 20.5,
+              "status": "measured"
+            },
+            "excluding_libero10_tasks8_9": {
+              "successes": 0,
+              "episodes": 0,
+              "success_percent": null,
+              "status": "not_applicable_empty_scope"
+            },
+            "difference_pp": -73.0,
+            "paired_difference_ci95_pp": [
+              -80.5,
+              -65.0
+            ],
+            "success_ci95_percent": [
+              13.0,
+              28.499999999999996
+            ]
+          }
+        },
+        "source_sha256": {
+          "/projects/yanlongvla/runs/structure_20261005/rollouts/targeted/double/libero_10_task8.jsonl": "208bb85e70ff802c7f569095e845cb137225bc89d1eeb2c2f7fb36e6a56eac3f",
+          "/projects/yanlongvla/runs/structure_20261005/worker0_manifest.json": "304bfd9b221a9d47bd4c94a438a58c5b9472db62cae0f31a5621b87d399d1e0b",
+          "/projects/yanlongvla/runs/structure_20261005/guard_worker0.json": "1c6836f9b2f08b55c008d937d323ef0774f93a13417d282dcecf9ae044388c45",
+          "/projects/yanlongvla/runs/story_round/task8_followup/original_fp.jsonl": "e42afaa2372a9e31fa88c6c94f0feeb813071d33ea2b13f9083a7a1019720f45",
+          "/projects/yanlongvla/runs/causal_20261005/h4_fp_task8/task8.jsonl": "5c99c59c610852c2393fc65758c5d775f7bf41712b9bab9c4200eb1f8236fc69",
+          "/projects/yanlongvla/runs/structure_20261005/rollouts/targeted/double/libero_10_task9.jsonl": "a7db0cb995ced4f8a40693d70425ced26c3855fc5786774ba3c2c91064448a25",
+          "/projects/yanlongvla/runs/structure_20261005/worker1_manifest.json": "a72a6d443d1bffac404dff4dd7a5755b505a700fe9d00452ad2e42be24b6b3dd",
+          "/projects/yanlongvla/runs/structure_20261005/guard_worker1.json": "468177fa6f0a3ff6b7c37a5969cd6ea447ee3ecf580a34bc26a3c3434b86981d",
+          "/projects/yanlongvla/runs/decisions_round/h1/fp/task9.jsonl": "994cad4c0645657cc0dbae8afe479bd06ed1f9f3273387263273a7549a90fce9"
+        }
       }
     },
     "mix": null,
