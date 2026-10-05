@@ -1,0 +1,12 @@
+{
+  "conclusion": "Measured prefix-KV dose responses test the backbone mechanism; outcomes are not inferred between grid points.",
+  "archetype": "quantitative grid",
+  "backend": "python",
+  "width_mm": 183,
+  "height_mm": 88,
+  "panels": "three token scopes; each shows whole500 response and task8/9 responses with matching paired FP controls",
+  "sample": "500 paired episodes/config,spatial+LIBERO10; task8/9 use25 each,seed7",
+  "uncertainty": "pointwise paired95% bootstrap intervals; no multiplicity adjustment",
+  "anchors": "vertical lines: pooled256-observation M2/M3 local KV squared-error ratios; not success measurements",
+  "exclusions": "secondary equal-total-energy controls kept in separate table, never mixed into local-dose curves"
+}

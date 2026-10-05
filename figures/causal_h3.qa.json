@@ -1,0 +1,35 @@
+{
+  "automatic_checks": [
+    {
+      "tool": "validate_figure.py",
+      "exit_code": 0,
+      "output": "Nature Figure Static Preflight\nsource: /projects/yanlongvla/research/scripts/causal_figures.py\nbackend: python\n\n[PASS] SOURCE-SYNTAX: Python source parses successfully\n[PASS] FONT-FAMILY: A publication-safe sans-serif family is configured\n  - sans-serif\n[PASS] FONT-SIZE: All detected text sizes are at least 5 pt (minimum 6 pt)\n[PASS] FONT-GLYPH-FLOOR: No mathtext superscript/subscript expression detected\n[PASS] LEGEND-LABEL-CASE: No auditable literal legend labels detected\n[PASS] COLOR-MAP: No rainbow/jet/hsv color mapping detected\n[PASS] EDITABLE-TEXT: SVG and PDF editable-text settings are configured\n[PASS] EXPORT-VECTOR: Both SVG and PDF exports are present\n[WARN] EXPORT-RASTER: PNG preview is present but no TIFF submission raster was found\n[PASS] RASTER-DPI: A raster export of at least 600 dpi is configured\n  - 600\n[PASS] FINAL-WIDTH: Detected width 183.0 mm matches a common journal column width\n[PASS] DATA-SAMPLING: No high-confidence row-sampling operation detected\n[PASS] DATA-EXCLUSION: No high-confidence missing-data exclusion detected\n[PASS] DEMO-DATA: No obvious simulated-data generator detected\n[WARN] LOG-GUARD: Logarithmic operation found without an obvious positivity/pseudocount guard\n  - set_xscale('log\n[PASS] INTERP-MONOTONIC: No NumPy interpolation requiring an increasing x-grid detected\n[PASS] UNCERTAINTY-ENCODING: No stochastic aggregate requiring a variability audit was inferred\n[PASS] ROTATION-ANCHOR: No rotated Matplotlib text detected\n[PASS] ANNOTATION-WORKAROUND: No high-risk hard-coded label height or opaque white text mask detected\n[PASS] PANEL-ALIGNMENT-GATE: Render-time panel-alignment gate is wired into the plotting source\n  - require_matplotlib_panel_alignment(\n[PASS] BACKEND-EXCLUSIVE: No obvious cross-backend plotting reference found for python\n\nsummary: 19 pass, 2 warn, 0 fail\nverdict: READY FOR VISUAL QA\nnote: static preflight does not validate statistics, source-data truth, or rendered appearance\n"
+    },
+    {
+      "tool": "audit_pdf_text.py",
+      "exit_code": 0,
+      "output": "Nature Figure PDF Text Audit\npdf: /projects/yanlongvla/research/figures/causal_h3.pdf\nminimum required: 5 pt\nminimum found: 6 pt\ntext runs: 37\nbelow minimum: 0\nverdict: PASS\nnote: Tf scanning does not replace final-size visual inspection or account for every PDF transform\n"
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "exit_code": 0,
+      "output": "Nature Figure Rendered Collision Audit\npdf: /projects/yanlongvla/research/figures/causal_h3.pdf\npages: 1\nvisible text boxes: 37\nstroke paths: 281\n\n\nsummary: 0 fail, 0 warn, 0 contained fill overlays, 0 contained image overlays\nverdict: PASS\nnote: contained overlays can be intentional; WARN findings need final-size visual review\n"
+    }
+  ],
+  "visual_review": {
+    "status": "passed",
+    "reviewed_utc": "2026-10-05T04:45:40.053997+00:00",
+    "pdf_sha256": "6358b53594c5515ae053a8a515308174b88679c34c25965fcafd24c2ae7c51da",
+    "backend": "Python/matplotlib",
+    "final_dimensions_mm": [
+      183,
+      88
+    ],
+    "core_conclusion": "The13 requested primary doses do not establish the predicted task8-gain/task9-loss pattern; language0.3 leaves task9 at24/25.",
+    "coverage": "13 primary conditions x500 paired episodes; task8/task9 endpoints25 each; secondary controls are separate",
+    "uncertainty": "Pointwise paired95% suite/task/episode bootstrap intervals; single-task endpoints paired initial-state bootstrap; no multiplicity correction",
+    "anchors": "Measured native-KV local squared-error energy over256 calibration observations, M2 dashed/M3 dotted; vertical lines are not intervention results",
+    "visual_findings": "Inspected all three panels: shared y-axis, dose labels, error-bar extents and zero line legible; no clipping or label collisions; marker shapes distinguish endpoints; anchor line styles distinguish M2/M3.",
+    "export_warning_resolution": "Research-report PDF/SVG plus600dpi PNG; no TIFF or journal-submission claim."
+  }
+}

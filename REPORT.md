@@ -1,4 +1,4 @@
-# Current experiments — October5 causal follow-up — 2026-10-05 12:43 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 12:46 SGT
 
 H3: primary_complete_secondary_in_progress; completed conditions: 13. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
@@ -28,6 +28,12 @@ Prediction: language perturbation near the measured M2 local error0.215 reproduc
 | local_language_state_0.03 | 482/500; Δ+0.2pp [-2.2,+2.8] | 441/450; Δ-0.4pp [-2.4,+1.6] | 0.030003 | 0.00015002 |
 | local_language_state_0.1 | 484/500; Δ+0.6pp [-1.2,+2.4] | 445/450; Δ+0.4pp [-1.1,+2.0] | 0.1 | 0.00050142 |
 | local_language_state_0.3 | 482/500; Δ+0.2pp [-1.8,+2.4] | 442/450; Δ-0.2pp [-2.2,+1.6] | 0.3 | 0.0015019 |
+
+![H3 dose responses and measured KV anchors](figures/causal_h3.png)
+
+
+Primary result: all6500 episodes complete. Language-local0.3 gives task8 16/25 versus FP14/25 (paired Δ+8.0pp,95%CI [-12.0, 28.000000000000004]), task9 24/25 versus FP24/25. The tested0.1/0.3 language doses do not establish the predicted task8-gain/task9-loss pattern. This conclusion is limited to these Gaussian intervention directions, doses and25 episodes per task; quantization error directions were not reproduced.
+
 
 ### H2 — Detector verdict
 
