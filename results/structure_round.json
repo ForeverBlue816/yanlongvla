@@ -1,0 +1,434 @@
+{
+  "preregistration": {
+    "round": "2026-10-05 evening: structure, not magnitude",
+    "seed": 7,
+    "max_gpus": 8,
+    "priority": [
+      "H3b",
+      "H4b",
+      "Plus-J and expert-only M2 Plus",
+      "H5 fitting",
+      "H5 evaluation"
+    ],
+    "H3b": {
+      "conditions": [
+        "unit",
+        "mean",
+        "residual",
+        "random_sign",
+        "half",
+        "quarter",
+        "double",
+        "token_permute",
+        "layer_permute",
+        "negative"
+      ],
+      "tasks": [
+        8,
+        9
+      ],
+      "episodes": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249
+      ],
+      "mix": {
+        "condition": "unit",
+        "suites": [
+          "libero_spatial",
+          "libero_10"
+        ],
+        "episodes": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ]
+      },
+      "total_episodes": 4500,
+      "bias_fraction": "sum n_type*||mean_token(delta)||^2 / sum ||delta||^2; per layer,type,K/V and joint, pooled over256 training observations",
+      "means": "Computed per observation for H3b; calibration-wide means ONLY for H5d",
+      "permutation": "ii-c preserves receiving token joint K/V norm within each layer; padding untouched",
+      "random_sign": "ii-b independent token Rademacher signs, shared between K/V and ALL layers",
+      "layer_permutation": "Original iii retained as additional structural control",
+      "predictions": "Unit and half, and mean-only, reproduce gain8/loss9; residual,random-sign,permutations do not; negative removes/reverses",
+      "validation": "256 exact zero vsFP and256 exact unit vsH1c; independent RNG; paired identities; nativeBF16 persistent donors"
+    },
+    "H4b": {
+      "stalled_ids": [
+        50,
+        70,
+        86,
+        104,
+        125,
+        145,
+        150,
+        187,
+        191,
+        204,
+        223,
+        248
+      ],
+      "other_candidate_ids": [
+        54,
+        73,
+        75,
+        78,
+        80,
+        87,
+        100,
+        103,
+        130,
+        159,
+        173,
+        175,
+        211,
+        219,
+        225
+      ],
+      "actual_final_contained_ids": [
+        54,
+        73,
+        78,
+        80,
+        100,
+        130,
+        159,
+        173
+      ],
+      "rules": {
+        "stalled_holding": "After first target grasp, target grasped at window start and non-opening gripper commands throughout; first50step window cup AND eef diameter <=threshold and door notclosed; goal predicate unchanged",
+        "cup_in_door_open": "After target release and cup containment, first50step window eef diameter <=threshold, door angle range <=0.001radian and door notclosed"
+      },
+      "thresholds_m": [
+        0.005,
+        0.01,
+        0.02
+      ],
+      "primary": 0.01,
+      "window_steps": 50,
+      "exclude_final_steps": 50,
+      "latents": 32,
+      "observation": "Saved policy-query images and saved simulator state at window start. State features derived by forward kinematics of saved state; no action replay and no re-rendering. Mark unavailable if not recoverable.",
+      "sampling": "Search only saved policy-query starts on5step grid; all50 control states check window; no nearest-frame substitution",
+      "controls": "All successful FP and uniformM2 task9 episodes: first saved observation inside microwave-opening region; undetected reported",
+      "opening_region": "Heating-region box expanded5cm only toward front opening; cup centre in local axes; fixed before latent probes",
+      "release": "Any first5 physical gripper commands <0; report per-step rates, episode fractions, initial-state-clustered paired CIs",
+      "cohort_caveat": "15 historical other cases are candidates, not15 proven cup-in failures;8 have final containment"
+    },
+    "Plus_J": {
+      "plus_observations": 200,
+      "base_observations": 200,
+      "per_dimension": 100,
+      "selection": "First100 pre-registered entries per dimension in existing manifest order",
+      "match": "Same original base task, state0, settle10, same latent; disclose repeated base observations",
+      "jacobian": "Exact70x70 J_D,9=I-0.1*dv9/dx on10x7 action coordinates; FP32 expert, nativeBF16 prefix widened; TF32 disabled; trace/70",
+      "interpretation": "Trace diagnostic is not a calibrated posterior variance estimate",
+      "extra_plus_model": "a_M2, fixed500camera+500robot_initial_state"
+    },
+    "H5d": {
+      "training": "256 observations from existing60 training episodes only",
+      "bias": "Mean deltaK/V perlayer/type across valid calibration tokens",
+      "apply": "Subtract FP32 means from quantized cachedKV afterRoPE, cast nativeBF16 once; uniformM2expert frozen",
+      "evaluation": [
+        "image/language KV error",
+        "1600observation TV diagnostic",
+        "tasks8/9 200each",
+        "medium1000",
+        "fixedPlus1000"
+      ],
+      "gate": "H3b all4500 validated AND H4 all requested failures reviewed before ANY H5 evaluation; fitting allowed",
+      "preserve": [
+        "H5a",
+        "H5b",
+        "H5c4",
+        "H5c16"
+      ]
+    },
+    "H2": "Retain per-model appendix table as diagnostic evidence only; failed detector gate remains recorded",
+    "created_utc": "2026-10-05T05:10:43.070120+00:00"
+  },
+  "H3b": {
+    "conditions": {},
+    "mix": null,
+    "guards": {},
+    "status": "pending"
+  },
+  "branches": {
+    "H4b": {
+      "status": "pending"
+    },
+    "Plus_J": {
+      "status": "pending"
+    },
+    "Plus_M2": {
+      "status": "pending"
+    },
+    "H5d_fit": {
+      "status": "pending"
+    }
+  },
+  "execution": {
+    "failed_jobs": []
+  },
+  "H5": {
+    "h5a": {
+      "fit": {
+        "status": "pending"
+      },
+      "evaluation": {
+        "status": "pending"
+      }
+    },
+    "h5b": {
+      "fit": {
+        "status": "pending"
+      },
+      "evaluation": {
+        "status": "pending"
+      }
+    },
+    "h5c4": {
+      "fit": {
+        "status": "pending"
+      },
+      "evaluation": {
+        "status": "pending"
+      }
+    },
+    "h5c16": {
+      "fit": {
+        "status": "pending"
+      },
+      "evaluation": {
+        "status": "pending"
+      }
+    },
+    "h5d": {
+      "fit": {
+        "status": "pending"
+      },
+      "evaluation": {
+        "status": "pending"
+      }
+    }
+  }
+}

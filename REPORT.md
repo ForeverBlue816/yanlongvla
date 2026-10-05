@@ -1,15 +1,45 @@
-# Current experiments — October5 causal follow-up — 2026-10-05 12:46 SGT
+<!-- STRUCTURE_ROUND_BEGIN -->
+# Evening update — structure, not magnitude
 
-H3: primary_complete_secondary_in_progress; completed conditions: 13. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
+H3b has priority; all H5 evaluation requires completed H3b and complete H4 failure review. Seed7, at most8 GPUs. H2TV remains appendix-only diagnostic evidence. [Registered protocol](STRUCTURE_2026-10-05.md). [Validated evidence](results/structure_round.json).
+
+H3b: 0/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 0/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
+
+Mean-only and residual-only use per-observation layer/type means; H5d uses calibration-wide means. Random signs are shared acrossK/V and all layers for a given token. Token permutation preserves the receiving-position jointK/V error norm; layer permutation is retained. No new mechanism verdict before measured comparisons.
+
+
+H4b uses saved observations only, a5-step query grid and50-control-step windows, with the last50 steps excluded. Report undetected cases and0.5/1/2cm sensitivity. SuccessfulFP andM2 task9 episodes are additional phase controls. The15 historical “other” episodes are candidates, not15 proven cup-in failures;8 have final containment.
+
+Plus-J compares200 perturbed observations with200 matched baseline observations, reporting trace(J_D,9)/70 inFP32. This trace is a diagnostic surrogate, not a measured posterior variance. Expert-only uniformM2 runs the original500+500Plus subset. H5a/b/c are retained andH5d adds calibration-only cachedKV bias correction.
+
+## Appendix — H2 TV diagnostic table
+
+The detector gate failed: tasks8/9 are not both among the top5 TV tasks for either2-bit backbone. Retained only as descriptive evidence; no decision-change metric or optimization success claim.
+
+| Model | Mean TV | Mode agreement | Task8 / Task9 TV ranks |
+|---|---:|---:|---|
+| bb_M2_ae_M2_fp32 | 0.39498047 | 0.604746 | 14 / 8 |
+| story_plain_bb_M2_ae_M2_fp32 | 0.35410156 | 0.645527 | 11 / 6 |
+| bb_M3_ae_M2_fp32 | 0.04287109 | 0.957129 | 5 / 6 |
+| a_M1 | 0.07298828 | 0.927012 | 12 / 4 |
+| h1a | 0.00072266 | 0.999277 | 14–40 / 14–40 |
+| h1d | 0.00306641 | 0.996934 | 9–11 / 3 |
+
+All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
+<!-- STRUCTURE_ROUND_END -->
+
+# Current experiments — October5 causal follow-up — 2026-10-05 13:51 SGT
+
+H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
 <!-- CAUSAL_ROUND_BEGIN -->
 ## October5 causal follow-up
 
-Priority: H3 prefix-KV causal intervention → H2 detector verdict → H4 complete trajectory rerun/causes → paired Plus dimensions → H5. H5 fitting is authorized now; its evaluation waits for completed H4 labels. Seed7 only, at most8GPUs. Historical sections below do not override this round.
+Historical Gaussian-H3 round. The evening structured-error protocol now sets scheduling priority; all H5 evaluation additionally waits for completed H3b. Seed7 only, at most8GPUs.
 
 ### H3 — Prefix-KV intervention
 
-Status: primary_complete_secondary_in_progress.13 primary conditions ×500 paired episodes, including language-only0.3. Two additional equal-total-energy0.01 conditions retain the earlier secondary check; the all-token0.01 row is reused. Primary energy uses each token group's own KV norm. K/V noise is fixed through the ten expert steps, padding is excluded, and a separate RNG preserves policy-noise pairing. Zero-dose exact256-action checks passed on 8 workers.
+Status: complete.13 primary conditions ×500 paired episodes, including language-only0.3. Two additional equal-total-energy0.01 conditions retain the earlier secondary check; the all-token0.01 row is reused. Primary energy uses each token group's own KV norm. K/V noise is fixed through the ten expert steps, padding is excluded, and a separate RNG preserves policy-noise pairing. Zero-dose exact256-action checks passed on 8 workers.
 
 Prediction: language perturbation near the measured M2 local error0.215 reproduces task8 gain/task9 loss; image perturbation near0.062 does not. The specified0.1/0.3 and0.03/0.1 grids bracket these anchors; no interpolated response is counted as a measurement.
 
@@ -28,6 +58,8 @@ Prediction: language perturbation near the measured M2 local error0.215 reproduc
 | local_language_state_0.03 | 482/500; Δ+0.2pp [-2.2,+2.8] | 441/450; Δ-0.4pp [-2.4,+1.6] | 0.030003 | 0.00015002 |
 | local_language_state_0.1 | 484/500; Δ+0.6pp [-1.2,+2.4] | 445/450; Δ+0.4pp [-1.1,+2.0] | 0.1 | 0.00050142 |
 | local_language_state_0.3 | 482/500; Δ+0.2pp [-1.8,+2.4] | 442/450; Δ-0.2pp [-2.2,+1.6] | 0.3 | 0.0015019 |
+| total_image_0.01 | 476/500; Δ-1.0pp [-3.6,+1.2] | 441/450; Δ-0.4pp [-2.4,+1.3] | 0.010053 | 0.010003 |
+| total_language_state_0.01 | 460/500; Δ-4.2pp [-9.4,+0.0] | 434/450; Δ-2.0pp [-4.9,+0.7] | 2.0256 | 0.01 |
 
 ![H3 dose responses and measured KV anchors](figures/causal_h3.png)
 
@@ -35,22 +67,9 @@ Prediction: language perturbation near the measured M2 local error0.215 reproduc
 Primary result: all6500 episodes complete. Language-local0.3 gives task8 16/25 versus FP14/25 (paired Δ+8.0pp,95%CI [-12.0, 28.000000000000004]), task9 24/25 versus FP24/25. The tested0.1/0.3 language doses do not establish the predicted task8-gain/task9-loss pattern. This conclusion is limited to these Gaussian intervention directions, doses and25 episodes per task; quantization error directions were not reproduced.
 
 
-### H2 — Detector verdict
+### H2 — Diagnostic only
 
-TV fails the user-specified joint detector criterion and is dropped from the paper as a decision-change metric. Group separation alone does not rescue failed task8/9 localization. Preserve these negative results and later H5 TV as diagnostic evidence, not a validated decision measure.
-
-| Model | Mean TV | Mean agreement | Task8 TV rank | Task9 TV rank | TV 25/50/75 percentiles |
-|---|---:|---:|---:|---:|---|
-| bb_M2_ae_M2_fp32 | 0.3950 | 0.6047 | 14 | 8 | 0.0000/0.0000/0.9062 |
-| story_plain_bb_M2_ae_M2_fp32 | 0.3541 | 0.6455 | 11 | 6 | 0.0000/0.0000/0.8750 |
-| bb_M3_ae_M2_fp32 | 0.0429 | 0.9571 | 5 | 6 | 0.0000/0.0000/0.0000 |
-| a_M1 | 0.0730 | 0.9270 | 12 | 4 | 0.0000/0.0000/0.0000 |
-| h1a | 0.0007 | 0.9993 | 14–40 | 14–40 | 0.0000/0.0000/0.0000 |
-| h1d | 0.0031 | 0.9969 | 9–11 | 3 | 0.0000/0.0000/0.0000 |
-
-All1600 evaluation observations per model. Full distributions, zero masses, paired cross-model differences, fixed-k2 robustness and rank ties: [source data](results/causal_h2_followup.json). Failed localization gate is reported despite the passing≥2x mean separation gate.
-
-![H2 distributions and task ranks](figures/causal_h2.png)
+The TV detector failed its registered gate. The per-model table and distributions are retained in the evening appendix as diagnostics; TV is not a paper decision-change metric. [Full diagnostic distributions](results/causal_h2_followup.json).
 
 
 ### H4 — Full FP rerun and failure causes

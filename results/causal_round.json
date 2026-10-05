@@ -122,7 +122,7 @@
     "Plus": "reuse only exact validated fixed500 camera+500 robot-state paired records; fill missing only; report each dimension"
   },
   "H3": {
-    "status": "primary_complete_secondary_in_progress",
+    "status": "complete",
     "conditions": {
       "local_all_0.003": {
         "configuration": {
@@ -1592,6 +1592,232 @@
             0.002365548833044989
           ]
         }
+      },
+      "total_image_0.01": {
+        "configuration": {
+          "id": "total_image_0.01",
+          "scope": "image",
+          "dose": 0.01,
+          "scaling": "total",
+          "tier": "secondary"
+        },
+        "source_sha256": {
+          "/projects/yanlongvla/runs/causal_20261005/worker0_manifest.json": "ab0f98b5a3ceff0e3fee6435fba54e7528ad72d9ec345795044c76087b3525f6",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker0.json": "b0e52bda4f9a9b2d0bdf74d24f8e7880c5edeb5bfe21270d03bee0380e8d4c18",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task0.jsonl": "9c5adbe299ac1c272720b7faf0cd2e5653f1166c06e4aae072f2b52533bddf3f",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task8.jsonl": "895c3f7f2ee8903c8568f0882a47cde7b1f52158d4ab769ac0e743af35848721",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task6.jsonl": "8d7af9eac16a62dac4e35d11fd4baeddc2f20df54e04a90c17668ebce737e5e3",
+          "/projects/yanlongvla/runs/causal_20261005/worker1_manifest.json": "ddb86faf0dea7ef6a93c0e8bab5b36569ef10c21b7dc73d5bd33da9b29bd0113",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker1.json": "30e4a6be1d8259b9bae1e7f285846db22485ea34931a092abede1d651ef470f0",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task1.jsonl": "ad16f5a490d749ba34a694e191504e0edcb973753adf17ea8b7c260ac42d54bd",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task9.jsonl": "7997fbda2b01b0d5d85eeac5be43dcbee427e6039d3b28c591739470ada4f456",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task7.jsonl": "37451e3172174278c91299179b64dc03af9a56b1086d48ef26d1318ee647efb6",
+          "/projects/yanlongvla/runs/causal_20261005/worker2_manifest.json": "bed3afedfb4392c010cd0b42cdb46bf26b5007856818367412692c7b0eea20d8",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker2.json": "ec059277554995fdb1afc73991e6572c1488e5c45b83c68d7206d27c9991e564",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task2.jsonl": "cb3714815432322e50be0dfbe569e4b80c187293ed701320b8b2b2b1b8191f3c",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task0.jsonl": "e6723ddfdcc8389f2f2a3fca4b36f30986ce51c8ebf0a80b4be501804cffde9c",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task8.jsonl": "cdd84580e02807645e21ce3199b51f64243208e18db943519816a94de9a21b9e",
+          "/projects/yanlongvla/runs/causal_20261005/worker3_manifest.json": "8abb3b16411610d1543fbe56c163d3bf49a3d89fcfbb67e06555fb1e2df218ea",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker3.json": "5498d296c29239ef8fa5b5b2f6f45bcd37467d96d2251bf3d57f9abbdda438cb",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task3.jsonl": "9166a588b89059a9808a85bc032461b27f164aaa355630c8fc0f911e5766aa0e",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task1.jsonl": "eda9429c515299f8586b08c30b94b8c2348162f9fc6204a7588e8564ce417aa1",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task9.jsonl": "346ceeca048126a6af3f849b302c24f000a9271915a9092863dc1545ba24b532",
+          "/projects/yanlongvla/runs/causal_20261005/worker4_manifest.json": "a48a1f47550b644e1cf3675a8ef02a6cfc2c59b5b95846c0401bdda3bf50ea86",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker4.json": "4a9eeaa8b2d825c1af9c5ffa6423c267f006d2bc470c731ea62f67634d7348d8",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task4.jsonl": "a694325d947e70ab073cc7326725cde50ce0eb3f133e895d55ce7a808bf608c2",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task2.jsonl": "82f2ce97313c90a752a6a17d5157a6fe847d73e81ed30b1ff74b43be541e0fda",
+          "/projects/yanlongvla/runs/causal_20261005/worker5_manifest.json": "3c0a2ee6ed39ec654cd3faac8bb4564a4de4677bb13ea85e0149d6c258e3c05b",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker5.json": "79e2ecbb04ce5df79466a9738bc713a78c7e65de338fdbc64d89704692ccc422",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task5.jsonl": "9c7fe688a46f2fcc0ddb18dbdffda00e445d0e54c6baee70b059bacdcad07c9b",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task3.jsonl": "db396bec8ab0fe07c4d16ce8cca7484ecdd4ba19d3c9b5abbe3aebe0e81bceb1",
+          "/projects/yanlongvla/runs/causal_20261005/worker6_manifest.json": "7fe4758ca111510968054f60050291bb3b9e5badaac5943b4d5859254d18b8e7",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker6.json": "4091870f5cbc1774fe1ae73d784ae0c8b51a1706282e3210e8608b4ab6cd490a",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task6.jsonl": "19dec23d6001da29105fea10fba22d4822d1d637754dbc8f869972d2a1557627",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task4.jsonl": "441e4cdb7c29e9d9a2ebfed973fb0573ccf07af15bc20a7bef8597b739c09ce1",
+          "/projects/yanlongvla/runs/causal_20261005/worker7_manifest.json": "1c83c34816720e7767ec7bc058a492c2683e2cd2f7e8cc897853d3814f65c045",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker7.json": "0a92dc6dbdcda3b6c2e4c1ccfb4d5dc08a674adfba6b52b5f077eace9cb0c414",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_spatial_task7.jsonl": "429cb19fa15da991d912c80e4ef305b034f26d979294c28cf296ed882169494f",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_image_0.01/libero_10_task5.jsonl": "b11b6beb60c3dda4a559bb31707208e59bbe85e23faa393893c0bb953190d28e"
+        },
+        "all_tasks": {
+          "successes": 476,
+          "episodes": 500,
+          "success_percent": 95.19999999999999,
+          "reference_successes": 481,
+          "difference_pp": -1.0,
+          "paired_difference_ci95_pp": [
+            -3.5999999999999996,
+            1.2
+          ],
+          "bootstrap": "Paired suite-stratified task/episode bootstrap,2000 draws,seed20261005; fixed retained-task suite weights; single-task rows resample25 paired initial states"
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 441,
+          "episodes": 450,
+          "success_percent": 98.0,
+          "reference_successes": 443,
+          "difference_pp": -0.4444444444444444,
+          "paired_difference_ci95_pp": [
+            -2.444444444444444,
+            1.3333333333333335
+          ],
+          "bootstrap": "Paired suite-stratified task/episode bootstrap,2000 draws,seed20261005; fixed retained-task suite weights; single-task rows resample25 paired initial states"
+        },
+        "task8": {
+          "successes": 10,
+          "episodes": 25,
+          "success_percent": 40.0,
+          "reference_successes": 14,
+          "difference_pp": -16.0,
+          "paired_difference_ci95_pp": [
+            -32.0,
+            -4.0
+          ],
+          "bootstrap": "Paired suite-stratified task/episode bootstrap,2000 draws,seed20261005; fixed retained-task suite weights; single-task rows resample25 paired initial states"
+        },
+        "task9": {
+          "successes": 25,
+          "episodes": 25,
+          "success_percent": 100.0,
+          "reference_successes": 24,
+          "difference_pp": 4.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            12.0
+          ],
+          "bootstrap": "Paired suite-stratified task/episode bootstrap,2000 draws,seed20261005; fixed retained-task suite weights; single-task rows resample25 paired initial states"
+        },
+        "energy": {
+          "local_ratio": 0.01005296978866962,
+          "total_ratio": 0.010002743269284225,
+          "per_episode_local_quantiles": [
+            0.010026659116766938,
+            0.010039187324601299,
+            0.010058661998316603,
+            0.010073327722698132,
+            0.010081975885270563
+          ],
+          "per_episode_total_quantiles": [
+            0.010002597976670764,
+            0.010002692476501178,
+            0.010002744632724051,
+            0.010002784898854616,
+            0.010002828438847393
+          ]
+        }
+      },
+      "total_language_state_0.01": {
+        "configuration": {
+          "id": "total_language_state_0.01",
+          "scope": "language_state",
+          "dose": 0.01,
+          "scaling": "total",
+          "tier": "secondary"
+        },
+        "source_sha256": {
+          "/projects/yanlongvla/runs/causal_20261005/worker0_manifest.json": "ab0f98b5a3ceff0e3fee6435fba54e7528ad72d9ec345795044c76087b3525f6",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker0.json": "b0e52bda4f9a9b2d0bdf74d24f8e7880c5edeb5bfe21270d03bee0380e8d4c18",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task0.jsonl": "dcf34b7d969b65c521f4fccc2a376acbc64dbced76280f504fd9520c992f65d5",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task8.jsonl": "6f8b83f070675618caca601f4b846954cc41ee41bf6c068895c7aff8d2157f8c",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task6.jsonl": "90f5562baf2809a052f72ce1a26b30d2a3a918553064440edbc7a2926d32002b",
+          "/projects/yanlongvla/runs/causal_20261005/worker1_manifest.json": "ddb86faf0dea7ef6a93c0e8bab5b36569ef10c21b7dc73d5bd33da9b29bd0113",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker1.json": "30e4a6be1d8259b9bae1e7f285846db22485ea34931a092abede1d651ef470f0",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task1.jsonl": "d548e95447cc9e9bbdfbe27a36b805be066d8be97838f3103a2ac57348d93dec",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task9.jsonl": "59c75bbe486c0074bd18d7cd6a95fdf20c7c4dd80a8431bccd46fed507a84bf5",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task7.jsonl": "9dfe042516501740fcca2b8fc21e32aecc123825e8cc6c9cc9d09d87917fb3e3",
+          "/projects/yanlongvla/runs/causal_20261005/worker2_manifest.json": "bed3afedfb4392c010cd0b42cdb46bf26b5007856818367412692c7b0eea20d8",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker2.json": "ec059277554995fdb1afc73991e6572c1488e5c45b83c68d7206d27c9991e564",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task2.jsonl": "8806f27743ecc67d4faf47afcc274580d47d043cb3d62cf89660eae164ceec94",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task0.jsonl": "9b0afc090165e36e202be3ad247111dfbab7717bfcb8787fc5f7e6a021667898",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task8.jsonl": "5a567050d4063d08300c5ef4f65cdc62bb604a02a198eaea6a71becc998799ff",
+          "/projects/yanlongvla/runs/causal_20261005/worker3_manifest.json": "8abb3b16411610d1543fbe56c163d3bf49a3d89fcfbb67e06555fb1e2df218ea",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker3.json": "5498d296c29239ef8fa5b5b2f6f45bcd37467d96d2251bf3d57f9abbdda438cb",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task3.jsonl": "c630d67d55a36ecf72783391a5b7846c8faac47e6456063b9370e0155562d4e9",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task1.jsonl": "c050801d5808ffd4ea1f2b48927071649d00bfe6a385a5b18e551cd9d3827219",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task9.jsonl": "231b47efad2ae7ddd25738f0c9871b04738e160450c5d85d3e1f3759f112b955",
+          "/projects/yanlongvla/runs/causal_20261005/worker4_manifest.json": "a48a1f47550b644e1cf3675a8ef02a6cfc2c59b5b95846c0401bdda3bf50ea86",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker4.json": "4a9eeaa8b2d825c1af9c5ffa6423c267f006d2bc470c731ea62f67634d7348d8",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task4.jsonl": "af0d2224763110e894dd024acddf7b670dc815c7b9270bf55aa400456917b8d5",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task2.jsonl": "c3c0fcd0020f725c7554e58d994f93916f6c2c92ab4e3a48e19a4e18f649ea46",
+          "/projects/yanlongvla/runs/causal_20261005/worker5_manifest.json": "3c0a2ee6ed39ec654cd3faac8bb4564a4de4677bb13ea85e0149d6c258e3c05b",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker5.json": "79e2ecbb04ce5df79466a9738bc713a78c7e65de338fdbc64d89704692ccc422",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task5.jsonl": "df61344feacdb3ee335f835b6d899d2e8546267063a3e8a9f9901e2d31faaba1",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task3.jsonl": "c2a55cced95e83ecb6502a38d7120827f0fb667b7e2a7c9821a96dd43e67ec4c",
+          "/projects/yanlongvla/runs/causal_20261005/worker6_manifest.json": "7fe4758ca111510968054f60050291bb3b9e5badaac5943b4d5859254d18b8e7",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker6.json": "4091870f5cbc1774fe1ae73d784ae0c8b51a1706282e3210e8608b4ab6cd490a",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task6.jsonl": "18320ef7fdb9886c4f4afe77157e3c6ba160396576db7f37e7a424000387a145",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task4.jsonl": "903de384770fd4a9c8a0060d6d48bb95d7a6a0dae782e1c6ae9aa31571398dfe",
+          "/projects/yanlongvla/runs/causal_20261005/worker7_manifest.json": "1c83c34816720e7767ec7bc058a492c2683e2cd2f7e8cc897853d3814f65c045",
+          "/projects/yanlongvla/runs/causal_20261005/guard_worker7.json": "0a92dc6dbdcda3b6c2e4c1ccfb4d5dc08a674adfba6b52b5f077eace9cb0c414",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_spatial_task7.jsonl": "49c06c385ab40d206e8053f3d5993a1e08b74a239010887545b6c6562a85a15b",
+          "/projects/yanlongvla/runs/causal_20261005/rollouts/total_language_state_0.01/libero_10_task5.jsonl": "6d00f67a9553478e9ea57f1bcd89d084fa4cc182c61b7d32a2b2b8fe7baf6c72"
+        },
+        "all_tasks": {
+          "successes": 460,
+          "episodes": 500,
+          "success_percent": 92.0,
+          "reference_successes": 481,
+          "difference_pp": -4.2,
+          "paired_difference_ci95_pp": [
+            -9.4,
+            0.0
+          ],
+          "bootstrap": "Paired suite-stratified task/episode bootstrap,2000 draws,seed20261005; fixed retained-task suite weights; single-task rows resample25 paired initial states"
+        },
+        "excluding_libero10_tasks8_9": {
+          "successes": 434,
+          "episodes": 450,
+          "success_percent": 96.44444444444444,
+          "reference_successes": 443,
+          "difference_pp": -2.0,
+          "paired_difference_ci95_pp": [
+            -4.888888888888889,
+            0.6666666666666666
+          ],
+          "bootstrap": "Paired suite-stratified task/episode bootstrap,2000 draws,seed20261005; fixed retained-task suite weights; single-task rows resample25 paired initial states"
+        },
+        "task8": {
+          "successes": 2,
+          "episodes": 25,
+          "success_percent": 8.0,
+          "reference_successes": 14,
+          "difference_pp": -48.0,
+          "paired_difference_ci95_pp": [
+            -68.0,
+            -28.000000000000004
+          ],
+          "bootstrap": "Paired suite-stratified task/episode bootstrap,2000 draws,seed20261005; fixed retained-task suite weights; single-task rows resample25 paired initial states"
+        },
+        "task9": {
+          "successes": 24,
+          "episodes": 25,
+          "success_percent": 96.0,
+          "reference_successes": 24,
+          "difference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "bootstrap": "Paired suite-stratified task/episode bootstrap,2000 draws,seed20261005; fixed retained-task suite weights; single-task rows resample25 paired initial states"
+        },
+        "energy": {
+          "local_ratio": 2.0255568297351507,
+          "total_ratio": 0.009999985694769299,
+          "per_episode_local_quantiles": [
+            1.2817687457330802,
+            1.4408635988970069,
+            1.8049086611176726,
+            2.697366143698441,
+            4.0845634974217795
+          ],
+          "per_episode_total_quantiles": [
+            0.009999878607824222,
+            0.009999934683408087,
+            0.009999986325699782,
+            0.010000034493328145,
+            0.01000009697335412
+          ]
+        }
       }
     },
     "progress": {
@@ -1648,12 +1874,12 @@
         "episodes": 500
       },
       "total_image_0.01": {
-        "completed_workers": 7,
-        "episodes": 452
+        "completed_workers": 8,
+        "episodes": 500
       },
       "total_language_state_0.01": {
-        "completed_workers": 6,
-        "episodes": 406
+        "completed_workers": 8,
+        "episodes": 500
       }
     },
     "guards": {
