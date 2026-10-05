@@ -989,3 +989,10 @@ H3 had11/13 complete primary500-episode conditions at inspection. Controller1845
 {"H3_completed": ["local_all_0.003", "local_all_0.01", "local_all_0.03", "local_all_0.1", "local_image_0.003", "local_image_0.01", "local_image_0.03", "local_image_0.1", "local_language_state_0.003", "local_language_state_0.01", "local_language_state_0.03", "local_language_state_0.1"], "H2": "drop_metric_from_paper", "H4": {"rerun": "queued", "labels": "pending"}, "H5": {"h5a": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5b": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c4": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c16": {"fit": "queued", "evaluation": "gated_on_H4_labels"}}}
 
 Full protocols, paired scopes and source hashes: results/causal_round.json.
+
+
+### Causal milestone — 2026-10-05T04:43:29.722128+00:00
+
+{"H3_completed": ["local_all_0.003", "local_all_0.01", "local_all_0.03", "local_all_0.1", "local_image_0.003", "local_image_0.01", "local_image_0.03", "local_image_0.1", "local_language_state_0.003", "local_language_state_0.01", "local_language_state_0.03", "local_language_state_0.1", "local_language_state_0.3"], "H2": "drop_metric_from_paper", "H4": {"rerun": "queued", "labels": "pending"}, "H5": {"h5a": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5b": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c4": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c16": {"fit": "queued", "evaluation": "gated_on_H4_labels"}}}
+
+Full protocols, paired scopes and source hashes: results/causal_round.json.

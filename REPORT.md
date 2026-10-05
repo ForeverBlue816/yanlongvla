@@ -1,6 +1,6 @@
-# Current experiments — October5 causal follow-up — 2026-10-05 12:42 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 12:43 SGT
 
-H3: in_progress; completed conditions: 12. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
+H3: primary_complete_secondary_in_progress; completed conditions: 13. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
 <!-- CAUSAL_ROUND_BEGIN -->
 ## October5 causal follow-up
@@ -9,7 +9,7 @@ Priority: H3 prefix-KV causal intervention → H2 detector verdict → H4 comple
 
 ### H3 — Prefix-KV intervention
 
-Status: in_progress.13 primary conditions ×500 paired episodes, including language-only0.3. Two additional equal-total-energy0.01 conditions retain the earlier secondary check; the all-token0.01 row is reused. Primary energy uses each token group's own KV norm. K/V noise is fixed through the ten expert steps, padding is excluded, and a separate RNG preserves policy-noise pairing. Zero-dose exact256-action checks passed on 8 workers.
+Status: primary_complete_secondary_in_progress.13 primary conditions ×500 paired episodes, including language-only0.3. Two additional equal-total-energy0.01 conditions retain the earlier secondary check; the all-token0.01 row is reused. Primary energy uses each token group's own KV norm. K/V noise is fixed through the ten expert steps, padding is excluded, and a separate RNG preserves policy-noise pairing. Zero-dose exact256-action checks passed on 8 workers.
 
 Prediction: language perturbation near the measured M2 local error0.215 reproduces task8 gain/task9 loss; image perturbation near0.062 does not. The specified0.1/0.3 and0.03/0.1 grids bracket these anchors; no interpolated response is counted as a measurement.
 
@@ -27,6 +27,7 @@ Prediction: language perturbation near the measured M2 local error0.215 reproduc
 | local_language_state_0.01 | 480/500; Δ-0.2pp [-2.6,+2.0] | 443/450; Δ+0.0pp [-2.4,+2.2] | 0.010003 | 4.994e-05 |
 | local_language_state_0.03 | 482/500; Δ+0.2pp [-2.2,+2.8] | 441/450; Δ-0.4pp [-2.4,+1.6] | 0.030003 | 0.00015002 |
 | local_language_state_0.1 | 484/500; Δ+0.6pp [-1.2,+2.4] | 445/450; Δ+0.4pp [-1.1,+2.0] | 0.1 | 0.00050142 |
+| local_language_state_0.3 | 482/500; Δ+0.2pp [-1.8,+2.4] | 442/450; Δ-0.2pp [-2.2,+1.6] | 0.3 | 0.0015019 |
 
 ### H2 — Detector verdict
 
