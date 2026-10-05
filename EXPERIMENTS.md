@@ -996,3 +996,12 @@ Full protocols, paired scopes and source hashes: results/causal_round.json.
 {"H3_completed": ["local_all_0.003", "local_all_0.01", "local_all_0.03", "local_all_0.1", "local_image_0.003", "local_image_0.01", "local_image_0.03", "local_image_0.1", "local_language_state_0.003", "local_language_state_0.01", "local_language_state_0.03", "local_language_state_0.1", "local_language_state_0.3"], "H2": "drop_metric_from_paper", "H4": {"rerun": "queued", "labels": "pending"}, "H5": {"h5a": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5b": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c4": {"fit": "queued", "evaluation": "gated_on_H4_labels"}, "h5c16": {"fit": "queued", "evaluation": "gated_on_H4_labels"}}}
 
 Full protocols, paired scopes and source hashes: results/causal_round.json.
+
+
+### E077 — evening structured-error handoff, 2026-10-05
+
+Registered STRUCTURE_2026-10-05.md and runs/structure_20261005/preregistration.json, including both user clarifications. H3b4500 paired episodes, H4b saved-frame phase probes with successful controls, Plus-J200pairs/expert-onlyM2Plus, andH5d cachedKV bias subtraction. H5a/b/c retained; all H5 evaluation requires completed H3b and H4 labels. TV appendix diagnostic only.
+
+Initial H3b jobs184826/184827 FAILED before any rollout: directFP+(Q−FP) float32 cancellation did not reproduce very small nativeBF16 Q elements. Preserved failed manifests/logs, implemented mathematically exact unit endpoint by selecting nativeQ on valid tokens; no tolerance relaxation. CPU ten-condition invariants passed again. Eleven publication/dispatch tests and fiveH4b window tests passed. New GPU exact256FP/unitH1c guards still decide acceptance.
+
+Background controller184891 replaces184882 and the stopped causal184775. New ledger runs/structure_20261005/jobs.json; all older dispatchers remain stopped. Running legacyH3/H4 preserved. Slurm submit-count limits defer lower-priority reservations without blocking completed-result publication. No private source is published. Registered protocol and diagnostic appendix first published as25fe9059cfe0dab2f5c379fa5751253676d3b66e.

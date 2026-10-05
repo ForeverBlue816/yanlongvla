@@ -373,6 +373,79 @@
     "status": "pending"
   },
   "branches": {
+    "H4b_anchors": {
+      "status": "complete",
+      "counts": {
+        "0.005": {
+          "fp_successful_control": {
+            "total": 187,
+            "detected": 187,
+            "undetected": 0
+          },
+          "uniform_stalled_holding": {
+            "total": 12,
+            "detected": 6,
+            "undetected": 6
+          },
+          "uniform_cup_in_door_open": {
+            "total": 15,
+            "detected": 0,
+            "undetected": 15
+          },
+          "uniform_successful_control": {
+            "total": 167,
+            "detected": 167,
+            "undetected": 0
+          }
+        },
+        "0.01": {
+          "fp_successful_control": {
+            "total": 187,
+            "detected": 187,
+            "undetected": 0
+          },
+          "uniform_stalled_holding": {
+            "total": 12,
+            "detected": 10,
+            "undetected": 2
+          },
+          "uniform_cup_in_door_open": {
+            "total": 15,
+            "detected": 0,
+            "undetected": 15
+          },
+          "uniform_successful_control": {
+            "total": 167,
+            "detected": 167,
+            "undetected": 0
+          }
+        },
+        "0.02": {
+          "fp_successful_control": {
+            "total": 187,
+            "detected": 187,
+            "undetected": 0
+          },
+          "uniform_stalled_holding": {
+            "total": 12,
+            "detected": 11,
+            "undetected": 1
+          },
+          "uniform_cup_in_door_open": {
+            "total": 15,
+            "detected": 0,
+            "undetected": 15
+          },
+          "uniform_successful_control": {
+            "total": 167,
+            "detected": 167,
+            "undetected": 0
+          }
+        }
+      },
+      "unique_observations": 377,
+      "source_sha256": "4beb988eeb27be53b21613804bcd92f85d89b402ef7fdb3d5ba228853cdbeb79"
+    },
     "H4b": {
       "status": "pending"
     },
@@ -385,6 +458,31 @@
     "H5d_fit": {
       "status": "pending"
     }
+  },
+  "implementation_validation": {
+    "status": "passed",
+    "checks": [
+      "mean-residual orthogonality",
+      "all ten conditions finite",
+      "zero exact",
+      "unit exact KV",
+      "padding untouched",
+      "token norm preservation within BF16 rounding",
+      "random-sign magnitude preservation within BF16 rounding",
+      "independent globalRNG",
+      "4500 unique disjoint episode coverage"
+    ],
+    "source_sha256": {
+      "/projects/yanlongvla/research/scripts/structure_protocol.py": "ad2235b25bb699f64b9c4f34d69b8a4d329164b8f03d7e76deb108710c12f41e",
+      "/projects/yanlongvla/research/scripts/structure_runtime.py": "45fefb5da07c64689b6fa35e694ef9459f0233f0e806535b47f54b719c190b01",
+      "/projects/yanlongvla/research/scripts/structure_server.py": "30d87b641bbcea3cc239a05afdbec96a38c315698bd3cfd0c865a8faf73b7f3a",
+      "/projects/yanlongvla/research/scripts/structure_client.py": "176ea7d088962b82fe65849d9ad18de27efd0b8aece6b2abaee641fe6092f574",
+      "/projects/yanlongvla/research/scripts/structure_run.py": "ecf5dc05ad0a5071b5567aaf306c7696091fd152c441c410473d5c79165af818"
+    },
+    "post_cancellation_fix_retested": true,
+    "dispatch_publication_tests": 12,
+    "H4b_rule_tests": 5,
+    "near_cancellation_endpoint_regression": "passed"
   },
   "execution": {
     "failed_jobs": []
