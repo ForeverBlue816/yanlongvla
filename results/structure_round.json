@@ -127250,7 +127250,10 @@
     },
     "h5c4": {
       "fit": {
-        "status": "pending"
+        "status": "complete",
+        "variant": "h5c4",
+        "checkpoint_sha256": "503baa4cb145ecc791994183d2f0445e3a9abe79866ad6f7a88b4bd135ab2424",
+        "whole_model_bpw": 2.9225899010064036
       },
       "evaluation": {
         "status": "pending"
