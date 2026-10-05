@@ -22,7 +22,7 @@ Calibration coverage: **blocked_on_failed_stage**. The primary mixed set keeps25
 
 H3b has priority; all H5 evaluation requires completed H3b and complete H4 failure review. Seed7, at most8 GPUs. H2TV remains appendix-only diagnostic evidence. [Registered protocol](STRUCTURE_2026-10-05.md). [Validated evidence](results/structure_round.json).
 
-H3b: 4/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 7/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
+H3b: 4/4 workers passed256 exact zero/FP and256 exact unit/H1c action guards; 8/10 paired400-episode conditions complete. Additional unit-injection500 mix: pending.
 
 Mean-only and residual-only use per-observation layer/type means; H5d uses calibration-wide means. Random signs are shared acrossK/V and all layers for a given token. Token permutation preserves the receiving-position jointK/V error norm; layer permutation is retained. No new mechanism verdict before measured comparisons.
 
@@ -33,6 +33,7 @@ Mean-only and residual-only use per-observation layer/type means; H5d uses calib
 | residual | 174/200; Δ+31.0pp [23.5, 38.5] | 188/200; Δ+0.5pp [-3.0, 4.0] |
 | random_sign | 19/200; Δ-46.5pp [-55.00000000000001, -38.0] | 67/200; Δ-60.0pp [-68.0, -52.0] |
 | half | 131/200; Δ+9.5pp [2.0, 17.012499999999818] | 181/200; Δ-3.0pp [-8.0, 1.5] |
+| quarter | 133/200; Δ+10.5pp [2.5, 18.5] | 181/200; Δ-3.0pp [-8.0, 1.0] |
 | double | 38/200; Δ-37.0pp [-47.5, -26.5] | 41/200; Δ-73.0pp [-80.5, -65.0] |
 | layer_permute | 111/200; Δ-0.5pp [-10.5, 9.0] | 182/200; Δ-2.5pp [-7.5, 2.5] |
 
@@ -56,7 +57,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Current experiments — October5 causal follow-up — 2026-10-05 23:46 SGT
+# Current experiments — October5 causal follow-up — 2026-10-06 00:10 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
