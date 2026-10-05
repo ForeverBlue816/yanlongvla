@@ -28,7 +28,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Current experiments — October5 causal follow-up — 2026-10-05 13:57 SGT
+# Current experiments — October5 causal follow-up — 2026-10-05 13:58 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
@@ -74,7 +74,7 @@ The TV detector failed its registered gate. The per-model table and distribution
 
 ### H4 — Full FP rerun and failure causes
 
-New FP task8 rerun: queued; cause labels: pending. All200 IDs50–249 require both camera views and simulator-state trajectories. Existing M2 task9 trajectories supply the matching failure review; earlier diagnostic replay does not replace this new full rerun.
+New FP task8 rerun: complete; cause labels: pending. All200 IDs50–249 require both camera views and simulator-state trajectories. Existing M2 task9 trajectories supply the matching failure review; earlier diagnostic replay does not replace this new full rerun.
 
 
 M2 task9 cause review: {"timeout_without_progress": 12, "other": 15, "collision_knockover": 6}. All33 failures; Single unblinded agent rater; cause is descriptive/proximate, not a proven internal decision; ambiguous cases use other. Both views at disclosed transfer/grasp-end/timeout snapshots and full-state summaries were inspected; this is not frame-by-frame human video coding.

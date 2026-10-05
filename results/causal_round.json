@@ -35669,7 +35669,13 @@
   },
   "H4": {
     "rerun": {
-      "status": "queued"
+      "status": "complete",
+      "episodes": 200,
+      "successes": 109,
+      "source_sha256": {
+        "/projects/yanlongvla/runs/causal_20261005/h4_fp_task8/manifest.json": "2a78e8d233636f3533ff4a90e25e78517681d9dd2e08c27b93948872461b418e",
+        "/projects/yanlongvla/runs/causal_20261005/h4_fp_task8/task8.jsonl": "5c99c59c610852c2393fc65758c5d775f7bf41712b9bab9c4200eb1f8236fc69"
+      }
     },
     "labels": {
       "status": "pending"
