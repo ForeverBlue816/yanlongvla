@@ -11109,6 +11109,30 @@
             "paired_improvements": 58,
             "paired_regressions": 119
           },
+          "precision_c1": {
+            "successes": 716,
+            "episodes": 1000,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": -4.9,
+            "paired_difference_ci95_pp": [
+              -9.18945626593586,
+              -0.7980770545480469
+            ],
+            "paired_improvements": 58,
+            "paired_regressions": 107
+          },
+          "precision_c2": {
+            "successes": 715,
+            "episodes": 1000,
+            "success_percent": 71.5,
+            "difference_from_reference_pp": -5.0,
+            "paired_difference_ci95_pp": [
+              -9.145055448141633,
+              -0.5914622637460227
+            ],
+            "paired_improvements": 57,
+            "paired_regressions": 107
+          },
           "previous_h5b": {
             "successes": 732,
             "episodes": 1000,
@@ -11152,6 +11176,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "precision_c1": {
+            "successes": 716,
+            "episodes": 1000,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": 1.2,
+            "paired_difference_ci95_pp": [
+              -1.5741680333917483,
+              3.9952351659789147
+            ],
+            "paired_improvements": 61,
+            "paired_regressions": 49
+          },
+          "precision_c2": {
+            "successes": 715,
+            "episodes": 1000,
+            "success_percent": 71.5,
+            "difference_from_reference_pp": 1.0999999999999999,
+            "paired_difference_ci95_pp": [
+              -1.4816874905534454,
+              3.707427840517781
+            ],
+            "paired_improvements": 53,
+            "paired_regressions": 42
           },
           "previous_h5b": {
             "successes": 732,
@@ -11199,6 +11247,30 @@
             "paired_improvements": 25,
             "paired_regressions": 51
           },
+          "precision_c1": {
+            "successes": 348,
+            "episodes": 500,
+            "success_percent": 69.6,
+            "difference_from_reference_pp": -4.8,
+            "paired_difference_ci95_pp": [
+              -9.824765042711682,
+              -0.062435350278552966
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 49
+          },
+          "precision_c2": {
+            "successes": 359,
+            "episodes": 500,
+            "success_percent": 71.8,
+            "difference_from_reference_pp": -2.6,
+            "paired_difference_ci95_pp": [
+              -6.723965539183579,
+              1.6426587793606966
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 40
+          },
           "previous_h5b": {
             "successes": 362,
             "episodes": 500,
@@ -11242,6 +11314,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "precision_c1": {
+            "successes": 348,
+            "episodes": 500,
+            "success_percent": 69.6,
+            "difference_from_reference_pp": 0.4,
+            "paired_difference_ci95_pp": [
+              -3.6460686833268157,
+              4.173917734341098
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 25
+          },
+          "precision_c2": {
+            "successes": 359,
+            "episodes": 500,
+            "success_percent": 71.8,
+            "difference_from_reference_pp": 2.6,
+            "paired_difference_ci95_pp": [
+              -1.2994047636415584,
+              6.221269163280677
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 17
           },
           "previous_h5b": {
             "successes": 362,
@@ -11289,6 +11385,30 @@
             "paired_improvements": 33,
             "paired_regressions": 68
           },
+          "precision_c1": {
+            "successes": 368,
+            "episodes": 500,
+            "success_percent": 73.6,
+            "difference_from_reference_pp": -5.0,
+            "paired_difference_ci95_pp": [
+              -11.632277836177352,
+              1.1715374108763181
+            ],
+            "paired_improvements": 33,
+            "paired_regressions": 58
+          },
+          "precision_c2": {
+            "successes": 356,
+            "episodes": 500,
+            "success_percent": 71.2,
+            "difference_from_reference_pp": -7.3999999999999995,
+            "paired_difference_ci95_pp": [
+              -13.966567203727369,
+              -0.8063539324116848
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 67
+          },
           "previous_h5b": {
             "successes": 370,
             "episodes": 500,
@@ -11332,6 +11452,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "precision_c1": {
+            "successes": 368,
+            "episodes": 500,
+            "success_percent": 73.6,
+            "difference_from_reference_pp": 2.0,
+            "paired_difference_ci95_pp": [
+              -1.8494344096439466,
+              5.932223774801569
+            ],
+            "paired_improvements": 34,
+            "paired_regressions": 24
+          },
+          "precision_c2": {
+            "successes": 356,
+            "episodes": 500,
+            "success_percent": 71.2,
+            "difference_from_reference_pp": -0.4,
+            "paired_difference_ci95_pp": [
+              -4.304532935442808,
+              3.5967214501728133
+            ],
+            "paired_improvements": 23,
+            "paired_regressions": 25
           },
           "previous_h5b": {
             "successes": 370,
@@ -11386,6 +11530,14 @@
     "/projects/yanlongvla/runs/precision_20261006/selection/bb_M2_ae_M2_fp32/episodes.jsonl": "d1d567ff05b0a02c4c16c25eda3bff45e7de0613cd0538dc6e0389bbb16ae4bc",
     "/projects/yanlongvla/runs/precision_20261006/selection/bb_M2_ae_M2_fp32/manifest.json": "0f344a0d01236c63e9211de8a164c25713cea1826ed0c20d22113c8b4a99983e",
     "/projects/yanlongvla/runs/precision_20261006/selection/bb_M2_ae_M2_fp32/reuse.json": "7d72868b446f1e1ed20131e533d4fdcef34c5d259810e35a02f21258ce0bda64",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c1/complete.json": "4456c08babb47807ee89b8a7334a114f95da83e294f0e36f69ae1549b80754ac",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c1/episodes.jsonl": "5cbcafd418b657dadda0b7b922a5022ca35cc4c5f0877f55270fcdb4de1508a4",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c1/manifest.json": "74cea275a72295c038e91d0f54d542a6ee4c549d7637c3aa0474984c31cb61b2",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c1/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c2/complete.json": "15fe93ecfebfce36868ecc3b96d74b8963fd466e0cacc40bf0477021baa044dd",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c2/episodes.jsonl": "7f0df11318ed723ddd21d6f43c1ff1029557e5cca3f7776b7baee21c42a3af31",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c2/manifest.json": "4c39d326935b61231840a5f2bcb63b500ddaf1cc0d387cfd6ad4d1da9cecc258",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c2/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/complete.json": "bd3aa7d403f140743bd5675f21d903c0b399bcaf6e9ed0581b197887461855ca",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
