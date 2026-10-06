@@ -1,6 +1,8 @@
-# October7 D3 protocol amendment
+# October7 addendum — full policy received and D3 replaced
 
-[Item2 replacement](ADDENDUM_2026-10-07_D3.md): three FP-expert policies inject the real2bit prefixKV error, its reader-subspace component, or its orthogonal complement. Offline1600observations/40tasks/32pairedlatents; closed-loop three pairedPlus500+500 runs. No standalone task8/9 evaluation. TV, E_R andk-NN D_M remain diagnostics; listed numerical values are predictions. This is a recorded protocol revision; implementation and scheduling are pending. C1–C5 continue below.
+The [complete addendum](ADDENDUM_2026-10-07.md) retains C1–C5 and D1, and incorporates the all-task D3 replacement. D3 has1600offline observations/40tasks/32latents plus three pairedPlus1000FP-prefix interventions. The three A8 feasibility rows are separate from method selection. D1/D3/A8 implementations remain pending; these instructions are not results.
+
+The>=3pp paired-significant promotion gate versus704/1000 is unchanged. Final deployment now requires the A8 feasibility decision and a validated winning-backbone + uniformM2-expert + A8 composition before LIBEROfull2000/1900 and expandedPlus2000. Legacy direct-to-final dispatch is disabled; current baseline fitting/evaluation continues. The expandedPlus set still reuses the originalsubset and reports added1000 separately.
 
 # Active comparison policy — October6 evening C1–C5
 

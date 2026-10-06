@@ -4,7 +4,7 @@
   "recorded_utc": "2026-10-06T15:04:17.558248+00:00",
   "replacement_item": 2,
   "name": "D3 reader-subspace mechanism probe",
-  "parent_addendum_status": "not_found_in_available_workspace_or_attachments",
+  "parent_addendum_status": "complete_user_text_received_and_D3_replaced",
   "seed": 7,
   "offline": {
     "bank": "existing H2 evaluation initial-observation bank",
@@ -24,7 +24,8 @@
   },
   "reader_subspace": {
     "K": "Top eigenvectors of Σ_q capturing90% trace",
-    "V": "Expert W_O^T W_O metric"
+    "V": "Expert W_O^T W_O metric",
+    "query_scope": "FP expert queries over10 steps x8heads"
   },
   "closed_loop": {
     "benchmark": "existing preregistered LIBERO-Plus selection subset",
@@ -66,9 +67,11 @@
     "query covariance estimation bank and aggregation",
     "V-subspace rank rule",
     "k-NN reference bank, normalization andk",
-    "matched-energy Gaussian definition from parent addendum"
+    "matched-energy Gaussian exact scaling and sampling"
   ],
   "source_sha256": {
-    "ADDENDUM_2026-10-07_D3.md": "1bffedc369fa9875837fd5ad7db4951952c22b0281a8f62f3ccfc954d96725a3"
-  }
+    "ADDENDUM_2026-10-07.md": "388f2d5d984bde6075e3b34fde95692622ba404d2844afb28ff804f0a2a4fb1e",
+    "ADDENDUM_2026-10-07_D3.md": "124e500465e1f7d7a0ee28d91bf353cfe8c1111f41c73afe793d4468abc9a294"
+  },
+  "parent_addendum": "ADDENDUM_2026-10-07.md"
 }

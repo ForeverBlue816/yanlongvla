@@ -39,4 +39,4 @@ C1/C2 composition proceeds in parallel, followed by their diagnostics/Plus evalu
 
 ## Subsequent D3 amendment
 
-The [October7 item2 replacement](ADDENDUM_2026-10-07_D3.md) records the all-task FP-prefix reader-subspace mechanism probe: three offline conditions and three pairedPlus500+500 runs, with TV, E_R and D_M diagnostics. It is a protocol revision, not a completed or dispatched experiment. Numerical targets are predictions; the complete parent addendum remains unavailable in this workspace.
+The [complete October7 addendum](ADDENDUM_2026-10-07.md) now incorporates the revised D3: three offline FP-prefix interventions over all40 tasks and three pairedPlus500+500 runs, with TV, E_R and D_M diagnostics. D1, three separate A8 feasibility rows and the promotion threshold are retained. Numerical targets are predictions. C1–C5 continue, while final deployment now requires the A8 feasibility decision and validated winning-backbone + uniformM2-expert + A8 composition before full/expanded evaluation. The previous direct-to-final dispatch is superseded.

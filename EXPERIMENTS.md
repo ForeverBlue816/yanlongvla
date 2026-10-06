@@ -1065,3 +1065,14 @@ Validation: initial18 CPU tests passed; after publisher/controller changes,12 re
 User replacedD3 with an all40-task reader-subspace mechanism probe. Saved the replacement separately asADDENDUM_2026-10-07_D3.md because no fullOctober7 addendum exists in the available research/report repositories or supplied attachments. Scope:1600observations×32pairedlatents; real2bitΔKV, reader component and orthogonal complement injected intoFP; three fresh pairedPlus1000runs. Report per-task/overallTV andE_R/D_M including the matched-energyGaussian diagnostic. Prediction targets are not measurements. Do not reuse704/765reference counts as outcomes for new injected policies. No new task8/9-targeted jobs and no changes to runningC1–C5 sources or scheduling. D3 projections/realizability implementation and executable details remain pending the parent specification. Machine-readable revision:results/d3_reader_protocol.json. Public scope remains report/protocol/results only.
 
 E081 publication validation:6 existing publisher regression tests passed in1.919s; strict precision summary completed with source-validated FP/original2bit references. No D3 result is claimed.
+
+
+### E082 — complete October7 addendum received; revised D3 incorporated
+
+2026-10-06T15:11:30.126186+00:00
+
+Saved ADDENDUM_2026-10-07.md with all four items. Item2 retainsD1 and replaces the superseded task8/9-targetedD3 with all40-task offline1600×32 and three pairedPlus1000FP-prefix interventions. RetainedE_R/D_M plus matched-energyGaussian diagnostics; all stated outcomes remain predictions. Added separateA8 feasibility specifications, excluded from method selection. Removed the obsolete missing-parent status from current documents; E081 remains an accurate historical record.
+
+Existing C1–C5 GPU jobs and frozen runtime sources are preserved. The old CPU dispatcher would send an unchanged promoted checkpoint straight to final evaluation; a separate deployment_policy.json now disables that legacy path, pendingA8 feasibility and validated final composition. The backbone promotion rule, coverage trigger, LIBERO scopes and nestedPlus confirmation identities remain unchanged. D1/D3/A8 execution is not claimed implemented or started.
+
+E082 verification:13 CPU regression tests passed in1.818s, including suppression of the legacy final/confirmation branch while preserving baseline scheduling; syntax checks passed. CPU dispatcher188721 replaces188670 through an afterany dependency. No GPU job was canceled. Proof:runs/precision_20261006/addendum_20261007_validation.json.

@@ -1,0 +1,164 @@
+{
+  "status": "complete_protocol_text_recorded_implementation_pending",
+  "date": "2026-10-07",
+  "recorded_utc": "2026-10-06T15:11:30.126186+00:00",
+  "source_sha256": "388f2d5d984bde6075e3b34fde95692622ba404d2844afb28ff804f0a2a4fb1e",
+  "continued_round": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5"
+  ],
+  "D1": {
+    "local": "deltaW times quantized-input",
+    "propagated": "FP W times (quantized-input minus FP-input)",
+    "granularity": [
+      "layer",
+      "K/V",
+      "token type"
+    ],
+    "report": [
+      "raw energy fractions",
+      "reader-weighted energy fractions"
+    ],
+    "query_scope": "FP expert10steps x8heads",
+    "status": "implementation_pending"
+  },
+  "D3": {
+    "status": "protocol_revision_recorded_not_implemented",
+    "addendum_date": "2026-10-07",
+    "recorded_utc": "2026-10-06T15:04:17.558248+00:00",
+    "replacement_item": 2,
+    "name": "D3 reader-subspace mechanism probe",
+    "parent_addendum_status": "complete_user_text_received_and_D3_replaced",
+    "seed": 7,
+    "offline": {
+      "bank": "existing H2 evaluation initial-observation bank",
+      "tasks": 40,
+      "observations_per_task": 40,
+      "observations": 1600,
+      "paired_latents": 32,
+      "report": [
+        "mode-switch TV per task",
+        "overall mode-switch TV"
+      ]
+    },
+    "conditions": {
+      "a": "FP prefix plus real2bit ΔKV",
+      "b": "FP prefix plus reader-subspace component of ΔKV only",
+      "c": "FP prefix plus orthogonal complement of ΔKV only"
+    },
+    "reader_subspace": {
+      "K": "Top eigenvectors of Σ_q capturing90% trace",
+      "V": "Expert W_O^T W_O metric",
+      "query_scope": "FP expert queries over10 steps x8heads"
+    },
+    "closed_loop": {
+      "benchmark": "existing preregistered LIBERO-Plus selection subset",
+      "camera": 500,
+      "initial_state": 500,
+      "paired": true,
+      "runs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "new_model_episodes": 3000,
+      "expert": "FP"
+    },
+    "diagnostics": {
+      "conditions": [
+        "a",
+        "b",
+        "c",
+        "matched-energy Gaussian"
+      ],
+      "metrics": {
+        "E_R": "reader-visible energy fraction",
+        "D_M": "k-NN realizability distance"
+      },
+      "gaussian_additional_Plus_run": false
+    },
+    "predictions_not_measurements": {
+      "TV_a": 0.4,
+      "TV_b": 0.4,
+      "TV_c": 0.04,
+      "TV_3bit": 0.04,
+      "success_a_1000": 704,
+      "success_b": "reproduces most of the drop",
+      "success_c_1000": 765
+    },
+    "scope": "all40 tasks offline; no task8/9 targeting or task-based selection; TV mechanism diagnostic; currentC1-C5 queue unchanged",
+    "implementation_definitions_to_reconcile": [
+      "query covariance estimation bank and aggregation",
+      "V-subspace rank rule",
+      "k-NN reference bank, normalization andk",
+      "matched-energy Gaussian exact scaling and sampling"
+    ],
+    "source_sha256": {
+      "ADDENDUM_2026-10-07.md": "388f2d5d984bde6075e3b34fde95692622ba404d2844afb28ff804f0a2a4fb1e",
+      "ADDENDUM_2026-10-07_D3.md": "124e500465e1f7d7a0ee28d91bf353cfe8c1111f41c73afe793d4468abc9a294"
+    },
+    "parent_addendum": "ADDENDUM_2026-10-07.md"
+  },
+  "A8": {
+    "status": "implementation_pending",
+    "conditions": [
+      "FP+A8",
+      "2bit-backbone+2bit-expert+A8",
+      "2bit-backbone+2bit-expert+A8+per-tokenINT8-KV"
+    ],
+    "paired_Plus_episodes_each": 1000,
+    "seed": 7,
+    "definition": "per-token symmetricINT8 on all linear inputs after foldedHadamard; softmax/QK^T/norms BF16; fakequant sufficient",
+    "offline": [
+      "held-out actionMSE",
+      "KV error"
+    ],
+    "method_selection": false
+  },
+  "deployment": {
+    "status": "awaiting_A8_feasibility_and_validated_final_composition",
+    "legacy_direct_final_disabled": true,
+    "source": "ADDENDUM_2026-10-07.md",
+    "source_sha256": "388f2d5d984bde6075e3b34fde95692622ba404d2844afb28ff804f0a2a4fb1e",
+    "preserve_running_C1_C5": true,
+    "promotion_unchanged": {
+      "reference": 704,
+      "episodes": 1000,
+      "minimum_gain_pp": 3,
+      "paired_CI95_lower_gt": 0
+    },
+    "A8_rows_excluded_from_method_selection": true,
+    "required_final_composition": "Selected backbone + uniform2bit expert + A8, subject toA8 feasibility; no automaticINT8 KV-cache promotion",
+    "final_LIBERO": {
+      "full": 2000,
+      "excluding_task8_9": 1900
+    },
+    "final_Plus": {
+      "camera": 1000,
+      "initial_state": 1000,
+      "reuse_existing_selection": true,
+      "report_added1000_separately": true
+    }
+  },
+  "validation": {
+    "status": "passed",
+    "utc": "2026-10-06T15:12:14.597845+00:00",
+    "tests": 13,
+    "seconds": 1.818,
+    "modules": [
+      "test_precision_round",
+      "test_story_publish"
+    ],
+    "regression": "Promoted backbone does not trigger legacy full/confirmation onceOctober7 deployment policy exists;C1/C2Plus andC3/C4fit remain scheduled",
+    "controller_replaced": 188670,
+    "controller_submitted": 188721,
+    "source_sha256": {
+      "precision_controller.py": "40592e12e9a1c4a71fd5fce6096bc0618ab0602848578a5637baeeb176fbe40b",
+      "precision_summary.py": "975fcd746f287b2ce47a5b8473f063a3e20ce082ce386e3b2b7401f5d6547294",
+      "story_publish.py": "c5e90902d0d80709ef2e458c6cedb29b70bc490a94e840061f1cc07755aabd4d"
+    }
+  }
+}
