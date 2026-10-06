@@ -2555,6 +2555,121 @@
         "/projects/yanlongvla/runs/plus_round_20261006/s1/manifest.json": "3f3c8e574a9c453e46471a6aa91117174bf187885e72cef0af206dfa5a91b333"
       }
     },
+    "S2_KV_entropy": {
+      "status": "complete",
+      "observations": 200,
+      "summary": {
+        "original_fp": {
+          "all": {
+            "observations": 200,
+            "entropy_nats": 3.108057953326238,
+            "prefix_mass": 0.7690218990190576,
+            "KV_relative_error": {
+              "all": 0.0,
+              "image": 0.0,
+              "language_state": 0.0
+            }
+          },
+          "Camera Viewpoints": {
+            "observations": 100,
+            "entropy_nats": 3.0437455492715038,
+            "prefix_mass": 0.7663041902486648,
+            "KV_relative_error": {
+              "all": 0.0,
+              "image": 0.0,
+              "language_state": 0.0
+            }
+          },
+          "Robot Initial States": {
+            "observations": 100,
+            "entropy_nats": 3.1723703573809736,
+            "prefix_mass": 0.7717396077894505,
+            "KV_relative_error": {
+              "all": 0.0,
+              "image": 0.0,
+              "language_state": 0.0
+            }
+          }
+        },
+        "bb_M2_ae_M2_fp32": {
+          "all": {
+            "observations": 200,
+            "entropy_nats": 3.1117927561766576,
+            "prefix_mass": 0.7665719377280524,
+            "KV_relative_error": {
+              "all": 0.073518604504298,
+              "image": 0.07112611368653207,
+              "language_state": 0.3445304163496636
+            }
+          },
+          "Camera Viewpoints": {
+            "observations": 100,
+            "entropy_nats": 3.070787500901355,
+            "prefix_mass": 0.7645996483651301,
+            "KV_relative_error": {
+              "all": 0.07072391329000366,
+              "image": 0.06815309802757234,
+              "language_state": 0.36885519173955345
+            }
+          },
+          "Robot Initial States": {
+            "observations": 100,
+            "entropy_nats": 3.1527980114519596,
+            "prefix_mass": 0.7685442270909746,
+            "KV_relative_error": {
+              "all": 0.07663844719904872,
+              "image": 0.07444645539012701,
+              "language_state": 0.31866487279298455
+            }
+          }
+        },
+        "s2_gain_corrected": {
+          "all": {
+            "observations": 200,
+            "entropy_nats": 2.8290903114378456,
+            "prefix_mass": 0.7739042109987802,
+            "KV_relative_error": {
+              "all": 0.0720608793345481,
+              "image": 0.068767388182768,
+              "language_state": 0.4451344132902956
+            }
+          },
+          "Camera Viewpoints": {
+            "observations": 100,
+            "entropy_nats": 2.787217289080222,
+            "prefix_mass": 0.7724031747380891,
+            "KV_relative_error": {
+              "all": 0.07001084699608734,
+              "image": 0.06651937410531837,
+              "language_state": 0.47490858189302154
+            }
+          },
+          "Robot Initial States": {
+            "observations": 100,
+            "entropy_nats": 2.870963333795467,
+            "prefix_mass": 0.7754052472594711,
+            "KV_relative_error": {
+              "all": 0.07434942498225192,
+              "image": 0.07127802914395155,
+              "language_state": 0.41347430368953864
+            }
+          }
+        }
+      },
+      "action_instrumentation_exact": 200,
+      "definition": "Expert attention conditional on valid prefix keys, averaged over10steps x18layers xheads x10queries; nats. Prefix mass separately reported.",
+      "source_sha256": {
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/capture_complete.json": "9eb760cb07aad48fd4df3d6167cc5e13ff653a2e61a953d02507cdb9c705053e",
+        "/projects/yanlongvla/runs/plus_round_20261006/s1/complete.json": "f442d28c4895cc266a97af03a22fcdc3e730cf417868ee31b7b0b540267c95df",
+        "/projects/yanlongvla/runs/plus_round_20261006/s1/gain.json": "37c4c72a5feafac29672cc7ee15f1504bbb0c9e67df7330ffd3ea22aa7cf1229",
+        "/projects/yanlongvla/research/scripts/plus_round_diagnostics.py": "a44b6b18cbcd5490ee6465773c1ef5b27f24b023216903eda14e10cd6747b573",
+        "/projects/yanlongvla/envs/openpi/lib/python3.11/site-packages/transformers/models/gemma/modeling_gemma.py": "17eeb54e277939e58cd6f8a92719a275e36baf0c9f463b2754227d42f87aedde",
+        "/projects/yanlongvla/runs/plus_round_20261006/diagnostics/original_fp.json": "369dcc3d189b112636dfc6940ed34e5deff947b1fa939e6c49867317171b05a5",
+        "/projects/yanlongvla/runs/plus_round_20261006/diagnostics/bb_M2_ae_M2_fp32.json": "baee09aec83975d52c69f86fb77dde553854fb752e8d832067d99d9bf1fb0114",
+        "/projects/yanlongvla/runs/plus_round_20261006/diagnostics/s2_gain_corrected.json": "88b7167731e5c34b5e03650a97c20ffa2cc1be44f32a51e360629309cc2ef71d",
+        "/projects/yanlongvla/runs/plus_round_20261006/diagnostics/manifest.json": "453d398d75e70d248be4db62118883f2755bf75d333ee012b2c6e93fcc8ca7a7"
+      }
+    },
     "coverage_replay_pilot": {
       "status": "passed",
       "source_environment_seed": 0,
