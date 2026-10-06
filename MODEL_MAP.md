@@ -1,3 +1,9 @@
+# Active comparison policy — October6
+
+The new authority is [PLUS_ROUND_2026-10-06.md](PLUS_ROUND_2026-10-06.md). H5a/b/c4/c16 and S2 cached-KV gain correction are evaluated on fixed Plus500+500, alongside the two mixed-calibration coverage variants. The four H5 fit artifacts are complete; new evaluation remains pending validation/results. S2 gains are fit from original training256 only; an S2 deployment requires the gain artifact and cache transform in addition to the original2-bit checkpoint. No standalone task8/9 or H4/H4b work remains.
+
+Coverage and the eventual final deployment retain full40-task LIBERO1000/2000, with950/1900 columns alongside. Promotion uses only Plus; expanded Plus1000+1000 includes the original500+500, with added-instance results reported separately. Older sections below are historical and their previous gates do not govern the new queue.
+
 # October5 causal-round model map (supersedes historical pending statuses below)
 
 H3 uses the unchanged FP checkpoint with controlled prefix K/V noise;13 primary group-local conditions plus2 distinct equal-total-energy controls. There are no state tokens in this config. Native KV anchors: M2 image0.06225/language0.21506; M3 image0.01417/language0.06230.

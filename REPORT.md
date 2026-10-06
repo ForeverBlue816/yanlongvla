@@ -1,3 +1,26 @@
+<!-- PLUS_ROUND_BEGIN -->
+# Current round — Plus selection, October 6
+
+**This policy supersedes all scheduling and H4 gates in the archived sections below.** No further targeted LIBERO-10 task8/9 evaluation or model selection. H4/H4b are stopped; retain the task9 gallery and completed FP task8 rerun as historical evidence. H5 evaluation no longer waits for labels.
+
+Method/intervention comparisons use the original paired seed7 Plus500camera+500initial-state subset. Final deployable rows and the two calibration-coverage variants retain the complete40-task LIBERO1000/2000 protocol, with excluding-task8/9 columns950/1900 alongside. Published-baseline comparability is preserved.
+
+| Model | Camera /500 | Initial state /500 | Combined /1000 | Δ vs FP (pp; paired95% CI) | Δ vs original2-bit (pp; paired95% CI) |
+|---|---:|---:|---:|---:|---:|
+| original_fp | 372 | 393 | 765 | +0.00 [+0.00, +0.00] | +6.10 [+1.71, +10.80] |
+| bb_M2_ae_M2_fp32 | 346 | 358 | 704 | -6.10 [-10.80, -1.71] | +0.00 [+0.00, +0.00] |
+| expert_only_uniform_M2 | 374 | 387 | 761 | -0.40 [-3.67, +2.73] | +5.70 [+1.52, +9.93] |
+
+Only complete, validated1000-episode rows appear. Pending: s2_fp_scaled, causal_h5a, causal_h5b, causal_h5c4, causal_h5c16, s2_gain_corrected, coverage_mixed_backbone, coverage_mixed_both.
+
+S1 fits per-layer/type joint-KV gain on training256 only and partitions error energy into mean, centered proportional and orthogonal residual. S2(a) scales FP cachedKV; S2(b) corrects2-bit cachedKV by reciprocal gain. Prefix-conditioned expert-attention entropy and KV errors use fixed200 saved Plus observations. H5a/b/c4/c16 and S2(b) share the table above; coverage includes both-component and backbone-only refits.
+
+Promotion: **awaiting_all_candidates**. After all seven deployable candidates complete, the highest-scoring candidate must improve by≥3pp over the original2-bit model with paired95% CI excluding0. Freeze one winner and run LIBERO full2000. Expand Plus to1000camera+1000initial-state, retaining the existing subset; report expanded2000 and added1000 separately. The expanded score is not independent confirmation.
+
+[Protocol](PLUS_ROUND_2026-10-06.md) · [Complete paired results and diagnostics](results/plus_round.json). Older sections below are archived evidence and their former future-work gates are inactive.
+
+<!-- PLUS_ROUND_END -->
+
 <!-- EVALUATION_SPLIT_BEGIN -->
 # Evaluation split and calibration coverage — October 5
 
@@ -59,7 +82,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Current experiments — October5 causal follow-up — 2026-10-06 08:35 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-06 13:05 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

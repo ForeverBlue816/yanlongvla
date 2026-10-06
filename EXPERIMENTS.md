@@ -1022,3 +1022,20 @@ E078 activation: server-side controller185012 replaces184891; source-mapping job
 E078 final validation:17 tests passed after adding the regression that H4 does not block the separately authorized coverage experiment. The existing H5 gate test fixture initially failed after introducing independent H3 validation; it now explicitly supplies a verified H3 result while testing the absent-H4 case. Reused original2-bit LIBERO medium coverage independently validated1000/1000 (982 successes); all4 H3b and active expert-M2 Plus source contracts remain unchanged. Private proof: runs/coverage_20261005/cpu_validation.json.
 
 E078 final controller: 185015, replacing185012. Source184972 and all GPU jobs preserved.
+
+
+### E079 — October6 Plus selection policy and expanded confirmation
+
+2026-10-06T05:04:00.985168+00:00
+
+User clarification retained complete four-suite medium1000/full2000 for final deployable rows and calibration coverage, with950/1900 excluding LIBERO10tasks8/9 alongside. Targeted task8/9 evaluations and H4/H4b work stop. Fixed Plus500+500 alone selects variants. Expanded confirmation1000+1000 retains the original subset by explicit instruction; additional1000 IDs are frozen before outcomes and reported separately. This expanded score is not independent validation. Old CPU dispatcher185015 stopped; completed GPU outputs and historical evidence preserved.
+
+Four accepted H5 fits enter the new guard+Plus-only path. S1 train-only jointKV gains, S2 causal/correction rows, saved-Plus entropy/KV diagnostics, coverage DAG and one-time promotion are implemented. Seven deployable candidates must all complete before choosing the best; require>=30/1000 improvement and paired95%CI lower>0 versus original2-bit. All row reuse verifies source hashes and the exact reused JSONL prefix. Final full/medium reports preserve all/excluding-task scopes.
+
+Initial H5 pair jobs187221/187222 were replaced by187250/187251 before any rollout: cluster policy enforces96GB per two-GPU node, so64GB worker requests serialized the pair. New48GB-per-worker requests allow both workers concurrently. S1job187223 was preempted once and automatically requeued; coverage replay pilot187224 is queued. No new quality outcome is claimed.
+
+Coverage failure185174 is archived, including its generator and failed clean frame. Source audit identified original OpenVLA TRAIN environment seed0 and sequential raw-demo reset index; fixture model.body_pos is absent from flattened simulator state. New perturbations/evaluation retain seed7. The proposed source-reset repair must pass episode134 pilot and all256 original state/image checks, with unchanged tolerances. Do not label the repair or mixed dataset accepted before those proofs.
+
+Private entry points: plus_round_protocol.py; plus_round_run.py --model MODEL --scope selection|confirmation; plus_round_s1.py; plus_round_diagnostics.py; plus_round_libero.py --model MODEL --stage medium|full; plus_round_controller.py. Runtime/model source hashes from prior accepted work remain untouched. Public scope is report/result files only. Initial11 CPU tests passed (energy decomposition, exact promotion boundaries, nested confirmation, dispatch exclusions, report preservation and publication recovery); numerical L40S action guards remain separate.
+
+E079 background controller: 187269; ledger runs/plus_round_20261006/jobs.json. It owns new dispatch and milestone publication; no browser or foreground session is required.
