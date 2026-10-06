@@ -17,7 +17,7 @@ All candidates first receive the same paired seed7 Plus500+500 subset and per-la
 
 CoverageH5b triggers only on positive paired improvement with95%CI lower bound>0, as approved by the user. Promotion remains≥3pp over original2bit with paired95%CI excluding0; wait for core and triggered candidates, freeze one best winner. Final LIBERO2000/1900 and expandedPlus1000+1000 with originalsubset reuse remain unchanged. Coverage also retains medium1000/950.
 
-Promotion: **awaiting_all_candidates**. Failed current jobs: **none**. Coverage stage evidence: **{}**. A failed scientific/data check blocks its branch rather than silently retrying or relaxing tolerances.
+Promotion: **awaiting_all_candidates**. Failed current jobs: **[{'job': 188643, 'stage': 'coverage', 'key': 'coverage_exact_pilot', 'state': 'FAILED'}]**. Coverage stage evidence: **{'exact_actions_pilot': {'status': 'failed', 'sha256': 'c09bc4cd5140e3531e2fc11e183c51b82e29282916bbca582491e43e23a43971'}}**. A failed scientific/data check blocks its branch rather than silently retrying or relaxing tolerances.
 
 [Protocol](PRECISION_2026-10-06.md) · [Results and raw training curves](results/precision_round.json). Older sections below are historical.
 
@@ -116,7 +116,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-06 23:22 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-06 23:37 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

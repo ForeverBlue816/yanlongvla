@@ -9186,8 +9186,20 @@
     }
   },
   "coverage_triggers": {},
-  "coverage": {},
-  "failed_jobs": [],
+  "coverage": {
+    "exact_actions_pilot": {
+      "status": "failed",
+      "sha256": "c09bc4cd5140e3531e2fc11e183c51b82e29282916bbca582491e43e23a43971"
+    }
+  },
+  "failed_jobs": [
+    {
+      "job": 188643,
+      "stage": "coverage",
+      "key": "coverage_exact_pilot",
+      "state": "FAILED"
+    }
+  ],
   "promotion": {
     "status": "awaiting_all_candidates",
     "required": [
