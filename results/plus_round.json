@@ -26,8 +26,6 @@
   },
   "pending": [
     "s2_fp_scaled",
-    "causal_h5a",
-    "causal_h5b",
     "causal_h5c4",
     "causal_h5c16",
     "s2_gain_corrected",
@@ -65,6 +63,30 @@
             ],
             "paired_improvements": 58,
             "paired_regressions": 119
+          },
+          "causal_h5a": {
+            "successes": 699,
+            "episodes": 1000,
+            "success_percent": 69.89999999999999,
+            "difference_from_reference_pp": -6.6000000000000005,
+            "paired_difference_ci95_pp": [
+              -11.293194305609248,
+              -2.0964476940888885
+            ],
+            "paired_improvements": 57,
+            "paired_regressions": 123
+          },
+          "causal_h5b": {
+            "successes": 732,
+            "episodes": 1000,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": -3.3000000000000003,
+            "paired_difference_ci95_pp": [
+              -7.150106925848177,
+              0.5565985136446319
+            ],
+            "paired_improvements": 54,
+            "paired_regressions": 87
           },
           "expert_only_uniform_M2": {
             "successes": 761,
@@ -109,6 +131,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "causal_h5a": {
+            "successes": 699,
+            "episodes": 1000,
+            "success_percent": 69.89999999999999,
+            "difference_from_reference_pp": -0.5,
+            "paired_difference_ci95_pp": [
+              -4.140988346734645,
+              2.9587224034810937
+            ],
+            "paired_improvements": 60,
+            "paired_regressions": 65
+          },
+          "causal_h5b": {
+            "successes": 732,
+            "episodes": 1000,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": 2.8000000000000003,
+            "paired_difference_ci95_pp": [
+              -0.19936767516502307,
+              5.938770063720246
+            ],
+            "paired_improvements": 71,
+            "paired_regressions": 43
           },
           "expert_only_uniform_M2": {
             "successes": 761,
@@ -156,6 +202,30 @@
             "paired_improvements": 25,
             "paired_regressions": 51
           },
+          "causal_h5a": {
+            "successes": 344,
+            "episodes": 500,
+            "success_percent": 68.8,
+            "difference_from_reference_pp": -5.6000000000000005,
+            "paired_difference_ci95_pp": [
+              -10.536934821646208,
+              -0.9534191209097044
+            ],
+            "paired_improvements": 23,
+            "paired_regressions": 51
+          },
+          "causal_h5b": {
+            "successes": 362,
+            "episodes": 500,
+            "success_percent": 72.39999999999999,
+            "difference_from_reference_pp": -2.0,
+            "paired_difference_ci95_pp": [
+              -6.738858648822237,
+              2.7829921624372798
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 37
+          },
           "expert_only_uniform_M2": {
             "successes": 374,
             "episodes": 500,
@@ -199,6 +269,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "causal_h5a": {
+            "successes": 344,
+            "episodes": 500,
+            "success_percent": 68.8,
+            "difference_from_reference_pp": -0.4,
+            "paired_difference_ci95_pp": [
+              -5.110900593970417,
+              4.093023454827526
+            ],
+            "paired_improvements": 28,
+            "paired_regressions": 30
+          },
+          "causal_h5b": {
+            "successes": 362,
+            "episodes": 500,
+            "success_percent": 72.39999999999999,
+            "difference_from_reference_pp": 3.2,
+            "paired_difference_ci95_pp": [
+              -0.7725543763085142,
+              6.961305528407306
+            ],
+            "paired_improvements": 33,
+            "paired_regressions": 17
           },
           "expert_only_uniform_M2": {
             "successes": 374,
@@ -246,6 +340,30 @@
             "paired_improvements": 33,
             "paired_regressions": 68
           },
+          "causal_h5a": {
+            "successes": 355,
+            "episodes": 500,
+            "success_percent": 71.0,
+            "difference_from_reference_pp": -7.6,
+            "paired_difference_ci95_pp": [
+              -14.529012671904002,
+              -1.5576000718673646
+            ],
+            "paired_improvements": 34,
+            "paired_regressions": 72
+          },
+          "causal_h5b": {
+            "successes": 370,
+            "episodes": 500,
+            "success_percent": 74.0,
+            "difference_from_reference_pp": -4.6,
+            "paired_difference_ci95_pp": [
+              -10.511089240701123,
+              0.9846201283531093
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 50
+          },
           "expert_only_uniform_M2": {
             "successes": 387,
             "episodes": 500,
@@ -289,6 +407,30 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "causal_h5a": {
+            "successes": 355,
+            "episodes": 500,
+            "success_percent": 71.0,
+            "difference_from_reference_pp": -0.6,
+            "paired_difference_ci95_pp": [
+              -5.358909682025517,
+              4.38651707991942
+            ],
+            "paired_improvements": 32,
+            "paired_regressions": 35
+          },
+          "causal_h5b": {
+            "successes": 370,
+            "episodes": 500,
+            "success_percent": 74.0,
+            "difference_from_reference_pp": 2.4,
+            "paired_difference_ci95_pp": [
+              -2.1901926135819343,
+              7.400432027649758
+            ],
+            "paired_improvements": 38,
+            "paired_regressions": 26
           },
           "expert_only_uniform_M2": {
             "successes": 387,
@@ -2736,6 +2878,14 @@
     "/projects/yanlongvla/runs/plus_round_20261006/selection/bb_M2_ae_M2_fp32/episodes.jsonl": "d1d567ff05b0a02c4c16c25eda3bff45e7de0613cd0538dc6e0389bbb16ae4bc",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/bb_M2_ae_M2_fp32/manifest.json": "b02e6350243a349090eb5337805e60e969cf2a6452475808b54e4750179a43a8",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/bb_M2_ae_M2_fp32/reuse.json": "7d72868b446f1e1ed20131e533d4fdcef34c5d259810e35a02f21258ce0bda64",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5a/complete.json": "3234d8516bc102be50bb794e67e87c9fd9ea937bbb81953e4b77cf887df13930",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5a/episodes.jsonl": "17cb233f197d5b9699a828dc6acb6850773ca012d92e09472d69b00be8a9e323",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5a/manifest.json": "a9ce0c924afaec92a3b0cce618806beeb18da1512291436ca56ea3ee396a1977",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5a/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/complete.json": "bd3aa7d403f140743bd5675f21d903c0b399bcaf6e9ed0581b197887461855ca",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/structure_20261005/plus/a_M2/complete.json": "2e214253ac83c48eb11d3341e7c9b114be4dca96a99b4fedee18d6faaa9e5d17"
   }
 }
