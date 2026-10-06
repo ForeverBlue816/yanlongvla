@@ -8911,6 +8911,24 @@
         }
       ],
       "monitor_scope": "Same indices0,16,...240 and latent0; no held-out/Plus fitting or checkpoint selection"
+    },
+    "precision_c4": {
+      "status": "training",
+      "training_updates": [],
+      "fixed_training16": [
+        {
+          "update": 0,
+          "cosine_loss": 0.0007183589041233063,
+          "observations": 16,
+          "latents": 1,
+          "latent_index": 0,
+          "KV": {
+            "image": 0.061177059209415914,
+            "language": 0.20830638237192406
+          }
+        }
+      ],
+      "monitor_scope": "Same indices0,16,...240 and latent0; no held-out/Plus fitting or checkpoint selection"
     }
   },
   "paired": {
