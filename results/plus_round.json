@@ -310,7 +310,52 @@
     "status": "awaiting_all_candidates"
   },
   "confirmation": {},
-  "diagnostics": {},
+  "diagnostics": {
+    "coverage_replay_pilot": {
+      "status": "passed",
+      "source_environment_seed": 0,
+      "raw_demo": "demo_45",
+      "resets": 46,
+      "checks": [
+        {
+          "observation_index": 13,
+          "state_max_abs": 1.4901161193847656e-08,
+          "image_mae_255": {
+            "image": 1.5496826171875,
+            "wrist": 5.333658854166667
+          }
+        },
+        {
+          "observation_index": 14,
+          "state_max_abs": 0.0,
+          "image_mae_255": {
+            "image": 1.7666829427083333,
+            "wrist": 6.8947397867838545
+          }
+        },
+        {
+          "observation_index": 15,
+          "state_max_abs": 7.450580596923828e-09,
+          "image_mae_255": {
+            "image": 1.8665262858072917,
+            "wrist": 7.526885986328125
+          }
+        },
+        {
+          "observation_index": 16,
+          "state_max_abs": 2.9802322387695312e-08,
+          "image_mae_255": {
+            "image": 1.7731526692708333,
+            "wrist": 2.0957438151041665
+          }
+        }
+      ],
+      "source_sha256": {
+        "/projects/yanlongvla/research/scripts/coverage_replay_pilot.py": "a4a03a7a106ce31e1502779e4388a8d7420d48d52e5f8d9a19183860567e6382",
+        "/projects/yanlongvla/datasets/libero-calibration-coverage-mixed/initial_states/000134.npz": "34751c3af27027d00ae7c5c85d25fb39b8c0160d43b80655099d6df105b60359"
+      }
+    }
+  },
   "LIBERO": {},
   "coverage_offline": {},
   "validation": {
