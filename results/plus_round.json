@@ -25,7 +25,6 @@
     "entropy": "Expert query attention conditional on valid prefix keys; mean over10Eulersteps,18layers,heads and10actionqueries, nats; also prefix-attention mass. Measured on fixed200 saved Plus inputs."
   },
   "pending": [
-    "s2_fp_scaled",
     "s2_gain_corrected",
     "coverage_mixed_backbone",
     "coverage_mixed_both"
@@ -61,6 +60,18 @@
             ],
             "paired_improvements": 58,
             "paired_regressions": 119
+          },
+          "s2_fp_scaled": {
+            "successes": 766,
+            "episodes": 1000,
+            "success_percent": 76.6,
+            "difference_from_reference_pp": 0.1,
+            "paired_difference_ci95_pp": [
+              -2.6738660145047124,
+              2.893920238926572
+            ],
+            "paired_improvements": 48,
+            "paired_regressions": 47
           },
           "causal_h5a": {
             "successes": 699,
@@ -153,6 +164,18 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "s2_fp_scaled": {
+            "successes": 766,
+            "episodes": 1000,
+            "success_percent": 76.6,
+            "difference_from_reference_pp": 6.2,
+            "paired_difference_ci95_pp": [
+              1.9258233971901344,
+              10.709503184970576
+            ],
+            "paired_improvements": 116,
+            "paired_regressions": 54
           },
           "causal_h5a": {
             "successes": 699,
@@ -248,6 +271,18 @@
             "paired_improvements": 25,
             "paired_regressions": 51
           },
+          "s2_fp_scaled": {
+            "successes": 379,
+            "episodes": 500,
+            "success_percent": 75.8,
+            "difference_from_reference_pp": 1.4000000000000001,
+            "paired_difference_ci95_pp": [
+              -2.6072598114381713,
+              5.6189435891731
+            ],
+            "paired_improvements": 28,
+            "paired_regressions": 21
+          },
           "causal_h5a": {
             "successes": 344,
             "episodes": 500,
@@ -339,6 +374,18 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "s2_fp_scaled": {
+            "successes": 379,
+            "episodes": 500,
+            "success_percent": 75.8,
+            "difference_from_reference_pp": 6.6000000000000005,
+            "paired_difference_ci95_pp": [
+              1.180122442963866,
+              12.050457446864815
+            ],
+            "paired_improvements": 54,
+            "paired_regressions": 21
           },
           "causal_h5a": {
             "successes": 344,
@@ -434,6 +481,18 @@
             "paired_improvements": 33,
             "paired_regressions": 68
           },
+          "s2_fp_scaled": {
+            "successes": 387,
+            "episodes": 500,
+            "success_percent": 77.4,
+            "difference_from_reference_pp": -1.2,
+            "paired_difference_ci95_pp": [
+              -4.789282850180467,
+              2.168887544181442
+            ],
+            "paired_improvements": 20,
+            "paired_regressions": 26
+          },
           "causal_h5a": {
             "successes": 355,
             "episodes": 500,
@@ -525,6 +584,18 @@
             ],
             "paired_improvements": 0,
             "paired_regressions": 0
+          },
+          "s2_fp_scaled": {
+            "successes": 387,
+            "episodes": 500,
+            "success_percent": 77.4,
+            "difference_from_reference_pp": 5.800000000000001,
+            "paired_difference_ci95_pp": [
+              -0.028037611795573937,
+              12.650432274880568
+            ],
+            "paired_improvements": 62,
+            "paired_regressions": 33
           },
           "causal_h5a": {
             "successes": 355,
@@ -3020,6 +3091,10 @@
     "/projects/yanlongvla/runs/plus_round_20261006/selection/bb_M2_ae_M2_fp32/episodes.jsonl": "d1d567ff05b0a02c4c16c25eda3bff45e7de0613cd0538dc6e0389bbb16ae4bc",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/bb_M2_ae_M2_fp32/manifest.json": "b02e6350243a349090eb5337805e60e969cf2a6452475808b54e4750179a43a8",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/bb_M2_ae_M2_fp32/reuse.json": "7d72868b446f1e1ed20131e533d4fdcef34c5d259810e35a02f21258ce0bda64",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/s2_fp_scaled/complete.json": "1fa53007821819f963a6ced69347bc7b555e7ec0a21bf5cf1c2adf777aa814e1",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/s2_fp_scaled/episodes.jsonl": "b90325e6228d443d4f58db122378a322d39ba05b8a129f7fe4898008ce03e35d",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/s2_fp_scaled/manifest.json": "9067e4b1cdbf93e5c82b9ec732dcec9da05c2ad68e60491d2d9055654ef1e4da",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/s2_fp_scaled/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5a/complete.json": "3234d8516bc102be50bb794e67e87c9fd9ea937bbb81953e4b77cf887df13930",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5a/episodes.jsonl": "17cb233f197d5b9699a828dc6acb6850773ca012d92e09472d69b00be8a9e323",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5a/manifest.json": "a9ce0c924afaec92a3b0cce618806beeb18da1512291436ca56ea3ee396a1977",

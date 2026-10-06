@@ -9,13 +9,14 @@ Method/intervention comparisons use the original paired seed7 Plus500camera+500i
 |---|---:|---:|---:|---:|---:|
 | original_fp | 372 | 393 | 765 | +0.00 [+0.00, +0.00] | +6.10 [+1.71, +10.80] |
 | bb_M2_ae_M2_fp32 | 346 | 358 | 704 | -6.10 [-10.80, -1.71] | +0.00 [+0.00, +0.00] |
+| s2_fp_scaled | 379 | 387 | 766 | +0.10 [-2.67, +2.89] | +6.20 [+1.93, +10.71] |
 | causal_h5a | 344 | 355 | 699 | -6.60 [-11.29, -2.10] | -0.50 [-4.14, +2.96] |
 | causal_h5b | 362 | 370 | 732 | -3.30 [-7.15, +0.56] | +2.80 [-0.20, +5.94] |
 | causal_h5c4 | 340 | 360 | 700 | -6.50 [-11.05, -2.30] | -0.40 [-3.46, +2.60] |
 | causal_h5c16 | 341 | 364 | 705 | -6.00 [-10.45, -1.91] | +0.10 [-2.59, +2.64] |
 | expert_only_uniform_M2 | 374 | 387 | 761 | -0.40 [-3.67, +2.73] | +5.70 [+1.52, +9.93] |
 
-Only complete, validated1000-episode rows appear. Pending: s2_fp_scaled, s2_gain_corrected, coverage_mixed_backbone, coverage_mixed_both.
+Only complete, validated1000-episode rows appear. Pending: s2_gain_corrected, coverage_mixed_backbone, coverage_mixed_both.
 
 S1 fits per-layer/type joint-KV gain on training256 only and partitions error energy into mean, centered proportional and orthogonal residual. S2(a) scales FP cachedKV; S2(b) corrects2-bit cachedKV by reciprocal gain. Prefix-conditioned expert-attention entropy and KV errors use fixed200 saved Plus observations. H5a/b/c4/c16 and S2(b) share the table above; coverage includes both-component and backbone-only refits.
 
@@ -86,7 +87,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-06 16:47 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-06 17:40 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
