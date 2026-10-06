@@ -123226,7 +123226,10 @@
   "H5": {
     "h5a": {
       "fit": {
-        "status": "pending"
+        "status": "complete",
+        "variant": "h5a",
+        "checkpoint_sha256": "5f70b4b6ec68ffe0aecb425591713f9f7f243e5857b0f305d98c6226fc14e5ee",
+        "whole_model_bpw": 2.9225899010064036
       },
       "evaluation": {
         "status": "pending"
