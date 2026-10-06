@@ -313,6 +313,16 @@
   "diagnostics": {},
   "LIBERO": {},
   "coverage_offline": {},
+  "validation": {
+    "status": "passed",
+    "tests": 12,
+    "command": "PYTHONPATH=$PWD/tests:$PWD/scripts:$PYTHONPATH envs/openpi/bin/python -m unittest test_plus_round test_story_publish",
+    "scope": "Energy partition; gain mask/padding; nested confirmation; promotion boundaries; dispatch exclusions; report preservation and publication recovery. Not GPU action or quality validation.",
+    "source_sha256": {
+      "/projects/_hdd/yanlongvla/research/tests/test_plus_round.py": "ebfeb1c02318654573564b2b1c95686e52db283c033ed19762cd29aa90bc8fb0",
+      "/projects/_hdd/yanlongvla/research/tests/test_story_publish.py": "ffa080deffd0bc0ba769287400864592584ed4f15837a0767f62a1d8fd012b97"
+    }
+  },
   "source_sha256": {
     "/projects/yanlongvla/runs/plus_round_20261006/selection/original_fp/complete.json": "f6142c370a4352e7386a9a6c5d612027151e68494fa7af6e141b8325eb1fc6b4",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/original_fp/episodes.jsonl": "321fe658ed356b5ab8b6d9346e684ac22ffbe6a83ed75bf385f6ec92e754fac1",

@@ -1039,3 +1039,5 @@ Coverage failure185174 is archived, including its generator and failed clean fra
 Private entry points: plus_round_protocol.py; plus_round_run.py --model MODEL --scope selection|confirmation; plus_round_s1.py; plus_round_diagnostics.py; plus_round_libero.py --model MODEL --stage medium|full; plus_round_controller.py. Runtime/model source hashes from prior accepted work remain untouched. Public scope is report/result files only. Initial11 CPU tests passed (energy decomposition, exact promotion boundaries, nested confirmation, dispatch exclusions, report preservation and publication recovery); numerical L40S action guards remain separate.
 
 E079 background controller: 187269; ledger runs/plus_round_20261006/jobs.json. It owns new dispatch and milestone publication; no browser or foreground session is required.
+
+E079 final CPU validation:12 tests passed, including CPU cache-gain image/language mask and padding preservation. Controller187269 is running with no failed new jobs at05:06UTC. Policy/report commit64db5319addee68a7ab5c5454e9d13055ddb9dc1 is published. S1 and coverage replay remain queued; H5 GPU action guards have no completed proof yet.
