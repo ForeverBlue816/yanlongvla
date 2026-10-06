@@ -21,6 +21,9 @@ Promotion: **awaiting_all_candidates**. Failed current jobs: **none**. Coverage 
 
 [Protocol](PRECISION_2026-10-06.md) · [Results and raw training curves](results/precision_round.json). Older sections below are historical.
 
+
+Protocol amendment: [October7 item2 — D3 reader-subspace mechanism probe](ADDENDUM_2026-10-07_D3.md). Covers all40 tasks offline (1600 observations,32 paired latents), plus three pairedPlus500+500 FP-prefix interventions; reports TV, reader-visible energy and realizability diagnostics. Numerical targets are predictions. The replacement clause is recorded separately because the parent addendum is not yet available; D3 implementation/dispatch is pending.
+
 <!-- PRECISION_ROUND_END -->
 
 <!-- PLUS_ROUND_BEGIN -->
@@ -113,7 +116,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-06 22:44 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-06 23:05 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

@@ -36,3 +36,7 @@ Wait for C1–C4 and both coverage rows, plus any triggered coverageH5b rows. Ch
 The winner receives LIBERO full2000 with the excluding8/9 column1900 alongside, and the existing frozen expandedPlus1000camera+1000initial-state set. Reuse the original500+500 instances; separately report the added1000 and expanded2000. The expanded score overlaps selection and is not independent confirmation. Coverage retains its explicit LIBEROmedium1000/950 exception.
 
 C1/C2 composition proceeds in parallel, followed by their diagnostics/Plus evaluation. C3 runs concurrently; C4 starts after C2 is exported. Coverage continues when its data guard passes. All requested+running GPUs count toward the eight-GPU cap. Server-side Slurm dispatch and milestone-only report publication continue independently of the user's computer.
+
+## Subsequent D3 amendment
+
+The [October7 item2 replacement](ADDENDUM_2026-10-07_D3.md) records the all-task FP-prefix reader-subspace mechanism probe: three offline conditions and three pairedPlus500+500 runs, with TV, E_R and D_M diagnostics. It is a protocol revision, not a completed or dispatched experiment. Numerical targets are predictions; the complete parent addendum remains unavailable in this workspace.

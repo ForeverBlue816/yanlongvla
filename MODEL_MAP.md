@@ -1,3 +1,7 @@
+# October7 D3 protocol amendment
+
+[Item2 replacement](ADDENDUM_2026-10-07_D3.md): three FP-expert policies inject the real2bit prefixKV error, its reader-subspace component, or its orthogonal complement. Offline1600observations/40tasks/32pairedlatents; closed-loop three pairedPlus500+500 runs. No standalone task8/9 evaluation. TV, E_R andk-NN D_M remain diagnostics; listed numerical values are predictions. This is a recorded protocol revision; implementation and scheduling are pending. C1–C5 continue below.
+
 # Active comparison policy — October6 evening C1–C5
 
 [PRECISION_2026-10-06.md](PRECISION_2026-10-06.md) governs the new round. C1 (`hd_srvq_precision_c1`) protects all36 Gemma K/V projections in nativeBF16:3.000463596439 whole-model bpw. C2 (`hd_srvq_precision_c2`) uses3bit linears in Gemma14–17:3.054192145406bpw. Both exports strictly reload; Plus quality evaluation is pending. C3 starts from original2bit with2304updates/16latents/steps0–9; C4 uses originalH5b768updates/8latents/steps0–5 onC2. The uniformM2 expert remains frozen.
