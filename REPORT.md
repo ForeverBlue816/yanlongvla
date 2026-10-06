@@ -5,6 +5,9 @@ This round replaces the previous dispatcher. C1 protects36 Gemma K/V projections
 
 | Model | Whole-model bpw | Camera /500 | Initial state /500 | Total /1000 | Δ vs FP (pp;95%CI) | Δ vs original2bit (pp;95%CI) |
 |---|---:|---:|---:|---:|---:|---:|
+| original_fp | — | 372 | 393 | 765 | +0.00 [+0.00,+0.00] | +6.10 [+1.71,+10.80] |
+| bb_M2_ae_M2_fp32 | — | 346 | 358 | 704 | -6.10 [-10.80,-1.71] | +0.00 [+0.00,+0.00] |
+| previous_h5b | — | 362 | 370 | 732 | -3.30 [-7.15,+0.56] | +2.80 [-0.20,+5.94] |
 
 precision_c1: exact tensor-payload bpw **3.000463596**, change **+0.077873695**; added **32,643,036 bytes** relative to original2bit.
 
@@ -14,7 +17,7 @@ All candidates first receive the same paired seed7 Plus500+500 subset and per-la
 
 CoverageH5b triggers only on positive paired improvement with95%CI lower bound>0, as approved by the user. Promotion remains≥3pp over original2bit with paired95%CI excluding0; wait for core and triggered candidates, freeze one best winner. Final LIBERO2000/1900 and expandedPlus1000+1000 with originalsubset reuse remain unchanged. Coverage also retains medium1000/950.
 
-Promotion: **awaiting_references**. Failed current jobs: **none**. Coverage stage evidence: **{}**. A failed scientific/data check blocks its branch rather than silently retrying or relaxing tolerances.
+Promotion: **awaiting_all_candidates**. Failed current jobs: **none**. Coverage stage evidence: **{}**. A failed scientific/data check blocks its branch rather than silently retrying or relaxing tolerances.
 
 [Protocol](PRECISION_2026-10-06.md) · [Results and raw training curves](results/precision_round.json). Older sections below are historical.
 
@@ -110,7 +113,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-06 22:42 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-06 22:44 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

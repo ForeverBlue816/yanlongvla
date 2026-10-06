@@ -1041,3 +1041,18 @@ Private entry points: plus_round_protocol.py; plus_round_run.py --model MODEL --
 E079 background controller: 187269; ledger runs/plus_round_20261006/jobs.json. It owns new dispatch and milestone publication; no browser or foreground session is required.
 
 E079 final CPU validation:12 tests passed, including CPU cache-gain image/language mask and padding preservation. Controller187269 is running with no failed new jobs at05:06UTC. Policy/report commit64db5319addee68a7ab5c5454e9d13055ddb9dc1 is published. S1 and coverage replay remain queued; H5 GPU action guards have no completed proof yet.
+
+
+### E080 — October6 evening precision interventions and significant coverage trigger
+
+2026-10-06T14:42:53.332446+00:00
+
+User approved C5 follow-up only for a positive Plus paired difference whose95%CI lower bound is strictly positive versus original2bit. Promotion remains>=3pp and paired95%CI lower>0. Immutable policies: PRECISION_2026-10-06.md, runs/precision_20261006/preregistration.json and coverage_trigger.json. Select after C1–C4 and both coverage rows plus any triggered mixed-H5b candidates. No new targeted task8/9 or H4 work. Previous CPU dispatcher187269 stopped; new server-side controller188670 submitted, preserving existing results.
+
+C1/C2 export job188636 completed. Exact whole-model bpw3.0004635964385584 /3.054192145405753, increases0.07787369543215493 /0.13160224439934923 over original2bit2.9225899010064036; added32643036 /55164928tensor bytes. C1 restores36 nativeBF16 K/V projections; C2 substitutes28 accepted3bit linears in Gemma blocks14–17. M2/M3 donor calibration and recipe hashes match. Every exported tensor strictly reloads;2248/2288 unaffected tensors stay exact. These are storage/identity results, not new quality outcomes.
+
+C3 job188637 is running onL40S, original2bit start,2304updates,16latents,steps0–9. C4 starts fromC2 with originalH5b768updates,8latents,steps0–5. Full final-iterate budgets replace the former23hour truncation, with optimizer-state checkpoint/resume. Initial differentiable-forward exact256 action guards precede fitting; graph/eager guards and full diagnostics precede Plus. C1/C2 Plus andC4 submission IDs are in the new ledger.
+
+Coverage generation187281 failed a clean-data guard at observation159 (episode1067), after74 accepted samples. No mixed-data fit is accepted. New pilot188643 checks rawFP64 source actions rather than convertedFP32 actions, on the failed episode and the earlier episode134 control. Source regeneration code executes the raw action values. If this pilot passes, generationv3 writes a separate directory and must pass all256 unchanged clean state/image checks before any fitting. Previous artifacts remain intact; no tolerance relaxation.
+
+Validation: initial18 CPU tests passed; after publisher/controller changes,12 relevant tests passed in1.916s, including preservation of the new policy at the top of public reports and the strict C5 CI boundary. Syntax checks passed. Commands: PYTHONPATH=$PWD/tests:$PWD/scripts:$PYTHONPATH envs/openpi/bin/python -m unittest test_precision_round test_plus_round test_story_publish; repeat test_precision_round test_story_publish after edits. Source hashes: runs/precision_20261006/cpu_validation.json. Private entry points: precision_compose.py --model precision_c1|precision_c2; precision_finetune.py --model MODEL; precision_evaluate.py --model MODEL; precision_controller.py; coverage_exact_actions_pilot_job.py; coverage_generate_v3_job.py. Only report/results/reviewed figures are published.

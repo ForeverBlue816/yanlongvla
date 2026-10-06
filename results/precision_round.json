@@ -47,6 +47,58 @@
     "promotion": "After all core and triggered optional candidates have completePlus1000: maximum successes; lexicographic tie; >=30/1000 over original2bit AND paired95% lowerCI>0. One winner.",
     "confirmation": "Existing frozen expandedPlus1000+1000, reuse originalsubset; report added1000 separately. LIBEROfull2000 plus excluding8/9 column1900. Coverage retains separately authorizedLIBEROmedium1000/950."
   },
+  "cpu_validation": {
+    "status": "passed",
+    "utc": "2026-10-06T14:42:53.332446+00:00",
+    "earlier_regression": {
+      "tests": 18,
+      "modules": [
+        "test_precision_round",
+        "test_plus_round",
+        "test_story_publish"
+      ]
+    },
+    "latest_regression": {
+      "tests": 12,
+      "seconds": 1.916,
+      "modules": [
+        "test_precision_round",
+        "test_story_publish"
+      ]
+    },
+    "syntax": "passed",
+    "scope": "CPU contracts, candidate targets/storage, C5 significance/promotion, dispatch dependencies and report publication. GPU numerical guards remain separate.",
+    "source_sha256": {
+      "scripts/precision_evaluate.py": "452866a4efc703279335d1e442a8b4105498248d898d2173aee6ead10e0b051d",
+      "scripts/precision_runtime.py": "eb25a77a209c03db4e97218ab703efc4ada6dba303fd917ff33e3f611cd5244e",
+      "scripts/precision_finetune.py": "3cef441853a65fbd0b0ebd49ba17f29a702c7bd2e6610c602cd15aae0a4352cd",
+      "scripts/precision_controller.py": "57150e9ee41cfb25c4a076f1ad9fa4e5f6624eb756275c8871772c0a84d3c697",
+      "scripts/precision_protocol.py": "e41c771444216840c17ea8537d06b4689854a4344730dd2016c29deccbbec8dd",
+      "scripts/precision_server.py": "7b01f7338094052d1065ac0028085259b287c1ac04f7b7279e97f80db6f1c151",
+      "scripts/precision_guard.py": "aadec077893472985d9ce608ff3d4f82c4e7c4424e4e186d14361c04aca44432",
+      "scripts/precision_run.py": "394678aeb3422b438eeeb8e0705aaab6bb959845c8f6a504aac323ae62f9f0d7",
+      "scripts/precision_diagnostics.py": "939185880b0d0c600f821299ae20de3bbd5b08d506f58378444ca582d7807864",
+      "scripts/precision_libero.py": "8fb51f12e92866d9261eea8063d155eabfd110444571065e59102ce61da44a3e",
+      "scripts/precision_curves.py": "48f16692a45624d818216b14f20091fd0652d7365b26ddfc69f3738926b9f375",
+      "scripts/precision_summary.py": "d4009ed64997377b96ba3cde9d150a64ea02965e5a5b6d22ca107a6632a2e45b",
+      "scripts/precision_curves_job.py": "b14f44b35ac42cc68e1b1453399be3225f7d42af179286f5de1e779c285be39d",
+      "scripts/precision_compose.py": "574b928d2332315880c7a0f3be1864fdf2835ebf2999562d8af3811f351d575d",
+      "scripts/coverage_generate_v3.py": "de86ec08fb47419b3d3545362c17461ab767e3c6f04df92c8c15d3371c76e491",
+      "scripts/coverage_generate_v3_job.py": "8c6a7d9a8de2bae8af45dced869b2acf0677e4be601389a2ace148913d4b8089",
+      "scripts/coverage_exact_actions_pilot_job.py": "185d7d88d5c18af1abecfb9ddfd3ed65273a00ce42f349082ec936f4e2f77729",
+      "scripts/coverage_exact_actions_pilot.py": "6d54e409bc5220e672fe2ab17a21fb516f9e5c8b919611a24a9695ab01e4579f",
+      "tests/test_precision_round.py": "8d970399c70e18ca1bc17bca15a8c2adb245f980d45b749b20835e4c76d1af4a",
+      "tests/test_story_publish.py": "97208f684556143964e7d488aef21fe2e0c67a9d93412d9e5b4e4492961a77af",
+      "scripts/story_publish.py": "fd570c8ef3fe8339575cf131c92cccb6d421be605ea2811db9a81d7248123d15"
+    },
+    "report_record_updated_utc": "2026-10-06T14:44:08.873728+00:00",
+    "reporting_source_sha256": "c39236e9ff4f2ab241e63de937a370c3bc23115fdfac74564a401a5ea53763a8"
+  },
+  "coverage_trigger_policy": {
+    "criterion": "paired positive gain vsoriginal2bit and95%lowerCI>0",
+    "approved_by_user": true,
+    "promotion_unchanged": true
+  },
   "fit": {
     "precision_c1": {
       "status": "complete",
@@ -104,16 +156,303 @@
       "monitor_scope": "Same indices0,16,...240 and latent0; no held-out/Plus fitting or checkpoint selection"
     }
   },
-  "paired": {},
+  "paired": {
+    "combined": {
+      "original_fp": {
+        "reference": "original_fp",
+        "episodes_per_model": 1000,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "original_fp": {
+            "successes": 765,
+            "episodes": 1000,
+            "success_percent": 76.5,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "bb_M2_ae_M2_fp32": {
+            "successes": 704,
+            "episodes": 1000,
+            "success_percent": 70.39999999999999,
+            "difference_from_reference_pp": -6.1,
+            "paired_difference_ci95_pp": [
+              -10.798019667826594,
+              -1.7108084246459836
+            ],
+            "paired_improvements": 58,
+            "paired_regressions": 119
+          },
+          "previous_h5b": {
+            "successes": 732,
+            "episodes": 1000,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": -3.3000000000000003,
+            "paired_difference_ci95_pp": [
+              -7.150106925848177,
+              0.5565985136446319
+            ],
+            "paired_improvements": 54,
+            "paired_regressions": 87
+          }
+        }
+      },
+      "bb_M2_ae_M2_fp32": {
+        "reference": "bb_M2_ae_M2_fp32",
+        "episodes_per_model": 1000,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "original_fp": {
+            "successes": 765,
+            "episodes": 1000,
+            "success_percent": 76.5,
+            "difference_from_reference_pp": 6.1,
+            "paired_difference_ci95_pp": [
+              1.7108084246459825,
+              10.798019667826592
+            ],
+            "paired_improvements": 119,
+            "paired_regressions": 58
+          },
+          "bb_M2_ae_M2_fp32": {
+            "successes": 704,
+            "episodes": 1000,
+            "success_percent": 70.39999999999999,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "previous_h5b": {
+            "successes": 732,
+            "episodes": 1000,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": 2.8000000000000003,
+            "paired_difference_ci95_pp": [
+              -0.19936767516502307,
+              5.938770063720246
+            ],
+            "paired_improvements": 71,
+            "paired_regressions": 43
+          }
+        }
+      }
+    },
+    "Camera Viewpoints": {
+      "original_fp": {
+        "reference": "original_fp",
+        "episodes_per_model": 500,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "original_fp": {
+            "successes": 372,
+            "episodes": 500,
+            "success_percent": 74.4,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "bb_M2_ae_M2_fp32": {
+            "successes": 346,
+            "episodes": 500,
+            "success_percent": 69.19999999999999,
+            "difference_from_reference_pp": -5.2,
+            "paired_difference_ci95_pp": [
+              -10.323570188492061,
+              -0.02262222503659071
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 51
+          },
+          "previous_h5b": {
+            "successes": 362,
+            "episodes": 500,
+            "success_percent": 72.39999999999999,
+            "difference_from_reference_pp": -2.0,
+            "paired_difference_ci95_pp": [
+              -6.738858648822237,
+              2.7829921624372798
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 37
+          }
+        }
+      },
+      "bb_M2_ae_M2_fp32": {
+        "reference": "bb_M2_ae_M2_fp32",
+        "episodes_per_model": 500,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "original_fp": {
+            "successes": 372,
+            "episodes": 500,
+            "success_percent": 74.4,
+            "difference_from_reference_pp": 5.2,
+            "paired_difference_ci95_pp": [
+              0.022622225036590046,
+              10.32357018849206
+            ],
+            "paired_improvements": 51,
+            "paired_regressions": 25
+          },
+          "bb_M2_ae_M2_fp32": {
+            "successes": 346,
+            "episodes": 500,
+            "success_percent": 69.19999999999999,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "previous_h5b": {
+            "successes": 362,
+            "episodes": 500,
+            "success_percent": 72.39999999999999,
+            "difference_from_reference_pp": 3.2,
+            "paired_difference_ci95_pp": [
+              -0.7725543763085142,
+              6.961305528407306
+            ],
+            "paired_improvements": 33,
+            "paired_regressions": 17
+          }
+        }
+      }
+    },
+    "Robot Initial States": {
+      "original_fp": {
+        "reference": "original_fp",
+        "episodes_per_model": 500,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "original_fp": {
+            "successes": 393,
+            "episodes": 500,
+            "success_percent": 78.60000000000001,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "bb_M2_ae_M2_fp32": {
+            "successes": 358,
+            "episodes": 500,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": -7.000000000000001,
+            "paired_difference_ci95_pp": [
+              -14.228679709862087,
+              -0.6057517210348575
+            ],
+            "paired_improvements": 33,
+            "paired_regressions": 68
+          },
+          "previous_h5b": {
+            "successes": 370,
+            "episodes": 500,
+            "success_percent": 74.0,
+            "difference_from_reference_pp": -4.6,
+            "paired_difference_ci95_pp": [
+              -10.511089240701123,
+              0.9846201283531093
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 50
+          }
+        }
+      },
+      "bb_M2_ae_M2_fp32": {
+        "reference": "bb_M2_ae_M2_fp32",
+        "episodes_per_model": 500,
+        "resamples": 2000,
+        "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+        "policies": {
+          "original_fp": {
+            "successes": 393,
+            "episodes": 500,
+            "success_percent": 78.60000000000001,
+            "difference_from_reference_pp": 7.000000000000001,
+            "paired_difference_ci95_pp": [
+              0.6057517210348554,
+              14.228679709862085
+            ],
+            "paired_improvements": 68,
+            "paired_regressions": 33
+          },
+          "bb_M2_ae_M2_fp32": {
+            "successes": 358,
+            "episodes": 500,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              0.0,
+              0.0
+            ],
+            "paired_improvements": 0,
+            "paired_regressions": 0
+          },
+          "previous_h5b": {
+            "successes": 370,
+            "episodes": 500,
+            "success_percent": 74.0,
+            "difference_from_reference_pp": 2.4,
+            "paired_difference_ci95_pp": [
+              -2.1901926135819343,
+              7.400432027649758
+            ],
+            "paired_improvements": 38,
+            "paired_regressions": 26
+          }
+        }
+      }
+    }
+  },
   "coverage_triggers": {},
   "coverage": {},
   "failed_jobs": [],
   "promotion": {
-    "status": "awaiting_references"
+    "status": "awaiting_all_candidates",
+    "required": [
+      "precision_c1",
+      "precision_c2",
+      "precision_c3",
+      "precision_c4",
+      "coverage_mixed_backbone",
+      "coverage_mixed_both"
+    ]
   },
   "confirmation": {},
   "LIBERO": {},
   "source_sha256": {
+    "/projects/yanlongvla/runs/precision_20261006/selection/original_fp/complete.json": "e0c224abd4958ef4d116d0e4a26099d1c2f8e431f20d2fc151b0c5a523982dd3",
+    "/projects/yanlongvla/runs/precision_20261006/selection/original_fp/episodes.jsonl": "321fe658ed356b5ab8b6d9346e684ac22ffbe6a83ed75bf385f6ec92e754fac1",
+    "/projects/yanlongvla/runs/precision_20261006/selection/original_fp/manifest.json": "a4ad7215d7f9f93d6ba596d509dfdaaf2f4411561d312912040f3151f8dd5f41",
+    "/projects/yanlongvla/runs/precision_20261006/selection/original_fp/reuse.json": "67a3320f446020c4500c5edd7a5c8bf9a6c9d6dba911a7c25b150bf18c0a41ba",
+    "/projects/yanlongvla/runs/precision_20261006/selection/bb_M2_ae_M2_fp32/complete.json": "53dc12763e1c4f501ec93122141eaacbce2adfd047428f3a258f9d04e86474aa",
+    "/projects/yanlongvla/runs/precision_20261006/selection/bb_M2_ae_M2_fp32/episodes.jsonl": "d1d567ff05b0a02c4c16c25eda3bff45e7de0613cd0538dc6e0389bbb16ae4bc",
+    "/projects/yanlongvla/runs/precision_20261006/selection/bb_M2_ae_M2_fp32/manifest.json": "0f344a0d01236c63e9211de8a164c25713cea1826ed0c20d22113c8b4a99983e",
+    "/projects/yanlongvla/runs/precision_20261006/selection/bb_M2_ae_M2_fp32/reuse.json": "7d72868b446f1e1ed20131e533d4fdcef34c5d259810e35a02f21258ce0bda64",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/complete.json": "bd3aa7d403f140743bd5675f21d903c0b399bcaf6e9ed0581b197887461855ca",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",

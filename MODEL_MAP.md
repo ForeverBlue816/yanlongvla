@@ -1,3 +1,9 @@
+# Active comparison policy — October6 evening C1–C5
+
+[PRECISION_2026-10-06.md](PRECISION_2026-10-06.md) governs the new round. C1 (`hd_srvq_precision_c1`) protects all36 Gemma K/V projections in nativeBF16:3.000463596439 whole-model bpw. C2 (`hd_srvq_precision_c2`) uses3bit linears in Gemma14–17:3.054192145406bpw. Both exports strictly reload; Plus quality evaluation is pending. C3 starts from original2bit with2304updates/16latents/steps0–9; C4 uses originalH5b768updates/8latents/steps0–5 onC2. The uniformM2 expert remains frozen.
+
+Both mixed-calibration coverage variants remain conditional on accepted data generation. A positive paired Plus gain with95%CI lower>0 triggers originalH5b fitting on that variant and the mixed256; this user-approved trigger does not change the>=3pp promotion gate. All selection uses paired seed7 Plus500+500. Candidate diagnostics include per-layer/type K/V errors, prefix attention entropy and S1 energy decomposition. The winner retains LIBERO2000/1900 and nested expandedPlus2000; coverage retains medium1000/950. Older sections below describe historical rounds.
+
 # Active comparison policy — October6
 
 The new authority is [PLUS_ROUND_2026-10-06.md](PLUS_ROUND_2026-10-06.md). H5a/b/c4/c16 and S2 cached-KV gain correction are evaluated on fixed Plus500+500, alongside the two mixed-calibration coverage variants. The four H5 fit artifacts are complete; new evaluation remains pending validation/results. S2 gains are fit from original training256 only; an S2 deployment requires the gain artifact and cache transform in addition to the original2-bit checkpoint. No standalone task8/9 or H4/H4b work remains.
