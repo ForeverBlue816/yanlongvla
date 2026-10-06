@@ -14,9 +14,10 @@ Method/intervention comparisons use the original paired seed7 Plus500camera+500i
 | causal_h5b | 362 | 370 | 732 | -3.30 [-7.15, +0.56] | +2.80 [-0.20, +5.94] |
 | causal_h5c4 | 340 | 360 | 700 | -6.50 [-11.05, -2.30] | -0.40 [-3.46, +2.60] |
 | causal_h5c16 | 341 | 364 | 705 | -6.00 [-10.45, -1.91] | +0.10 [-2.59, +2.64] |
+| s2_gain_corrected | 335 | 370 | 705 | -6.00 [-10.66, -1.47] | +0.10 [-2.27, +2.42] |
 | expert_only_uniform_M2 | 374 | 387 | 761 | -0.40 [-3.67, +2.73] | +5.70 [+1.52, +9.93] |
 
-Only complete, validated1000-episode rows appear. Pending: s2_gain_corrected, coverage_mixed_backbone, coverage_mixed_both.
+Only complete, validated1000-episode rows appear. Pending: coverage_mixed_backbone, coverage_mixed_both.
 
 S1 fits per-layer/type joint-KV gain on training256 only and partitions error energy into mean, centered proportional and orthogonal residual. S2(a) scales FP cachedKV; S2(b) corrects2-bit cachedKV by reciprocal gain. Prefix-conditioned expert-attention entropy and KV errors use fixed200 saved Plus observations. H5a/b/c4/c16 and S2(b) share the table above; coverage includes both-component and backbone-only refits.
 
@@ -87,7 +88,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-06 17:40 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-06 18:36 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
