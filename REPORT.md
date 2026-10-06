@@ -1,3 +1,25 @@
+<!-- PRECISION_ROUND_BEGIN -->
+# Current round — C1–C5 precision interventions, October6 evening
+
+This round replaces the previous dispatcher. C1 protects36 Gemma K/V projections in nativeBF16; C2 uses3bit for all28 eligible Linear layers in Gemma14–17 and2bit elsewhere. C3 starts from original2bit and runs2304 updates,16 latents andsteps0–9. C4 uses originalH5b budget onC2. Expert remains uniformM2. No new weighting scheme or targeted task8/9 evaluation.
+
+| Model | Whole-model bpw | Camera /500 | Initial state /500 | Total /1000 | Δ vs FP (pp;95%CI) | Δ vs original2bit (pp;95%CI) |
+|---|---:|---:|---:|---:|---:|---:|
+
+precision_c1: exact tensor-payload bpw **3.000463596**, change **+0.077873695**; added **32,643,036 bytes** relative to original2bit.
+
+precision_c2: exact tensor-payload bpw **3.054192145**, change **+0.131602244**; added **55,164,928 bytes** relative to original2bit.
+
+All candidates first receive the same paired seed7 Plus500+500 subset and per-layer image/language K/V errors, attention entropy and S1 decomposition. Only complete1000-episode outcomes enter the table. Raw training curves are included in the result artifact; figures have a separate visual-review gate.
+
+CoverageH5b triggers only on positive paired improvement with95%CI lower bound>0, as approved by the user. Promotion remains≥3pp over original2bit with paired95%CI excluding0; wait for core and triggered candidates, freeze one best winner. Final LIBERO2000/1900 and expandedPlus1000+1000 with originalsubset reuse remain unchanged. Coverage also retains medium1000/950.
+
+Promotion: **awaiting_references**. Failed current jobs: **none**. Coverage stage evidence: **{}**. A failed scientific/data check blocks its branch rather than silently retrying or relaxing tolerances.
+
+[Protocol](PRECISION_2026-10-06.md) · [Results and raw training curves](results/precision_round.json). Older sections below are historical.
+
+<!-- PRECISION_ROUND_END -->
+
 <!-- PLUS_ROUND_BEGIN -->
 # Current round — Plus selection, October 6
 
@@ -88,7 +110,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-06 18:36 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-06 22:42 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

@@ -1,0 +1,122 @@
+{
+  "status": "in_progress",
+  "policy": {
+    "date": "2026-10-06 evening",
+    "seed": 7,
+    "max_gpus": 8,
+    "core_candidates": [
+      "precision_c1",
+      "precision_c2",
+      "precision_c3",
+      "precision_c4",
+      "coverage_mixed_backbone",
+      "coverage_mixed_both"
+    ],
+    "optional_candidates": [
+      "precision_c5_backbone_h5b",
+      "precision_c5_both_h5b"
+    ],
+    "C1": "Restore36 Gemma language K/V projections to exact originalBF16, no RHT; all other tensors retained.",
+    "C2": "Gemma language layers14-17: all28 quantizable Linear layers from accepted original-recipeM3; all other tensors originalM2.",
+    "C3": {
+      "base": "bb_M2_ae_M2_fp32",
+      "epochs": 9,
+      "latents": 16,
+      "steps": 10,
+      "bank": "original"
+    },
+    "C4": {
+      "base": "precision_c2",
+      "epochs": 3,
+      "latents": 8,
+      "steps": 6,
+      "bank": "original"
+    },
+    "optimizer": {
+      "name": "Adam",
+      "lr": 0.0003,
+      "clip": 1.0,
+      "trainable": "backbone codebooks only; FP32 masters,FP16 roundtrip; codes/scales/norms/expert frozen"
+    },
+    "C3_steps": 2304,
+    "C4_steps": 768,
+    "training": "Final fixed update count; no early stopping or23h truncation; resumable across Slurm time limits. OriginalH5b had768 completed updates. C3 starts from original2bit, not H5b.",
+    "diagnostics": "Every candidate: original training256 and savedPlus200, per-layer/image-language/K-V KV energy and S1 mean/centered-proportional/orthogonal split; savedPlus200 prefix attention entropy, same definition as S2.",
+    "curves": "Every training update: cosine loss and current-observation pre-update KV relative error. Every64 updates plus0/final: same fixed16 training observations, cosine and KV errors; raw curves stored.",
+    "selection": "Original fixed paired seed7 Plus500camera+500initial-state; pairedvsFP andoriginal2bit. No targeted LIBERO8/9 or new weighting schemes.",
+    "promotion": "After all core and triggered optional candidates have completePlus1000: maximum successes; lexicographic tie; >=30/1000 over original2bit AND paired95% lowerCI>0. One winner.",
+    "confirmation": "Existing frozen expandedPlus1000+1000, reuse originalsubset; report added1000 separately. LIBEROfull2000 plus excluding8/9 column1900. Coverage retains separately authorizedLIBEROmedium1000/950."
+  },
+  "fit": {
+    "precision_c1": {
+      "status": "complete",
+      "model": "precision_c1",
+      "checkpoint_sha256": "0f2ec7135d69e5729f0d1062b3dc00a1858e7770a153dbd298e2c75cf1f2cb50",
+      "whole_model_bpw": 3.0004635964385584,
+      "delta_bpw": 0.07787369543215493,
+      "delta_payload_bytes": 32643036,
+      "modified_layers": 36,
+      "strict_reload_all_tensors": true,
+      "unchanged_tensor_count": 2248,
+      "contract": {
+        "model": "precision_c1",
+        "base_sha256": "a4cfd235e2bcde4ea2199b721c2d3dcb7d6c98ce05d3c579b432736341c83201",
+        "donor_sha256": "ffddb8a0550cedfc168edd7b152329bce0a424cf787eec40da21270d9ae411bf",
+        "source_sha256": "574b928d2332315880c7a0f3be1864fdf2835ebf2999562d8af3811f351d575d"
+      }
+    },
+    "precision_c2": {
+      "status": "complete",
+      "model": "precision_c2",
+      "checkpoint_sha256": "638c36ffa911900f65ed70086e05ef65136b4cdea082e50d9db8ef48839d7a8a",
+      "whole_model_bpw": 3.054192145405753,
+      "delta_bpw": 0.13160224439934923,
+      "delta_payload_bytes": 55164928,
+      "modified_layers": 28,
+      "strict_reload_all_tensors": true,
+      "unchanged_tensor_count": 2288,
+      "contract": {
+        "model": "precision_c2",
+        "base_sha256": "a4cfd235e2bcde4ea2199b721c2d3dcb7d6c98ce05d3c579b432736341c83201",
+        "donor_sha256": "2b3e8058dc24db788b8f62611a83c64aaf87c790e6efa78bd95df249e8d51b1d",
+        "source_sha256": "574b928d2332315880c7a0f3be1864fdf2835ebf2999562d8af3811f351d575d"
+      }
+    }
+  },
+  "diagnostics": {},
+  "training_curves": {
+    "precision_c3": {
+      "status": "training",
+      "training_updates": [],
+      "fixed_training16": [
+        {
+          "update": 0,
+          "cosine_loss": 0.0015047837048768997,
+          "observations": 16,
+          "latents": 1,
+          "latent_index": 0,
+          "KV": {
+            "image": 0.06329194393225154,
+            "language": 0.2167562653605133
+          }
+        }
+      ],
+      "monitor_scope": "Same indices0,16,...240 and latent0; no held-out/Plus fitting or checkpoint selection"
+    }
+  },
+  "paired": {},
+  "coverage_triggers": {},
+  "coverage": {},
+  "failed_jobs": [],
+  "promotion": {
+    "status": "awaiting_references"
+  },
+  "confirmation": {},
+  "LIBERO": {},
+  "source_sha256": {
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/complete.json": "bd3aa7d403f140743bd5675f21d903c0b399bcaf6e9ed0581b197887461855ca",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328"
+  }
+}
