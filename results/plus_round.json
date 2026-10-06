@@ -26,7 +26,6 @@
   },
   "pending": [
     "s2_fp_scaled",
-    "causal_h5c4",
     "causal_h5c16",
     "s2_gain_corrected",
     "coverage_mixed_backbone",
@@ -87,6 +86,18 @@
             ],
             "paired_improvements": 54,
             "paired_regressions": 87
+          },
+          "causal_h5c4": {
+            "successes": 700,
+            "episodes": 1000,
+            "success_percent": 70.0,
+            "difference_from_reference_pp": -6.5,
+            "paired_difference_ci95_pp": [
+              -11.050899957821866,
+              -2.296791775350934
+            ],
+            "paired_improvements": 57,
+            "paired_regressions": 122
           },
           "expert_only_uniform_M2": {
             "successes": 761,
@@ -155,6 +166,18 @@
             ],
             "paired_improvements": 71,
             "paired_regressions": 43
+          },
+          "causal_h5c4": {
+            "successes": 700,
+            "episodes": 1000,
+            "success_percent": 70.0,
+            "difference_from_reference_pp": -0.4,
+            "paired_difference_ci95_pp": [
+              -3.4551855578063457,
+              2.5980486244522214
+            ],
+            "paired_improvements": 60,
+            "paired_regressions": 64
           },
           "expert_only_uniform_M2": {
             "successes": 761,
@@ -226,6 +249,18 @@
             "paired_improvements": 27,
             "paired_regressions": 37
           },
+          "causal_h5c4": {
+            "successes": 340,
+            "episodes": 500,
+            "success_percent": 68.0,
+            "difference_from_reference_pp": -6.4,
+            "paired_difference_ci95_pp": [
+              -11.849846043494239,
+              -1.2275943017792983
+            ],
+            "paired_improvements": 23,
+            "paired_regressions": 55
+          },
           "expert_only_uniform_M2": {
             "successes": 374,
             "episodes": 500,
@@ -293,6 +328,18 @@
             ],
             "paired_improvements": 33,
             "paired_regressions": 17
+          },
+          "causal_h5c4": {
+            "successes": 340,
+            "episodes": 500,
+            "success_percent": 68.0,
+            "difference_from_reference_pp": -1.2,
+            "paired_difference_ci95_pp": [
+              -5.426608863745562,
+              3.0210921688054424
+            ],
+            "paired_improvements": 26,
+            "paired_regressions": 32
           },
           "expert_only_uniform_M2": {
             "successes": 374,
@@ -364,6 +411,18 @@
             "paired_improvements": 27,
             "paired_regressions": 50
           },
+          "causal_h5c4": {
+            "successes": 360,
+            "episodes": 500,
+            "success_percent": 72.0,
+            "difference_from_reference_pp": -6.6000000000000005,
+            "paired_difference_ci95_pp": [
+              -12.822547326643468,
+              -1.0043994759393728
+            ],
+            "paired_improvements": 34,
+            "paired_regressions": 67
+          },
           "expert_only_uniform_M2": {
             "successes": 387,
             "episodes": 500,
@@ -431,6 +490,18 @@
             ],
             "paired_improvements": 38,
             "paired_regressions": 26
+          },
+          "causal_h5c4": {
+            "successes": 360,
+            "episodes": 500,
+            "success_percent": 72.0,
+            "difference_from_reference_pp": 0.4,
+            "paired_difference_ci95_pp": [
+              -4.517309368984169,
+              5.413993059354273
+            ],
+            "paired_improvements": 34,
+            "paired_regressions": 32
           },
           "expert_only_uniform_M2": {
             "successes": 387,
@@ -2886,6 +2957,10 @@
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5c4/complete.json": "10200cbd0cc5986683b90585b4853eb95a355590386455dad730cbcbee6257c2",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5c4/episodes.jsonl": "99c08aae1e494cd5390e5844fc906e00a9858e602d90bfd86d8724c8ac91b6d2",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5c4/manifest.json": "f433b02a80bd098bb05f6b623d4fb7c835ec0f897efaac7a9430320d775a469a",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5c4/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/structure_20261005/plus/a_M2/complete.json": "2e214253ac83c48eb11d3341e7c9b114be4dca96a99b4fedee18d6faaa9e5d17"
   }
 }
