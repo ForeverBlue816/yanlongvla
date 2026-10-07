@@ -8922,6 +8922,4384 @@
         "/projects/yanlongvla/runs/precision_20261006/diagnostics/precision_c2/precision_c2.json": "b0ce4b11fc69760bb055d7ec1831403790e05cd97eccfb2bd14a372f9aabe944",
         "/projects/yanlongvla/runs/precision_20261006/diagnostics/precision_c2/manifest.json": "2873022a549fbc722a54ea9df5a671ea223c575317fd4bf685ae339bd323c658"
       }
+    },
+    "precision_c4": {
+      "status": "complete",
+      "observations": 200,
+      "training_observations": 256,
+      "summary": {
+        "precision_c4": {
+          "all": {
+            "observations": 200,
+            "entropy_nats": 3.054159404216541,
+            "prefix_mass": 0.7629992428407487,
+            "KV_relative_error": {
+              "all": 0.09093567019917646,
+              "image": 0.08809037961298924,
+              "language_state": 0.41323883277063883
+            }
+          },
+          "Camera Viewpoints": {
+            "observations": 100,
+            "entropy_nats": 3.00504031971097,
+            "prefix_mass": 0.7612746045746737,
+            "KV_relative_error": {
+              "all": 0.08560722539925726,
+              "image": 0.08247329756409164,
+              "language_state": 0.449041317969148
+            }
+          },
+          "Robot Initial States": {
+            "observations": 100,
+            "entropy_nats": 3.103278488722113,
+            "prefix_mass": 0.7647238811068238,
+            "KV_relative_error": {
+              "all": 0.09688405887925036,
+              "image": 0.09436368386662233,
+              "language_state": 0.3751685638577219
+            }
+          }
+        }
+      },
+      "structures": {
+        "precision_c4": {
+          "training256": [
+            {
+              "layer": 0,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 50881195.48212524,
+              "error_energy": 1305434.1967824136,
+              "relative_error": 0.02565651581911077,
+              "alpha": -0.013323864702979724,
+              "centered_alpha": -0.022393948420798965,
+              "mean_energy": 96065.9973914811,
+              "proportional_energy": 18476.352543467878,
+              "orthogonal_residual_energy": 1190891.8468474646,
+              "fractions": {
+                "mean": 0.07358930662936596,
+                "proportional": 0.014153415460547696,
+                "orthogonal_residual": 0.9122572779100863
+              },
+              "raw_proportional_fit_residual_energy": 1296401.4936966924
+            },
+            {
+              "layer": 0,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 41905954.28832785,
+              "error_energy": 2258745.0458007283,
+              "relative_error": 0.053900336698211426,
+              "alpha": -0.05683607830318557,
+              "centered_alpha": -0.05486626306564959,
+              "mean_energy": 349956.9377130529,
+              "proportional_energy": 89724.89355025205,
+              "orthogonal_residual_energy": 1819063.2145374233,
+              "fractions": {
+                "mean": 0.154934235877424,
+                "proportional": 0.039723338283380476,
+                "orthogonal_residual": 0.8053424258391956
+              },
+              "raw_proportional_fit_residual_energy": 2123374.573936664
+            },
+            {
+              "layer": 0,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 92787149.77045308,
+              "error_energy": 3564179.242583138,
+              "relative_error": 0.0384124229637465,
+              "alpha": -0.0329755173146308,
+              "centered_alpha": -0.03691581771562415,
+              "mean_energy": 446022.93510453403,
+              "proportional_energy": 90827.61229562019,
+              "orthogonal_residual_energy": 3027328.6951829838,
+              "fractions": {
+                "mean": 0.12514043339225528,
+                "proportional": 0.02548345807372833,
+                "orthogonal_residual": 0.8493761085340165
+              },
+              "raw_proportional_fit_residual_energy": 3463283.911653535
+            },
+            {
+              "layer": 0,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1673746.4020544302,
+              "error_energy": 14111.256806200836,
+              "relative_error": 0.008430940785820394,
+              "alpha": -0.0159185313266438,
+              "centered_alpha": -0.022662486785044723,
+              "mean_energy": 1400.3475771599299,
+              "proportional_energy": 584.3871670069154,
+              "orthogonal_residual_energy": 12126.522062033991,
+              "fractions": {
+                "mean": 0.09923620527865261,
+                "proportional": 0.041412836222364066,
+                "orthogonal_residual": 0.8593509584989834
+              },
+              "raw_proportional_fit_residual_energy": 13687.1300711429
+            },
+            {
+              "layer": 0,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 1802544.7050599586,
+              "error_energy": 15769.641236475669,
+              "relative_error": 0.00874854376271967,
+              "alpha": -0.015278061006176716,
+              "centered_alpha": -0.024726365943552184,
+              "mean_energy": 2017.9639505416274,
+              "proportional_energy": 436.43371760709135,
+              "orthogonal_residual_energy": 13315.24356832695,
+              "fractions": {
+                "mean": 0.12796511475949207,
+                "proportional": 0.02767556414648208,
+                "orthogonal_residual": 0.8443593210940259
+              },
+              "raw_proportional_fit_residual_energy": 15348.892786993163
+            },
+            {
+              "layer": 0,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 3476291.1071144072,
+              "error_energy": 29880.898042676505,
+              "relative_error": 0.008595625947874079,
+              "alpha": -0.015586431295509007,
+              "centered_alpha": -0.023458123090089582,
+              "mean_energy": 3418.3115277015568,
+              "proportional_energy": 1018.9524220538423,
+              "orthogonal_residual_energy": 25443.634092921107,
+              "fractions": {
+                "mean": 0.11439788465592483,
+                "proportional": 0.034100461793301985,
+                "orthogonal_residual": 0.8515016535507732
+              },
+              "raw_proportional_fit_residual_energy": 29036.378864352908
+            },
+            {
+              "layer": 1,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 67286437.65816534,
+              "error_energy": 1155989.6994215478,
+              "relative_error": 0.01718012930472425,
+              "alpha": 0.04223972967877273,
+              "centered_alpha": 0.03045616106390807,
+              "mean_energy": 210031.97173964087,
+              "proportional_energy": 29240.132817731737,
+              "orthogonal_residual_energy": 916717.5948641752,
+              "fractions": {
+                "mean": 0.18169017582487107,
+                "proportional": 0.025294457928442936,
+                "orthogonal_residual": 0.793015366246686
+              },
+              "raw_proportional_fit_residual_energy": 1035937.589708329
+            },
+            {
+              "layer": 1,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 19468600.537909783,
+              "error_energy": 1363895.5396575623,
+              "relative_error": 0.07005616746831639,
+              "alpha": 0.002299424767507215,
+              "centered_alpha": -0.005679745988063308,
+              "mean_energy": 163219.08185825494,
+              "proportional_energy": 576.1146337125062,
+              "orthogonal_residual_energy": 1200100.3431655949,
+              "fractions": {
+                "mean": 0.11967124835618635,
+                "proportional": 0.00042240378163943055,
+                "orthogonal_residual": 0.8799063478621743
+              },
+              "raw_proportional_fit_residual_energy": 1363792.6022695443
+            },
+            {
+              "layer": 1,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 86755038.19607511,
+              "error_energy": 2519885.2390791066,
+              "relative_error": 0.029045981553070296,
+              "alpha": 0.03327677077922929,
+              "centered_alpha": 0.01738775524369731,
+              "mean_energy": 373251.0535978958,
+              "proportional_energy": 14929.816313318557,
+              "orthogonal_residual_energy": 2131704.3691678923,
+              "fractions": {
+                "mean": 0.14812224295353252,
+                "proportional": 0.0059248000987436504,
+                "orthogonal_residual": 0.8459529569477239
+              },
+              "raw_proportional_fit_residual_energy": 2423817.613740015
+            },
+            {
+              "layer": 1,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 919622.248541601,
+              "error_energy": 10661.197951799353,
+              "relative_error": 0.011593018729925901,
+              "alpha": 0.00855604207712288,
+              "centered_alpha": 0.008387836204100956,
+              "mean_energy": 1312.855667178571,
+              "proportional_energy": 30.75680122398436,
+              "orthogonal_residual_energy": 9317.585483396799,
+              "fractions": {
+                "mean": 0.12314335341245516,
+                "proportional": 0.002884929194921604,
+                "orthogonal_residual": 0.8739717173926234
+              },
+              "raw_proportional_fit_residual_energy": 10593.876217874773
+            },
+            {
+              "layer": 1,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 205520.42428604455,
+              "error_energy": 14559.741500894925,
+              "relative_error": 0.0708432826152139,
+              "alpha": -0.02176398305417016,
+              "centered_alpha": -0.023322455807064244,
+              "mean_energy": 2083.4476417570227,
+              "proportional_energy": 106.24285799788431,
+              "orthogonal_residual_energy": 12370.051001140018,
+              "fractions": {
+                "mean": 0.14309647198262154,
+                "proportional": 0.007297029139655675,
+                "orthogonal_residual": 0.8496064988777229
+              },
+              "raw_proportional_fit_residual_energy": 14462.392444556237
+            },
+            {
+              "layer": 1,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 1125142.6728276464,
+              "error_energy": 25220.93945269428,
+              "relative_error": 0.02241577007235039,
+              "alpha": 0.003017736065062636,
+              "centered_alpha": -0.0014048683456580086,
+              "mean_energy": 3396.303308935594,
+              "proportional_energy": 1.248303048459485,
+              "orthogonal_residual_energy": 21823.38784071023,
+              "fractions": {
+                "mean": 0.13466204600767862,
+                "proportional": 4.9494708585335126e-05,
+                "orthogonal_residual": 0.8652884592837362
+              },
+              "raw_proportional_fit_residual_energy": 25210.69308108305
+            },
+            {
+              "layer": 2,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 70936754.34458183,
+              "error_energy": 1740750.78382741,
+              "relative_error": 0.024539476043287132,
+              "alpha": 0.017434393065167544,
+              "centered_alpha": 0.005997648374291242,
+              "mean_energy": 160515.08506842545,
+              "proportional_energy": 1676.968546367661,
+              "orthogonal_residual_energy": 1578558.730212617,
+              "fractions": {
+                "mean": 0.09221026154904206,
+                "proportional": 0.0009633593515784549,
+                "orthogonal_residual": 0.9068263790993795
+              },
+              "raw_proportional_fit_residual_energy": 1719188.9854841284
+            },
+            {
+              "layer": 2,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 16442648.625281358,
+              "error_energy": 1253706.6060217535,
+              "relative_error": 0.07624724182782326,
+              "alpha": -0.01264816947082732,
+              "centered_alpha": -0.01780582672686109,
+              "mean_energy": 113971.05989902682,
+              "proportional_energy": 4953.55209893282,
+              "orthogonal_residual_energy": 1134781.9940237938,
+              "fractions": {
+                "mean": 0.09090728193630437,
+                "proportional": 0.003951125466787936,
+                "orthogonal_residual": 0.9051415925969076
+              },
+              "raw_proportional_fit_residual_energy": 1251076.173725342
+            },
+            {
+              "layer": 2,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 87379402.9698632,
+              "error_energy": 2994457.3898491655,
+              "relative_error": 0.034269602309848025,
+              "alpha": 0.01177359671367477,
+              "centered_alpha": 2.258837088934191e-05,
+              "mean_energy": 274486.1449674523,
+              "proportional_energy": 0.0317585278967914,
+              "orthogonal_residual_energy": 2719971.2131231856,
+              "fractions": {
+                "mean": 0.09166473562052539,
+                "proportional": 1.0605770516037003e-08,
+                "orthogonal_residual": 0.9083352537737042
+              },
+              "raw_proportional_fit_residual_energy": 2982345.068504665
+            },
+            {
+              "layer": 2,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1298997.8304483336,
+              "error_energy": 55758.76566533992,
+              "relative_error": 0.04292444864676598,
+              "alpha": -0.021952704657622106,
+              "centered_alpha": -0.042095002786220435,
+              "mean_energy": 2523.1928494220742,
+              "proportional_energy": 1507.885567571208,
+              "orthogonal_residual_energy": 51727.68724834663,
+              "fractions": {
+                "mean": 0.045251949524243336,
+                "proportional": 0.02704302273514138,
+                "orthogonal_residual": 0.9277050277406151
+              },
+              "raw_proportional_fit_residual_energy": 55132.75101781452
+            },
+            {
+              "layer": 2,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 334250.90130613337,
+              "error_energy": 40445.09401921542,
+              "relative_error": 0.12100219883078972,
+              "alpha": -0.09355505104739559,
+              "centered_alpha": -0.09499077836957497,
+              "mean_energy": 1979.6130550623213,
+              "proportional_energy": 2859.350844712107,
+              "orthogonal_residual_energy": 35606.130119441,
+              "fractions": {
+                "mean": 0.04894569052359748,
+                "proportional": 0.07069709971136752,
+                "orthogonal_residual": 0.8803572097650351
+              },
+              "raw_proportional_fit_residual_energy": 37519.547103051904
+            },
+            {
+              "layer": 2,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 1633248.7317544671,
+              "error_energy": 96203.85968455531,
+              "relative_error": 0.058903373267102606,
+              "alpha": -0.03660641192896115,
+              "centered_alpha": -0.05644794394096004,
+              "mean_energy": 4502.805904484396,
+              "proportional_energy": 3721.1818571360054,
+              "orthogonal_residual_energy": 87979.87192293491,
+              "fractions": {
+                "mean": 0.04680483630541158,
+                "proportional": 0.03868017218163035,
+                "orthogonal_residual": 0.914514991512958
+              },
+              "raw_proportional_fit_residual_energy": 94015.25837578023
+            },
+            {
+              "layer": 3,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 64643982.62531566,
+              "error_energy": 1633836.8540584499,
+              "relative_error": 0.02527438421497583,
+              "alpha": 0.016714733561131727,
+              "centered_alpha": 0.0015321137823356324,
+              "mean_energy": 164364.63850108773,
+              "proportional_energy": 95.46015409481826,
+              "orthogonal_residual_energy": 1469376.7554032675,
+              "fractions": {
+                "mean": 0.10060039843807296,
+                "proportional": 5.8426980550533726e-05,
+                "orthogonal_residual": 0.8993411745813766
+              },
+              "raw_proportional_fit_residual_energy": 1615776.468346569
+            },
+            {
+              "layer": 3,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 16085413.502655927,
+              "error_energy": 1350697.5808659457,
+              "relative_error": 0.0839703362703686,
+              "alpha": -0.01939074808895822,
+              "centered_alpha": -0.027125292425661793,
+              "mean_energy": 125925.42421005187,
+              "proportional_energy": 10227.840543797745,
+              "orthogonal_residual_energy": 1214544.3161120962,
+              "fractions": {
+                "mean": 0.09322991763213186,
+                "proportional": 0.007572265389888812,
+                "orthogonal_residual": 0.8991978169779794
+              },
+              "raw_proportional_fit_residual_energy": 1344649.4475108234
+            },
+            {
+              "layer": 3,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 80729396.12797156,
+              "error_energy": 2984534.434924395,
+              "relative_error": 0.03696961179039833,
+              "alpha": 0.009520679970868048,
+              "centered_alpha": -0.005768144858132264,
+              "mean_energy": 290290.0627111396,
+              "proportional_energy": 1815.5409150694086,
+              "orthogonal_residual_energy": 2692428.8312981855,
+              "fractions": {
+                "mean": 0.09726477245972648,
+                "proportional": 0.0006083162900800642,
+                "orthogonal_residual": 0.9021269112501934
+              },
+              "raw_proportional_fit_residual_energy": 2977216.852249373
+            },
+            {
+              "layer": 3,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1253426.3016345522,
+              "error_energy": 47981.500966266496,
+              "relative_error": 0.0382802729635523,
+              "alpha": -0.02849904333092858,
+              "centered_alpha": -0.04965995483430457,
+              "mean_energy": 2267.0375293425086,
+              "proportional_energy": 1862.52874443477,
+              "orthogonal_residual_energy": 43851.934692489216,
+              "fractions": {
+                "mean": 0.047248157804324516,
+                "proportional": 0.0388176423606303,
+                "orthogonal_residual": 0.9139341998350452
+              },
+              "raw_proportional_fit_residual_energy": 46963.47380112471
+            },
+            {
+              "layer": 3,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 407187.12641631364,
+              "error_energy": 55567.93109300778,
+              "relative_error": 0.13646779941710233,
+              "alpha": -0.12389616225346879,
+              "centered_alpha": -0.1244367550434869,
+              "mean_energy": 3506.0336240704974,
+              "proportional_energy": 5895.226723511339,
+              "orthogonal_residual_energy": 46166.67074542594,
+              "fractions": {
+                "mean": 0.06309455031180149,
+                "proportional": 0.10609044834950039,
+                "orthogonal_residual": 0.830815001338698
+              },
+              "raw_proportional_fit_residual_energy": 49317.50323244456
+            },
+            {
+              "layer": 3,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 1660613.428050865,
+              "error_energy": 103549.43205927427,
+              "relative_error": 0.0623561331674975,
+              "alpha": -0.051890687687350515,
+              "centered_alpha": -0.07472129442633078,
+              "mean_energy": 5773.071153413007,
+              "proportional_energy": 6342.413117072785,
+              "orthogonal_residual_energy": 91433.94778878847,
+              "fractions": {
+                "mean": 0.055751837925179126,
+                "proportional": 0.061250100468365966,
+                "orthogonal_residual": 0.8829980616064548
+              },
+              "raw_proportional_fit_residual_energy": 99077.99215825381
+            },
+            {
+              "layer": 4,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 63983046.174934916,
+              "error_energy": 1912993.0588783207,
+              "relative_error": 0.029898436746009876,
+              "alpha": 0.00989244721586625,
+              "centered_alpha": -0.0011487094828430008,
+              "mean_energy": 149328.42003284238,
+              "proportional_energy": 56.92459968714951,
+              "orthogonal_residual_energy": 1763607.7142457913,
+              "fractions": {
+                "mean": 0.0780600950640149,
+                "proportional": 2.9756825004125797e-05,
+                "orthogonal_residual": 0.921910148110981
+              },
+              "raw_proportional_fit_residual_energy": 1906731.6452255237
+            },
+            {
+              "layer": 4,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 17133542.037873738,
+              "error_energy": 1393563.0751726248,
+              "relative_error": 0.08133537549282864,
+              "alpha": -0.011171849106411353,
+              "centered_alpha": -0.019158418532977863,
+              "mean_energy": 91009.55626815702,
+              "proportional_energy": 5581.426132183358,
+              "orthogonal_residual_energy": 1296972.0927722845,
+              "fractions": {
+                "mean": 0.0653070950928313,
+                "proportional": 0.0040051478340813315,
+                "orthogonal_residual": 0.9306877570730875
+              },
+              "raw_proportional_fit_residual_energy": 1391424.6341507467
+            },
+            {
+              "layer": 4,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 81116588.21280865,
+              "error_energy": 3306556.1340509453,
+              "relative_error": 0.0407630079975285,
+              "alpha": 0.0054432215459066235,
+              "centered_alpha": -0.005842449831159684,
+              "mean_energy": 240337.9763009994,
+              "proportional_energy": 1991.6062813698923,
+              "orthogonal_residual_energy": 3064226.551468576,
+              "fractions": {
+                "mean": 0.07268528540193125,
+                "proportional": 0.0006023204205911741,
+                "orthogonal_residual": 0.9267123941774775
+              },
+              "raw_proportional_fit_residual_energy": 3304152.758173711
+            },
+            {
+              "layer": 4,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1454470.358580852,
+              "error_energy": 65200.51590962947,
+              "relative_error": 0.044827669072092034,
+              "alpha": -0.02813954882907969,
+              "centered_alpha": -0.04858861390722714,
+              "mean_energy": 1947.70193840696,
+              "proportional_energy": 2132.6501680846136,
+              "orthogonal_residual_energy": 61120.1638031379,
+              "fractions": {
+                "mean": 0.029872492743869588,
+                "proportional": 0.032709099588116027,
+                "orthogonal_residual": 0.9374184076680144
+              },
+              "raw_proportional_fit_residual_energy": 64048.81652474073
+            },
+            {
+              "layer": 4,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 393874.17449098453,
+              "error_energy": 56366.251189484145,
+              "relative_error": 0.14310725312805275,
+              "alpha": -0.11287323402577965,
+              "centered_alpha": -0.1167179147826066,
+              "mean_energy": 2462.2553258299654,
+              "proportional_energy": 4934.995408999373,
+              "orthogonal_residual_energy": 48969.00045465481,
+              "fractions": {
+                "mean": 0.043683148583940797,
+                "proportional": 0.08755230842671438,
+                "orthogonal_residual": 0.8687645429893448
+              },
+              "raw_proportional_fit_residual_energy": 51348.14967062313
+            },
+            {
+              "layer": 4,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 1848344.5330718344,
+              "error_energy": 121566.76709911361,
+              "relative_error": 0.06577062064131364,
+              "alpha": -0.04619592831421983,
+              "centered_alpha": -0.06808939995857356,
+              "mean_energy": 4409.957264236926,
+              "proportional_energy": 5867.492477715954,
+              "orthogonal_residual_energy": 111289.31735716073,
+              "fractions": {
+                "mean": 0.036276010043447805,
+                "proportional": 0.048265596081305484,
+                "orthogonal_residual": 0.9154583938752467
+              },
+              "raw_proportional_fit_residual_energy": 117622.28195444202
+            },
+            {
+              "layer": 5,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 75018809.58410116,
+              "error_energy": 2162889.1969106393,
+              "relative_error": 0.028831291897346015,
+              "alpha": 0.018579674801134233,
+              "centered_alpha": 0.0028141139536900102,
+              "mean_energy": 155048.2586419982,
+              "proportional_energy": 374.213663451594,
+              "orthogonal_residual_energy": 2007466.7246051894,
+              "fractions": {
+                "mean": 0.07168571504423862,
+                "proportional": 0.00017301564221879778,
+                "orthogonal_residual": 0.9281412693135426
+              },
+              "raw_proportional_fit_residual_energy": 2136992.380082338
+            },
+            {
+              "layer": 5,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 18686010.77052238,
+              "error_energy": 1638313.0156095207,
+              "relative_error": 0.08767591091160014,
+              "alpha": -0.008041501865466557,
+              "centered_alpha": -0.019460242967473177,
+              "mean_energy": 85484.00212062067,
+              "proportional_energy": 6251.084022919121,
+              "orthogonal_residual_energy": 1546577.929465981,
+              "fractions": {
+                "mean": 0.05217806445175378,
+                "proportional": 0.003815561472905382,
+                "orthogonal_residual": 0.9440063740753408
+              },
+              "raw_proportional_fit_residual_energy": 1637104.6706664502
+            },
+            {
+              "layer": 5,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 93704820.35462354,
+              "error_energy": 3801202.21252016,
+              "relative_error": 0.04056570620523688,
+              "alpha": 0.013271051487696145,
+              "centered_alpha": -0.0029523952786811684,
+              "mean_energy": 240532.26076261888,
+              "proportional_energy": 555.7762792399769,
+              "orthogonal_residual_energy": 3560114.175478301,
+              "fractions": {
+                "mean": 0.06327794400686418,
+                "proportional": 0.00014621065867251055,
+                "orthogonal_residual": 0.9365758453344634
+              },
+              "raw_proportional_fit_residual_energy": 3784698.8438843135
+            },
+            {
+              "layer": 5,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1469290.8209824702,
+              "error_energy": 81030.65833829467,
+              "relative_error": 0.055149502862960734,
+              "alpha": -0.03115371678618601,
+              "centered_alpha": -0.05317351242297819,
+              "mean_energy": 2119.3015138658698,
+              "proportional_energy": 2576.147282448844,
+              "orthogonal_residual_energy": 76335.20954197996,
+              "fractions": {
+                "mean": 0.026154316863846814,
+                "proportional": 0.03179225413291959,
+                "orthogonal_residual": 0.9420534290032336
+              },
+              "raw_proportional_fit_residual_energy": 79604.63215257319
+            },
+            {
+              "layer": 5,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 467374.9572796041,
+              "error_energy": 73964.14365126817,
+              "relative_error": 0.15825440045350908,
+              "alpha": -0.1184693924990534,
+              "centered_alpha": -0.1196401272500224,
+              "mean_energy": 2245.543844097341,
+              "proportional_energy": 6393.787726185146,
+              "orthogonal_residual_energy": 65324.812080985685,
+              "fractions": {
+                "mean": 0.030359897826774066,
+                "proportional": 0.08644442307520071,
+                "orthogonal_residual": 0.8831956790980253
+              },
+              "raw_proportional_fit_residual_energy": 67404.53754709188
+            },
+            {
+              "layer": 5,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 1936665.7782620755,
+              "error_energy": 154994.80198956275,
+              "relative_error": 0.08003177612228576,
+              "alpha": -0.052225581980583365,
+              "centered_alpha": -0.07503937701574255,
+              "mean_energy": 4364.8453579632105,
+              "proportional_energy": 7645.745308037706,
+              "orthogonal_residual_energy": 142984.21132356185,
+              "fractions": {
+                "mean": 0.02816123703462737,
+                "proportional": 0.04932904336077391,
+                "orthogonal_residual": 0.9225097196045988
+              },
+              "raw_proportional_fit_residual_energy": 149712.5239757785
+            },
+            {
+              "layer": 6,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 75656478.21411256,
+              "error_energy": 2586086.197356049,
+              "relative_error": 0.03418195319688637,
+              "alpha": 0.024858464264926643,
+              "centered_alpha": 0.0036411657193108275,
+              "mean_energy": 240842.79547535558,
+              "proportional_energy": 598.7828560230677,
+              "orthogonal_residual_energy": 2344644.6190246707,
+              "fractions": {
+                "mean": 0.09313022733797015,
+                "proportional": 0.00023154017705799928,
+                "orthogonal_residual": 0.906638232484972
+              },
+              "raw_proportional_fit_residual_energy": 2539334.78765695
+            },
+            {
+              "layer": 6,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 20594227.370729055,
+              "error_energy": 2960668.1469476386,
+              "relative_error": 0.14376204038398108,
+              "alpha": -0.03540882003135987,
+              "centered_alpha": -0.04552830138385042,
+              "mean_energy": 104835.13755721238,
+              "proportional_energy": 39725.837025913665,
+              "orthogonal_residual_energy": 2816107.1723645125,
+              "fractions": {
+                "mean": 0.0354092834299225,
+                "proportional": 0.013417862135906664,
+                "orthogonal_residual": 0.9511728544341708
+              },
+              "raw_proportional_fit_residual_energy": 2934847.423139078
+            },
+            {
+              "layer": 6,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 96250705.5848416,
+              "error_energy": 5546754.344303688,
+              "relative_error": 0.05762819410621796,
+              "alpha": 0.011963409124576977,
+              "centered_alpha": -0.011007606453108302,
+              "mean_energy": 345677.93303256796,
+              "proportional_energy": 7794.535272813108,
+              "orthogonal_residual_energy": 5193281.875998307,
+              "fractions": {
+                "mean": 0.06232075761342603,
+                "proportional": 0.0014052425596994048,
+                "orthogonal_residual": 0.9362739998268745
+              },
+              "raw_proportional_fit_residual_energy": 5532978.6393720135
+            },
+            {
+              "layer": 6,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1405395.970794077,
+              "error_energy": 95948.38315095531,
+              "relative_error": 0.06827142324646238,
+              "alpha": -0.041161780844244406,
+              "centered_alpha": -0.062389493050200064,
+              "mean_energy": 1945.868055042419,
+              "proportional_energy": 3400.3718578781873,
+              "orthogonal_residual_energy": 90602.14323803471,
+              "fractions": {
+                "mean": 0.020280363161315502,
+                "proportional": 0.035439595188679646,
+                "orthogonal_residual": 0.9442800416500049
+              },
+              "raw_proportional_fit_residual_energy": 93567.23171653779
+            },
+            {
+              "layer": 6,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 827387.9007532774,
+              "error_energy": 153037.55084387053,
+              "relative_error": 0.18496469516237887,
+              "alpha": -0.13944002302194677,
+              "centered_alpha": -0.1401493484667279,
+              "mean_energy": 3439.8505927085225,
+              "proportional_energy": 15741.324271010133,
+              "orthogonal_residual_energy": 133856.37598015188,
+              "fractions": {
+                "mean": 0.022477167033454884,
+                "proportional": 0.10285922758310141,
+                "orthogonal_residual": 0.8746636053834437
+              },
+              "raw_proportional_fit_residual_energy": 136950.21763096968
+            },
+            {
+              "layer": 6,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 2232783.871547354,
+              "error_energy": 248985.9339948258,
+              "relative_error": 0.11151367455116679,
+              "alpha": -0.07758009679561292,
+              "centered_alpha": -0.09959436562777416,
+              "mean_energy": 5385.718647750942,
+              "proportional_energy": 16614.384675190122,
+              "orthogonal_residual_energy": 226985.83067188476,
+              "fractions": {
+                "mean": 0.021630614072612082,
+                "proportional": 0.06672820592160594,
+                "orthogonal_residual": 0.911641180005782
+              },
+              "raw_proportional_fit_residual_energy": 235547.5415227489
+            },
+            {
+              "layer": 7,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 86564590.0423375,
+              "error_energy": 3007318.736945597,
+              "relative_error": 0.034740749485150456,
+              "alpha": 0.017412540014254185,
+              "centered_alpha": -0.0007849421162311695,
+              "mean_energy": 185049.41890300275,
+              "proportional_energy": 36.2792336673482,
+              "orthogonal_residual_energy": 2822233.0388089265,
+              "fractions": {
+                "mean": 0.06153302495995134,
+                "proportional": 1.2063647667821017e-05,
+                "orthogonal_residual": 0.9384549113923807
+              },
+              "raw_proportional_fit_residual_energy": 2981072.65191441
+            },
+            {
+              "layer": 7,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 22165293.6697451,
+              "error_energy": 2305811.609144772,
+              "relative_error": 0.10402801981785287,
+              "alpha": -0.010042511487505231,
+              "centered_alpha": -0.024363136296800255,
+              "mean_energy": 115190.39300639054,
+              "proportional_energy": 11835.045480302171,
+              "orthogonal_residual_energy": 2178786.1706580794,
+              "fractions": {
+                "mean": 0.04995655002756916,
+                "proportional": 0.005132702703622784,
+                "orthogonal_residual": 0.9449107472688082
+              },
+              "raw_proportional_fit_residual_energy": 2303576.194127992
+            },
+            {
+              "layer": 7,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 108729883.71208267,
+              "error_energy": 5313130.346090365,
+              "relative_error": 0.04886540999307572,
+              "alpha": 0.011815649274759626,
+              "centered_alpha": -0.0067494124573293105,
+              "mean_energy": 300239.8119093933,
+              "proportional_energy": 3590.6587766267476,
+              "orthogonal_residual_energy": 5009299.875404345,
+              "fractions": {
+                "mean": 0.05650902431375939,
+                "proportional": 0.0006758085239276903,
+                "orthogonal_residual": 0.9428151671623128
+              },
+              "raw_proportional_fit_residual_energy": 5297950.614020103
+            },
+            {
+              "layer": 7,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1705759.7762707043,
+              "error_energy": 125178.68409231244,
+              "relative_error": 0.07338588107991975,
+              "alpha": -0.04855295416215328,
+              "centered_alpha": -0.0719446302647232,
+              "mean_energy": 2209.8949523062934,
+              "proportional_energy": 6052.96635474554,
+              "orthogonal_residual_energy": 116915.8227852606,
+              "fractions": {
+                "mean": 0.01765392381562836,
+                "proportional": 0.048354609242271696,
+                "orthogonal_residual": 0.9339914669421
+              },
+              "raw_proportional_fit_residual_energy": 121157.5441486455
+            },
+            {
+              "layer": 7,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 582464.3877954159,
+              "error_energy": 106150.74104204767,
+              "relative_error": 0.1822441736632522,
+              "alpha": -0.13160602767336607,
+              "centered_alpha": -0.13732642263679937,
+              "mean_energy": 2516.666582590573,
+              "proportional_energy": 10252.18697704242,
+              "orthogonal_residual_energy": 93381.88748241468,
+              "fractions": {
+                "mean": 0.023708422172895517,
+                "proportional": 0.09658139807974961,
+                "orthogonal_residual": 0.8797101797473549
+              },
+              "raw_proportional_fit_residual_energy": 96062.37250277062
+            },
+            {
+              "layer": 7,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 2288224.1640661205,
+              "error_energy": 231329.42513435998,
+              "relative_error": 0.10109561325639226,
+              "alpha": -0.06969400248115809,
+              "centered_alpha": -0.09269342487746429,
+              "mean_energy": 4726.561534896867,
+              "proportional_energy": 14718.722346331035,
+              "orthogonal_residual_energy": 211884.14125313208,
+              "fractions": {
+                "mean": 0.020432167382733957,
+                "proportional": 0.06362667584455439,
+                "orthogonal_residual": 0.9159411567727117
+              },
+              "raw_proportional_fit_residual_energy": 220214.9392020989
+            },
+            {
+              "layer": 8,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 88902286.88062257,
+              "error_energy": 4283244.089183288,
+              "relative_error": 0.048179234072288836,
+              "alpha": 0.02664375850456261,
+              "centered_alpha": -0.0052903373299437815,
+              "mean_energy": 312227.64055089524,
+              "proportional_energy": 1416.5682441189579,
+              "orthogonal_residual_energy": 3969599.8803882734,
+              "fractions": {
+                "mean": 0.0728951313653548,
+                "proportional": 0.00033072321227181416,
+                "orthogonal_residual": 0.9267741454223734
+              },
+              "raw_proportional_fit_residual_energy": 4220133.25655143
+            },
+            {
+              "layer": 8,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 27830548.780292623,
+              "error_energy": 3212307.9473940907,
+              "relative_error": 0.11542380902200503,
+              "alpha": -0.02897519977257516,
+              "centered_alpha": -0.040638709693913894,
+              "mean_energy": 90512.0979598726,
+              "proportional_energy": 41998.26058875524,
+              "orthogonal_residual_energy": 3079797.5888454625,
+              "fractions": {
+                "mean": 0.02817665661017911,
+                "proportional": 0.01307417012208476,
+                "orthogonal_residual": 0.958749173267736
+              },
+              "raw_proportional_fit_residual_energy": 3188942.4705811185
+            },
+            {
+              "layer": 8,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 116732835.6609152,
+              "error_energy": 7495552.036577376,
+              "relative_error": 0.06421117069708139,
+              "alpha": 0.013383512382063777,
+              "centered_alpha": -0.017111335883515072,
+              "mean_energy": 402739.7385107678,
+              "proportional_energy": 22265.608719753913,
+              "orthogonal_residual_energy": 7070546.689346854,
+              "fractions": {
+                "mean": 0.05373049730632877,
+                "proportional": 0.0029705095249956868,
+                "orthogonal_residual": 0.9432989931686755
+              },
+              "raw_proportional_fit_residual_energy": 7474643.037396653
+            },
+            {
+              "layer": 8,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1602205.321692239,
+              "error_energy": 162523.8435482763,
+              "relative_error": 0.10143758814670496,
+              "alpha": -0.05700464894684553,
+              "centered_alpha": -0.08030273615433434,
+              "mean_energy": 2615.202135585063,
+              "proportional_energy": 6898.695456795809,
+              "orthogonal_residual_energy": 153009.9459558954,
+              "fractions": {
+                "mean": 0.01609119055080826,
+                "proportional": 0.04244728223367799,
+                "orthogonal_residual": 0.9414615272155137
+              },
+              "raw_proportional_fit_residual_energy": 157317.42928678932
+            },
+            {
+              "layer": 8,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 651883.7034578284,
+              "error_energy": 145046.04680274642,
+              "relative_error": 0.2225029495803767,
+              "alpha": -0.13904569804337133,
+              "centered_alpha": -0.14319155988931395,
+              "mean_energy": 2354.7069226794656,
+              "proportional_energy": 12759.70531222502,
+              "orthogonal_residual_energy": 129931.63456784193,
+              "fractions": {
+                "mean": 0.016234202686555947,
+                "proportional": 0.08797003154162088,
+                "orthogonal_residual": 0.8957957657718232
+              },
+              "raw_proportional_fit_residual_energy": 132442.71883979018
+            },
+            {
+              "layer": 8,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 2254089.0251500686,
+              "error_energy": 307569.89035102254,
+              "relative_error": 0.13644975283553662,
+              "alpha": -0.08073096247035332,
+              "centered_alpha": -0.10343130219424379,
+              "mean_energy": 4969.9090582645285,
+              "proportional_energy": 18102.33314661679,
+              "orthogonal_residual_energy": 284497.6481461412,
+              "fractions": {
+                "mean": 0.016158633254355566,
+                "proportional": 0.058855998959966495,
+                "orthogonal_residual": 0.9249853677856779
+              },
+              "raw_proportional_fit_residual_energy": 292878.89149931626
+            },
+            {
+              "layer": 9,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 117573953.19000551,
+              "error_energy": 4337854.17734479,
+              "relative_error": 0.03689468678776664,
+              "alpha": 0.03429692865147851,
+              "centered_alpha": 0.007489377785203769,
+              "mean_energy": 385653.84946712275,
+              "proportional_energy": 3705.2780273202034,
+              "orthogonal_residual_energy": 3948495.0498503465,
+              "fractions": {
+                "mean": 0.08890429085451239,
+                "proportional": 0.0008541730256106056,
+                "orthogonal_residual": 0.9102415361198769
+              },
+              "raw_proportional_fit_residual_energy": 4199554.368233472
+            },
+            {
+              "layer": 9,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 28957729.299508717,
+              "error_energy": 4338355.195114635,
+              "relative_error": 0.14981682956709721,
+              "alpha": -0.03146786056097757,
+              "centered_alpha": -0.05021717487501888,
+              "mean_energy": 196589.370668536,
+              "proportional_energy": 63377.84228289434,
+              "orthogonal_residual_energy": 4078387.9821632043,
+              "fractions": {
+                "mean": 0.04531426354621971,
+                "proportional": 0.014608725987734545,
+                "orthogonal_residual": 0.9400770104660456
+              },
+              "raw_proportional_fit_residual_energy": 4309680.491471526
+            },
+            {
+              "layer": 9,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 146531682.48951432,
+              "error_energy": 8676209.372459425,
+              "relative_error": 0.059210467149862195,
+              "alpha": 0.021300428979198868,
+              "centered_alpha": -0.00841462241099252,
+              "mean_energy": 582243.2201356587,
+              "proportional_energy": 6456.85331196838,
+              "orthogonal_residual_energy": 8087509.299011798,
+              "fractions": {
+                "mean": 0.06710801862203236,
+                "proportional": 0.0007442021088684345,
+                "orthogonal_residual": 0.9321477792690992
+              },
+              "raw_proportional_fit_residual_energy": 8609726.735608527
+            },
+            {
+              "layer": 9,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1827868.0515927242,
+              "error_energy": 142851.3985084532,
+              "relative_error": 0.07815192042115882,
+              "alpha": -0.038495115280968314,
+              "centered_alpha": -0.062280255991279766,
+              "mean_energy": 2512.033085701262,
+              "proportional_energy": 4303.015947320416,
+              "orthogonal_residual_energy": 136036.34947543152,
+              "fractions": {
+                "mean": 0.01758493869804581,
+                "proportional": 0.03012232286312399,
+                "orthogonal_residual": 0.9522927384388302
+              },
+              "raw_proportional_fit_residual_energy": 140142.7285492492
+            },
+            {
+              "layer": 9,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 790106.0863778382,
+              "error_energy": 183573.82276510145,
+              "relative_error": 0.23234072731508393,
+              "alpha": -0.1349303161057311,
+              "centered_alpha": -0.13775663681641884,
+              "mean_energy": 4256.014359689375,
+              "proportional_energy": 14521.021250167767,
+              "orthogonal_residual_energy": 164796.7871552443,
+              "fractions": {
+                "mean": 0.023184211646206838,
+                "proportional": 0.07910180782555619,
+                "orthogonal_residual": 0.8977139805282369
+              },
+              "raw_proportional_fit_residual_energy": 169189.00107485833
+            },
+            {
+              "layer": 9,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 2617974.1379705626,
+              "error_energy": 326425.2212735545,
+              "relative_error": 0.1246861901877294,
+              "alpha": -0.06759931383190561,
+              "centered_alpha": -0.09308979361362074,
+              "mean_energy": 6768.047445390636,
+              "proportional_energy": 16244.341820479296,
+              "orthogonal_residual_energy": 303412.8320076845,
+              "fractions": {
+                "mean": 0.02073383735173699,
+                "proportional": 0.0497643587621743,
+                "orthogonal_residual": 0.9295018038860886
+              },
+              "raw_proportional_fit_residual_energy": 314461.95064485754
+            },
+            {
+              "layer": 10,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 127351668.06253776,
+              "error_energy": 6086837.027700087,
+              "relative_error": 0.047795502958870265,
+              "alpha": 0.04926633614117553,
+              "centered_alpha": 0.009667828212101453,
+              "mean_energy": 740172.931173002,
+              "proportional_energy": 6631.828253129023,
+              "orthogonal_residual_energy": 5340032.268273956,
+              "fractions": {
+                "mean": 0.12160222588589274,
+                "proportional": 0.0010895360304454974,
+                "orthogonal_residual": 0.8773082380836618
+              },
+              "raw_proportional_fit_residual_energy": 5777732.640518272
+            },
+            {
+              "layer": 10,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 39396345.599532865,
+              "error_energy": 5492925.832846757,
+              "relative_error": 0.13942729329981024,
+              "alpha": -0.02403309755850801,
+              "centered_alpha": -0.04497729140560112,
+              "mean_energy": 204513.29923451997,
+              "proportional_energy": 69617.84627000308,
+              "orthogonal_residual_energy": 5218794.687342234,
+              "fractions": {
+                "mean": 0.037232124637759614,
+                "proportional": 0.012674091802532681,
+                "orthogonal_residual": 0.9500937835597077
+              },
+              "raw_proportional_fit_residual_energy": 5470170.906327796
+            },
+            {
+              "layer": 10,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 166748013.6620705,
+              "error_energy": 11579762.86054684,
+              "relative_error": 0.0694446824656889,
+              "alpha": 0.031948409775137944,
+              "centered_alpha": -0.008179696737921746,
+              "mean_energy": 944686.2304075221,
+              "proportional_energy": 7049.880828216347,
+              "orthogonal_residual_energy": 10628026.7493111,
+              "fractions": {
+                "mean": 0.08158079243799907,
+                "proportional": 0.0006088104664246488,
+                "orthogonal_residual": 0.9178103970955762
+              },
+              "raw_proportional_fit_residual_energy": 11409563.015069775
+            },
+            {
+              "layer": 10,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1715730.0287150044,
+              "error_energy": 185654.97147614034,
+              "relative_error": 0.10820756667363722,
+              "alpha": -0.05788699918349377,
+              "centered_alpha": -0.08095165996042451,
+              "mean_energy": 3036.579213472668,
+              "proportional_energy": 7888.074077686547,
+              "orthogonal_residual_energy": 174730.31818498112,
+              "fractions": {
+                "mean": 0.016356035011230053,
+                "proportional": 0.042487814977258995,
+                "orthogonal_residual": 0.9411561500115109
+              },
+              "raw_proportional_fit_residual_energy": 179905.72370279103
+            },
+            {
+              "layer": 10,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 825043.4725913107,
+              "error_energy": 208659.29438951268,
+              "relative_error": 0.25290703014006277,
+              "alpha": -0.14607951491854068,
+              "centered_alpha": -0.15116642078296194,
+              "mean_energy": 2977.4954492507763,
+              "proportional_energy": 18084.251895176792,
+              "orthogonal_residual_energy": 187597.5470450851,
+              "fractions": {
+                "mean": 0.014269651672896804,
+                "proportional": 0.08666880595032682,
+                "orthogonal_residual": 0.8990615423767764
+              },
+              "raw_proportional_fit_residual_energy": 191053.5063580795
+            },
+            {
+              "layer": 10,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 2540773.5013063145,
+              "error_energy": 394314.2658656529,
+              "relative_error": 0.1551945758498032,
+              "alpha": -0.08652499442439056,
+              "centered_alpha": -0.10880359392105551,
+              "mean_energy": 6014.074662723444,
+              "proportional_energy": 23618.343413968018,
+              "orthogonal_residual_energy": 364681.8477889614,
+              "fractions": {
+                "mean": 0.015251983464307386,
+                "proportional": 0.059897258249375744,
+                "orthogonal_residual": 0.9248507582863168
+              },
+              "raw_proportional_fit_residual_energy": 375292.57535361574
+            },
+            {
+              "layer": 11,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 145459989.49080586,
+              "error_energy": 5172791.350687973,
+              "relative_error": 0.03556160954497341,
+              "alpha": 0.057055507832815544,
+              "centered_alpha": 0.018846840982038204,
+              "mean_energy": 798449.2392009858,
+              "proportional_energy": 25205.176507119995,
+              "orthogonal_residual_energy": 4349136.934979867,
+              "fractions": {
+                "mean": 0.15435558580857767,
+                "proportional": 0.004872645115246673,
+                "orthogonal_residual": 0.8407717690761756
+              },
+              "raw_proportional_fit_residual_energy": 4699270.941412042
+            },
+            {
+              "layer": 11,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 53239842.24176839,
+              "error_energy": 9272883.812621428,
+              "relative_error": 0.17417188748441761,
+              "alpha": -0.03384849615092919,
+              "centered_alpha": -0.0538539941286031,
+              "mean_energy": 307429.77346792305,
+              "proportional_energy": 137624.97296294058,
+              "orthogonal_residual_energy": 8827829.066190565,
+              "fractions": {
+                "mean": 0.03315363156491585,
+                "proportional": 0.014841658295730791,
+                "orthogonal_residual": 0.9520047101393535
+              },
+              "raw_proportional_fit_residual_energy": 9211885.823743284
+            },
+            {
+              "layer": 11,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 198699831.73257408,
+              "error_energy": 14445675.163309388,
+              "relative_error": 0.07270099343995176,
+              "alpha": 0.03269859323938343,
+              "centered_alpha": -0.010287347756115662,
+              "mean_energy": 1105879.0126689086,
+              "proportional_energy": 12531.547994694636,
+              "orthogonal_residual_energy": 13327264.602645786,
+              "fractions": {
+                "mean": 0.0765543320174978,
+                "proportional": 0.0008674947936337064,
+                "orthogonal_residual": 0.9225781731888686
+              },
+              "raw_proportional_fit_residual_energy": 14233225.700653438
+            },
+            {
+              "layer": 11,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1567033.839339231,
+              "error_energy": 149560.86162420711,
+              "relative_error": 0.09544201144199428,
+              "alpha": -0.043039782957942516,
+              "centered_alpha": -0.08018127987985904,
+              "mean_energy": 2220.12612407418,
+              "proportional_energy": 5652.140213093945,
+              "orthogonal_residual_energy": 141688.59528703897,
+              "fractions": {
+                "mean": 0.014844298835697817,
+                "proportional": 0.03779157295373003,
+                "orthogonal_residual": 0.947364128210572
+              },
+              "raw_proportional_fit_residual_energy": 146658.05222839594
+            },
+            {
+              "layer": 11,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 1156135.610669156,
+              "error_energy": 350056.2247410207,
+              "relative_error": 0.30278128405578025,
+              "alpha": -0.17595335940729553,
+              "centered_alpha": -0.18223665849132453,
+              "mean_energy": 5345.385121640686,
+              "proportional_energy": 37169.70371593512,
+              "orthogonal_residual_energy": 307541.1359034449,
+              "fractions": {
+                "mean": 0.01527007590165071,
+                "proportional": 0.10618209615736467,
+                "orthogonal_residual": 0.8785478279409846
+              },
+              "raw_proportional_fit_residual_energy": 314262.7463931844
+            },
+            {
+              "layer": 11,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 2723169.4500083877,
+              "error_energy": 499617.08636522794,
+              "relative_error": 0.18346896714917577,
+              "alpha": -0.09946892616606012,
+              "centered_alpha": -0.13733896807632015,
+              "mean_energy": 7565.511245714864,
+              "proportional_energy": 37693.495651217214,
+              "orthogonal_residual_energy": 454358.07946829585,
+              "fractions": {
+                "mean": 0.015142619122085742,
+                "proportional": 0.0754447689638514,
+                "orthogonal_residual": 0.9094126119140629
+              },
+              "raw_proportional_fit_residual_energy": 472673.8646320765
+            },
+            {
+              "layer": 12,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 143162666.76343623,
+              "error_energy": 7852720.748078932,
+              "relative_error": 0.05485173562081563,
+              "alpha": 0.0585209431566499,
+              "centered_alpha": 0.007734304606091565,
+              "mean_energy": 1157869.9152719602,
+              "proportional_energy": 4170.950541054708,
+              "orthogonal_residual_energy": 6690679.882265917,
+              "fractions": {
+                "mean": 0.14744824786431102,
+                "proportional": 0.0005311471876897033,
+                "orthogonal_residual": 0.8520206049479992
+              },
+              "raw_proportional_fit_residual_energy": 7362431.450410049
+            },
+            {
+              "layer": 12,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 145139558.56987065,
+              "error_energy": 22839909.229058858,
+              "relative_error": 0.15736515567576054,
+              "alpha": -0.03241318768482761,
+              "centered_alpha": -0.054716894762013114,
+              "mean_energy": 756241.0257862781,
+              "proportional_energy": 376323.0662681639,
+              "orthogonal_residual_energy": 21707345.137004416,
+              "fractions": {
+                "mean": 0.033110509249490556,
+                "proportional": 0.01647655699915716,
+                "orthogonal_residual": 0.9504129337513523
+              },
+              "raw_proportional_fit_residual_energy": 22687423.470064513
+            },
+            {
+              "layer": 12,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 288302225.33330727,
+              "error_energy": 30692629.97713779,
+              "relative_error": 0.10645991352183955,
+              "alpha": 0.012742109524656584,
+              "centered_alpha": -0.032434447660539836,
+              "mean_energy": 1914110.9410582385,
+              "proportional_energy": 205581.20525685608,
+              "orthogonal_residual_energy": 28572937.830822695,
+              "fractions": {
+                "mean": 0.0623638620243366,
+                "proportional": 0.0066980641740375015,
+                "orthogonal_residual": 0.930938073801626
+              },
+              "raw_proportional_fit_residual_energy": 30645820.837143272
+            },
+            {
+              "layer": 12,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1426913.5594046598,
+              "error_energy": 178743.0892879484,
+              "relative_error": 0.12526553420833986,
+              "alpha": -0.060833759626396824,
+              "centered_alpha": -0.10086790848304061,
+              "mean_energy": 3083.4097691248007,
+              "proportional_energy": 8816.252940345126,
+              "orthogonal_residual_energy": 166843.42657847848,
+              "fractions": {
+                "mean": 0.017250511789899434,
+                "proportional": 0.04932360168701389,
+                "orthogonal_residual": 0.9334258865230868
+              },
+              "raw_proportional_fit_residual_energy": 173462.4441978899
+            },
+            {
+              "layer": 12,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 2238430.4711707374,
+              "error_energy": 712757.6019095378,
+              "relative_error": 0.3184184682478672,
+              "alpha": -0.16966974766077972,
+              "centered_alpha": -0.17585326135838053,
+              "mean_energy": 12185.940546132337,
+              "proportional_energy": 66739.71538626464,
+              "orthogonal_residual_energy": 633831.9459771408,
+              "fractions": {
+                "mean": 0.017096893128161907,
+                "proportional": 0.09363592223704567,
+                "orthogonal_residual": 0.8892671846347924
+              },
+              "raw_proportional_fit_residual_energy": 648318.061100443
+            },
+            {
+              "layer": 12,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 3665344.030575397,
+              "error_energy": 891500.6911974857,
+              "relative_error": 0.2432242877505649,
+              "alpha": -0.12730004217556642,
+              "centered_alpha": -0.15437123310260192,
+              "mean_energy": 15269.350315257137,
+              "proportional_energy": 72079.52447785689,
+              "orthogonal_residual_energy": 804151.8164043716,
+              "fractions": {
+                "mean": 0.01712769318748028,
+                "proportional": 0.08085189971197655,
+                "orthogonal_residual": 0.9020204071005432
+              },
+              "raw_proportional_fit_residual_energy": 832102.6888741412
+            },
+            {
+              "layer": 13,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 140357420.84897134,
+              "error_energy": 7266201.001001049,
+              "relative_error": 0.051769268465111595,
+              "alpha": 0.05558666374505299,
+              "centered_alpha": -0.0022078234285298685,
+              "mean_energy": 993369.7832411586,
+              "proportional_energy": 311.38330331500714,
+              "orthogonal_residual_energy": 6272519.834456575,
+              "fractions": {
+                "mean": 0.13671102452358588,
+                "proportional": 4.28536594669083e-05,
+                "orthogonal_residual": 0.8632461218169472
+              },
+              "raw_proportional_fit_residual_energy": 6832513.80839112
+            },
+            {
+              "layer": 13,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 111492698.80213761,
+              "error_energy": 23591204.026949145,
+              "relative_error": 0.2115941606976047,
+              "alpha": -0.05599083912080922,
+              "centered_alpha": -0.10463499607952748,
+              "mean_energy": 1067447.9122828776,
+              "proportional_energy": 983782.7648570642,
+              "orthogonal_residual_energy": 21539973.349809203,
+              "fractions": {
+                "mean": 0.0452477080467572,
+                "proportional": 0.04170125287938891,
+                "orthogonal_residual": 0.9130510390738539
+              },
+              "raw_proportional_fit_residual_energy": 23241677.307717156
+            },
+            {
+              "layer": 13,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 251850119.6511093,
+              "error_energy": 30857405.027950212,
+              "relative_error": 0.12252289207047949,
+              "alpha": 0.0061919009498174376,
+              "centered_alpha": -0.062074509770867585,
+              "mean_energy": 2060817.6955240364,
+              "proportional_energy": 592381.9900523957,
+              "orthogonal_residual_energy": 28204205.34237378,
+              "fractions": {
+                "mean": 0.06678519122581358,
+                "proportional": 0.019197401386014938,
+                "orthogonal_residual": 0.9140174073881715
+              },
+              "raw_proportional_fit_residual_energy": 30847749.185690604
+            },
+            {
+              "layer": 13,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1379042.9820027666,
+              "error_energy": 170869.95038815401,
+              "relative_error": 0.12390473148269952,
+              "alpha": -0.044631750435833055,
+              "centered_alpha": -0.08608941922862468,
+              "mean_energy": 4031.5906263288634,
+              "proportional_energy": 6440.050623449745,
+              "orthogonal_residual_energy": 160398.3091383754,
+              "fractions": {
+                "mean": 0.023594497553083876,
+                "proportional": 0.037689778740031855,
+                "orthogonal_residual": 0.9387157237068842
+              },
+              "raw_proportional_fit_residual_energy": 168122.90621863227
+            },
+            {
+              "layer": 13,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 1611308.0699045823,
+              "error_energy": 619267.9561221545,
+              "relative_error": 0.38432623015338463,
+              "alpha": -0.1990018564023202,
+              "centered_alpha": -0.20821868338941601,
+              "mean_energy": 10907.888920680774,
+              "proportional_energy": 66909.19265491577,
+              "orthogonal_residual_energy": 541450.874546558,
+              "fractions": {
+                "mean": 0.01761416655398382,
+                "proportional": 0.10804562385869278,
+                "orthogonal_residual": 0.8743402095873235
+              },
+              "raw_proportional_fit_residual_energy": 555457.3547283665
+            },
+            {
+              "layer": 13,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 2990351.0519073484,
+              "error_energy": 790137.9065103086,
+              "relative_error": 0.26422914661017194,
+              "alpha": -0.1278118831955546,
+              "centered_alpha": -0.1642248802838143,
+              "mean_energy": 14939.47954700964,
+              "proportional_energy": 65057.274755499755,
+              "orthogonal_residual_energy": 710141.1522077991,
+              "fractions": {
+                "mean": 0.018907433023927108,
+                "proportional": 0.08233660759655122,
+                "orthogonal_residual": 0.8987559593795216
+              },
+              "raw_proportional_fit_residual_energy": 741287.8980862366
+            },
+            {
+              "layer": 14,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 259118562.54872876,
+              "error_energy": 21571898.63222769,
+              "relative_error": 0.08325107402589488,
+              "alpha": 0.10069076617439102,
+              "centered_alpha": -0.003736246341994521,
+              "mean_energy": 5856415.987965819,
+              "proportional_energy": 1592.5482787028498,
+              "orthogonal_residual_energy": 15713890.095983168,
+              "fractions": {
+                "mean": 0.2714835670151227,
+                "proportional": 7.38251326808868e-05,
+                "orthogonal_residual": 0.7284426078521965
+              },
+              "raw_proportional_fit_residual_energy": 18944791.298636157
+            },
+            {
+              "layer": 14,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 520457324.31221753,
+              "error_energy": 103537362.53917229,
+              "relative_error": 0.19893535493231176,
+              "alpha": 0.0035174600094404836,
+              "centered_alpha": -0.04986598121788827,
+              "mean_energy": 8449713.805231024,
+              "proportional_energy": 1018904.115163129,
+              "orthogonal_residual_energy": 94068744.61877814,
+              "fractions": {
+                "mean": 0.08161028635468826,
+                "proportional": 0.00984093171948085,
+                "orthogonal_residual": 0.9085487819258309
+              },
+              "raw_proportional_fit_residual_energy": 103530923.16795848
+            },
+            {
+              "layer": 14,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 779575886.8609458,
+              "error_energy": 125109261.17139994,
+              "relative_error": 0.16048374927958217,
+              "alpha": 0.035816313573212674,
+              "centered_alpha": -0.03981970378329776,
+              "mean_energy": 14306129.793196844,
+              "proportional_energy": 830602.8990312835,
+              "orthogonal_residual_energy": 109972528.47917181,
+              "fractions": {
+                "mean": 0.1143490870240007,
+                "proportional": 0.006639020095349743,
+                "orthogonal_residual": 0.8790118928806496
+              },
+              "raw_proportional_fit_residual_energy": 124109214.73924221
+            },
+            {
+              "layer": 14,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1324056.8766358695,
+              "error_energy": 277970.84277510014,
+              "relative_error": 0.2099387478590508,
+              "alpha": -0.007804739605728288,
+              "centered_alpha": -0.034741251055920054,
+              "mean_energy": 19255.22094811033,
+              "proportional_energy": 1211.7644410486814,
+              "orthogonal_residual_energy": 257503.85738594114,
+              "fractions": {
+                "mean": 0.06927064995694275,
+                "proportional": 0.004359322110733363,
+                "orthogonal_residual": 0.9263700279323239
+              },
+              "raw_proportional_fit_residual_energy": 277890.1892270643
+            },
+            {
+              "layer": 14,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 6982391.894883154,
+              "error_energy": 2139989.9163092123,
+              "relative_error": 0.30648378786608105,
+              "alpha": -0.073709119427687,
+              "centered_alpha": -0.08686357308147954,
+              "mean_energy": 57840.25750519049,
+              "proportional_energy": 49962.286125383056,
+              "orthogonal_residual_energy": 2032187.3726786387,
+              "fractions": {
+                "mean": 0.02702828507012134,
+                "proportional": 0.02334697268646563,
+                "orthogonal_residual": 0.949624742243413
+              },
+              "raw_proportional_fit_residual_energy": 2102054.341740403
+            },
+            {
+              "layer": 14,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 8306448.771519025,
+              "error_energy": 2417960.7590843113,
+              "relative_error": 0.2910944045516736,
+              "alpha": -0.06320389033352997,
+              "centered_alpha": -0.08000119850855623,
+              "mean_energy": 77095.4784533008,
+              "proportional_energy": 48805.595786548285,
+              "orthogonal_residual_energy": 2292059.684844462,
+              "fractions": {
+                "mean": 0.03188450356923786,
+                "proportional": 0.02018461035944649,
+                "orthogonal_residual": 0.9479308860713156
+              },
+              "raw_proportional_fit_residual_energy": 2384778.7244196236
+            },
+            {
+              "layer": 15,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 228769058.81938118,
+              "error_energy": 11035865.83842413,
+              "relative_error": 0.048240203003751564,
+              "alpha": 0.039933711402517114,
+              "centered_alpha": -0.042220500127608494,
+              "mean_energy": 1430649.2740364107,
+              "proportional_energy": 144322.5262408136,
+              "orthogonal_residual_energy": 9460894.038146904,
+              "fractions": {
+                "mean": 0.12963634163213975,
+                "proportional": 0.013077589774453275,
+                "orthogonal_residual": 0.8572860685934068
+              },
+              "raw_proportional_fit_residual_energy": 10671047.521465648
+            },
+            {
+              "layer": 15,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 460724264.1684717,
+              "error_energy": 69978206.36106192,
+              "relative_error": 0.15188739079622945,
+              "alpha": 0.009649568735293629,
+              "centered_alpha": -0.10081932035265978,
+              "mean_energy": 7874065.751034927,
+              "proportional_energy": 2590913.181396253,
+              "orthogonal_residual_energy": 59513227.42863073,
+              "fractions": {
+                "mean": 0.11252168582897983,
+                "proportional": 0.03702457259375998,
+                "orthogonal_residual": 0.8504537415772602
+              },
+              "raw_proportional_fit_residual_energy": 69935306.40048261
+            },
+            {
+              "layer": 15,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 689493322.9878526,
+              "error_energy": 81014072.19948593,
+              "relative_error": 0.11749797931098055,
+              "alpha": 0.019697635314256896,
+              "centered_alpha": -0.08669338170575829,
+              "mean_energy": 9304715.025071338,
+              "proportional_energy": 2524241.021542311,
+              "orthogonal_residual_energy": 69185116.15287228,
+              "fractions": {
+                "mean": 0.11485307147824599,
+                "proportional": 0.031158056285909407,
+                "orthogonal_residual": 0.8539888722358446
+              },
+              "raw_proportional_fit_residual_energy": 80746550.97105232
+            },
+            {
+              "layer": 15,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 994894.3878599067,
+              "error_energy": 186185.20534712967,
+              "relative_error": 0.18714067303930437,
+              "alpha": -0.04937786984414934,
+              "centered_alpha": -0.08328242960214101,
+              "mean_energy": 4269.160765058624,
+              "proportional_energy": 4935.759014849307,
+              "orthogonal_residual_energy": 176980.28556722173,
+              "fractions": {
+                "mean": 0.022929645548898817,
+                "proportional": 0.02650994210655417,
+                "orthogonal_residual": 0.9505604123445469
+              },
+              "raw_proportional_fit_residual_energy": 183759.4796877129
+            },
+            {
+              "layer": 15,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 4696603.606627562,
+              "error_energy": 1806397.8647511853,
+              "relative_error": 0.38461791031333925,
+              "alpha": -0.132693456004923,
+              "centered_alpha": -0.14513339638624662,
+              "mean_energy": 42094.54549090974,
+              "proportional_energy": 92681.0113662913,
+              "orthogonal_residual_energy": 1671622.3078939843,
+              "fractions": {
+                "mean": 0.02330303102783388,
+                "proportional": 0.05130708642586735,
+                "orthogonal_residual": 0.9253898825462987
+              },
+              "raw_proportional_fit_residual_energy": 1723702.1665757115
+            },
+            {
+              "layer": 15,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 5691497.994487465,
+              "error_energy": 1992583.0700983144,
+              "relative_error": 0.35009817661857084,
+              "alpha": -0.11812959089016835,
+              "centered_alpha": -0.13652281769206792,
+              "mean_energy": 46363.70625596836,
+              "proportional_energy": 95273.43268095952,
+              "orthogonal_residual_energy": 1850945.9311613864,
+              "fractions": {
+                "mean": 0.02326814221787038,
+                "proportional": 0.047814033006041104,
+                "orthogonal_residual": 0.9289178247760884
+              },
+              "raw_proportional_fit_residual_energy": 1913160.4907964054
+            },
+            {
+              "layer": 16,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 260227631.27323383,
+              "error_energy": 10420781.41591644,
+              "relative_error": 0.04004486904380583,
+              "alpha": 0.054326940922164856,
+              "centered_alpha": -0.03633927850235167,
+              "mean_energy": 2013987.4892105227,
+              "proportional_energy": 114595.91215818882,
+              "orthogonal_residual_energy": 8292198.014547727,
+              "fractions": {
+                "mean": 0.19326645563589012,
+                "proportional": 0.010996863630894119,
+                "orthogonal_residual": 0.7957366807332157
+              },
+              "raw_proportional_fit_residual_energy": 9652741.288628733
+            },
+            {
+              "layer": 16,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 449850108.83540696,
+              "error_energy": 58548536.09041212,
+              "relative_error": 0.1301512102375285,
+              "alpha": 0.05868293221687964,
+              "centered_alpha": -0.09855762718163989,
+              "mean_energy": 12084369.414624713,
+              "proportional_energy": 1934209.9873573203,
+              "orthogonal_residual_energy": 44529956.688430086,
+              "fractions": {
+                "mean": 0.2063991727472695,
+                "proportional": 0.0330360093781075,
+                "orthogonal_residual": 0.760564817874623
+              },
+              "raw_proportional_fit_residual_energy": 56999393.32849023
+            },
+            {
+              "layer": 16,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 710077740.1086409,
+              "error_energy": 68969317.50632851,
+              "relative_error": 0.09712924882813014,
+              "alpha": 0.05708655870389356,
+              "centered_alpha": -0.07967266824541851,
+              "mean_energy": 14098356.903835235,
+              "proportional_energy": 1814837.2498958097,
+              "orthogonal_residual_energy": 53056123.35259746,
+              "fractions": {
+                "mean": 0.20441491105869786,
+                "proportional": 0.026313690138071662,
+                "orthogonal_residual": 0.7692713988032305
+              },
+              "raw_proportional_fit_residual_energy": 66655262.77991392
+            },
+            {
+              "layer": 16,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1502717.39195314,
+              "error_energy": 276382.7544382611,
+              "relative_error": 0.18392197755762693,
+              "alpha": -0.007858833091039817,
+              "centered_alpha": -0.054370218242227576,
+              "mean_energy": 17781.97174067357,
+              "proportional_energy": 3067.046012174826,
+              "orthogonal_residual_energy": 255533.7366854127,
+              "fractions": {
+                "mean": 0.06433821016370882,
+                "proportional": 0.011097096193315305,
+                "orthogonal_residual": 0.9245646936429759
+              },
+              "raw_proportional_fit_residual_energy": 276289.9447223876
+            },
+            {
+              "layer": 16,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 6727441.764470668,
+              "error_energy": 2153431.132990358,
+              "relative_error": 0.32009658476171077,
+              "alpha": -0.062400417190553406,
+              "centered_alpha": -0.08713668531580519,
+              "mean_energy": 81561.03319896669,
+              "proportional_energy": 45373.433588641405,
+              "orthogonal_residual_energy": 2026496.6662027498,
+              "fractions": {
+                "mean": 0.037874920609003694,
+                "proportional": 0.02107029702205228,
+                "orthogonal_residual": 0.941054782368944
+              },
+              "raw_proportional_fit_residual_energy": 2127235.7390775424
+            },
+            {
+              "layer": 16,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 8230159.156423804,
+              "error_energy": 2429813.8874286176,
+              "relative_error": 0.2952329160648247,
+              "alpha": -0.05244185072139323,
+              "centered_alpha": -0.08228937463856723,
+              "mean_energy": 99343.00493964028,
+              "proportional_energy": 47491.34009997619,
+              "orthogonal_residual_energy": 2282979.5423890008,
+              "fractions": {
+                "mean": 0.04088502640207202,
+                "proportional": 0.019545258320271812,
+                "orthogonal_residual": 0.939569715277656
+              },
+              "raw_proportional_fit_residual_energy": 2407179.734095635
+            },
+            {
+              "layer": 17,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 131072,
+              "fp_energy": 459403370.5032582,
+              "error_energy": 22189126.3663015,
+              "relative_error": 0.04829987716893367,
+              "alpha": 0.03180962206735563,
+              "centered_alpha": -0.0805857118151765,
+              "mean_energy": 3022684.743557705,
+              "proportional_energy": 971869.4322282982,
+              "orthogonal_residual_energy": 18194572.190515496,
+              "fractions": {
+                "mean": 0.1362236932477089,
+                "proportional": 0.0437993554223149,
+                "orthogonal_residual": 0.8199769513299762
+              },
+              "raw_proportional_fit_residual_energy": 21724278.12129321
+            },
+            {
+              "layer": 17,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 131072,
+              "fp_energy": 9078481871.949453,
+              "error_energy": 539533388.9760454,
+              "relative_error": 0.05942991312711511,
+              "alpha": 0.05095239028529166,
+              "centered_alpha": -0.12640361815356457,
+              "mean_energy": 105569998.37311235,
+              "proportional_energy": 43898446.39837412,
+              "orthogonal_residual_energy": 390064944.2045589,
+              "fractions": {
+                "mean": 0.1956690735553338,
+                "proportional": 0.08136372520278473,
+                "orthogonal_residual": 0.7229672012418815
+              },
+              "raw_proportional_fit_residual_energy": 515964323.89010143
+            },
+            {
+              "layer": 17,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 131072,
+              "fp_energy": 9537885242.45271,
+              "error_energy": 561722515.3423465,
+              "relative_error": 0.0588938219598349,
+              "alpha": 0.050030356520307843,
+              "centered_alpha": -0.12403681314985165,
+              "mean_energy": 108592683.11667006,
+              "proportional_energy": 44572376.48553384,
+              "orthogonal_residual_energy": 408557455.74014264,
+              "fractions": {
+                "mean": 0.19332086599820078,
+                "proportional": 0.07934945683700934,
+                "orthogonal_residual": 0.7273296771647899
+              },
+              "raw_proportional_fit_residual_energy": 537848839.7461731
+            },
+            {
+              "layer": 17,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 3555,
+              "fp_energy": 1941293.13940208,
+              "error_energy": 387809.37407956994,
+              "relative_error": 0.19976858013263032,
+              "alpha": -0.08898605809267962,
+              "centered_alpha": -0.14393943292235217,
+              "mean_energy": 30516.787595184436,
+              "proportional_energy": 23847.919816339196,
+              "orthogonal_residual_energy": 333444.66666804627,
+              "fractions": {
+                "mean": 0.07869017521201811,
+                "proportional": 0.06149392307223117,
+                "orthogonal_residual": 0.8598159017157506
+              },
+              "raw_proportional_fit_residual_energy": 372437.2083735913
+            },
+            {
+              "layer": 17,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 3555,
+              "fp_energy": 4554063.608590275,
+              "error_energy": 2535817.144471271,
+              "relative_error": 0.5568251483549747,
+              "alpha": -0.05118998822018472,
+              "centered_alpha": -0.08981103885721238,
+              "mean_energy": 175858.9860590274,
+              "proportional_energy": 28143.246924797193,
+              "orthogonal_residual_energy": 2331814.9114874466,
+              "fractions": {
+                "mean": 0.06935002645693318,
+                "proportional": 0.011098295074688905,
+                "orthogonal_residual": 0.919551678468378
+              },
+              "raw_proportional_fit_residual_energy": 2523883.6083631767
+            },
+            {
+              "layer": 17,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 3555,
+              "fp_energy": 6495356.747992352,
+              "error_energy": 2923626.5185508383,
+              "relative_error": 0.45011022981216564,
+              "alpha": -0.06248625014798647,
+              "centered_alpha": -0.10323818909480725,
+              "mean_energy": 206375.77365421184,
+              "proportional_energy": 49455.3156257189,
+              "orthogonal_residual_energy": 2667795.429270908,
+              "fractions": {
+                "mean": 0.07058896625294898,
+                "proportional": 0.01691574327702861,
+                "orthogonal_residual": 0.9124952904700224
+              },
+              "raw_proportional_fit_residual_energy": 2898265.1938002487
+            }
+          ],
+          "Plus200": [
+            {
+              "layer": 0,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 39790656.858246416,
+              "error_energy": 1265223.0794005285,
+              "relative_error": 0.0317969890245307,
+              "alpha": -0.019225613045019185,
+              "centered_alpha": -0.029613716586754706,
+              "mean_energy": 93987.85154506484,
+              "proportional_energy": 25098.963572832956,
+              "orthogonal_residual_energy": 1146136.2642826305,
+              "fractions": {
+                "mean": 0.0742855968052661,
+                "proportional": 0.01983757961854839,
+                "orthogonal_residual": 0.9058768235761854
+              },
+              "raw_proportional_fit_residual_energy": 1250515.489812915
+            },
+            {
+              "layer": 0,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 34911248.83344677,
+              "error_energy": 2220011.7061281,
+              "relative_error": 0.06359015447196534,
+              "alpha": -0.06489237156379875,
+              "centered_alpha": -0.06709723473544234,
+              "mean_energy": 323445.82100417925,
+              "proportional_energy": 110015.0832742581,
+              "orthogonal_residual_energy": 1786550.8018496626,
+              "fractions": {
+                "mean": 0.145695547510557,
+                "proportional": 0.04955608250649016,
+                "orthogonal_residual": 0.8047483699829528
+              },
+              "raw_proportional_fit_residual_energy": 2072999.7430043714
+            },
+            {
+              "layer": 0,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 74701905.69169316,
+              "error_energy": 3485234.7855286244,
+              "relative_error": 0.046655232597582606,
+              "alpha": -0.04056755278944692,
+              "centered_alpha": -0.04687776816368043,
+              "mean_energy": 417433.6725492442,
+              "proportional_energy": 116593.53316671743,
+              "orthogonal_residual_energy": 2951207.579812663,
+              "fractions": {
+                "mean": 0.11977203782152937,
+                "proportional": 0.033453566356802286,
+                "orthogonal_residual": 0.8467743958216685
+              },
+              "raw_proportional_fit_residual_energy": 3362295.8917340655
+            },
+            {
+              "layer": 0,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 3324425.34933086,
+              "error_energy": 80454.13509590196,
+              "relative_error": 0.024200914937703672,
+              "alpha": -0.02137137607590213,
+              "centered_alpha": -0.029908892609151902,
+              "mean_energy": 16395.736301543107,
+              "proportional_energy": 1967.3506581299255,
+              "orthogonal_residual_energy": 62091.048136228936,
+              "fractions": {
+                "mean": 0.20378985221827642,
+                "proportional": 0.024453070756211948,
+                "orthogonal_residual": 0.7717570770255117
+              },
+              "raw_proportional_fit_residual_energy": 78935.75130575577
+            },
+            {
+              "layer": 0,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 3085481.708155539,
+              "error_energy": 79216.90752843395,
+              "relative_error": 0.02567408107429319,
+              "alpha": -0.021600798176737955,
+              "centered_alpha": -0.035851848166798,
+              "mean_energy": 20319.314059131633,
+              "proportional_energy": 1395.7599516023886,
+              "orthogonal_residual_energy": 57501.833517699924,
+              "fractions": {
+                "mean": 0.2565022378819605,
+                "proportional": 0.01761947032710659,
+                "orthogonal_residual": 0.7258782917909329
+              },
+              "raw_proportional_fit_residual_energy": 77777.23878949106
+            },
+            {
+              "layer": 0,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 6409907.057486402,
+              "error_energy": 159671.0426243359,
+              "relative_error": 0.02491004022247863,
+              "alpha": -0.0214818110150092,
+              "centered_alpha": -0.03187329875431381,
+              "mean_energy": 36715.050360674744,
+              "proportional_energy": 3337.435348277299,
+              "orthogonal_residual_energy": 119618.55691538387,
+              "fractions": {
+                "mean": 0.22994182136741995,
+                "proportional": 0.020901944982781938,
+                "orthogonal_residual": 0.7491562336497981
+              },
+              "raw_proportional_fit_residual_energy": 156713.0743236047
+            },
+            {
+              "layer": 1,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 52629709.27151056,
+              "error_energy": 1036825.2674293693,
+              "relative_error": 0.01970037991432763,
+              "alpha": 0.040441637180637154,
+              "centered_alpha": 0.02508986410255463,
+              "mean_energy": 181348.89415587275,
+              "proportional_energy": 14857.739836462597,
+              "orthogonal_residual_energy": 840618.633437034,
+              "fractions": {
+                "mean": 0.17490786524280633,
+                "proportional": 0.014330032555340612,
+                "orthogonal_residual": 0.8107621022018531
+              },
+              "raw_proportional_fit_residual_energy": 950748.008603917
+            },
+            {
+              "layer": 1,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 15894707.899929335,
+              "error_energy": 1284850.7175435792,
+              "relative_error": 0.0808351261081867,
+              "alpha": -0.004418681015568395,
+              "centered_alpha": -0.015271711304763694,
+              "mean_energy": 155145.1389702524,
+              "proportional_energy": 3250.9151876417236,
+              "orthogonal_residual_energy": 1126454.663385685,
+              "fractions": {
+                "mean": 0.12074954455943651,
+                "proportional": 0.0025301890276069835,
+                "orthogonal_residual": 0.8767202664129565
+              },
+              "raw_proportional_fit_residual_energy": 1284540.3774739816
+            },
+            {
+              "layer": 1,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 68524417.17143986,
+              "error_energy": 2321675.984972948,
+              "relative_error": 0.033881003017718396,
+              "alpha": 0.030035979118013614,
+              "centered_alpha": 0.010103771522009803,
+              "mean_energy": 336494.0331261251,
+              "proportional_energy": 3832.4540830154297,
+              "orthogonal_residual_energy": 1981349.4977638077,
+              "fractions": {
+                "mean": 0.14493582881680447,
+                "proportional": 0.0016507273658430354,
+                "orthogonal_residual": 0.8534134438173525
+              },
+              "raw_proportional_fit_residual_energy": 2259855.993928471
+            },
+            {
+              "layer": 1,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 1774742.4647857277,
+              "error_energy": 25509.98926191601,
+              "relative_error": 0.014373910450717672,
+              "alpha": 0.009146719626474712,
+              "centered_alpha": 0.0059601640346290605,
+              "mean_energy": 4181.7791007295,
+              "proportional_energy": 30.74210694280859,
+              "orthogonal_residual_energy": 21297.468054243698,
+              "fractions": {
+                "mean": 0.163927121167883,
+                "proportional": 0.0012051007402305589,
+                "orthogonal_residual": 0.8348677780918864
+              },
+              "raw_proportional_fit_residual_energy": 25361.50990608323
+            },
+            {
+              "layer": 1,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 245779.53371852392,
+              "error_energy": 34856.179471813666,
+              "relative_error": 0.14181888517915528,
+              "alpha": -0.0365017134779237,
+              "centered_alpha": -0.03794924979872525,
+              "mean_energy": 6381.646601356617,
+              "proportional_energy": 330.7743576289548,
+              "orthogonal_residual_energy": 28143.758512828095,
+              "fractions": {
+                "mean": 0.18308508557333755,
+                "proportional": 0.009489690569686056,
+                "orthogonal_residual": 0.8074252238569765
+              },
+              "raw_proportional_fit_residual_energy": 34528.708944235776
+            },
+            {
+              "layer": 1,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 2020521.998504253,
+              "error_energy": 60366.16873372966,
+              "relative_error": 0.029876521403091563,
+              "alpha": 0.0035939710735335435,
+              "centered_alpha": -0.0032493457669542512,
+              "mean_energy": 10563.425702086119,
+              "proportional_energy": 11.562145363022344,
+              "orthogonal_residual_energy": 49791.18088628052,
+              "fractions": {
+                "mean": 0.17498916899431774,
+                "proportional": 0.00019153352955066671,
+                "orthogonal_residual": 0.8248192974761316
+              },
+              "raw_proportional_fit_residual_energy": 60340.07040255278
+            },
+            {
+              "layer": 2,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 55787302.11611674,
+              "error_energy": 1570682.553878321,
+              "relative_error": 0.028154839798652978,
+              "alpha": 0.011878057456493153,
+              "centered_alpha": -0.00107411852426274,
+              "mean_energy": 143950.11774632699,
+              "proportional_energy": 41.63937805305483,
+              "orthogonal_residual_energy": 1426690.7967539409,
+              "fractions": {
+                "mean": 0.09164812927404466,
+                "proportional": 2.6510371526212663e-05,
+                "orthogonal_residual": 0.908325360354429
+              },
+              "raw_proportional_fit_residual_energy": 1562811.6211096852
+            },
+            {
+              "layer": 2,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 13322123.628443895,
+              "error_energy": 1171416.68927342,
+              "relative_error": 0.08793017704567335,
+              "alpha": -0.025358490362378427,
+              "centered_alpha": -0.03010290386996306,
+              "mean_energy": 107774.07609672044,
+              "proportional_energy": 11313.139065534173,
+              "orthogonal_residual_energy": 1052329.4741111654,
+              "fractions": {
+                "mean": 0.0920031932988492,
+                "proportional": 0.009657655699400384,
+                "orthogonal_residual": 0.8983391510017504
+              },
+              "raw_proportional_fit_residual_energy": 1162849.8572620356
+            },
+            {
+              "layer": 2,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 69109425.74456061,
+              "error_energy": 2742099.2431517416,
+              "relative_error": 0.03967764474395974,
+              "alpha": 0.004700022214628705,
+              "centered_alpha": -0.008534799857031993,
+              "mean_energy": 251724.19384304743,
+              "proportional_energy": 3538.3712554274093,
+              "orthogonal_residual_energy": 2486836.6780532664,
+              "fractions": {
+                "mean": 0.09179981157564455,
+                "proportional": 0.0012903877437201875,
+                "orthogonal_residual": 0.9069098006806351
+              },
+              "raw_proportional_fit_residual_energy": 2740572.6015057517
+            },
+            {
+              "layer": 2,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2064554.4131032007,
+              "error_energy": 84110.35454005616,
+              "relative_error": 0.04074019750035609,
+              "alpha": -0.017598433344246905,
+              "centered_alpha": -0.03604329604159659,
+              "mean_energy": 8059.806131542634,
+              "proportional_energy": 1742.3766186401112,
+              "orthogonal_residual_energy": 74308.17178987342,
+              "fractions": {
+                "mean": 0.09582418449685984,
+                "proportional": 0.02071536409717942,
+                "orthogonal_residual": 0.8834604514059609
+              },
+              "raw_proportional_fit_residual_energy": 83470.95201248696
+            },
+            {
+              "layer": 2,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 363812.6874409971,
+              "error_energy": 61476.77528761483,
+              "relative_error": 0.16897919564057284,
+              "alpha": -0.1287683776046452,
+              "centered_alpha": -0.13625397512364176,
+              "mean_energy": 7189.6734635976145,
+              "proportional_energy": 6234.927809433543,
+              "orthogonal_residual_energy": 48052.17401458367,
+              "fractions": {
+                "mean": 0.11694942407049208,
+                "proportional": 0.10141923970904242,
+                "orthogonal_residual": 0.7816313362204654
+              },
+              "raw_proportional_fit_residual_energy": 55444.28976660672
+            },
+            {
+              "layer": 2,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 2428367.1005441984,
+              "error_energy": 145587.129827671,
+              "relative_error": 0.059952685817166944,
+              "alpha": -0.034253673062729986,
+              "centered_alpha": -0.05611128842488217,
+              "mean_energy": 15249.479595140248,
+              "proportional_energy": 5280.11797720147,
+              "orthogonal_residual_energy": 125057.53225532926,
+              "fractions": {
+                "mean": 0.10474469558669643,
+                "proportional": 0.0362677523998959,
+                "orthogonal_residual": 0.8589875520134077
+              },
+              "raw_proportional_fit_residual_energy": 142737.89242421542
+            },
+            {
+              "layer": 3,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 51149196.433095716,
+              "error_energy": 1516655.271716576,
+              "relative_error": 0.029651595283620824,
+              "alpha": 0.01691592875210189,
+              "centered_alpha": 0.0011211790198585505,
+              "mean_energy": 143691.09161534216,
+              "proportional_energy": 39.69406942423958,
+              "orthogonal_residual_energy": 1372924.4860318098,
+              "fractions": {
+                "mean": 0.09474209089894907,
+                "proportional": 2.617211054118657e-05,
+                "orthogonal_residual": 0.9052317369905098
+              },
+              "raw_proportional_fit_residual_energy": 1502018.9984364698
+            },
+            {
+              "layer": 3,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 12784853.817722563,
+              "error_energy": 1253810.2109509858,
+              "relative_error": 0.09806996848199662,
+              "alpha": -0.030173380967241974,
+              "centered_alpha": -0.040638451252451635,
+              "mean_energy": 108542.1008289863,
+              "proportional_energy": 17594.831141710856,
+              "orthogonal_residual_energy": 1127673.2789802887,
+              "fractions": {
+                "mean": 0.08656980129924101,
+                "proportional": 0.014033089687765095,
+                "orthogonal_residual": 0.899397109012994
+              },
+              "raw_proportional_fit_residual_energy": 1242170.4591708009
+            },
+            {
+              "layer": 3,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 63934050.25081827,
+              "error_energy": 2770465.48266756,
+              "relative_error": 0.04333317648105834,
+              "alpha": 0.007499507631001893,
+              "centered_alpha": -0.009413782362422685,
+              "mean_energy": 252233.19244432845,
+              "proportional_energy": 3742.50863022803,
+              "orthogonal_residual_energy": 2514489.7815930033,
+              "fractions": {
+                "mean": 0.09104361488072543,
+                "proportional": 0.0013508591439387045,
+                "orthogonal_residual": 0.9076055259753357
+              },
+              "raw_proportional_fit_residual_energy": 2766869.664512616
+            },
+            {
+              "layer": 3,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 1946944.2997926134,
+              "error_energy": 72342.86710653754,
+              "relative_error": 0.03715713239163721,
+              "alpha": -0.022347096433820574,
+              "centered_alpha": -0.044451828113641734,
+              "mean_energy": 7610.504062584509,
+              "proportional_energy": 2315.876704766167,
+              "orthogonal_residual_energy": 62416.486339186864,
+              "fractions": {
+                "mean": 0.10520047610743308,
+                "proportional": 0.03201250928243739,
+                "orthogonal_residual": 0.8627870146101295
+              },
+              "raw_proportional_fit_residual_energy": 71370.5772988788
+            },
+            {
+              "layer": 3,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 379304.39011075586,
+              "error_energy": 72914.92933676293,
+              "relative_error": 0.19223328608316914,
+              "alpha": -0.11566834265246308,
+              "centered_alpha": -0.13918965995597282,
+              "mean_energy": 9983.14153059281,
+              "proportional_energy": 6547.674801500145,
+              "orthogonal_residual_energy": 56384.11300466998,
+              "fractions": {
+                "mean": 0.13691491744420325,
+                "proportional": 0.08979882256018147,
+                "orthogonal_residual": 0.7732862599956153
+              },
+              "raw_proportional_fit_residual_energy": 67840.15312964129
+            },
+            {
+              "layer": 3,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 2326248.6899033706,
+              "error_energy": 145257.79644330044,
+              "relative_error": 0.062442935303419454,
+              "alpha": -0.03756350839139515,
+              "centered_alpha": -0.0656560696788878,
+              "mean_energy": 17593.645593177316,
+              "proportional_energy": 6509.140029955375,
+              "orthogonal_residual_energy": 121155.01082016774,
+              "fractions": {
+                "mean": 0.1211201465529926,
+                "proportional": 0.04481095121456105,
+                "orthogonal_residual": 0.8340689022324462
+              },
+              "raw_proportional_fit_residual_energy": 141975.41961720723
+            },
+            {
+              "layer": 4,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 50669983.50535511,
+              "error_energy": 1818120.4845025786,
+              "relative_error": 0.03588160798020446,
+              "alpha": 0.009490056063397735,
+              "centered_alpha": -0.0038991720847773507,
+              "mean_energy": 150748.34498985996,
+              "proportional_energy": 514.0089895587793,
+              "orthogonal_residual_energy": 1666858.1305231599,
+              "fractions": {
+                "mean": 0.0829143867388433,
+                "proportional": 0.0002827144812129475,
+                "orthogonal_residual": 0.9168028987799437
+              },
+              "raw_proportional_fit_residual_energy": 1813557.086803846
+            },
+            {
+              "layer": 4,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 14033522.84429228,
+              "error_energy": 1318163.1273690052,
+              "relative_error": 0.09392959572550445,
+              "alpha": -0.020196111144246544,
+              "centered_alpha": -0.03260411059496002,
+              "mean_energy": 93702.31828563868,
+              "proportional_energy": 12843.955349440375,
+              "orthogonal_residual_energy": 1211616.853733926,
+              "fractions": {
+                "mean": 0.07108552525867139,
+                "proportional": 0.009743828425148211,
+                "orthogonal_residual": 0.9191706463161803
+              },
+              "raw_proportional_fit_residual_energy": 1312439.093298969
+            },
+            {
+              "layer": 4,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 64703506.34964742,
+              "error_energy": 3136283.6118715843,
+              "relative_error": 0.04847161751827804,
+              "alpha": 0.0030514327310437036,
+              "centered_alpha": -0.011456771796111794,
+              "mean_energy": 244450.66327549863,
+              "proportional_energy": 6023.533530413367,
+              "orthogonal_residual_energy": 2885809.4150656727,
+              "fractions": {
+                "mean": 0.07794277990363957,
+                "proportional": 0.0019205959268520393,
+                "orthogonal_residual": 0.9201366241695085
+              },
+              "raw_proportional_fit_residual_energy": 3135681.1418843432
+            },
+            {
+              "layer": 4,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2322828.1032270035,
+              "error_energy": 98395.1761923157,
+              "relative_error": 0.04236007651862813,
+              "alpha": -0.029268522135924183,
+              "centered_alpha": -0.05147218522673758,
+              "mean_energy": 7435.421796484192,
+              "proportional_energy": 3706.6993742764644,
+              "orthogonal_residual_energy": 87253.05502155505,
+              "fractions": {
+                "mean": 0.07556693411424442,
+                "proportional": 0.03767155583960369,
+                "orthogonal_residual": 0.8867615100461519
+              },
+              "raw_proportional_fit_residual_energy": 96405.33388769242
+            },
+            {
+              "layer": 4,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 409523.80987017904,
+              "error_energy": 81183.80405131253,
+              "relative_error": 0.19823952135297865,
+              "alpha": -0.13695708931063233,
+              "centered_alpha": -0.14936043294208368,
+              "mean_energy": 8480.79997582069,
+              "proportional_energy": 8097.86104083053,
+              "orthogonal_residual_energy": 64605.14303466131,
+              "fractions": {
+                "mean": 0.10446418562082121,
+                "proportional": 0.099747248055933,
+                "orthogonal_residual": 0.7957885663232458
+              },
+              "raw_proportional_fit_residual_energy": 73502.26589781613
+            },
+            {
+              "layer": 4,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 2732351.913097185,
+              "error_energy": 179578.9802436281,
+              "relative_error": 0.0657232252488557,
+              "alpha": -0.04540884143281064,
+              "centered_alpha": -0.07163754481652546,
+              "mean_energy": 15916.22177230488,
+              "proportional_energy": 9042.84657092942,
+              "orthogonal_residual_energy": 154619.91190039378,
+              "fractions": {
+                "mean": 0.08863076152182141,
+                "proportional": 0.05035581869693952,
+                "orthogonal_residual": 0.861013419781239
+              },
+              "raw_proportional_fit_residual_energy": 173944.9720229866
+            },
+            {
+              "layer": 5,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 58852056.223703265,
+              "error_energy": 2050066.1654543672,
+              "relative_error": 0.03483423174989563,
+              "alpha": 0.017801583116049284,
+              "centered_alpha": -0.0016426963533907562,
+              "mean_energy": 152248.5370838379,
+              "proportional_energy": 98.06111725865284,
+              "orthogonal_residual_energy": 1897719.5672532707,
+              "fractions": {
+                "mean": 0.0742651820947907,
+                "proportional": 4.783314749108063e-05,
+                "orthogonal_residual": 0.9256869847577183
+              },
+              "raw_proportional_fit_residual_energy": 2031416.1629739539
+            },
+            {
+              "layer": 5,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 14626104.791150028,
+              "error_energy": 1569163.9819282133,
+              "relative_error": 0.10728515926384473,
+              "alpha": -0.014569827994525178,
+              "centered_alpha": -0.028624659041354694,
+              "mean_energy": 90554.09712254349,
+              "proportional_energy": 10404.357400343775,
+              "orthogonal_residual_energy": 1468205.527405326,
+              "fractions": {
+                "mean": 0.05770849838859365,
+                "proportional": 0.006630509953178213,
+                "orthogonal_residual": 0.9356609916582281
+              },
+              "raw_proportional_fit_residual_energy": 1566059.1540443425
+            },
+            {
+              "layer": 5,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 73478161.01485328,
+              "error_energy": 3619230.1473825807,
+              "relative_error": 0.049255861842418314,
+              "alpha": 0.011357931769835669,
+              "centered_alpha": -0.008629484396783469,
+              "mean_energy": 242802.6342063814,
+              "proportional_energy": 3651.743645663548,
+              "orthogonal_residual_energy": 3372775.7695305357,
+              "fractions": {
+                "mean": 0.06708681800243506,
+                "proportional": 0.0010089835398570828,
+                "orthogonal_residual": 0.9319041984577079
+              },
+              "raw_proportional_fit_residual_energy": 3609751.2725332677
+            },
+            {
+              "layer": 5,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2168189.939827891,
+              "error_energy": 135443.42587356904,
+              "relative_error": 0.0624684320250653,
+              "alpha": -0.04421279329670783,
+              "centered_alpha": -0.06473467633048251,
+              "mean_energy": 11204.822141731176,
+              "proportional_energy": 5913.932123809863,
+              "orthogonal_residual_energy": 118324.671608028,
+              "fractions": {
+                "mean": 0.08272695458981098,
+                "proportional": 0.04366348595856014,
+                "orthogonal_residual": 0.8736095594516289
+              },
+              "raw_proportional_fit_residual_energy": 131205.11085918522
+            },
+            {
+              "layer": 5,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 517051.525423333,
+              "error_energy": 112774.72465840944,
+              "relative_error": 0.21811119223770933,
+              "alpha": -0.15729118669227218,
+              "centered_alpha": -0.1657899723899092,
+              "mean_energy": 8863.453986502886,
+              "proportional_energy": 12811.375729203528,
+              "orthogonal_residual_energy": 91099.89494270303,
+              "fractions": {
+                "mean": 0.07859433054126239,
+                "proportional": 0.11360148089927705,
+                "orthogonal_residual": 0.8078041885594606
+              },
+              "raw_proportional_fit_residual_energy": 99982.60239125667
+            },
+            {
+              "layer": 5,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 2685241.4652512274,
+              "error_energy": 248218.15053197846,
+              "relative_error": 0.09243792550654491,
+              "alpha": -0.06598638667897967,
+              "centered_alpha": -0.08982430499397187,
+              "mean_energy": 20068.27612823406,
+              "proportional_energy": 15147.181387231121,
+              "orthogonal_residual_energy": 213002.69301651328,
+              "fractions": {
+                "mean": 0.08084934999807206,
+                "proportional": 0.06102366549250265,
+                "orthogonal_residual": 0.8581269845094253
+              },
+              "raw_proportional_fit_residual_energy": 236526.06347884747
+            },
+            {
+              "layer": 6,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 59075879.232534714,
+              "error_energy": 2503386.720279317,
+              "relative_error": 0.04237578437767259,
+              "alpha": 0.022353129125427543,
+              "centered_alpha": -0.0034251161599467925,
+              "mean_energy": 248446.06142659456,
+              "proportional_energy": 406.9088779125334,
+              "orthogonal_residual_energy": 2254533.74997481,
+              "fractions": {
+                "mean": 0.09924397993086503,
+                "proportional": 0.00016254335561352354,
+                "orthogonal_residual": 0.9005934767135215
+              },
+              "raw_proportional_fit_residual_energy": 2473868.725761083
+            },
+            {
+              "layer": 6,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 16512937.265394898,
+              "error_energy": 2944101.0879334826,
+              "relative_error": 0.1782905754812771,
+              "alpha": -0.0511468552232611,
+              "centered_alpha": -0.06627410287817109,
+              "mean_energy": 115667.98750339208,
+              "proportional_energy": 66072.06709230866,
+              "orthogonal_residual_energy": 2762361.0333377817,
+              "fractions": {
+                "mean": 0.03928804889800218,
+                "proportional": 0.02244218697622432,
+                "orthogonal_residual": 0.9382697641257735
+              },
+              "raw_proportional_fit_residual_energy": 2900903.2308495874
+            },
+            {
+              "layer": 6,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 75588816.4979296,
+              "error_energy": 5447487.808212798,
+              "relative_error": 0.07206737796142114,
+              "alpha": 0.006296512726483847,
+              "centered_alpha": -0.022437009637337763,
+              "mean_energy": 364114.04892998666,
+              "proportional_energy": 25034.160700218465,
+              "orthogonal_residual_energy": 5058339.598582593,
+              "fractions": {
+                "mean": 0.0668407276434905,
+                "proportional": 0.004595542308966016,
+                "orthogonal_residual": 0.9285637300475434
+              },
+              "raw_proportional_fit_residual_energy": 5444491.008512615
+            },
+            {
+              "layer": 6,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2064433.032170998,
+              "error_energy": 162785.03171363764,
+              "relative_error": 0.07885217353960362,
+              "alpha": -0.06045051793746573,
+              "centered_alpha": -0.09050626998285315,
+              "mean_energy": 12524.824824870115,
+              "proportional_energy": 10370.07930445396,
+              "orthogonal_residual_energy": 139890.12758431357,
+              "fractions": {
+                "mean": 0.0769408875805184,
+                "proportional": 0.06370413296166214,
+                "orthogonal_residual": 0.8593549794578195
+              },
+              "raw_proportional_fit_residual_energy": 155241.04609385395
+            },
+            {
+              "layer": 6,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 881938.5053817006,
+              "error_energy": 246081.26201996964,
+              "relative_error": 0.27902315242882647,
+              "alpha": -0.1892835476675102,
+              "centered_alpha": -0.19796895910101786,
+              "mean_energy": 14863.73857437183,
+              "proportional_energy": 32224.50292442838,
+              "orthogonal_residual_energy": 198993.02052116944,
+              "fractions": {
+                "mean": 0.06040174880591123,
+                "proportional": 0.13095065694930214,
+                "orthogonal_residual": 0.8086475942447867
+              },
+              "raw_proportional_fit_residual_energy": 214482.93869490788
+            },
+            {
+              "layer": 6,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 2946371.5375526985,
+              "error_energy": 408866.29373360716,
+              "relative_error": 0.13876942826878438,
+              "alpha": -0.09901415739560698,
+              "centered_alpha": -0.13281961335592068,
+              "mean_energy": 27388.56339924194,
+              "proportional_energy": 36838.06524353877,
+              "orthogonal_residual_energy": 344639.66509082646,
+              "fractions": {
+                "mean": 0.06698660128997254,
+                "proportional": 0.09009807315528007,
+                "orthogonal_residual": 0.8429153255547474
+              },
+              "raw_proportional_fit_residual_energy": 379980.64653990895
+            },
+            {
+              "layer": 7,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 67997974.23040165,
+              "error_energy": 2897818.2042629044,
+              "relative_error": 0.04261624316106906,
+              "alpha": 0.012097252462964423,
+              "centered_alpha": -0.007293660796711743,
+              "mean_energy": 178623.24502728574,
+              "proportional_energy": 2449.574257958279,
+              "orthogonal_residual_energy": 2716745.3849776606,
+              "fractions": {
+                "mean": 0.06164059731715322,
+                "proportional": 0.0008453167470460274,
+                "orthogonal_residual": 0.9375140859358009
+              },
+              "raw_proportional_fit_residual_energy": 2887867.1415547687
+            },
+            {
+              "layer": 7,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 16726898.992084114,
+              "error_energy": 2232473.404727813,
+              "relative_error": 0.13346606599252586,
+              "alpha": -0.019838558324839488,
+              "centered_alpha": -0.03695871017735529,
+              "mean_energy": 117744.55358540805,
+              "proportional_energy": 20272.651004173706,
+              "orthogonal_residual_energy": 2094456.2001382308,
+              "fractions": {
+                "mean": 0.052741749727479366,
+                "proportional": 0.009080802916281721,
+                "orthogonal_residual": 0.9381774473562388
+              },
+              "raw_proportional_fit_residual_energy": 2225890.225914619
+            },
+            {
+              "layer": 7,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 84724873.22248577,
+              "error_energy": 5130291.608990714,
+              "relative_error": 0.060552366900788086,
+              "alpha": 0.005792290756203968,
+              "centered_alpha": -0.014524494030907506,
+              "mean_energy": 296367.79861269385,
+              "proportional_energy": 12845.046663245086,
+              "orthogonal_residual_energy": 4821078.7637147745,
+              "fractions": {
+                "mean": 0.0577682169359177,
+                "proportional": 0.0025037654079418112,
+                "orthogonal_residual": 0.9397280176561403
+              },
+              "raw_proportional_fit_residual_energy": 5127449.0359306615
+            },
+            {
+              "layer": 7,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2631511.4856378166,
+              "error_energy": 234618.55228055816,
+              "relative_error": 0.08915733545570755,
+              "alpha": -0.05767322511797539,
+              "centered_alpha": -0.08932988214033763,
+              "mean_energy": 12241.982551688623,
+              "proportional_energy": 14573.89944653117,
+              "orthogonal_residual_energy": 207802.67028233837,
+              "fractions": {
+                "mean": 0.052178237537880603,
+                "proportional": 0.06211742125619981,
+                "orthogonal_residual": 0.8857043412059196
+              },
+              "raw_proportional_fit_residual_energy": 225865.6164204883
+            },
+            {
+              "layer": 7,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 663101.3876540354,
+              "error_energy": 196973.34617916564,
+              "relative_error": 0.2970486110367393,
+              "alpha": -0.18959440083373447,
+              "centered_alpha": -0.19818231059361327,
+              "mean_energy": 11856.444116648763,
+              "proportional_energy": 23859.839749778585,
+              "orthogonal_residual_energy": 161257.0623127383,
+              "fractions": {
+                "mean": 0.06019313956246761,
+                "proportional": 0.12113232684830277,
+                "orthogonal_residual": 0.8186745335892296
+              },
+              "raw_proportional_fit_residual_energy": 173137.4792781855
+            },
+            {
+              "layer": 7,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 3294612.873291855,
+              "error_energy": 431591.89845972374,
+              "relative_error": 0.13099927519814888,
+              "alpha": -0.08422478611842382,
+              "centered_alpha": -0.11649962409447347,
+              "mean_energy": 24098.426668337383,
+              "proportional_energy": 33032.34488253834,
+              "orthogonal_residual_energy": 374461.12690884806,
+              "fractions": {
+                "mean": 0.05583614232412718,
+                "proportional": 0.07653606335157129,
+                "orthogonal_residual": 0.8676277943243016
+              },
+              "raw_proportional_fit_residual_energy": 408220.52556870924
+            },
+            {
+              "layer": 8,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 68884447.81440632,
+              "error_energy": 4093774.0904676626,
+              "relative_error": 0.059429584185641114,
+              "alpha": 0.016945797069694006,
+              "centered_alpha": -0.016481832506456382,
+              "mean_energy": 242945.81658833325,
+              "proportional_energy": 10718.998150148374,
+              "orthogonal_residual_energy": 3840109.275729181,
+              "fractions": {
+                "mean": 0.059345193755080836,
+                "proportional": 0.0026183658192345106,
+                "orthogonal_residual": 0.9380364404256846
+              },
+              "raw_proportional_fit_residual_energy": 4073993.229793126
+            },
+            {
+              "layer": 8,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 21956635.675583925,
+              "error_energy": 3132221.9458395303,
+              "relative_error": 0.14265491271609537,
+              "alpha": -0.04455120231221879,
+              "centered_alpha": -0.05702078735086504,
+              "mean_energy": 84925.00113935671,
+              "proportional_energy": 64632.46737551688,
+              "orthogonal_residual_energy": 2982664.4773246567,
+              "fractions": {
+                "mean": 0.027113340819337833,
+                "proportional": 0.020634702295399893,
+                "orthogonal_residual": 0.9522519568852622
+              },
+              "raw_proportional_fit_residual_energy": 3088642.2039639065
+            },
+            {
+              "layer": 8,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 90841083.48999026,
+              "error_energy": 7225996.036307193,
+              "relative_error": 0.07954546289734009,
+              "alpha": 0.0020817382243472882,
+              "centered_alpha": -0.03006275567111141,
+              "mean_energy": 327870.81772769,
+              "proportional_energy": 53627.20296372979,
+              "orthogonal_residual_energy": 6844498.015615774,
+              "fractions": {
+                "mean": 0.04537378875940356,
+                "proportional": 0.007421427121503886,
+                "orthogonal_residual": 0.9472047841190927
+              },
+              "raw_proportional_fit_residual_energy": 7225602.364296031
+            },
+            {
+              "layer": 8,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2348540.1973061226,
+              "error_energy": 349580.6505673802,
+              "relative_error": 0.1488501882864787,
+              "alpha": -0.08210548526497453,
+              "centered_alpha": -0.11744977838472372,
+              "mean_energy": 22106.945465238645,
+              "proportional_energy": 22459.451545030344,
+              "orthogonal_residual_energy": 305014.2535571112,
+              "fractions": {
+                "mean": 0.06323846994780286,
+                "proportional": 0.0642468383435352,
+                "orthogonal_residual": 0.8725146917086619
+              },
+              "raw_proportional_fit_residual_energy": 333748.41138101293
+            },
+            {
+              "layer": 8,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 806985.9283081768,
+              "error_energy": 303800.65241724794,
+              "relative_error": 0.3764633827682193,
+              "alpha": -0.2041978094092393,
+              "centered_alpha": -0.21831210660226616,
+              "mean_energy": 14389.263943762437,
+              "proportional_energy": 35176.6276945811,
+              "orthogonal_residual_energy": 254234.76077890437,
+              "fractions": {
+                "mean": 0.04736416406374216,
+                "proportional": 0.11578851926317978,
+                "orthogonal_residual": 0.836847316673078
+              },
+              "raw_proportional_fit_residual_energy": 270151.96564940043
+            },
+            {
+              "layer": 8,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 3155526.1256143036,
+              "error_energy": 653381.3029846279,
+              "relative_error": 0.20705938628774007,
+              "alpha": -0.11332905420933909,
+              "centered_alpha": -0.14891073240435918,
+              "mean_energy": 36496.20940900108,
+              "proportional_energy": 52469.588917593814,
+              "orthogonal_residual_energy": 564415.504658033,
+              "fractions": {
+                "mean": 0.05585744379627546,
+                "proportional": 0.08030469907527836,
+                "orthogonal_residual": 0.8638378571284462
+              },
+              "raw_proportional_fit_residual_energy": 612853.3835679147
+            },
+            {
+              "layer": 9,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 91328311.65114722,
+              "error_energy": 4142270.6546315844,
+              "relative_error": 0.04535582208564294,
+              "alpha": 0.025283737607960263,
+              "centered_alpha": -0.004717979469036698,
+              "mean_energy": 304563.999975225,
+              "proportional_energy": 1132.3115721962351,
+              "orthogonal_residual_energy": 3836574.343084163,
+              "fractions": {
+                "mean": 0.07352585704043356,
+                "proportional": 0.0002733552842400984,
+                "orthogonal_residual": 0.9262007876753263
+              },
+              "raw_proportional_fit_residual_energy": 4083887.4434441286
+            },
+            {
+              "layer": 9,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 23480484.713378135,
+              "error_energy": 4366111.33298571,
+              "relative_error": 0.18594638851292938,
+              "alpha": -0.05751440928121172,
+              "centered_alpha": -0.08048329017436505,
+              "mean_energy": 172107.20648861653,
+              "proportional_energy": 127457.07433390114,
+              "orthogonal_residual_energy": 4066547.0521631925,
+              "fractions": {
+                "mean": 0.03941887720277696,
+                "proportional": 0.02919235553408145,
+                "orthogonal_residual": 0.9313887672631416
+              },
+              "raw_proportional_fit_residual_energy": 4288440.066782582
+            },
+            {
+              "layer": 9,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 114808796.36452536,
+              "error_energy": 8508381.987617288,
+              "relative_error": 0.07410914718243909,
+              "alpha": 0.00835001228473266,
+              "centered_alpha": -0.02585052562050005,
+              "mean_energy": 476671.20646384155,
+              "proportional_energy": 47142.19931726913,
+              "orthogonal_residual_energy": 7984568.581836177,
+              "fractions": {
+                "mean": 0.05602371956942779,
+                "proportional": 0.0055406773445148255,
+                "orthogonal_residual": 0.9384356030860573
+              },
+              "raw_proportional_fit_residual_energy": 8500377.207759142
+            },
+            {
+              "layer": 9,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2945810.954759596,
+              "error_energy": 329816.3544086959,
+              "relative_error": 0.11196114057346623,
+              "alpha": -0.04708080915467182,
+              "centered_alpha": -0.08115294298075322,
+              "mean_energy": 17708.021625252204,
+              "proportional_energy": 12024.437518104753,
+              "orthogonal_residual_energy": 300083.89526533894,
+              "fractions": {
+                "mean": 0.053690550479219404,
+                "proportional": 0.03645797837909677,
+                "orthogonal_residual": 0.9098514711416839
+              },
+              "raw_proportional_fit_residual_energy": 323286.6622147852
+            },
+            {
+              "layer": 9,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 994546.9268566237,
+              "error_energy": 419817.2148258855,
+              "relative_error": 0.42211906094040685,
+              "alpha": -0.20560944769848338,
+              "centered_alpha": -0.216133742753792,
+              "mean_energy": 17321.234157321167,
+              "proportional_energy": 43110.136636383344,
+              "orthogonal_residual_energy": 359385.84403218096,
+              "fractions": {
+                "mean": 0.04125898973558041,
+                "proportional": 0.10268787251676374,
+                "orthogonal_residual": 0.8560531377476558
+              },
+              "raw_proportional_fit_residual_energy": 377772.49984605587
+            },
+            {
+              "layer": 9,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 3940357.8816162185,
+              "error_energy": 749633.5692345807,
+              "relative_error": 0.19024504670806783,
+              "alpha": -0.08709346156325026,
+              "centered_alpha": -0.12647230085439753,
+              "mean_energy": 35029.25578257337,
+              "proportional_energy": 43965.63392434732,
+              "orthogonal_residual_energy": 670638.67952766,
+              "fractions": {
+                "mean": 0.04672850472576924,
+                "proportional": 0.058649499873970126,
+                "orthogonal_residual": 0.8946219954002606
+              },
+              "raw_proportional_fit_residual_energy": 719744.8866800657
+            },
+            {
+              "layer": 10,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 95168685.5172625,
+              "error_energy": 6013826.526161036,
+              "relative_error": 0.06319123242560913,
+              "alpha": 0.04311636135305013,
+              "centered_alpha": -0.00444160316187897,
+              "mean_energy": 656984.136650372,
+              "proportional_energy": 1043.7644409792138,
+              "orthogonal_residual_energy": 5355798.625069685,
+              "fractions": {
+                "mean": 0.10924560823169634,
+                "proportional": 0.00017356078304531794,
+                "orthogonal_residual": 0.8905808309852583
+              },
+              "raw_proportional_fit_residual_energy": 5836905.977755724
+            },
+            {
+              "layer": 10,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 31332432.5321718,
+              "error_energy": 5661980.867293912,
+              "relative_error": 0.18070671217372772,
+              "alpha": -0.04102187221227863,
+              "centered_alpha": -0.06740268964074404,
+              "mean_energy": 232174.74617250473,
+              "proportional_energy": 122043.22552729753,
+              "orthogonal_residual_energy": 5307762.89559411,
+              "fractions": {
+                "mean": 0.04100592206406914,
+                "proportional": 0.021554863640086245,
+                "orthogonal_residual": 0.9374392142958446
+              },
+              "raw_proportional_fit_residual_energy": 5609254.837829619
+            },
+            {
+              "layer": 10,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 126501118.04943426,
+              "error_energy": 11675807.393454961,
+              "relative_error": 0.09229805691434502,
+              "alpha": 0.02227658090516843,
+              "centered_alpha": -0.025643939670619755,
+              "mean_energy": 889158.8828228767,
+              "proportional_energy": 52458.66171165638,
+              "orthogonal_residual_energy": 10734189.84892043,
+              "fractions": {
+                "mean": 0.07615395260128283,
+                "proportional": 0.004492936543391665,
+                "orthogonal_residual": 0.9193531108553256
+              },
+              "raw_proportional_fit_residual_energy": 11613031.712439038
+            },
+            {
+              "layer": 10,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2747488.461527885,
+              "error_energy": 447278.28373470024,
+              "relative_error": 0.1627953274409632,
+              "alpha": -0.09338504293383888,
+              "centered_alpha": -0.12831703782423684,
+              "mean_energy": 22170.6219428644,
+              "proportional_energy": 31357.208532621684,
+              "orthogonal_residual_energy": 393750.4532592142,
+              "fractions": {
+                "mean": 0.04956784791281022,
+                "proportional": 0.07010670911807777,
+                "orthogonal_residual": 0.8803254429691121
+              },
+              "raw_proportional_fit_residual_energy": 423318.0791043017
+            },
+            {
+              "layer": 10,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 1169864.0977465247,
+              "error_energy": 502425.9656238767,
+              "relative_error": 0.42947378810212683,
+              "alpha": -0.24925358434510364,
+              "centered_alpha": -0.26345013587354077,
+              "mean_energy": 21416.765014076824,
+              "proportional_energy": 75158.77443897093,
+              "orthogonal_residual_energy": 405850.426170829,
+              "fractions": {
+                "mean": 0.04262670817079092,
+                "proportional": 0.14959174004003578,
+                "orthogonal_residual": 0.8077815517891733
+              },
+              "raw_proportional_fit_residual_energy": 429745.4101792587
+            },
+            {
+              "layer": 10,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 3917352.5592744127,
+              "error_energy": 949704.2493585773,
+              "relative_error": 0.24243522506294027,
+              "alpha": -0.13993306428398525,
+              "centered_alpha": -0.17730179866486537,
+              "mean_energy": 43587.38695694123,
+              "proportional_energy": 93909.57177755774,
+              "orthogonal_residual_energy": 812207.2906240784,
+              "fractions": {
+                "mean": 0.045895748056702705,
+                "proportional": 0.09888296471347108,
+                "orthogonal_residual": 0.8552212872298263
+              },
+              "raw_proportional_fit_residual_energy": 872997.5406690937
+            },
+            {
+              "layer": 11,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 106787540.37288186,
+              "error_energy": 5004264.436144454,
+              "relative_error": 0.046861875633341786,
+              "alpha": 0.05379733787308769,
+              "centered_alpha": 0.010342746188211889,
+              "mean_energy": 663093.4636989032,
+              "proportional_energy": 5576.080988882017,
+              "orthogonal_residual_energy": 4335594.891456669,
+              "fractions": {
+                "mean": 0.13250568033726548,
+                "proportional": 0.001114265854659375,
+                "orthogonal_residual": 0.8663800538080751
+              },
+              "raw_proportional_fit_residual_energy": 4695204.895772375
+            },
+            {
+              "layer": 11,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 42474546.66372907,
+              "error_energy": 9610001.546853628,
+              "relative_error": 0.22625318694831512,
+              "alpha": -0.06933131782825752,
+              "centered_alpha": -0.0878185684754763,
+              "mean_energy": 262381.8158636961,
+              "proportional_energy": 295587.2863320311,
+              "orthogonal_residual_energy": 9052032.4446579,
+              "fractions": {
+                "mean": 0.027302994134231068,
+                "proportional": 0.03075829747694558,
+                "orthogonal_residual": 0.9419387083888232
+              },
+              "raw_proportional_fit_residual_energy": 9405833.552403929
+            },
+            {
+              "layer": 11,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 149262087.03661093,
+              "error_energy": 14614265.982998088,
+              "relative_error": 0.09791010077069007,
+              "alpha": 0.018759412730407345,
+              "centered_alpha": -0.03125073391751958,
+              "mean_energy": 925475.279562599,
+              "proportional_energy": 88338.20961107145,
+              "orthogonal_residual_energy": 13600452.493824417,
+              "fractions": {
+                "mean": 0.06332683972217806,
+                "proportional": 0.006044655935087137,
+                "orthogonal_residual": 0.9306285043427347
+              },
+              "raw_proportional_fit_residual_energy": 14561738.331157785
+            },
+            {
+              "layer": 11,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2552975.4792747935,
+              "error_energy": 401561.35838316474,
+              "relative_error": 0.1572915061829084,
+              "alpha": -0.08497112113110616,
+              "centered_alpha": -0.14687999939482685,
+              "mean_energy": 16164.115465876335,
+              "proportional_energy": 30517.237869506975,
+              "orthogonal_residual_energy": 354880.0050477814,
+              "fractions": {
+                "mean": 0.040253164624602,
+                "proportional": 0.07599645043631867,
+                "orthogonal_residual": 0.8837503849390792
+              },
+              "raw_proportional_fit_residual_energy": 383128.6420137571
+            },
+            {
+              "layer": 11,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 1679627.5621878174,
+              "error_energy": 920689.7852716811,
+              "relative_error": 0.5481511532666364,
+              "alpha": -0.28893357678898646,
+              "centered_alpha": -0.3077980527638703,
+              "mean_energy": 31746.102601515737,
+              "proportional_energy": 148975.9965914232,
+              "orthogonal_residual_energy": 739967.6860787423,
+              "fractions": {
+                "mean": 0.034480780724799674,
+                "proportional": 0.16180911200992928,
+                "orthogonal_residual": 0.8037101072652711
+              },
+              "raw_proportional_fit_residual_energy": 780470.0895355642
+            },
+            {
+              "layer": 11,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 4232603.041462613,
+              "error_energy": 1322251.1436548461,
+              "relative_error": 0.31239668135709003,
+              "alpha": -0.16590972057418174,
+              "centered_alpha": -0.23159284921690493,
+              "mean_energy": 47910.21806739207,
+              "proportional_energy": 160210.26288662347,
+              "orthogonal_residual_energy": 1114130.6627008307,
+              "fractions": {
+                "mean": 0.036233826151182605,
+                "proportional": 0.1211647754327403,
+                "orthogonal_residual": 0.8426013984160772
+              },
+              "raw_proportional_fit_residual_energy": 1205744.362581805
+            },
+            {
+              "layer": 12,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 107335546.24364203,
+              "error_energy": 8101729.776773394,
+              "relative_error": 0.07548039824927333,
+              "alpha": 0.05470553581559137,
+              "centered_alpha": -0.01088244468227783,
+              "mean_energy": 1067786.810580965,
+              "proportional_energy": 6146.45158987364,
+              "orthogonal_residual_energy": 7027796.514602555,
+              "fractions": {
+                "mean": 0.13179738648432474,
+                "proportional": 0.0007586591702298832,
+                "orthogonal_residual": 0.8674439543454453
+              },
+              "raw_proportional_fit_residual_energy": 7780507.15456086
+            },
+            {
+              "layer": 12,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 125692369.18657628,
+              "error_energy": 24924495.868118227,
+              "relative_error": 0.19829760572911628,
+              "alpha": -0.05662055623594121,
+              "centered_alpha": -0.08313018182188643,
+              "mean_energy": 783094.3785561309,
+              "proportional_energy": 743996.9245493531,
+              "orthogonal_residual_energy": 23397404.56501274,
+              "fractions": {
+                "mean": 0.03141866470237473,
+                "proportional": 0.02985002900303492,
+                "orthogonal_residual": 0.9387313062945903
+              },
+              "raw_proportional_fit_residual_energy": 24521540.286916394
+            },
+            {
+              "layer": 12,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 233027915.43021822,
+              "error_energy": 33026225.644891627,
+              "relative_error": 0.14172647763645962,
+              "alpha": -0.005342378342702891,
+              "centered_alpha": -0.05963001943166679,
+              "mean_energy": 1850881.1891370958,
+              "proportional_energy": 567354.9085108729,
+              "orthogonal_residual_energy": 30607989.54724366,
+              "fractions": {
+                "mean": 0.05604277064652658,
+                "proportional": 0.017178920613310507,
+                "orthogonal_residual": 0.9267783087401629
+              },
+              "raw_proportional_fit_residual_energy": 33019574.79367607
+            },
+            {
+              "layer": 12,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2405917.7152660345,
+              "error_energy": 553684.1064771975,
+              "relative_error": 0.2301342655918612,
+              "alpha": -0.1189460688201485,
+              "centered_alpha": -0.1895530056285287,
+              "mean_energy": 26486.75204920357,
+              "proportional_energy": 50272.202015790856,
+              "orthogonal_residual_energy": 476925.152412203,
+              "fractions": {
+                "mean": 0.04783729881235878,
+                "proportional": 0.09079581918225285,
+                "orthogonal_residual": 0.8613668820053882
+              },
+              "raw_proportional_fit_residual_energy": 519644.7801610102
+            },
+            {
+              "layer": 12,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 3779908.224188177,
+              "error_energy": 2330838.355714949,
+              "relative_error": 0.6166388751979688,
+              "alpha": -0.3133249363906373,
+              "centered_alpha": -0.3316445427721946,
+              "mean_energy": 92297.95075799953,
+              "proportional_energy": 388829.8128280812,
+              "orthogonal_residual_energy": 1849710.5921288682,
+              "fractions": {
+                "mean": 0.039598606454924475,
+                "proportional": 0.1668197247032232,
+                "orthogonal_residual": 0.7935816688418523
+              },
+              "raw_proportional_fit_residual_energy": 1959755.2559886174
+            },
+            {
+              "layer": 12,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 6185825.939454209,
+              "error_energy": 2884522.4621921442,
+              "relative_error": 0.46631161148492534,
+              "alpha": -0.23772313874250434,
+              "centered_alpha": -0.29135389267211453,
+              "mean_energy": 118784.70280720311,
+              "proportional_energy": 418863.1414825879,
+              "orthogonal_residual_energy": 2346874.6179023534,
+              "fractions": {
+                "mean": 0.04118002350965593,
+                "proportional": 0.1452105667307806,
+                "orthogonal_residual": 0.8136094097595635
+              },
+              "raw_proportional_fit_residual_energy": 2534947.2685217713
+            },
+            {
+              "layer": 13,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 107163123.22231852,
+              "error_energy": 7468067.755460888,
+              "relative_error": 0.06968878407890167,
+              "alpha": 0.04826204912953755,
+              "centered_alpha": -0.02232482820906758,
+              "mean_energy": 830481.2218043996,
+              "proportional_energy": 24082.5427034875,
+              "orthogonal_residual_energy": 6613503.990953,
+              "fractions": {
+                "mean": 0.11120429661301953,
+                "proportional": 0.003224735432519018,
+                "orthogonal_residual": 0.8855709679544613
+              },
+              "raw_proportional_fit_residual_energy": 7218460.688388925
+            },
+            {
+              "layer": 13,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 89501687.00510845,
+              "error_energy": 25679777.772439197,
+              "relative_error": 0.2869194831039719,
+              "alpha": -0.10543306919748377,
+              "centered_alpha": -0.16740709506052864,
+              "mean_energy": 904179.9784257215,
+              "proportional_energy": 1949275.4127869215,
+              "orthogonal_residual_energy": 22826322.381226555,
+              "fractions": {
+                "mean": 0.035209805413352606,
+                "proportional": 0.07590702030447397,
+                "orthogonal_residual": 0.8888831742821734
+              },
+              "raw_proportional_fit_residual_energy": 24684865.198271666
+            },
+            {
+              "layer": 13,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 196664810.227427,
+              "error_energy": 33147845.527900066,
+              "relative_error": 0.1685499581219805,
+              "alpha": -0.02168423337423371,
+              "centered_alpha": -0.10793397100511921,
+              "mean_energy": 1734661.200230121,
+              "proportional_energy": 1373206.9074043012,
+              "orthogonal_residual_energy": 30039977.420265645,
+              "fractions": {
+                "mean": 0.052331039094835934,
+                "proportional": 0.04142673182932787,
+                "orthogonal_residual": 0.9062422290758362
+              },
+              "raw_proportional_fit_residual_energy": 33055372.558660008
+            },
+            {
+              "layer": 13,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2266096.598276568,
+              "error_energy": 498527.9324771605,
+              "relative_error": 0.21999412242898442,
+              "alpha": -0.08699000213516654,
+              "centered_alpha": -0.15513645139827603,
+              "mean_energy": 21507.771244944008,
+              "proportional_energy": 34680.20769188879,
+              "orthogonal_residual_energy": 442339.95354032767,
+              "fractions": {
+                "mean": 0.04314256001278196,
+                "proportional": 0.06956522480007202,
+                "orthogonal_residual": 0.887292215187146
+              },
+              "raw_proportional_fit_residual_energy": 481379.78926447534
+            },
+            {
+              "layer": 13,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 2523906.369665675,
+              "error_energy": 1832329.6230133534,
+              "relative_error": 0.725989539483618,
+              "alpha": -0.3400641457107909,
+              "centered_alpha": -0.3752496391229969,
+              "mean_energy": 64158.75189906595,
+              "proportional_energy": 321759.06298971816,
+              "orthogonal_residual_energy": 1446411.8081245692,
+              "fractions": {
+                "mean": 0.03501485272805546,
+                "proportional": 0.17560108124026835,
+                "orthogonal_residual": 0.7893840660316761
+              },
+              "raw_proportional_fit_residual_energy": 1540455.9458126787
+            },
+            {
+              "layer": 13,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 4790002.967942244,
+              "error_energy": 2330857.5554905133,
+              "relative_error": 0.48660879149555836,
+              "alpha": -0.22033761115399786,
+              "centered_alpha": -0.29012435023706656,
+              "mean_energy": 85666.52314400997,
+              "proportional_energy": 313624.3755950355,
+              "orthogonal_residual_energy": 1931566.6567514678,
+              "fractions": {
+                "mean": 0.03675322112336549,
+                "proportional": 0.13455321405474532,
+                "orthogonal_residual": 0.8286935648218892
+              },
+              "raw_proportional_fit_residual_energy": 2098309.3161623348
+            },
+            {
+              "layer": 14,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 202501085.77280664,
+              "error_energy": 22587194.896682326,
+              "relative_error": 0.11154110512782002,
+              "alpha": 0.09636911047477772,
+              "centered_alpha": -0.033884822876387985,
+              "mean_energy": 5312067.158111411,
+              "proportional_energy": 99740.6289707782,
+              "orthogonal_residual_energy": 17175387.109600134,
+              "fractions": {
+                "mean": 0.2351804720510763,
+                "proportional": 0.004415804150405077,
+                "orthogonal_residual": 0.7604037237985185
+              },
+              "raw_proportional_fit_residual_energy": 20706566.208730116
+            },
+            {
+              "layer": 14,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 419831527.7516883,
+              "error_energy": 115444626.97184455,
+              "relative_error": 0.27497846002676796,
+              "alpha": -0.03342141058505346,
+              "centered_alpha": -0.1022796072960786,
+              "mean_energy": 7355551.564629536,
+              "proportional_energy": 3367915.5700894506,
+              "orthogonal_residual_energy": 104721159.83712557,
+              "fractions": {
+                "mean": 0.06371497537450106,
+                "proportional": 0.02917342849495145,
+                "orthogonal_residual": 0.9071115961305475
+              },
+              "raw_proportional_fit_residual_energy": 114975679.0658689
+            },
+            {
+              "layer": 14,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 622332613.5244948,
+              "error_energy": 138031821.86852685,
+              "relative_error": 0.22179750646009486,
+              "alpha": 0.008811184761003621,
+              "centered_alpha": -0.08774650096792923,
+              "mean_energy": 12667618.722740946,
+              "proportional_energy": 3147645.4783538263,
+              "orthogonal_residual_energy": 122216557.66743207,
+              "fractions": {
+                "mean": 0.09177317629558389,
+                "proportional": 0.02280376681075694,
+                "orthogonal_residual": 0.8854230568936592
+              },
+              "raw_proportional_fit_residual_energy": 137983505.84579116
+            },
+            {
+              "layer": 14,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2027496.8801127991,
+              "error_energy": 1024188.9610052309,
+              "relative_error": 0.5051494633857343,
+              "alpha": -0.14040718293208423,
+              "centered_alpha": -0.19022483295484524,
+              "mean_energy": 73164.33878351747,
+              "proportional_energy": 55833.06150541343,
+              "orthogonal_residual_energy": 895191.5607163,
+              "fractions": {
+                "mean": 0.07143636728100196,
+                "proportional": 0.05451441445982181,
+                "orthogonal_residual": 0.8740492182591763
+              },
+              "raw_proportional_fit_residual_energy": 984218.5286053715
+            },
+            {
+              "layer": 14,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 11797609.22453298,
+              "error_energy": 7474722.0551200975,
+              "relative_error": 0.633579389930674,
+              "alpha": -0.21314778066904758,
+              "centered_alpha": -0.24201804170057195,
+              "mean_energy": 309207.25157741015,
+              "proportional_energy": 632256.6358274347,
+              "orthogonal_residual_energy": 6533258.167715253,
+              "fractions": {
+                "mean": 0.04136705676776393,
+                "proportional": 0.08458597271778771,
+                "orthogonal_residual": 0.8740469705144485
+              },
+              "raw_proportional_fit_residual_energy": 6938733.351205846
+            },
+            {
+              "layer": 14,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 13825106.1046458,
+              "error_energy": 8498911.016125333,
+              "relative_error": 0.6147447225211061,
+              "alpha": -0.20248013487646468,
+              "centered_alpha": -0.23554053565236988,
+              "mean_energy": 382371.5903609276,
+              "proportional_energy": 684468.2801655573,
+              "orthogonal_residual_energy": 7432071.145598847,
+              "fractions": {
+                "mean": 0.044990656995400745,
+                "proportional": 0.08053599794925344,
+                "orthogonal_residual": 0.8744733450553458
+              },
+              "raw_proportional_fit_residual_energy": 7932106.48162946
+            },
+            {
+              "layer": 15,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 177139377.24578148,
+              "error_energy": 11269672.11171807,
+              "relative_error": 0.06362036655509612,
+              "alpha": 0.03641994343967148,
+              "centered_alpha": -0.07197049799133699,
+              "mean_energy": 1296359.7473771654,
+              "proportional_energy": 304139.3204362249,
+              "orthogonal_residual_energy": 9669173.04390468,
+              "fractions": {
+                "mean": 0.11503083093511,
+                "proportional": 0.02698741519906196,
+                "orthogonal_residual": 0.8579817538658282
+              },
+              "raw_proportional_fit_residual_energy": 11034712.266441341
+            },
+            {
+              "layer": 15,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 356385285.1538537,
+              "error_energy": 72596834.2388345,
+              "relative_error": 0.20370323148301142,
+              "alpha": -0.006030381462830854,
+              "centered_alpha": -0.1604186238348505,
+              "mean_energy": 7361293.308293652,
+              "proportional_energy": 4744021.490839115,
+              "orthogonal_residual_energy": 60491519.43970173,
+              "fractions": {
+                "mean": 0.1013996462170226,
+                "proportional": 0.06534749814615715,
+                "orthogonal_residual": 0.8332528556368202
+              },
+              "raw_proportional_fit_residual_energy": 72583874.10953794
+            },
+            {
+              "layer": 15,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 533524662.39963526,
+              "error_energy": 83866506.35055251,
+              "relative_error": 0.15719330756585068,
+              "alpha": 0.008063857561264721,
+              "centered_alpha": -0.13905224795486035,
+              "mean_energy": 8657653.055670816,
+              "proportional_energy": 4699778.116456285,
+              "orthogonal_residual_energy": 70509075.17842542,
+              "fractions": {
+                "mean": 0.1032313545944409,
+                "proportional": 0.0560387969043535,
+                "orthogonal_residual": 0.8407298485012057
+              },
+              "raw_proportional_fit_residual_energy": 83831813.48321736
+            },
+            {
+              "layer": 15,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 1557800.701747994,
+              "error_energy": 598968.4031576053,
+              "relative_error": 0.38449616981524554,
+              "alpha": -0.1454039485482882,
+              "centered_alpha": -0.2225491059810834,
+              "mean_energy": 23022.370299027447,
+              "proportional_energy": 52678.139952760044,
+              "orthogonal_residual_energy": 523267.89290581783,
+              "fractions": {
+                "mean": 0.03843670246653999,
+                "proportional": 0.0879481115782646,
+                "orthogonal_residual": 0.8736151859551954
+              },
+              "raw_proportional_fit_residual_energy": 566032.9005238346
+            },
+            {
+              "layer": 15,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 7090595.714696547,
+              "error_energy": 5214610.250863674,
+              "relative_error": 0.7354262548145916,
+              "alpha": -0.2871441191590505,
+              "centered_alpha": -0.31769470406843964,
+              "mean_energy": 177548.42602862988,
+              "proportional_energy": 647837.5585835845,
+              "orthogonal_residual_energy": 4389224.26625146,
+              "fractions": {
+                "mean": 0.03404826391372649,
+                "proportional": 0.12423508707602565,
+                "orthogonal_residual": 0.8417166490102479
+              },
+              "raw_proportional_fit_residual_energy": 4629978.259908847
+            },
+            {
+              "layer": 15,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 8648396.416444538,
+              "error_energy": 5813578.654021282,
+              "relative_error": 0.6722146365732059,
+              "alpha": -0.2616130349428509,
+              "centered_alpha": -0.30416983629456296,
+              "mean_energy": 200570.79632765733,
+              "proportional_energy": 692255.9295555858,
+              "orthogonal_residual_energy": 4920751.928138039,
+              "fractions": {
+                "mean": 0.03450040126126469,
+                "proportional": 0.11907569687334477,
+                "orthogonal_residual": 0.8464239018653906
+              },
+              "raw_proportional_fit_residual_energy": 5221670.468042966
+            },
+            {
+              "layer": 16,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 197731843.91996565,
+              "error_energy": 10194863.071552828,
+              "relative_error": 0.051559035051932864,
+              "alpha": 0.055927176141560286,
+              "centered_alpha": -0.054889113743402336,
+              "mean_energy": 1872667.275554238,
+              "proportional_energy": 190058.94214308224,
+              "orthogonal_residual_energy": 8132136.853855507,
+              "fractions": {
+                "mean": 0.18368733963476402,
+                "proportional": 0.018642618425490382,
+                "orthogonal_residual": 0.7976700419397456
+              },
+              "raw_proportional_fit_residual_energy": 9576387.715116482
+            },
+            {
+              "layer": 16,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 342012037.890018,
+              "error_energy": 57804004.58678858,
+              "relative_error": 0.16901160831472492,
+              "alpha": 0.05069371925897956,
+              "centered_alpha": -0.1499257620506009,
+              "mean_energy": 10653207.739365848,
+              "proportional_energy": 3214805.8503057496,
+              "orthogonal_residual_energy": 43935990.99711698,
+              "fractions": {
+                "mean": 0.18429878371784464,
+                "proportional": 0.05561562513335817,
+                "orthogonal_residual": 0.7600855911487973
+              },
+              "raw_proportional_fit_residual_energy": 56925083.866249315
+            },
+            {
+              "layer": 16,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 539743881.8099834,
+              "error_energy": 67998867.6583414,
+              "relative_error": 0.12598358212104824,
+              "alpha": 0.05261096392694719,
+              "centered_alpha": -0.12083749770665862,
+              "mean_energy": 12525875.014920082,
+              "proportional_energy": 3009488.030960619,
+              "orthogonal_residual_energy": 52463504.61246069,
+              "fractions": {
+                "mean": 0.18420711176921398,
+                "proportional": 0.04425791391235684,
+                "orthogonal_residual": 0.7715349743184291
+              },
+              "raw_proportional_fit_residual_energy": 66504903.267669454
+            },
+            {
+              "layer": 16,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2359801.1387210963,
+              "error_energy": 1034509.2179054865,
+              "relative_error": 0.4383883035441465,
+              "alpha": -0.06131563284113234,
+              "centered_alpha": -0.19874262372640883,
+              "mean_energy": 99606.39980136932,
+              "proportional_energy": 57670.35233753163,
+              "orthogonal_residual_energy": 877232.4657665855,
+              "fractions": {
+                "mean": 0.09628372379613677,
+                "proportional": 0.05574658141209568,
+                "orthogonal_residual": 0.8479696947917675
+              },
+              "raw_proportional_fit_residual_energy": 1025637.2934252368
+            },
+            {
+              "layer": 16,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 9394715.809907524,
+              "error_energy": 7532788.27134907,
+              "relative_error": 0.801811190861687,
+              "alpha": -0.19565925800995423,
+              "centered_alpha": -0.2819387970255019,
+              "mean_energy": 337448.1196127199,
+              "proportional_energy": 604059.386077456,
+              "orthogonal_residual_energy": 6591280.765658894,
+              "fractions": {
+                "mean": 0.04479723940950292,
+                "proportional": 0.0801906763230016,
+                "orthogonal_residual": 0.8750120842674954
+              },
+              "raw_proportional_fit_residual_energy": 7173134.638292314
+            },
+            {
+              "layer": 16,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 11754516.948628625,
+              "error_energy": 8567297.489254555,
+              "relative_error": 0.7288515152682717,
+              "alpha": -0.1686888396559874,
+              "centered_alpha": -0.26853031935770183,
+              "mean_energy": 437054.51941408927,
+              "proportional_energy": 653252.5316488313,
+              "orthogonal_residual_energy": 7476990.438191634,
+              "fractions": {
+                "mean": 0.05101428075332512,
+                "proportional": 0.07624954455803205,
+                "orthogonal_residual": 0.8727361746886427
+              },
+              "raw_proportional_fit_residual_energy": 8232811.840967165
+            },
+            {
+              "layer": 17,
+              "token_type": "image",
+              "component": "K",
+              "tokens": 102400,
+              "fp_energy": 360451066.4360692,
+              "error_energy": 20803803.599952266,
+              "relative_error": 0.057716027325562365,
+              "alpha": 0.0355578195392703,
+              "centered_alpha": -0.09861078515004273,
+              "mean_energy": 3036209.2648536963,
+              "proportional_energy": 1093874.6190273135,
+              "orthogonal_residual_energy": 16673719.716071256,
+              "fractions": {
+                "mean": 0.14594491099986462,
+                "proportional": 0.052580510759572034,
+                "orthogonal_residual": 0.8014745782405633
+              },
+              "raw_proportional_fit_residual_energy": 20348064.219316617
+            },
+            {
+              "layer": 17,
+              "token_type": "image",
+              "component": "V",
+              "tokens": 102400,
+              "fp_energy": 7107804594.59811,
+              "error_energy": 490586272.6596299,
+              "relative_error": 0.0690207878016895,
+              "alpha": 0.05941083188103443,
+              "centered_alpha": -0.15387181475867343,
+              "mean_energy": 104244495.92453901,
+              "proportional_energy": 46644696.26571302,
+              "orthogonal_residual_energy": 339697080.4693778,
+              "fractions": {
+                "mean": 0.21248963074200028,
+                "proportional": 0.09507949746093944,
+                "orthogonal_residual": 0.6924308717970602
+              },
+              "raw_proportional_fit_residual_energy": 465498231.88809586
+            },
+            {
+              "layer": 17,
+              "token_type": "image",
+              "component": "jointKV",
+              "tokens": 102400,
+              "fp_energy": 7468255661.034178,
+              "error_energy": 511390076.25958157,
+              "relative_error": 0.06847517003572506,
+              "alpha": 0.058259579951998146,
+              "centered_alpha": -0.15088686121956293,
+              "mean_energy": 107280705.1893927,
+              "proportional_energy": 47413602.83373828,
+              "orthogonal_residual_energy": 356695768.2364506,
+              "fractions": {
+                "mean": 0.20978253229719895,
+                "proportional": 0.09271514062324342,
+                "orthogonal_residual": 0.6975023270795577
+              },
+              "raw_proportional_fit_residual_energy": 486041482.2959795
+            },
+            {
+              "layer": 17,
+              "token_type": "language_state",
+              "component": "K",
+              "tokens": 6494,
+              "fp_energy": 2900569.5600552317,
+              "error_energy": 925941.349135136,
+              "relative_error": 0.31922742411924937,
+              "alpha": -0.13752030823822056,
+              "centered_alpha": -0.2845306235205866,
+              "mean_energy": 62455.89249584875,
+              "proportional_energy": 121801.87083918543,
+              "orthogonal_residual_energy": 741683.5858001019,
+              "fractions": {
+                "mean": 0.06745124035575785,
+                "proportional": 0.1315438293720795,
+                "orthogonal_residual": 0.8010049302721627
+              },
+              "raw_proportional_fit_residual_energy": 871086.2556932354
+            },
+            {
+              "layer": 17,
+              "token_type": "language_state",
+              "component": "V",
+              "tokens": 6494,
+              "fp_energy": 5821859.445364926,
+              "error_energy": 4375738.253122471,
+              "relative_error": 0.7516049286635073,
+              "alpha": -0.24498235182906639,
+              "centered_alpha": -0.3763884481006322,
+              "mean_energy": 386323.3167137145,
+              "proportional_energy": 580527.1112286643,
+              "orthogonal_residual_energy": 3408887.8251800924,
+              "fractions": {
+                "mean": 0.08828757443113493,
+                "proportional": 0.13266952400875612,
+                "orthogonal_residual": 0.7790429015601089
+              },
+              "raw_proportional_fit_residual_energy": 4026331.4832347925
+            },
+            {
+              "layer": 17,
+              "token_type": "language_state",
+              "component": "jointKV",
+              "tokens": 6494,
+              "fp_energy": 8722429.00542016,
+              "error_energy": 5301679.602257611,
+              "relative_error": 0.6078214679607162,
+              "alpha": -0.20924676346173843,
+              "centered_alpha": -0.35171980161082794,
+              "mean_energy": 448779.20920956327,
+              "proportional_energy": 693043.3512597468,
+              "orthogonal_residual_energy": 4159857.0417883014,
+              "fractions": {
+                "mean": 0.08464849686851311,
+                "proportional": 0.13072147003463366,
+                "orthogonal_residual": 0.7846300330968533
+              },
+              "raw_proportional_fit_residual_energy": 4919774.956251481
+            }
+          ]
+        }
+      },
+      "action_instrumentation_exact": 200,
+      "definition": "Expert attention conditional on valid prefix keys, averaged over10steps x18layers xheads x10queries; nats. Prefix mass separately reported.",
+      "source_sha256": {
+        "/projects/yanlongvla/runs/structure_20261005/plus_j/capture_complete.json": "9eb760cb07aad48fd4df3d6167cc5e13ff653a2e61a953d02507cdb9c705053e",
+        "/projects/yanlongvla/runs/precision_20261006/preregistration.json": "b0341a310dbcfa8d3cf39811c7525d1b00c52a5aba95a73954753a1d5e4b315d",
+        "/projects/yanlongvla/research/scripts/precision_diagnostics.py": "939185880b0d0c600f821299ae20de3bbd5b08d506f58378444ca582d7807864",
+        "/projects/yanlongvla/research/scripts/plus_round_s1_math.py": "bdbd190a74abe3a66daf2ae36d4200b9fd8b34c4ac93ff369af9aba489079800",
+        "/projects/yanlongvla/envs/openpi/lib/python3.11/site-packages/transformers/models/gemma/modeling_gemma.py": "17eeb54e277939e58cd6f8a92719a275e36baf0c9f463b2754227d42f87aedde",
+        "/projects/yanlongvla/runs/precision_20261006/diagnostics/precision_c4/precision_c4.json": "d085198fbbde574d91f3b6a25386ff18fb8398f779041d07c2506a1743cc6d2e",
+        "/projects/yanlongvla/runs/precision_20261006/diagnostics/precision_c4/manifest.json": "46a660ef04f4e071625280d3edf35386dc1bc0360c5093b4388f9f55219be43c"
+      }
     }
   },
   "training_curves": {
