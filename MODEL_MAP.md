@@ -402,3 +402,8 @@ Evening structure round: H3b uses FPexpert with actual observation-specific quan
 ## 2026-10-05 calibration-coverage variants (registered, not yet fitted)
 
 `coverage_mixed_backbone`: refit288 backbone Linear layers at2bits using mixed256; retain all126 original-calibration uniformM2 expert layers. `coverage_mixed_both`: identical refitted backbone plus126 uniformM2 expert refits on the same mixed256. Both retain the original embedding/normalization/projection/FP32 table tensors and must match the original deployment payload exactly. Main set128original+64camera+64initial-state, original60 train episodes only. LIBERO-Plus fixed500+500 is primary for method comparisons; LIBERO full/medium remains the headline benchmark. See CALIBRATION_COVERAGE_2026-10-05.md.
+
+
+### October7 C3 execution update
+
+C3 has1,179,648 FP32 trainable backbone-codebook values across288modules (4.5MiB gradients). The new four-GPU continuation replicates the model, partitions the original16latents within each update, SUM-reduces gradients and OR-reduces parameter-usage masks, then performs one global clip/Adam update. It preserves the original2bit storage format and scientific fit recipe. GPU equivalence and speedup are pending startup checks; a reservation is not a completed training result. Protocol and safe handoff details: [precision round](PRECISION_2026-10-06.md).

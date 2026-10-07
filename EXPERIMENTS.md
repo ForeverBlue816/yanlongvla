@@ -1094,3 +1094,16 @@ User authorized using idle compatible cards instead of prolonged queues. C4job18
 E084 walltime refinement: previousFP64 two-episode pilot188643 ran60seconds. An attempt to shorten189805 via scontrol was rejected by the cluster policy (TimeLimit updates prohibited), so its actual2hour limit remained. A fresh short reservation is used below only if189805 is stillPENDING.
 
 E084 activation verified:189805 started ongpu-6000ada-3 before any further replacement; kept the running2h reservation and did not submit a short duplicate. C3,C4andC5diagnostic are all running, with3GPUs allocated.
+
+
+### E085 — C3 four-GPU continuation requested
+
+2026-10-07. User explicitly requested more training GPUs. At implementation time C3job188637 used oneL40S; C4Plusjob189305 used another. Added separate latent-parallel trainer and execution sidecar; all original fit/runtime source hashes still match C3's frozen manifest. No pre-existing GPU job was stopped. CPU controller189885 replaces188721 to dispatch the new four-RTX6000Ada continuation and handle its resumptions under the global8GPU reservation cap.
+
+Validated33CPU tests:9latent/gradient/Adam math including unused-parameter skip state;12parallel scheduling/resource/ledger tests;5exclusive-lock and safe-cancellation handoff tests;7existing precision protocol/promotion tests. Syntax and shell checks passed. Commands and new source hashes are recorded in runs/precision_20261006/c3_parallel_validation.json. The new GPU runtime gate requires256held-out exact actions for each ofFP/original2bit,256initial differentiable-forward exact actions collectively across ranks, and two same-checkpoint serial/parallel gradient+Adam comparisons. No GPU validation or measured speedup is claimed before allocation.
+
+The original one-card worker remains live through queueing and preflight. Only a passing replacement may cancel originaljob188637, acquire the exclusive training lock, archive and load its latest atomic checkpoint, then continue to2304updates. Current observations/latent IDs,16latents/update,10steps,Adam lr3e-4 and globalclip1.0 remain unchanged. Final model export and downstream Plus gates remain unchanged. New code is private; publication contains protocol, validation metadata and results only.
+
+E085 submission confirmed: paralleljob189890 requests4RTX6000Ada onone node,16CPU/256GB,48h, preemptibleQoS; statePENDING(Priority). OriginalC3job188637 andC4Plus189305 remainRUNNING. ActualGPUuse2, queuedGPUreservation4, total6≤8. GPUpreflight and handoff have not started.
+
+E085 publication checks:7 additional summary tests passed,40 CPU tests total. Report data now distinguishes queued/preflight/guarded handoff, post-handoff failure, and original-training-completed-before-handoff. Per-attempt proof data and SHA hashes publish as execution evidence; no per-update polling or inference source change.

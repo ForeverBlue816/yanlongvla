@@ -31683,6 +31683,81 @@
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328"
   },
+  "c3_parallel_execution": {
+    "status": "queued",
+    "latest_handoff_acquired": false,
+    "sidecars": {
+      "policy": {
+        "data": {
+          "enabled": true,
+          "world_size": 4,
+          "gres": "gpu:6000ada:4",
+          "handoff_job": 188637,
+          "time": "2-00:00:00",
+          "requested_by_user": "Use more GPUs for training",
+          "handoff": "Keep original running until exact-action and numerical checks pass; then resume latest checkpoint under exclusive lock.",
+          "max_user_gpus": 8
+        },
+        "sha256": "331378a05eb9144bbe4dc493dd5a3c6316045367ec886155bd534fe728ea6b69"
+      },
+      "cpu_validation": {
+        "data": {
+          "status": "cpu_passed_gpu_pending",
+          "cpu_tests": {
+            "math": 9,
+            "controller": 12,
+            "handoff": 5,
+            "existing_precision": 7,
+            "total": 40,
+            "summary": 7
+          },
+          "commands": [
+            "PYTHONPATH=$PWD/tests:$PWD/scripts /projects/yanlongvla/envs/openpi/bin/python -m unittest -v test_precision_parallel_math",
+            "PYTHONPATH=$PWD/tests:$PWD/scripts /projects/yanlongvla/envs/openpi/bin/python -m unittest -v test_precision_parallel_controller",
+            "PYTHONPATH=$PWD/tests:$PWD/scripts /projects/yanlongvla/envs/openpi/bin/python -m unittest -v test_precision_parallel_handoff test_precision_round",
+            "PYTHONPATH=$PWD/tests:$PWD/scripts /projects/yanlongvla/envs/openpi/bin/python -m unittest -v test_precision_parallel_summary"
+          ],
+          "source_sha256": {
+            "scripts/precision_finetune_parallel.py": "4e090a7d8f438988ef974d2cd2a5c163419f3b441e5588c4efb26754f6c493c5",
+            "scripts/precision_parallel_math.py": "7726d6c842b2b54bac87c2b8fa05830c99e4b97f875d1fe39bcccb22fbd193b9",
+            "scripts/precision_controller.py": "f24e8ae53f0dc9a0435168ae1770307b4f1cd838a03a9967b1ae3d8a358167ed",
+            "slurm/precision_parallel.sbatch": "d7ea4be43c9bf3ac669288953f6c4965fbe29ecb0f6427d70569a7235ff20e17",
+            "tests/test_precision_parallel_math.py": "aa96361717341f11e54a0f1848cec11f7176ea0d4118486e7ab8d8c1cf2c09ec",
+            "tests/test_precision_parallel_handoff.py": "a8f4c74b3e92682f016289f66797abed1c8e5ac5f9704bce7a5d89842e6e3885",
+            "tests/test_precision_parallel_controller.py": "73badcd786f9b970b9395d5e3ed88c6d655aef1088a69438912128d10825e7c7",
+            "scripts/precision_summary.py": "a003483a97eb5273c34d05d8dc15d3ea60ab3dada116650d998216918ad396fe",
+            "tests/test_precision_parallel_summary.py": "02ecc8805b031193f23501d3f05937275d577f9f5c490c63f056b50ba97acc95"
+          },
+          "frozen_original_sources_unchanged": true,
+          "gpu_validation": "Pending allocation: exact256 held-out FP/base actions across ranks; exact256 differentiable forward; two training-observation serial/parallel gradient+Adam comparisons.",
+          "training_budget": {
+            "updates": 2304,
+            "latents_per_update": 16,
+            "velocity_steps": 10
+          },
+          "numerical_tolerances": {
+            "gradient_relative_l2": 0.0001,
+            "gradient_max_abs": 1e-05,
+            "loss_abs": 1e-07,
+            "loss_relative": 0.0001,
+            "clip_norm_abs": 1e-07,
+            "clip_norm_relative": 0.0001,
+            "post_adam_max_abs": 1e-06
+          }
+        },
+        "sha256": "b8cc826484eeca92f24a3676154303a4207ad25c3bdcb577ec69d9fac45820a8"
+      }
+    },
+    "jobs": [
+      {
+        "key": "C3_parallel_fit",
+        "job": 189890,
+        "state": "PENDING",
+        "gpus": 4
+      }
+    ],
+    "attempts": {}
+  },
   "final_deployment_policy": {
     "status": "awaiting_A8_feasibility_and_validated_final_composition",
     "legacy_direct_final_disabled": true,

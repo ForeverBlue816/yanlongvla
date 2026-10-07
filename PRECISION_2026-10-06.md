@@ -40,3 +40,12 @@ C1/C2 composition proceeds in parallel, followed by their diagnostics/Plus evalu
 ## Subsequent D3 amendment
 
 The [complete October7 addendum](ADDENDUM_2026-10-07.md) now incorporates the revised D3: three offline FP-prefix interventions over all40 tasks and three pairedPlus500+500 runs, with TV, E_R and D_M diagnostics. D1, three separate A8 feasibility rows and the promotion threshold are retained. Numerical targets are predictions. C1–C5 continue, while final deployment now requires the A8 feasibility decision and validated winning-backbone + uniformM2-expert + A8 composition before full/expanded evaluation. The previous direct-to-final dispatch is superseded.
+
+
+## October7 execution update — C3 latent parallelism
+
+The user requested multiple GPUs for C3 training. A four-GPU continuation now splits the same observation's 16 latents into four shards of four, sums gradients with the original global denominator, clips once and takes one Adam update. Rank zero owns optimizer state and broadcasts updated codebooks. Globally unused parameters keep grad=None, preserving Adam skip semantics. The fixed2304updates,256training observations,10velocity steps, seed namespace and final-iterate rule are unchanged.
+
+The original one-L40S worker continues while the four-RTX6000Ada reservation queues and runs its startup checks. Before cancelling that specific worker, the replacement must pass exact action checks for FP and the original2bit model on256held-out observations collectively across ranks, the initial differentiable-forward256check, and serial-versus-parallel gradient/Adam checks on two fixed training observations. The latter tests numerical agreement within preregistered execution tolerances, not bitwise equality of complete training trajectories. CPU mathematical, handoff and scheduler tests passed; GPU validation and measured speedup remain pending allocation.
+
+After all guards pass, acquire the training lock and restore the latest atomic checkpoint, including all Adam moments and completed updates. Preserve the original frozen fit manifest and sources; record the new execution code and hardware in separate per-attempt proofs. Restart/preemption uses checkpoint continuation. If the original training finishes first, the replacement exits without refitting. Pending and running reservations together stay within eight GPUs; no C4 evaluation is interrupted. Background dispatch and report publication continue independently of the user's computer.
