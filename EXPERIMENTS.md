@@ -1076,3 +1076,10 @@ Saved ADDENDUM_2026-10-07.md with all four items. Item2 retainsD1 and replaces t
 Existing C1–C5 GPU jobs and frozen runtime sources are preserved. The old CPU dispatcher would send an unchanged promoted checkpoint straight to final evaluation; a separate deployment_policy.json now disables that legacy path, pendingA8 feasibility and validated final composition. The backbone promotion rule, coverage trigger, LIBERO scopes and nestedPlus confirmation identities remain unchanged. D1/D3/A8 execution is not claimed implemented or started.
 
 E082 verification:13 CPU regression tests passed in1.818s, including suppression of the legacy final/confirmation branch while preserving baseline scheduling; syntax checks passed. CPU dispatcher188721 replaces188670 through an afterany dependency. No GPU job was canceled. Proof:runs/precision_20261006/addendum_20261007_validation.json.
+
+
+### E083 — C5 first-divergence diagnosis
+
+2026-10-07T02:12:45.384194+00:00
+
+TheFP64 replay pilot failed again at observation159 (episode1067); state error0.051053 andwristMAE35.820928 exceed unchanged0.005/15 guards. Episode134control passed. Raw actions match the calibration sequence exactly afterfloat32 conversion; both pilot episodes contain no skipped no-op actions. The cause remains unresolved. Submitted diagnostic job189329: inspect every frame, separateposition/rotation/gripper errors, savecontact pairs and simulator states, replay1067 twice for determinism and134 ascontrol. Purediagnostic output cannot accept a dataset or start fitting. Existing baseline jobs continue; total GPU reservations remain within8.
