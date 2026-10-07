@@ -19563,6 +19563,710 @@
             "image": 0.10190137750056358,
             "language": 0.19829419013187902
           }
+        },
+        {
+          "update": 449,
+          "epoch": 1,
+          "observation_index": 192,
+          "cosine_loss": 4.30444888479542e-05,
+          "gradient_norm": 0.00016909783880691975,
+          "pre_update_KV": {
+            "image": 0.08599888882606016,
+            "language": 0.1994345189035247
+          }
+        },
+        {
+          "update": 450,
+          "epoch": 1,
+          "observation_index": 193,
+          "cosine_loss": 0.0001296450718655251,
+          "gradient_norm": 0.0006081664469093084,
+          "pre_update_KV": {
+            "image": 0.06056063664589792,
+            "language": 0.19788515437330698
+          }
+        },
+        {
+          "update": 451,
+          "epoch": 1,
+          "observation_index": 194,
+          "cosine_loss": 0.00015613313189533073,
+          "gradient_norm": 0.000562045956030488,
+          "pre_update_KV": {
+            "image": 0.06309576111289102,
+            "language": 0.1767071199513708
+          }
+        },
+        {
+          "update": 452,
+          "epoch": 1,
+          "observation_index": 195,
+          "cosine_loss": 0.00021608795032079797,
+          "gradient_norm": 0.0010833212872967124,
+          "pre_update_KV": {
+            "image": 0.09706165776180654,
+            "language": 0.22834822273524097
+          }
+        },
+        {
+          "update": 453,
+          "epoch": 1,
+          "observation_index": 196,
+          "cosine_loss": 5.4473679028888e-05,
+          "gradient_norm": 0.00023154834343586117,
+          "pre_update_KV": {
+            "image": 0.07931671414475189,
+            "language": 0.20517904924265515
+          }
+        },
+        {
+          "update": 454,
+          "epoch": 1,
+          "observation_index": 197,
+          "cosine_loss": 0.00010400389874121174,
+          "gradient_norm": 0.000560625281650573,
+          "pre_update_KV": {
+            "image": 0.06459600775528254,
+            "language": 0.18782768139520883
+          }
+        },
+        {
+          "update": 455,
+          "epoch": 1,
+          "observation_index": 198,
+          "cosine_loss": 0.000250302264248603,
+          "gradient_norm": 0.0007273555966094136,
+          "pre_update_KV": {
+            "image": 0.08532223849451953,
+            "language": 0.18454338304425047
+          }
+        },
+        {
+          "update": 456,
+          "epoch": 1,
+          "observation_index": 199,
+          "cosine_loss": 0.00012221311772009358,
+          "gradient_norm": 0.0005581512814387679,
+          "pre_update_KV": {
+            "image": 0.11259326926688784,
+            "language": 0.23115992173463507
+          }
+        },
+        {
+          "update": 457,
+          "epoch": 1,
+          "observation_index": 200,
+          "cosine_loss": 0.0001941695863934001,
+          "gradient_norm": 0.0008676964207552373,
+          "pre_update_KV": {
+            "image": 0.10225233676827862,
+            "language": 0.21874046372336137
+          }
+        },
+        {
+          "update": 458,
+          "epoch": 1,
+          "observation_index": 201,
+          "cosine_loss": 0.00014202048805600498,
+          "gradient_norm": 0.0006431142101064324,
+          "pre_update_KV": {
+            "image": 0.06449159095282078,
+            "language": 0.365266943282792
+          }
+        },
+        {
+          "update": 459,
+          "epoch": 1,
+          "observation_index": 202,
+          "cosine_loss": 0.0001209030569953029,
+          "gradient_norm": 0.00047020151396282017,
+          "pre_update_KV": {
+            "image": 0.04919050713417196,
+            "language": 0.22150337446806628
+          }
+        },
+        {
+          "update": 460,
+          "epoch": 1,
+          "observation_index": 203,
+          "cosine_loss": 0.00010527919039304834,
+          "gradient_norm": 0.0004317351267673075,
+          "pre_update_KV": {
+            "image": 0.07473236742859606,
+            "language": 0.22328736972920182
+          }
+        },
+        {
+          "update": 461,
+          "epoch": 1,
+          "observation_index": 204,
+          "cosine_loss": 0.00018992648074345198,
+          "gradient_norm": 0.0007788938237354159,
+          "pre_update_KV": {
+            "image": 0.072445100723129,
+            "language": 0.20202886245062054
+          }
+        },
+        {
+          "update": 462,
+          "epoch": 1,
+          "observation_index": 205,
+          "cosine_loss": 0.0001362698794764583,
+          "gradient_norm": 0.0006828141631558537,
+          "pre_update_KV": {
+            "image": 0.055119622908040115,
+            "language": 0.16718739314478345
+          }
+        },
+        {
+          "update": 463,
+          "epoch": 1,
+          "observation_index": 206,
+          "cosine_loss": 0.00045176720959716477,
+          "gradient_norm": 0.0014157522236928344,
+          "pre_update_KV": {
+            "image": 0.0743314814624968,
+            "language": 0.21325047000023342
+          }
+        },
+        {
+          "update": 464,
+          "epoch": 1,
+          "observation_index": 207,
+          "cosine_loss": 6.986037078604568e-05,
+          "gradient_norm": 0.0002853168116416782,
+          "pre_update_KV": {
+            "image": 0.03385416214789659,
+            "language": 0.21279640573670694
+          }
+        },
+        {
+          "update": 465,
+          "epoch": 1,
+          "observation_index": 208,
+          "cosine_loss": 5.0125023790315026e-05,
+          "gradient_norm": 0.00033005629666149616,
+          "pre_update_KV": {
+            "image": 0.08282682040654982,
+            "language": 0.22585978994053385
+          }
+        },
+        {
+          "update": 466,
+          "epoch": 1,
+          "observation_index": 209,
+          "cosine_loss": 0.00012805313235730864,
+          "gradient_norm": 0.0006979905883781612,
+          "pre_update_KV": {
+            "image": 0.0770261757922626,
+            "language": 0.1489020552462263
+          }
+        },
+        {
+          "update": 467,
+          "epoch": 1,
+          "observation_index": 210,
+          "cosine_loss": 0.00010376796308264602,
+          "gradient_norm": 0.0003533576091285795,
+          "pre_update_KV": {
+            "image": 0.055712626360503704,
+            "language": 0.14063206820583726
+          }
+        },
+        {
+          "update": 468,
+          "epoch": 1,
+          "observation_index": 211,
+          "cosine_loss": 0.0002354284151806496,
+          "gradient_norm": 0.000941697449889034,
+          "pre_update_KV": {
+            "image": 0.061876496474931326,
+            "language": 0.20915929283708357
+          }
+        },
+        {
+          "update": 469,
+          "epoch": 1,
+          "observation_index": 212,
+          "cosine_loss": 0.00019318610975460615,
+          "gradient_norm": 0.0006106761866249144,
+          "pre_update_KV": {
+            "image": 0.08575770598003886,
+            "language": 0.1638752499737973
+          }
+        },
+        {
+          "update": 470,
+          "epoch": 1,
+          "observation_index": 213,
+          "cosine_loss": 8.06376374384854e-05,
+          "gradient_norm": 0.00028722008573822677,
+          "pre_update_KV": {
+            "image": 0.06860016141831371,
+            "language": 0.14853226627769808
+          }
+        },
+        {
+          "update": 471,
+          "epoch": 1,
+          "observation_index": 214,
+          "cosine_loss": 0.00010963778004224878,
+          "gradient_norm": 0.0004921522340737283,
+          "pre_update_KV": {
+            "image": 0.06159118795379447,
+            "language": 0.14944171541358942
+          }
+        },
+        {
+          "update": 472,
+          "epoch": 1,
+          "observation_index": 215,
+          "cosine_loss": 0.00011537224327184958,
+          "gradient_norm": 0.000502506853081286,
+          "pre_update_KV": {
+            "image": 0.05075787840982945,
+            "language": 0.1642252699375167
+          }
+        },
+        {
+          "update": 473,
+          "epoch": 1,
+          "observation_index": 216,
+          "cosine_loss": 0.00012633080677915132,
+          "gradient_norm": 0.00036539003485813737,
+          "pre_update_KV": {
+            "image": 0.07883327886091107,
+            "language": 0.1351986242856724
+          }
+        },
+        {
+          "update": 474,
+          "epoch": 1,
+          "observation_index": 217,
+          "cosine_loss": 0.00011816620917670662,
+          "gradient_norm": 0.0004905558307655156,
+          "pre_update_KV": {
+            "image": 0.08089906095094257,
+            "language": 0.1223100370364521
+          }
+        },
+        {
+          "update": 475,
+          "epoch": 1,
+          "observation_index": 218,
+          "cosine_loss": 0.0001502595878264401,
+          "gradient_norm": 0.0008373366435989738,
+          "pre_update_KV": {
+            "image": 0.0689945171948871,
+            "language": 0.12444904693611789
+          }
+        },
+        {
+          "update": 476,
+          "epoch": 1,
+          "observation_index": 219,
+          "cosine_loss": 0.0001662274280533893,
+          "gradient_norm": 0.0006170765263959765,
+          "pre_update_KV": {
+            "image": 0.08423465512585906,
+            "language": 0.17568782019955523
+          }
+        },
+        {
+          "update": 477,
+          "epoch": 1,
+          "observation_index": 220,
+          "cosine_loss": 0.0001196153489217977,
+          "gradient_norm": 0.0008288369281217456,
+          "pre_update_KV": {
+            "image": 0.06684864293216056,
+            "language": 0.17728601503684968
+          }
+        },
+        {
+          "update": 478,
+          "epoch": 1,
+          "observation_index": 221,
+          "cosine_loss": 0.00010066231607197551,
+          "gradient_norm": 0.0007655165973119438,
+          "pre_update_KV": {
+            "image": 0.057484730809238486,
+            "language": 0.16171594447698306
+          }
+        },
+        {
+          "update": 479,
+          "epoch": 1,
+          "observation_index": 222,
+          "cosine_loss": 4.481276027945569e-05,
+          "gradient_norm": 0.00019130230066366494,
+          "pre_update_KV": {
+            "image": 0.04652813450686041,
+            "language": 0.1718300924599502
+          }
+        },
+        {
+          "update": 480,
+          "epoch": 1,
+          "observation_index": 223,
+          "cosine_loss": 0.00010495881542738061,
+          "gradient_norm": 0.0007844057399779558,
+          "pre_update_KV": {
+            "image": 0.045091465722779694,
+            "language": 0.17476937167656573
+          }
+        },
+        {
+          "update": 481,
+          "epoch": 1,
+          "observation_index": 224,
+          "cosine_loss": 7.40674649932771e-05,
+          "gradient_norm": 0.0004589208692777902,
+          "pre_update_KV": {
+            "image": 0.08286210769279465,
+            "language": 0.2126496997641062
+          }
+        },
+        {
+          "update": 482,
+          "epoch": 1,
+          "observation_index": 225,
+          "cosine_loss": 8.741766487219138e-05,
+          "gradient_norm": 0.0003967671364080161,
+          "pre_update_KV": {
+            "image": 0.049675554222224014,
+            "language": 0.19878372185326007
+          }
+        },
+        {
+          "update": 483,
+          "epoch": 1,
+          "observation_index": 226,
+          "cosine_loss": 0.0001232673766935477,
+          "gradient_norm": 0.000445463607320562,
+          "pre_update_KV": {
+            "image": 0.07342483933198428,
+            "language": 0.21577540835760922
+          }
+        },
+        {
+          "update": 484,
+          "epoch": 1,
+          "observation_index": 227,
+          "cosine_loss": 0.00010711079175962368,
+          "gradient_norm": 0.00039362540701404214,
+          "pre_update_KV": {
+            "image": 0.06473599137024172,
+            "language": 0.2010783908010242
+          }
+        },
+        {
+          "update": 485,
+          "epoch": 1,
+          "observation_index": 228,
+          "cosine_loss": 0.0003289282412879402,
+          "gradient_norm": 0.0027864552102983,
+          "pre_update_KV": {
+            "image": 0.04953056541474746,
+            "language": 0.1777248919284393
+          }
+        },
+        {
+          "update": 486,
+          "epoch": 1,
+          "observation_index": 229,
+          "cosine_loss": 0.00012063856138411211,
+          "gradient_norm": 0.0005859850789420307,
+          "pre_update_KV": {
+            "image": 0.0760276586590229,
+            "language": 0.18280400545643274
+          }
+        },
+        {
+          "update": 487,
+          "epoch": 1,
+          "observation_index": 230,
+          "cosine_loss": 4.8289697588188574e-05,
+          "gradient_norm": 0.00025407838984392583,
+          "pre_update_KV": {
+            "image": 0.08143139872111003,
+            "language": 0.18789432444767554
+          }
+        },
+        {
+          "update": 488,
+          "epoch": 1,
+          "observation_index": 231,
+          "cosine_loss": 0.00018464774439053144,
+          "gradient_norm": 0.0006281750393100083,
+          "pre_update_KV": {
+            "image": 0.0709213443725137,
+            "language": 0.1892164694907852
+          }
+        },
+        {
+          "update": 489,
+          "epoch": 1,
+          "observation_index": 232,
+          "cosine_loss": 0.00022677705419482663,
+          "gradient_norm": 0.0008658257429488003,
+          "pre_update_KV": {
+            "image": 0.10443949785159604,
+            "language": 0.19921075493278773
+          }
+        },
+        {
+          "update": 490,
+          "epoch": 1,
+          "observation_index": 233,
+          "cosine_loss": 0.0002512335868232185,
+          "gradient_norm": 0.0006920497980900109,
+          "pre_update_KV": {
+            "image": 0.04302579843265498,
+            "language": 0.1820377227473335
+          }
+        },
+        {
+          "update": 491,
+          "epoch": 1,
+          "observation_index": 234,
+          "cosine_loss": 0.0001519260367786046,
+          "gradient_norm": 0.0006484990008175373,
+          "pre_update_KV": {
+            "image": 0.06127857561442815,
+            "language": 0.15073749566813566
+          }
+        },
+        {
+          "update": 492,
+          "epoch": 1,
+          "observation_index": 235,
+          "cosine_loss": 0.00018745288798527326,
+          "gradient_norm": 0.0006254481268115342,
+          "pre_update_KV": {
+            "image": 0.057502943286680326,
+            "language": 0.19565332800224866
+          }
+        },
+        {
+          "update": 493,
+          "epoch": 1,
+          "observation_index": 236,
+          "cosine_loss": 0.00011744350467779441,
+          "gradient_norm": 0.0007025807863101363,
+          "pre_update_KV": {
+            "image": 0.043796373173778734,
+            "language": 0.1906588149126175
+          }
+        },
+        {
+          "update": 494,
+          "epoch": 1,
+          "observation_index": 237,
+          "cosine_loss": 0.00011834999349957798,
+          "gradient_norm": 0.0005133994272910058,
+          "pre_update_KV": {
+            "image": 0.06368605277779846,
+            "language": 0.13966085311345033
+          }
+        },
+        {
+          "update": 495,
+          "epoch": 1,
+          "observation_index": 238,
+          "cosine_loss": 0.00024940819275798276,
+          "gradient_norm": 0.000813861086498946,
+          "pre_update_KV": {
+            "image": 0.056363117528270494,
+            "language": 0.1779440276975303
+          }
+        },
+        {
+          "update": 496,
+          "epoch": 1,
+          "observation_index": 239,
+          "cosine_loss": 0.00025135030773526523,
+          "gradient_norm": 0.0008066854206845164,
+          "pre_update_KV": {
+            "image": 0.05327381744843541,
+            "language": 0.19448213289845337
+          }
+        },
+        {
+          "update": 497,
+          "epoch": 1,
+          "observation_index": 240,
+          "cosine_loss": 0.0002442834393150406,
+          "gradient_norm": 0.0008324047084897757,
+          "pre_update_KV": {
+            "image": 0.07317690899668204,
+            "language": 0.25929572876123225
+          }
+        },
+        {
+          "update": 498,
+          "epoch": 1,
+          "observation_index": 241,
+          "cosine_loss": 0.0003230559377698228,
+          "gradient_norm": 0.0012051189551129937,
+          "pre_update_KV": {
+            "image": 0.05884220431953597,
+            "language": 0.1834087254751029
+          }
+        },
+        {
+          "update": 499,
+          "epoch": 1,
+          "observation_index": 242,
+          "cosine_loss": 0.0002885398826037999,
+          "gradient_norm": 0.0007573249167762697,
+          "pre_update_KV": {
+            "image": 0.04800345035955672,
+            "language": 0.17697536952126933
+          }
+        },
+        {
+          "update": 500,
+          "epoch": 1,
+          "observation_index": 243,
+          "cosine_loss": 0.00021634375298162922,
+          "gradient_norm": 0.0006899978034198284,
+          "pre_update_KV": {
+            "image": 0.042102238797071014,
+            "language": 0.1929890337925081
+          }
+        },
+        {
+          "update": 501,
+          "epoch": 1,
+          "observation_index": 244,
+          "cosine_loss": 0.0003020266813109629,
+          "gradient_norm": 0.0011319839395582676,
+          "pre_update_KV": {
+            "image": 0.058965193957717,
+            "language": 0.2760773240760781
+          }
+        },
+        {
+          "update": 502,
+          "epoch": 1,
+          "observation_index": 245,
+          "cosine_loss": 6.966168893995928e-05,
+          "gradient_norm": 0.00021740372176282108,
+          "pre_update_KV": {
+            "image": 0.05220128458133366,
+            "language": 0.22996206409969455
+          }
+        },
+        {
+          "update": 503,
+          "epoch": 1,
+          "observation_index": 246,
+          "cosine_loss": 8.168320073309587e-05,
+          "gradient_norm": 0.0003463505709078163,
+          "pre_update_KV": {
+            "image": 0.06009473198164752,
+            "language": 0.215528822183452
+          }
+        },
+        {
+          "update": 504,
+          "epoch": 1,
+          "observation_index": 247,
+          "cosine_loss": 7.686764183745254e-05,
+          "gradient_norm": 0.0003229703870601952,
+          "pre_update_KV": {
+            "image": 0.056143087770096536,
+            "language": 0.16016684026717448
+          }
+        },
+        {
+          "update": 505,
+          "epoch": 1,
+          "observation_index": 248,
+          "cosine_loss": 0.00016724939632695168,
+          "gradient_norm": 0.0005003207479603589,
+          "pre_update_KV": {
+            "image": 0.08985226322683529,
+            "language": 0.2266915897735919
+          }
+        },
+        {
+          "update": 506,
+          "epoch": 1,
+          "observation_index": 249,
+          "cosine_loss": 0.0002712582609092351,
+          "gradient_norm": 0.0009098489535972476,
+          "pre_update_KV": {
+            "image": 0.10485630233574694,
+            "language": 0.20895480711943093
+          }
+        },
+        {
+          "update": 507,
+          "epoch": 1,
+          "observation_index": 250,
+          "cosine_loss": 6.470456992246909e-05,
+          "gradient_norm": 0.00021796082728542387,
+          "pre_update_KV": {
+            "image": 0.0614554366117971,
+            "language": 0.24683716243667542
+          }
+        },
+        {
+          "update": 508,
+          "epoch": 1,
+          "observation_index": 251,
+          "cosine_loss": 7.663419091841206e-05,
+          "gradient_norm": 0.000316715711960569,
+          "pre_update_KV": {
+            "image": 0.06364251814466891,
+            "language": 0.2168805349361165
+          }
+        },
+        {
+          "update": 509,
+          "epoch": 1,
+          "observation_index": 252,
+          "cosine_loss": 0.00022015224385540932,
+          "gradient_norm": 0.0006693650502711535,
+          "pre_update_KV": {
+            "image": 0.12980071184226655,
+            "language": 0.1811110812034981
+          }
+        },
+        {
+          "update": 510,
+          "epoch": 1,
+          "observation_index": 253,
+          "cosine_loss": 5.427996438811533e-05,
+          "gradient_norm": 0.00025491113774478436,
+          "pre_update_KV": {
+            "image": 0.079632231267813,
+            "language": 0.1910725089033382
+          }
+        },
+        {
+          "update": 511,
+          "epoch": 1,
+          "observation_index": 254,
+          "cosine_loss": 5.977973478366039e-05,
+          "gradient_norm": 0.000251287710852921,
+          "pre_update_KV": {
+            "image": 0.0667791622086396,
+            "language": 0.2788467582340114
+          }
+        },
+        {
+          "update": 512,
+          "epoch": 1,
+          "observation_index": 255,
+          "cosine_loss": 0.00012477239397412632,
+          "gradient_norm": 0.0006959275342524052,
+          "pre_update_KV": {
+            "image": 0.05821402605028768,
+            "language": 0.2795803958802721
+          }
         }
       ],
       "fixed_training16": [
@@ -19652,6 +20356,17 @@
           "KV": {
             "image": 0.06688068182370192,
             "language": 0.2179258995060702
+          }
+        },
+        {
+          "update": 512,
+          "cosine_loss": 7.594687243302664e-05,
+          "observations": 16,
+          "latents": 1,
+          "latent_index": 0,
+          "KV": {
+            "image": 0.06929454921495228,
+            "language": 0.22267926842519103
           }
         }
       ],
