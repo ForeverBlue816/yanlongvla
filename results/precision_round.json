@@ -133,6 +133,37 @@
         "donor_sha256": "2b3e8058dc24db788b8f62611a83c64aaf87c790e6efa78bd95df249e8d51b1d",
         "source_sha256": "574b928d2332315880c7a0f3be1864fdf2835ebf2999562d8af3811f351d575d"
       }
+    },
+    "precision_c4": {
+      "status": "complete",
+      "model": "precision_c4",
+      "checkpoint_sha256": "86aba49ee44f0474a40b983956740ce55fbb88b4650efe95a1ef6da438131e25",
+      "whole_model_bpw": 3.054192145405753,
+      "optimizer_steps": 768,
+      "initial_exact_observations": 256,
+      "strict_reload_all_tensors": true,
+      "contract": {
+        "model": "precision_c4",
+        "config": {
+          "base": "precision_c2",
+          "epochs": 3,
+          "latents": 8,
+          "steps": 6,
+          "bank": "original"
+        },
+        "base_sha256": "638c36ffa911900f65ed70086e05ef65136b4cdea082e50d9db8ef48839d7a8a",
+        "observations_sha256": "64031e05169941c8f734953dfb86c80c7761f32d1ca91d2ea7c387a1c82c6de4",
+        "policy_sha256": "b0341a310dbcfa8d3cf39811c7525d1b00c52a5aba95a73954753a1d5e4b315d",
+        "sources": {
+          "precision_finetune.py": "3cef441853a65fbd0b0ebd49ba17f29a702c7bd2e6610c602cd15aae0a4352cd",
+          "precision_protocol.py": "e41c771444216840c17ea8537d06b4689854a4344730dd2016c29deccbbec8dd",
+          "causal_h5_common.py": "d0721666b4c8c46365a8c73a0cb12b73e36ea2972cf03a0d7639cc2313d330d7",
+          "decisions_h2.py": "aa724dae7a66c492cd34f8f73b6e9ac20cdcf555fbdbbb60e9fb548cb51e48a9",
+          "decisions_runtime.py": "f53e8445b71181b3d69f9b53869787480fb31a766366df8a1fd807dc5e8719b9",
+          "flowvq_cached_runtime.py": "968e28a34b80b033d883ee1a674720ddb8b53e8ce76eac9922972513d2d6b829"
+        }
+      },
+      "curves_sha256": "d60b7943356aa4429dd15311ed388844784453d08fbec22552421447bb375baf"
     }
   },
   "diagnostics": {
