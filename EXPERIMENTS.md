@@ -1083,3 +1083,14 @@ E082 verification:13 CPU regression tests passed in1.818s, including suppression
 2026-10-07T02:12:45.384194+00:00
 
 TheFP64 replay pilot failed again at observation159 (episode1067); state error0.051053 andwristMAE35.820928 exceed unchanged0.005/15 guards. Episode134control passed. Raw actions match the calibration sequence exactly afterfloat32 conversion; both pilot episodes contain no skipped no-op actions. The cause remains unresolved. Submitted diagnostic job189329: inspect every frame, separateposition/rotation/gripper errors, savecontact pairs and simulator states, replay1067 twice for determinism and134 ascontrol. Purediagnostic output cannot accept a dataset or start fitting. Existing baseline jobs continue; total GPU reservations remain within8.
+
+
+### E084 — move pending C5 diagnostic to idle RTX6000Ada
+
+2026-10-07T05:20:25.662052+00:00
+
+User authorized using idle compatible cards instead of prolonged queues. C4job189305 is already runningPlus onL40S;C3job188637 continues. Only pendingC5diagnostic189329 was replaced by189805, requesting1RTX6000Ada/2h onexistingx86 environment. Existing generator/diagnostic source hashes and all numerical guards unchanged. No originalquality row is relabelled or migrated. RTX6000Ada nodes each had1freeGPU/4CPU/~67GB memory; idleGH200 isARM and not compatible with currentx86 environment. Replacement submitted held before cancelling onlyPENDINGoldjob, then released; globalrequested+runningGPUs stayed within8.
+
+E084 walltime refinement: previousFP64 two-episode pilot188643 ran60seconds. An attempt to shorten189805 via scontrol was rejected by the cluster policy (TimeLimit updates prohibited), so its actual2hour limit remained. A fresh short reservation is used below only if189805 is stillPENDING.
+
+E084 activation verified:189805 started ongpu-6000ada-3 before any further replacement; kept the running2h reservation and did not submit a short duplicate. C3,C4andC5diagnostic are all running, with3GPUs allocated.
