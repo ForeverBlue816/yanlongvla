@@ -31988,6 +31988,18 @@
             "paired_improvements": 57,
             "paired_regressions": 107
           },
+          "precision_c4": {
+            "successes": 727,
+            "episodes": 1000,
+            "success_percent": 72.7,
+            "difference_from_reference_pp": -3.8,
+            "paired_difference_ci95_pp": [
+              -7.904335131354786,
+              0.29325824237736503
+            ],
+            "paired_improvements": 53,
+            "paired_regressions": 91
+          },
           "previous_h5b": {
             "successes": 732,
             "episodes": 1000,
@@ -32055,6 +32067,18 @@
             ],
             "paired_improvements": 53,
             "paired_regressions": 42
+          },
+          "precision_c4": {
+            "successes": 727,
+            "episodes": 1000,
+            "success_percent": 72.7,
+            "difference_from_reference_pp": 2.3,
+            "paired_difference_ci95_pp": [
+              -0.7635348738810449,
+              5.530114872316269
+            ],
+            "paired_improvements": 71,
+            "paired_regressions": 48
           },
           "previous_h5b": {
             "successes": 732,
@@ -32126,6 +32150,18 @@
             "paired_improvements": 27,
             "paired_regressions": 40
           },
+          "precision_c4": {
+            "successes": 354,
+            "episodes": 500,
+            "success_percent": 70.8,
+            "difference_from_reference_pp": -3.5999999999999996,
+            "paired_difference_ci95_pp": [
+              -8.157217630854003,
+              0.9927316263821784
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 43
+          },
           "previous_h5b": {
             "successes": 362,
             "episodes": 500,
@@ -32193,6 +32229,18 @@
             ],
             "paired_improvements": 30,
             "paired_regressions": 17
+          },
+          "precision_c4": {
+            "successes": 354,
+            "episodes": 500,
+            "success_percent": 70.8,
+            "difference_from_reference_pp": 1.6,
+            "paired_difference_ci95_pp": [
+              -2.2442256162405725,
+              5.5925117677986735
+            ],
+            "paired_improvements": 31,
+            "paired_regressions": 23
           },
           "previous_h5b": {
             "successes": 362,
@@ -32264,6 +32312,18 @@
             "paired_improvements": 30,
             "paired_regressions": 67
           },
+          "precision_c4": {
+            "successes": 373,
+            "episodes": 500,
+            "success_percent": 74.6,
+            "difference_from_reference_pp": -4.0,
+            "paired_difference_ci95_pp": [
+              -9.853827852084962,
+              1.6293050249810266
+            ],
+            "paired_improvements": 28,
+            "paired_regressions": 48
+          },
           "previous_h5b": {
             "successes": 370,
             "episodes": 500,
@@ -32332,6 +32392,18 @@
             "paired_improvements": 23,
             "paired_regressions": 25
           },
+          "precision_c4": {
+            "successes": 373,
+            "episodes": 500,
+            "success_percent": 74.6,
+            "difference_from_reference_pp": 3.0,
+            "paired_difference_ci95_pp": [
+              -1.78731788078695,
+              8.216073684635884
+            ],
+            "paired_improvements": 40,
+            "paired_regressions": 25
+          },
           "previous_h5b": {
             "successes": 370,
             "episodes": 500,
@@ -32393,6 +32465,10 @@
     "/projects/yanlongvla/runs/precision_20261006/selection/precision_c2/episodes.jsonl": "7f0df11318ed723ddd21d6f43c1ff1029557e5cca3f7776b7baee21c42a3af31",
     "/projects/yanlongvla/runs/precision_20261006/selection/precision_c2/manifest.json": "4c39d326935b61231840a5f2bcb63b500ddaf1cc0d387cfd6ad4d1da9cecc258",
     "/projects/yanlongvla/runs/precision_20261006/selection/precision_c2/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c4/complete.json": "a13198ee0d681c536dcb41aaa849759e07c6aada26075e621f50a7e5b38a94bb",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c4/episodes.jsonl": "3bcfe9a1cce16aa5bac37d5c90bdfc2ed1a6af1e0b3a648e8b578773b8084592",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c4/manifest.json": "e950e83771a854403b7e2115d421aed6c507b68926a0a34460778ea55862357f",
+    "/projects/yanlongvla/runs/precision_20261006/selection/precision_c4/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/complete.json": "bd3aa7d403f140743bd5675f21d903c0b399bcaf6e9ed0581b197887461855ca",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
