@@ -523,6 +523,148 @@
         "V/language_state/w_propagated_fraction": 0.9517467462553554,
         "V/language_state/w_cross_fraction": -0.05129610269121398
       }
+    },
+    "a8_2bit": {
+      "KV": {
+        "original_training256": {
+          "all": {
+            "mean_local_ratio": 0.06473839661181474,
+            "local_quantiles_05_50_95": [
+              0.041397728393360096,
+              0.06053699837543566,
+              0.10243880603048705
+            ],
+            "mean_total_ratio": 0.06473839661181474,
+            "total_quantiles_05_50_95": [
+              0.041397728393360096,
+              0.06053699837543566,
+              0.10243880603048705
+            ],
+            "pooled_local_ratio": 0.06298332395068283,
+            "pooled_total_ratio": 0.06298332395068283,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 0.93359375
+          },
+          "image": {
+            "mean_local_ratio": 0.06405808229406199,
+            "local_quantiles_05_50_95": [
+              0.04048859342415973,
+              0.059965724662316214,
+              0.1017578698061729
+            ],
+            "mean_total_ratio": 0.06375507903252077,
+            "total_quantiles_05_50_95": [
+              0.04027311119160006,
+              0.05976552611698161,
+              0.10130797090723154
+            ],
+            "pooled_local_ratio": 0.062291356155603175,
+            "pooled_total_ratio": 0.062010256500036096,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 0.9375
+          },
+          "language_state": {
+            "mean_local_ratio": 0.21507847237901218,
+            "local_quantiles_05_50_95": [
+              0.16606180635166,
+              0.21021816838704122,
+              0.2688872817594983
+            ],
+            "mean_total_ratio": 0.0009833175792939557,
+            "total_quantiles_05_50_95": [
+              0.0004787643103048905,
+              0.0009281750642044569,
+              0.0017562084110889615
+            ],
+            "pooled_local_ratio": 0.2156306133117614,
+            "pooled_total_ratio": 0.0009730674506468217,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        },
+        "Plus200": {
+          "all": {
+            "mean_local_ratio": 0.07475266765918524,
+            "local_quantiles_05_50_95": [
+              0.04982369999102213,
+              0.07264465363350728,
+              0.1099283805562612
+            ],
+            "mean_total_ratio": 0.07475266765918524,
+            "total_quantiles_05_50_95": [
+              0.04982369999102213,
+              0.07264465363350728,
+              0.1099283805562612
+            ],
+            "pooled_local_ratio": 0.07361716252178273,
+            "pooled_total_ratio": 0.07361716252178273,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 0.89
+          },
+          "image": {
+            "mean_local_ratio": 0.07237825245422863,
+            "local_quantiles_05_50_95": [
+              0.04776025139881402,
+              0.07035068090683122,
+              0.10799253374591489
+            ],
+            "mean_total_ratio": 0.07172252897278031,
+            "total_quantiles_05_50_95": [
+              0.047439930693599225,
+              0.06969019888593413,
+              0.10694546020930287
+            ],
+            "pooled_local_ratio": 0.07122270627003315,
+            "pooled_total_ratio": 0.07059950180762613,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 0.905
+          },
+          "language_state": {
+            "mean_local_ratio": 0.34714158411875706,
+            "local_quantiles_05_50_95": [
+              0.2728602867929189,
+              0.34280150351657335,
+              0.4268608352124317
+            ],
+            "mean_total_ratio": 0.0030301386864049263,
+            "total_quantiles_05_50_95": [
+              0.0023344850354779932,
+              0.0030130601433097717,
+              0.003942705301634412
+            ],
+            "pooled_local_ratio": 0.3448723101835049,
+            "pooled_total_ratio": 0.003017660714156616,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        }
+      },
+      "D1_pooled": {
+        "K/image/local_fraction": 0.08097012072724244,
+        "K/image/propagated_fraction": 0.9568330704630907,
+        "K/image/cross_fraction": -0.03778337719545196,
+        "K/image/w_local_fraction": 0.012129353735247211,
+        "K/image/w_propagated_fraction": 0.9992498320224545,
+        "K/image/w_cross_fraction": -0.011365855166852349,
+        "K/language_state/local_fraction": 0.1987875814967153,
+        "K/language_state/propagated_fraction": 0.8663182786249519,
+        "K/language_state/cross_fraction": -0.0650832941206802,
+        "K/language_state/w_local_fraction": 0.10434459384091235,
+        "K/language_state/w_propagated_fraction": 0.9234719280487617,
+        "K/language_state/w_cross_fraction": -0.027796164704023973,
+        "V/image/local_fraction": 0.03104055909415342,
+        "V/image/propagated_fraction": 0.9888231352035326,
+        "V/image/cross_fraction": -0.019833818445510847,
+        "V/image/w_local_fraction": 0.014819865268358136,
+        "V/image/w_propagated_fraction": 0.9965812158536843,
+        "V/image/w_cross_fraction": -0.011369012331545525,
+        "V/language_state/local_fraction": 0.1256922087730743,
+        "V/language_state/propagated_fraction": 0.9399108318971793,
+        "V/language_state/cross_fraction": -0.06557545137909417,
+        "V/language_state/w_local_fraction": 0.09964976772308956,
+        "V/language_state/w_propagated_fraction": 0.9515842953502524,
+        "V/language_state/w_cross_fraction": -0.051204887390823836
+      }
     }
   },
   "LIBERO_medium": {},
