@@ -55,7 +55,7 @@ precision_c1: exact tensor-payload bpw **3.000463596**, change **+0.077873695**;
 
 precision_c2: exact tensor-payload bpw **3.054192145**, change **+0.131602244**; added **55,164,928 bytes** relative to original2bit.
 
-C3 4-GPU continuation: The continuation is queued; preflight has not yet completed. Scheduler: 189890 PENDING. The original single-GPU run is retained until the guards pass; handoff then resumes its latest saved update. The fixed budget remains2304 updates,16 latents andsteps0–9. Execution proofs are included in the result artifact.
+C3 4-GPU continuation: The parallel job ended with CANCELLED before a successful handoff was recorded. Scheduler: 189890 CANCELLED. The original single-GPU run is retained until the guards pass; handoff then resumes its latest saved update. The fixed budget remains2304 updates,16 latents andsteps0–9. Execution proofs are included in the result artifact.
 
 All candidates first receive the same paired seed7 Plus500+500 subset and per-layer image/language K/V errors, attention entropy and S1 decomposition. Only complete1000-episode outcomes enter the table. Raw training curves are included in the result artifact; figures have a separate visual-review gate.
 
@@ -160,7 +160,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-08 16:04 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-08 16:05 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
