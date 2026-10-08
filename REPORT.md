@@ -21,7 +21,7 @@ A8 feasibility rows (decision only: whether the final deployable row is W2A8; ex
 
 | Row | Held-out action relative MSE vs FP | vs non-A8 base | Plus /1000 | Δ vs non-A8 base (pp; 95% CI) | Stage |
 |---|---:|---:|---:|---:|---|
-| FP + A8 | — | — | — | — | reference; Plus pending |
+| FP + A8 | 4.229e-06 | 4.218e-06 | — | — | reference; Plus pending |
 | original 2-bit + 2-bit expert + A8 | — | — | — | — | reference; Plus pending |
 | row (ii) + per-token INT8 KV cache | — | — | — | — | reference; Plus pending |
 
@@ -160,7 +160,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-08 16:05 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-08 17:11 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

@@ -526,7 +526,42 @@
     }
   },
   "LIBERO_medium": {},
-  "a8_offline": {},
+  "a8_offline": {
+    "a8_fp": {
+      "base": {
+        "versus_fp": {
+          "absolute_mse": 2.877705025444599e-07,
+          "relative_mse": 1.3264259817904414e-06
+        },
+        "graph_eager_max_abs": 0.0
+      },
+      "fold_control": {
+        "versus_fp": {
+          "absolute_mse": 4.5066711751395e-07,
+          "relative_mse": 2.0772684084142857e-06
+        },
+        "versus_base": {
+          "absolute_mse": 4.5453129545969984e-07,
+          "relative_mse": 2.0950492069207018e-06
+        },
+        "graph_eager_max_abs": 0.0,
+        "max_abs_action_vs_base": 0.6670730605441928
+      },
+      "a8": {
+        "sites": 414,
+        "kv8": false,
+        "versus_fp": {
+          "absolute_mse": 9.17586508561086e-07,
+          "relative_mse": 4.229448726447426e-06
+        },
+        "versus_base": {
+          "absolute_mse": 9.150392429440165e-07,
+          "relative_mse": 4.2176463081432705e-06
+        },
+        "graph_eager_max_abs": 0.0
+      }
+    }
+  },
   "leakcheck": null,
   "banks": {},
   "gate": {},
