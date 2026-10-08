@@ -23,7 +23,7 @@ A8 feasibility rows (decision only: whether the final deployable row is W2A8; ex
 |---|---:|---:|---:|---:|---|
 | FP + A8 | 4.229e-06 | 4.218e-06 | — | — | reference; Plus running |
 | original 2-bit + 2-bit expert + A8 | 3.720e-02 | 5.352e-06 | — | — | reference; Plus running |
-| row (ii) + per-token INT8 KV cache | 3.720e-02 | 5.651e-06 | — | — | reference; Plus running |
+| row (ii) + per-token INT8 KV cache | 3.720e-02 | 5.651e-06 | 706 | +0.20 [-1.99,+2.18] | reference; Plus complete |
 
 Leakage check against all 2000 Plus test instances (500+500 selection and the 1000+1000 expansion): 2000 instances compared with every same-task training episode; 6 training episodes flagged and excluded before sampling; same-instance matches: 2, same-camera: 0, same-pose: 1 test instances. The LeRobot release carries no perturbation labels, so parameter equality is inferred from rendered first observations and initial poses (details in results/plustrain_round.json).
 
@@ -166,7 +166,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-08 22:18 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-09 05:11 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
