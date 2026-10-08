@@ -23,7 +23,7 @@
       "label": "H5b fine-tune on original 2-bit (loss-function control)",
       "calibration": "a: LIBERO 256",
       "loss": "H5b direction loss",
-      "bpw": null,
+      "bpw": 2.9225899010064036,
       "stage": "reference; Plus pending"
     },
     {
