@@ -30,6 +30,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | Model | train256 image | train256 language | Plus200 image | Plus200 language | D1 K-prop | D1 V-prop |
 |---|---:|---:|---:|---:|---:|---:|
 | a8_2bit | 0.0623 | 0.2156 | 0.0712 | 0.3449 | 0.866 | 0.940 |
+| a8_2bit_kv8 | 0.0624 | 0.2157 | 0.0713 | 0.3450 | 0.866 | 0.940 |
 | bb_M2_ae_M2_fp32 | 0.0622 | 0.2155 | 0.0711 | 0.3445 | 0.867 | 0.940 |
 
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **awaiting rows**.
@@ -162,7 +163,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-08 21:24 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-08 21:41 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
