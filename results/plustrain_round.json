@@ -527,6 +527,32 @@
   },
   "LIBERO_medium": {},
   "a8_offline": {
+    "a8_2bit": {
+      "base": {
+        "versus_fp": {
+          "absolute_mse": 0.008072048838197269,
+          "relative_mse": 0.03720664630528628
+        },
+        "graph_eager_max_abs": 0.0
+      },
+      "a8": {
+        "sites": {
+          "backbone": 288,
+          "expert": 126,
+          "fp_linear": 0
+        },
+        "kv8": false,
+        "versus_fp": {
+          "absolute_mse": 0.008070881613471368,
+          "relative_mse": 0.037201266194436367
+        },
+        "versus_base": {
+          "absolute_mse": 1.1235889786708899e-06,
+          "relative_mse": 5.352105492594662e-06
+        },
+        "graph_eager_max_abs": 0.0
+      }
+    },
     "a8_fp": {
       "base": {
         "versus_fp": {
