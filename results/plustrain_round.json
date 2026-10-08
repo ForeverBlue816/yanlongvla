@@ -105,7 +105,7 @@
     {
       "model": "a8_2bit_kv8",
       "label": "row (ii) + per-token INT8 KV cache",
-      "stage": "reference; Plus pending"
+      "stage": "reference; Plus running"
     }
   ],
   "paired": {
