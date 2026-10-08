@@ -1,0 +1,126 @@
+{
+  "status": "in_progress",
+  "date": "2026-10-08",
+  "rows": [
+    {
+      "model": "original_fp",
+      "label": "FP (never saw Plus-train)",
+      "calibration": "\u2014",
+      "loss": "\u2014",
+      "bpw": null,
+      "stage": "reference; Plus pending"
+    },
+    {
+      "model": "bb_M2_ae_M2_fp32",
+      "label": "original 2-bit backbone + uniform M2 expert",
+      "calibration": "a: LIBERO 256",
+      "loss": "original recipe",
+      "bpw": 2.9225899010064036,
+      "stage": "reference; Plus pending"
+    },
+    {
+      "model": "previous_h5b",
+      "label": "H5b fine-tune on original 2-bit (loss-function control)",
+      "calibration": "a: LIBERO 256",
+      "loss": "H5b direction loss",
+      "bpw": null,
+      "stage": "reference; Plus pending"
+    },
+    {
+      "model": "plustrain_b_backbone",
+      "label": "P1 refit on Plus-train",
+      "calibration": "b: Plus-train 256",
+      "loss": "original recipe",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "plustrain_c_backbone",
+      "label": "P1 refit on mixed",
+      "calibration": "c: 128 LIBERO + 128 Plus-train",
+      "loss": "original recipe",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "plustrain_b_h5b",
+      "label": "P1 H5b fine-tune on Plus-train (best-validation iterate)",
+      "calibration": "b: Plus-train 256",
+      "loss": "H5b direction loss",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "plustrain_c_h5b",
+      "label": "P1 H5b fine-tune on mixed (best-validation iterate)",
+      "calibration": "c: 128 LIBERO + 128 Plus-train",
+      "loss": "H5b direction loss",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "raqft_a_2bit",
+      "label": "P2 RAQ-FT on original 2-bit",
+      "calibration": "a: LIBERO 256",
+      "loss": "readout + 0.1 H5b",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "raqft_a_c2",
+      "label": "P2 RAQ-FT control on C2 (3-bit deep layers)",
+      "calibration": "a: LIBERO 256",
+      "loss": "readout + 0.1 H5b",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "raqft_c_2bit",
+      "label": "P2 RAQ-FT coverage row",
+      "calibration": "c: 128 LIBERO + 128 Plus-train",
+      "loss": "readout + 0.1 H5b",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "bb_M3_ae_M2_fp32",
+      "label": "P4 reference: 3-bit backbone + uniform M2 expert",
+      "calibration": "a: LIBERO 256",
+      "loss": "original recipe",
+      "bpw": 3.6389649302140765,
+      "stage": "reference; Plus pending"
+    }
+  ],
+  "a8_rows": [
+    {
+      "model": "a8_fp",
+      "label": "FP + A8",
+      "stage": "reference; Plus pending"
+    },
+    {
+      "model": "a8_2bit",
+      "label": "original 2-bit + 2-bit expert + A8",
+      "stage": "reference; Plus pending"
+    },
+    {
+      "model": "a8_2bit_kv8",
+      "label": "row (ii) + per-token INT8 KV cache",
+      "stage": "reference; Plus pending"
+    }
+  ],
+  "paired": {},
+  "fit": {},
+  "diagnostics": {},
+  "LIBERO_medium": {},
+  "a8_offline": {},
+  "leakcheck": null,
+  "banks": {},
+  "gate": null,
+  "source_sha256": {
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/complete.json": "bd3aa7d403f140743bd5675f21d903c0b399bcaf6e9ed0581b197887461855ca",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
+    "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328"
+  },
+  "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection."
+}

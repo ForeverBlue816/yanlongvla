@@ -1,3 +1,36 @@
+<!-- PLUSTRAIN_ROUND_BEGIN -->
+# Current round — October 8: Plus-train calibration (P1), RAQ-FT (P2), A8 feasibility (P3)
+
+C5 (demo-replay perturbation pipeline) is replaced by calibration on the official LIBERO-Plus training set (lerobot/libero_plus, pinned revision). Calibration banks: (a) LIBERO 256 (existing); (b) 256 Plus-train observations; (c) 128 LIBERO + 128 Plus-train. Validation: 300 Plus-train observations from disjoint episodes; it chooses all fine-tune hyperparameters and early stopping. The Plus test subset is never used for selection. FP has not seen Plus-train data.
+
+| Row | Whole-model bpw | Calibration | Loss | Plus /1000 | Δ vs FP (pp; 95% CI) | Δ vs original 2-bit (pp; 95% CI) | LIBERO medium /1000 | Stage |
+|---|---:|---|---|---:|---:|---:|---:|---|
+| FP (never saw Plus-train) | — | — | — | — | — | — | — | reference; Plus pending |
+| original 2-bit backbone + uniform M2 expert | 2.9226 | a: LIBERO 256 | original recipe | — | — | — | — | reference; Plus pending |
+| H5b fine-tune on original 2-bit (loss-function control) | — | a: LIBERO 256 | H5b direction loss | — | — | — | — | reference; Plus pending |
+| P1 refit on Plus-train | — | b: Plus-train 256 | original recipe | — | — | — | — | not started; Plus pending |
+| P1 refit on mixed | — | c: 128 LIBERO + 128 Plus-train | original recipe | — | — | — | — | not started; Plus pending |
+| P1 H5b fine-tune on Plus-train (best-validation iterate) | — | b: Plus-train 256 | H5b direction loss | — | — | — | — | not started; Plus pending |
+| P1 H5b fine-tune on mixed (best-validation iterate) | — | c: 128 LIBERO + 128 Plus-train | H5b direction loss | — | — | — | — | not started; Plus pending |
+| P2 RAQ-FT on original 2-bit | — | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
+| P2 RAQ-FT control on C2 (3-bit deep layers) | — | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
+| P2 RAQ-FT coverage row | — | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
+| P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | — | — | — | — | reference; Plus pending |
+
+A8 feasibility rows (decision only: whether the final deployable row is W2A8; excluded from method selection):
+
+| Row | Held-out action relative MSE vs FP | vs non-A8 base | Plus /1000 | Δ vs non-A8 base (pp; 95% CI) | Stage |
+|---|---:|---:|---:|---:|---|
+| FP + A8 | — | — | — | — | reference; Plus pending |
+| original 2-bit + 2-bit expert + A8 | — | — | — | — | reference; Plus pending |
+| row (ii) + per-token INT8 KV cache | — | — | — | — | reference; Plus pending |
+
+Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **awaiting rows**.
+
+[Protocol](PLUSTRAIN_2026-10-08.md) · [Results](results/plustrain_round.json). Older sections below are historical.
+
+<!-- PLUSTRAIN_ROUND_END -->
+
 <!-- PRECISION_ROUND_BEGIN -->
 # Current round — C1–C5 precision interventions, October6 evening
 
@@ -121,7 +154,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-08 12:32 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-08 13:39 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
