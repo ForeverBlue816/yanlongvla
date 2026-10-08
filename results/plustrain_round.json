@@ -95,7 +95,7 @@
     {
       "model": "a8_fp",
       "label": "FP + A8",
-      "stage": "reference; Plus pending"
+      "stage": "reference; Plus running"
     },
     {
       "model": "a8_2bit",
@@ -725,6 +725,32 @@
         "versus_base": {
           "absolute_mse": 9.150392429440165e-07,
           "relative_mse": 4.2176463081432705e-06
+        },
+        "graph_eager_max_abs": 0.0
+      }
+    },
+    "a8_2bit_kv8": {
+      "base": {
+        "versus_fp": {
+          "absolute_mse": 0.008072048838197269,
+          "relative_mse": 0.03720664630528628
+        },
+        "graph_eager_max_abs": 0.0
+      },
+      "a8": {
+        "sites": {
+          "backbone": 288,
+          "expert": 126,
+          "fp_linear": 0
+        },
+        "kv8": true,
+        "versus_fp": {
+          "absolute_mse": 0.008071526274352078,
+          "relative_mse": 0.03720423764194074
+        },
+        "versus_base": {
+          "absolute_mse": 1.1864420635920656e-06,
+          "relative_mse": 5.651499975291593e-06
         },
         "graph_eager_max_abs": 0.0
       }
