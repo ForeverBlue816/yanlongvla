@@ -25,6 +25,12 @@ A8 feasibility rows (decision only: whether the final deployable row is W2A8; ex
 | original 2-bit + 2-bit expert + A8 | — | — | — | — | reference; Plus pending |
 | row (ii) + per-token INT8 KV cache | — | — | — | — | reference; Plus pending |
 
+KV relative error (image / language) on training256 and savedPlus200, with D1 propagated-error fractions (language K/V, raw):
+
+| Model | train256 image | train256 language | Plus200 image | Plus200 language | D1 K-prop | D1 V-prop |
+|---|---:|---:|---:|---:|---:|---:|
+| bb_M2_ae_M2_fp32 | 0.0622 | 0.2155 | 0.0711 | 0.3445 | 0.960 | 0.940 |
+
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **awaiting rows**.
 
 [Protocol](PLUSTRAIN_2026-10-08.md) · [Results](results/plustrain_round.json). Older sections below are historical.
@@ -154,7 +160,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-08 13:46 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-08 14:21 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
