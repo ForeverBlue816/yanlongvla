@@ -49,6 +49,7 @@ This round replaces the previous dispatcher. C1 protects36 Gemma K/V projections
 | bb_M2_ae_M2_fp32 | — | 346 | 358 | 704 | -6.10 [-10.80,-1.71] | +0.00 [+0.00,+0.00] |
 | precision_c1 | 3.0004635964385584 | 348 | 368 | 716 | -4.90 [-9.19,-0.80] | +1.20 [-1.57,+4.00] |
 | precision_c2 | 3.054192145405753 | 359 | 356 | 715 | -5.00 [-9.15,-0.59] | +1.10 [-1.48,+3.71] |
+| precision_c3 | 2.9225899010064036 | 346 | 362 | 708 | -5.70 [-9.73,-1.72] | +0.40 [-2.86,+3.97] |
 | precision_c4 | 3.054192145405753 | 354 | 373 | 727 | -3.80 [-7.90,+0.29] | +2.30 [-0.76,+5.53] |
 | previous_h5b | — | 362 | 370 | 732 | -3.30 [-7.15,+0.56] | +2.80 [-0.20,+5.94] |
 
@@ -161,7 +162,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-08 18:10 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-08 20:53 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
