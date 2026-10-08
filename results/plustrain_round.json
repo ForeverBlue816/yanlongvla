@@ -1040,7 +1040,104 @@
       }
     }
   },
-  "leakcheck": null,
+  "leakcheck": {
+    "status": "complete",
+    "instances": 2000,
+    "excluded_episodes": 6,
+    "thresholds": {
+      "close_pixel": 6,
+      "same_instance": {
+        "fraction": 0.9,
+        "mae": 0.023529411764705882
+      },
+      "same_camera_fraction": 1.00654296875,
+      "same_camera_floor": 0.6,
+      "pose_tolerance": 0.002,
+      "pose_scene_fraction": 0.5
+    },
+    "metric_calibration": {
+      "pairs": 1000,
+      "distinct_camera_best_fraction_quantiles": [
+        0.826324462890625,
+        0.9125152587890625,
+        0.95654296875,
+        0.9624481201171875
+      ],
+      "same_camera_threshold": 1.00654296875
+    },
+    "summary": {
+      "selection/all": {
+        "instances": 1000,
+        "best_front_fraction_quantiles": [
+          0.7652053833007812,
+          0.8164581298828125,
+          0.8783012390136719,
+          0.9005126953125
+        ],
+        "min_pose_linf_quantiles": [
+          0.0012786388397216797,
+          0.0020596906542778015,
+          0.003114788793027401,
+          0.0143855269998312
+        ],
+        "instances_with_same_instance": 1,
+        "instances_with_same_camera": 0,
+        "instances_with_same_pose": 1,
+        "libero_default_camera_reference_max_fraction_quantiles": [
+          0.03937530517578125,
+          0.6928649902343758,
+          0.8441314697265625
+        ]
+      },
+      "expansion/all": {
+        "instances": 1000,
+        "best_front_fraction_quantiles": [
+          0.76434326171875,
+          0.8151275634765625,
+          0.8781478881835937,
+          0.9011993408203125
+        ],
+        "min_pose_linf_quantiles": [
+          0.0020596906542778015,
+          0.0020596906542778015,
+          0.0033388633746653795,
+          0.0143855269998312
+        ],
+        "instances_with_same_instance": 1,
+        "instances_with_same_camera": 0,
+        "instances_with_same_pose": 0,
+        "libero_default_camera_reference_max_fraction_quantiles": [
+          0.03729248046875,
+          0.6965133666992197,
+          0.8424530029296875
+        ]
+      },
+      "all/all": {
+        "instances": 2000,
+        "best_front_fraction_quantiles": [
+          0.7648086547851562,
+          0.8156845092773438,
+          0.8782989501953125,
+          0.9011993408203125
+        ],
+        "min_pose_linf_quantiles": [
+          0.0012786388397216797,
+          0.0020596906542778015,
+          0.0033388633746653795,
+          0.0143855269998312
+        ],
+        "instances_with_same_instance": 2,
+        "instances_with_same_camera": 0,
+        "instances_with_same_pose": 1,
+        "libero_default_camera_reference_max_fraction_quantiles": [
+          0.03820037841796875,
+          0.6954742431640666,
+          0.8441314697265625
+        ]
+      }
+    },
+    "sha256": "b6c0742d02b44e25cf12422dd17c9cd0e6e7b767132a7b81b4a92dc50ba120bf"
+  },
   "banks": {},
   "gate": {},
   "source_sha256": {
