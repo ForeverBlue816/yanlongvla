@@ -64,7 +64,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 331/768; Plus pending"
+      "stage": "training 415/768; Plus pending"
     },
     {
       "model": "raqft_a_c2",
@@ -72,7 +72,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 172/768; Plus pending"
+      "stage": "training 255/768; Plus pending"
     },
     {
       "model": "raqft_c_2bit",
@@ -80,7 +80,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 131/768; Plus pending"
+      "stage": "training 228/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
