@@ -10,7 +10,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | H5b fine-tune on original 2-bit (loss-function control) | 2.9226 | a: LIBERO 256 | H5b direction loss | 732 | -3.30 [-7.15,+0.56] | +2.80 [-0.20,+5.94] | — | reference; Plus pending |
 | P1 refit on Plus-train | — | b: Plus-train 256 | original recipe | — | — | — | — | calibrating; Plus pending |
 | P1 refit on mixed | — | c: 128 LIBERO + 128 Plus-train | original recipe | — | — | — | — | calibrating; Plus pending |
-| P1 H5b fine-tune on Plus-train (best-validation iterate) | — | b: Plus-train 256 | H5b direction loss | — | — | — | — | not started; Plus pending |
+| P1 H5b fine-tune on Plus-train (best-validation iterate) | — | b: Plus-train 256 | H5b direction loss | — | — | — | — | training 54/768; Plus pending |
 | P1 H5b fine-tune on mixed (best-validation iterate) | — | c: 128 LIBERO + 128 Plus-train | H5b direction loss | — | — | — | — | not started; Plus pending |
 | P2 RAQ-FT on original 2-bit | — | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
 | P2 RAQ-FT control on C2 (3-bit deep layers) | — | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
@@ -166,7 +166,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-09 09:20 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-09 10:16 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
