@@ -48,7 +48,7 @@
       "calibration": "b: Plus-train 256",
       "loss": "H5b direction loss",
       "bpw": null,
-      "stage": "training 369/768; Plus pending"
+      "stage": "training 376/768; Plus pending"
     },
     {
       "model": "plustrain_c_h5b",
@@ -1963,6 +1963,148 @@
         "V/language_state/w_local_fraction": 0.06632697708546756,
         "V/language_state/w_propagated_fraction": 0.9325856475497409,
         "V/language_state/w_cross_fraction": 0.0010901192151308186
+      }
+    },
+    "raqft_a_c2": {
+      "KV": {
+        "original_training256": {
+          "all": {
+            "mean_local_ratio": 0.03737690828084481,
+            "local_quantiles_05_50_95": [
+              0.026040036924507258,
+              0.03643992422515115,
+              0.0527724722865877
+            ],
+            "mean_total_ratio": 0.03737690828084481,
+            "total_quantiles_05_50_95": [
+              0.026040036924507258,
+              0.03643992422515115,
+              0.0527724722865877
+            ],
+            "pooled_local_ratio": 0.03674146483298674,
+            "pooled_total_ratio": 0.03674146483298674,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.03680405804299269,
+            "local_quantiles_05_50_95": [
+              0.025506035662622082,
+              0.03595953626551404,
+              0.051646692305023605
+            ],
+            "mean_total_ratio": 0.03663035242368673,
+            "total_quantiles_05_50_95": [
+              0.025399161904940543,
+              0.03582663115997146,
+              0.0513233703374306
+            ],
+            "pooled_local_ratio": 0.03616756840924392,
+            "pooled_total_ratio": 0.03600435650232796,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.16285338504953875,
+            "local_quantiles_05_50_95": [
+              0.12257706797888968,
+              0.1596482756091504,
+              0.21363341357206017
+            ],
+            "mean_total_ratio": 0.0007465558571580796,
+            "total_quantiles_05_50_95": [
+              0.00039199086864864395,
+              0.0007211445696857098,
+              0.0012327927060324549
+            ],
+            "pooled_local_ratio": 0.16334234724582258,
+            "pooled_total_ratio": 0.0007371083306587761,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        },
+        "Plus200": {
+          "all": {
+            "mean_local_ratio": 0.054137220945596365,
+            "local_quantiles_05_50_95": [
+              0.03903897163411128,
+              0.05337255563962875,
+              0.07466539094753018
+            ],
+            "mean_total_ratio": 0.054137220945596365,
+            "total_quantiles_05_50_95": [
+              0.03903897163411128,
+              0.05337255563962875,
+              0.07466539094753018
+            ],
+            "pooled_local_ratio": 0.053846055289289284,
+            "pooled_total_ratio": 0.053846055289289284,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.0518542238769458,
+            "local_quantiles_05_50_95": [
+              0.03720660228410643,
+              0.051153841659806895,
+              0.07165801841224403
+            ],
+            "mean_total_ratio": 0.05138723480712315,
+            "total_quantiles_05_50_95": [
+              0.03685334380694587,
+              0.05067129350507049,
+              0.070989066645839
+            ],
+            "pooled_local_ratio": 0.05155619316860383,
+            "pooled_total_ratio": 0.051105072292550985,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.31547074764550226,
+            "local_quantiles_05_50_95": [
+              0.241230038230793,
+              0.3080159919812115,
+              0.40374696933271736
+            ],
+            "mean_total_ratio": 0.0027499861384732162,
+            "total_quantiles_05_50_95": [
+              0.0020909587678532232,
+              0.0027274307956217207,
+              0.0036204764761043487
+            ],
+            "pooled_local_ratio": 0.3132522930176531,
+            "pooled_total_ratio": 0.002740982996738314,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        }
+      },
+      "D1_pooled": {
+        "K/image/local_fraction": 0.1386150283526782,
+        "K/image/propagated_fraction": 0.9173673183113361,
+        "K/image/cross_fraction": -0.05596608729076484,
+        "K/image/w_local_fraction": 0.040345799615331905,
+        "K/image/w_propagated_fraction": 0.9656299530525105,
+        "K/image/w_cross_fraction": -0.005965413849311773,
+        "K/language_state/local_fraction": 0.2456977316418557,
+        "K/language_state/propagated_fraction": 0.8584321704892388,
+        "K/language_state/cross_fraction": -0.10410960597098623,
+        "K/language_state/w_local_fraction": 0.14615841194644824,
+        "K/language_state/w_propagated_fraction": 0.9215811907124344,
+        "K/language_state/w_cross_fraction": -0.06772151343837977,
+        "V/image/local_fraction": 0.04749683104157568,
+        "V/image/propagated_fraction": 0.9767114709322471,
+        "V/image/cross_fraction": -0.024187622348760828,
+        "V/image/w_local_fraction": 0.026335536035258237,
+        "V/image/w_propagated_fraction": 0.9834385887847966,
+        "V/image/w_cross_fraction": -0.00975308121489543,
+        "V/language_state/local_fraction": 0.11039557630989516,
+        "V/language_state/propagated_fraction": 0.9550892707998183,
+        "V/language_state/cross_fraction": -0.06545998407391028,
+        "V/language_state/w_local_fraction": 0.09259717819377102,
+        "V/language_state/w_propagated_fraction": 0.9641024038657039,
+        "V/language_state/w_cross_fraction": -0.05667436542374284
       }
     },
     "plustrain_c_backbone": {
