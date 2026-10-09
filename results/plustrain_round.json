@@ -1282,7 +1282,23 @@
     },
     "sha256": "b6c0742d02b44e25cf12422dd17c9cd0e6e7b767132a7b81b4a92dc50ba120bf"
   },
-  "banks": {},
+  "banks": {
+    "plus_b": {
+      "observations": 256,
+      "plus_episodes": 64,
+      "sha256": "d77c3c32a584a1f30af6226ff3618e4d910cd6b3c8be6f228c5facb2ffbb60ac"
+    },
+    "mixed_c": {
+      "observations": 256,
+      "plus_episodes": 32,
+      "sha256": "8edfe9e88309668b1e2c18e1dd67789a64528be5840a08d36f4b869ac3beb286"
+    },
+    "validation": {
+      "observations": 300,
+      "plus_episodes": 75,
+      "sha256": "f86259eae95b02969f89723e4f6bdfadacc9f288358b0c4b985b71bf364081be"
+    }
+  },
   "gate": {},
   "source_sha256": {
     "/projects/yanlongvla/runs/plustrain_20261008/selection/original_fp/complete.json": "a1ed6eaefcac1e6432ac3e26d381910e7500e725256ddb49b09f41e835de1a0a",
