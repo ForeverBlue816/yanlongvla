@@ -32,7 +32,7 @@
       "calibration": "b: Plus-train 256",
       "loss": "original recipe",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "calibrating; Plus pending"
     },
     {
       "model": "plustrain_c_backbone",
@@ -40,7 +40,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "original recipe",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "calibrating; Plus pending"
     },
     {
       "model": "plustrain_b_h5b",
