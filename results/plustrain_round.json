@@ -88,7 +88,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "original recipe",
       "bpw": 3.6389649302140765,
-      "stage": "reference; Plus pending"
+      "stage": "reference; Plus complete"
     }
   ],
   "a8_rows": [
@@ -152,6 +152,18 @@
             "paired_improvements": 54,
             "paired_regressions": 87
           },
+          "bb_M3_ae_M2_fp32": {
+            "successes": 741,
+            "episodes": 1000,
+            "success_percent": 74.1,
+            "difference_from_reference_pp": -2.4,
+            "paired_difference_ci95_pp": [
+              -5.679148818457364,
+              0.8370719979066151
+            ],
+            "paired_improvements": 53,
+            "paired_regressions": 77
+          },
           "a8_2bit_kv8": {
             "successes": 706,
             "episodes": 1000,
@@ -207,6 +219,18 @@
             ],
             "paired_improvements": 71,
             "paired_regressions": 43
+          },
+          "bb_M3_ae_M2_fp32": {
+            "successes": 741,
+            "episodes": 1000,
+            "success_percent": 74.1,
+            "difference_from_reference_pp": 3.6999999999999997,
+            "paired_difference_ci95_pp": [
+              -0.19568369532446575,
+              7.8914717107540175
+            ],
+            "paired_improvements": 97,
+            "paired_regressions": 60
           },
           "a8_2bit_kv8": {
             "successes": 706,
@@ -266,6 +290,18 @@
             "paired_improvements": 27,
             "paired_regressions": 37
           },
+          "bb_M3_ae_M2_fp32": {
+            "successes": 360,
+            "episodes": 500,
+            "success_percent": 72.0,
+            "difference_from_reference_pp": -2.4,
+            "paired_difference_ci95_pp": [
+              -6.725619889985933,
+              1.6232173551526485
+            ],
+            "paired_improvements": 26,
+            "paired_regressions": 38
+          },
           "a8_2bit_kv8": {
             "successes": 344,
             "episodes": 500,
@@ -321,6 +357,18 @@
             ],
             "paired_improvements": 33,
             "paired_regressions": 17
+          },
+          "bb_M3_ae_M2_fp32": {
+            "successes": 360,
+            "episodes": 500,
+            "success_percent": 72.0,
+            "difference_from_reference_pp": 2.8000000000000003,
+            "paired_difference_ci95_pp": [
+              -2.7887845549444927,
+              8.069888882013847
+            ],
+            "paired_improvements": 46,
+            "paired_regressions": 32
           },
           "a8_2bit_kv8": {
             "successes": 344,
@@ -380,6 +428,18 @@
             "paired_improvements": 27,
             "paired_regressions": 50
           },
+          "bb_M3_ae_M2_fp32": {
+            "successes": 381,
+            "episodes": 500,
+            "success_percent": 76.2,
+            "difference_from_reference_pp": -2.4,
+            "paired_difference_ci95_pp": [
+              -7.352562310890227,
+              2.4135048924872766
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 39
+          },
           "a8_2bit_kv8": {
             "successes": 362,
             "episodes": 500,
@@ -435,6 +495,18 @@
             ],
             "paired_improvements": 38,
             "paired_regressions": 26
+          },
+          "bb_M3_ae_M2_fp32": {
+            "successes": 381,
+            "episodes": 500,
+            "success_percent": 76.2,
+            "difference_from_reference_pp": 4.6,
+            "paired_difference_ci95_pp": [
+              -0.22205711404875145,
+              10.07239416373747
+            ],
+            "paired_improvements": 51,
+            "paired_regressions": 28
           },
           "a8_2bit_kv8": {
             "successes": 362,
@@ -1225,6 +1297,10 @@
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/complete.json": "5d6a41969143d6def5e2d9df66725f3dd7de69b2b73b3d733c55682244bce993",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/episodes.jsonl": "8a76058bc61d4eeacefed6b83d92e2f9d2324f885ad79123c3f9307eb39adbda",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/manifest.json": "4cba06195162c859f5e71948369139cca88d21247618078ab698850a02887363",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/complete.json": "08313c0666d246316d1f6a84e6f6f07c2b3a049709126706148b6babcc0fab6a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/episodes.jsonl": "353c5dab6d4ac693b7671c5181b242fdb1970a692588e04f3ecfcbb4abb648ce",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/manifest.json": "cd8916c45b567f716f33e38a4eb5ee7312cb863b7e62a74e18d97112da29f476",
