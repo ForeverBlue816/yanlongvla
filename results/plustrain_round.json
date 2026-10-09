@@ -32,7 +32,7 @@
       "calibration": "b: Plus-train 256",
       "loss": "original recipe",
       "bpw": null,
-      "stage": "calibrating; Plus pending"
+      "stage": "fitting 292/288 layers; Plus pending"
     },
     {
       "model": "plustrain_c_backbone",
@@ -40,7 +40,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "original recipe",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "calibrating; Plus pending"
     },
     {
       "model": "plustrain_b_h5b",
@@ -60,27 +60,27 @@
     },
     {
       "model": "raqft_a_2bit",
-      "label": "P2 RAQ-FT on original 2-bit",
+      "label": "P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089)",
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 415/768; Plus pending"
+      "stage": "not started; Plus pending"
     },
     {
       "model": "raqft_a_c2",
-      "label": "P2 RAQ-FT control on C2 (3-bit deep layers)",
+      "label": "P2 RAQ-FT v2 control on C2 (3-bit deep layers)",
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 255/768; Plus pending"
+      "stage": "not started; Plus pending"
     },
     {
       "model": "raqft_c_2bit",
-      "label": "P2 RAQ-FT coverage row",
+      "label": "P2 RAQ-FT v2 coverage row",
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 228/768; Plus pending"
+      "stage": "not started; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
@@ -1375,5 +1375,5 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/manifest.json": "cd8916c45b567f716f33e38a4eb5ee7312cb863b7e62a74e18d97112da29f476",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328"
   },
-  "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection."
+  "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }
