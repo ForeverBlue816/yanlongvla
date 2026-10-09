@@ -71,8 +71,8 @@
       "label": "P2 RAQ-FT v2 control on C2 (3-bit deep layers)",
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
-      "bpw": null,
-      "stage": "training 762/768; Plus pending"
+      "bpw": 3.054192145405753,
+      "stage": "fine-tuned; Plus pending"
     },
     {
       "model": "raqft_c_2bit",
@@ -1280,6 +1280,63 @@
         "torch": "2.7.1+cu126",
         "cuda": "12.6",
         "job": "195627"
+      }
+    },
+    "raqft_a_c2": {
+      "status": "complete",
+      "model": "raqft_a_c2",
+      "checkpoint_sha256": "2b3a1bec812d1ad7de74f6dfe2b0aea865b6a74a8783a4078329f33f5a166f3e",
+      "whole_model_bpw": 3.054192145405753,
+      "optimizer_steps": 768,
+      "changed_tensors": 723,
+      "elapsed_seconds": 31419.181393077015,
+      "initial_exact_observations": 256,
+      "strict_reload_all_tensors": true,
+      "contract": {
+        "model": "raqft_a_c2",
+        "config": {
+          "version": "v2",
+          "epochs": 3,
+          "latents": 8,
+          "h5b_steps": 6,
+          "readout_steps": 10,
+          "beta": 0.1,
+          "layer_weight": 0.05555555555555555,
+          "lr": 0.0003,
+          "lr_scale": 2e-05,
+          "lr_norm": 0.0003,
+          "clip": 1.0,
+          "eval_every": 64,
+          "validation_latents": 1
+        },
+        "base": "precision_c2",
+        "bank": {
+          "bank": "libero_a",
+          "manifest_sha256": "64031e05169941c8f734953dfb86c80c7761f32d1ca91d2ea7c387a1c82c6de4"
+        },
+        "base_sha256": "638c36ffa911900f65ed70086e05ef65136b4cdea082e50d9db8ef48839d7a8a",
+        "teacher_sha256": "176031b21186751e49846ca4661c88a881695f290f8332f2bc185752b7b6c5d1",
+        "validation_manifest_sha256": "f86259eae95b02969f89723e4f6bdfadacc9f288358b0c4b985b71bf364081be",
+        "sources": {
+          "plustrain_raqft.py": "31a260cf8daf6471b1322f43549189035eb12543e3952e528f38e0bfd0655e38",
+          "plustrain_protocol.py": "a1af779a59e9a6e4a40309f3ec7270b532659e3c35dfa044d7563d1e8f8962e1",
+          "causal_h5_common.py": "d0721666b4c8c46365a8c73a0cb12b73e36ea2972cf03a0d7639cc2313d330d7",
+          "decisions_h2.py": "aa724dae7a66c492cd34f8f73b6e9ac20cdcf555fbdbbb60e9fb548cb51e48a9",
+          "decisions_runtime.py": "f53e8445b71181b3d69f9b53869787480fb31a766366df8a1fd807dc5e8719b9",
+          "flowvq_cached_runtime.py": "968e28a34b80b033d883ee1a674720ddb8b53e8ce76eac9922972513d2d6b829",
+          "backbone_policy.py": "f3d1cef8eda5f0ce251b4c2d0e12989e83d9e966363886a7b5223807bc9f4b69"
+        }
+      },
+      "readout_check": {
+        "max_abs_bf16_hooked_vs_fp32": 0.05193161964416504,
+        "fp_self_loss": 0.0
+      },
+      "curves_sha256": "dd1464490d49c73c0f61c80ee404069a35da1f970ed8d394f8cf43526db5392d",
+      "device": {
+        "gpu": "NVIDIA RTX 6000 Ada Generation",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "job": "195628"
       }
     }
   },
