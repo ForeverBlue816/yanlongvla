@@ -56,7 +56,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "H5b direction loss",
       "bpw": null,
-      "stage": "training 447/768; Plus pending"
+      "stage": "training 703/768; Plus pending"
     },
     {
       "model": "raqft_a_2bit",
@@ -64,7 +64,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "training 229/768; Plus pending"
     },
     {
       "model": "raqft_a_c2",
@@ -72,7 +72,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "training 99/768; Plus pending"
     },
     {
       "model": "raqft_c_2bit",
@@ -80,7 +80,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "training 79/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
