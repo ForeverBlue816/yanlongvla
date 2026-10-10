@@ -40,7 +40,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "original recipe",
       "bpw": 2.9225899010064036,
-      "stage": "assembled; Plus running"
+      "stage": "assembled; Plus complete"
     },
     {
       "model": "plustrain_b_h5b",
@@ -80,7 +80,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "readout + 0.1 H5b",
       "bpw": 2.9225899010064036,
-      "stage": "fine-tuned; Plus pending"
+      "stage": "fine-tuned; Plus running"
     },
     {
       "model": "raqft_seed2",
@@ -120,7 +120,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "training 63/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
@@ -243,6 +243,18 @@
             "paired_improvements": 45,
             "paired_regressions": 117
           },
+          "plustrain_c_backbone": {
+            "successes": 715,
+            "episodes": 1000,
+            "success_percent": 71.5,
+            "difference_from_reference_pp": -5.0,
+            "paired_difference_ci95_pp": [
+              -9.369627582363536,
+              -0.653321373222036
+            ],
+            "paired_improvements": 56,
+            "paired_regressions": 106
+          },
           "raqft_a_2bit": {
             "successes": 739,
             "episodes": 1000,
@@ -346,6 +358,18 @@
             ],
             "paired_improvements": 57,
             "paired_regressions": 68
+          },
+          "plustrain_c_backbone": {
+            "successes": 715,
+            "episodes": 1000,
+            "success_percent": 71.5,
+            "difference_from_reference_pp": 1.0999999999999999,
+            "paired_difference_ci95_pp": [
+              -2.2413786939474507,
+              4.471936240966096
+            ],
+            "paired_improvements": 71,
+            "paired_regressions": 60
           },
           "raqft_a_2bit": {
             "successes": 739,
@@ -453,6 +477,18 @@
             "paired_improvements": 18,
             "paired_regressions": 50
           },
+          "plustrain_c_backbone": {
+            "successes": 348,
+            "episodes": 500,
+            "success_percent": 69.6,
+            "difference_from_reference_pp": -4.8,
+            "paired_difference_ci95_pp": [
+              -9.357717708964259,
+              0.061479219716792606
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 49
+          },
           "raqft_a_2bit": {
             "successes": 357,
             "episodes": 500,
@@ -556,6 +592,18 @@
             ],
             "paired_improvements": 24,
             "paired_regressions": 30
+          },
+          "plustrain_c_backbone": {
+            "successes": 348,
+            "episodes": 500,
+            "success_percent": 69.6,
+            "difference_from_reference_pp": 0.4,
+            "paired_difference_ci95_pp": [
+              -3.770350694872421,
+              4.675974897039361
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 28
           },
           "raqft_a_2bit": {
             "successes": 357,
@@ -663,6 +711,18 @@
             "paired_improvements": 27,
             "paired_regressions": 67
           },
+          "plustrain_c_backbone": {
+            "successes": 367,
+            "episodes": 500,
+            "success_percent": 73.4,
+            "difference_from_reference_pp": -5.2,
+            "paired_difference_ci95_pp": [
+              -11.35503273690525,
+              0.6597162119579265
+            ],
+            "paired_improvements": 31,
+            "paired_regressions": 57
+          },
           "raqft_a_2bit": {
             "successes": 382,
             "episodes": 500,
@@ -766,6 +826,18 @@
             ],
             "paired_improvements": 33,
             "paired_regressions": 38
+          },
+          "plustrain_c_backbone": {
+            "successes": 367,
+            "episodes": 500,
+            "success_percent": 73.4,
+            "difference_from_reference_pp": 1.7999999999999998,
+            "paired_difference_ci95_pp": [
+              -3.2494087949497517,
+              7.171571269829553
+            ],
+            "paired_improvements": 41,
+            "paired_regressions": 32
           },
           "raqft_a_2bit": {
             "successes": 382,
@@ -3976,6 +4048,15 @@
       ],
       "passes": false
     },
+    "plustrain_c_backbone": {
+      "successes": 715,
+      "gain": 11,
+      "ci95_pp": [
+        -2.2413786939474507,
+        4.471936240966096
+      ],
+      "passes": false
+    },
     "raqft_a_2bit": {
       "successes": 739,
       "gain": 35,
@@ -4012,6 +4093,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_backbone/episodes.jsonl": "1e629eb40158265a630b2f799dae4b39904afff649321e297e2180cc9cf037b1",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_backbone/manifest.json": "3a1717300fec2ab12a9aaa9d4825e51dd7501ef0446b39143aa45fc67d9ec477",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_backbone/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_c_backbone/complete.json": "022e2b05d8c68a674e17262cab3e9b21848291ea93130bd13ab8c2f665ab2792",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_c_backbone/episodes.jsonl": "cd905a3d3eedfc6dd7a02739414a94a53434c532a0afff80be3203bd48dc63fa",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_c_backbone/manifest.json": "15b714aaff7041a15a7c25496d9a9362daf1d41a27fa2b8b7004fefc4577ff74",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_c_backbone/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/complete.json": "bebc111b5212dc8d0afa7ce6363fa9a67c7ddccf9c96a0dd9f01f4f9e8fb47e0",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/episodes.jsonl": "a06b48082df9ce9ee5d131880fe231aadbd2088910d695b276650155dab5c89a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/manifest.json": "a7ec3d2b4894eca9582e7ab2aadf54be0a89437e249825e03a96d9adcd9bfd5a",
