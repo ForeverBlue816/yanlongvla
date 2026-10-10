@@ -15,6 +15,11 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 739 | -2.60 [-6.37,+1.39] | +3.50 [+0.49,+6.69] | — | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | 743 | -2.20 [-5.80,+1.52] | +3.90 [+0.78,+7.33] | — | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 coverage row | 2.9226 | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
+| F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010) | — | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
+| F2 ablation: β = 0 (readout only) | — | a: LIBERO 256 | readout | — | — | — | — | not started; Plus pending |
+| F2 ablation: readout on layers 14–17 only | — | a: LIBERO 256 | readout(14–17) + 0.1 H5b | — | — | — | — | not started; Plus pending |
+| F2 ablation: quantized-model queries (no teacher forcing) | — | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | not started; Plus pending |
+| F2 ablation: RAQ-FT on the plain-VQ (layer-Hessian) 2-bit backbone | — | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
 
 A8 feasibility rows (decision only: whether the final deployable row is W2A8; excluded from method selection):
@@ -46,11 +51,11 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "raqft_a_2bit": true, "raqft_a_c2": true}**.
 
-Promotion (all 6 candidates complete, max successes, gate): **awaiting_all_candidates** (waiting for: ['plustrain_c_backbone', 'plustrain_b_h5b', 'plustrain_c_h5b', 'raqft_c_2bit']).
+Promotion (all 6 candidates complete, max successes, gate): **promoted** — raqft_a_2bit 739/1000, +3.5 pp [+0.49, +6.69].
 
 A8 feasibility decision: **pending**.
 
-Final deployable row: **pending**.
+Final deployable row: **frozen** — a8_raqft (backbone raqft_a_2bit, A8 True); LIBERO full 2000/1900 and expanded Plus 1000+1000 follow..
 
 [Protocol](PLUSTRAIN_2026-10-08.md) · [Results](results/plustrain_round.json). Older sections below are historical.
 
@@ -180,7 +185,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-10 18:41 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-10 19:18 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

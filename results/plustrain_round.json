@@ -83,6 +83,46 @@
       "stage": "fine-tuned; Plus pending"
     },
     {
+      "model": "raqft_seed2",
+      "label": "F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010)",
+      "calibration": "a: LIBERO 256",
+      "loss": "readout + 0.1 H5b",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "raqft_beta0",
+      "label": "F2 ablation: \u03b2 = 0 (readout only)",
+      "calibration": "a: LIBERO 256",
+      "loss": "readout",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "raqft_deep",
+      "label": "F2 ablation: readout on layers 14\u201317 only",
+      "calibration": "a: LIBERO 256",
+      "loss": "readout(14\u201317) + 0.1 H5b",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "raqft_studentq",
+      "label": "F2 ablation: quantized-model queries (no teacher forcing)",
+      "calibration": "a: LIBERO 256",
+      "loss": "readout(student q) + 0.1 H5b",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
+      "model": "raqft_plainvq",
+      "label": "F2 ablation: RAQ-FT on the plain-VQ (layer-Hessian) 2-bit backbone",
+      "calibration": "a: LIBERO 256",
+      "loss": "readout + 0.1 H5b",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
       "model": "bb_M3_ae_M2_fp32",
       "label": "P4 reference: 3-bit backbone + uniform M2 expert",
       "calibration": "a: LIBERO 256",
@@ -92,22 +132,36 @@
     }
   ],
   "promotion": {
-    "status": "awaiting_all_candidates",
-    "required": [
-      "plustrain_b_backbone",
-      "plustrain_c_backbone",
-      "plustrain_b_h5b",
-      "plustrain_c_h5b",
-      "raqft_a_2bit",
-      "raqft_c_2bit"
-    ]
+    "status": "promoted",
+    "model": "raqft_a_2bit",
+    "successes": 739,
+    "difference_pp": 3.5000000000000004,
+    "ci95_pp": [
+      0.49433690402151137,
+      6.691871143302551
+    ],
+    "rule": "FINAL_2026-10-10: candidate frozen after the E092 gate pass; other rows are reported, not selected",
+    "source_sha256": {
+      "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M2_ae_M2_fp32/complete.json": "4305d496e7528c834f42478c5b27028b4f34fa893ba6a6f898fbd3074e612f31",
+      "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/complete.json": "bebc111b5212dc8d0afa7ce6363fa9a67c7ddccf9c96a0dd9f01f4f9e8fb47e0"
+    }
   },
   "a8_decision": {
     "status": "pending",
     "rows": {}
   },
   "final_row": {
-    "status": "pending"
+    "status": "frozen",
+    "model": "a8_raqft",
+    "backbone": "raqft_a_2bit",
+    "A8": true,
+    "INT8_KV": false,
+    "rule": "FINAL_2026-10-10 amendment: W2A8 with BF16 KV cache",
+    "a8_feasibility": "pending",
+    "stages": {
+      "LIBERO_full": "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_raqft/full/complete.json",
+      "expanded_Plus": "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_raqft/complete.json"
+    }
   },
   "LIBERO_full": {},
   "expanded_Plus": {},
