@@ -8,7 +8,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | FP (never saw Plus-train) | — | — | — | 765 | +0.00 [+0.00,+0.00] | +6.10 [+1.71,+10.80] | — | reference; Plus complete |
 | original 2-bit backbone + uniform M2 expert | 2.9226 | a: LIBERO 256 | original recipe | 704 | -6.10 [-10.80,-1.71] | +0.00 [+0.00,+0.00] | — | reference; Plus complete |
 | H5b fine-tune on original 2-bit (loss-function control) | 2.9226 | a: LIBERO 256 | H5b direction loss | 732 | -3.30 [-7.15,+0.56] | +2.80 [-0.20,+5.94] | — | reference; Plus pending |
-| P1 refit on Plus-train | 2.9226 | b: Plus-train 256 | original recipe | 693 | -7.20 [-11.64,-2.99] | -1.10 [-4.02,+1.93] | — | assembled; Plus complete |
+| P1 refit on Plus-train | 2.9226 | b: Plus-train 256 | original recipe | 693 | -7.20 [-11.64,-2.99] | -1.10 [-4.02,+1.93] | 972 | assembled; Plus complete |
 | P1 refit on mixed | 2.9226 | c: 128 LIBERO + 128 Plus-train | original recipe | — | — | — | — | assembled; Plus running |
 | P1 H5b fine-tune on Plus-train (best-validation iterate) | 2.9226 | b: Plus-train 256 | H5b direction loss | — | — | — | — | fine-tuned; Plus pending |
 | P1 H5b fine-tune on mixed (best-validation iterate) | 2.9226 | c: 128 LIBERO + 128 Plus-train | H5b direction loss | — | — | — | — | fine-tuned; Plus running |
@@ -51,7 +51,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "raqft_a_2bit": true, "raqft_a_c2": true}**.
 
-Promotion (all 6 candidates complete, max successes, gate): **promoted** — raqft_a_2bit 739/1000, +3.5 pp [+0.49, +6.69].
+Promotion (FINAL_2026-10-10: candidate frozen after the gate pass; remaining candidate rows are reported, not selected): **promoted** — raqft_a_2bit 739/1000, +3.5 pp [+0.49, +6.69].
 
 A8 feasibility decision: **pending**.
 
@@ -185,7 +185,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-10 19:18 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-10 20:04 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
