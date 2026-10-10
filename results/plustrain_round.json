@@ -91,6 +91,26 @@
       "stage": "reference; Plus complete"
     }
   ],
+  "promotion": {
+    "status": "awaiting_all_candidates",
+    "required": [
+      "plustrain_b_backbone",
+      "plustrain_c_backbone",
+      "plustrain_b_h5b",
+      "plustrain_c_h5b",
+      "raqft_a_2bit",
+      "raqft_c_2bit"
+    ]
+  },
+  "a8_decision": {
+    "status": "pending",
+    "rows": {}
+  },
+  "final_row": {
+    "status": "pending"
+  },
+  "LIBERO_full": {},
+  "expanded_Plus": {},
   "a8_rows": [
     {
       "model": "a8_fp",
@@ -106,6 +126,11 @@
       "model": "a8_2bit_kv8",
       "label": "row (ii) + per-token INT8 KV cache",
       "stage": "reference; Plus complete"
+    },
+    {
+      "model": "a8_raqft",
+      "label": "composed final candidate: RAQ-FT 2-bit backbone + 2-bit expert + A8",
+      "stage": "reference; Plus pending"
     }
   ],
   "paired": {

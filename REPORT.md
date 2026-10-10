@@ -24,6 +24,7 @@ A8 feasibility rows (decision only: whether the final deployable row is W2A8; ex
 | FP + A8 | 4.229e-06 | 4.218e-06 | — | — | reference; Plus running |
 | original 2-bit + 2-bit expert + A8 | 3.720e-02 | 5.352e-06 | — | — | reference; Plus running |
 | row (ii) + per-token INT8 KV cache | 3.720e-02 | 5.651e-06 | 706 | +0.20 [-1.99,+2.18] | reference; Plus complete |
+| composed final candidate: RAQ-FT 2-bit backbone + 2-bit expert + A8 | — | — | — | — | reference; Plus pending |
 
 Leakage check against all 2000 Plus test instances (500+500 selection and the 1000+1000 expansion): 2000 instances compared with every same-task training episode; 6 training episodes flagged and excluded before sampling; same-instance matches: 2, same-camera: 0, same-pose: 1 test instances. The LeRobot release carries no perturbation labels, so parameter equality is inferred from rendered first observations and initial poses (details in results/plustrain_round.json).
 
@@ -44,6 +45,12 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | raqft_c_2bit | 0.0391 | 0.1885 | 0.0544 | 0.3366 | 0.847 | 0.943 |
 
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "raqft_a_2bit": true, "raqft_a_c2": true}**.
+
+Promotion (all 6 candidates complete, max successes, gate): **awaiting_all_candidates** (waiting for: ['plustrain_c_backbone', 'plustrain_b_h5b', 'plustrain_c_h5b', 'raqft_c_2bit']).
+
+A8 feasibility decision: **pending**.
+
+Final deployable row: **pending**.
 
 [Protocol](PLUSTRAIN_2026-10-08.md) · [Results](results/plustrain_round.json). Older sections below are historical.
 
@@ -173,7 +180,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-10 17:43 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-10 18:41 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
