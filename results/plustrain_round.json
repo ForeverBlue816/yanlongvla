@@ -72,7 +72,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": 3.054192145405753,
-      "stage": "fine-tuned; Plus running"
+      "stage": "fine-tuned; Plus complete"
     },
     {
       "model": "raqft_c_2bit",
@@ -176,6 +176,18 @@
             "paired_improvements": 58,
             "paired_regressions": 84
           },
+          "raqft_a_c2": {
+            "successes": 743,
+            "episodes": 1000,
+            "success_percent": 74.3,
+            "difference_from_reference_pp": -2.1999999999999997,
+            "paired_difference_ci95_pp": [
+              -5.798983862949621,
+              1.5191388031234496
+            ],
+            "paired_improvements": 57,
+            "paired_regressions": 79
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 741,
             "episodes": 1000,
@@ -266,6 +278,18 @@
               6.691871143302551
             ],
             "paired_improvements": 74,
+            "paired_regressions": 39
+          },
+          "raqft_a_c2": {
+            "successes": 743,
+            "episodes": 1000,
+            "success_percent": 74.3,
+            "difference_from_reference_pp": 3.9,
+            "paired_difference_ci95_pp": [
+              0.7819149988995069,
+              7.328879586492787
+            ],
+            "paired_improvements": 78,
             "paired_regressions": 39
           },
           "bb_M3_ae_M2_fp32": {
@@ -362,6 +386,18 @@
             "paired_improvements": 27,
             "paired_regressions": 42
           },
+          "raqft_a_c2": {
+            "successes": 364,
+            "episodes": 500,
+            "success_percent": 72.8,
+            "difference_from_reference_pp": -1.6,
+            "paired_difference_ci95_pp": [
+              -5.725853993250839,
+              2.9120260327461804
+            ],
+            "paired_improvements": 24,
+            "paired_regressions": 32
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 360,
             "episodes": 500,
@@ -453,6 +489,18 @@
             ],
             "paired_improvements": 33,
             "paired_regressions": 22
+          },
+          "raqft_a_c2": {
+            "successes": 364,
+            "episodes": 500,
+            "success_percent": 72.8,
+            "difference_from_reference_pp": 3.5999999999999996,
+            "paired_difference_ci95_pp": [
+              -0.8320434076282595,
+              8.209391769521293
+            ],
+            "paired_improvements": 36,
+            "paired_regressions": 18
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 360,
@@ -548,6 +596,18 @@
             "paired_improvements": 31,
             "paired_regressions": 42
           },
+          "raqft_a_c2": {
+            "successes": 379,
+            "episodes": 500,
+            "success_percent": 75.8,
+            "difference_from_reference_pp": -2.8000000000000003,
+            "paired_difference_ci95_pp": [
+              -8.54644390016651,
+              2.8471880842643196
+            ],
+            "paired_improvements": 33,
+            "paired_regressions": 47
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 381,
             "episodes": 500,
@@ -639,6 +699,18 @@
             ],
             "paired_improvements": 41,
             "paired_regressions": 17
+          },
+          "raqft_a_c2": {
+            "successes": 379,
+            "episodes": 500,
+            "success_percent": 75.8,
+            "difference_from_reference_pp": 4.2,
+            "paired_difference_ci95_pp": [
+              -0.6442513562520926,
+              9.367127496159744
+            ],
+            "paired_improvements": 42,
+            "paired_regressions": 21
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 381,
@@ -3659,6 +3731,15 @@
         6.691871143302551
       ],
       "passes": true
+    },
+    "raqft_a_c2": {
+      "successes": 743,
+      "gain": 39,
+      "ci95_pp": [
+        0.7819149988995069,
+        7.328879586492787
+      ],
+      "passes": true
     }
   },
   "source_sha256": {
@@ -3682,6 +3763,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/episodes.jsonl": "a06b48082df9ce9ee5d131880fe231aadbd2088910d695b276650155dab5c89a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/manifest.json": "a7ec3d2b4894eca9582e7ab2aadf54be0a89437e249825e03a96d9adcd9bfd5a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_c2/complete.json": "c7d523095eb29f86a12668e49ffec3ec875b832c9c376816d5378d86cdf1232a",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_c2/episodes.jsonl": "f51f5f67f0903343c7cab6e4008551f1c75da348a68962d9e5f3c5192e607f01",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_c2/manifest.json": "1eeb1f8e299a624546ae1e79009aa3c955975e53b56be7a6ba759fcf547f4ef2",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_c2/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/complete.json": "5d6a41969143d6def5e2d9df66725f3dd7de69b2b73b3d733c55682244bce993",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/episodes.jsonl": "8a76058bc61d4eeacefed6b83d92e2f9d2324f885ad79123c3f9307eb39adbda",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/manifest.json": "4cba06195162c859f5e71948369139cca88d21247618078ab698850a02887363",

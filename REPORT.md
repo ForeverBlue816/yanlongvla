@@ -13,7 +13,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | P1 H5b fine-tune on Plus-train (best-validation iterate) | 2.9226 | b: Plus-train 256 | H5b direction loss | — | — | — | — | fine-tuned; Plus pending |
 | P1 H5b fine-tune on mixed (best-validation iterate) | 2.9226 | c: 128 LIBERO + 128 Plus-train | H5b direction loss | — | — | — | — | fine-tuned; Plus running |
 | P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 739 | -2.60 [-6.37,+1.39] | +3.50 [+0.49,+6.69] | — | fine-tuned; Plus complete |
-| P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
+| P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | 743 | -2.20 [-5.80,+1.52] | +3.90 [+0.78,+7.33] | — | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 coverage row | 2.9226 | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
 
@@ -43,7 +43,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | raqft_a_c2 | 0.0362 | 0.1633 | 0.0516 | 0.3133 | 0.858 | 0.955 |
 | raqft_c_2bit | 0.0391 | 0.1885 | 0.0544 | 0.3366 | 0.847 | 0.943 |
 
-Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "raqft_a_2bit": true}**.
+Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "raqft_a_2bit": true, "raqft_a_c2": true}**.
 
 [Protocol](PLUSTRAIN_2026-10-08.md) · [Results](results/plustrain_round.json). Older sections below are historical.
 
@@ -173,7 +173,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-10 15:43 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-10 16:36 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
