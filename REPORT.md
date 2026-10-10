@@ -8,13 +8,13 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | FP (never saw Plus-train) | — | — | — | 765 | +0.00 [+0.00,+0.00] | +6.10 [+1.71,+10.80] | — | reference; Plus complete |
 | original 2-bit backbone + uniform M2 expert | 2.9226 | a: LIBERO 256 | original recipe | 704 | -6.10 [-10.80,-1.71] | +0.00 [+0.00,+0.00] | — | reference; Plus complete |
 | H5b fine-tune on original 2-bit (loss-function control) | 2.9226 | a: LIBERO 256 | H5b direction loss | 732 | -3.30 [-7.15,+0.56] | +2.80 [-0.20,+5.94] | — | reference; Plus pending |
-| P1 refit on Plus-train | 2.9226 | b: Plus-train 256 | original recipe | — | — | — | — | assembled; Plus running |
+| P1 refit on Plus-train | 2.9226 | b: Plus-train 256 | original recipe | 693 | -7.20 [-11.64,-2.99] | -1.10 [-4.02,+1.93] | — | assembled; Plus complete |
 | P1 refit on mixed | 2.9226 | c: 128 LIBERO + 128 Plus-train | original recipe | — | — | — | — | assembled; Plus pending |
 | P1 H5b fine-tune on Plus-train (best-validation iterate) | 2.9226 | b: Plus-train 256 | H5b direction loss | — | — | — | — | fine-tuned; Plus pending |
 | P1 H5b fine-tune on mixed (best-validation iterate) | 2.9226 | c: 128 LIBERO + 128 Plus-train | H5b direction loss | — | — | — | — | fine-tuned; Plus running |
 | P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
 | P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
-| P2 RAQ-FT v2 coverage row | — | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | training 511/768; Plus pending |
+| P2 RAQ-FT v2 coverage row | — | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | training 632/768; Plus pending |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
 
 A8 feasibility rows (decision only: whether the final deployable row is W2A8; excluded from method selection):
@@ -42,7 +42,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | raqft_a_2bit | 0.0385 | 0.1852 | 0.0541 | 0.3410 | 0.851 | 0.946 |
 | raqft_a_c2 | 0.0362 | 0.1633 | 0.0516 | 0.3133 | 0.858 | 0.955 |
 
-Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **awaiting rows**.
+Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false}**.
 
 [Protocol](PLUSTRAIN_2026-10-08.md) · [Results](results/plustrain_round.json). Older sections below are historical.
 
@@ -172,7 +172,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-10 11:14 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-10 12:34 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

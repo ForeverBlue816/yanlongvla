@@ -32,7 +32,7 @@
       "calibration": "b: Plus-train 256",
       "loss": "original recipe",
       "bpw": 2.9225899010064036,
-      "stage": "assembled; Plus running"
+      "stage": "assembled; Plus complete"
     },
     {
       "model": "plustrain_c_backbone",
@@ -80,7 +80,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 511/768; Plus pending"
+      "stage": "training 632/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
@@ -152,6 +152,18 @@
             "paired_improvements": 54,
             "paired_regressions": 87
           },
+          "plustrain_b_backbone": {
+            "successes": 693,
+            "episodes": 1000,
+            "success_percent": 69.3,
+            "difference_from_reference_pp": -7.199999999999999,
+            "paired_difference_ci95_pp": [
+              -11.644005955186561,
+              -2.9899280117235727
+            ],
+            "paired_improvements": 45,
+            "paired_regressions": 117
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 741,
             "episodes": 1000,
@@ -219,6 +231,18 @@
             ],
             "paired_improvements": 71,
             "paired_regressions": 43
+          },
+          "plustrain_b_backbone": {
+            "successes": 693,
+            "episodes": 1000,
+            "success_percent": 69.3,
+            "difference_from_reference_pp": -1.0999999999999999,
+            "paired_difference_ci95_pp": [
+              -4.015974939085815,
+              1.9263388036067728
+            ],
+            "paired_improvements": 57,
+            "paired_regressions": 68
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 741,
@@ -290,6 +314,18 @@
             "paired_improvements": 27,
             "paired_regressions": 37
           },
+          "plustrain_b_backbone": {
+            "successes": 340,
+            "episodes": 500,
+            "success_percent": 68.0,
+            "difference_from_reference_pp": -6.4,
+            "paired_difference_ci95_pp": [
+              -11.406014845800529,
+              -1.4066000309052569
+            ],
+            "paired_improvements": 18,
+            "paired_regressions": 50
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 360,
             "episodes": 500,
@@ -357,6 +393,18 @@
             ],
             "paired_improvements": 33,
             "paired_regressions": 17
+          },
+          "plustrain_b_backbone": {
+            "successes": 340,
+            "episodes": 500,
+            "success_percent": 68.0,
+            "difference_from_reference_pp": -1.2,
+            "paired_difference_ci95_pp": [
+              -4.9328537900763685,
+              2.587667359269125
+            ],
+            "paired_improvements": 24,
+            "paired_regressions": 30
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 360,
@@ -428,6 +476,18 @@
             "paired_improvements": 27,
             "paired_regressions": 50
           },
+          "plustrain_b_backbone": {
+            "successes": 353,
+            "episodes": 500,
+            "success_percent": 70.6,
+            "difference_from_reference_pp": -8.0,
+            "paired_difference_ci95_pp": [
+              -13.952459521211015,
+              -2.3044000090818293
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 67
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 381,
             "episodes": 500,
@@ -495,6 +555,18 @@
             ],
             "paired_improvements": 38,
             "paired_regressions": 26
+          },
+          "plustrain_b_backbone": {
+            "successes": 353,
+            "episodes": 500,
+            "success_percent": 70.6,
+            "difference_from_reference_pp": -1.0,
+            "paired_difference_ci95_pp": [
+              -5.400057871610752,
+              3.7690581600628437
+            ],
+            "paired_improvements": 33,
+            "paired_regressions": 38
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 381,
@@ -3242,7 +3314,17 @@
       "sha256": "f86259eae95b02969f89723e4f6bdfadacc9f288358b0c4b985b71bf364081be"
     }
   },
-  "gate": {},
+  "gate": {
+    "plustrain_b_backbone": {
+      "successes": 693,
+      "gain": -11,
+      "ci95_pp": [
+        -4.015974939085815,
+        1.9263388036067728
+      ],
+      "passes": false
+    }
+  },
   "source_sha256": {
     "/projects/yanlongvla/runs/plustrain_20261008/selection/original_fp/complete.json": "a1ed6eaefcac1e6432ac3e26d381910e7500e725256ddb49b09f41e835de1a0a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/original_fp/episodes.jsonl": "321fe658ed356b5ab8b6d9346e684ac22ffbe6a83ed75bf385f6ec92e754fac1",
@@ -3256,6 +3338,10 @@
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/episodes.jsonl": "be610cfa13dee783e7126f50168296d60e06d91623a65bc7542cfdcb10e44b6d",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/manifest.json": "2338116b5aefd6269acf1c3761fa7116bba72ab9552b6b8ef337aaaef117c693",
     "/projects/yanlongvla/runs/plus_round_20261006/selection/causal_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_backbone/complete.json": "389aa0dd38b0823d072f33f0bbaf64139badb533b5a7168ac2f3c244b362e98b",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_backbone/episodes.jsonl": "1e629eb40158265a630b2f799dae4b39904afff649321e297e2180cc9cf037b1",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_backbone/manifest.json": "3a1717300fec2ab12a9aaa9d4825e51dd7501ef0446b39143aa45fc67d9ec477",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_backbone/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/complete.json": "5d6a41969143d6def5e2d9df66725f3dd7de69b2b73b3d733c55682244bce993",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/episodes.jsonl": "8a76058bc61d4eeacefed6b83d92e2f9d2324f885ad79123c3f9307eb39adbda",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/manifest.json": "4cba06195162c859f5e71948369139cca88d21247618078ab698850a02887363",
