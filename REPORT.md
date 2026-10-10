@@ -9,7 +9,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | original 2-bit backbone + uniform M2 expert | 2.9226 | a: LIBERO 256 | original recipe | 704 | -6.10 [-10.80,-1.71] | +0.00 [+0.00,+0.00] | — | reference; Plus complete |
 | H5b fine-tune on original 2-bit (loss-function control) | 2.9226 | a: LIBERO 256 | H5b direction loss | 732 | -3.30 [-7.15,+0.56] | +2.80 [-0.20,+5.94] | — | reference; Plus pending |
 | P1 refit on Plus-train | 2.9226 | b: Plus-train 256 | original recipe | 693 | -7.20 [-11.64,-2.99] | -1.10 [-4.02,+1.93] | — | assembled; Plus complete |
-| P1 refit on mixed | 2.9226 | c: 128 LIBERO + 128 Plus-train | original recipe | — | — | — | — | assembled; Plus pending |
+| P1 refit on mixed | 2.9226 | c: 128 LIBERO + 128 Plus-train | original recipe | — | — | — | — | assembled; Plus running |
 | P1 H5b fine-tune on Plus-train (best-validation iterate) | 2.9226 | b: Plus-train 256 | H5b direction loss | — | — | — | — | fine-tuned; Plus pending |
 | P1 H5b fine-tune on mixed (best-validation iterate) | 2.9226 | c: 128 LIBERO + 128 Plus-train | H5b direction loss | — | — | — | — | fine-tuned; Plus running |
 | P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 739 | -2.60 [-6.37,+1.39] | +3.50 [+0.49,+6.69] | — | fine-tuned; Plus complete |
@@ -173,7 +173,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-10 16:36 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-10 17:43 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
