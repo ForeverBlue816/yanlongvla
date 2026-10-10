@@ -48,7 +48,7 @@
       "calibration": "b: Plus-train 256",
       "loss": "H5b direction loss",
       "bpw": null,
-      "stage": "training 755/768; Plus pending"
+      "stage": "training 756/768; Plus pending"
     },
     {
       "model": "plustrain_c_h5b",
@@ -80,7 +80,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 414/768; Plus pending"
+      "stage": "training 415/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",

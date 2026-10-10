@@ -10,11 +10,11 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | H5b fine-tune on original 2-bit (loss-function control) | 2.9226 | a: LIBERO 256 | H5b direction loss | 732 | -3.30 [-7.15,+0.56] | +2.80 [-0.20,+5.94] | — | reference; Plus pending |
 | P1 refit on Plus-train | 2.9226 | b: Plus-train 256 | original recipe | — | — | — | — | assembled; Plus running |
 | P1 refit on mixed | 2.9226 | c: 128 LIBERO + 128 Plus-train | original recipe | — | — | — | — | assembled; Plus pending |
-| P1 H5b fine-tune on Plus-train (best-validation iterate) | — | b: Plus-train 256 | H5b direction loss | — | — | — | — | training 755/768; Plus pending |
+| P1 H5b fine-tune on Plus-train (best-validation iterate) | — | b: Plus-train 256 | H5b direction loss | — | — | — | — | training 756/768; Plus pending |
 | P1 H5b fine-tune on mixed (best-validation iterate) | 2.9226 | c: 128 LIBERO + 128 Plus-train | H5b direction loss | — | — | — | — | fine-tuned; Plus running |
 | P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
 | P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
-| P2 RAQ-FT v2 coverage row | — | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | training 414/768; Plus pending |
+| P2 RAQ-FT v2 coverage row | — | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | training 415/768; Plus pending |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
 
 A8 feasibility rows (decision only: whether the final deployable row is W2A8; excluded from method selection):
