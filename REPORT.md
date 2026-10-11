@@ -17,7 +17,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | P2 RAQ-FT v2 coverage row | 2.9226 | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
 | F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010) | — | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
 | F2 ablation: β = 0 (readout only) | — | a: LIBERO 256 | readout | — | — | — | — | not started; Plus pending |
-| F2 ablation: readout on layers 14–17 only | — | a: LIBERO 256 | readout(14–17) + 0.1 H5b | — | — | — | — | training 721/768; Plus pending |
+| F2 ablation: readout on layers 14–17 only | — | a: LIBERO 256 | readout(14–17) + 0.1 H5b | — | — | — | — | training 752/768; Plus pending |
 | F2 ablation: quantized-model queries (no teacher forcing) | 2.9226 | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
 | F2 ablation: RAQ-FT on the plain-VQ (layer-Hessian) 2-bit backbone | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 748 | -1.70 [-5.30,+2.05] | +4.40 [+0.73,+8.15] | — | fine-tuned; Plus complete |
 | F2 control: KV-cache matching (relative MSE per layer, K and V) + 0.1 H5b, same trainable set/budget | — | a: LIBERO 256 | KV-MSE + 0.1 H5b | — | — | — | — | not started; Plus pending |
@@ -190,7 +190,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-11 16:32 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-11 17:22 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
