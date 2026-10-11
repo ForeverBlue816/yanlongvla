@@ -22,7 +22,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | F2 ablation: RAQ-FT on the plain-VQ (layer-Hessian) 2-bit backbone | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 748 | -1.70 [-5.30,+2.05] | +4.40 [+0.73,+8.15] | — | fine-tuned; Plus complete |
 | F2 control: KV-cache matching (relative MSE per layer, K and V) + 0.1 H5b, same trainable set/budget | — | a: LIBERO 256 | KV-MSE + 0.1 H5b | — | — | — | — | training 172/768; Plus pending |
 | F2 control: readout consistency without the W_O metric (identity) + 0.1 H5b | 2.9226 | a: LIBERO 256 | readout(identity) + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
-| simplest form: plain-VQ base + quantized-model queries (no Fisher, no FP-expert trajectory) | — | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | training 90/768; Plus pending |
+| simplest form: plain-VQ base + quantized-model queries (no Fisher, no FP-expert trajectory) | — | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | training 106/768; Plus pending |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
 | reference: plain-VQ (layer-Hessian) 2-bit backbone + uniform M2 expert (base of raqft_plainvq) | 2.9226 | a: LIBERO 256 | plain VQ | — | — | — | — | reference; Plus pending |
 
@@ -53,6 +53,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | raqft_a_c2 | 0.0362 | 0.1633 | 0.0516 | 0.3133 | 0.858 | 0.955 |
 | raqft_c_2bit | 0.0391 | 0.1885 | 0.0544 | 0.3366 | 0.847 | 0.943 |
 | raqft_deep | 0.0400 | 0.1890 | 0.0557 | 0.3477 | 0.855 | 0.948 |
+| raqft_nowo | 0.0370 | 0.1689 | 0.0524 | 0.3128 | 0.829 | 0.935 |
 | raqft_plainvq | 0.0389 | 0.1816 | 0.0549 | 0.3448 | 0.846 | 0.941 |
 | raqft_studentq | 0.0383 | 0.1853 | 0.0539 | 0.3401 | 0.850 | 0.945 |
 
@@ -192,7 +193,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-12 05:09 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-12 05:18 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
