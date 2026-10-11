@@ -19,7 +19,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | F2 ablation: β = 0 (readout only) | — | a: LIBERO 256 | readout | — | — | — | — | training 518/768; Plus pending |
 | F2 ablation: readout on layers 14–17 only | — | a: LIBERO 256 | readout(14–17) + 0.1 H5b | — | — | — | — | training 499/768; Plus pending |
 | F2 ablation: quantized-model queries (no teacher forcing) | — | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | training 673/768; Plus pending |
-| F2 ablation: RAQ-FT on the plain-VQ (layer-Hessian) 2-bit backbone | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
+| F2 ablation: RAQ-FT on the plain-VQ (layer-Hessian) 2-bit backbone | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
 
 A8 feasibility rows (decision only: whether the final deployable row is W2A8; excluded from method selection):
@@ -48,6 +48,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | raqft_a_2bit | 0.0385 | 0.1852 | 0.0541 | 0.3410 | 0.851 | 0.946 |
 | raqft_a_c2 | 0.0362 | 0.1633 | 0.0516 | 0.3133 | 0.858 | 0.955 |
 | raqft_c_2bit | 0.0391 | 0.1885 | 0.0544 | 0.3366 | 0.847 | 0.943 |
+| raqft_plainvq | 0.0389 | 0.1816 | 0.0549 | 0.3448 | 0.846 | 0.941 |
 
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "plustrain_c_backbone": false, "raqft_a_2bit": true, "raqft_a_c2": true}**.
 
@@ -185,7 +186,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-11 12:17 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-11 12:25 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
