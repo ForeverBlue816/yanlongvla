@@ -96,7 +96,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "training 63/768; Plus pending"
     },
     {
       "model": "raqft_deep",
@@ -112,7 +112,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout(student q) + 0.1 H5b",
       "bpw": 2.9225899010064036,
-      "stage": "fine-tuned; Plus running"
+      "stage": "fine-tuned; Plus complete"
     },
     {
       "model": "raqft_plainvq",
@@ -128,7 +128,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "KV-MSE + 0.1 H5b",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "training 19/768; Plus pending"
     },
     {
       "model": "raqft_nowo",
@@ -315,6 +315,18 @@
             "paired_improvements": 57,
             "paired_regressions": 79
           },
+          "raqft_studentq": {
+            "successes": 749,
+            "episodes": 1000,
+            "success_percent": 74.9,
+            "difference_from_reference_pp": -1.6,
+            "paired_difference_ci95_pp": [
+              -5.4554531225351655,
+              2.203898037825469
+            ],
+            "paired_improvements": 63,
+            "paired_regressions": 79
+          },
           "raqft_plainvq": {
             "successes": 748,
             "episodes": 1000,
@@ -454,6 +466,18 @@
             ],
             "paired_improvements": 78,
             "paired_regressions": 39
+          },
+          "raqft_studentq": {
+            "successes": 749,
+            "episodes": 1000,
+            "success_percent": 74.9,
+            "difference_from_reference_pp": 4.5,
+            "paired_difference_ci95_pp": [
+              1.3468704385970316,
+              7.864181549607716
+            ],
+            "paired_improvements": 88,
+            "paired_regressions": 43
           },
           "raqft_plainvq": {
             "successes": 748,
@@ -597,6 +621,18 @@
             "paired_improvements": 24,
             "paired_regressions": 32
           },
+          "raqft_studentq": {
+            "successes": 364,
+            "episodes": 500,
+            "success_percent": 72.8,
+            "difference_from_reference_pp": -1.6,
+            "paired_difference_ci95_pp": [
+              -6.121272659784251,
+              3.604087144038752
+            ],
+            "paired_improvements": 28,
+            "paired_regressions": 36
+          },
           "raqft_plainvq": {
             "successes": 367,
             "episodes": 500,
@@ -736,6 +772,18 @@
             ],
             "paired_improvements": 36,
             "paired_regressions": 18
+          },
+          "raqft_studentq": {
+            "successes": 364,
+            "episodes": 500,
+            "success_percent": 72.8,
+            "difference_from_reference_pp": 3.5999999999999996,
+            "paired_difference_ci95_pp": [
+              -1.6006779661016892,
+              8.881689435997929
+            ],
+            "paired_improvements": 42,
+            "paired_regressions": 24
           },
           "raqft_plainvq": {
             "successes": 367,
@@ -879,6 +927,18 @@
             "paired_improvements": 33,
             "paired_regressions": 47
           },
+          "raqft_studentq": {
+            "successes": 385,
+            "episodes": 500,
+            "success_percent": 77.0,
+            "difference_from_reference_pp": -1.6,
+            "paired_difference_ci95_pp": [
+              -7.4197384213237525,
+              3.9653949093740692
+            ],
+            "paired_improvements": 35,
+            "paired_regressions": 43
+          },
           "raqft_plainvq": {
             "successes": 381,
             "episodes": 500,
@@ -1018,6 +1078,18 @@
             ],
             "paired_improvements": 42,
             "paired_regressions": 21
+          },
+          "raqft_studentq": {
+            "successes": 385,
+            "episodes": 500,
+            "success_percent": 77.0,
+            "difference_from_reference_pp": 5.4,
+            "paired_difference_ci95_pp": [
+              0.5650581028621879,
+              10.385972862263174
+            ],
+            "paired_improvements": 46,
+            "paired_regressions": 19
           },
           "raqft_plainvq": {
             "successes": 381,
@@ -4694,6 +4766,15 @@
       ],
       "passes": true
     },
+    "raqft_studentq": {
+      "successes": 749,
+      "gain": 45,
+      "ci95_pp": [
+        1.3468704385970316,
+        7.864181549607716
+      ],
+      "passes": true
+    },
     "raqft_plainvq": {
       "successes": 748,
       "gain": 44,
@@ -4737,6 +4818,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_c2/episodes.jsonl": "f51f5f67f0903343c7cab6e4008551f1c75da348a68962d9e5f3c5192e607f01",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_c2/manifest.json": "1eeb1f8e299a624546ae1e79009aa3c955975e53b56be7a6ba759fcf547f4ef2",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_c2/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_studentq/complete.json": "5b310c1d21b78ae26a9a12dbe7cdc0b2d686e2a6e45230066388bc246ffd49f0",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_studentq/episodes.jsonl": "1d5aeca61fb63484610ddb7ec41c8d7ec1a38bd36aa444ad71c745cfc5a867af",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_studentq/manifest.json": "e9586c97f8f6bfbf6389fa8e91826b30aa57fe431482a114efdbe06040e87f52",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_studentq/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_plainvq/complete.json": "deeb853820ad5ba89fd1f59c7b13cb7c74b6e53391aefd115900c1e3d69009c4",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_plainvq/episodes.jsonl": "4881b50e25dc10cee4f9d4818f9211b88e721ae278c03bac20fc08b840243c70",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_plainvq/manifest.json": "f146cae4990837ef075dd111bafb79d54cb514fa6ee756a586d088b7b5d1cd3d",
