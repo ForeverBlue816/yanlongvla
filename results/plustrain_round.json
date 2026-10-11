@@ -56,7 +56,7 @@
       "calibration": "c: 128 LIBERO + 128 Plus-train",
       "loss": "H5b direction loss",
       "bpw": 2.9225899010064036,
-      "stage": "fine-tuned; Plus running"
+      "stage": "fine-tuned; Plus complete"
     },
     {
       "model": "raqft_a_2bit",
@@ -136,7 +136,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout(identity) + 0.1 H5b",
       "bpw": null,
-      "stage": "not started; Plus pending"
+      "stage": "training 18/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
@@ -291,6 +291,18 @@
             "paired_improvements": 61,
             "paired_regressions": 86
           },
+          "plustrain_c_h5b": {
+            "successes": 725,
+            "episodes": 1000,
+            "success_percent": 72.5,
+            "difference_from_reference_pp": -4.0,
+            "paired_difference_ci95_pp": [
+              -7.834534242869559,
+              0.00366756949212299
+            ],
+            "paired_improvements": 55,
+            "paired_regressions": 95
+          },
           "raqft_a_2bit": {
             "successes": 739,
             "episodes": 1000,
@@ -442,6 +454,18 @@
             ],
             "paired_improvements": 85,
             "paired_regressions": 49
+          },
+          "plustrain_c_h5b": {
+            "successes": 725,
+            "episodes": 1000,
+            "success_percent": 72.5,
+            "difference_from_reference_pp": 2.1,
+            "paired_difference_ci95_pp": [
+              -1.0834424825130458,
+              5.493558658506604
+            ],
+            "paired_improvements": 73,
+            "paired_regressions": 52
           },
           "raqft_a_2bit": {
             "successes": 739,
@@ -597,6 +621,18 @@
             "paired_improvements": 28,
             "paired_regressions": 37
           },
+          "plustrain_c_h5b": {
+            "successes": 359,
+            "episodes": 500,
+            "success_percent": 71.8,
+            "difference_from_reference_pp": -2.6,
+            "paired_difference_ci95_pp": [
+              -7.1687434753396,
+              1.8253982412617895
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 40
+          },
           "raqft_a_2bit": {
             "successes": 357,
             "episodes": 500,
@@ -748,6 +784,18 @@
             ],
             "paired_improvements": 39,
             "paired_regressions": 22
+          },
+          "plustrain_c_h5b": {
+            "successes": 359,
+            "episodes": 500,
+            "success_percent": 71.8,
+            "difference_from_reference_pp": 2.6,
+            "paired_difference_ci95_pp": [
+              -1.6035974769665085,
+              6.939872629128281
+            ],
+            "paired_improvements": 36,
+            "paired_regressions": 23
           },
           "raqft_a_2bit": {
             "successes": 357,
@@ -903,6 +951,18 @@
             "paired_improvements": 33,
             "paired_regressions": 49
           },
+          "plustrain_c_h5b": {
+            "successes": 366,
+            "episodes": 500,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": -5.4,
+            "paired_difference_ci95_pp": [
+              -11.752164398587162,
+              0.42993509201161223
+            ],
+            "paired_improvements": 28,
+            "paired_regressions": 55
+          },
           "raqft_a_2bit": {
             "successes": 382,
             "episodes": 500,
@@ -1054,6 +1114,18 @@
             ],
             "paired_improvements": 46,
             "paired_regressions": 27
+          },
+          "plustrain_c_h5b": {
+            "successes": 366,
+            "episodes": 500,
+            "success_percent": 73.2,
+            "difference_from_reference_pp": 1.6,
+            "paired_difference_ci95_pp": [
+              -3.070667630845559,
+              6.643604671819843
+            ],
+            "paired_improvements": 37,
+            "paired_regressions": 29
           },
           "raqft_a_2bit": {
             "successes": 382,
@@ -4748,6 +4820,15 @@
       ],
       "passes": true
     },
+    "plustrain_c_h5b": {
+      "successes": 725,
+      "gain": 21,
+      "ci95_pp": [
+        -1.0834424825130458,
+        5.493558658506604
+      ],
+      "passes": false
+    },
     "raqft_a_2bit": {
       "successes": 739,
       "gain": 35,
@@ -4810,6 +4891,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_h5b/episodes.jsonl": "a44b84ec313a8bab4dbc6ef757bf431d1f4461e74bbda1a70adec311181f6c2d",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_h5b/manifest.json": "90fb89ef759cbe053d1c5a59f54abbb0f3d602ce8feae759d5b71fdf0968d27d",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_b_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_c_h5b/complete.json": "650864a50e3f1b3b95586f128fd8400b3866b880116b4370dd6f584c747e6b95",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_c_h5b/episodes.jsonl": "cd7c261dfade92bf48a76960e9b3c298458e81ebd9d81c4610845da5d502bbb0",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_c_h5b/manifest.json": "877ab588b3546de8eb5e9cc3c92f1efe55a5d5ad18eec5ea49f306a9a1d02d0c",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/plustrain_c_h5b/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/complete.json": "bebc111b5212dc8d0afa7ce6363fa9a67c7ddccf9c96a0dd9f01f4f9e8fb47e0",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/episodes.jsonl": "a06b48082df9ce9ee5d131880fe231aadbd2088910d695b276650155dab5c89a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/manifest.json": "a7ec3d2b4894eca9582e7ab2aadf54be0a89437e249825e03a96d9adcd9bfd5a",
