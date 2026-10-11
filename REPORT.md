@@ -10,14 +10,14 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | H5b fine-tune on original 2-bit (loss-function control) | 2.9226 | a: LIBERO 256 | H5b direction loss | 732 | -3.30 [-7.15,+0.56] | +2.80 [-0.20,+5.94] | — | reference; Plus pending |
 | P1 refit on Plus-train | 2.9226 | b: Plus-train 256 | original recipe | 693 | -7.20 [-11.64,-2.99] | -1.10 [-4.02,+1.93] | 972 | assembled; Plus complete |
 | P1 refit on mixed | 2.9226 | c: 128 LIBERO + 128 Plus-train | original recipe | 715 | -5.00 [-9.37,-0.65] | +1.10 [-2.24,+4.47] | — | assembled; Plus complete |
-| P1 H5b fine-tune on Plus-train (best-validation iterate) | 2.9226 | b: Plus-train 256 | H5b direction loss | — | — | — | — | fine-tuned; Plus running |
+| P1 H5b fine-tune on Plus-train (best-validation iterate) | 2.9226 | b: Plus-train 256 | H5b direction loss | 740 | -2.50 [-6.21,+1.10] | +3.60 [+0.30,+6.99] | — | fine-tuned; Plus complete |
 | P1 H5b fine-tune on mixed (best-validation iterate) | 2.9226 | c: 128 LIBERO + 128 Plus-train | H5b direction loss | — | — | — | — | fine-tuned; Plus running |
 | P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 739 | -2.60 [-6.37,+1.39] | +3.50 [+0.49,+6.69] | — | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | 743 | -2.20 [-5.80,+1.52] | +3.90 [+0.78,+7.33] | — | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 coverage row | 2.9226 | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
 | F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010) | — | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | not started; Plus pending |
 | F2 ablation: β = 0 (readout only) | — | a: LIBERO 256 | readout | — | — | — | — | training 595/768; Plus pending |
-| F2 ablation: readout on layers 14–17 only | — | a: LIBERO 256 | readout(14–17) + 0.1 H5b | — | — | — | — | training 693/768; Plus pending |
+| F2 ablation: readout on layers 14–17 only | — | a: LIBERO 256 | readout(14–17) + 0.1 H5b | — | — | — | — | training 703/768; Plus pending |
 | F2 ablation: quantized-model queries (no teacher forcing) | 2.9226 | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
 | F2 ablation: RAQ-FT on the plain-VQ (layer-Hessian) 2-bit backbone | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 748 | -1.70 [-5.30,+2.05] | +4.40 [+0.73,+8.15] | — | fine-tuned; Plus complete |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
@@ -52,7 +52,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | raqft_plainvq | 0.0389 | 0.1816 | 0.0549 | 0.3448 | 0.846 | 0.941 |
 | raqft_studentq | 0.0383 | 0.1853 | 0.0539 | 0.3401 | 0.850 | 0.945 |
 
-Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "plustrain_c_backbone": false, "raqft_a_2bit": true, "raqft_a_c2": true, "raqft_plainvq": true}**.
+Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "plustrain_c_backbone": false, "plustrain_b_h5b": true, "raqft_a_2bit": true, "raqft_a_c2": true, "raqft_plainvq": true}**.
 
 Promotion (FINAL_2026-10-10: candidate frozen after the gate pass; remaining candidate rows are reported, not selected): **promoted** — raqft_a_2bit 739/1000, +3.5 pp [+0.49, +6.69].
 
@@ -188,7 +188,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-11 16:09 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-11 16:17 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
