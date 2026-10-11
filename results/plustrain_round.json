@@ -48,7 +48,7 @@
       "calibration": "b: Plus-train 256",
       "loss": "H5b direction loss",
       "bpw": 2.9225899010064036,
-      "stage": "fine-tuned; Plus pending"
+      "stage": "fine-tuned; Plus running"
     },
     {
       "model": "plustrain_c_h5b",
@@ -96,7 +96,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout",
       "bpw": null,
-      "stage": "training 518/768; Plus pending"
+      "stage": "training 575/768; Plus pending"
     },
     {
       "model": "raqft_deep",
@@ -104,15 +104,15 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout(14\u201317) + 0.1 H5b",
       "bpw": null,
-      "stage": "training 499/768; Plus pending"
+      "stage": "training 648/768; Plus pending"
     },
     {
       "model": "raqft_studentq",
       "label": "F2 ablation: quantized-model queries (no teacher forcing)",
       "calibration": "a: LIBERO 256",
       "loss": "readout(student q) + 0.1 H5b",
-      "bpw": null,
-      "stage": "training 673/768; Plus pending"
+      "bpw": 2.9225899010064036,
+      "stage": "fine-tuned; Plus pending"
     },
     {
       "model": "raqft_plainvq",
@@ -1813,6 +1813,85 @@
         "torch": "2.7.1+cu126",
         "cuda": "12.6",
         "job": "195629"
+      }
+    },
+    "raqft_studentq": {
+      "status": "complete",
+      "model": "raqft_studentq",
+      "checkpoint_sha256": "d700b3fc1f8d54d5d0ffea4567acbe7da10a9001981203d8141267c3b840ca05",
+      "whole_model_bpw": 2.9225899010064036,
+      "optimizer_steps": 768,
+      "changed_tensors": 723,
+      "elapsed_seconds": 32599.162741154898,
+      "initial_exact_observations": 256,
+      "strict_reload_all_tensors": true,
+      "contract": {
+        "model": "raqft_studentq",
+        "config": {
+          "version": "v2",
+          "epochs": 3,
+          "latents": 8,
+          "h5b_steps": 6,
+          "readout_steps": 10,
+          "beta": 0.1,
+          "layer_weight": 0.05555555555555555,
+          "lr": 0.0003,
+          "lr_scale": 2e-05,
+          "lr_norm": 0.0003,
+          "clip": 1.0,
+          "eval_every": 64,
+          "validation_latents": 1,
+          "layers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "queries": "student",
+          "latent_seed": 20261005
+        },
+        "base": "bb_M2_ae_M2_fp32",
+        "bank": {
+          "bank": "libero_a",
+          "manifest_sha256": "64031e05169941c8f734953dfb86c80c7761f32d1ca91d2ea7c387a1c82c6de4"
+        },
+        "base_sha256": "a4cfd235e2bcde4ea2199b721c2d3dcb7d6c98ce05d3c579b432736341c83201",
+        "teacher_sha256": "176031b21186751e49846ca4661c88a881695f290f8332f2bc185752b7b6c5d1",
+        "validation_manifest_sha256": "f86259eae95b02969f89723e4f6bdfadacc9f288358b0c4b985b71bf364081be",
+        "sources": {
+          "plustrain_raqft.py": "592d0c9fb3c03a81579685fea4ab2b9d7050116360a2a56da3fff9b980de9907",
+          "plustrain_protocol.py": "3fd8d1da2a5e9124f4e9fa9b200c3295295509e9b84ceb8bb7d6cf338c738999",
+          "causal_h5_common.py": "d0721666b4c8c46365a8c73a0cb12b73e36ea2972cf03a0d7639cc2313d330d7",
+          "decisions_h2.py": "aa724dae7a66c492cd34f8f73b6e9ac20cdcf555fbdbbb60e9fb548cb51e48a9",
+          "decisions_runtime.py": "f53e8445b71181b3d69f9b53869787480fb31a766366df8a1fd807dc5e8719b9",
+          "flowvq_cached_runtime.py": "968e28a34b80b033d883ee1a674720ddb8b53e8ce76eac9922972513d2d6b829",
+          "backbone_policy.py": "f3d1cef8eda5f0ce251b4c2d0e12989e83d9e966363886a7b5223807bc9f4b69"
+        }
+      },
+      "readout_check": {
+        "max_abs_bf16_hooked_vs_fp32": 0.055907249450683594,
+        "fp_self_loss": 0.0
+      },
+      "curves_sha256": "2c3b3a8ffaed71236f4ea7b48b752a3ee000367791d4ce3bf27f51a3f2323e6d",
+      "device": {
+        "gpu": "NVIDIA RTX 6000 Ada Generation",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6",
+        "job": "197014"
       }
     },
     "raqft_plainvq": {
