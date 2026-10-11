@@ -88,7 +88,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": null,
-      "stage": "training 188/768; Plus pending"
+      "stage": "training 191/768; Plus pending"
     },
     {
       "model": "raqft_beta0",
@@ -128,7 +128,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "KV-MSE + 0.1 H5b",
       "bpw": null,
-      "stage": "training 127/768; Plus pending"
+      "stage": "training 129/768; Plus pending"
     },
     {
       "model": "raqft_nowo",
@@ -136,7 +136,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout(identity) + 0.1 H5b",
       "bpw": null,
-      "stage": "training 215/768; Plus pending"
+      "stage": "training 218/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",

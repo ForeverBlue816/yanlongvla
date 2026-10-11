@@ -1202,3 +1202,13 @@ E098 numbers: plustrain_b_h5b **740/1000, +3.6 pp vs original 2-bit [+0.30, +6.9
 ### E099 — novelty controls added; two stale manifests cleared (2026-10-11 09:00 UTC)
 
 User authorized method choices toward an oral-level paper within the frozen plan. Added F2 controls raqft_kvmse (KV-cache matching, relative MSE per layer) and raqft_nowo (readout without W_O); implemented as loss modes of plustrain_raqft.py (default rows unchanged numerically). Side effect: rows whose manifests were frozen before this edit cannot resume under the new contract — raqft_seed2 (198041, failed at freeze, no training) and raqft_beta0 (595/768) were archived under invalid/ and restart from scratch; raqft_deep (688/768, running) completes unless preempted. P1-b H5b Plus 740 (E098) published at 60aad7e.
+
+### E100 — four more Plus rows; F2 picture; two scheduling fixes (2026-10-11 13:50 UTC)
+
+New paired Plus results (seed7, L40S; vs original 2-bit 704):
+- raqft_studentq (F2: quantized model's own queries, no teacher forcing): **749/1000, +4.5 pp [+1.35, +7.86]**; camera 364 (+3.6), initial state 385 (+5.4); 88 improvements / 43 regressions; validation readout 749 → 475, KV image 0.081 → 0.057. Teacher forcing on FP-expert queries is not needed for the gain.
+- raqft_c_2bit (RAQ-FT on the mixed 128 LIBERO + 128 Plus-train bank): 741/1000, +3.7 pp [+0.47, +7.08]; does not exceed the frozen candidate by ≥ 3 pp, so it is reported as the coverage variant only (FINAL_2026-10-10 F1).
+- plustrain_c_h5b (H5b fine-tune on the mixed bank): 725/1000, +2.1 pp [−1.08, +5.49]; gate not passed.
+- (earlier today) plustrain_b_h5b 740, +3.6 [+0.30, +6.99]; raqft_plainvq 748, +4.4 [+0.73, +8.15].
+All RAQ-FT variants land in 739–749 (+3.5 to +4.5 pp, every lower bound > 0); single seed, differences among them are within noise. Running: raqft_nowo (208/768), raqft_seed2 (182/768), raqft_kvmse (127/768), raqft_beta0 (81/768, restarted).
+Fixes: (1) raqft_deep was preempted at 752/768 and its resume failed on the E099 source hash; because loss=readout/metric=W_O is computed identically, its contract was migrated (old manifest kept as manifest.pre_lossmode.json, contract_migration.json records the change) and it resumes from update 752. (2) The final W2A8 row a8_raqft and the remaining A8 Plus rows were held back by the low-priority GPU cap; a8_raqft now runs as an F1 'final' stage and only D3 stays capped.
