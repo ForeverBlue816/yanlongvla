@@ -1216,3 +1216,12 @@ Fixes: (1) raqft_deep was preempted at 752/768 and its resume failed on the E099
 ### E101 — simplest-form row queued; automatic contract migration (2026-10-11 14:30 UTC)
 
 At the user's request, raqft_simple (plain-VQ base + quantized-model queries) is queued ahead of the remaining ablations; its decision rule is recorded in FINAL_2026-10-10.md before any result. Because adding the row edits the protocol (whose hash is in every RAQ-FT contract), plustrain_raqft.py now migrates a frozen contract automatically when only the script/protocol hashes changed and added config keys carry their backward-compatible defaults; each migration archives the old manifest and appends to contract_migration.json (unit-tested: unrelated source changes, changed hyperparameters or a non-default loss still fail). This protects the preemptible raqft_kvmse/raqft_beta0 runs and the raqft_deep resume.
+
+### E102 — overnight results (2026-10-12 03:40 UTC)
+
+- raqft_deep (readout on layers 14–17 only; resumed via contract migration from update 752): Plus 738/1000, +3.4 pp vs original 2-bit [−0.01, +6.97] (78/44) — essentially the same point estimate as all-layer RAQ-FT, but the lower bound touches zero; deep layers carry most of the effect.
+- LIBERO medium (four suites × 25, seed7): raqft_a_2bit 974/1000 (+0.4 pp vs FP [−2.0, +2.7]; 930/950 excluding LIBERO-10 tasks 8/9); plustrain_c_backbone 975; plustrain_b_backbone 972. All within noise of FP and of each other: RAQ-FT costs nothing on clean LIBERO, and LIBERO medium does not discriminate these methods.
+- a8_raqft offline (final W2A8 row, 256 held-out observations): action relative MSE vs FP 0.024878 vs 0.024868 for the RAQ-FT base without A8 (A8 adds 4.9e-6 relative to its base); the RAQ-FT base itself is 33% below the original 2-bit (0.0372). a8_raqft Plus at 191/1000.
+- Fine-tunes complete: raqft_nowo (validation identity-metric readout 298 → 202, KV image 0.081 → 0.054), raqft_seed2 (readout 777 → 483, KV image 0.081 → 0.058; Plus 339/1000), raqft_deep. Running: raqft_simple 639/768 (validation readout 752 → 481 at update 576), raqft_kvmse 403/768 (KV image 0.081 → 0.045 at update 384 — it reduces KV error more than RAQ-FT, as expected of a KV-matching objective), raqft_beta0 462/768.
+- Contract migrations applied automatically for raqft_deep, raqft_kvmse and raqft_beta0 (logged in each contract_migration.json).
+- raqft_nowo Plus (199021) failed once on a client websocket handshake timeout at instance 159; no episode written; error record archived; resumes with its 158 episodes.
