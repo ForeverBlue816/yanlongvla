@@ -144,7 +144,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout(student q) + 0.1 H5b",
       "bpw": 2.9225899010064036,
-      "stage": "fine-tuned; Plus running"
+      "stage": "fine-tuned; Plus complete"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
@@ -395,6 +395,18 @@
             "paired_improvements": 61,
             "paired_regressions": 82
           },
+          "raqft_simple": {
+            "successes": 748,
+            "episodes": 1000,
+            "success_percent": 74.8,
+            "difference_from_reference_pp": -1.7000000000000002,
+            "paired_difference_ci95_pp": [
+              -5.340999109485622,
+              1.7705416206827618
+            ],
+            "paired_improvements": 60,
+            "paired_regressions": 77
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 741,
             "episodes": 1000,
@@ -606,6 +618,18 @@
             ],
             "paired_improvements": 82,
             "paired_regressions": 42
+          },
+          "raqft_simple": {
+            "successes": 748,
+            "episodes": 1000,
+            "success_percent": 74.8,
+            "difference_from_reference_pp": 4.3999999999999995,
+            "paired_difference_ci95_pp": [
+              0.9885659889076678,
+              8.063520714472382
+            ],
+            "paired_improvements": 94,
+            "paired_regressions": 50
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 741,
@@ -821,6 +845,18 @@
             "paired_improvements": 29,
             "paired_regressions": 38
           },
+          "raqft_simple": {
+            "successes": 373,
+            "episodes": 500,
+            "success_percent": 74.6,
+            "difference_from_reference_pp": 0.2,
+            "paired_difference_ci95_pp": [
+              -4.123140838492046,
+              4.631370825330897
+            ],
+            "paired_improvements": 31,
+            "paired_regressions": 30
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 360,
             "episodes": 500,
@@ -1032,6 +1068,18 @@
             ],
             "paired_improvements": 38,
             "paired_regressions": 21
+          },
+          "raqft_simple": {
+            "successes": 373,
+            "episodes": 500,
+            "success_percent": 74.6,
+            "difference_from_reference_pp": 5.4,
+            "paired_difference_ci95_pp": [
+              0.3187079809266575,
+              10.703356090764517
+            ],
+            "paired_improvements": 46,
+            "paired_regressions": 19
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 360,
@@ -1247,6 +1295,18 @@
             "paired_improvements": 32,
             "paired_regressions": 44
           },
+          "raqft_simple": {
+            "successes": 375,
+            "episodes": 500,
+            "success_percent": 75.0,
+            "difference_from_reference_pp": -3.5999999999999996,
+            "paired_difference_ci95_pp": [
+              -8.444118895452567,
+              1.0133366509824848
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 47
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 381,
             "episodes": 500,
@@ -1458,6 +1518,18 @@
             ],
             "paired_improvements": 44,
             "paired_regressions": 21
+          },
+          "raqft_simple": {
+            "successes": 375,
+            "episodes": 500,
+            "success_percent": 75.0,
+            "difference_from_reference_pp": 3.4000000000000004,
+            "paired_difference_ci95_pp": [
+              -1.3904527305707524,
+              8.3960912063957
+            ],
+            "paired_improvements": 48,
+            "paired_regressions": 31
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 381,
@@ -7019,6 +7091,15 @@
         7.422753122720629
       ],
       "passes": true
+    },
+    "raqft_simple": {
+      "successes": 748,
+      "gain": 44,
+      "ci95_pp": [
+        0.9885659889076678,
+        8.063520714472382
+      ],
+      "passes": true
     }
   },
   "source_sha256": {
@@ -7078,6 +7159,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_nowo/episodes.jsonl": "27c4c910ccbde524ec6f45c7bcfdedd10e3dec9aefc10ca9f0caf39914a4a958",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_nowo/manifest.json": "3033c770d3f0cf2b51b9b3428da5b78f6d33ff0d74bce5e8731ea996427889a4",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_nowo/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_simple/complete.json": "a0309449d957f30ad49a3fd74c1d7f49fdec19b346d14b06a919cc1d2b671308",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_simple/episodes.jsonl": "e69e0908c27376287176d7df8f84dd2a79f31add4a9b0a14f4b67b54b39e2012",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_simple/manifest.json": "8fb9f49958dc0d640f2446015cb15c7af52d27965da0ef260ee012d77339baf8",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_simple/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/complete.json": "5d6a41969143d6def5e2d9df66725f3dd7de69b2b73b3d733c55682244bce993",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/episodes.jsonl": "8a76058bc61d4eeacefed6b83d92e2f9d2324f885ad79123c3f9307eb39adbda",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/manifest.json": "4cba06195162c859f5e71948369139cca88d21247618078ab698850a02887363",

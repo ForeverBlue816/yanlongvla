@@ -1225,3 +1225,10 @@ At the user's request, raqft_simple (plain-VQ base + quantized-model queries) is
 - Fine-tunes complete: raqft_nowo (validation identity-metric readout 298 → 202, KV image 0.081 → 0.054), raqft_seed2 (readout 777 → 483, KV image 0.081 → 0.058; Plus 339/1000), raqft_deep. Running: raqft_simple 639/768 (validation readout 752 → 481 at update 576), raqft_kvmse 403/768 (KV image 0.081 → 0.045 at update 384 — it reduces KV error more than RAQ-FT, as expected of a KV-matching objective), raqft_beta0 462/768.
 - Contract migrations applied automatically for raqft_deep, raqft_kvmse and raqft_beta0 (logged in each contract_migration.json).
 - raqft_nowo Plus (199021) failed once on a client websocket handshake timeout at instance 159; no episode written; error record archived; resumes with its 158 episodes.
+
+### E103 — final W2A8 row and the W_O control on Plus (2026-10-12 14:15 UTC)
+
+- a8_raqft (frozen deployable row: RAQ-FT 2-bit backbone + uniform M2 2-bit expert + per-token INT8 activations after the folded Hadamard, BF16 KV cache): **740/1000, +3.6 pp vs original 2-bit [+0.52, +6.89]**, −2.5 pp vs FP; 81 improvements / 45 regressions. Identical to the RAQ-FT backbone without A8 (739): A8 is free on the final row as well. LIBERO full 2000 for it is queued (rose); the expanded-Plus confirmation stage is submitted next.
+- raqft_nowo (readout consistency with the identity metric instead of W_O): 744/1000, +4.0 pp [+0.78, +7.42]. The W_O weighting is not what carries the gain; the readout location (what the expert's queries read) is.
+- Fine-tunes complete: raqft_kvmse (validation KV error image 0.081 → 0.044, language 0.248 → 0.196 — lower than any RAQ-FT row, as expected for direct KV matching), raqft_beta0, raqft_simple (validation readout 752 → 481). Their Plus rows are queued/running; raqft_simple Plus at 622/1000, raqft_seed2 at 339/1000.
+- Published f8fa59d.
