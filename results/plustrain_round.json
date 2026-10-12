@@ -96,7 +96,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout",
       "bpw": null,
-      "stage": "training 404/768; Plus pending"
+      "stage": "training 419/768; Plus pending"
     },
     {
       "model": "raqft_deep",
@@ -128,7 +128,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "KV-MSE + 0.1 H5b",
       "bpw": null,
-      "stage": "training 319/768; Plus pending"
+      "stage": "training 333/768; Plus pending"
     },
     {
       "model": "raqft_nowo",
@@ -144,7 +144,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout(student q) + 0.1 H5b",
       "bpw": null,
-      "stage": "training 484/768; Plus pending"
+      "stage": "training 517/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
@@ -216,7 +216,7 @@
     {
       "model": "a8_raqft",
       "label": "composed final candidate: RAQ-FT 2-bit backbone + 2-bit expert + A8",
-      "stage": "reference; Plus pending"
+      "stage": "reference; Plus running"
     }
   ],
   "paired": {
