@@ -5403,6 +5403,148 @@
         "V/language_state/w_cross_fraction": -0.10098815820594913
       }
     },
+    "raqft_kvmse": {
+      "KV": {
+        "original_training256": {
+          "all": {
+            "mean_local_ratio": 0.023754322662037513,
+            "local_quantiles_05_50_95": [
+              0.01676325342765807,
+              0.022160916810541623,
+              0.03652998424364012
+            ],
+            "mean_total_ratio": 0.023754322662037513,
+            "total_quantiles_05_50_95": [
+              0.01676325342765807,
+              0.022160916810541623,
+              0.03652998424364012
+            ],
+            "pooled_local_ratio": 0.02322937668916129,
+            "pooled_total_ratio": 0.02322937668916129,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.023147542237331422,
+            "local_quantiles_05_50_95": [
+              0.016105506921042734,
+              0.021784290989856032,
+              0.036085697174380135
+            ],
+            "mean_total_ratio": 0.023037914114176626,
+            "total_quantiles_05_50_95": [
+              0.0160128067415029,
+              0.02166438715254152,
+              0.035876043144179
+            ],
+            "pooled_local_ratio": 0.02262303073571602,
+            "pooled_total_ratio": 0.02252094071006611,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.15756731266573248,
+            "local_quantiles_05_50_95": [
+              0.1236520006304587,
+              0.15469771508922509,
+              0.197116722342496
+            ],
+            "mean_total_ratio": 0.0007164085478608877,
+            "total_quantiles_05_50_95": [
+              0.0003761402375460392,
+              0.0007095596864259182,
+              0.001125063104654475
+            ],
+            "pooled_local_ratio": 0.1569885875463902,
+            "pooled_total_ratio": 0.0007084359790951775,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        },
+        "Plus200": {
+          "all": {
+            "mean_local_ratio": 0.043504974054600465,
+            "local_quantiles_05_50_95": [
+              0.030886630375812286,
+              0.0431233257880711,
+              0.058636890929816186
+            ],
+            "mean_total_ratio": 0.043504974054600465,
+            "total_quantiles_05_50_95": [
+              0.030886630375812286,
+              0.0431233257880711,
+              0.058636890929816186
+            ],
+            "pooled_local_ratio": 0.04328824822586317,
+            "pooled_total_ratio": 0.04328824822586317,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.04144014214582723,
+            "local_quantiles_05_50_95": [
+              0.02915788504742706,
+              0.040932665445427355,
+              0.056355166009603025
+            ],
+            "mean_total_ratio": 0.041065755746472934,
+            "total_quantiles_05_50_95": [
+              0.02900152257304715,
+              0.04059216664929095,
+              0.05579528665939142
+            ],
+            "pooled_local_ratio": 0.04122130933826518,
+            "pooled_total_ratio": 0.040860619534813056,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.2791468411561226,
+            "local_quantiles_05_50_95": [
+              0.2218463627275779,
+              0.27632202754044227,
+              0.3422331698490641
+            ],
+            "mean_total_ratio": 0.002439218308127525,
+            "total_quantiles_05_50_95": [
+              0.0018615343682621074,
+              0.002446279365063766,
+              0.0031699635228227283
+            ],
+            "pooled_local_ratio": 0.2774407046566243,
+            "pooled_total_ratio": 0.002427628691050151,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        }
+      },
+      "D1_pooled": {
+        "K/image/local_fraction": 0.19440379638600702,
+        "K/image/propagated_fraction": 0.876799686778588,
+        "K/image/cross_fraction": -0.0711901576225605,
+        "K/image/w_local_fraction": 0.06626682774351801,
+        "K/image/w_propagated_fraction": 1.0075404587720265,
+        "K/image/w_cross_fraction": -0.07379933053009934,
+        "K/language_state/local_fraction": 0.28364904873934094,
+        "K/language_state/propagated_fraction": 0.8150414773426702,
+        "K/language_state/cross_fraction": -0.09867171282719614,
+        "K/language_state/w_local_fraction": 0.18335211957020442,
+        "K/language_state/w_propagated_fraction": 0.8947700358393438,
+        "K/language_state/w_cross_fraction": -0.07810458743510647,
+        "V/image/local_fraction": 0.08925541566770104,
+        "V/image/propagated_fraction": 0.9503170734786189,
+        "V/image/cross_fraction": -0.039558012122152965,
+        "V/image/w_local_fraction": 0.050579869274409404,
+        "V/image/w_propagated_fraction": 0.9748033105233769,
+        "V/image/w_cross_fraction": -0.025369654085680475,
+        "V/language_state/local_fraction": 0.1709870265723611,
+        "V/language_state/propagated_fraction": 0.8963576622126356,
+        "V/language_state/cross_fraction": -0.0673221628175504,
+        "V/language_state/w_local_fraction": 0.14478032597824805,
+        "V/language_state/w_propagated_fraction": 0.9083484071863254,
+        "V/language_state/w_cross_fraction": -0.05310605545813588
+      }
+    },
     "raqft_studentq": {
       "KV": {
         "original_training256": {
