@@ -96,7 +96,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout",
       "bpw": null,
-      "stage": "training 358/768; Plus pending"
+      "stage": "training 383/768; Plus pending"
     },
     {
       "model": "raqft_deep",
@@ -128,7 +128,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "KV-MSE + 0.1 H5b",
       "bpw": null,
-      "stage": "training 268/768; Plus pending"
+      "stage": "training 297/768; Plus pending"
     },
     {
       "model": "raqft_nowo",
@@ -144,7 +144,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout(student q) + 0.1 H5b",
       "bpw": null,
-      "stage": "training 441/768; Plus pending"
+      "stage": "training 454/768; Plus pending"
     },
     {
       "model": "bb_M3_ae_M2_fp32",
@@ -5796,6 +5796,32 @@
         "versus_base": {
           "absolute_mse": 9.150392429440165e-07,
           "relative_mse": 4.2176463081432705e-06
+        },
+        "graph_eager_max_abs": 0.0
+      }
+    },
+    "a8_raqft": {
+      "base": {
+        "versus_fp": {
+          "absolute_mse": 0.005395194113719491,
+          "relative_mse": 0.024868169551654273
+        },
+        "graph_eager_max_abs": 0.0
+      },
+      "a8": {
+        "sites": {
+          "backbone": 288,
+          "expert": 126,
+          "fp_linear": 0
+        },
+        "kv8": false,
+        "versus_fp": {
+          "absolute_mse": 0.005397356943436696,
+          "relative_mse": 0.024878138723288347
+        },
+        "versus_base": {
+          "absolute_mse": 9.86594625269009e-07,
+          "relative_mse": 4.8654607748582185e-06
         },
         "graph_eager_max_abs": 0.0
       }
