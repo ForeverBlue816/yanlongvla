@@ -57,6 +57,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | raqft_nowo | 0.0370 | 0.1689 | 0.0524 | 0.3128 | 0.829 | 0.935 |
 | raqft_plainvq | 0.0389 | 0.1816 | 0.0549 | 0.3448 | 0.846 | 0.941 |
 | raqft_seed2 | 0.0390 | 0.1829 | 0.0540 | 0.3292 | 0.847 | 0.939 |
+| raqft_simple | 0.0386 | 0.1809 | 0.0547 | 0.3440 | 0.845 | 0.941 |
 | raqft_studentq | 0.0383 | 0.1853 | 0.0539 | 0.3401 | 0.850 | 0.945 |
 
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "plustrain_c_backbone": false, "plustrain_b_h5b": true, "plustrain_c_h5b": false, "raqft_a_2bit": true, "raqft_a_c2": true, "raqft_c_2bit": true, "raqft_deep": false, "raqft_studentq": true, "raqft_plainvq": true}**.
@@ -195,7 +196,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-12 13:10 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-12 13:16 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
