@@ -96,7 +96,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout",
       "bpw": null,
-      "stage": "training 576/768; Plus pending"
+      "stage": "training 639/768; Plus pending"
     },
     {
       "model": "raqft_deep",
@@ -128,7 +128,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "KV-MSE + 0.1 H5b",
       "bpw": null,
-      "stage": "training 570/768; Plus pending"
+      "stage": "training 613/768; Plus pending"
     },
     {
       "model": "raqft_nowo",
@@ -216,7 +216,7 @@
     {
       "model": "a8_raqft",
       "label": "composed final candidate: RAQ-FT 2-bit backbone + 2-bit expert + A8",
-      "stage": "reference; Plus running"
+      "stage": "reference; Plus complete"
     }
   ],
   "paired": {
@@ -418,6 +418,18 @@
             ],
             "paired_improvements": 57,
             "paired_regressions": 116
+          },
+          "a8_raqft": {
+            "successes": 740,
+            "episodes": 1000,
+            "success_percent": 74.0,
+            "difference_from_reference_pp": -2.5,
+            "paired_difference_ci95_pp": [
+              -6.158400525782942,
+              1.3072117176095386
+            ],
+            "paired_improvements": 64,
+            "paired_regressions": 89
           }
         }
       },
@@ -618,6 +630,18 @@
             ],
             "paired_improvements": 34,
             "paired_regressions": 32
+          },
+          "a8_raqft": {
+            "successes": 740,
+            "episodes": 1000,
+            "success_percent": 74.0,
+            "difference_from_reference_pp": 3.5999999999999996,
+            "paired_difference_ci95_pp": [
+              0.5234692361012566,
+              6.8886369392216205
+            ],
+            "paired_improvements": 81,
+            "paired_regressions": 45
           }
         }
       }
@@ -820,6 +844,18 @@
             ],
             "paired_improvements": 26,
             "paired_regressions": 54
+          },
+          "a8_raqft": {
+            "successes": 358,
+            "episodes": 500,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": -2.8000000000000003,
+            "paired_difference_ci95_pp": [
+              -7.649383302641607,
+              2.511941865562017
+            ],
+            "paired_improvements": 33,
+            "paired_regressions": 47
           }
         }
       },
@@ -1020,6 +1056,18 @@
             ],
             "paired_improvements": 15,
             "paired_regressions": 17
+          },
+          "a8_raqft": {
+            "successes": 358,
+            "episodes": 500,
+            "success_percent": 71.6,
+            "difference_from_reference_pp": 2.4,
+            "paired_difference_ci95_pp": [
+              -2.208351451403492,
+              7.383291282167033
+            ],
+            "paired_improvements": 38,
+            "paired_regressions": 26
           }
         }
       }
@@ -1222,6 +1270,18 @@
             ],
             "paired_improvements": 31,
             "paired_regressions": 62
+          },
+          "a8_raqft": {
+            "successes": 382,
+            "episodes": 500,
+            "success_percent": 76.4,
+            "difference_from_reference_pp": -2.1999999999999997,
+            "paired_difference_ci95_pp": [
+              -7.95396511757705,
+              3.1218768438553783
+            ],
+            "paired_improvements": 31,
+            "paired_regressions": 42
           }
         }
       },
@@ -1422,6 +1482,18 @@
             ],
             "paired_improvements": 19,
             "paired_regressions": 15
+          },
+          "a8_raqft": {
+            "successes": 382,
+            "episodes": 500,
+            "success_percent": 76.4,
+            "difference_from_reference_pp": 4.8,
+            "paired_difference_ci95_pp": [
+              0.37725686465907454,
+              9.742944791570629
+            ],
+            "paired_improvements": 43,
+            "paired_regressions": 19
           }
         }
       }
@@ -6569,7 +6641,11 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/complete.json": "08313c0666d246316d1f6a84e6f6f07c2b3a049709126706148b6babcc0fab6a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/episodes.jsonl": "353c5dab6d4ac693b7671c5181b242fdb1970a692588e04f3ecfcbb4abb648ce",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/manifest.json": "cd8916c45b567f716f33e38a4eb5ee7312cb863b7e62a74e18d97112da29f476",
-    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328"
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/complete.json": "1226dabb74a0e54c4df96934b4e41a9a86f63f90b6266617c80c8369b6c9d676",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/episodes.jsonl": "01b75e8e33deda8de634b138b93e372454dfb0634b09a390ab000f98bcd7b34f",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/manifest.json": "9f9b00d025609e71589bd8eaff5a661d0ac94eb51846b60105416733ea51caef",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328"
   },
   "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }
