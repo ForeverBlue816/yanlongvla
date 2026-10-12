@@ -15,14 +15,14 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 739 | -2.60 [-6.37,+1.39] | +3.50 [+0.49,+6.69] | 974 | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | 743 | -2.20 [-5.80,+1.52] | +3.90 [+0.78,+7.33] | — | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 coverage row | 2.9226 | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | 741 | -2.40 [-6.53,+1.83] | +3.70 [+0.47,+7.08] | — | fine-tuned; Plus complete |
-| F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
-| F2 ablation: β = 0 (readout only) | — | a: LIBERO 256 | readout | — | — | — | — | training 383/768; Plus pending |
+| F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
+| F2 ablation: β = 0 (readout only) | — | a: LIBERO 256 | readout | — | — | — | — | training 404/768; Plus pending |
 | F2 ablation: readout on layers 14–17 only | 2.9226 | a: LIBERO 256 | readout(14–17) + 0.1 H5b | 738 | -2.70 [-6.71,+1.22] | +3.40 [-0.01,+6.97] | — | fine-tuned; Plus complete |
 | F2 ablation: quantized-model queries (no teacher forcing) | 2.9226 | a: LIBERO 256 | readout(student q) + 0.1 H5b | 749 | -1.60 [-5.46,+2.20] | +4.50 [+1.35,+7.86] | — | fine-tuned; Plus complete |
 | F2 ablation: RAQ-FT on the plain-VQ (layer-Hessian) 2-bit backbone | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 748 | -1.70 [-5.30,+2.05] | +4.40 [+0.73,+8.15] | — | fine-tuned; Plus complete |
-| F2 control: KV-cache matching (relative MSE per layer, K and V) + 0.1 H5b, same trainable set/budget | — | a: LIBERO 256 | KV-MSE + 0.1 H5b | — | — | — | — | training 297/768; Plus pending |
-| F2 control: readout consistency without the W_O metric (identity) + 0.1 H5b | 2.9226 | a: LIBERO 256 | readout(identity) + 0.1 H5b | — | — | — | — | fine-tuned; Plus pending |
-| simplest form: plain-VQ base + quantized-model queries (no Fisher, no FP-expert trajectory) | — | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | training 454/768; Plus pending |
+| F2 control: KV-cache matching (relative MSE per layer, K and V) + 0.1 H5b, same trainable set/budget | — | a: LIBERO 256 | KV-MSE + 0.1 H5b | — | — | — | — | training 319/768; Plus pending |
+| F2 control: readout consistency without the W_O metric (identity) + 0.1 H5b | 2.9226 | a: LIBERO 256 | readout(identity) + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
+| simplest form: plain-VQ base + quantized-model queries (no Fisher, no FP-expert trajectory) | — | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | training 484/768; Plus pending |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
 | reference: plain-VQ (layer-Hessian) 2-bit backbone + uniform M2 expert (base of raqft_plainvq) | 2.9226 | a: LIBERO 256 | plain VQ | — | — | — | — | reference; Plus pending |
 
@@ -44,6 +44,7 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | a8_2bit | 0.0623 | 0.2156 | 0.0712 | 0.3449 | 0.866 | 0.940 |
 | a8_2bit_kv8 | 0.0624 | 0.2157 | 0.0713 | 0.3450 | 0.866 | 0.940 |
 | a8_fp | 0.0003 | 0.0007 | 0.0004 | 0.0012 | 0.857 | 0.918 |
+| a8_raqft | 0.0385 | 0.1856 | 0.0542 | 0.3413 | 0.851 | 0.946 |
 | bb_M2_ae_M2_fp32 | 0.0622 | 0.2155 | 0.0711 | 0.3445 | 0.867 | 0.940 |
 | plustrain_b_backbone | 0.0762 | 0.2437 | 0.0760 | 0.3419 | 0.881 | 0.949 |
 | plustrain_b_h5b | 0.0740 | 0.2351 | 0.0894 | 0.4051 | 0.856 | 0.937 |
@@ -194,7 +195,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-12 09:28 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-12 09:45 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
