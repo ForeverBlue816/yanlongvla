@@ -96,7 +96,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout",
       "bpw": null,
-      "stage": "training 524/768; Plus pending"
+      "stage": "training 576/768; Plus pending"
     },
     {
       "model": "raqft_deep",
@@ -128,7 +128,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "KV-MSE + 0.1 H5b",
       "bpw": null,
-      "stage": "training 478/768; Plus pending"
+      "stage": "training 570/768; Plus pending"
     },
     {
       "model": "raqft_nowo",
@@ -136,7 +136,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout(identity) + 0.1 H5b",
       "bpw": 2.9225899010064036,
-      "stage": "fine-tuned; Plus running"
+      "stage": "fine-tuned; Plus complete"
     },
     {
       "model": "raqft_simple",
@@ -383,6 +383,18 @@
             "paired_improvements": 67,
             "paired_regressions": 84
           },
+          "raqft_nowo": {
+            "successes": 744,
+            "episodes": 1000,
+            "success_percent": 74.4,
+            "difference_from_reference_pp": -2.1,
+            "paired_difference_ci95_pp": [
+              -5.848206944565252,
+              1.8163267361026971
+            ],
+            "paired_improvements": 61,
+            "paired_regressions": 82
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 741,
             "episodes": 1000,
@@ -570,6 +582,18 @@
             ],
             "paired_improvements": 101,
             "paired_regressions": 57
+          },
+          "raqft_nowo": {
+            "successes": 744,
+            "episodes": 1000,
+            "success_percent": 74.4,
+            "difference_from_reference_pp": 4.0,
+            "paired_difference_ci95_pp": [
+              0.7839144578667316,
+              7.422753122720629
+            ],
+            "paired_improvements": 82,
+            "paired_regressions": 42
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 741,
@@ -761,6 +785,18 @@
             "paired_improvements": 31,
             "paired_regressions": 36
           },
+          "raqft_nowo": {
+            "successes": 363,
+            "episodes": 500,
+            "success_percent": 72.6,
+            "difference_from_reference_pp": -1.7999999999999998,
+            "paired_difference_ci95_pp": [
+              -6.529976224653327,
+              2.8467703484745197
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 38
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 360,
             "episodes": 500,
@@ -948,6 +984,18 @@
             ],
             "paired_improvements": 47,
             "paired_regressions": 26
+          },
+          "raqft_nowo": {
+            "successes": 363,
+            "episodes": 500,
+            "success_percent": 72.6,
+            "difference_from_reference_pp": 3.4000000000000004,
+            "paired_difference_ci95_pp": [
+              -0.852140419530512,
+              7.625397752700263
+            ],
+            "paired_improvements": 38,
+            "paired_regressions": 21
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 360,
@@ -1139,6 +1187,18 @@
             "paired_improvements": 36,
             "paired_regressions": 48
           },
+          "raqft_nowo": {
+            "successes": 381,
+            "episodes": 500,
+            "success_percent": 76.2,
+            "difference_from_reference_pp": -2.4,
+            "paired_difference_ci95_pp": [
+              -7.771115673260576,
+              3.0180908283621317
+            ],
+            "paired_improvements": 32,
+            "paired_regressions": 44
+          },
           "bb_M3_ae_M2_fp32": {
             "successes": 381,
             "episodes": 500,
@@ -1326,6 +1386,18 @@
             ],
             "paired_improvements": 54,
             "paired_regressions": 31
+          },
+          "raqft_nowo": {
+            "successes": 381,
+            "episodes": 500,
+            "success_percent": 76.2,
+            "difference_from_reference_pp": 4.6,
+            "paired_difference_ci95_pp": [
+              0.19388399087495073,
+              9.549104142665113
+            ],
+            "paired_improvements": 44,
+            "paired_regressions": 21
           },
           "bb_M3_ae_M2_fp32": {
             "successes": 381,
@@ -6422,6 +6494,15 @@
         8.152300550850931
       ],
       "passes": true
+    },
+    "raqft_nowo": {
+      "successes": 744,
+      "gain": 40,
+      "ci95_pp": [
+        0.7839144578667316,
+        7.422753122720629
+      ],
+      "passes": true
     }
   },
   "source_sha256": {
@@ -6477,6 +6558,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_plainvq/episodes.jsonl": "4881b50e25dc10cee4f9d4818f9211b88e721ae278c03bac20fc08b840243c70",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_plainvq/manifest.json": "f146cae4990837ef075dd111bafb79d54cb514fa6ee756a586d088b7b5d1cd3d",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_plainvq/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_nowo/complete.json": "b0264482d91636af2ad6b2201468fbb5e6034d6c5cd9b70129f5b3016ac17f5b",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_nowo/episodes.jsonl": "27c4c910ccbde524ec6f45c7bcfdedd10e3dec9aefc10ca9f0caf39914a4a958",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_nowo/manifest.json": "3033c770d3f0cf2b51b9b3428da5b78f6d33ff0d74bce5e8731ea996427889a4",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_nowo/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/complete.json": "5d6a41969143d6def5e2d9df66725f3dd7de69b2b73b3d733c55682244bce993",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/episodes.jsonl": "8a76058bc61d4eeacefed6b83d92e2f9d2324f885ad79123c3f9307eb39adbda",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/manifest.json": "4cba06195162c859f5e71948369139cca88d21247618078ab698850a02887363",
