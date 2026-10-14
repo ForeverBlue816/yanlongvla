@@ -7634,6 +7634,32 @@
         "graph_eager_max_abs": 0.0
       }
     },
+    "a8_studentq": {
+      "base": {
+        "versus_fp": {
+          "absolute_mse": 0.005392363897561717,
+          "relative_mse": 0.02485512418316597
+        },
+        "graph_eager_max_abs": 0.0
+      },
+      "a8": {
+        "sites": {
+          "backbone": 288,
+          "expert": 126,
+          "fp_linear": 0
+        },
+        "kv8": false,
+        "versus_fp": {
+          "absolute_mse": 0.005413128015677835,
+          "relative_mse": 0.02495083262275467
+        },
+        "versus_base": {
+          "absolute_mse": 1.1365744028241243e-06,
+          "relative_mse": 5.596350485503468e-06
+        },
+        "graph_eager_max_abs": 0.0
+      }
+    },
     "a8_raqft": {
       "base": {
         "versus_fp": {
