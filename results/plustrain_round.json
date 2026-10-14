@@ -91,14 +91,6 @@
       "stage": "fine-tuned; Plus running"
     },
     {
-      "model": "raqft_studentq_seed2",
-      "label": "FINAL_2026-10-14 item 4: second quantization seed of the final backbone (student queries; evaluated only as W2A8)",
-      "calibration": "a: LIBERO 256",
-      "loss": "readout(student q) + 0.1 H5b",
-      "bpw": null,
-      "stage": "not started; Plus pending"
-    },
-    {
       "model": "raqft_beta0",
       "label": "F2 ablation: \u03b2 = 0 (readout only)",
       "calibration": "a: LIBERO 256",
@@ -962,11 +954,6 @@
     {
       "model": "a8_studentq",
       "label": "deployable W2A8 (FINAL_2026-10-14): RAQ-FT student-query 2-bit backbone + 2-bit expert + A8",
-      "stage": "reference; Plus pending"
-    },
-    {
-      "model": "a8_studentq_seed2",
-      "label": "deployable W2A8, second quantization seed 20261010",
       "stage": "reference; Plus pending"
     }
   ],
