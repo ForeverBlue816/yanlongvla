@@ -21,8 +21,12 @@ ACTIVE_ORIGINAL_ELEMENTS = 3_353_433_872      # all parameters read by action in
 BACKBONE_QUANTIZABLE_ELEMENTS = 2_392_879_104  # 288 Linear weights: SigLIP encoder (27 x 6) + Gemma language model (18 x 7)
 EXPERT_QUANTIZABLE_ELEMENTS = 311_427_072      # 126 Linear weights: Gemma action expert (18 x 7)
 QUANTIZABLE_ELEMENTS = BACKBONE_QUANTIZABLE_ELEMENTS + EXPERT_QUANTIZABLE_ELEMENTS
-RETAINED_BYTES = 1_012_077_920                 # everything else at the deployable dtypes: int8 row-absmax token embedding,
-                                               # BF16 norms/biases/projector/action+time projections, FP32 AdaRMS tables
+RETAINED_BYTES = 542_205_320                   # everything else, as stored in our deployable 2-bit checkpoint (safetensors header):
+                                               # int8 row-absmax token embedding + FP32 row scales 527,675,904; SigLIP patch/position
+                                               # embeddings, norms and Linear biases, LM norms, projector 9,716,488; expert norms,
+                                               # FP32 AdaRMS tables, action/time projections 4,812,928. (Corrected 2026-10-14: an
+                                               # earlier value, 1,012,077,920, was the retained set of the BF16 accounting checkpoint
+                                               # and did not reproduce our published 2.9226 from the 2.0201 linear bpw.)
 EXPERT_CALLS_PER_INFERENCE = 10                # flow-matching steps; the backbone prefix is computed once
 
 SUITES = ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10')
