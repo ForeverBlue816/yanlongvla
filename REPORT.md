@@ -76,6 +76,8 @@ LIBERO full a8_raqft: 1944/2000 (all tasks) — vs FP +0.80 pp [-1.20, +3.25]; e
 Expanded Plus, expanded 2000 (overlaps selection; not independent confirmation): a8_raqft 1429/2000, +3.40 pp vs original 2-bit [+0.94, +5.85].
 Expanded Plus, added 1000 only: a8_raqft 689/1000, +3.20 pp vs original 2-bit [-0.03, +6.62].
 
+Efficiency (final row, analytic, FINAL_2026-10-14 item 6): storage = 1.225 GB; whole-model bpw = 2.9226; linear bpw = 2.0201; weight bytes read / inference (INT8-decoded, 10 steps) = 5.565 GB; same, 2 steps = 3.035 GB; BF16 reference (10 steps) = 17.434 GB; resident INT8-decoded backbone = 2.930 GB; resident INT8-decoded model = 3.247 GB; BF16 model = 6.421 GB. Latency measurements are handed to Ethan.
+
 [Protocol](PLUSTRAIN_2026-10-08.md) · [Results](results/plustrain_round.json). Older sections below are historical.
 
 <!-- PLUSTRAIN_ROUND_END -->
@@ -204,7 +206,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-14 14:40 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-14 16:06 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

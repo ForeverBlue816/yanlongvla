@@ -898,7 +898,44 @@
     "note": "main row chosen on the selection subset (500 camera + 500 robot-initial-state instances); confirmed on the added 1000 (never used for selection) and LIBERO full 2000/1900; combined 2000 overlaps the selection subset and is descriptive"
   },
   "efficiency": {
-    "error": "ModuleNotFoundError(\"No module named 'plustrain_efficiency'\")"
+    "model": "raqft_studentq",
+    "checkpoint": "/projects/yanlongvla/models/hd_srvq_raqft_studentq/model.safetensors",
+    "storage_bytes": 1225088996,
+    "backbone_linear_payload_bytes": 603329904,
+    "expert_linear_payload_bytes": 79553772,
+    "retained_bytes": 542205320,
+    "retained_split": {
+      "token_embedding": 527675904,
+      "prefix_side_other": 9716488,
+      "expert_side": 4812928
+    },
+    "whole_model_bpw": 2.9225899010064036,
+    "quantizable_linear_bpw": 2.0201371636404533,
+    "backbone_linear_bpw": 2.017084450247262,
+    "expert_linear_bpw": 2.0435929731889204,
+    "logical_weight_bytes_read_per_inference": {
+      "int8_decoded_10_steps": 5564995592,
+      "int8_decoded_2_steps": 3035075592,
+      "compressed_stream_10_steps": 1644469572,
+      "bf16_reference_10_steps": 17434020060
+    },
+    "resident_weight_bytes": {
+      "int8_decoded_backbone": 2930271496,
+      "int8_decoded_model": 3246511496,
+      "bf16_reference_model": 6420690272
+    },
+    "conventions": "FINAL_2026-10-14 item 6: efficiency columns of the final W2A8 row, analytic from the stored checkpoint and the accounting run.\n\nColumns: storage bytes (every stored tensor of the deployable checkpoint), whole-model and linear bpw, logical weight bytes read\nper inference for the INT8-decoded deployment (10 flow steps and 2 flow steps), and resident weight memory of the INT8-decoded\nbackbone / whole model. Latency is measured separately (Ethan). Conventions:\n  * INT8-decoded deployment: every quantized Linear weight is decoded once from its 2-bit codes into an INT8 matrix (W8A8 kernels);\n    the prefix (SigLIP + Gemma LM) is read once per inference, the action expert once per flow step; retained tensors are read\n    at their stored dtypes (prefix-side once, expert-side per step); token-embedding rows are read only for the prompt tokens\n    (a few KB, charged as zero); activations, KV cache and hardware cache effects are excluded (same scope as the accounting run).\n  * compressed-stream alternative: 2-bit codes + codebooks read instead of INT8 matrices (figure from the existing offline\n    accounting of the base checkpoint: logical_compressed_decoder_bytes_per_inference, 10 steps).\n  * BF16 reference: the FP checkpoint with int8 embedding, hook-measured by the accounting run (10 steps).",
+    "summary": {
+      "storage": "1.225 GB",
+      "whole-model bpw": "2.9226",
+      "linear bpw": "2.0201",
+      "weight bytes read / inference (INT8-decoded, 10 steps)": "5.565 GB",
+      "same, 2 steps": "3.035 GB",
+      "BF16 reference (10 steps)": "17.434 GB",
+      "resident INT8-decoded backbone": "2.930 GB",
+      "resident INT8-decoded model": "3.247 GB",
+      "BF16 model": "6.421 GB"
+    }
   },
   "full_Plus": {},
   "a8_rows": [
