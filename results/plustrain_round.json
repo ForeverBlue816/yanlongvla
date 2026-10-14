@@ -91,6 +91,14 @@
       "stage": "fine-tuned; Plus running"
     },
     {
+      "model": "raqft_studentq_seed2",
+      "label": "FINAL_2026-10-14 item 4: second quantization seed of the final backbone (student queries; evaluated only as W2A8)",
+      "calibration": "a: LIBERO 256",
+      "loss": "readout(student q) + 0.1 H5b",
+      "bpw": null,
+      "stage": "not started; Plus pending"
+    },
+    {
       "model": "raqft_beta0",
       "label": "F2 ablation: \u03b2 = 0 (readout only)",
       "calibration": "a: LIBERO 256",
@@ -165,17 +173,21 @@
   ],
   "promotion": {
     "status": "promoted",
-    "model": "raqft_a_2bit",
-    "successes": 739,
-    "difference_pp": 3.5000000000000004,
+    "model": "raqft_studentq",
+    "successes": 749,
+    "difference_pp": 4.5,
     "ci95_pp": [
-      0.49433690402151137,
-      6.691871143302551
+      1.3468704385970316,
+      7.864181549607716
     ],
-    "rule": "FINAL_2026-10-10: candidate frozen after the E092 gate pass; other rows are reported, not selected",
+    "rule": "FINAL_2026-10-14 (user): final row re-frozen as raqft_studentq after the E098/E107 ablations; chosen on the selection subset, confirmed on the added 1000 and LIBERO full; no further selection",
+    "previous_freeze": {
+      "file": "/projects/yanlongvla/runs/plustrain_20261008/promotion.json",
+      "model": "raqft_a_2bit"
+    },
     "source_sha256": {
       "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M2_ae_M2_fp32/complete.json": "4305d496e7528c834f42478c5b27028b4f34fa893ba6a6f898fbd3074e612f31",
-      "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_a_2bit/complete.json": "bebc111b5212dc8d0afa7ce6363fa9a67c7ddccf9c96a0dd9f01f4f9e8fb47e0"
+      "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_studentq/complete.json": "5b310c1d21b78ae26a9a12dbe7cdc0b2d686e2a6e45230066388bc246ffd49f0"
     }
   },
   "a8_decision": {
@@ -184,15 +196,21 @@
   },
   "final_row": {
     "status": "frozen",
-    "model": "a8_raqft",
-    "backbone": "raqft_a_2bit",
+    "model": "a8_studentq",
+    "backbone": "raqft_studentq",
     "A8": true,
     "INT8_KV": false,
-    "rule": "FINAL_2026-10-10 amendment: W2A8 with BF16 KV cache",
+    "rule": "FINAL_2026-10-14: W2A8 = raqft_studentq backbone + uniform M2 expert + A8 (per-token INT8 on all linear inputs after the folded Hadamard; softmax/QK^T/norms BF16; KV BF16)",
+    "previous_final_row": "a8_raqft",
+    "seed2_row": "a8_studentq_seed2",
     "a8_feasibility": "pending",
     "stages": {
-      "LIBERO_full": "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_raqft/full/complete.json",
-      "expanded_Plus": "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_raqft/complete.json"
+      "compose_and_offline_check": "/projects/yanlongvla/runs/plustrain_20261008/a8_offline/a8_studentq/complete.json",
+      "Plus_selection": "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_studentq/complete.json",
+      "Plus_added": "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq/complete.json",
+      "LIBERO_full": "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/complete.json",
+      "seed2_selection": "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_studentq_seed2/complete.json",
+      "seed2_added": "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq_seed2/complete.json"
     }
   },
   "LIBERO_full": {
@@ -843,6 +861,45 @@
       "a8_raqft"
     ]
   },
+  "deployable_W2A8": {
+    "rows": {
+      "original_fp": {
+        "selection": {
+          "successes": 765,
+          "episodes": 1000
+        },
+        "confirmation": {
+          "successes": 1483,
+          "episodes": 2000
+        }
+      },
+      "bb_M2_ae_M2_fp32": {
+        "selection": {
+          "successes": 704,
+          "episodes": 1000
+        },
+        "confirmation": {
+          "successes": 1361,
+          "episodes": 2000
+        }
+      },
+      "a8_raqft": {
+        "selection": {
+          "successes": 740,
+          "episodes": 1000
+        },
+        "confirmation": {
+          "successes": 1429,
+          "episodes": 2000
+        }
+      }
+    },
+    "scopes": {},
+    "note": "main row chosen on the selection subset (500 camera + 500 robot-initial-state instances); confirmed on the added 1000 (never used for selection) and LIBERO full 2000/1900; combined 2000 overlaps the selection subset and is descriptive"
+  },
+  "efficiency": {
+    "error": "ModuleNotFoundError(\"No module named 'plustrain_efficiency'\")"
+  },
   "full_Plus": {},
   "a8_rows": [
     {
@@ -862,8 +919,18 @@
     },
     {
       "model": "a8_raqft",
-      "label": "composed final candidate: RAQ-FT 2-bit backbone + 2-bit expert + A8",
+      "label": "previously frozen row (FINAL_2026-10-10): RAQ-FT teacher-query 2-bit backbone + 2-bit expert + A8",
       "stage": "reference; Plus complete"
+    },
+    {
+      "model": "a8_studentq",
+      "label": "deployable W2A8 (FINAL_2026-10-14): RAQ-FT student-query 2-bit backbone + 2-bit expert + A8",
+      "stage": "reference; Plus pending"
+    },
+    {
+      "model": "a8_studentq_seed2",
+      "label": "deployable W2A8, second quantization seed 20261010",
+      "stage": "reference; Plus pending"
     }
   ],
   "paired": {
@@ -7906,7 +7973,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/complete.json": "1226dabb74a0e54c4df96934b4e41a9a86f63f90b6266617c80c8369b6c9d676",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/episodes.jsonl": "01b75e8e33deda8de634b138b93e372454dfb0634b09a390ab000f98bcd7b34f",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/manifest.json": "9f9b00d025609e71589bd8eaff5a661d0ac94eb51846b60105416733ea51caef",
-    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328"
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/confirmation/original_fp/complete.json": "cfbd9858246d75d0975f36411de702f692d33fe7e02cad05d27f44f679c260da",
+    "/projects/yanlongvla/runs/plustrain_20261008/confirmation/bb_M2_ae_M2_fp32/complete.json": "26da4daacfbead054c5a12107793f7d814bf0db9704179937477b75c02a26ce9",
+    "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_raqft/complete.json": "25f1a97a3854359d880a77d79827718e191972222d7362bb01534f618720d56d"
   },
   "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }

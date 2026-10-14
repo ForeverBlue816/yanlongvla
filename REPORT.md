@@ -16,6 +16,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | 743 | -2.20 [-5.80,+1.52] | +3.90 [+0.78,+7.33] | — | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 coverage row | 2.9226 | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | 741 | -2.40 [-6.53,+1.83] | +3.70 [+0.47,+7.08] | — | fine-tuned; Plus complete |
 | F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | — | — | — | — | fine-tuned; Plus running |
+| FINAL_2026-10-14 item 4: second quantization seed of the final backbone (student queries; evaluated only as W2A8) | — | a: LIBERO 256 | readout(student q) + 0.1 H5b | — | — | — | — | not started; Plus pending |
 | F2 ablation: β = 0 (readout only) | 2.9226 | a: LIBERO 256 | readout | — | — | — | — | fine-tuned; Plus pending |
 | F2 ablation: readout on layers 14–17 only | 2.9226 | a: LIBERO 256 | readout(14–17) + 0.1 H5b | 738 | -2.70 [-6.71,+1.22] | +3.40 [-0.01,+6.97] | — | fine-tuned; Plus complete |
 | F2 ablation: quantized-model queries (no teacher forcing) | 2.9226 | a: LIBERO 256 | readout(student q) + 0.1 H5b | 749 | -1.60 [-5.46,+2.20] | +4.50 [+1.35,+7.86] | — | fine-tuned; Plus complete |
@@ -33,7 +34,9 @@ A8 feasibility rows (decision only: whether the final deployable row is W2A8; ex
 | FP + A8 | 4.229e-06 | 4.218e-06 | — | — | reference; Plus running |
 | original 2-bit + 2-bit expert + A8 | 3.720e-02 | 5.352e-06 | — | — | reference; Plus running |
 | row (ii) + per-token INT8 KV cache | 3.720e-02 | 5.651e-06 | 706 | +0.20 [-1.99,+2.18] | reference; Plus complete |
-| composed final candidate: RAQ-FT 2-bit backbone + 2-bit expert + A8 | 2.488e-02 | 4.865e-06 | 740 | — | reference; Plus complete |
+| previously frozen row (FINAL_2026-10-10): RAQ-FT teacher-query 2-bit backbone + 2-bit expert + A8 | 2.488e-02 | 4.865e-06 | 740 | — | reference; Plus complete |
+| deployable W2A8 (FINAL_2026-10-14): RAQ-FT student-query 2-bit backbone + 2-bit expert + A8 | — | — | — | — | reference; Plus pending |
+| deployable W2A8, second quantization seed 20261010 | — | — | — | — | reference; Plus pending |
 
 Leakage check against all 2000 Plus test instances (500+500 selection and the 1000+1000 expansion): 2000 instances compared with every same-task training episode; 6 training episodes flagged and excluded before sampling; same-instance matches: 2, same-camera: 0, same-pose: 1 test instances. The LeRobot release carries no perturbation labels, so parameter equality is inferred from rendered first observations and initial poses (details in results/plustrain_round.json).
 
@@ -64,11 +67,11 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "plustrain_c_backbone": false, "plustrain_b_h5b": true, "plustrain_c_h5b": false, "raqft_a_2bit": true, "raqft_a_c2": true, "raqft_c_2bit": true, "raqft_deep": false, "raqft_studentq": true, "raqft_plainvq": true, "raqft_kvmse": false, "raqft_nowo": true, "raqft_simple": true}**.
 
-Promotion (FINAL_2026-10-10: candidate frozen after the gate pass; remaining candidate rows are reported, not selected): **promoted** — raqft_a_2bit 739/1000, +3.5 pp [+0.49, +6.69].
+Promotion (FINAL_2026-10-10: candidate frozen after the gate pass; remaining candidate rows are reported, not selected): **promoted** — raqft_studentq 749/1000, +4.5 pp [+1.35, +7.86].
 
 A8 feasibility decision: **pending**.
 
-Final deployable row: **frozen** — a8_raqft (backbone raqft_a_2bit, A8 True); LIBERO full 2000/1900 and expanded Plus 1000+1000 follow..
+Final deployable row: **frozen** — a8_studentq (backbone raqft_studentq, A8 True); LIBERO full 2000/1900 and expanded Plus 1000+1000 follow..
 LIBERO full a8_raqft: 1944/2000 (all tasks) — vs FP +0.80 pp [-1.20, +3.25]; excluding LIBERO-10 tasks 8/9: 1857/1900, vs FP +0.11 pp.
 Expanded Plus, expanded 2000 (overlaps selection; not independent confirmation): a8_raqft 1429/2000, +3.40 pp vs original 2-bit [+0.94, +5.85].
 Expanded Plus, added 1000 only: a8_raqft 689/1000, +3.20 pp vs original 2-bit [-0.03, +6.62].
@@ -201,7 +204,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-14 13:04 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-14 14:40 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
