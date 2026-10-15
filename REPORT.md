@@ -35,6 +35,7 @@ A8 feasibility rows (decision only: whether the final deployable row is W2A8; ex
 | row (ii) + per-token INT8 KV cache | 3.720e-02 | 5.651e-06 | 706 | +0.20 [-1.99,+2.18] | reference; Plus complete |
 | previously frozen row (FINAL_2026-10-10): RAQ-FT teacher-query 2-bit backbone + 2-bit expert + A8 | 2.488e-02 | 4.865e-06 | 740 | — | reference; Plus complete |
 | deployable W2A8 (FINAL_2026-10-14): RAQ-FT student-query 2-bit backbone + 2-bit expert + A8 | 2.495e-02 | 5.596e-06 | 741 | — | reference; Plus complete |
+| INT8 track: W2A8 on the INT8-grid checkpoint (integer codebooks, STE re-run of the final RAQ-FT; exact INT8 decode) | — | — | — | — | reference; Plus pending |
 
 Leakage check against all 2000 Plus test instances (500+500 selection and the 1000+1000 expansion): 2000 instances compared with every same-task training episode; 6 training episodes flagged and excluded before sampling; same-instance matches: 2, same-camera: 0, same-pose: 1 test instances. The LeRobot release carries no perturbation labels, so parameter equality is inferred from rendered first observations and initial poses (details in results/plustrain_round.json).
 
@@ -80,6 +81,9 @@ Expanded Plus, added 1000 only: a8_raqft 689/1000, +3.20 pp vs original 2-bit [-
 | Scope | W2A8 | FP | original 2-bit | previously frozen a8_raqft (teacher q) | Δ vs FP | Δ vs 2-bit | Δ vs a8_raqft | seed-2 row (Δ vs W2A8) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | selection_1000 | 741/1000 | 765 | 704 | 740 | -2.40 [-6.33,+1.73] | +3.70 [+0.81,+6.78] | +0.10 [-2.25,+2.50] | — |
+
+**INT8 deployment track (INT8_2026-10-15)** — real INT8 kernels for the frozen W2A8 row; accuracy parity on the 256 held-out observations, latency on one L40S (batch 1, CUDA graphs, 100 warm inferences).
+Grid snap of the base: 414 layers, gain 16.36–36.91, max |int| 120, relative weight MSE mean 1.94e-04 (max 6.92e-04), 545 of 1211760 FP16 row scales subnormal.
 
 Efficiency (final row, analytic, FINAL_2026-10-14 item 6): storage = 1.225 GB; whole-model bpw = 2.9226; linear bpw = 2.0201; weight bytes read / inference (INT8-decoded, 10 steps) = 5.565 GB; same, 2 steps = 3.035 GB; BF16 reference (10 steps) = 17.434 GB; resident INT8-decoded backbone = 2.930 GB; resident INT8-decoded model = 3.247 GB; BF16 model = 6.421 GB. Latency measurements are handed to Ethan.
 
@@ -211,7 +215,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-15 21:13 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-15 21:35 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
