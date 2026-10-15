@@ -88,7 +88,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout + 0.1 H5b",
       "bpw": 2.9225899010064036,
-      "stage": "fine-tuned; Plus running"
+      "stage": "fine-tuned; Plus complete"
     },
     {
       "model": "raqft_beta0",
@@ -96,7 +96,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "readout",
       "bpw": 2.9225899010064036,
-      "stage": "fine-tuned; Plus pending"
+      "stage": "fine-tuned; Plus complete"
     },
     {
       "model": "raqft_deep",
@@ -183,8 +183,33 @@
     }
   },
   "a8_decision": {
-    "status": "pending",
-    "rows": {}
+    "status": "decided",
+    "W2A8": true,
+    "rule": "each A8 row loses at most 2.0 pp vs its non-A8 base (point estimate); INT8 KV cache reported separately, not part of the decision",
+    "rows": {
+      "a8_fp": {
+        "base": "original_fp",
+        "successes": 763,
+        "difference_pp": -0.2,
+        "ci95_pp": [
+          -2.7171921442776057,
+          2.3612817312791807
+        ]
+      },
+      "a8_2bit": {
+        "base": "bb_M2_ae_M2_fp32",
+        "successes": 706,
+        "difference_pp": 0.2,
+        "ci95_pp": [
+          -1.8997299717286975,
+          2.4513600723924207
+        ]
+      }
+    },
+    "source_sha256": {
+      "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_fp/complete.json": "841a18b438d975b83d3aab43f69799e103fffddccac398ac2329730473048633",
+      "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit/complete.json": "b02ef69d81a12cf824df35677712582818198913f3bca1379f82a8903b5ac607"
+    }
   },
   "final_row": {
     "status": "frozen",
@@ -194,16 +219,14 @@
     "INT8_KV": false,
     "rule": "FINAL_2026-10-14: W2A8 = raqft_studentq backbone + uniform M2 expert + A8 (per-token INT8 on all linear inputs after the folded Hadamard; softmax/QK^T/norms BF16; KV BF16)",
     "previous_final_row": "a8_raqft",
-    "seed2_row": "a8_studentq_seed2",
-    "a8_feasibility": "pending",
+    "amendment": "item 4 (second quantization seed) cancelled by the user on 2026-10-14",
     "stages": {
       "compose_and_offline_check": "/projects/yanlongvla/runs/plustrain_20261008/a8_offline/a8_studentq/complete.json",
       "Plus_selection": "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_studentq/complete.json",
       "Plus_added": "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq/complete.json",
-      "LIBERO_full": "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/complete.json",
-      "seed2_selection": "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_studentq_seed2/complete.json",
-      "seed2_added": "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq_seed2/complete.json"
-    }
+      "LIBERO_full": "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/complete.json"
+    },
+    "a8_feasibility": "decided"
   },
   "LIBERO_full": {
     "a8_raqft": {
@@ -884,9 +907,186 @@
           "successes": 1429,
           "episodes": 2000
         }
+      },
+      "a8_studentq": {
+        "selection": {
+          "successes": 741,
+          "episodes": 1000
+        }
       }
     },
-    "scopes": {},
+    "scopes": {
+      "selection_1000": {
+        "original_fp": {
+          "reference": "original_fp",
+          "episodes_per_model": 1000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 765,
+              "episodes": 1000,
+              "success_percent": 76.5,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 704,
+              "episodes": 1000,
+              "success_percent": 70.39999999999999,
+              "difference_from_reference_pp": -6.1,
+              "paired_difference_ci95_pp": [
+                -10.798019667826594,
+                -1.7108084246459836
+              ],
+              "paired_improvements": 58,
+              "paired_regressions": 119
+            },
+            "a8_raqft": {
+              "successes": 740,
+              "episodes": 1000,
+              "success_percent": 74.0,
+              "difference_from_reference_pp": -2.5,
+              "paired_difference_ci95_pp": [
+                -6.158400525782942,
+                1.3072117176095386
+              ],
+              "paired_improvements": 64,
+              "paired_regressions": 89
+            },
+            "a8_studentq": {
+              "successes": 741,
+              "episodes": 1000,
+              "success_percent": 74.1,
+              "difference_from_reference_pp": -2.4,
+              "paired_difference_ci95_pp": [
+                -6.325036377921945,
+                1.7271800498207341
+              ],
+              "paired_improvements": 65,
+              "paired_regressions": 89
+            }
+          }
+        },
+        "bb_M2_ae_M2_fp32": {
+          "reference": "bb_M2_ae_M2_fp32",
+          "episodes_per_model": 1000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 765,
+              "episodes": 1000,
+              "success_percent": 76.5,
+              "difference_from_reference_pp": 6.1,
+              "paired_difference_ci95_pp": [
+                1.7108084246459825,
+                10.798019667826592
+              ],
+              "paired_improvements": 119,
+              "paired_regressions": 58
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 704,
+              "episodes": 1000,
+              "success_percent": 70.39999999999999,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "a8_raqft": {
+              "successes": 740,
+              "episodes": 1000,
+              "success_percent": 74.0,
+              "difference_from_reference_pp": 3.5999999999999996,
+              "paired_difference_ci95_pp": [
+                0.5234692361012566,
+                6.8886369392216205
+              ],
+              "paired_improvements": 81,
+              "paired_regressions": 45
+            },
+            "a8_studentq": {
+              "successes": 741,
+              "episodes": 1000,
+              "success_percent": 74.1,
+              "difference_from_reference_pp": 3.6999999999999997,
+              "paired_difference_ci95_pp": [
+                0.8146119314451354,
+                6.78404604520817
+              ],
+              "paired_improvements": 82,
+              "paired_regressions": 45
+            }
+          }
+        },
+        "a8_raqft": {
+          "reference": "a8_raqft",
+          "episodes_per_model": 1000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 765,
+              "episodes": 1000,
+              "success_percent": 76.5,
+              "difference_from_reference_pp": 2.5,
+              "paired_difference_ci95_pp": [
+                -1.3072117176095392,
+                6.15840052578294
+              ],
+              "paired_improvements": 89,
+              "paired_regressions": 64
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 704,
+              "episodes": 1000,
+              "success_percent": 70.39999999999999,
+              "difference_from_reference_pp": -3.5999999999999996,
+              "paired_difference_ci95_pp": [
+                -6.888636939221625,
+                -0.5234692361012568
+              ],
+              "paired_improvements": 45,
+              "paired_regressions": 81
+            },
+            "a8_raqft": {
+              "successes": 740,
+              "episodes": 1000,
+              "success_percent": 74.0,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "a8_studentq": {
+              "successes": 741,
+              "episodes": 1000,
+              "success_percent": 74.1,
+              "difference_from_reference_pp": 0.1,
+              "paired_difference_ci95_pp": [
+                -2.2477212513439455,
+                2.498439202076857
+              ],
+              "paired_improvements": 37,
+              "paired_regressions": 36
+            }
+          }
+        }
+      }
+    },
     "note": "main row chosen on the selection subset (500 camera + 500 robot-initial-state instances); confirmed on the added 1000 (never used for selection) and LIBERO full 2000/1900; combined 2000 overlaps the selection subset and is descriptive"
   },
   "efficiency": {
@@ -934,12 +1134,12 @@
     {
       "model": "a8_fp",
       "label": "FP + A8",
-      "stage": "reference; Plus running"
+      "stage": "reference; Plus complete"
     },
     {
       "model": "a8_2bit",
       "label": "original 2-bit + 2-bit expert + A8",
-      "stage": "reference; Plus running"
+      "stage": "reference; Plus complete"
     },
     {
       "model": "a8_2bit_kv8",
@@ -954,7 +1154,7 @@
     {
       "model": "a8_studentq",
       "label": "deployable W2A8 (FINAL_2026-10-14): RAQ-FT student-query 2-bit backbone + 2-bit expert + A8",
-      "stage": "reference; Plus pending"
+      "stage": "reference; Plus complete"
     }
   ],
   "paired": {
@@ -1085,6 +1285,30 @@
             "paired_improvements": 64,
             "paired_regressions": 88
           },
+          "raqft_seed2": {
+            "successes": 738,
+            "episodes": 1000,
+            "success_percent": 73.8,
+            "difference_from_reference_pp": -2.7,
+            "paired_difference_ci95_pp": [
+              -6.859615752095857,
+              1.1613652750244072
+            ],
+            "paired_improvements": 64,
+            "paired_regressions": 91
+          },
+          "raqft_beta0": {
+            "successes": 737,
+            "episodes": 1000,
+            "success_percent": 73.7,
+            "difference_from_reference_pp": -2.8000000000000003,
+            "paired_difference_ci95_pp": [
+              -6.509478456181224,
+              1.171320742103876
+            ],
+            "paired_improvements": 59,
+            "paired_regressions": 87
+          },
           "raqft_deep": {
             "successes": 738,
             "episodes": 1000,
@@ -1169,6 +1393,30 @@
             "paired_improvements": 53,
             "paired_regressions": 77
           },
+          "a8_fp": {
+            "successes": 763,
+            "episodes": 1000,
+            "success_percent": 76.3,
+            "difference_from_reference_pp": -0.2,
+            "paired_difference_ci95_pp": [
+              -2.7171921442776057,
+              2.3612817312791807
+            ],
+            "paired_improvements": 41,
+            "paired_regressions": 43
+          },
+          "a8_2bit": {
+            "successes": 706,
+            "episodes": 1000,
+            "success_percent": 70.6,
+            "difference_from_reference_pp": -5.8999999999999995,
+            "paired_difference_ci95_pp": [
+              -10.401966282919084,
+              -1.6419065911152315
+            ],
+            "paired_improvements": 55,
+            "paired_regressions": 114
+          },
           "a8_2bit_kv8": {
             "successes": 706,
             "episodes": 1000,
@@ -1191,6 +1439,18 @@
               1.3072117176095386
             ],
             "paired_improvements": 64,
+            "paired_regressions": 89
+          },
+          "a8_studentq": {
+            "successes": 741,
+            "episodes": 1000,
+            "success_percent": 74.1,
+            "difference_from_reference_pp": -2.4,
+            "paired_difference_ci95_pp": [
+              -6.325036377921945,
+              1.7271800498207341
+            ],
+            "paired_improvements": 65,
             "paired_regressions": 89
           }
         }
@@ -1321,6 +1581,30 @@
             "paired_improvements": 79,
             "paired_regressions": 42
           },
+          "raqft_seed2": {
+            "successes": 738,
+            "episodes": 1000,
+            "success_percent": 73.8,
+            "difference_from_reference_pp": 3.4000000000000004,
+            "paired_difference_ci95_pp": [
+              -0.25896676793407813,
+              7.058377517900698
+            ],
+            "paired_improvements": 89,
+            "paired_regressions": 55
+          },
+          "raqft_beta0": {
+            "successes": 737,
+            "episodes": 1000,
+            "success_percent": 73.7,
+            "difference_from_reference_pp": 3.3000000000000003,
+            "paired_difference_ci95_pp": [
+              -0.009194248195325008,
+              6.757114391849499
+            ],
+            "paired_improvements": 80,
+            "paired_regressions": 47
+          },
           "raqft_deep": {
             "successes": 738,
             "episodes": 1000,
@@ -1405,6 +1689,30 @@
             "paired_improvements": 97,
             "paired_regressions": 60
           },
+          "a8_fp": {
+            "successes": 763,
+            "episodes": 1000,
+            "success_percent": 76.3,
+            "difference_from_reference_pp": 5.8999999999999995,
+            "paired_difference_ci95_pp": [
+              1.6472088377049208,
+              10.584451788048943
+            ],
+            "paired_improvements": 120,
+            "paired_regressions": 61
+          },
+          "a8_2bit": {
+            "successes": 706,
+            "episodes": 1000,
+            "success_percent": 70.6,
+            "difference_from_reference_pp": 0.2,
+            "paired_difference_ci95_pp": [
+              -1.8997299717286975,
+              2.4513600723924207
+            ],
+            "paired_improvements": 36,
+            "paired_regressions": 34
+          },
           "a8_2bit_kv8": {
             "successes": 706,
             "episodes": 1000,
@@ -1427,6 +1735,18 @@
               6.8886369392216205
             ],
             "paired_improvements": 81,
+            "paired_regressions": 45
+          },
+          "a8_studentq": {
+            "successes": 741,
+            "episodes": 1000,
+            "success_percent": 74.1,
+            "difference_from_reference_pp": 3.6999999999999997,
+            "paired_difference_ci95_pp": [
+              0.8146119314451354,
+              6.78404604520817
+            ],
+            "paired_improvements": 82,
             "paired_regressions": 45
           }
         }
@@ -1559,6 +1879,30 @@
             "paired_improvements": 32,
             "paired_regressions": 37
           },
+          "raqft_seed2": {
+            "successes": 361,
+            "episodes": 500,
+            "success_percent": 72.2,
+            "difference_from_reference_pp": -2.1999999999999997,
+            "paired_difference_ci95_pp": [
+              -7.007002601924807,
+              2.542232309706496
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 36
+          },
+          "raqft_beta0": {
+            "successes": 359,
+            "episodes": 500,
+            "success_percent": 71.8,
+            "difference_from_reference_pp": -2.6,
+            "paired_difference_ci95_pp": [
+              -7.16493321538903,
+              2.4236741814041167
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 40
+          },
           "raqft_deep": {
             "successes": 360,
             "episodes": 500,
@@ -1643,6 +1987,30 @@
             "paired_improvements": 26,
             "paired_regressions": 38
           },
+          "a8_fp": {
+            "successes": 370,
+            "episodes": 500,
+            "success_percent": 74.0,
+            "difference_from_reference_pp": -0.4,
+            "paired_difference_ci95_pp": [
+              -4.108839317727198,
+              3.189088888888882
+            ],
+            "paired_improvements": 24,
+            "paired_regressions": 26
+          },
+          "a8_2bit": {
+            "successes": 346,
+            "episodes": 500,
+            "success_percent": 69.19999999999999,
+            "difference_from_reference_pp": -5.2,
+            "paired_difference_ci95_pp": [
+              -10.567967312248204,
+              -0.08179929433062759
+            ],
+            "paired_improvements": 26,
+            "paired_regressions": 52
+          },
           "a8_2bit_kv8": {
             "successes": 344,
             "episodes": 500,
@@ -1666,6 +2034,18 @@
             ],
             "paired_improvements": 33,
             "paired_regressions": 47
+          },
+          "a8_studentq": {
+            "successes": 356,
+            "episodes": 500,
+            "success_percent": 71.2,
+            "difference_from_reference_pp": -3.2,
+            "paired_difference_ci95_pp": [
+              -8.068559605199594,
+              2.0050218024327666
+            ],
+            "paired_improvements": 30,
+            "paired_regressions": 46
           }
         }
       },
@@ -1795,6 +2175,30 @@
             "paired_improvements": 42,
             "paired_regressions": 21
           },
+          "raqft_seed2": {
+            "successes": 361,
+            "episodes": 500,
+            "success_percent": 72.2,
+            "difference_from_reference_pp": 3.0,
+            "paired_difference_ci95_pp": [
+              -1.9651492913385955,
+              8.048847643451333
+            ],
+            "paired_improvements": 39,
+            "paired_regressions": 24
+          },
+          "raqft_beta0": {
+            "successes": 359,
+            "episodes": 500,
+            "success_percent": 71.8,
+            "difference_from_reference_pp": 2.6,
+            "paired_difference_ci95_pp": [
+              -2.429356667680424,
+              7.9538210946287995
+            ],
+            "paired_improvements": 40,
+            "paired_regressions": 27
+          },
           "raqft_deep": {
             "successes": 360,
             "episodes": 500,
@@ -1879,6 +2283,30 @@
             "paired_improvements": 46,
             "paired_regressions": 32
           },
+          "a8_fp": {
+            "successes": 370,
+            "episodes": 500,
+            "success_percent": 74.0,
+            "difference_from_reference_pp": 4.8,
+            "paired_difference_ci95_pp": [
+              -0.02491540470335915,
+              9.904765987445531
+            ],
+            "paired_improvements": 52,
+            "paired_regressions": 28
+          },
+          "a8_2bit": {
+            "successes": 346,
+            "episodes": 500,
+            "success_percent": 69.19999999999999,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              -3.357881137378869,
+              2.8425031111484933
+            ],
+            "paired_improvements": 17,
+            "paired_regressions": 17
+          },
           "a8_2bit_kv8": {
             "successes": 344,
             "episodes": 500,
@@ -1902,6 +2330,18 @@
             ],
             "paired_improvements": 38,
             "paired_regressions": 26
+          },
+          "a8_studentq": {
+            "successes": 356,
+            "episodes": 500,
+            "success_percent": 71.2,
+            "difference_from_reference_pp": 2.0,
+            "paired_difference_ci95_pp": [
+              -2.2042716678859016,
+              6.611844301474494
+            ],
+            "paired_improvements": 34,
+            "paired_regressions": 24
           }
         }
       }
@@ -2033,6 +2473,30 @@
             "paired_improvements": 32,
             "paired_regressions": 51
           },
+          "raqft_seed2": {
+            "successes": 377,
+            "episodes": 500,
+            "success_percent": 75.4,
+            "difference_from_reference_pp": -3.2,
+            "paired_difference_ci95_pp": [
+              -8.828678740951233,
+              2.767812914912262
+            ],
+            "paired_improvements": 39,
+            "paired_regressions": 55
+          },
+          "raqft_beta0": {
+            "successes": 378,
+            "episodes": 500,
+            "success_percent": 75.6,
+            "difference_from_reference_pp": -3.0,
+            "paired_difference_ci95_pp": [
+              -8.586211979404208,
+              2.3738391323295223
+            ],
+            "paired_improvements": 32,
+            "paired_regressions": 47
+          },
           "raqft_deep": {
             "successes": 378,
             "episodes": 500,
@@ -2117,6 +2581,30 @@
             "paired_improvements": 27,
             "paired_regressions": 39
           },
+          "a8_fp": {
+            "successes": 393,
+            "episodes": 500,
+            "success_percent": 78.60000000000001,
+            "difference_from_reference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              -3.0018945412506244,
+              3.1217215069008866
+            ],
+            "paired_improvements": 17,
+            "paired_regressions": 17
+          },
+          "a8_2bit": {
+            "successes": 360,
+            "episodes": 500,
+            "success_percent": 72.0,
+            "difference_from_reference_pp": -6.6000000000000005,
+            "paired_difference_ci95_pp": [
+              -13.478480798490127,
+              -0.40804412544742397
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 62
+          },
           "a8_2bit_kv8": {
             "successes": 362,
             "episodes": 500,
@@ -2140,6 +2628,18 @@
             ],
             "paired_improvements": 31,
             "paired_regressions": 42
+          },
+          "a8_studentq": {
+            "successes": 385,
+            "episodes": 500,
+            "success_percent": 77.0,
+            "difference_from_reference_pp": -1.6,
+            "paired_difference_ci95_pp": [
+              -7.853453099047125,
+              3.975068948400977
+            ],
+            "paired_improvements": 35,
+            "paired_regressions": 43
           }
         }
       },
@@ -2269,6 +2769,30 @@
             "paired_improvements": 37,
             "paired_regressions": 21
           },
+          "raqft_seed2": {
+            "successes": 377,
+            "episodes": 500,
+            "success_percent": 75.4,
+            "difference_from_reference_pp": 3.8,
+            "paired_difference_ci95_pp": [
+              -1.4241541772730604,
+              9.58334629667259
+            ],
+            "paired_improvements": 50,
+            "paired_regressions": 31
+          },
+          "raqft_beta0": {
+            "successes": 378,
+            "episodes": 500,
+            "success_percent": 75.6,
+            "difference_from_reference_pp": 4.0,
+            "paired_difference_ci95_pp": [
+              -0.5870770731707378,
+              8.731382450218337
+            ],
+            "paired_improvements": 40,
+            "paired_regressions": 20
+          },
           "raqft_deep": {
             "successes": 378,
             "episodes": 500,
@@ -2353,6 +2877,30 @@
             "paired_improvements": 51,
             "paired_regressions": 28
           },
+          "a8_fp": {
+            "successes": 393,
+            "episodes": 500,
+            "success_percent": 78.60000000000001,
+            "difference_from_reference_pp": 7.000000000000001,
+            "paired_difference_ci95_pp": [
+              1.0093536296672585,
+              14.07069028727035
+            ],
+            "paired_improvements": 68,
+            "paired_regressions": 33
+          },
+          "a8_2bit": {
+            "successes": 360,
+            "episodes": 500,
+            "success_percent": 72.0,
+            "difference_from_reference_pp": 0.4,
+            "paired_difference_ci95_pp": [
+              -2.4251935432843537,
+              3.4049943832001035
+            ],
+            "paired_improvements": 19,
+            "paired_regressions": 17
+          },
           "a8_2bit_kv8": {
             "successes": 362,
             "episodes": 500,
@@ -2376,6 +2924,18 @@
             ],
             "paired_improvements": 43,
             "paired_regressions": 19
+          },
+          "a8_studentq": {
+            "successes": 385,
+            "episodes": 500,
+            "success_percent": 77.0,
+            "difference_from_reference_pp": 5.4,
+            "paired_difference_ci95_pp": [
+              0.9999186991869919,
+              10.014201311849195
+            ],
+            "paired_improvements": 48,
+            "paired_regressions": 21
           }
         }
       }
@@ -7053,6 +7613,180 @@
     }
   },
   "LIBERO_medium": {
+    "plustrain_b_h5b": {
+      "status": "complete",
+      "model": "plustrain_b_h5b",
+      "stage": "medium",
+      "episodes": 1000,
+      "successes": 973,
+      "comparisons": {
+        "vs_FP": {
+          "all_tasks": {
+            "successes": 973,
+            "episodes": 1000,
+            "success_percent": 97.3,
+            "reference_successes": 970,
+            "reference_success_percent": 97.0,
+            "difference_pp": 0.3,
+            "paired_difference_ci95_pp": [
+              -2.199999999999989,
+              3.302499999999983
+            ],
+            "success_ci95_percent": [
+              95.6,
+              98.69999999999999
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 928,
+            "episodes": 950,
+            "success_percent": 97.68421052631578,
+            "reference_successes": 932,
+            "reference_success_percent": 98.10526315789474,
+            "difference_pp": -0.42105263157894735,
+            "paired_difference_ci95_pp": [
+              -2.3157894736842057,
+              1.3684210526315894
+            ],
+            "success_ci95_percent": [
+              96.0,
+              99.05263157894737
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          }
+        },
+        "vs_original_2bit": {
+          "all_tasks": {
+            "successes": 973,
+            "episodes": 1000,
+            "success_percent": 97.3,
+            "reference_successes": 982,
+            "reference_success_percent": 98.2,
+            "difference_pp": -0.8999999999999999,
+            "paired_difference_ci95_pp": [
+              -2.4000000000000057,
+              0.5000000000000142
+            ],
+            "success_ci95_percent": [
+              95.6,
+              98.69999999999999
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 928,
+            "episodes": 950,
+            "success_percent": 97.68421052631578,
+            "reference_successes": 937,
+            "reference_success_percent": 98.63157894736842,
+            "difference_pp": -0.9473684210526316,
+            "paired_difference_ci95_pp": [
+              -2.526315789473685,
+              0.42105263157895934
+            ],
+            "success_ci95_percent": [
+              96.0,
+              99.05263157894737
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          }
+        }
+      },
+      "source_sha256": {
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task0.jsonl": "ea58c65fcf771947fd1754b19d50d91586b3c78943eace0ed3a3a7813f5e848f",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task1.jsonl": "5b6a0785afdc11049275399b16e952a9b577bd93385493fccacfa49a9af52213",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task2.jsonl": "2f459c96bee1176b06abffa9731e96ec1242efc43206eb2ac09f45605f5c4ca2",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task3.jsonl": "9133a8038e381c1ebdfd964bbcb19a2ddfe2b70c135cf841cbf0921d8a0312a2",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task4.jsonl": "730a762231e8000afdf80ef29a7c0cbb1ad415fa6d9361f0ff8329e6d33f9495",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task5.jsonl": "27fe60b7b01b85323e8f4ee5362e74e8e78dcf3513521b31e463ffddba84d2ab",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task6.jsonl": "d2c51dc5ed0fbd848c3bea7af803973165645a508c4e52922345a05daf189a8e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task7.jsonl": "bb8c579df39cf227335bb42735e6cc56949fcdf3adabc47983b70da3ed9b1a47",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task8.jsonl": "e77188cb5ae5565cf1ff707498904d057b57bedd704cc8ad7fc39a0ade155aef",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_10_task9.jsonl": "17c7a19e7ebd4734cacdf5de2d3b1e9d12b2d7ac9f0cce13e0d55f41e9c16217",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task0.jsonl": "071be8667f86df50983984768b099cb03b22feacf1287d5d70fc52511380a12f",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task1.jsonl": "76b700f09a62e76aa5d90951524742fe77612b49421ffa7b6a66f596f8b792d6",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task2.jsonl": "72aeb02d64f36cfbe9bfb7ae877b7d16cb48e118486b71c8dc3be47fa0530d61",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task3.jsonl": "618b5c859b7bc6815d6e4d2a63127c93a0af0d83eec83d8837fa58fba02918e7",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task4.jsonl": "92bd4d30730d730ffa0b16d3a47dd8d6bbada613999716d6fc1dedec476177bd",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task5.jsonl": "1a142ca679494780202e0b7cfcdce8bc56454d954a9aa2beaa4bc10807a23f73",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task6.jsonl": "0db292ce5abe759e2ec2db25f9d6148eba724261eec745d9012cdd4654a7e879",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task7.jsonl": "9283aa768c707f684492120fe10a9afd26d3c377897e3f72b22e8ee62c454eec",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task8.jsonl": "9c756240be5d2d39686cf4bea649ad862c4d4f2bd8424b2f67e635f199fe2aa4",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_goal_task9.jsonl": "b94c2e2465f29f5c0a3a53182ad6009a4778eb398f22a80076abdcb5bc8bdbf3",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task0.jsonl": "b75df7a80d428cc84b1a0a6ea893909486ecc2ed04731ddd0aa185123968fc17",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task1.jsonl": "391096e73cd2b8bc5613bb585bb4e349db1b1e7c185d7d5ef0083637319ad8f9",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task2.jsonl": "b32689b36a0bd81fff8b9bbec51079485565dbc94840443526e2c7a2181e5ae8",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task3.jsonl": "d79e4e036ddf7df0df184c3a1a7f4786c55b91296545768bfe4febbe15344c10",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task4.jsonl": "455abdd34daedc8fee8007b0ddbc05410ce4dc10ebeb830a88f202e732dbbff4",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task5.jsonl": "2c91edcdc49157f405f83e1649771d8da1a8bed4f124049f1c2c9d8d741c9e62",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task6.jsonl": "a21f0b7fc4b094ebe6dc6b4ec7069feaec4b1b0b26c273b00dd7e7dfc4171402",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task7.jsonl": "2ec29c456cada4b7bc5fb32a2ffb59cbefbe480e6c919949cd5f80e9757b1f46",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task8.jsonl": "433ad18f0d3fb3d1e5619d4ae8c4f1dc48dd1f7e416d9cd500dbf2beaa56aec1",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_object_task9.jsonl": "b98da9cedd34be11f865dca45f5fa8938295c6dc4036a118a1ef30cc2baf845a",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task0.jsonl": "a42770a7bfb94aa601e46853cabe78aad49c5111f49de425be7635765cbe4a8e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task1.jsonl": "4efc343ee27cab57a6c3b68f4f8e17331a6879e27ec85a9a8f627d1bdb6f8296",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task2.errors.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task2.jsonl": "3ef6ac1f0f6d0f337c1ae9efcd553e6cc23577075416a57f948780116fcfc298",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task3.jsonl": "19e2074b48dd7ae594a06b4f5d347f842fe733fc9d1e613d9a8afe8d0b9b278b",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task4.jsonl": "372b8dde6195ce3462e5b95a1acdff94483731ca0ae980cf2c74c9c88ef55bea",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task5.jsonl": "b4d685d6c425ed46f1da26fb9c3f5cef65ba85b54c47d85cba0fb9ab16de3681",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task6.jsonl": "4071039bf78cac8197036aaa582b1190f294f844d3288a67049c185a5ce7a37a",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task7.jsonl": "71c986618ac2ea368288ef7da2897b1a9c7b7ae70cce25cf995fd3cb0a9993b0",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task8.jsonl": "a6027b832b92fc461c6557495e4000116143991dc3bdf0b14e20c5518e84ddae",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/libero_spatial_task9.jsonl": "a5aa19a28acd5dda8ab93da73ccf5154b91b9224279b465b8dd7189bc0904a7e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_b_h5b/medium/manifest.json": "ceec021f0978a92a6458575e25820386dfa4ef027c7e07051a9cfee55bb21e40",
+        "/projects/yanlongvla/runs/g0/libero_spatial_seed7.jsonl": "c48c9ce9e91db0ed941a81a4e685272cad073fbdf4894946d2d3cfbe8be7a960",
+        "/projects/yanlongvla/runs/g0/libero_object_seed7.jsonl": "3d68187984edcf6096dc6f95191285614bae448d4f13f078463e69a1ef0e53b2",
+        "/projects/yanlongvla/runs/g0/libero_goal_seed7.jsonl": "f16b3ae379e754fd0bac6cd93565ad22b4f2f167e3b2396ac37e4e5c5d05d2f8",
+        "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/offline/result.json": "4f340736699cfae4cdd064575eceb1990ef1019077e7cbc05fc824d232c6c2b1",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/worker0_manifest.json": "11823edeb7e0da8ecf6c588cdd389342a87723943d0f20850f4fa3739e3bcd0f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/worker1_manifest.json": "b83ed818d17d006d2272feced094b14cc5f02f5b80b96f28770b4270545542d0",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/worker2_manifest.json": "f162bd56691da21fc3b581728be0a3b24acacce63e801bf55d39b0fee3feb799",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/worker3_manifest.json": "1c8534ba73a75d1ffced2098ace9abb22b36019223b80dbda35b639bb0904290",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task0_seed7.jsonl": "37c4978cb619258cbd22ccea3c17c94cd0bf8cf0fecd4791e5a60fe152847684",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task1_seed7.jsonl": "aec7368784977eed25908895e00f431fea5fcd3d97aa36a2af951471dbf6fee2",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task2_seed7.jsonl": "2e85d4f051955d691bfd3468ed742824daefee91b3dfcd042bc57cf9d6b4e821",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task3_seed7.jsonl": "ec6de27c54b2f8d23d322e975282cac83291a9dea0a7cf7e40846bd94e6cc2f0",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task4_seed7.jsonl": "0e4ae39a761c589219d8c0335a5d23c2cd0e15ae6e44c06f2c8a7d4f99c06340",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task5_seed7.jsonl": "03dcee768cb3461d7f45799000090558da5968932c6b129594b5d12ff528582b",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task6_seed7.jsonl": "c392ee8011806758f7127706feb02847152a8651799d2114c8e19a762b781dbe",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task7_seed7.jsonl": "0013599ad1eeae1c8d2558965e5b17544843c74f3e5e2b70f0b84784d232d4e2",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task8_seed7.jsonl": "339ba9403b294e0887e1ba22781ba90feb78c4cb80665a2d8979afe22471440f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task9_seed7.jsonl": "3e9a7aa032ea09e315959429aae10dcb6b6549086fd7060b002f818c0d27000f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task0_seed7.jsonl": "f8bdb49ad864a8e9fe539fd0bb757635d8fcf30af7dad401a4bc20632abdbd48",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task1_seed7.jsonl": "3bea19e632ee952684c465f146c308ddf586cc4f0960562a1ce28efa3db99076",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task2_seed7.jsonl": "c17a51d8ec08fe74063ad0952a39407a394407f95c7041a8ff1e623bd56e835f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task3_seed7.jsonl": "443354ad182de788447a913af759794876a0d867a6faa669dac8152a0a255160",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task4_seed7.jsonl": "605f809915d53f9d36fb1f33ab5ced43463cd8b9f4968bff200a26647cfae43e",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task5_seed7.jsonl": "e018776143a53e999a86b4d86ff0e409c08f7a9c8d9e7ac09e3645e33caddc43",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task6_seed7.jsonl": "d3cd0733379ca48576884c0890d41dc2301227301221a0c1f6c331023b1dfc77",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task7_seed7.jsonl": "9ac189ddd916e49b95c22f73041e4d4e02b758eaef860a507ec04b691e1610a2",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task8_seed7.jsonl": "98636748c565fcad97556aab4b8e0e15fb46435419c7032d96d919be422d3e3e",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task9_seed7.jsonl": "0cd9efd9c309da6d5c1a0bc7fa2a851750762d338988dadd4aed4ff8f498447f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task0_seed7.jsonl": "d29d68fb249b89f0148ab84661bbcdccd1a1e8aa40e295196ef69c0fe94c1dc8",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task1_seed7.jsonl": "f79ed068b5d1ee94c45f97bb597d9660f206f4648e1ad95e7146dcafd36195e0",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task2_seed7.jsonl": "c1db887eb40884cb6f12c995bda27dd416b1ffa3dcd535067376e4717db66479",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task3_seed7.jsonl": "2c1efe504e6897358f878b3d7738b405e3018c2e836bdac14eef5d3598f28a19",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task4_seed7.jsonl": "89f405509c5c97a39bd04a43f07962862f5414c84ff5cdc48092382e97af1a61",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task5_seed7.jsonl": "7d484c8e20257aee66f5854d4345fbf5993b4b6e6f13458b29d88521d04c99f6",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task6_seed7.jsonl": "743359c041b3ac64203e0b204c64ec73e8b3a4fe1bd8bcaa4beedfdab1c35075",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task7_seed7.jsonl": "7fcd6e55e6afc9b2e66995fa629c23355986a3883f5afda0cfe85a1c0de10806",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task8_seed7.jsonl": "67b01f0f7fb2aab84d32e120aa50d4f5d5b3826847a7f400f5095c781bc6ad39",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task9_seed7.jsonl": "f8a7b5fe362b0a4cfc00294b6b75b9a2f429bc1cb0a62549ab73c7749b8fde4c",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task0_seed7.jsonl": "915e709c3fa31a6e940d8cd274a489a3552c210c60881f038e1810b0ccc65e35",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task1_seed7.jsonl": "a47d3d67fb9345c072d3dc658b3d3b8ec4f45e09bbb1df9311a8f999e222c2ba",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task2_seed7.jsonl": "6ac116148cc677736dc06b19cae41a4022bc1a68fde74ad55fd563ff26d6370d",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task3_seed7.jsonl": "1a34eb350f8873dae8a561fa50fd61505b1ada816676ed2ddce92bb0bba333a3",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task4_seed7.jsonl": "be48c1d6313e57d051f0be6cbb962e72a85ae74169756c3f6c6957fbdf7109dd",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task5_seed7.jsonl": "529b2de4256f97165723b254f1aec6c95d6dbc3159c0cff05846c366f8ad4f68",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task6_seed7.jsonl": "1caa296997283bace8edaef9e1adc45c086bb9870a90f4443f77bcd88dc55714",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task7_seed7.jsonl": "0051cf2d5aa4c26fc48a0337c1cf85d954c67ef2d3c9ae1c5be1c0e014c1ca4e",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task8_seed7.jsonl": "04007ecedad9173c517fc9ac98954d33779fcb702cfabde131000c0b6a6570c8",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task9_seed7.jsonl": "47ab77c4f509ba3bf4d731ed022d6978f58b73e61987b942a5d04d090dfaa800"
+      }
+    },
     "plustrain_b_backbone": {
       "status": "complete",
       "model": "plustrain_b_backbone",
@@ -7571,6 +8305,179 @@
         "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task8_seed7.jsonl": "04007ecedad9173c517fc9ac98954d33779fcb702cfabde131000c0b6a6570c8",
         "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task9_seed7.jsonl": "47ab77c4f509ba3bf4d731ed022d6978f58b73e61987b942a5d04d090dfaa800"
       }
+    },
+    "plustrain_c_h5b": {
+      "status": "complete",
+      "model": "plustrain_c_h5b",
+      "stage": "medium",
+      "episodes": 1000,
+      "successes": 977,
+      "comparisons": {
+        "vs_FP": {
+          "all_tasks": {
+            "successes": 977,
+            "episodes": 1000,
+            "success_percent": 97.7,
+            "reference_successes": 970,
+            "reference_success_percent": 97.0,
+            "difference_pp": 0.7000000000000001,
+            "paired_difference_ci95_pp": [
+              -1.6999999999999744,
+              3.499999999999972
+            ],
+            "success_ci95_percent": [
+              96.0,
+              99.0
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 932,
+            "episodes": 950,
+            "success_percent": 98.10526315789474,
+            "reference_successes": 932,
+            "reference_success_percent": 98.10526315789474,
+            "difference_pp": 0.0,
+            "paired_difference_ci95_pp": [
+              -1.8947368421052602,
+              1.7894736842105352
+            ],
+            "success_ci95_percent": [
+              96.52631578947368,
+              99.36842105263159
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          }
+        },
+        "vs_original_2bit": {
+          "all_tasks": {
+            "successes": 977,
+            "episodes": 1000,
+            "success_percent": 97.7,
+            "reference_successes": 982,
+            "reference_success_percent": 98.2,
+            "difference_pp": -0.5,
+            "paired_difference_ci95_pp": [
+              -2.1000000000000085,
+              0.9000000000000057
+            ],
+            "success_ci95_percent": [
+              96.0,
+              99.0
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 932,
+            "episodes": 950,
+            "success_percent": 98.10526315789474,
+            "reference_successes": 937,
+            "reference_success_percent": 98.63157894736842,
+            "difference_pp": -0.5263157894736842,
+            "paired_difference_ci95_pp": [
+              -2.1078947368421215,
+              0.9473684210526301
+            ],
+            "success_ci95_percent": [
+              96.52631578947368,
+              99.36842105263159
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          }
+        }
+      },
+      "source_sha256": {
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task0.jsonl": "deabeaddbcf1950d489b8cf8cf3bc9fe393d7d9d4472e8d15fd0d0e0fe0f4844",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task1.jsonl": "87c4832eac67013d76fdbedf8899580a113c44e0153d2f0b00ed0aea8a305938",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task2.jsonl": "88d37484dc3330e188af35b733e2777c3af6e10e573a0b61a3887b6d26983600",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task3.jsonl": "c2e0bbb3ff050d44b2a2751ed3e29d24afcf9c38de4e39ca03f9c99d32aa69d7",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task4.jsonl": "de4abfec696bab307d1da5184122b1d8b8d455f4463641e16ab5605417c62db8",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task5.jsonl": "1c62b49ec43c1b66130fff6e47a70f402be51ff7e1c33396ecdb8c93cca3e8d7",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task6.jsonl": "f0514ea9314035f253ade7b5fc80c21b94ca6cd94a7e53a9a45841f532a0d951",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task7.jsonl": "c29b5fe622177dffec0267fe6837e176b5ed95ac7f430e4e6de790bbba0fc56f",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task8.jsonl": "b35494fcba9e42bb8ba67e5b65151a7b3113cea12d99c49ee89e4a7fac453a7e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_10_task9.jsonl": "d015bb9cbdd6fb3b0de97dd800fa74ba5bceae7d12fe4f7d6108afebecd73b04",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task0.jsonl": "62c3c396c3f4f74fd38a75c93b915b6f432d981fbe744e0720eeb0c807c7232c",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task1.jsonl": "07fa73fbac45b41b0783a7fbbcd971597b16db35d1a6e06eeaa1b4eb0e77171b",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task2.jsonl": "22836e6a37a77ceda5e5c7356b37d5f97bdc4e3dc76ebbefa511b944f74d2fa0",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task3.jsonl": "dc09deb7a947c6b6e240a8e5b7919ed0b9b452631e7c8777dcc64b5f642e51c0",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task4.jsonl": "d76fb0315a2c00c76da455e892d997b81085253b0d9fbdf479d62f0c3dc069a8",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task5.jsonl": "097cf34aa22c880d350a67cc669468d0533aebae58fa707a55ccac7221f018d3",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task6.jsonl": "7658e28dbaa1e92361ef6c946da74e47c617a0063366f0984e8d439fb1decb14",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task7.jsonl": "5f630796469b09eb17672f07b0b45de9252d9129e0db53a5aefc247aefa88223",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task8.jsonl": "73cd100e86a8fd1f72cd8859a710124d9e14ac1546f60687739e2deb9f7e59ca",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_goal_task9.jsonl": "4801e79db4320a77209314b3b23b23341030e0fd28ce3bf426fbd69f885bd504",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task0.jsonl": "05f502642cebfc7dc3829633155480c07189c0b18dcf903629ba558053c9a03b",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task1.jsonl": "f649a136ac2503e42cecdb285a8c72a8441d127fc316c1ddddc0359cdab878d7",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task2.jsonl": "1da50b450ee4629ac91abb55b7e663411d71dded3abec7fae617b53ca97650de",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task3.jsonl": "7e2e534a2a1180d0917c49b0c6b20e7bcec60ba79f42c1c8832f8a3a325902b8",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task4.jsonl": "fad4354bfa2033888fe89f04bf5d260840cafc8a1cd9bde25967b6bc54ea5209",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task5.jsonl": "e3828de17af07ae2cbd0d5a7ccdc891b6710d8cb58b47c0446be86e019d84c10",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task6.jsonl": "132320cbf879124d1f3de83937c5ec98ffbdbc9c75efb77da79ffe3b7258fa09",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task7.jsonl": "b27372a34ccefae9fa262a430b4991adea580db43a4ff6109cebd5aa8a70e16e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task8.jsonl": "c6ed4c269252ca24b5ad0e687284bfcec933229dd0f5c04f3ba6f2a350b7f968",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_object_task9.jsonl": "c99728398e682ca14810da9fc8f9b26da9a93d8d4c3ad908cadbd62f4afd755e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task0.jsonl": "9333a61e5c4a05bb03efe1009e202e1bdd3dc78b4e23dd9420bfbc2d6bf7c3c6",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task1.jsonl": "69064bdfc08418eed4a6956ebbee2dc222eee01d4274dedd5ec7934ac5d6be06",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task2.jsonl": "ca308d3ec32d7cf8c282b42f7cff54b99b2112f5d9d7143c0d311cb526b36a0c",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task3.jsonl": "2b7c60ac3039481f1b96aef928fa3cf00e316047a5be8d702fb6ff7d1577b2ff",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task4.jsonl": "b5b578711639b5db079f07eb1c5b22b340de8409bcd49fe05f9c0a99bff1c560",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task5.jsonl": "cefb5ae52a5b8f724a0cbce8c58fcd6109305d885c28e471545b6feac6a90f01",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task6.jsonl": "aa81231424f4ef39c6613b23172c998e7cc8f054786eb0569794aa93a15918db",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task7.jsonl": "992bbf53aa6e34b5a0578d5aeadf7a2eb1f4256b3bdafad8345e9f9fedab00a2",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task8.jsonl": "a517ea77c79a7b7e38852ab69af67ef23ffd357197ada78ecca7287bc8d74dc7",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/libero_spatial_task9.jsonl": "02fdbaa901767f8d2fbabf152183c9b23bd484c661ae50d3b60bb72d72a1c5e6",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/plustrain_c_h5b/medium/manifest.json": "e4b088d676dcc85d2d52ddfd4bf6a76be9f2fcffc0b5a4cc4e6184131f628761",
+        "/projects/yanlongvla/runs/g0/libero_spatial_seed7.jsonl": "c48c9ce9e91db0ed941a81a4e685272cad073fbdf4894946d2d3cfbe8be7a960",
+        "/projects/yanlongvla/runs/g0/libero_object_seed7.jsonl": "3d68187984edcf6096dc6f95191285614bae448d4f13f078463e69a1ef0e53b2",
+        "/projects/yanlongvla/runs/g0/libero_goal_seed7.jsonl": "f16b3ae379e754fd0bac6cd93565ad22b4f2f167e3b2396ac37e4e5c5d05d2f8",
+        "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/offline/result.json": "4f340736699cfae4cdd064575eceb1990ef1019077e7cbc05fc824d232c6c2b1",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/worker0_manifest.json": "11823edeb7e0da8ecf6c588cdd389342a87723943d0f20850f4fa3739e3bcd0f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/worker1_manifest.json": "b83ed818d17d006d2272feced094b14cc5f02f5b80b96f28770b4270545542d0",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/worker2_manifest.json": "f162bd56691da21fc3b581728be0a3b24acacce63e801bf55d39b0fee3feb799",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/worker3_manifest.json": "1c8534ba73a75d1ffced2098ace9abb22b36019223b80dbda35b639bb0904290",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task0_seed7.jsonl": "37c4978cb619258cbd22ccea3c17c94cd0bf8cf0fecd4791e5a60fe152847684",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task1_seed7.jsonl": "aec7368784977eed25908895e00f431fea5fcd3d97aa36a2af951471dbf6fee2",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task2_seed7.jsonl": "2e85d4f051955d691bfd3468ed742824daefee91b3dfcd042bc57cf9d6b4e821",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task3_seed7.jsonl": "ec6de27c54b2f8d23d322e975282cac83291a9dea0a7cf7e40846bd94e6cc2f0",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task4_seed7.jsonl": "0e4ae39a761c589219d8c0335a5d23c2cd0e15ae6e44c06f2c8a7d4f99c06340",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task5_seed7.jsonl": "03dcee768cb3461d7f45799000090558da5968932c6b129594b5d12ff528582b",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task6_seed7.jsonl": "c392ee8011806758f7127706feb02847152a8651799d2114c8e19a762b781dbe",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task7_seed7.jsonl": "0013599ad1eeae1c8d2558965e5b17544843c74f3e5e2b70f0b84784d232d4e2",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task8_seed7.jsonl": "339ba9403b294e0887e1ba22781ba90feb78c4cb80665a2d8979afe22471440f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_10_task9_seed7.jsonl": "3e9a7aa032ea09e315959429aae10dcb6b6549086fd7060b002f818c0d27000f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task0_seed7.jsonl": "f8bdb49ad864a8e9fe539fd0bb757635d8fcf30af7dad401a4bc20632abdbd48",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task1_seed7.jsonl": "3bea19e632ee952684c465f146c308ddf586cc4f0960562a1ce28efa3db99076",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task2_seed7.jsonl": "c17a51d8ec08fe74063ad0952a39407a394407f95c7041a8ff1e623bd56e835f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task3_seed7.jsonl": "443354ad182de788447a913af759794876a0d867a6faa669dac8152a0a255160",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task4_seed7.jsonl": "605f809915d53f9d36fb1f33ab5ced43463cd8b9f4968bff200a26647cfae43e",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task5_seed7.jsonl": "e018776143a53e999a86b4d86ff0e409c08f7a9c8d9e7ac09e3645e33caddc43",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task6_seed7.jsonl": "d3cd0733379ca48576884c0890d41dc2301227301221a0c1f6c331023b1dfc77",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task7_seed7.jsonl": "9ac189ddd916e49b95c22f73041e4d4e02b758eaef860a507ec04b691e1610a2",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task8_seed7.jsonl": "98636748c565fcad97556aab4b8e0e15fb46435419c7032d96d919be422d3e3e",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_goal_task9_seed7.jsonl": "0cd9efd9c309da6d5c1a0bc7fa2a851750762d338988dadd4aed4ff8f498447f",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task0_seed7.jsonl": "d29d68fb249b89f0148ab84661bbcdccd1a1e8aa40e295196ef69c0fe94c1dc8",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task1_seed7.jsonl": "f79ed068b5d1ee94c45f97bb597d9660f206f4648e1ad95e7146dcafd36195e0",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task2_seed7.jsonl": "c1db887eb40884cb6f12c995bda27dd416b1ffa3dcd535067376e4717db66479",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task3_seed7.jsonl": "2c1efe504e6897358f878b3d7738b405e3018c2e836bdac14eef5d3598f28a19",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task4_seed7.jsonl": "89f405509c5c97a39bd04a43f07962862f5414c84ff5cdc48092382e97af1a61",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task5_seed7.jsonl": "7d484c8e20257aee66f5854d4345fbf5993b4b6e6f13458b29d88521d04c99f6",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task6_seed7.jsonl": "743359c041b3ac64203e0b204c64ec73e8b3a4fe1bd8bcaa4beedfdab1c35075",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task7_seed7.jsonl": "7fcd6e55e6afc9b2e66995fa629c23355986a3883f5afda0cfe85a1c0de10806",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task8_seed7.jsonl": "67b01f0f7fb2aab84d32e120aa50d4f5d5b3826847a7f400f5095c781bc6ad39",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_object_task9_seed7.jsonl": "f8a7b5fe362b0a4cfc00294b6b75b9a2f429bc1cb0a62549ab73c7749b8fde4c",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task0_seed7.jsonl": "915e709c3fa31a6e940d8cd274a489a3552c210c60881f038e1810b0ccc65e35",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task1_seed7.jsonl": "a47d3d67fb9345c072d3dc658b3d3b8ec4f45e09bbb1df9311a8f999e222c2ba",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task2_seed7.jsonl": "6ac116148cc677736dc06b19cae41a4022bc1a68fde74ad55fd563ff26d6370d",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task3_seed7.jsonl": "1a34eb350f8873dae8a561fa50fd61505b1ada816676ed2ddce92bb0bba333a3",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task4_seed7.jsonl": "be48c1d6313e57d051f0be6cbb962e72a85ae74169756c3f6c6957fbdf7109dd",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task5_seed7.jsonl": "529b2de4256f97165723b254f1aec6c95d6dbc3159c0cff05846c366f8ad4f68",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task6_seed7.jsonl": "1caa296997283bace8edaef9e1adc45c086bb9870a90f4443f77bcd88dc55714",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task7_seed7.jsonl": "0051cf2d5aa4c26fc48a0337c1cf85d954c67ef2d3c9ae1c5be1c0e014c1ca4e",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task8_seed7.jsonl": "04007ecedad9173c517fc9ac98954d33779fcb702cfabde131000c0b6a6570c8",
+        "/projects/yanlongvla/runs/method/bb_M2_ae_M2_fp32/medium/libero_spatial_task9_seed7.jsonl": "47ab77c4f509ba3bf4d731ed022d6978f58b73e61987b942a5d04d090dfaa800"
+      }
     }
   },
   "a8_offline": {
@@ -7892,6 +8799,24 @@
       ],
       "passes": true
     },
+    "raqft_seed2": {
+      "successes": 738,
+      "gain": 34,
+      "ci95_pp": [
+        -0.25896676793407813,
+        7.058377517900698
+      ],
+      "passes": false
+    },
+    "raqft_beta0": {
+      "successes": 737,
+      "gain": 33,
+      "ci95_pp": [
+        -0.009194248195325008,
+        6.757114391849499
+      ],
+      "passes": false
+    },
     "raqft_deep": {
       "successes": 738,
       "gain": 34,
@@ -7988,6 +8913,14 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_c_2bit/episodes.jsonl": "6c2b02d45c6ef705bb66b92aca1634c540d8c842498464fea284de1127dd6ddf",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_c_2bit/manifest.json": "d159b73b5caf7b1be662fe57425f78827c1b77de7825131a7abed2955d043f66",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_c_2bit/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_seed2/complete.json": "190266d69e12cf435c7ad15fdfa0578133d7e0547bc9cb04fadbf360e9fb0bac",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_seed2/episodes.jsonl": "013f3d363aea9f4a57fbf7473320872b4fc3cc6a373078f1733576eb6e5f1a51",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_seed2/manifest.json": "bc83d80628734eaa53a8356b204948c3aa608b8d2f39321a272567dcd35e87ae",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_seed2/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_beta0/complete.json": "2a64023ed4a309bbe5d8953824aff7da58a87070b5c302bef76c4ab7c026ceb0",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_beta0/episodes.jsonl": "a759e479d61613b37a3ad84db252e9c640231dacac623658c624bfe6005aa9b8",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_beta0/manifest.json": "7e1ab9ae60ceebda96964e66d41976de8207c5481deb6b25779185111b9e188f",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_beta0/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_deep/complete.json": "a8036932315778418c331cd280912fa76802b824391dd8d5003da51fb7f0cc09",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_deep/episodes.jsonl": "a71bfa63996609d451c2525463c915210d65b62425e23005d0823ee7271509a7",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/raqft_deep/manifest.json": "6804eac4a17ee3c05a455c74b66d95c637add720a2245b8e63ff20cf402cd8cb",
@@ -8016,6 +8949,14 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/episodes.jsonl": "8a76058bc61d4eeacefed6b83d92e2f9d2324f885ad79123c3f9307eb39adbda",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/manifest.json": "4cba06195162c859f5e71948369139cca88d21247618078ab698850a02887363",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_fp/complete.json": "841a18b438d975b83d3aab43f69799e103fffddccac398ac2329730473048633",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_fp/episodes.jsonl": "6a57fac5b030f9499ff2b2dceda68d0728d7ce5e15d06e967a2f8506db80f07a",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_fp/manifest.json": "18d7744a6ce1bfefcc256bfe04c070863cc7da2c9382c5befcb629a980fb3798",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_fp/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit/complete.json": "b02ef69d81a12cf824df35677712582818198913f3bca1379f82a8903b5ac607",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit/episodes.jsonl": "c9d1d7b91b2d5358a6a0cac1e809fc61c13f738886ecbb87a7a04930ed46800b",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit/manifest.json": "5f6e9f545a22437f3ae377e90898bc9926d1f4b351ab553350ba9bbb6670d30c",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/complete.json": "08313c0666d246316d1f6a84e6f6f07c2b3a049709126706148b6babcc0fab6a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/episodes.jsonl": "353c5dab6d4ac693b7671c5181b242fdb1970a692588e04f3ecfcbb4abb648ce",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_2bit_kv8/manifest.json": "cd8916c45b567f716f33e38a4eb5ee7312cb863b7e62a74e18d97112da29f476",
@@ -8024,6 +8965,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/episodes.jsonl": "01b75e8e33deda8de634b138b93e372454dfb0634b09a390ab000f98bcd7b34f",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/manifest.json": "9f9b00d025609e71589bd8eaff5a661d0ac94eb51846b60105416733ea51caef",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_raqft/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_studentq/complete.json": "855d71b08b22ebc07b8734c3bb53bc1fa449a239464f89390c486c5c1a5b54e4",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_studentq/episodes.jsonl": "12d98c470e68c11170aa0ef34421a7cb591c91b27f67faa6694041dde61d67fa",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_studentq/manifest.json": "39135afb6011b5e7c7d4680c8c5ba3fafa60c3b0a7de552b41a7cf8948f7a0dd",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_studentq/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/original_fp/complete.json": "cfbd9858246d75d0975f36411de702f692d33fe7e02cad05d27f44f679c260da",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/bb_M2_ae_M2_fp32/complete.json": "26da4daacfbead054c5a12107793f7d814bf0db9704179937477b75c02a26ce9",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_raqft/complete.json": "25f1a97a3854359d880a77d79827718e191972222d7362bb01534f618720d56d"
