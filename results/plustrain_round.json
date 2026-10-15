@@ -1131,6 +1131,8 @@
   },
   "int8_track": {
     "base": {
+      "model": "bb_M2_ae_M2_int8grid",
+      "source": null,
       "summary": {
         "layers": 414,
         "gain_min": 16.357827476038338,
@@ -1140,6 +1142,22 @@
         "relative_weight_mse_mean": 0.0001935890974105192,
         "relative_weight_mse_max": 0.0006924376357346773,
         "subnormal_scale_rows": 545,
+        "rows": 1211760
+      },
+      "whole_model_bpw": 2.9225899010064036
+    },
+    "snap": {
+      "model": "raqft_studentq_int8snap",
+      "source": "raqft_studentq",
+      "summary": {
+        "layers": 414,
+        "gain_min": 16.362183754993342,
+        "gain_max": 36.702508960573475,
+        "max_abs_int": 120,
+        "max_plane_int": 115,
+        "relative_weight_mse_mean": 0.00019337873850923238,
+        "relative_weight_mse_max": 0.0006826849421486259,
+        "subnormal_scale_rows": 538,
         "rows": 1211760
       },
       "whole_model_bpw": 2.9225899010064036
@@ -1171,11 +1189,6 @@
       "model": "a8_studentq",
       "label": "deployable W2A8 (FINAL_2026-10-14): RAQ-FT student-query 2-bit backbone + 2-bit expert + A8",
       "stage": "reference; Plus complete"
-    },
-    {
-      "model": "a8_studentq_int8",
-      "label": "INT8 track: W2A8 on the INT8-grid checkpoint (integer codebooks, STE re-run of the final RAQ-FT; exact INT8 decode)",
-      "stage": "reference; Plus pending"
     }
   ],
   "paired": {
@@ -9135,7 +9148,8 @@
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/original_fp/complete.json": "cfbd9858246d75d0975f36411de702f692d33fe7e02cad05d27f44f679c260da",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/bb_M2_ae_M2_fp32/complete.json": "26da4daacfbead054c5a12107793f7d814bf0db9704179937477b75c02a26ce9",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_raqft/complete.json": "25f1a97a3854359d880a77d79827718e191972222d7362bb01534f618720d56d",
-    "/projects/yanlongvla/runs/plustrain_20261008/int8/base/complete.json": "16d50482ec25a49e106eb6b6b76d945bc5c876e625307b5855ec38d66afcf025"
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/base/complete.json": "16d50482ec25a49e106eb6b6b76d945bc5c876e625307b5855ec38d66afcf025",
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed"
   },
   "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }
