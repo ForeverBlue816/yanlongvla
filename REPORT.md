@@ -86,9 +86,21 @@ Expanded Plus, added 1000 only: a8_raqft 689/1000, +3.20 pp vs original 2-bit [-
 | added_1000 | 698/1000 | 718 | 657 | 689 | -2.00 [-5.69,+1.66] | +4.10 [+0.76,+7.84] | +0.90 [-1.46,+3.28] | — |
 | combined_2000 | 1439/2000 | 1483 | 1361 | 1429 | -2.20 [-5.24,+0.90] | +3.90 [+1.42,+6.62] | +0.50 [-1.28,+2.24] | — |
 
-**INT8 track (INT8_2026-10-15; amended by the user to a kernel speed test)** — real INT8 kernels on a snapped (integer-grid, no fine-tune) copy of the frozen backbone; latency on one L40S (batch 1, CUDA graphs, 100 warm inferences). No grid fine-tune, no Plus check.
+**INT8 track (INT8_2026-10-15; amended by the user to a kernel speed test)** — real INT8 kernels on a snapped (integer-grid, no fine-tune) copy of the frozen backbone; latency on one GPU (NVIDIA RTX 6000 Ada Generation; batch 1, CUDA graphs, 100 warm inferences). No grid fine-tune, no Plus check.
 Grid snap raqft_studentq → raqft_studentq_int8snap: 414 layers, gain 16.36–36.70, max |int| 120, relative weight MSE mean 1.93e-04 (max 6.83e-04), 538 of 1211760 FP16 row scales subnormal.
 Grid snap None → bb_M2_ae_M2_int8grid: 414 layers, gain 16.36–36.91, max |int| 120, relative weight MSE mean 1.94e-04 (max 6.92e-04), 545 of 1211760 FP16 row scales subnormal.
+
+| Row | steps | prefill ms (med / p95) | expert ms/step (med / p95) | end-to-end ms (med / p95) | speedup vs BF16 | resident GB | peak GB |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| bf16_original | 10 | 52.4 / 53.3 | 3.41 / 3.43 | 83.9 / 84.6 | 1.00x | 6.96 | 7.19 |
+| bf16_original | 2 | 52.7 / 53.3 | 2.70 / 2.72 | 56.7 / 57.8 | 1.00x | 6.48 | 6.96 |
+| w2a8_int8_expert | 10 | 52.2 / 52.7 | 4.12 / 4.12 | 96.3 / 96.8 | 0.87x | 4.04 | 6.92 |
+| w2a8_int8_expert | 2 | 52.2 / 52.6 | 4.12 / 4.12 | 59.8 / 60.1 | 0.95x | 4.03 | 6.73 |
+| w2a8_fused_expert | 10 | 52.0 / 52.5 | 4.44 / 4.44 | 99.8 / 100.2 | 0.84x | 3.74 | 6.92 |
+| w2a8_fused_expert | 2 | 52.2 / 52.6 | 4.45 / 4.45 | 59.8 / 60.0 | 0.95x | 3.74 | 6.73 |
+| eval_runtime_bf16_dense_fakequant | 10 | 236.5 / 237.0 | 9.74 / 9.75 | 334.8 / 335.2 | 0.25x | 6.65 | 7.13 |
+| eval_runtime_bf16_dense_fakequant | 2 | 236.0 / 236.6 | 9.74 / 9.76 | 255.9 / 256.3 | 0.22x | 6.64 | 7.12 |
+Jetson Orin: not available on this cluster; not measured.
 
 Efficiency (final row, analytic, FINAL_2026-10-14 item 6): storage = 1.225 GB; whole-model bpw = 2.9226; linear bpw = 2.0201; weight bytes read / inference (INT8-decoded, 10 steps) = 5.565 GB; same, 2 steps = 3.035 GB; BF16 reference (10 steps) = 17.434 GB; resident INT8-decoded backbone = 2.930 GB; resident INT8-decoded model = 3.247 GB; BF16 model = 6.421 GB. Latency measurements are handed to Ethan.
 
@@ -220,7 +232,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-16 13:05 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-16 17:22 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
