@@ -24,7 +24,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | F2 control: readout consistency without the W_O metric (identity) + 0.1 H5b | 2.9226 | a: LIBERO 256 | readout(identity) + 0.1 H5b | 744 | -2.10 [-5.85,+1.82] | +4.00 [+0.78,+7.42] | — | fine-tuned; Plus complete |
 | simplest form: plain-VQ base + quantized-model queries (no Fisher, no FP-expert trajectory) | 2.9226 | a: LIBERO 256 | readout(student q) + 0.1 H5b | 748 | -1.70 [-5.34,+1.77] | +4.40 [+0.99,+8.06] | — | fine-tuned; Plus complete |
 | P4 reference: 3-bit backbone + uniform M2 expert | 3.6390 | a: LIBERO 256 | original recipe | 741 | -2.40 [-5.68,+0.84] | +3.70 [-0.20,+7.89] | — | reference; Plus complete |
-| reference: plain-VQ (layer-Hessian) 2-bit backbone + uniform M2 expert (base of raqft_plainvq) | 2.9226 | a: LIBERO 256 | plain VQ | — | — | — | — | reference; Plus pending |
+| reference: plain-VQ (layer-Hessian) 2-bit backbone + uniform M2 expert (base of raqft_plainvq) | 2.9226 | a: LIBERO 256 | plain VQ | — | — | — | — | reference; Plus running |
 
 A8 feasibility rows (decision only: whether the final deployable row is W2A8; excluded from method selection):
 
@@ -215,7 +215,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-15 23:27 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-16 09:19 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
