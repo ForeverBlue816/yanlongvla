@@ -90,6 +90,18 @@ Expanded Plus, added 1000 only: a8_raqft 689/1000, +3.20 pp vs original 2-bit [-
 Grid snap raqft_studentq → raqft_studentq_int8snap: 414 layers, gain 16.36–36.70, max |int| 120, relative weight MSE mean 1.93e-04 (max 6.83e-04), 538 of 1211760 FP16 row scales subnormal.
 Grid snap None → bb_M2_ae_M2_int8grid: 414 layers, gain 16.36–36.91, max |int| 120, relative weight MSE mean 1.94e-04 (max 6.92e-04), 545 of 1211760 FP16 row scales subnormal.
 
+| Row | steps | prefill ms (med / p95) | expert ms/step (med / p95) | end-to-end ms (med / p95) | speedup vs BF16 | resident GB | peak GB |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| bf16_original | 10 | 34.8 / 35.6 | 3.43 / 3.44 | 68.7 / 69.2 | 1.00x | 6.96 | 7.19 |
+| bf16_original | 2 | 34.9 / 35.6 | 2.79 / 2.81 | 40.0 / 40.1 | 1.00x | 6.48 | 6.96 |
+| eval_runtime_bf16_dense_fakequant | 10 | 218.7 / 218.8 | 10.36 / 10.37 | 321.9 / 322.0 | 0.21x | 6.65 | 7.13 |
+| eval_runtime_bf16_dense_fakequant | 2 | 218.0 / 218.2 | 10.37 / 10.37 | 239.5 / 239.6 | 0.17x | 6.64 | 7.12 |
+| w2a8_int8_expert | 10 | 113.5 / 113.8 | 9.21 / 9.26 | 206.8 / 207.5 | 0.33x | 4.08 | 6.92 |
+| w2a8_int8_expert | 2 | 113.4 / 113.9 | 9.22 / 9.26 | 133.0 / 133.2 | 0.30x | 4.07 | 6.70 |
+| w2a8_fused_expert | 10 | 113.8 / 114.3 | 4.80 / 4.80 | 162.5 / 163.3 | 0.42x | 3.78 | 6.92 |
+| w2a8_fused_expert | 2 | 113.7 / 114.0 | 4.79 / 4.80 | 124.0 / 124.5 | 0.32x | 3.77 | 6.70 |
+Jetson Orin: not available on this cluster; not measured.
+
 Efficiency (final row, analytic, FINAL_2026-10-14 item 6): storage = 1.225 GB; whole-model bpw = 2.9226; linear bpw = 2.0201; weight bytes read / inference (INT8-decoded, 10 steps) = 5.565 GB; same, 2 steps = 3.035 GB; BF16 reference (10 steps) = 17.434 GB; resident INT8-decoded backbone = 2.930 GB; resident INT8-decoded model = 3.247 GB; BF16 model = 6.421 GB. Latency measurements are handed to Ethan.
 
 [Protocol](PLUSTRAIN_2026-10-08.md) · [Results](results/plustrain_round.json). Older sections below are historical.
@@ -220,7 +232,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-16 12:33 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-16 13:01 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

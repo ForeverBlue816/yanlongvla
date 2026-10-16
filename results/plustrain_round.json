@@ -1780,6 +1780,328 @@
         "rows": 1211760
       },
       "whole_model_bpw": 2.9225899010064036
+    },
+    "bench": {
+      "device": {
+        "gpu": "NVIDIA L40S",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6"
+      },
+      "rows": {
+        "bf16_original/10": {
+          "prefill": {
+            "median_ms": 34.77699089050293,
+            "p95_ms": 35.551948165893556,
+            "mean_ms": 34.84845859527588,
+            "min_ms": 33.939456939697266,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 3.430319905281067,
+            "p95_ms": 3.4435760617256164,
+            "mean_ms": 3.4310758209228513,
+            "min_ms": 3.4220800399780273,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 68.74975967407227,
+            "p95_ms": 69.16433906555176,
+            "mean_ms": 68.63626914978028,
+            "min_ms": 67.07814025878906,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "graph_vs_policy_infer_max_abs": 5.644494294188007e-08,
+          "memory": {
+            "resident_bytes": 6958362624,
+            "peak_bytes": 7189931520,
+            "reserved_bytes": 7858028544,
+            "install": null
+          },
+          "speedup_vs_bf16_end_to_end": 1.0
+        },
+        "bf16_original/2": {
+          "prefill": {
+            "median_ms": 34.850303649902344,
+            "p95_ms": 35.56198577880859,
+            "mean_ms": 34.93853813171387,
+            "min_ms": 34.15244674682617,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 2.7933759689331055,
+            "p95_ms": 2.807603120803833,
+            "mean_ms": 2.795238423347473,
+            "min_ms": 2.7893760204315186,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 39.97641563415527,
+            "p95_ms": 40.08658142089844,
+            "mean_ms": 39.982611389160155,
+            "min_ms": 39.755775451660156,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "memory": {
+            "resident_bytes": 6484853248,
+            "peak_bytes": 6958411776,
+            "reserved_bytes": 7352614912,
+            "install": null
+          },
+          "speedup_vs_bf16_end_to_end": 1.0
+        },
+        "eval_runtime_bf16_dense_fakequant/10": {
+          "prefill": {
+            "median_ms": 218.68172454833984,
+            "p95_ms": 218.83295211791992,
+            "mean_ms": 218.68471954345702,
+            "min_ms": 218.47142028808594,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 10.357760429382324,
+            "p95_ms": 10.36501784324646,
+            "mean_ms": 10.359275598526,
+            "min_ms": 10.352383613586426,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 321.8507385253906,
+            "p95_ms": 321.9539505004883,
+            "mean_ms": 321.835524597168,
+            "min_ms": 321.61566162109375,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "graph_vs_policy_infer_max_abs": 2.8882324754064825e-08,
+          "memory": {
+            "resident_bytes": 6648744960,
+            "peak_bytes": 7134298624,
+            "reserved_bytes": 8560574464,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126,
+                "fp_linear": 0
+              }
+            }
+          },
+          "speedup_vs_bf16_end_to_end": 0.21360758713514225
+        },
+        "eval_runtime_bf16_dense_fakequant/2": {
+          "prefill": {
+            "median_ms": 218.03622436523438,
+            "p95_ms": 218.21464614868165,
+            "mean_ms": 218.03942962646485,
+            "min_ms": 217.818115234375,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 10.366975784301758,
+            "p95_ms": 10.370047569274902,
+            "mean_ms": 10.367240209579467,
+            "min_ms": 10.361856460571289,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 239.5007095336914,
+            "p95_ms": 239.5889099121094,
+            "mean_ms": 239.49238174438477,
+            "min_ms": 239.33030700683594,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "memory": {
+            "resident_bytes": 6639724032,
+            "peak_bytes": 7122968576,
+            "reserved_bytes": 8118075392,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126,
+                "fp_linear": 0
+              }
+            }
+          },
+          "speedup_vs_bf16_end_to_end": 0.16691564593687205
+        },
+        "w2a8_int8_expert/10": {
+          "prefill": {
+            "median_ms": 113.53185653686523,
+            "p95_ms": 113.81881980895996,
+            "mean_ms": 113.5192391204834,
+            "min_ms": 113.112060546875,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 9.21190357208252,
+            "p95_ms": 9.256656408309937,
+            "mean_ms": 9.219252758026123,
+            "min_ms": 9.207807540893555,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 206.8108673095703,
+            "p95_ms": 207.50406875610352,
+            "mean_ms": 206.84743759155273,
+            "min_ms": 206.1854705810547,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "graph_vs_policy_infer_max_abs": 1.8067181084546746e-08,
+          "memory": {
+            "resident_bytes": 4083537408,
+            "peak_bytes": 6916455424,
+            "reserved_bytes": 5309988864,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126
+              },
+              "resident": {
+                "backbone_int8_bytes": 2392879104,
+                "expert_int8_bytes": 311427072,
+                "expert_code_bytes": 0,
+                "scale_bytes": 2423520
+              },
+              "expert_mode": "int8"
+            }
+          },
+          "speedup_vs_bf16_end_to_end": 0.3324281773411954
+        },
+        "w2a8_int8_expert/2": {
+          "prefill": {
+            "median_ms": 113.39007949829102,
+            "p95_ms": 113.86072959899903,
+            "mean_ms": 113.43511489868165,
+            "min_ms": 113.00045013427734,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 9.22107219696045,
+            "p95_ms": 9.25982732772827,
+            "mean_ms": 9.228315849304199,
+            "min_ms": 9.215968132019043,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 133.00119018554688,
+            "p95_ms": 133.2399543762207,
+            "mean_ms": 132.99452423095704,
+            "min_ms": 132.18406677246094,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "memory": {
+            "resident_bytes": 4066702848,
+            "peak_bytes": 6697260544,
+            "reserved_bytes": 5257560064,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126
+              },
+              "resident": {
+                "backbone_int8_bytes": 2392879104,
+                "expert_int8_bytes": 311427072,
+                "expert_code_bytes": 0,
+                "scale_bytes": 2423520
+              },
+              "expert_mode": "int8"
+            }
+          },
+          "speedup_vs_bf16_end_to_end": 0.30057186389373736
+        },
+        "w2a8_fused_expert/10": {
+          "prefill": {
+            "median_ms": 113.7710075378418,
+            "p95_ms": 114.26678047180175,
+            "mean_ms": 113.785689163208,
+            "min_ms": 113.28307342529297,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 4.797440052032471,
+            "p95_ms": 4.803584098815918,
+            "mean_ms": 4.795648322105408,
+            "min_ms": 4.783103942871094,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 162.5164794921875,
+            "p95_ms": 163.26247329711913,
+            "mean_ms": 162.54074447631837,
+            "min_ms": 161.71315002441406,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "graph_vs_policy_infer_max_abs": 1.8067181084546746e-08,
+          "memory": {
+            "resident_bytes": 3783389184,
+            "peak_bytes": 6916455424,
+            "reserved_bytes": 5144313856,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126
+              },
+              "resident": {
+                "backbone_int8_bytes": 2392879104,
+                "expert_int8_bytes": 0,
+                "expert_code_bytes": 78372864,
+                "scale_bytes": 2423520
+              },
+              "expert_mode": "fused"
+            }
+          },
+          "speedup_vs_bf16_end_to_end": 0.4230325434620137
+        },
+        "w2a8_fused_expert/2": {
+          "prefill": {
+            "median_ms": 113.65828704833984,
+            "p95_ms": 114.04216194152832,
+            "mean_ms": 113.65780975341796,
+            "min_ms": 113.07606506347656,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 4.793344020843506,
+            "p95_ms": 4.8002334356307985,
+            "mean_ms": 4.793119339942932,
+            "min_ms": 4.777984142303467,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 123.97666931152344,
+            "p95_ms": 124.53329849243164,
+            "mean_ms": 124.0289055633545,
+            "min_ms": 123.52406311035156,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "memory": {
+            "resident_bytes": 3770531328,
+            "peak_bytes": 6697260544,
+            "reserved_bytes": 4693426176,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126
+              },
+              "resident": {
+                "backbone_int8_bytes": 2392879104,
+                "expert_int8_bytes": 0,
+                "expert_code_bytes": 78372864,
+                "scale_bytes": 2423520
+              },
+              "expert_mode": "fused"
+            }
+          },
+          "speedup_vs_bf16_end_to_end": 0.32245111807048304
+        }
+      },
+      "jetson_orin": "not available on this cluster; not measured"
     }
   },
   "full_Plus": {},
@@ -9769,7 +10091,8 @@
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_raqft/complete.json": "25f1a97a3854359d880a77d79827718e191972222d7362bb01534f618720d56d",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq/complete.json": "ec08719d03cdf45a2cbc10112750195ce54df9cd7950583cd5662a421584001b",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/base/complete.json": "16d50482ec25a49e106eb6b6b76d945bc5c876e625307b5855ec38d66afcf025",
-    "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed"
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed",
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/complete.json": "d6fdcc131c0caa4445421665f48ccb05131b704f239f400a21d80ae2884b5482"
   },
   "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }
