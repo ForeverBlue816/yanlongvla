@@ -72,7 +72,10 @@ A8 feasibility decision: **decided** — W2A8 = True; a8_fp: 763/1000, -0.2 pp v
 
 Final deployable row: **frozen** — a8_studentq (backbone raqft_studentq, A8 True); LIBERO full 2000/1900 and expanded Plus 1000+1000 follow..
 LIBERO full a8_raqft: 1944/2000 (all tasks) — vs FP +0.80 pp [-1.20, +3.25]; excluding LIBERO-10 tasks 8/9: 1857/1900, vs FP +0.11 pp.
+LIBERO full a8_studentq: 1941/2000 (all tasks) — vs FP +0.65 pp [-1.10, +2.80]; excluding LIBERO-10 tasks 8/9: 1856/1900, vs FP +0.05 pp.
+Expanded Plus, expanded 2000 (overlaps selection; not independent confirmation): a8_studentq 1439/2000, +3.90 pp vs original 2-bit [+1.42, +6.62].
 Expanded Plus, expanded 2000 (overlaps selection; not independent confirmation): a8_raqft 1429/2000, +3.40 pp vs original 2-bit [+0.94, +5.85].
+Expanded Plus, added 1000 only: a8_studentq 698/1000, +4.10 pp vs original 2-bit [+0.76, +7.84].
 Expanded Plus, added 1000 only: a8_raqft 689/1000, +3.20 pp vs original 2-bit [-0.03, +6.62].
 
 **Deployable W2A8 (a8_studentq; FINAL_2026-10-14)** — paired on identical instances and noise seeds; main row chosen on the selection subset, confirmed on the added 1000 and LIBERO full.
@@ -80,6 +83,8 @@ Expanded Plus, added 1000 only: a8_raqft 689/1000, +3.20 pp vs original 2-bit [-
 | Scope | W2A8 | FP | original 2-bit | previously frozen a8_raqft (teacher q) | Δ vs FP | Δ vs 2-bit | Δ vs a8_raqft | seed-2 row (Δ vs W2A8) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | selection_1000 | 741/1000 | 765 | 704 | 740 | -2.40 [-6.33,+1.73] | +3.70 [+0.81,+6.78] | +0.10 [-2.25,+2.50] | — |
+| added_1000 | 698/1000 | 718 | 657 | 689 | -2.00 [-5.69,+1.66] | +4.10 [+0.76,+7.84] | +0.90 [-1.46,+3.28] | — |
+| combined_2000 | 1439/2000 | 1483 | 1361 | 1429 | -2.20 [-5.24,+0.90] | +3.90 [+1.42,+6.62] | +0.50 [-1.28,+2.24] | — |
 
 **INT8 track (INT8_2026-10-15; amended by the user to a kernel speed test)** — real INT8 kernels on a snapped (integer-grid, no fine-tune) copy of the frozen backbone; latency on one L40S (batch 1, CUDA graphs, 100 warm inferences). No grid fine-tune, no Plus check.
 Grid snap raqft_studentq → raqft_studentq_int8snap: 414 layers, gain 16.36–36.70, max |int| 120, relative weight MSE mean 1.93e-04 (max 6.83e-04), 538 of 1211760 FP16 row scales subnormal.
@@ -215,7 +220,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-16 09:19 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-16 11:19 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

@@ -229,6 +229,136 @@
     "a8_feasibility": "decided"
   },
   "LIBERO_full": {
+    "a8_studentq": {
+      "status": "complete",
+      "model": "a8_studentq",
+      "stage": "full",
+      "episodes": 2000,
+      "successes": 1941,
+      "comparisons": {
+        "vs_FP": {
+          "all_tasks": {
+            "successes": 1941,
+            "episodes": 2000,
+            "success_percent": 97.05,
+            "reference_successes": 1928,
+            "reference_success_percent": 96.39999999999999,
+            "difference_pp": 0.65,
+            "paired_difference_ci95_pp": [
+              -1.0999999999999943,
+              2.801250000000018
+            ],
+            "success_ci95_percent": [
+              95.7,
+              98.25
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 1856,
+            "episodes": 1900,
+            "success_percent": 97.68421052631578,
+            "reference_successes": 1855,
+            "reference_success_percent": 97.63157894736842,
+            "difference_pp": 0.05263157894736842,
+            "paired_difference_ci95_pp": [
+              -1.3157894736842053,
+              1.3684210526315752
+            ],
+            "success_ci95_percent": [
+              96.4736842105263,
+              98.73684210526315
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          }
+        },
+        "vs_original_2bit_unavailable": "AssertionError()",
+        "vs_previous_final_row": {
+          "all_tasks": {
+            "successes": 1941,
+            "episodes": 2000,
+            "success_percent": 97.05,
+            "reference_successes": 1944,
+            "reference_success_percent": 97.2,
+            "difference_pp": -0.15,
+            "paired_difference_ci95_pp": [
+              -1.0499999999999976,
+              0.8499999999999666
+            ],
+            "success_ci95_percent": [
+              95.7,
+              98.25
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 1856,
+            "episodes": 1900,
+            "success_percent": 97.68421052631578,
+            "reference_successes": 1857,
+            "reference_success_percent": 97.73684210526315,
+            "difference_pp": -0.05263157894736842,
+            "paired_difference_ci95_pp": [
+              -0.8960526315789579,
+              0.7907894736842248
+            ],
+            "success_ci95_percent": [
+              96.4736842105263,
+              98.73684210526315
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          }
+        }
+      },
+      "source_sha256": {
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task0.jsonl": "e58a2798842889983918ac1dfa102313321a1dce8be572564326f0c0e9c5b7cb",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task1.jsonl": "1022db18ca72876d98a92bb7cd6bd14059a6ce7f4a63dd751c8663c422cd1cd9",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task2.jsonl": "c4080a04ee3454c0df05dbddf8673084216c3db61863069f2e51fa297a6ee1ad",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task3.jsonl": "e4a46fb885d400f6bafee44689c407b415c03c6c55e72df67cb4434b2415faa1",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task4.jsonl": "b32495f7beb739fd8fd20a5020e66f2e802b123d7f931308e021a593cb680b80",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task5.jsonl": "84fa5101169b726df6f76827fdee024843e49296ca575866779e2a83341f8073",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task6.jsonl": "b781ff37370e2ca715e31ef6dc96698c9d556b6ce161a71372dda4c238785667",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task7.jsonl": "40f57acfaf1c9a85e5052c7b30c7f7153992df79e2321723c453cbdc50693de5",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task8.jsonl": "71c51e1dfc5693d30b4f68618ed56a99d4554dfa750d482d473261a450a5fe68",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_10_task9.jsonl": "14fb200dd7a33507f5294e1bcaa5dbd215a80b645147d6557f2f1ce13a7d9ea5",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task0.jsonl": "7c0bbcd704bc6aa0bb135485c05f98f513cd2b039034e7a8eba4cc452267766f",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task1.jsonl": "ba51c114da9d8a72a589c42d842495dc1d3bfb9bae89b397f01acf38faa1072d",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task2.jsonl": "9ca510c93891e9c6ddc9c5c8dc0773da9b487c8012bde8f1b485686dd0d312fa",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task3.jsonl": "4867b4c667190c6236109ebae29b7be35c195c49feb00ccbd849555535024c5d",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task4.jsonl": "f7423f2657896b1629f4e905612c3c42aab3e2f2a68138e523a1a83a2a852ca4",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task5.jsonl": "4bed68da29f7bc099371ac3fe9c6aab1989e4bd3d4a5cc4bb22c2a3c669feaa0",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task6.jsonl": "524605fb2ed6680b9c9d68cee1aade8cb04fbe43cee5aa0db38f7312ad059c7a",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task7.jsonl": "424fc09e44a2d1eabd72d9886687a70d86290775ee37d2df7c861692cf8d9752",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task8.jsonl": "c9af8e599bee07ea453f25e570b839185e27a3624a7b49865a5297ca08fec06c",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_goal_task9.jsonl": "3c55b0d402843206c3da11ef16bb5a6d1b857638d13586cc35ab94963f5b7df6",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task0.jsonl": "ba5f6919f25170bf9ed100df00bfc271091db3f86f4de4f67eda05d886d6d886",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task1.jsonl": "f33de2db645f3ee8edec2d73062bdf964d5af4b71289256c30625267e26151c3",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task2.jsonl": "5913bde71754d2b9f642e6bc6b92570f0857a61667f777b740301ad2a5fe0701",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task3.jsonl": "be5abdbd2667e142b9b06a3109c59f5272c1a740a240de0d8e4df78f2f31f2f9",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task4.jsonl": "00dc345619fd3bb09306d3bd7559b56122f4b8b8086b2e2d361fa520a06d3d28",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task5.jsonl": "37f2576cddaeb6c66acb6027b753b44292276607221aa46b06c220511dc6c2ad",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task6.jsonl": "8466837eb57217dbe2250237556bb423f1044403adef39f6f9607aa8ce7404e5",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task7.jsonl": "7e9550c0849482b89b28df3193d57d69281c682980cd9525b2c719a4c4354412",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task8.jsonl": "b23a34b4f227d6b79d0d6eb0433e8ea16ad4ae35fab2cc9936895601df370b39",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_object_task9.jsonl": "6507d1af4a1491a5e19381d73b058398a7097b54c1247a8a775dad5f08e23be3",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task0.jsonl": "c91ffbb4c7970b243727772c1216208f1d0040a2e9a36bde4789ed794e69d7f2",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task1.jsonl": "1576677ca6b9f478717ed51bea01e8ba3bdcf831b51734e1be397eef413f6393",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task2.jsonl": "8ebb2fe28e6b8536013f5add6dfa4b5158e5bc3e761eca886c2f27dc26ebf6d3",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task3.jsonl": "a2c26a81dfcf64215a1cdf388407ce41c4c75f696acbd0c7b65fff9bfb90da8c",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task4.jsonl": "d0eb92c2975f1615dc58b2605ff4a899d2c8ec9311736faee18cd419eddc551e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task5.jsonl": "1c273d5ba4f8c71ca1ad9f1c40f4cc8945f1104751ba9aa00452d3c58be482a9",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task6.jsonl": "87a2ca409afee57f306239c6d2fffddbf45b41027cd18d6d7871c4976d946b14",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task7.jsonl": "368e72affd101ad6aabcf74f21256f1c17afd7dc0e76cd81e7938b21406bbf0d",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task8.jsonl": "8fc9f4ebe866e60732d566dc75692f153b918f09c6d662eb97ddb5beb5d881fd",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/libero_spatial_task9.jsonl": "ab927383cfb1c88af5aa16fffa19dede4e5ddf8712a0cb9a33e6d6989307aac1",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/manifest.json": "df5fc90268f873219f32ae7b9303660b75d3b572e2a46011425246b03a6c085f",
+        "/projects/yanlongvla/runs/g0/libero_spatial_seed7.jsonl": "c48c9ce9e91db0ed941a81a4e685272cad073fbdf4894946d2d3cfbe8be7a960",
+        "/projects/yanlongvla/runs/g0/libero_object_seed7.jsonl": "3d68187984edcf6096dc6f95191285614bae448d4f13f078463e69a1ef0e53b2",
+        "/projects/yanlongvla/runs/g0/libero_goal_seed7.jsonl": "f16b3ae379e754fd0bac6cd93565ad22b4f2f167e3b2396ac37e4e5c5d05d2f8",
+        "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq/full/reuse.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+      }
+    },
     "a8_raqft": {
       "status": "complete",
       "model": "a8_raqft",
@@ -345,6 +475,18 @@
               "paired_improvements": 119,
               "paired_regressions": 241
             },
+            "a8_studentq": {
+              "successes": 1439,
+              "episodes": 2000,
+              "success_percent": 71.95,
+              "difference_from_reference_pp": -2.1999999999999997,
+              "paired_difference_ci95_pp": [
+                -5.238538739089425,
+                0.903404172122897
+              ],
+              "paired_improvements": 128,
+              "paired_regressions": 172
+            },
             "original_fp": {
               "successes": 1483,
               "episodes": 2000,
@@ -388,6 +530,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq": {
+              "successes": 1439,
+              "episodes": 2000,
+              "success_percent": 71.95,
+              "difference_from_reference_pp": 3.9,
+              "paired_difference_ci95_pp": [
+                1.4203181261730031,
+                6.624760393482374
+              ],
+              "paired_improvements": 168,
+              "paired_regressions": 90
             },
             "original_fp": {
               "successes": 1483,
@@ -435,6 +589,18 @@
               "paired_improvements": 53,
               "paired_regressions": 114
             },
+            "a8_studentq": {
+              "successes": 685,
+              "episodes": 1000,
+              "success_percent": 68.5,
+              "difference_from_reference_pp": -3.1,
+              "paired_difference_ci95_pp": [
+                -6.847909064365441,
+                0.5953037432011736
+              ],
+              "paired_improvements": 59,
+              "paired_regressions": 90
+            },
             "original_fp": {
               "successes": 716,
               "episodes": 1000,
@@ -478,6 +644,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq": {
+              "successes": 685,
+              "episodes": 1000,
+              "success_percent": 68.5,
+              "difference_from_reference_pp": 3.0,
+              "paired_difference_ci95_pp": [
+                -0.42439297078675864,
+                6.615766946071956
+              ],
+              "paired_improvements": 77,
+              "paired_regressions": 47
             },
             "original_fp": {
               "successes": 716,
@@ -525,6 +703,18 @@
               "paired_improvements": 66,
               "paired_regressions": 127
             },
+            "a8_studentq": {
+              "successes": 754,
+              "episodes": 1000,
+              "success_percent": 75.4,
+              "difference_from_reference_pp": -1.3,
+              "paired_difference_ci95_pp": [
+                -5.660371239214474,
+                2.9706652204920143
+              ],
+              "paired_improvements": 69,
+              "paired_regressions": 82
+            },
             "original_fp": {
               "successes": 767,
               "episodes": 1000,
@@ -568,6 +758,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq": {
+              "successes": 754,
+              "episodes": 1000,
+              "success_percent": 75.4,
+              "difference_from_reference_pp": 4.8,
+              "paired_difference_ci95_pp": [
+                1.2718339295179484,
+                8.377864528291633
+              ],
+              "paired_improvements": 91,
+              "paired_regressions": 43
             },
             "original_fp": {
               "successes": 767,
@@ -617,6 +819,18 @@
               "paired_improvements": 61,
               "paired_regressions": 122
             },
+            "a8_studentq": {
+              "successes": 698,
+              "episodes": 1000,
+              "success_percent": 69.8,
+              "difference_from_reference_pp": -2.0,
+              "paired_difference_ci95_pp": [
+                -5.685868152103376,
+                1.664438407506536
+              ],
+              "paired_improvements": 63,
+              "paired_regressions": 83
+            },
             "original_fp": {
               "successes": 718,
               "episodes": 1000,
@@ -660,6 +874,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq": {
+              "successes": 698,
+              "episodes": 1000,
+              "success_percent": 69.8,
+              "difference_from_reference_pp": 4.1000000000000005,
+              "paired_difference_ci95_pp": [
+                0.7611316024407494,
+                7.839932536149433
+              ],
+              "paired_improvements": 86,
+              "paired_regressions": 45
             },
             "original_fp": {
               "successes": 718,
@@ -707,6 +933,18 @@
               "paired_improvements": 28,
               "paired_regressions": 63
             },
+            "a8_studentq": {
+              "successes": 329,
+              "episodes": 500,
+              "success_percent": 65.8,
+              "difference_from_reference_pp": -3.0,
+              "paired_difference_ci95_pp": [
+                -8.181055990215755,
+                2.051969960696232
+              ],
+              "paired_improvements": 29,
+              "paired_regressions": 44
+            },
             "original_fp": {
               "successes": 344,
               "episodes": 500,
@@ -750,6 +988,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq": {
+              "successes": 329,
+              "episodes": 500,
+              "success_percent": 65.8,
+              "difference_from_reference_pp": 4.0,
+              "paired_difference_ci95_pp": [
+                -0.5816949621434333,
+                8.429288650322766
+              ],
+              "paired_improvements": 43,
+              "paired_regressions": 23
             },
             "original_fp": {
               "successes": 344,
@@ -797,6 +1047,18 @@
               "paired_improvements": 33,
               "paired_regressions": 59
             },
+            "a8_studentq": {
+              "successes": 369,
+              "episodes": 500,
+              "success_percent": 73.8,
+              "difference_from_reference_pp": -1.0,
+              "paired_difference_ci95_pp": [
+                -5.678705397539761,
+                3.8790583341879414
+              ],
+              "paired_improvements": 34,
+              "paired_regressions": 39
+            },
             "original_fp": {
               "successes": 374,
               "episodes": 500,
@@ -841,6 +1103,18 @@
               "paired_improvements": 0,
               "paired_regressions": 0
             },
+            "a8_studentq": {
+              "successes": 369,
+              "episodes": 500,
+              "success_percent": 73.8,
+              "difference_from_reference_pp": 4.2,
+              "paired_difference_ci95_pp": [
+                -0.6533223262346769,
+                8.911416984690568
+              ],
+              "paired_improvements": 43,
+              "paired_regressions": 22
+            },
             "original_fp": {
               "successes": 374,
               "episodes": 500,
@@ -872,6 +1146,7 @@
     "overlap": 1000,
     "models": [
       "bb_M2_ae_M2_fp32",
+      "a8_studentq",
       "original_fp",
       "a8_raqft"
     ]
@@ -912,6 +1187,10 @@
         "selection": {
           "successes": 741,
           "episodes": 1000
+        },
+        "confirmation": {
+          "successes": 1439,
+          "episodes": 2000
         }
       }
     },
@@ -1082,6 +1361,346 @@
               ],
               "paired_improvements": 37,
               "paired_regressions": 36
+            }
+          }
+        }
+      },
+      "added_1000": {
+        "original_fp": {
+          "reference": "original_fp",
+          "episodes_per_model": 1000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 718,
+              "episodes": 1000,
+              "success_percent": 71.8,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 657,
+              "episodes": 1000,
+              "success_percent": 65.7,
+              "difference_from_reference_pp": -6.1,
+              "paired_difference_ci95_pp": [
+                -10.327251831100384,
+                -1.5263195104482805
+              ],
+              "paired_improvements": 61,
+              "paired_regressions": 122
+            },
+            "a8_raqft": {
+              "successes": 689,
+              "episodes": 1000,
+              "success_percent": 68.89999999999999,
+              "difference_from_reference_pp": -2.9000000000000004,
+              "paired_difference_ci95_pp": [
+                -6.544838740155523,
+                0.7545373978610238
+              ],
+              "paired_improvements": 56,
+              "paired_regressions": 85
+            },
+            "a8_studentq": {
+              "successes": 698,
+              "episodes": 1000,
+              "success_percent": 69.8,
+              "difference_from_reference_pp": -2.0,
+              "paired_difference_ci95_pp": [
+                -5.685868152103376,
+                1.664438407506536
+              ],
+              "paired_improvements": 63,
+              "paired_regressions": 83
+            }
+          }
+        },
+        "bb_M2_ae_M2_fp32": {
+          "reference": "bb_M2_ae_M2_fp32",
+          "episodes_per_model": 1000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 718,
+              "episodes": 1000,
+              "success_percent": 71.8,
+              "difference_from_reference_pp": 6.1,
+              "paired_difference_ci95_pp": [
+                1.5263195104482763,
+                10.327251831100384
+              ],
+              "paired_improvements": 122,
+              "paired_regressions": 61
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 657,
+              "episodes": 1000,
+              "success_percent": 65.7,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "a8_raqft": {
+              "successes": 689,
+              "episodes": 1000,
+              "success_percent": 68.89999999999999,
+              "difference_from_reference_pp": 3.2,
+              "paired_difference_ci95_pp": [
+                -0.025655263141077706,
+                6.6224554144153025
+              ],
+              "paired_improvements": 79,
+              "paired_regressions": 47
+            },
+            "a8_studentq": {
+              "successes": 698,
+              "episodes": 1000,
+              "success_percent": 69.8,
+              "difference_from_reference_pp": 4.1000000000000005,
+              "paired_difference_ci95_pp": [
+                0.7611316024407494,
+                7.839932536149433
+              ],
+              "paired_improvements": 86,
+              "paired_regressions": 45
+            }
+          }
+        },
+        "a8_raqft": {
+          "reference": "a8_raqft",
+          "episodes_per_model": 1000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 718,
+              "episodes": 1000,
+              "success_percent": 71.8,
+              "difference_from_reference_pp": 2.9000000000000004,
+              "paired_difference_ci95_pp": [
+                -0.7545373978610275,
+                6.544838740155519
+              ],
+              "paired_improvements": 85,
+              "paired_regressions": 56
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 657,
+              "episodes": 1000,
+              "success_percent": 65.7,
+              "difference_from_reference_pp": -3.2,
+              "paired_difference_ci95_pp": [
+                -6.622455414415303,
+                0.02565526314107734
+              ],
+              "paired_improvements": 47,
+              "paired_regressions": 79
+            },
+            "a8_raqft": {
+              "successes": 689,
+              "episodes": 1000,
+              "success_percent": 68.89999999999999,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "a8_studentq": {
+              "successes": 698,
+              "episodes": 1000,
+              "success_percent": 69.8,
+              "difference_from_reference_pp": 0.8999999999999999,
+              "paired_difference_ci95_pp": [
+                -1.4627877080481047,
+                3.2845760955600944
+              ],
+              "paired_improvements": 46,
+              "paired_regressions": 37
+            }
+          }
+        }
+      },
+      "combined_2000": {
+        "original_fp": {
+          "reference": "original_fp",
+          "episodes_per_model": 2000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 1483,
+              "episodes": 2000,
+              "success_percent": 74.15,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 1361,
+              "episodes": 2000,
+              "success_percent": 68.05,
+              "difference_from_reference_pp": -6.1,
+              "paired_difference_ci95_pp": [
+                -9.85064329551723,
+                -2.2805390386518267
+              ],
+              "paired_improvements": 119,
+              "paired_regressions": 241
+            },
+            "a8_raqft": {
+              "successes": 1429,
+              "episodes": 2000,
+              "success_percent": 71.45,
+              "difference_from_reference_pp": -2.7,
+              "paired_difference_ci95_pp": [
+                -5.559457548117116,
+                0.1333768245866818
+              ],
+              "paired_improvements": 120,
+              "paired_regressions": 174
+            },
+            "a8_studentq": {
+              "successes": 1439,
+              "episodes": 2000,
+              "success_percent": 71.95,
+              "difference_from_reference_pp": -2.1999999999999997,
+              "paired_difference_ci95_pp": [
+                -5.238538739089425,
+                0.903404172122897
+              ],
+              "paired_improvements": 128,
+              "paired_regressions": 172
+            }
+          }
+        },
+        "bb_M2_ae_M2_fp32": {
+          "reference": "bb_M2_ae_M2_fp32",
+          "episodes_per_model": 2000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 1483,
+              "episodes": 2000,
+              "success_percent": 74.15,
+              "difference_from_reference_pp": 6.1,
+              "paired_difference_ci95_pp": [
+                2.2805390386518263,
+                9.850643295517228
+              ],
+              "paired_improvements": 241,
+              "paired_regressions": 119
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 1361,
+              "episodes": 2000,
+              "success_percent": 68.05,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "a8_raqft": {
+              "successes": 1429,
+              "episodes": 2000,
+              "success_percent": 71.45,
+              "difference_from_reference_pp": 3.4000000000000004,
+              "paired_difference_ci95_pp": [
+                0.9362476046485394,
+                5.85059648511895
+              ],
+              "paired_improvements": 160,
+              "paired_regressions": 92
+            },
+            "a8_studentq": {
+              "successes": 1439,
+              "episodes": 2000,
+              "success_percent": 71.95,
+              "difference_from_reference_pp": 3.9,
+              "paired_difference_ci95_pp": [
+                1.4203181261730031,
+                6.624760393482374
+              ],
+              "paired_improvements": 168,
+              "paired_regressions": 90
+            }
+          }
+        },
+        "a8_raqft": {
+          "reference": "a8_raqft",
+          "episodes_per_model": 2000,
+          "resamples": 2000,
+          "method": "Paired suite-stratified base-task/perturbation-instance bootstrap; fixed original suite weights; pointwise95% conditional on seed7; no multiplicity adjustment.",
+          "policies": {
+            "original_fp": {
+              "successes": 1483,
+              "episodes": 2000,
+              "success_percent": 74.15,
+              "difference_from_reference_pp": 2.7,
+              "paired_difference_ci95_pp": [
+                -0.13337682458668282,
+                5.559457548117116
+              ],
+              "paired_improvements": 174,
+              "paired_regressions": 120
+            },
+            "bb_M2_ae_M2_fp32": {
+              "successes": 1361,
+              "episodes": 2000,
+              "success_percent": 68.05,
+              "difference_from_reference_pp": -3.4000000000000004,
+              "paired_difference_ci95_pp": [
+                -5.8505964851189525,
+                -0.9362476046485395
+              ],
+              "paired_improvements": 92,
+              "paired_regressions": 160
+            },
+            "a8_raqft": {
+              "successes": 1429,
+              "episodes": 2000,
+              "success_percent": 71.45,
+              "difference_from_reference_pp": 0.0,
+              "paired_difference_ci95_pp": [
+                0.0,
+                0.0
+              ],
+              "paired_improvements": 0,
+              "paired_regressions": 0
+            },
+            "a8_studentq": {
+              "successes": 1439,
+              "episodes": 2000,
+              "success_percent": 71.95,
+              "difference_from_reference_pp": 0.5,
+              "paired_difference_ci95_pp": [
+                -1.2773120341520516,
+                2.235781341359551
+              ],
+              "paired_improvements": 83,
+              "paired_regressions": 73
             }
           }
         }
@@ -9148,6 +9767,7 @@
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/original_fp/complete.json": "cfbd9858246d75d0975f36411de702f692d33fe7e02cad05d27f44f679c260da",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/bb_M2_ae_M2_fp32/complete.json": "26da4daacfbead054c5a12107793f7d814bf0db9704179937477b75c02a26ce9",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_raqft/complete.json": "25f1a97a3854359d880a77d79827718e191972222d7362bb01534f618720d56d",
+    "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq/complete.json": "ec08719d03cdf45a2cbc10112750195ce54df9cd7950583cd5662a421584001b",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/base/complete.json": "16d50482ec25a49e106eb6b6b76d945bc5c876e625307b5855ec38d66afcf025",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed"
   },
