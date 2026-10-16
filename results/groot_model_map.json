@@ -4387,162 +4387,162 @@
   {
    "block": 0,
    "kind": "cross-attention over non-image backbone tokens (text/state prompt)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 1,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 2,
    "kind": "cross-attention over image backbone tokens",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 3,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 4,
    "kind": "cross-attention over non-image backbone tokens (text/state prompt)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 5,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 6,
    "kind": "cross-attention over image backbone tokens",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 7,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 8,
    "kind": "cross-attention over non-image backbone tokens (text/state prompt)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 9,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 10,
    "kind": "cross-attention over image backbone tokens",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 11,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 12,
    "kind": "cross-attention over non-image backbone tokens (text/state prompt)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 13,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 14,
    "kind": "cross-attention over image backbone tokens",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 15,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 16,
    "kind": "cross-attention over non-image backbone tokens (text/state prompt)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 17,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 18,
    "kind": "cross-attention over image backbone tokens",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 19,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 20,
    "kind": "cross-attention over non-image backbone tokens (text/state prompt)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 21,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 22,
    "kind": "cross-attention over image backbone tokens",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 23,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 24,
    "kind": "cross-attention over non-image backbone tokens (text/state prompt)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 25,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 26,
    "kind": "cross-attention over image backbone tokens",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 27,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 28,
    "kind": "cross-attention over non-image backbone tokens (text/state prompt)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 29,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 30,
    "kind": "cross-attention over image backbone tokens",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   },
   {
    "block": 31,
    "kind": "self-attention (actions only)",
-   "adaln": "timestep AdaLN (scale, shift) before attention and FFN"
+   "adaln": "timestep AdaLN (norm1: scale, shift) before the attention; the FFN uses a plain LayerNorm (norm3)"
   }
  ]
 }

@@ -1780,6 +1780,170 @@
         "rows": 1211760
       },
       "whole_model_bpw": 2.9225899010064036
+    },
+    "bench": {
+      "device": {
+        "gpu": "NVIDIA L40S",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6"
+      },
+      "rows": {
+        "bf16_original/10": {
+          "prefill": {
+            "median_ms": 35.0600643157959,
+            "p95_ms": 35.54119758605957,
+            "mean_ms": 34.99931400299072,
+            "min_ms": 34.376705169677734,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 3.4344959259033203,
+            "p95_ms": 3.436422312259674,
+            "mean_ms": 3.4325955009460447,
+            "min_ms": 3.4250240325927734,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 68.91262435913086,
+            "p95_ms": 69.15485725402831,
+            "mean_ms": 68.70471786499023,
+            "min_ms": 67.19487762451172,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "graph_vs_policy_infer_max_abs": 5.644494294188007e-08,
+          "memory": {
+            "resident_bytes": 6958362624,
+            "peak_bytes": 7189931520,
+            "reserved_bytes": 7858028544,
+            "install": null
+          },
+          "speedup_vs_bf16_end_to_end": 1.0
+        },
+        "bf16_original/2": {
+          "prefill": {
+            "median_ms": 35.07404899597168,
+            "p95_ms": 35.63315353393555,
+            "mean_ms": 35.0299605178833,
+            "min_ms": 34.30400085449219,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 2.797551989555359,
+            "p95_ms": 2.8263936638832092,
+            "mean_ms": 2.8012854790687562,
+            "min_ms": 2.792448043823242,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 40.022016525268555,
+            "p95_ms": 40.18063201904297,
+            "mean_ms": 40.00592666625977,
+            "min_ms": 39.8100471496582,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "memory": {
+            "resident_bytes": 6484853248,
+            "peak_bytes": 6958411776,
+            "reserved_bytes": 7352614912,
+            "install": null
+          },
+          "speedup_vs_bf16_end_to_end": 1.0
+        },
+        "w2a8_int8_expert/10": {
+          "status": "failed",
+          "error": "pper\n    output = func(self, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/yanlongvla/envs/openpi/lib/python3.11/site-packages/transformers/models/gemma/modeling_gemma.py\", line 506, in forward\n    if len(self.layers) > 0 and self.layers[0].self_attn.q_proj.weight.dtype == torch.bfloat16:\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/_hdd/yanlongvla/research/scripts/vq_linear.py\", line 38, in weight\n    return self._weights[self._mask_values[self._step]]\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyError: 3\n"
+        },
+        "w2a8_int8_expert/2": {
+          "status": "failed",
+          "error": "pper\n    output = func(self, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/yanlongvla/envs/openpi/lib/python3.11/site-packages/transformers/models/gemma/modeling_gemma.py\", line 506, in forward\n    if len(self.layers) > 0 and self.layers[0].self_attn.q_proj.weight.dtype == torch.bfloat16:\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/_hdd/yanlongvla/research/scripts/vq_linear.py\", line 38, in weight\n    return self._weights[self._mask_values[self._step]]\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyError: 3\n"
+        },
+        "w2a8_fused_expert/10": {
+          "status": "failed",
+          "error": "pper\n    output = func(self, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/yanlongvla/envs/openpi/lib/python3.11/site-packages/transformers/models/gemma/modeling_gemma.py\", line 506, in forward\n    if len(self.layers) > 0 and self.layers[0].self_attn.q_proj.weight.dtype == torch.bfloat16:\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/_hdd/yanlongvla/research/scripts/vq_linear.py\", line 38, in weight\n    return self._weights[self._mask_values[self._step]]\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyError: 3\n"
+        },
+        "w2a8_fused_expert/2": {
+          "status": "failed",
+          "error": "pper\n    output = func(self, *args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/yanlongvla/envs/openpi/lib/python3.11/site-packages/transformers/models/gemma/modeling_gemma.py\", line 506, in forward\n    if len(self.layers) > 0 and self.layers[0].self_attn.q_proj.weight.dtype == torch.bfloat16:\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/projects/_hdd/yanlongvla/research/scripts/vq_linear.py\", line 38, in weight\n    return self._weights[self._mask_values[self._step]]\n           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyError: 3\n"
+        },
+        "eval_runtime_bf16_dense_fakequant/10": {
+          "prefill": {
+            "median_ms": 218.70233917236328,
+            "p95_ms": 218.83904953002929,
+            "mean_ms": 218.69706481933594,
+            "min_ms": 218.503173828125,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 10.385408401489258,
+            "p95_ms": 10.390527725219727,
+            "mean_ms": 10.386057329177856,
+            "min_ms": 10.381312370300293,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 322.0708923339844,
+            "p95_ms": 322.19738006591797,
+            "mean_ms": 322.0770687866211,
+            "min_ms": 321.8995056152344,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "graph_vs_policy_infer_max_abs": 2.8882324754064825e-08,
+          "memory": {
+            "resident_bytes": 6648744960,
+            "peak_bytes": 7134298624,
+            "reserved_bytes": 8560574464,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126,
+                "fp_linear": 0
+              }
+            }
+          },
+          "speedup_vs_bf16_end_to_end": 0.21396725379227732
+        },
+        "eval_runtime_bf16_dense_fakequant/2": {
+          "prefill": {
+            "median_ms": 218.05713653564453,
+            "p95_ms": 218.16872940063476,
+            "mean_ms": 218.04680969238282,
+            "min_ms": 217.8723907470703,
+            "n": 100
+          },
+          "expert_step": {
+            "median_ms": 10.389504432678223,
+            "p95_ms": 10.39262580871582,
+            "mean_ms": 10.389459857940674,
+            "min_ms": 10.38435173034668,
+            "n": 100
+          },
+          "end_to_end": {
+            "median_ms": 239.41316986083984,
+            "p95_ms": 239.49206008911133,
+            "mean_ms": 239.41368301391603,
+            "min_ms": 239.3026580810547,
+            "n": 100
+          },
+          "graph_vs_eager_max_abs": 0.0,
+          "memory": {
+            "resident_bytes": 6639724032,
+            "peak_bytes": 7122968576,
+            "reserved_bytes": 8118075392,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126,
+                "fp_linear": 0
+              }
+            }
+          },
+          "speedup_vs_bf16_end_to_end": 0.16716714685550324
+        }
+      },
+      "jetson_orin": "not available on this cluster; not measured"
     }
   },
   "full_Plus": {},
@@ -9769,7 +9933,8 @@
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_raqft/complete.json": "25f1a97a3854359d880a77d79827718e191972222d7362bb01534f618720d56d",
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq/complete.json": "ec08719d03cdf45a2cbc10112750195ce54df9cd7950583cd5662a421584001b",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/base/complete.json": "16d50482ec25a49e106eb6b6b76d945bc5c876e625307b5855ec38d66afcf025",
-    "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed"
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed",
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/complete.json": "0df2149664d5209abb0d1371896cfb2022fb96041086e1ed6c7e6c0940f14d8d"
   },
   "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }
