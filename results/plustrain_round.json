@@ -160,7 +160,7 @@
       "calibration": "a: LIBERO 256",
       "loss": "plain VQ",
       "bpw": 2.9225899010064036,
-      "stage": "reference; Plus running"
+      "stage": "reference; Plus complete"
     }
   ],
   "promotion": {
@@ -2368,6 +2368,18 @@
             "paired_improvements": 53,
             "paired_regressions": 77
           },
+          "story_plain_bb_M2_ae_M2_fp32": {
+            "successes": 702,
+            "episodes": 1000,
+            "success_percent": 70.19999999999999,
+            "difference_from_reference_pp": -6.3,
+            "paired_difference_ci95_pp": [
+              -10.384951069839339,
+              -2.1931820763034855
+            ],
+            "paired_improvements": 52,
+            "paired_regressions": 115
+          },
           "a8_fp": {
             "successes": 763,
             "episodes": 1000,
@@ -2663,6 +2675,18 @@
             ],
             "paired_improvements": 97,
             "paired_regressions": 60
+          },
+          "story_plain_bb_M2_ae_M2_fp32": {
+            "successes": 702,
+            "episodes": 1000,
+            "success_percent": 70.19999999999999,
+            "difference_from_reference_pp": -0.2,
+            "paired_difference_ci95_pp": [
+              -3.1093795207338237,
+              2.6898635850748898
+            ],
+            "paired_improvements": 61,
+            "paired_regressions": 63
           },
           "a8_fp": {
             "successes": 763,
@@ -2962,6 +2986,18 @@
             "paired_improvements": 26,
             "paired_regressions": 38
           },
+          "story_plain_bb_M2_ae_M2_fp32": {
+            "successes": 352,
+            "episodes": 500,
+            "success_percent": 70.39999999999999,
+            "difference_from_reference_pp": -4.0,
+            "paired_difference_ci95_pp": [
+              -9.485981728126301,
+              1.4152799699321978
+            ],
+            "paired_improvements": 27,
+            "paired_regressions": 47
+          },
           "a8_fp": {
             "successes": 370,
             "episodes": 500,
@@ -3257,6 +3293,18 @@
             ],
             "paired_improvements": 46,
             "paired_regressions": 32
+          },
+          "story_plain_bb_M2_ae_M2_fp32": {
+            "successes": 352,
+            "episodes": 500,
+            "success_percent": 70.39999999999999,
+            "difference_from_reference_pp": 1.2,
+            "paired_difference_ci95_pp": [
+              -3.345742507275483,
+              5.526212763672978
+            ],
+            "paired_improvements": 32,
+            "paired_regressions": 26
           },
           "a8_fp": {
             "successes": 370,
@@ -3556,6 +3604,18 @@
             "paired_improvements": 27,
             "paired_regressions": 39
           },
+          "story_plain_bb_M2_ae_M2_fp32": {
+            "successes": 350,
+            "episodes": 500,
+            "success_percent": 70.0,
+            "difference_from_reference_pp": -8.6,
+            "paired_difference_ci95_pp": [
+              -14.459992012830863,
+              -3.345764451802774
+            ],
+            "paired_improvements": 25,
+            "paired_regressions": 68
+          },
           "a8_fp": {
             "successes": 393,
             "episodes": 500,
@@ -3851,6 +3911,18 @@
             ],
             "paired_improvements": 51,
             "paired_regressions": 28
+          },
+          "story_plain_bb_M2_ae_M2_fp32": {
+            "successes": 350,
+            "episodes": 500,
+            "success_percent": 70.0,
+            "difference_from_reference_pp": -1.6,
+            "paired_difference_ci95_pp": [
+              -6.425613096141807,
+              3.1876258880568367
+            ],
+            "paired_improvements": 29,
+            "paired_regressions": 37
           },
           "a8_fp": {
             "successes": 393,
@@ -9987,6 +10059,15 @@
         8.063520714472382
       ],
       "passes": true
+    },
+    "story_plain_bb_M2_ae_M2_fp32": {
+      "successes": 702,
+      "gain": -2,
+      "ci95_pp": [
+        -3.1093795207338237,
+        2.6898635850748898
+      ],
+      "passes": false
     }
   },
   "source_sha256": {
@@ -10066,6 +10147,10 @@
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/episodes.jsonl": "8a76058bc61d4eeacefed6b83d92e2f9d2324f885ad79123c3f9307eb39adbda",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/manifest.json": "4cba06195162c859f5e71948369139cca88d21247618078ab698850a02887363",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/bb_M3_ae_M2_fp32/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/story_plain_bb_M2_ae_M2_fp32/complete.json": "b29175aaf256136c06be73b9a97725ae08ca595101c7205e801e74a389f76073",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/story_plain_bb_M2_ae_M2_fp32/episodes.jsonl": "f19cf494b9bc143099e4c43bac53fa7e80b79615e7ba28b5cb40acd4d0d2f1d3",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/story_plain_bb_M2_ae_M2_fp32/manifest.json": "e39fdffc648db59d37ef9e6c496b3dd951161b958817a8ab75eda0bd971707d1",
+    "/projects/yanlongvla/runs/plustrain_20261008/selection/story_plain_bb_M2_ae_M2_fp32/reuse.json": "8a5d8a3f9894b98c64235f83e2983b1c71dab4061166799cc34553f60ec4a328",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_fp/complete.json": "841a18b438d975b83d3aab43f69799e103fffddccac398ac2329730473048633",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_fp/episodes.jsonl": "6a57fac5b030f9499ff2b2dceda68d0728d7ce5e15d06e967a2f8506db80f07a",
     "/projects/yanlongvla/runs/plustrain_20261008/selection/a8_fp/manifest.json": "18d7744a6ce1bfefcc256bfe04c070863cc7da2c9382c5befcb629a980fb3798",
