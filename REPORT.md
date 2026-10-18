@@ -15,7 +15,7 @@ C5 (demo-replay perturbation pipeline) is replaced by calibration on the officia
 | P2 RAQ-FT v2 on original 2-bit (v1 diverged, E089) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 739 | -2.60 [-6.37,+1.39] | +3.50 [+0.49,+6.69] | 974 | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 control on C2 (3-bit deep layers) | 3.0542 | a: LIBERO 256 | readout + 0.1 H5b | 743 | -2.20 [-5.80,+1.52] | +3.90 [+0.78,+7.33] | — | fine-tuned; Plus complete |
 | P2 RAQ-FT v2 coverage row | 2.9226 | c: 128 LIBERO + 128 Plus-train | readout + 0.1 H5b | 741 | -2.40 [-6.53,+1.83] | +3.70 [+0.47,+7.08] | — | fine-tuned; Plus complete |
-| F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 738 | -2.70 [-6.86,+1.16] | +3.40 [-0.26,+7.06] | — | fine-tuned; Plus complete |
+| F1 RAQ-FT v2, second quantization seed (signs/k-means/latents 20261010) | 2.9226 | a: LIBERO 256 | readout + 0.1 H5b | 738 | -2.70 [-6.86,+1.16] | +3.40 [-0.26,+7.06] | 977 | fine-tuned; Plus complete |
 | F2 ablation: β = 0 (readout only) | 2.9226 | a: LIBERO 256 | readout | 737 | -2.80 [-6.51,+1.17] | +3.30 [-0.01,+6.76] | — | fine-tuned; Plus complete |
 | F2 ablation: readout on layers 14–17 only | 2.9226 | a: LIBERO 256 | readout(14–17) + 0.1 H5b | 738 | -2.70 [-6.71,+1.22] | +3.40 [-0.01,+6.97] | — | fine-tuned; Plus complete |
 | F2 ablation: quantized-model queries (no teacher forcing) | 2.9226 | a: LIBERO 256 | readout(student q) + 0.1 H5b | 749 | -1.60 [-5.46,+2.20] | +4.50 [+1.35,+7.86] | — | fine-tuned; Plus complete |
@@ -232,7 +232,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-18 07:09 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-18 08:31 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 
