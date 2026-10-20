@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-20",
+  "model": "nvidia/GR00T-N1.7-LIBERO (per-suite checkpoints, SHA-verified shards, backbone config nvidia/Cosmos-Reason2-2B)",
+  "protocol": {
+    "medium": "LIBERO 4 suites x 10 tasks x 25 episodes, seed 7, init states in order, 10 settle steps, step limits 220/280/300/520, GR00T-native 256x256 inputs, 8 of 16 actions per call; RTX 6000 Ada",
+    "plus": "pi0.5 Plus selection subset (500 camera + 500 robot-initial-state instances), same seeds/noise as the pi0.5 rows"
+  },
+  "ptq": {
+    "recipe": "pi0.5 plain-VQ: RHT + layer-Hessian GPTQ-encoded 2x256x8 RVQ, FP16 row scale; calibration 256 LIBERO training observations; DiT Hessians over 4 flow steps",
+    "quantized": "backbone 216 Linear (vision tower + LLM layers 0-15; identical across suites, fitted once) + action head 216 Linear per suite (vl_self_attention 24 + DiT attention/FFN 192); AdaLN linears / proj_out_1 (timestep-only) and encoders/embeddings kept"
+  },
+  "medium": {
+    "groot_n17_fp": {
+      "successes": 949,
+      "per_suite": {
+        "libero_spatial": 247,
+        "libero_object": 239,
+        "libero_goal": 240,
+        "libero_10": 223
+      },
+      "excluding_libero10_tasks8_9": 912,
+      "gpu": "NVIDIA RTX 6000 Ada Generation"
+    },
+    "groot_n17_ptq_w2": {
+      "successes": 872,
+      "per_suite": {
+        "libero_spatial": 237,
+        "libero_object": 235,
+        "libero_goal": 220,
+        "libero_10": 180
+      },
+      "excluding_libero10_tasks8_9": 848,
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "accounting": {
+        "quantized_layers": 432,
+        "quantized_parameters": 2340421632,
+        "quantized_linear_bpw": 2.0230882432725696,
+        "whole_model_bpw": 5.595515218752068,
+        "note": "retained = all other inference tensors at stored BF16 (embedding not int8 here; AdaLN linears not replaced by tables) - conservative"
+      },
+      "paired_vs_fp": {
+        "all_tasks": {
+          "difference_pp": -7.7,
+          "ci95_pp": [
+            -11.90250000000002,
+            -3.799999999999997
+          ]
+        },
+        "excluding_libero10_tasks8_9": {
+          "difference_pp": -6.7368421052631575,
+          "ci95_pp": [
+            -10.736842105263165,
+            -3.2631578947368634
+          ]
+        }
+      }
+    },
+    "groot_n17_ptq_head": {
+      "successes": 917,
+      "per_suite": {
+        "libero_spatial": 243,
+        "libero_object": 244,
+        "libero_goal": 234,
+        "libero_10": 196
+      },
+      "excluding_libero10_tasks8_9": 886,
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "accounting": {
+        "quantized_layers": 216,
+        "quantized_parameters": 1132462080,
+        "quantized_linear_bpw": 2.0235684995298033,
+        "whole_model_bpw": 10.965744866438339,
+        "note": "retained = all other inference tensors at stored BF16 (embedding not int8 here; AdaLN linears not replaced by tables) - conservative"
+      },
+      "paired_vs_fp": {
+        "all_tasks": {
+          "difference_pp": -3.2,
+          "ci95_pp": [
+            -6.5,
+            -0.10000000000000853
+          ]
+        },
+        "excluding_libero10_tasks8_9": {
+          "difference_pp": -2.736842105263158,
+          "ci95_pp": [
+            -5.894736842105246,
+            0.10526315789472562
+          ]
+        }
+      }
+    },
+    "groot_n17_ptq_bb": {
+      "successes": 927,
+      "per_suite": {
+        "libero_spatial": 241,
+        "libero_object": 245,
+        "libero_goal": 230,
+        "libero_10": 211
+      },
+      "excluding_libero10_tasks8_9": 896,
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "accounting": {
+        "quantized_layers": 216,
+        "quantized_parameters": 1207959552,
+        "quantized_linear_bpw": 2.0226380030314126,
+        "whole_model_bpw": 10.629770352313729,
+        "note": "retained = all other inference tensors at stored BF16 (embedding not int8 here; AdaLN linears not replaced by tables) - conservative"
+      },
+      "paired_vs_fp": {
+        "all_tasks": {
+          "difference_pp": -2.1999999999999997,
+          "ci95_pp": [
+            -4.6000000000000085,
+            0.19999999999998863
+          ]
+        },
+        "excluding_libero10_tasks8_9": {
+          "difference_pp": -1.6842105263157894,
+          "ci95_pp": [
+            -4.0,
+            0.526315789473685
+          ]
+        }
+      }
+    },
+    "head_only_minus_backbone_only": {
+      "difference_pp": -1.0,
+      "ci95_pp": [
+        -4.3999999999999915,
+        2.199999999999989
+      ]
+    }
+  },
+  "plus": {},
+  "fits": {
+    "backbone": {
+      "layers": 216,
+      "parameters": 1207959552,
+      "payload_bytes": 305408112,
+      "linear_bpw": 2.0226380030314126,
+      "relative_weight_mse_mean": 0.1552219672680453,
+      "hessian_relative_error_mean": 0.0066278243064840795
+    },
+    "head_libero_spatial": {
+      "layers": 216,
+      "parameters": 1132462080,
+      "payload_bytes": 286451824,
+      "linear_bpw": 2.0235684995298033,
+      "relative_weight_mse_mean": 0.16453630308172218,
+      "hessian_relative_error_mean": 0.006043744299850678
+    },
+    "head_libero_object": {
+      "layers": 216,
+      "parameters": 1132462080,
+      "payload_bytes": 286451824,
+      "linear_bpw": 2.0235684995298033,
+      "relative_weight_mse_mean": 0.16333481655628593,
+      "hessian_relative_error_mean": 0.005634091197392805
+    },
+    "head_libero_goal": {
+      "layers": 216,
+      "parameters": 1132462080,
+      "payload_bytes": 286451824,
+      "linear_bpw": 2.0235684995298033,
+      "relative_weight_mse_mean": 0.1633465815404499,
+      "hessian_relative_error_mean": 0.00610806746615506
+    },
+    "head_libero_10": {
+      "layers": 216,
+      "parameters": 1132462080,
+      "payload_bytes": 286451824,
+      "linear_bpw": 2.0235684995298033,
+      "relative_weight_mse_mean": 0.1661294768391936,
+      "hessian_relative_error_mean": 0.0063020695801983325
+    }
+  },
+  "source_sha256": {
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_fp/medium/complete.json": "2e839f1e2ee75a14fbff5cbd578261c5fe5ec5217429f0e2e7232373edf1d0cd",
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_w2/medium/complete.json": "53dab70c9f304656902692053395e9c61c57bb0234cdbae53024e53acdf44144",
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_head/medium/complete.json": "a8031e7e3cef3e64886c819d8f8d8b43f0ad46894b4320c98e80a1e77617411c",
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_bb/medium/complete.json": "a412d99e9d7e6d182f00043adae51dbbbeb670ab17dfb680a8849c9330093a01"
+  }
+}
