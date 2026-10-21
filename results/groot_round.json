@@ -131,7 +131,116 @@
       ]
     }
   },
-  "plus": {},
+  "plus": {
+    "groot_n17_fp": {
+      "successes": 618,
+      "per_category": {
+        "Camera Viewpoints": [
+          326,
+          500
+        ],
+        "Robot Initial States": [
+          292,
+          500
+        ]
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation"
+    },
+    "groot_n17_ptq_w2": {
+      "successes": 486,
+      "per_category": {
+        "Camera Viewpoints": [
+          257,
+          500
+        ],
+        "Robot Initial States": [
+          229,
+          500
+        ]
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "paired_vs_fp": {
+        "difference_pp": -13.200000000000001,
+        "ci95_pp": [
+          -18.30577088982117,
+          -8.227119232042059
+        ]
+      }
+    },
+    "groot_n17_ptq_head": {
+      "successes": 519,
+      "per_category": {
+        "Camera Viewpoints": [
+          271,
+          500
+        ],
+        "Robot Initial States": [
+          248,
+          500
+        ]
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "paired_vs_fp": {
+        "difference_pp": -9.9,
+        "ci95_pp": [
+          -14.34388285133359,
+          -5.078062060583394
+        ]
+      }
+    },
+    "by_category/Camera Viewpoints": {
+      "groot_n17_fp": {
+        "successes": 326,
+        "difference_pp": 0.0,
+        "ci95_pp": [
+          0.0,
+          0.0
+        ]
+      },
+      "groot_n17_ptq_w2": {
+        "successes": 257,
+        "difference_pp": -13.8,
+        "ci95_pp": [
+          -20.884269993552905,
+          -7.163567725391305
+        ]
+      },
+      "groot_n17_ptq_head": {
+        "successes": 271,
+        "difference_pp": -11.0,
+        "ci95_pp": [
+          -18.052683277500503,
+          -4.167749494121477
+        ]
+      }
+    },
+    "by_category/Robot Initial States": {
+      "groot_n17_fp": {
+        "successes": 292,
+        "difference_pp": 0.0,
+        "ci95_pp": [
+          0.0,
+          0.0
+        ]
+      },
+      "groot_n17_ptq_w2": {
+        "successes": 229,
+        "difference_pp": -12.6,
+        "ci95_pp": [
+          -19.627931722859074,
+          -5.956886398809525
+        ]
+      },
+      "groot_n17_ptq_head": {
+        "successes": 248,
+        "difference_pp": -8.799999999999999,
+        "ci95_pp": [
+          -14.762320643935665,
+          -3.132863674628051
+        ]
+      }
+    }
+  },
   "fits": {
     "backbone": {
       "layers": 216,
@@ -176,8 +285,11 @@
   },
   "source_sha256": {
     "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_fp/medium/complete.json": "2e839f1e2ee75a14fbff5cbd578261c5fe5ec5217429f0e2e7232373edf1d0cd",
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_fp/plus/complete.json": "2ffd7dccef34898879b6fbcd54e81f259be772e62f48269edd2c4d9f3e92398b",
     "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_w2/medium/complete.json": "53dab70c9f304656902692053395e9c61c57bb0234cdbae53024e53acdf44144",
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_w2/plus/complete.json": "82bc967cd1c8268db175587a330e5c511884b35e88ffb925ef50f8184224a7ad",
     "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_head/medium/complete.json": "a8031e7e3cef3e64886c819d8f8d8b43f0ad46894b4320c98e80a1e77617411c",
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_head/plus/complete.json": "160a85e635391fb2a88ba15c53a2b227771ffa550ea0a8d1d5c14a3bb603d5b3",
     "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_bb/medium/complete.json": "a412d99e9d7e6d182f00043adae51dbbbeb670ab17dfb680a8849c9330093a01"
   }
 }
