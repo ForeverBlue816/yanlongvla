@@ -92,14 +92,10 @@ Grid snap None → bb_M2_ae_M2_int8grid: 414 layers, gain 16.36–36.91, max |in
 
 | Row | steps | prefill ms (med / p95) | expert ms/step (med / p95) | end-to-end ms (med / p95) | speedup vs BF16 | resident GB | peak GB |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| bf16_original | 10 | 52.4 / 53.3 | 3.41 / 3.43 | 83.9 / 84.6 | 1.00x | 6.96 | 7.19 |
-| bf16_original | 2 | 52.7 / 53.3 | 2.70 / 2.72 | 56.7 / 57.8 | 1.00x | 6.48 | 6.96 |
-| w2a8_int8_expert | 10 | 52.2 / 52.7 | 4.12 / 4.12 | 96.3 / 96.8 | 0.87x | 4.04 | 6.92 |
-| w2a8_int8_expert | 2 | 52.2 / 52.6 | 4.12 / 4.12 | 59.8 / 60.1 | 0.95x | 4.03 | 6.73 |
-| w2a8_fused_expert | 10 | 52.0 / 52.5 | 4.44 / 4.44 | 99.8 / 100.2 | 0.84x | 3.74 | 6.92 |
-| w2a8_fused_expert | 2 | 52.2 / 52.6 | 4.45 / 4.45 | 59.8 / 60.0 | 0.95x | 3.74 | 6.73 |
-| eval_runtime_bf16_dense_fakequant | 10 | 236.5 / 237.0 | 9.74 / 9.75 | 334.8 / 335.2 | 0.25x | 6.65 | 7.13 |
-| eval_runtime_bf16_dense_fakequant | 2 | 236.0 / 236.6 | 9.74 / 9.76 | 255.9 / 256.3 | 0.22x | 6.64 | 7.12 |
+| w2a8_int8_expert_fusedact | 10 | 172.7 / 172.8 | 5.55 / 5.57 | 228.8 / 229.0 | nanx | 4.04 | 6.92 |
+| w2a8_int8_expert_fusedact | 2 | 172.7 / 172.9 | 5.56 / 5.57 | 184.3 / 184.5 | nanx | 4.03 | 6.73 |
+| w2a8_fused_expert_fusedact | 10 | 172.7 / 172.9 | 5.89 / 5.90 | 232.3 / 232.5 | nanx | 3.74 | 6.92 |
+| w2a8_fused_expert_fusedact | 2 | 172.7 / 172.8 | 5.88 / 5.89 | 185.0 / 185.2 | nanx | 3.74 | 6.73 |
 Jetson Orin: not available on this cluster; not measured.
 
 Efficiency (final row, analytic, FINAL_2026-10-14 item 6): storage = 1.225 GB; whole-model bpw = 2.9226; linear bpw = 2.0201; weight bytes read / inference (INT8-decoded, 10 steps) = 5.565 GB; same, 2 steps = 3.035 GB; BF16 reference (10 steps) = 17.434 GB; resident INT8-decoded backbone = 2.930 GB; resident INT8-decoded model = 3.247 GB; BF16 model = 6.421 GB. Latency measurements are handed to Ethan.
@@ -232,7 +228,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-21 11:37 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-21 12:12 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

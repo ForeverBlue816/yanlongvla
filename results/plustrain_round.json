@@ -1788,97 +1788,34 @@
         "cuda": "12.6"
       },
       "rows": {
-        "bf16_original/10": {
+        "w2a8_int8_expert_fusedact/10": {
           "prefill": {
-            "median_ms": 52.44620704650879,
-            "p95_ms": 53.29065074920654,
-            "mean_ms": 52.413243255615235,
-            "min_ms": 48.23654556274414,
+            "median_ms": 172.67967987060547,
+            "p95_ms": 172.8261573791504,
+            "mean_ms": 172.68692153930664,
+            "min_ms": 172.4866485595703,
             "n": 100
           },
           "expert_step": {
-            "median_ms": 3.414016008377075,
-            "p95_ms": 3.4263041019439697,
-            "mean_ms": 3.416620488166809,
-            "min_ms": 3.408895969390869,
+            "median_ms": 5.554175853729248,
+            "p95_ms": 5.565196919441223,
+            "mean_ms": 5.5563782119750975,
+            "min_ms": 5.547840118408203,
             "n": 100
           },
           "end_to_end": {
-            "median_ms": 83.88659286499023,
-            "p95_ms": 84.60926399230956,
-            "mean_ms": 83.80428955078125,
-            "min_ms": 74.97625732421875,
+            "median_ms": 228.83729553222656,
+            "p95_ms": 229.04888763427735,
+            "mean_ms": 228.8361265563965,
+            "min_ms": 228.51890563964844,
             "n": 100
           },
-          "graph_vs_eager_max_abs": 0.0,
-          "graph_vs_policy_infer_max_abs": 5.8472394925956905e-08,
+          "graph_vs_eager_max_abs": 0.0020710527896881104,
+          "graph_vs_policy_infer_max_abs": 0.0023063782176375724,
           "memory": {
-            "resident_bytes": 6958362624,
-            "peak_bytes": 7189931520,
-            "reserved_bytes": 7858028544,
-            "install": null
-          },
-          "speedup_vs_bf16_end_to_end": 1.0
-        },
-        "bf16_original/2": {
-          "prefill": {
-            "median_ms": 52.70220756530762,
-            "p95_ms": 53.27897644042969,
-            "mean_ms": 52.54262981414795,
-            "min_ms": 47.98767852783203,
-            "n": 100
-          },
-          "expert_step": {
-            "median_ms": 2.6961920261383057,
-            "p95_ms": 2.7150335073471066,
-            "mean_ms": 2.701466565132141,
-            "min_ms": 2.690880060195923,
-            "n": 100
-          },
-          "end_to_end": {
-            "median_ms": 56.72038459777832,
-            "p95_ms": 57.755751037597655,
-            "mean_ms": 56.711051292419434,
-            "min_ms": 55.54790496826172,
-            "n": 100
-          },
-          "graph_vs_eager_max_abs": 0.0,
-          "memory": {
-            "resident_bytes": 6484853248,
-            "peak_bytes": 6958411776,
-            "reserved_bytes": 7352614912,
-            "install": null
-          },
-          "speedup_vs_bf16_end_to_end": 1.0
-        },
-        "w2a8_int8_expert/10": {
-          "prefill": {
-            "median_ms": 52.164608001708984,
-            "p95_ms": 52.651265716552736,
-            "mean_ms": 51.91978309631347,
-            "min_ms": 49.87187194824219,
-            "n": 100
-          },
-          "expert_step": {
-            "median_ms": 4.117504119873047,
-            "p95_ms": 4.123648166656494,
-            "mean_ms": 4.118398084640503,
-            "min_ms": 4.112383842468262,
-            "n": 100
-          },
-          "end_to_end": {
-            "median_ms": 96.31744003295898,
-            "p95_ms": 96.78967018127442,
-            "mean_ms": 95.62826881408691,
-            "min_ms": 88.25548553466797,
-            "n": 100
-          },
-          "graph_vs_eager_max_abs": 0.0,
-          "graph_vs_policy_infer_max_abs": 2.7692317994265636e-08,
-          "memory": {
-            "resident_bytes": 4040356352,
+            "resident_bytes": 4040541696,
             "peak_bytes": 6916455424,
-            "reserved_bytes": 5330960384,
+            "reserved_bytes": 5349834752,
             "install": {
               "sites": {
                 "backbone": 288,
@@ -1890,38 +1827,38 @@
                 "expert_code_bytes": 0,
                 "scale_bytes": 2423520
               },
-              "expert_mode": "int8"
+              "expert_mode": "int8",
+              "act_mode": "fused"
             }
-          },
-          "speedup_vs_bf16_end_to_end": 0.8709387711746178
+          }
         },
-        "w2a8_int8_expert/2": {
+        "w2a8_int8_expert_fusedact/2": {
           "prefill": {
-            "median_ms": 52.178287506103516,
-            "p95_ms": 52.5809139251709,
-            "mean_ms": 51.950177421569826,
-            "min_ms": 49.93417739868164,
+            "median_ms": 172.68685150146484,
+            "p95_ms": 172.87372131347655,
+            "mean_ms": 172.69073776245116,
+            "min_ms": 172.45388793945312,
             "n": 100
           },
           "expert_step": {
-            "median_ms": 4.116336107254028,
-            "p95_ms": 4.124671936035156,
-            "mean_ms": 4.11742591381073,
-            "min_ms": 4.111199855804443,
+            "median_ms": 5.557248115539551,
+            "p95_ms": 5.568472123146057,
+            "mean_ms": 5.558259530067444,
+            "min_ms": 5.553152084350586,
             "n": 100
           },
           "end_to_end": {
-            "median_ms": 59.847679138183594,
-            "p95_ms": 60.10643539428711,
-            "mean_ms": 59.86093364715576,
-            "min_ms": 59.43705749511719,
+            "median_ms": 184.34490966796875,
+            "p95_ms": 184.53719253540038,
+            "mean_ms": 184.35648468017578,
+            "min_ms": 184.12950134277344,
             "n": 100
           },
-          "graph_vs_eager_max_abs": 0.0,
+          "graph_vs_eager_max_abs": 0.00614619255065918,
           "memory": {
-            "resident_bytes": 4032965120,
-            "peak_bytes": 6728106496,
-            "reserved_bytes": 5198839808,
+            "resident_bytes": 4033150464,
+            "peak_bytes": 6728148480,
+            "reserved_bytes": 5217714176,
             "install": {
               "sites": {
                 "backbone": 288,
@@ -1933,39 +1870,39 @@
                 "expert_code_bytes": 0,
                 "scale_bytes": 2423520
               },
-              "expert_mode": "int8"
+              "expert_mode": "int8",
+              "act_mode": "fused"
             }
-          },
-          "speedup_vs_bf16_end_to_end": 0.9477457674977738
+          }
         },
-        "w2a8_fused_expert/10": {
+        "w2a8_fused_expert_fusedact/10": {
           "prefill": {
-            "median_ms": 52.03200149536133,
-            "p95_ms": 52.52713680267334,
-            "mean_ms": 51.80775096893311,
-            "min_ms": 49.66912078857422,
+            "median_ms": 172.70220947265625,
+            "p95_ms": 172.8664535522461,
+            "mean_ms": 172.70155807495118,
+            "min_ms": 172.3934783935547,
             "n": 100
           },
           "expert_step": {
-            "median_ms": 4.438015937805176,
-            "p95_ms": 4.444058990478515,
-            "mean_ms": 4.438839721679687,
-            "min_ms": 4.429823875427246,
+            "median_ms": 5.890048027038574,
+            "p95_ms": 5.899185657501221,
+            "mean_ms": 5.891257553100586,
+            "min_ms": 5.883903980255127,
             "n": 100
           },
           "end_to_end": {
-            "median_ms": 99.84609603881836,
-            "p95_ms": 100.18321075439454,
-            "mean_ms": 99.76212364196778,
-            "min_ms": 91.28550720214844,
+            "median_ms": 232.2753448486328,
+            "p95_ms": 232.4656005859375,
+            "mean_ms": 232.27712417602538,
+            "min_ms": 232.00344848632812,
             "n": 100
           },
-          "graph_vs_eager_max_abs": 0.0,
-          "graph_vs_policy_infer_max_abs": 2.7692317994265636e-08,
+          "graph_vs_eager_max_abs": 0.002511143684387207,
+          "graph_vs_policy_infer_max_abs": 0.0024243974163532522,
           "memory": {
-            "resident_bytes": 3742743552,
+            "resident_bytes": 3742928896,
             "peak_bytes": 6916455424,
-            "reserved_bytes": 5167382528,
+            "reserved_bytes": 5184159744,
             "install": {
               "sites": {
                 "backbone": 288,
@@ -1977,38 +1914,38 @@
                 "expert_code_bytes": 78372864,
                 "scale_bytes": 2423520
               },
-              "expert_mode": "fused"
+              "expert_mode": "fused",
+              "act_mode": "fused"
             }
-          },
-          "speedup_vs_bf16_end_to_end": 0.8401589665796912
+          }
         },
-        "w2a8_fused_expert/2": {
+        "w2a8_fused_expert_fusedact/2": {
           "prefill": {
-            "median_ms": 52.17638397216797,
-            "p95_ms": 52.61373291015625,
-            "mean_ms": 51.93292755126953,
-            "min_ms": 49.95481491088867,
+            "median_ms": 172.6755828857422,
+            "p95_ms": 172.83615112304688,
+            "mean_ms": 172.67530395507814,
+            "min_ms": 172.45376586914062,
             "n": 100
           },
           "expert_step": {
-            "median_ms": 4.4462080001831055,
-            "p95_ms": 4.454451251029968,
-            "mean_ms": 4.446958050727845,
-            "min_ms": 4.438687801361084,
+            "median_ms": 5.88375997543335,
+            "p95_ms": 5.894854283332824,
+            "mean_ms": 5.884918756484986,
+            "min_ms": 5.875584125518799,
             "n": 100
           },
           "end_to_end": {
-            "median_ms": 59.84563064575195,
-            "p95_ms": 60.01592445373535,
-            "mean_ms": 59.85431804656982,
-            "min_ms": 59.69203186035156,
+            "median_ms": 185.02289581298828,
+            "p95_ms": 185.20086517333985,
+            "mean_ms": 185.02492340087892,
+            "min_ms": 184.77772521972656,
             "n": 100
           },
           "graph_vs_eager_max_abs": 0.0,
           "memory": {
-            "resident_bytes": 3736230400,
-            "peak_bytes": 6728106496,
-            "reserved_bytes": 4670357504,
+            "resident_bytes": 3736415744,
+            "peak_bytes": 6728148480,
+            "reserved_bytes": 4687134720,
             "install": {
               "sites": {
                 "backbone": 288,
@@ -2020,85 +1957,10 @@
                 "expert_code_bytes": 78372864,
                 "scale_bytes": 2423520
               },
-              "expert_mode": "fused"
+              "expert_mode": "fused",
+              "act_mode": "fused"
             }
-          },
-          "speedup_vs_bf16_end_to_end": 0.9477782084631524
-        },
-        "eval_runtime_bf16_dense_fakequant/10": {
-          "prefill": {
-            "median_ms": 236.47016143798828,
-            "p95_ms": 237.01341705322267,
-            "mean_ms": 236.4582144165039,
-            "min_ms": 235.37152099609375,
-            "n": 100
-          },
-          "expert_step": {
-            "median_ms": 9.740287780761719,
-            "p95_ms": 9.7547203540802,
-            "mean_ms": 9.741932382583618,
-            "min_ms": 9.727999687194824,
-            "n": 100
-          },
-          "end_to_end": {
-            "median_ms": 334.77667236328125,
-            "p95_ms": 335.2093215942383,
-            "mean_ms": 334.7563150024414,
-            "min_ms": 334.1352844238281,
-            "n": 100
-          },
-          "graph_vs_eager_max_abs": 0.0,
-          "graph_vs_policy_infer_max_abs": 2.6756644233572047e-08,
-          "memory": {
-            "resident_bytes": 6648744960,
-            "peak_bytes": 7134298624,
-            "reserved_bytes": 8560574464,
-            "install": {
-              "sites": {
-                "backbone": 288,
-                "expert": 126,
-                "fp_linear": 0
-              }
-            }
-          },
-          "speedup_vs_bf16_end_to_end": 0.2505747854915085
-        },
-        "eval_runtime_bf16_dense_fakequant/2": {
-          "prefill": {
-            "median_ms": 236.0012664794922,
-            "p95_ms": 236.6374839782715,
-            "mean_ms": 236.0474006652832,
-            "min_ms": 234.5900115966797,
-            "n": 100
-          },
-          "expert_step": {
-            "median_ms": 9.744383811950684,
-            "p95_ms": 9.761735963821412,
-            "mean_ms": 9.746351041793822,
-            "min_ms": 9.73516845703125,
-            "n": 100
-          },
-          "end_to_end": {
-            "median_ms": 255.8806610107422,
-            "p95_ms": 256.32330322265625,
-            "mean_ms": 255.91333282470703,
-            "min_ms": 255.36175537109375,
-            "n": 100
-          },
-          "graph_vs_eager_max_abs": 0.0,
-          "memory": {
-            "resident_bytes": 6639724032,
-            "peak_bytes": 7122968576,
-            "reserved_bytes": 8118075392,
-            "install": {
-              "sites": {
-                "backbone": 288,
-                "expert": 126,
-                "fp_linear": 0
-              }
-            }
-          },
-          "speedup_vs_bf16_end_to_end": 0.22166733653778206
+          }
         }
       },
       "jetson_orin": "not available on this cluster; not measured"
@@ -10350,7 +10212,7 @@
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq/complete.json": "ec08719d03cdf45a2cbc10112750195ce54df9cd7950583cd5662a421584001b",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/base/complete.json": "16d50482ec25a49e106eb6b6b76d945bc5c876e625307b5855ec38d66afcf025",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed",
-    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/complete.json": "d9cddd31536998bc17a2d1ac0d77041d8f48609f98b5fd80848d0e1d5642c785"
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/complete.json": "d07c11984d3bae55f034073362807a7eccb74b5be24aed8363872f6b38171338"
   },
   "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }
