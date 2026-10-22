@@ -188,6 +188,27 @@
         ]
       }
     },
+    "groot_n17_ptq_bb": {
+      "successes": 569,
+      "per_category": {
+        "Camera Viewpoints": [
+          288,
+          500
+        ],
+        "Robot Initial States": [
+          281,
+          500
+        ]
+      },
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "paired_vs_fp": {
+        "difference_pp": -4.9,
+        "ci95_pp": [
+          -9.528836034607458,
+          -0.4018043242019891
+        ]
+      }
+    },
     "by_category/Camera Viewpoints": {
       "groot_n17_fp": {
         "successes": 326,
@@ -211,6 +232,14 @@
         "ci95_pp": [
           -18.052683277500503,
           -4.167749494121477
+        ]
+      },
+      "groot_n17_ptq_bb": {
+        "successes": 288,
+        "difference_pp": -7.6,
+        "ci95_pp": [
+          -15.196977273474644,
+          -0.7301188965576831
         ]
       }
     },
@@ -237,6 +266,14 @@
         "ci95_pp": [
           -14.762320643935665,
           -3.132863674628051
+        ]
+      },
+      "groot_n17_ptq_bb": {
+        "successes": 281,
+        "difference_pp": -2.1999999999999997,
+        "ci95_pp": [
+          -7.267867081789921,
+          3.165806186070324
         ]
       }
     }
@@ -290,6 +327,7 @@
     "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_w2/plus/complete.json": "82bc967cd1c8268db175587a330e5c511884b35e88ffb925ef50f8184224a7ad",
     "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_head/medium/complete.json": "a8031e7e3cef3e64886c819d8f8d8b43f0ad46894b4320c98e80a1e77617411c",
     "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_head/plus/complete.json": "160a85e635391fb2a88ba15c53a2b227771ffa550ea0a8d1d5c14a3bb603d5b3",
-    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_bb/medium/complete.json": "a412d99e9d7e6d182f00043adae51dbbbeb670ab17dfb680a8849c9330093a01"
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_bb/medium/complete.json": "a412d99e9d7e6d182f00043adae51dbbbeb670ab17dfb680a8849c9330093a01",
+    "/projects/yanlongvla/runs/plustrain_20261008/groot/groot_n17_ptq_bb/plus/complete.json": "5d78fc5617097d35894cff45fc06140007032a7d815910ca2f9a7916dd8cb5b1"
   }
 }

@@ -1327,3 +1327,7 @@ GR00T Plus (same units/seeds as π0.5, RTX 6000 Ada): FP 618/1000 (camera 326, r
 ### E125 — INT8 fusion Day 2: Triton F1 kernel reverted (parity 1.90, 10x slower); lean expert path queued (2026-10-21 05:10 UTC)
 
 Details in INT8_FUSION_2026-10-20.md. Existing INT8 kernels vs fake-quant W2A8: max |ΔA| 0.027, relative MSE 6.7e-6 (BF16-rounding vs exact-INT8 arithmetic), so the 1e-3 gate is applied relative to the existing INT8 path. Lean path (sign folded into per-layer BF16 Hadamard matrices, padding fused into the quantize kernel; bitwise identical on CPU) submitted as job 216949 with parity, latency and launch-count measurement.
+
+### E126 — GR00T backbone-only Plus row; lean-path job rerun after two harness bugs (2026-10-22 05:00 UTC)
+
+GR00T 2-bit backbone only on the Plus subset: 569/1000, −4.9 pp vs FP [−9.5, −0.4]; camera −7.6 [−15.2, −0.7], robot-init −2.2 [−7.3, +3.2]; so action head (−9.9) + backbone (−4.9) ≈ both (−13.2). The GR00T Plus table is complete (GROOT_2026-10-15.md). INT8 fusion: job 216949 measured the wrong thing — the bench's runtime list did not include the lean runtimes, so the "lean" rows silently loaded the dense BF16 decode path (209 ms prefill, 6.65 GB; archived), and the fused-expert lean forward sliced the padded 32-row block to 16 instead of the 10 real rows (broadcast error in the parity stage). Both fixed; job 218975 resubmitted (parity, latency, launch table). Day 3 of 5.
