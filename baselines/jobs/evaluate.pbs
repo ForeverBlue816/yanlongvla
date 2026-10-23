@@ -1,0 +1,195 @@
+#!/bin/bash
+#PBS -N bl_bundle
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=12:00:00
+#PBS -j oe
+# Runs a bundle of evaluation parts back to back (README steps 1-3). $RUN/bundles/$BUNDLE.tsv lists one part per line:
+#   item  row  kind(sanity|plus|libero)  arg(-, shard name or suite)  source-snapshot
+# kind sanity = build the row's checkpoint if needed, then a 100-episode sample ($RUN/sanity/<row>/) that gates the row's
+# full evaluation (jobs/scheduler.py judges it).
+# Before a part, whatever it needs is built if missing: calibration + layer export ($RUN/calibration, $RUN/layers; all rows
+# except RTN) and the row's fake-quant checkpoint ($RUN/checkpoints/<row>). A part whose prerequisite another job is
+# building is postponed to the end of the bundle and then waits for that build. A new checkpoint gets a sanity check
+# before any episode (jobs/debug_actions.py --quick -> <checkpoint>/sanity.json); one that fails it stops the row.
+# A row stopped by jobs/scheduler.py ($RUN/stopped/<row>) is skipped, and its running client is killed within a minute.
+# Outputs: evaluation/<row>/plus_parts/<shard>.jsonl or evaluation/<row>/libero/<suite>.jsonl.
+# Every step resumes. $RUN/bundles/$BUNDLE.progress records started/finished/deferred/failed per part for jobs/scheduler.py.
+set -uo pipefail
+: "${RUN:?}" "${BUNDLE:?}"
+OPENPI_ROOT=/home/d250009/projects/openpi
+HANDOVER=/home/d250009/projects/pi05-handover
+BASE_CKPT=$HANDOVER/runs/checkpoints/pi05_libero_pytorch   # official pi05_libero converted with openpi
+CALIBRATION=$RUN/calibration
+LAYERS=$RUN/layers
+OLD_CALIBRATION=$HANDOVER/runs/quantization/calibration    # only compared against, never used
+VPTQ_REPO=$HANDOVER/runs/toolkits/VPTQ
+PY="$OPENPI_ROOT/.venv/bin/python"
+SIM_SITE=/home/d250009/openvla-ptq-stage1/.venv-bf16-stage/lib64/python3.11/site-packages   # simulator dependencies only
+PLUS_SITE="$HANDOVER/runs/envs/libero-plus/site-packages"
+MAGICK="$HANDOVER/runs/envs/libero-plus/imagemagick"
+PROGRESS="$RUN/bundles/$BUNDLE.progress"
+mkdir -p "$RUN/logs" "$RUN/locks" "$RUN/checkpoints"
+source "$OPENPI_ROOT/.venv/bin/activate"
+export JAX_PLATFORMS=cpu OMP_NUM_THREADS=8 PYTHONUNBUFFERED=1 TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
+export HF_HOME="$HANDOVER/runs/cache/huggingface" HF_HUB_DISABLE_TELEMETRY=1
+export MUJOCO_GL=egl MAGICK_HOME="$MAGICK" LD_LIBRARY_PATH="$MAGICK/lib:${LD_LIBRARY_PATH:-}"
+MUJOCO_EGL_DEVICE_ID=$(nvidia-smi -i "${CUDA_VISIBLE_DEVICES:?}" --query-gpu=index --format=csv,noheader | tr -d '[:space:]')
+export MUJOCO_EGL_DEVICE_ID
+echo "bundle $BUNDLE on $(hostname) $(nvidia-smi --query-gpu=name --format=csv,noheader) $(date -Is)"
+note() { echo -e "$1\t$2\t$(date -Is)" >> "$PROGRESS"; }
+
+calibrate() {
+  echo "=== calibrate $(date -Is)"
+  [[ -s "$CALIBRATION/index.json" ]] || "$PY" calibrate.py --checkpoint "$BASE_CKPT" --out "$CALIBRATION" --hf-cache "$HANDOVER/runs/cache/libero-calibration"
+  "$PY" - "$CALIBRATION" "$OLD_CALIBRATION" <<'PY'
+import json, sys, torch
+new, old = sys.argv[1:]
+ni, oi = (json.load(open(d + '/index.json'))['layers'] for d in (new, old))
+assert ni.keys() == oi.keys()
+h = lambda d, i, n: torch.load(f'{d}/{i[n]["file"]}')['covariance']
+worst = max((torch.linalg.norm(h(new, ni, n) - h(old, oi, n)) / torch.linalg.norm(h(old, oi, n))).item() for n in ni)
+print(json.dumps(dict(check='new vs old calibration Hessians (information only)', layers=len(ni), max_relative_frobenius_difference=worst)))
+PY
+  echo "=== export layers $(date -Is)"
+  "$PY" export_layers.py --checkpoint "$BASE_CKPT" --calibration "$CALIBRATION" --out "$LAYERS"
+}
+
+quantize() {   # quantize <row>
+  local row=$1 method=${1%_w*} bits=${1#*_w} ckpt="$RUN/checkpoints/$1"
+  echo "=== quantize $row $(date -Is)"
+  case "$method" in
+    rtn) "$PY" quantize.py --method rtn --bits "$bits" --group 128 --checkpoint "$BASE_CKPT" --out "$ckpt" ;;
+    gptq|awq) "$PY" quantize.py --method "$method" --bits "$bits" --group 128 --checkpoint "$BASE_CKPT" --calibration "$CALIBRATION" --out "$ckpt" ;;
+    vptq)
+      [[ "$(git -C "$VPTQ_REPO" rev-parse HEAD)" == 5a8dfb93d2a7475151f66c559a44e057fe5322f9 ]] || { echo "VPTQ commit changed" >&2; return 3; }
+      # cuml (VPTQ's k-means) loads the CUDA math libraries of the openpi venv and the RAPIDS libraries of the VPTQ env
+      local vsite="$HANDOVER/runs/envs/vptq/site-packages" osite="$OPENPI_ROOT/.venv/lib/python3.11/site-packages"
+      LD_LIBRARY_PATH="$(ls -d "$osite"/nvidia/*/lib | tr '\n' ':')$vsite/libcudf/lib64:$vsite/libkvikio/lib64:$vsite/nvidia/nvcomp:$vsite/libcudf_cu12.libs:$vsite/cuml_cu12.libs:/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
+      PYTHONPATH="$SRC:$VPTQ_REPO:$vsite:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
+        "$PY" quantize_vptq.py --bits "$bits" --layers "$LAYERS" --calibration "$CALIBRATION" --checkpoint "$BASE_CKPT" \
+          --vptq-repo "$VPTQ_REPO" --out "$RUN/vptq_layers/$row" &&
+      "$PY" import_external.py --checkpoint "$BASE_CKPT" --quantized "$RUN/vptq_layers/$row" \
+        --accounting "$RUN/vptq_layers/$row/accounting.json" --out "$ckpt" ;;
+    *) echo "no quantizer for $method in this repository" >&2; return 2 ;;
+  esac || return 1
+  "$PY" - "$ckpt/quant.json" "$SRC" <<'PY'
+import json, sys
+p = sys.argv[1]; q = json.load(open(p))
+q['source_snapshot'] = sys.argv[2]
+q['baseline_git_head'] = open(sys.argv[2] + '/GIT_HEAD').read().strip()
+json.dump(q, open(p, 'w'), indent=2)
+print(json.dumps({k: q.get(k) for k in ('method', 'bits_nominal', 'linear_payload_bytes', 'quantizable_linear_bpw', 'whole_model_bpw')}))
+PY
+}
+
+run_part() {   # runs in a subshell; exit 75 = a prerequisite is being built by another job (only when WAIT=0); 76 = row stopped
+  set -euo pipefail
+  local item=$1 row=$2 kind=$3 arg=$4 lockwait=-n
+  [[ "$WAIT" == 1 ]] && lockwait="-w 28800"   # second pass: wait up to 8 h for another job's build
+  export SRC=$5 PYTHONPATH="$5:$OPENPI_ROOT"
+  cd "$SRC"
+  "$PY" jobs/provenance.py "$SRC"
+  local ckpt="$RUN/checkpoints/$row" out="$RUN/evaluation/$row"
+  mkdir -p "$out/libero" "$out/plus_parts"
+  if [[ ! -s "$ckpt/sanity.json" ]]; then
+    exec 8>"$RUN/locks/quantize_$row.lock"
+    flock $lockwait 8 || { echo "another job is quantizing $row"; exit 75; }
+    if [[ ! -s "$ckpt/quant.json" ]]; then
+      if [[ "$row" != rtn_* ]] && ! [[ -s "$CALIBRATION/index.json" && -s "$LAYERS/layers.json" ]]; then
+        exec 7>"$RUN/locks/calibration.lock"
+        flock $lockwait 7 || { echo "another job is calibrating"; exit 75; }
+        [[ -s "$CALIBRATION/index.json" && -s "$LAYERS/layers.json" ]] || calibrate
+        flock -u 7
+      fi
+      quantize "$row"
+    fi
+    if [[ ! -s "$ckpt/sanity.json" ]]; then
+      echo "=== sanity check $row $(date -Is)"
+      if ! "$PY" jobs/debug_actions.py --quick --checkpoint "$BASE_CKPT" --evaluated "$ckpt" \
+          --hf-cache "$HANDOVER/runs/cache/libero-calibration" --out "$ckpt/sanity.partial.json"; then
+        mkdir -p "$RUN/stopped"; echo "checkpoint failed the sanity check ($ckpt/sanity.partial.json)" > "$RUN/stopped/$row"
+        exit 76
+      fi
+      mv "$ckpt/sanity.partial.json" "$ckpt/sanity.json"
+    fi
+    flock -u 8
+  fi
+  [[ -e "$RUN/stopped/$row" ]] && exit 76
+  local partname=$kind
+  [[ "$kind" == sanity ]] || partname="${kind}_$arg"
+  exec 9>"$RUN/locks/eval_${row}_$partname.lock"
+  flock -n 9 || { echo "$item is running in another job"; exit 75; }
+  local port server
+  port=$("$PY" -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1",0)); print(s.getsockname()[1])')
+  "$PY" serve.py --checkpoint "$ckpt" --port "$port" > "$RUN/logs/serve_${row}_${partname}.${PBS_JOBID:-local}.log" 2>&1 &
+  server=$!
+  trap 'kill ${server:-} 2>/dev/null || true' EXIT   # runs after run_part returns, when the local is out of scope
+  "$PY" - "$port" "$server" <<'PY'
+import os, sys, time, urllib.request
+port, pid = map(int, sys.argv[1:])
+opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+for _ in range(300):
+    os.kill(pid, 0)
+    try:
+        if opener.open(f'http://127.0.0.1:{port}/healthz', timeout=1).status == 200:
+            break
+    except OSError:
+        time.sleep(1)
+else:
+    raise RuntimeError('policy server not ready')
+PY
+  client() {   # client <libero|plus> <script> <args...>: one client in its simulator; killed if the row gets stopped
+    local sim config pythonpath pid
+    if [[ "$1" == libero ]]; then sim="$OPENPI_ROOT/third_party/libero"; config=standard
+    else sim="$HANDOVER/runs/toolkits/LIBERO-plus"; config=plus; fi
+    pythonpath="$SRC:$sim:$OPENPI_ROOT/packages/openpi-client/src:$OPENPI_ROOT/.venv/lib64/python3.11/site-packages:$SIM_SITE"
+    [[ "$1" == plus ]] && pythonpath="$PLUS_SITE:$pythonpath"
+    shift
+    LIBERO_CONFIG_PATH="$HANDOVER/runs/config/libero-smoke/$config" PYTHONPATH="$pythonpath" "$PY" jobs/provenance.py "$SRC" --simulator "$sim"
+    LIBERO_CONFIG_PATH="$HANDOVER/runs/config/libero-smoke/$config" PYTHONPATH="$pythonpath" "$PY" "$@" --port "$port" &
+    pid=$!
+    while kill -0 $pid 2>/dev/null; do   # the scheduler stops a row that collapses: end its episodes promptly
+      if [[ -e "$RUN/stopped/$row" ]]; then kill $pid; wait $pid || true; echo "$row stopped: $(cat "$RUN/stopped/$row")"; exit 76; fi
+      sleep 30
+    done
+    wait $pid
+  }
+  case "$kind" in
+    libero) client libero eval_libero.py --seed 7 --episodes 50 --suites "$arg" --out "$out/libero" ;;
+    plus) client plus eval_libero_plus.py --units "$SRC/data/shards/$arg.json" --out "$out/plus_parts/$arg.jsonl" ;;
+    sanity)   # 100-episode sample, kept out of the official results: 5 episodes per LIBERO spatial task + 50 Plus units
+      client libero eval_libero.py --seed 7 --episodes 5 --suites libero_spatial --out "$RUN/sanity/$row/libero"
+      client plus eval_libero_plus.py --units "$SRC/data/shards/sanity50.json" --out "$RUN/sanity/$row/plus.jsonl" ;;
+  esac
+}
+
+declare -A broken=()
+postponed=()
+run_list() {   # run_list <WAIT> <lines...>
+  WAIT=$1; shift
+  local line item row kind arg src rc
+  for line in "$@"; do
+    IFS=$'\t' read -r item row kind arg src <<< "$line"
+    if [[ -n "${broken[$row]:-}" || -e "$RUN/stopped/$row" ]]; then note "$item" skipped; continue; fi
+    echo "##### $item $(date -Is)"
+    note "$item" started
+    ( run_part "$item" "$row" "$kind" "$arg" "$src" )
+    rc=$?
+    case $rc in
+      0) note "$item" finished ;;
+      75) note "$item" postponed; postponed+=("$line") ;;
+      76) note "$item" stopped ;;
+      *) note "$item" "failed($rc)"; [[ -s "$RUN/checkpoints/$row/quant.json" ]] || broken[$row]=1 ;;   # no checkpoint: skip the row's other parts
+    esac
+  done
+}
+mapfile -t parts < <(grep -v '^$' "$RUN/bundles/$BUNDLE.tsv")
+run_list 0 "${parts[@]}"
+if (( ${#postponed[@]} )); then
+  waiting=("${postponed[@]}"); postponed=()
+  run_list 1 "${waiting[@]}"
+  for line in "${postponed[@]}"; do note "${line%%$'\t'*}" deferred; done
+fi
+echo "bundle $BUNDLE complete $(date -Is)"

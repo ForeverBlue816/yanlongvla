@@ -35,6 +35,10 @@ LIBERO_DUMMY_ACTION = [0.0] * 6 + [-1.0]
 SETTLE_STEPS = 10
 REPLAN_STEPS = 5
 
+# The official checkpoint stores the PaliGemma token embedding only under the (tied) lm_head key.
+TIED_HEAD_KEY = 'paligemma_with_expert.paligemma.lm_head.weight'
+TIED_EMBEDDING_KEY = 'paligemma_with_expert.paligemma.model.language_model.embed_tokens.weight'
+
 
 def sha256(path):
     h = hashlib.sha256()
@@ -48,6 +52,8 @@ def is_quantizable(name, module):
     """The 414 Linear layers quantized by every method (backbone 288 + expert 126); embeddings, projector, heads,
     action/time projections and norms are never quantized."""
     if not isinstance(module, nn.Linear):
+        return False
+    if name.endswith(('.input_layernorm.dense', '.post_attention_layernorm.dense')):   # expert AdaRMS norms are Linear modules; norms stay unquantized
         return False
     return ('.vision_tower.vision_model.encoder.layers.' in name or '.language_model.layers.' in name or '.gemma_expert.model.layers.' in name)
 
@@ -71,6 +77,9 @@ def build_model(checkpoint_dir, device='cuda'):
     from safetensors.torch import load_model
     cfg = native_config()
     model = PI0Pytorch(cfg.model)
+    from safetensors import safe_open
+    with safe_open(str(Path(checkpoint_dir) / 'model.safetensors'), framework='pt') as f:
+        assert TIED_HEAD_KEY in f.keys() or TIED_EMBEDDING_KEY in f.keys(), 'checkpoint has no token embedding (it would load randomly initialized)'
     missing, unexpected = load_model(model, str(Path(checkpoint_dir) / 'model.safetensors'), strict=False)
     assert not unexpected, unexpected[:5]
     assert all(k.endswith('lm_head.weight') for k in missing), missing[:5]   # heads may be absent (never used by action inference)
@@ -115,6 +124,10 @@ def write_fakequant_checkpoint(source_dir, out_dir, replaced, info):
     source_dir, out_dir = Path(source_dir), Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     tensors = load_file(str(source_dir / 'model.safetensors'))
+    if TIED_HEAD_KEY in tensors:   # keep the token embedding under its input key before the heads are dropped
+        assert TIED_EMBEDDING_KEY not in tensors or torch.equal(tensors[TIED_EMBEDDING_KEY], tensors[TIED_HEAD_KEY])
+        tensors[TIED_EMBEDDING_KEY] = tensors[TIED_HEAD_KEY]
+    assert TIED_EMBEDDING_KEY in tensors, 'source checkpoint has no token embedding'
     for k in list(tensors):
         if k.endswith('lm_head.weight'):
             del tensors[k]

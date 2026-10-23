@@ -1,0 +1,77 @@
+#!/bin/bash
+#PBS -N bl_debug
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=04:00:00
+#PBS -j oe
+# Debugging sequence for a row that collapsed in evaluation (submitted by jobs/scheduler.py when it stops a row), in one
+# job. Writes $RUN/debug/$TAG/offline.json: jobs/debug_actions.py full mode on the row's checkpoint (structure, FP
+# determinism, actions as loaded, actions with one layer group quantized at a time, worst layers).
+# Row-independent checks run once and are reused by later debug jobs:
+#   $RUN/debug/pipeline/identity.json   original weights written by write_fakequant_checkpoint and reloaded
+#   $RUN/debug/pipeline/fp/             the FP checkpoint through serve.py + both clients, 30 LIBERO spatial episodes
+#                                       (3 per task) and the first 30 Plus 1000 units, paired with the reference rows
+set -uo pipefail
+: "${RUN:?}" "${SRC:?}" "${ROW:?}" "${TAG:?}"
+OPENPI_ROOT=/home/d250009/projects/openpi
+HANDOVER=/home/d250009/projects/pi05-handover
+BASE_CKPT=$HANDOVER/runs/checkpoints/pi05_libero_pytorch
+CACHE=$HANDOVER/runs/cache/libero-calibration
+PY="$OPENPI_ROOT/.venv/bin/python"
+SIM_SITE=/home/d250009/openvla-ptq-stage1/.venv-bf16-stage/lib64/python3.11/site-packages
+PLUS_SITE="$HANDOVER/runs/envs/libero-plus/site-packages"
+MAGICK="$HANDOVER/runs/envs/libero-plus/imagemagick"
+OUT="$RUN/debug/$TAG"
+PIPE="$RUN/debug/pipeline"
+mkdir -p "$OUT" "$PIPE"
+source "$OPENPI_ROOT/.venv/bin/activate"
+export JAX_PLATFORMS=cpu OMP_NUM_THREADS=8 PYTHONUNBUFFERED=1 TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
+export HF_HOME="$HANDOVER/runs/cache/huggingface" HF_HUB_DISABLE_TELEMETRY=1
+export MUJOCO_GL=egl MAGICK_HOME="$MAGICK" LD_LIBRARY_PATH="$MAGICK/lib:${LD_LIBRARY_PATH:-}"
+MUJOCO_EGL_DEVICE_ID=$(nvidia-smi -i "${CUDA_VISIBLE_DEVICES:?}" --query-gpu=index --format=csv,noheader | tr -d '[:space:]')
+export MUJOCO_EGL_DEVICE_ID
+cd "$SRC"
+echo "debug $ROW ($TAG) on $(hostname) $(nvidia-smi --query-gpu=name --format=csv,noheader) $(date -Is)"
+PYTHONPATH="$SRC:$OPENPI_ROOT" "$PY" jobs/provenance.py "$SRC" || exit 1
+
+echo "=== offline checks of $ROW $(date -Is)"
+scratch=()
+[[ -s "$PIPE/identity.json" ]] || scratch=(--scratch "$OUT/identity_ckpt")
+PYTHONPATH="$SRC:$OPENPI_ROOT" "$PY" jobs/debug_actions.py --checkpoint "$BASE_CKPT" --evaluated "$RUN/checkpoints/$ROW" \
+  --hf-cache "$CACHE" --out "$OUT/offline.json" "${scratch[@]}"
+if [[ ! -s "$PIPE/identity.json" && -s "$OUT/offline.json" ]]; then
+  "$PY" -c "import json,sys; r=json.load(open(sys.argv[1])); json.dump({k: r[k] for k in r if k.startswith('identity') or k == 'fp_repeat_relative_mse'}, open(sys.argv[2], 'w'), indent=2)" "$OUT/offline.json" "$PIPE/identity.json"
+fi
+
+if [[ ! -s "$PIPE/fp/done" ]]; then
+  echo "=== FP closed-loop sanity $(date -Is)"
+  mkdir -p "$PIPE/fp"
+  "$PY" -c "import json,sys; json.dump(dict(units=json.load(open(sys.argv[1]))['units'][:30]), open(sys.argv[2], 'w'))" \
+    "$SRC/data/plus_units_selection_1000.json" "$PIPE/fp/plus_units_30.json"
+  port=$("$PY" -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1",0)); print(s.getsockname()[1])')
+  PYTHONPATH="$SRC:$OPENPI_ROOT" "$PY" serve.py --checkpoint "$BASE_CKPT" --port "$port" > "$PIPE/fp/serve.log" 2>&1 &
+  server=$!
+  trap 'kill $server 2>/dev/null || true' EXIT
+  "$PY" - "$port" "$server" <<'PY'
+import os, sys, time, urllib.request
+port, pid = map(int, sys.argv[1:])
+opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+for _ in range(300):
+    os.kill(pid, 0)
+    try:
+        if opener.open(f'http://127.0.0.1:{port}/healthz', timeout=1).status == 200:
+            break
+    except OSError:
+        time.sleep(1)
+else:
+    raise RuntimeError('policy server not ready')
+PY
+  base="$SRC:$OPENPI_ROOT/packages/openpi-client/src:$OPENPI_ROOT/.venv/lib64/python3.11/site-packages:$SIM_SITE"
+  LIBERO_CONFIG_PATH="$HANDOVER/runs/config/libero-smoke/standard" PYTHONPATH="$SRC:$OPENPI_ROOT/third_party/libero:$base" \
+    "$PY" eval_libero.py --port "$port" --seed 7 --episodes 3 --suites libero_spatial --out "$PIPE/fp" &&
+  LIBERO_CONFIG_PATH="$HANDOVER/runs/config/libero-smoke/plus" PYTHONPATH="$PLUS_SITE:$SRC:$HANDOVER/runs/toolkits/LIBERO-plus:$base" \
+    "$PY" eval_libero_plus.py --port "$port" --units "$PIPE/fp/plus_units_30.json" --out "$PIPE/fp/plus.jsonl" &&
+  date -Is > "$PIPE/fp/done"
+fi
+echo "debug $ROW complete $(date -Is)"
