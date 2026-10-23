@@ -1,7 +1,9 @@
 # GR00T N1.7 — AM-RAQ track: action-metric readout consistency (2026-10-23)
 
-Status: scheduled 2026-10-23. Fine-tune jobs `groot_amraq_am` / `groot_amraq_am0` are submitted by the controller (killable QoS,
-RTX 6000 Ada, resumable) and sit behind row A (job 218992) in the queue. Results are appended to §7 as they arrive; nothing in
+Status: scheduled 2026-10-23. Fine-tune jobs `groot_amraq_am` / `groot_amraq_am0` (221204 / 221205) are submitted by the controller (killable
+QoS, resumable) behind row A (`groot_raqft_readout` 221202) and its distillation control (221203). GPU rule (user, 2026-10-23):
+GR00T jobs take any free eligible GPU model (RTX 6000 Ada, L40S, A6000, A40, RTX Pro 6000; the controller moves a pending job to
+whichever model has a free GPU); the GPU model is recorded in every row's complete.json and in the fine-tune manifests. Results are appended to §7 as they arrive; nothing in
 §0–§6 changes after the first rollout.
 
 ## Specification (user, 2026-10-23, verbatim)
