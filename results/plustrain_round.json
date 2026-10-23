@@ -1968,6 +1968,417 @@
         }
       },
       "jetson_orin": "not available on this cluster; not measured"
+    },
+    "fusion_parity": {
+      "device": {
+        "gpu": "NVIDIA RTX 6000 Ada Generation",
+        "torch": "2.7.1+cu126",
+        "cuda": "12.6"
+      },
+      "rows": {
+        "int8_compiled": {
+          "vs_fakequant_max_abs": 0.02725450751024483,
+          "vs_int8_compiled_max_abs": 0.0,
+          "identical_to_int8_compiled": true
+        },
+        "int8_lean": {
+          "vs_fakequant_max_abs": 0.02725450751024483,
+          "vs_int8_compiled_max_abs": 0.0,
+          "identical_to_int8_compiled": true
+        },
+        "fused_lean": {
+          "vs_fakequant_max_abs": 0.02725450751024483,
+          "vs_int8_compiled_max_abs": 0.0,
+          "identical_to_int8_compiled": true
+        }
+      }
+    },
+    "fusion_day1": {
+      "device": "NVIDIA L40S",
+      "rows": {
+        "bf16_original": {
+          "prefill": {
+            "wall_ms": 33.89481735229492,
+            "kernel_sum_ms": 33.33988599999992,
+            "launch_gaps_ms": 0.5549313522950001,
+            "launches": 2407,
+            "by_class_ms": {
+              "gemm": 25.091,
+              "elementwise_copy": 2.321,
+              "embedding_misc": 2.233,
+              "attention": 1.274,
+              "residual_add": 1.208,
+              "rmsnorm": 0.655,
+              "activation": 0.557
+            }
+          },
+          "expert_step": {
+            "wall_ms": 4.574368000030518,
+            "kernel_sum_ms": 3.519322999999999,
+            "launch_gaps_ms": 1.0550450000305185,
+            "launches": 1131,
+            "by_class_ms": {
+              "gemm": 2.098,
+              "elementwise_copy": 0.646,
+              "embedding_misc": 0.459,
+              "residual_add": 0.204,
+              "attention": 0.083,
+              "activation": 0.029
+            }
+          }
+        },
+        "w2a8_int8_expert": {
+          "prefill": {
+            "wall_ms": 47.3422737121582,
+            "kernel_sum_ms": 46.55960300000004,
+            "launch_gaps_ms": 0.7826707121581649,
+            "launches": 5516,
+            "by_class_ms": {
+              "int8_gemm": 15.29,
+              "gemm": 14.485,
+              "hadamard": 3.803,
+              "embedding_misc": 2.956,
+              "act_quant": 2.656,
+              "elementwise_copy": 2.341,
+              "attention": 1.322,
+              "residual_add": 1.236,
+              "epilogue": 1.212,
+              "rmsnorm": 0.642,
+              "activation": 0.616
+            }
+          },
+          "expert_step": {
+            "wall_ms": 6.70195198059082,
+            "kernel_sum_ms": 4.470283000000007,
+            "launch_gaps_ms": 2.231668980590813,
+            "launches": 1781,
+            "by_class_ms": {
+              "gemm": 1.561,
+              "int8_gemm": 0.801,
+              "elementwise_copy": 0.765,
+              "embedding_misc": 0.56,
+              "hadamard": 0.289,
+              "residual_add": 0.211,
+              "act_quant": 0.172,
+              "attention": 0.082,
+              "activation": 0.03
+            }
+          },
+          "gemm_lower_bound": {
+            "prefill": 17.473,
+            "step": 1.483
+          }
+        },
+        "w2a8_fused_expert": {
+          "prefill": {
+            "wall_ms": 47.693599700927734,
+            "kernel_sum_ms": 46.485467000000114,
+            "launch_gaps_ms": 1.2081327009276208,
+            "launches": 5513,
+            "by_class_ms": {
+              "int8_gemm": 15.198,
+              "gemm": 14.544,
+              "hadamard": 3.774,
+              "embedding_misc": 2.947,
+              "act_quant": 2.685,
+              "elementwise_copy": 2.275,
+              "attention": 1.357,
+              "residual_add": 1.228,
+              "epilogue": 1.228,
+              "rmsnorm": 0.641,
+              "activation": 0.607
+            }
+          },
+          "expert_step": {
+            "wall_ms": 8.348992347717285,
+            "kernel_sum_ms": 4.86515700000001,
+            "launch_gaps_ms": 3.4838353477172754,
+            "launches": 1904,
+            "by_class_ms": {
+              "gemm": 2.657,
+              "elementwise_copy": 0.765,
+              "embedding_misc": 0.66,
+              "hadamard": 0.289,
+              "residual_add": 0.212,
+              "act_quant": 0.171,
+              "attention": 0.082,
+              "activation": 0.029
+            }
+          },
+          "gemm_lower_bound": {
+            "prefill": 17.774,
+            "step": 1.511
+          }
+        }
+      }
+    },
+    "fusion_lean_profile": {
+      "device": "NVIDIA RTX 6000 Ada Generation",
+      "rows": {
+        "w2a8_int8_expert_lean": {
+          "prefill": {
+            "wall_ms": 53.44700622558594,
+            "kernel_sum_ms": 47.7285080000002,
+            "launch_gaps_ms": 5.718498225585741,
+            "launches": 5930,
+            "by_class_ms": {
+              "int8_gemm": 15.454,
+              "gemm": 15.192,
+              "hadamard": 3.953,
+              "embedding_misc": 3.051,
+              "act_quant": 2.738,
+              "elementwise_copy": 2.186,
+              "attention": 1.509,
+              "residual_add": 1.235,
+              "epilogue": 1.158,
+              "activation": 0.628,
+              "rmsnorm": 0.625
+            }
+          },
+          "expert_step": {
+            "wall_ms": 6.041567802429199,
+            "kernel_sum_ms": 4.474810000000011,
+            "launch_gaps_ms": 1.566757802429188,
+            "launches": 1682,
+            "by_class_ms": {
+              "gemm": 1.715,
+              "elementwise_copy": 0.808,
+              "int8_gemm": 0.8,
+              "embedding_misc": 0.444,
+              "act_quant": 0.254,
+              "residual_add": 0.195,
+              "hadamard": 0.155,
+              "attention": 0.076,
+              "activation": 0.027
+            }
+          },
+          "gemm_lower_bound": {
+            "prefill": 16.438,
+            "step": 1.151
+          }
+        },
+        "w2a8_fused_expert_lean": {
+          "prefill": {
+            "wall_ms": 54.952510833740234,
+            "kernel_sum_ms": 49.514074999999885,
+            "launch_gaps_ms": 5.43843583374035,
+            "launches": 5926,
+            "by_class_ms": {
+              "gemm": 15.892,
+              "int8_gemm": 15.825,
+              "hadamard": 4.01,
+              "embedding_misc": 3.196,
+              "act_quant": 2.834,
+              "elementwise_copy": 2.3,
+              "attention": 1.579,
+              "residual_add": 1.295,
+              "epilogue": 1.278,
+              "rmsnorm": 0.685,
+              "activation": 0.621
+            }
+          },
+          "expert_step": {
+            "wall_ms": 7.404416084289551,
+            "kernel_sum_ms": 4.798160000000004,
+            "launch_gaps_ms": 2.606256084289547,
+            "launches": 1804,
+            "by_class_ms": {
+              "gemm": 2.744,
+              "elementwise_copy": 0.802,
+              "embedding_misc": 0.543,
+              "act_quant": 0.255,
+              "residual_add": 0.195,
+              "hadamard": 0.156,
+              "attention": 0.076,
+              "activation": 0.027
+            }
+          },
+          "gemm_lower_bound": {
+            "prefill": 17.117,
+            "step": 1.4
+          }
+        }
+      }
+    },
+    "bench_rows": {
+      "w2a8_int8_expert_lean/10": {
+        "prefill": {
+          "median_ms": 51.66843032836914,
+          "p95_ms": 52.112344932556155,
+          "mean_ms": 51.47048881530762,
+          "min_ms": 50.367488861083984,
+          "n": 100
+        },
+        "expert_step": {
+          "median_ms": 4.4021759033203125,
+          "p95_ms": 4.414463996887207,
+          "mean_ms": 4.403493466377259,
+          "min_ms": 4.395008087158203,
+          "n": 100
+        },
+        "end_to_end": {
+          "median_ms": 98.70995330810547,
+          "p95_ms": 99.10958061218261,
+          "mean_ms": 98.4223885345459,
+          "min_ms": 95.56771087646484,
+          "n": 100
+        },
+        "graph_vs_policy_infer_max_abs": 2.7692317994265636e-08,
+        "memory": {
+          "resident_bytes": 4380307968,
+          "peak_bytes": 6916455424,
+          "reserved_bytes": 5651824640,
+          "install": {
+            "sites": {
+              "backbone": 288,
+              "expert": 126
+            },
+            "resident": {
+              "backbone_int8_bytes": 2392879104,
+              "expert_int8_bytes": 311427072,
+              "expert_code_bytes": 0,
+              "scale_bytes": 2423520,
+              "expert_hadamard_bytes": 339738624
+            },
+            "expert_mode": "int8",
+            "act_mode": "lean"
+          }
+        },
+        "gpu": "NVIDIA RTX 6000 Ada Generation"
+      },
+      "w2a8_int8_expert_lean/2": {
+        "prefill": {
+          "median_ms": 51.72982406616211,
+          "p95_ms": 52.12096691131592,
+          "mean_ms": 51.51686382293701,
+          "min_ms": 50.39923095703125,
+          "n": 100
+        },
+        "expert_step": {
+          "median_ms": 4.410367965698242,
+          "p95_ms": 4.41451199054718,
+          "mean_ms": 4.410248985290528,
+          "min_ms": 4.4021759033203125,
+          "n": 100
+        },
+        "end_to_end": {
+          "median_ms": 59.861886978149414,
+          "p95_ms": 60.15082950592041,
+          "mean_ms": 59.867996788024904,
+          "min_ms": 57.875457763671875,
+          "n": 100
+        },
+        "memory": {
+          "resident_bytes": 4372703744,
+          "peak_bytes": 6728106496,
+          "reserved_bytes": 5519704064,
+          "install": {
+            "sites": {
+              "backbone": 288,
+              "expert": 126
+            },
+            "resident": {
+              "backbone_int8_bytes": 2392879104,
+              "expert_int8_bytes": 311427072,
+              "expert_code_bytes": 0,
+              "scale_bytes": 2423520,
+              "expert_hadamard_bytes": 339738624
+            },
+            "expert_mode": "int8",
+            "act_mode": "lean"
+          }
+        },
+        "gpu": "NVIDIA RTX 6000 Ada Generation"
+      },
+      "w2a8_fused_expert_lean/10": {
+        "prefill": {
+          "median_ms": 51.587039947509766,
+          "p95_ms": 51.989298820495605,
+          "mean_ms": 51.38368762969971,
+          "min_ms": 50.300926208496094,
+          "n": 100
+        },
+        "expert_step": {
+          "median_ms": 4.723711967468262,
+          "p95_ms": 4.733699178695678,
+          "mean_ms": 4.72484354019165,
+          "min_ms": 4.71449613571167,
+          "n": 100
+        },
+        "end_to_end": {
+          "median_ms": 99.82450866699219,
+          "p95_ms": 102.23820762634277,
+          "mean_ms": 99.8735612487793,
+          "min_ms": 93.18061065673828,
+          "n": 100
+        },
+        "graph_vs_policy_infer_max_abs": 2.7692317994265636e-08,
+        "memory": {
+          "resident_bytes": 4083929600,
+          "peak_bytes": 6916455424,
+          "reserved_bytes": 5385486336,
+          "install": {
+            "sites": {
+              "backbone": 288,
+              "expert": 126
+            },
+            "resident": {
+              "backbone_int8_bytes": 2392879104,
+              "expert_int8_bytes": 0,
+              "expert_code_bytes": 78372864,
+              "scale_bytes": 2423520,
+              "expert_hadamard_bytes": 339738624
+            },
+            "expert_mode": "fused",
+            "act_mode": "lean"
+          }
+        },
+        "gpu": "NVIDIA RTX 6000 Ada Generation"
+      },
+      "w2a8_fused_expert_lean/2": {
+        "prefill": {
+          "median_ms": 51.59667205810547,
+          "p95_ms": 52.005478096008304,
+          "mean_ms": 51.346261444091795,
+          "min_ms": 49.68339157104492,
+          "n": 100
+        },
+        "expert_step": {
+          "median_ms": 4.727792024612427,
+          "p95_ms": 4.738083267211914,
+          "mean_ms": 4.7287308740615845,
+          "min_ms": 4.718592166900635,
+          "n": 100
+        },
+        "end_to_end": {
+          "median_ms": 59.95556831359863,
+          "p95_ms": 62.37516822814941,
+          "mean_ms": 60.303073959350584,
+          "min_ms": 59.77907180786133,
+          "n": 100
+        },
+        "memory": {
+          "resident_bytes": 4076538368,
+          "peak_bytes": 6728106496,
+          "reserved_bytes": 5207228416,
+          "install": {
+            "sites": {
+              "backbone": 288,
+              "expert": 126
+            },
+            "resident": {
+              "backbone_int8_bytes": 2392879104,
+              "expert_int8_bytes": 0,
+              "expert_code_bytes": 78372864,
+              "scale_bytes": 2423520,
+              "expert_hadamard_bytes": 339738624
+            },
+            "expert_mode": "fused",
+            "act_mode": "lean"
+          }
+        },
+        "gpu": "NVIDIA RTX 6000 Ada Generation"
+      }
     }
   },
   "full_Plus": {},
@@ -10216,7 +10627,11 @@
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq/complete.json": "ec08719d03cdf45a2cbc10112750195ce54df9cd7950583cd5662a421584001b",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/base/complete.json": "16d50482ec25a49e106eb6b6b76d945bc5c876e625307b5855ec38d66afcf025",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed",
-    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/complete.json": "ac7e35c97c64f744ef2b3298bce6c75dba8e7fc15536974343f82235874e3f09"
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/complete.json": "ac7e35c97c64f744ef2b3298bce6c75dba8e7fc15536974343f82235874e3f09",
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/parity_fused/complete.json": "b21d7167350600f90cb96fd03b32fedc92dfa55c2dfa60f036eebb459e9d0bcf",
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/day1.json": "72a24f6e7e7c5a019d4f2fcf83108beb136cb7a0fe2e057444b89ef31b23fcd5",
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/day2_lean.json": "76fabc6b9de983e45b141dd0c4551c0eba353983790c7a077df7b949d83a60c3",
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/partial.json": "e977129400f321382f2578658e09b97c1b9607d7c87f1b6cdcd7637ae8df011b"
   },
   "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }
