@@ -92,10 +92,10 @@ Grid snap None → bb_M2_ae_M2_int8grid: 414 layers, gain 16.36–36.91, max |in
 
 | Row | steps | prefill ms (med / p95) | expert ms/step (med / p95) | end-to-end ms (med / p95) | speedup vs BF16 | resident GB | peak GB |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| w2a8_int8_expert_lean | 10 | 209.1 / 209.9 | 8.10 / 8.11 | 290.8 / 291.2 | nanx | 6.65 | 7.13 |
-| w2a8_int8_expert_lean | 2 | 208.2 / 208.9 | 8.11 / 8.12 | 226.2 / 226.8 | nanx | 6.64 | 7.12 |
-| w2a8_fused_expert_lean | 10 | 209.8 / 210.3 | 8.09 / 8.11 | 291.1 / 291.6 | nanx | 6.65 | 7.13 |
-| w2a8_fused_expert_lean | 2 | 206.9 / 207.4 | 8.02 / 8.04 | 224.5 / 225.1 | nanx | 6.64 | 7.12 |
+| w2a8_int8_expert_lean | 10 | 51.7 / 52.1 | 4.40 / 4.41 | 98.7 / 99.1 | nanx | 4.38 | 6.92 |
+| w2a8_int8_expert_lean | 2 | 51.7 / 52.1 | 4.41 / 4.41 | 59.9 / 60.2 | nanx | 4.37 | 6.73 |
+| w2a8_fused_expert_lean | 10 | 51.6 / 52.0 | 4.72 / 4.73 | 99.8 / 102.2 | nanx | 4.08 | 6.92 |
+| w2a8_fused_expert_lean | 2 | 51.6 / 52.0 | 4.73 / 4.74 | 60.0 / 62.4 | nanx | 4.08 | 6.73 |
 Jetson Orin: not available on this cluster; not measured.
 
 Efficiency (final row, analytic, FINAL_2026-10-14 item 6): storage = 1.225 GB; whole-model bpw = 2.9226; linear bpw = 2.0201; weight bytes read / inference (INT8-decoded, 10 steps) = 5.565 GB; same, 2 steps = 3.035 GB; BF16 reference (10 steps) = 17.434 GB; resident INT8-decoded backbone = 2.930 GB; resident INT8-decoded model = 3.247 GB; BF16 model = 6.421 GB. Latency measurements are handed to Ethan.
@@ -228,7 +228,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-22 12:46 SGT
+# Archived experiments — October5 causal follow-up — 2026-10-23 11:32 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

@@ -1790,124 +1790,180 @@
       "rows": {
         "w2a8_int8_expert_lean/10": {
           "prefill": {
-            "median_ms": 209.0869140625,
-            "p95_ms": 209.94908065795897,
-            "mean_ms": 209.12533370971678,
-            "min_ms": 208.07577514648438,
+            "median_ms": 51.66843032836914,
+            "p95_ms": 52.112344932556155,
+            "mean_ms": 51.47048881530762,
+            "min_ms": 50.367488861083984,
             "n": 100
           },
           "expert_step": {
-            "median_ms": 8.102911949157715,
-            "p95_ms": 8.11223063468933,
-            "mean_ms": 8.103651275634766,
-            "min_ms": 8.092384338378906,
+            "median_ms": 4.4021759033203125,
+            "p95_ms": 4.414463996887207,
+            "mean_ms": 4.403493466377259,
+            "min_ms": 4.395008087158203,
             "n": 100
           },
           "end_to_end": {
-            "median_ms": 290.81700134277344,
-            "p95_ms": 291.2106994628906,
-            "mean_ms": 290.74354278564454,
-            "min_ms": 289.9609680175781,
+            "median_ms": 98.70995330810547,
+            "p95_ms": 99.10958061218261,
+            "mean_ms": 98.4223885345459,
+            "min_ms": 95.56771087646484,
             "n": 100
           },
           "graph_vs_eager_max_abs": 0.0,
-          "graph_vs_policy_infer_max_abs": 2.924832698258939e-08,
+          "graph_vs_policy_infer_max_abs": 2.7692317994265636e-08,
           "memory": {
-            "resident_bytes": 6648019968,
-            "peak_bytes": 7134150656,
-            "reserved_bytes": 8497659904,
-            "install": null
+            "resident_bytes": 4380307968,
+            "peak_bytes": 6916455424,
+            "reserved_bytes": 5651824640,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126
+              },
+              "resident": {
+                "backbone_int8_bytes": 2392879104,
+                "expert_int8_bytes": 311427072,
+                "expert_code_bytes": 0,
+                "scale_bytes": 2423520,
+                "expert_hadamard_bytes": 339738624
+              },
+              "expert_mode": "int8",
+              "act_mode": "lean"
+            }
           }
         },
         "w2a8_int8_expert_lean/2": {
           "prefill": {
-            "median_ms": 208.24883270263672,
-            "p95_ms": 208.90906219482423,
-            "mean_ms": 208.29934661865235,
-            "min_ms": 207.5430145263672,
+            "median_ms": 51.72982406616211,
+            "p95_ms": 52.12096691131592,
+            "mean_ms": 51.51686382293701,
+            "min_ms": 50.39923095703125,
             "n": 100
           },
           "expert_step": {
-            "median_ms": 8.10598373413086,
-            "p95_ms": 8.119332885742187,
-            "mean_ms": 8.107753257751465,
-            "min_ms": 8.094719886779785,
+            "median_ms": 4.410367965698242,
+            "p95_ms": 4.41451199054718,
+            "mean_ms": 4.410248985290528,
+            "min_ms": 4.4021759033203125,
             "n": 100
           },
           "end_to_end": {
-            "median_ms": 226.18418884277344,
-            "p95_ms": 226.75793838500977,
-            "mean_ms": 226.23517807006837,
-            "min_ms": 225.18272399902344,
+            "median_ms": 59.861886978149414,
+            "p95_ms": 60.15082950592041,
+            "mean_ms": 59.867996788024904,
+            "min_ms": 57.875457763671875,
             "n": 100
           },
           "graph_vs_eager_max_abs": 0.0,
           "memory": {
-            "resident_bytes": 6639310336,
-            "peak_bytes": 7122554880,
-            "reserved_bytes": 8029995008,
-            "install": null
+            "resident_bytes": 4372703744,
+            "peak_bytes": 6728106496,
+            "reserved_bytes": 5519704064,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126
+              },
+              "resident": {
+                "backbone_int8_bytes": 2392879104,
+                "expert_int8_bytes": 311427072,
+                "expert_code_bytes": 0,
+                "scale_bytes": 2423520,
+                "expert_hadamard_bytes": 339738624
+              },
+              "expert_mode": "int8",
+              "act_mode": "lean"
+            }
           }
         },
         "w2a8_fused_expert_lean/10": {
           "prefill": {
-            "median_ms": 209.8052978515625,
-            "p95_ms": 210.31200256347657,
-            "mean_ms": 209.617373046875,
-            "min_ms": 208.1607666015625,
+            "median_ms": 51.587039947509766,
+            "p95_ms": 51.989298820495605,
+            "mean_ms": 51.38368762969971,
+            "min_ms": 50.300926208496094,
             "n": 100
           },
           "expert_step": {
-            "median_ms": 8.093631744384766,
-            "p95_ms": 8.106019067764283,
-            "mean_ms": 8.09515778541565,
-            "min_ms": 8.084480285644531,
+            "median_ms": 4.723711967468262,
+            "p95_ms": 4.733699178695678,
+            "mean_ms": 4.72484354019165,
+            "min_ms": 4.71449613571167,
             "n": 100
           },
           "end_to_end": {
-            "median_ms": 291.14930725097656,
-            "p95_ms": 291.61029663085935,
-            "mean_ms": 291.1893829345703,
-            "min_ms": 290.4606628417969,
+            "median_ms": 99.82450866699219,
+            "p95_ms": 102.23820762634277,
+            "mean_ms": 99.8735612487793,
+            "min_ms": 93.18061065673828,
             "n": 100
           },
           "graph_vs_eager_max_abs": 0.0,
-          "graph_vs_policy_infer_max_abs": 2.924832698258939e-08,
+          "graph_vs_policy_infer_max_abs": 2.7692317994265636e-08,
           "memory": {
-            "resident_bytes": 6648019968,
-            "peak_bytes": 7134150656,
-            "reserved_bytes": 8497659904,
-            "install": null
+            "resident_bytes": 4083929600,
+            "peak_bytes": 6916455424,
+            "reserved_bytes": 5385486336,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126
+              },
+              "resident": {
+                "backbone_int8_bytes": 2392879104,
+                "expert_int8_bytes": 0,
+                "expert_code_bytes": 78372864,
+                "scale_bytes": 2423520,
+                "expert_hadamard_bytes": 339738624
+              },
+              "expert_mode": "fused",
+              "act_mode": "lean"
+            }
           }
         },
         "w2a8_fused_expert_lean/2": {
           "prefill": {
-            "median_ms": 206.8505630493164,
-            "p95_ms": 207.40900192260742,
-            "mean_ms": 206.85720474243163,
-            "min_ms": 205.72569274902344,
+            "median_ms": 51.59667205810547,
+            "p95_ms": 52.005478096008304,
+            "mean_ms": 51.346261444091795,
+            "min_ms": 49.68339157104492,
             "n": 100
           },
           "expert_step": {
-            "median_ms": 8.023039817810059,
-            "p95_ms": 8.035327911376953,
-            "mean_ms": 8.024530534744263,
-            "min_ms": 8.014847755432129,
+            "median_ms": 4.727792024612427,
+            "p95_ms": 4.738083267211914,
+            "mean_ms": 4.7287308740615845,
+            "min_ms": 4.718592166900635,
             "n": 100
           },
           "end_to_end": {
-            "median_ms": 224.46746063232422,
-            "p95_ms": 225.146533203125,
-            "mean_ms": 224.49994125366212,
-            "min_ms": 223.16748046875,
+            "median_ms": 59.95556831359863,
+            "p95_ms": 62.37516822814941,
+            "mean_ms": 60.303073959350584,
+            "min_ms": 59.77907180786133,
             "n": 100
           },
           "graph_vs_eager_max_abs": 0.0,
           "memory": {
-            "resident_bytes": 6639310336,
-            "peak_bytes": 7122554880,
-            "reserved_bytes": 8029995008,
-            "install": null
+            "resident_bytes": 4076538368,
+            "peak_bytes": 6728106496,
+            "reserved_bytes": 5207228416,
+            "install": {
+              "sites": {
+                "backbone": 288,
+                "expert": 126
+              },
+              "resident": {
+                "backbone_int8_bytes": 2392879104,
+                "expert_int8_bytes": 0,
+                "expert_code_bytes": 78372864,
+                "scale_bytes": 2423520,
+                "expert_hadamard_bytes": 339738624
+              },
+              "expert_mode": "fused",
+              "act_mode": "lean"
+            }
           }
         }
       },
@@ -10160,7 +10216,7 @@
     "/projects/yanlongvla/runs/plustrain_20261008/confirmation/a8_studentq/complete.json": "ec08719d03cdf45a2cbc10112750195ce54df9cd7950583cd5662a421584001b",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/base/complete.json": "16d50482ec25a49e106eb6b6b76d945bc5c876e625307b5855ec38d66afcf025",
     "/projects/yanlongvla/runs/plustrain_20261008/int8/snap/complete.json": "412c6ff59c158ec9139ed4f635d4c91ef3724c4f3d41edf6e3fab447da85e9ed",
-    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/complete.json": "a0d959b121105e82df29b2cb14595264cb11114874d3cdc1aae5ce798383f558"
+    "/projects/yanlongvla/runs/plustrain_20261008/int8/bench/complete.json": "ac7e35c97c64f744ef2b3298bce6c75dba8e7fc15536974343f82235874e3f09"
   },
   "note": "FP has not seen Plus-train data. Validation (300 Plus-train observations) chose all P1 fine-tune hyperparameters and early stopping; the Plus test subset was never used for selection. A8 rows are excluded from method selection. RAQ-FT v1 (all parameter groups at lr 3e-4) degraded every monitor (validation readout 764 to 1277, KV error doubled) because the FP16 row scales drifted 19%; it was stopped without Plus evaluation and replaced by v2 with magnitude-matched per-group learning rates (EXPERIMENTS.md E089)."
 }
