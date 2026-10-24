@@ -14,7 +14,7 @@ src = Path(a.src).resolve()
 stale = [e for e in sys.path if 'pi05-handover/baselines' in e or e.rstrip('/').endswith('openpi/diagnostics')]
 assert not stale, f'stale code directories on sys.path: {stale}'
 found = {}
-for name in ('common', 'calibrate', 'quantize', 'quantize_vptq', 'export_layers', 'import_external', 'serve', 'eval_libero', 'eval_libero_plus', 'paired_stats'):
+for name in ('common', 'calibrate', 'quantize', 'quantize_vptq', 'quantize_aqlm', 'quantize_quip', 'quantize_qtip', 'export_layers', 'import_external', 'serve', 'eval_libero', 'eval_libero_plus', 'paired_stats'):
     origin = Path(importlib.util.find_spec(name).origin).resolve()
     assert origin.parent == src, f'{name} resolves to {origin}, not the snapshot {src}'
     found[name] = str(origin)

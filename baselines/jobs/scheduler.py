@@ -50,10 +50,11 @@ MIN_EPISODES = 50
 COLLAPSE_RATE = 0.05
 REFERENCE_RATE = 0.5
 # Conservative hours per part, from earlier runs of this runtime (Plus 1000 ~5.1 h, LIBERO 2000 ~9.3 h, failure-heavy rows)
-PART_HOURS = dict(sanity=0.5, plus=1.35, libero_spatial=1.9, libero_object=2.3, libero_goal=2.4, libero_10=3.2)
+PART_HOURS = dict(build=2.6, sanity=0.5, plus=1.35, libero_spatial=1.9, libero_object=2.3, libero_goal=2.4, libero_10=3.2)
 SANITY_UNITS = 50   # Plus units in the sanity sample (with 5 episodes per LIBERO spatial task: 100 episodes)
 CALIBRATION_HOURS = 1.0
-QUANTIZE_HOURS = dict(rtn=0.2, gptq=1.5, awq=1.0, vptq=3.5)
+QUANTIZE_HOURS = dict(rtn=0.2, gptq=1.5, awq=1.0, vptq=3.5, aqlm=2.6, quip=1.0, qtip=2.0)   # aqlm: the sanity job's share next to the helpers
+AQLM_HELPERS = 4   # extra jobs that quantize AQLM layers alongside the sanity job (~106 s per layer, 414 layers)
 
 
 def now():
@@ -125,13 +126,22 @@ def init(rows):
 
 
 def sanity_items(rows):
-    return [dict(name=f'{r}:sanity', kind='sanity', row=r, part='sample') for r in rows]
+    """Per row: AQLM build helpers (one job each), then the sanity part."""
+    items = []
+    for r in rows:
+        if r.startswith('aqlm'):
+            items += [dict(name=f'{r}:build_{i}', kind='build', row=r, part=f'build_{i}') for i in range(AQLM_HELPERS)]
+        items.append(dict(name=f'{r}:sanity', kind='sanity', row=r, part='sample'))
+    return items
 
 
 def add_sanity():
     plan = load(RUN / 'plan.json', None)
     have = {i['name'] for i in plan['items']}
-    plan['items'] = [i for i in sanity_items(plan['rows']) if i['name'] not in have] + plan['items']
+    new = [i for i in sanity_items(plan['rows']) if i['name'] not in have]
+    for item in new:   # in front of the row's sanity part if that exists, else at the front
+        at = next((k for k, i in enumerate(plan['items']) if i['name'] == f"{item['row']}:sanity"), 0)
+        plan['items'].insert(at, item)
     plan['source'] = str(snapshot())
     save(RUN / 'plan.json', plan)
     log(f"added sanity parts for {plan['rows']}; bundles submitted from now on use {plan['source']}")
@@ -271,6 +281,9 @@ def monitor(plan):
 
 
 def done(item, src):
+    if item['kind'] == 'build':
+        return ((RUN / 'aqlm_layers' / item['row'] / 'accounting.json').exists()
+                or (RUN / 'checkpoints' / item['row'] / 'quant.json').exists())
     if item['kind'] == 'sanity':
         sample = RUN / 'sanity' / item['row']
         return (len(keys_in(sample / 'libero/libero_spatial.jsonl', ('task', 'episode'))) == 50
@@ -355,11 +368,13 @@ def step():
             st = items[name]
             if row in plan['parked'] or row in plan.get('stopped', {}) or st.get('status') in ('done', 'failed') or st.get('bundle'):
                 continue
-            if item['kind'] != 'sanity' and not sanity_passed(row):
+            if item['kind'] not in ('build', 'sanity') and not sanity_passed(row):
                 continue   # full evaluation only after the row's 100-episode sample passed
+            if item['kind'] == 'build' and lines:
+                continue   # a build helper gets a job of its own, so helpers run in parallel
             cost = PART_HOURS[item['suite'] if item['kind'] == 'libero' else item['kind']]
             need = []
-            if not quantized(row) and row not in building and row not in builds:
+            if item['kind'] != 'build' and not quantized(row) and row not in building and row not in builds:
                 need.append(row)
                 cost += QUANTIZE_HOURS[row.split('_w')[0]]
                 if not row.startswith('rtn') and not calibrated and 'calibration' not in builds and 'calibration' not in building:
@@ -371,6 +386,8 @@ def step():
             names.append(name)
             builds += need
             hours += cost
+            if item['kind'] == 'build':
+                break
         if not lines:
             break
         bundle = f"b{state.setdefault('_next', 1):03d}"

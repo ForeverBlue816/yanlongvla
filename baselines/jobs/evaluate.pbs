@@ -14,6 +14,8 @@
 # building is postponed to the end of the bundle and then waits for that build. A new checkpoint gets a sanity check
 # before any episode (jobs/debug_actions.py --quick -> <checkpoint>/sanity.json); one that fails it stops the row.
 # A row stopped by jobs/scheduler.py ($RUN/stopped/<row>) is skipped, and its running client is killed within a minute.
+# kind build (AQLM only) = quantize unclaimed layers of the row next to other jobs (per-layer locks in quantize_aqlm.py),
+# so several GPUs share AQLM's ~13 GPU-hour quantization; the row's sanity part then assembles the checkpoint.
 # Outputs: evaluation/<row>/plus_parts/<shard>.jsonl or evaluation/<row>/libero/<suite>.jsonl.
 # Every step resumes. $RUN/bundles/$BUNDLE.progress records started/finished/deferred/failed per part for jobs/scheduler.py.
 set -uo pipefail
@@ -25,6 +27,9 @@ CALIBRATION=$RUN/calibration
 LAYERS=$RUN/layers
 OLD_CALIBRATION=$HANDOVER/runs/quantization/calibration    # only compared against, never used
 VPTQ_REPO=$HANDOVER/runs/toolkits/VPTQ
+AQLM_REPO=$HANDOVER/runs/toolkits/AQLM   # github.com/Vahe1994/AQLM
+QUIP_REPO=$HANDOVER/runs/toolkits/quip-sharp   # github.com/Cornell-RelaxML/quip-sharp
+QTIP_REPO=$HANDOVER/runs/toolkits/qtip   # github.com/Cornell-RelaxML/qtip
 PY="$OPENPI_ROOT/.venv/bin/python"
 SIM_SITE=/home/d250009/openvla-ptq-stage1/.venv-bf16-stage/lib64/python3.11/site-packages   # simulator dependencies only
 PLUS_SITE="$HANDOVER/runs/envs/libero-plus/site-packages"
@@ -56,6 +61,12 @@ PY
   "$PY" export_layers.py --checkpoint "$BASE_CKPT" --calibration "$CALIBRATION" --out "$LAYERS"
 }
 
+aqlm_layers() {   # aqlm_layers <row>: quantize the row's unclaimed AQLM layers; writes accounting.json once all exist
+  [[ "$(git -C "$AQLM_REPO" rev-parse HEAD)" == e79a896ed6656fe4ed06193d42d004e7d0bbdbb2 ]] || { echo "AQLM commit changed" >&2; return 3; }
+  PYTHONPATH="$SRC:$AQLM_REPO:$OPENPI_ROOT" "$PY" quantize_aqlm.py --bits "${1#*_w}" --layers "$LAYERS" --calibration "$CALIBRATION" \
+    --checkpoint "$BASE_CKPT" --aqlm-repo "$AQLM_REPO" --out "$RUN/aqlm_layers/$1"
+}
+
 quantize() {   # quantize <row>
   local row=$1 method=${1%_w*} bits=${1#*_w} ckpt="$RUN/checkpoints/$1"
   echo "=== quantize $row $(date -Is)"
@@ -72,6 +83,25 @@ quantize() {   # quantize <row>
           --vptq-repo "$VPTQ_REPO" --out "$RUN/vptq_layers/$row" &&
       "$PY" import_external.py --checkpoint "$BASE_CKPT" --quantized "$RUN/vptq_layers/$row" \
         --accounting "$RUN/vptq_layers/$row/accounting.json" --out "$ckpt" ;;
+    aqlm)
+      aqlm_layers "$row" || return 1
+      local waited=0   # other jobs may still be finishing their last layers (about 2 minutes each)
+      until [[ -s "$RUN/aqlm_layers/$row/accounting.json" ]] || (( waited >= 7200 )); do
+        sleep 60; waited=$((waited + 60)); aqlm_layers "$row" || return 1
+      done
+      [[ -s "$RUN/aqlm_layers/$row/accounting.json" ]] || { echo "AQLM layers of $row still incomplete" >&2; return 1; }
+      "$PY" import_external.py --checkpoint "$BASE_CKPT" --quantized "$RUN/aqlm_layers/$row" \
+        --accounting "$RUN/aqlm_layers/$row/accounting.json" --out "$ckpt" ;;
+    quip|qtip)
+      local repo=$QUIP_REPO commit=1d8f873e9a2a8b86b12bb1064c312c5689b77d98 out="$RUN/${method}_layers/$row"
+      [[ $method == qtip ]] && repo=$QTIP_REPO commit=e90c6688c8dfae326a3a81b5eb032db7c6680ec0
+      [[ "$(git -C "$repo" rev-parse HEAD)" == "$commit" ]] || { echo "$method commit changed" >&2; return 3; }
+      # the toolkits' CUDA extensions need gcc 12's libstdc++
+      LD_LIBRARY_PATH="/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
+      PYTHONPATH="$SRC:$repo:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
+        "$PY" "quantize_$method.py" --layers "$LAYERS" --calibration "$CALIBRATION" --checkpoint "$BASE_CKPT" \
+          "--$method-repo" "$repo" --out "$out" &&
+      "$PY" import_external.py --checkpoint "$BASE_CKPT" --quantized "$out" --accounting "$out/accounting.json" --out "$ckpt" ;;
     *) echo "no quantizer for $method in this repository" >&2; return 2 ;;
   esac || return 1
   "$PY" - "$ckpt/quant.json" "$SRC" <<'PY'
@@ -92,6 +122,10 @@ run_part() {   # runs in a subshell; exit 75 = a prerequisite is being built by 
   cd "$SRC"
   "$PY" jobs/provenance.py "$SRC"
   local ckpt="$RUN/checkpoints/$row" out="$RUN/evaluation/$row"
+  if [[ "$kind" == build ]]; then   # helper: only AQLM layers, no row lock, no evaluation
+    [[ -s "$ckpt/quant.json" ]] || aqlm_layers "$row"
+    return
+  fi
   mkdir -p "$out/libero" "$out/plus_parts"
   if [[ ! -s "$ckpt/sanity.json" ]]; then
     exec 8>"$RUN/locks/quantize_$row.lock"
