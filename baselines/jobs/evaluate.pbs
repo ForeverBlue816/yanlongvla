@@ -14,6 +14,7 @@
 # building is postponed to the end of the bundle and then waits for that build. A new checkpoint gets a sanity check
 # before any episode (jobs/debug_actions.py --quick -> <checkpoint>/sanity.json); one that fails it stops the row.
 # A row stopped by jobs/scheduler.py ($RUN/stopped/<row>) is skipped, and its running client is killed within a minute.
+# kind exp = run jobs/experiments/<part>.sh (diagnostic experiments; done when $RUN/experiments/<part>/done.json exists)
 # kind build (AQLM only) = quantize unclaimed layers of the row next to other jobs (per-layer locks in quantize_aqlm.py),
 # so several GPUs share AQLM's ~13 GPU-hour quantization; the row's sanity part then assembles the checkpoint.
 # Outputs: evaluation/<row>/plus_parts/<shard>.jsonl or evaluation/<row>/libero/<suite>.jsonl.
@@ -92,15 +93,16 @@ quantize() {   # quantize <row>
       [[ -s "$RUN/aqlm_layers/$row/accounting.json" ]] || { echo "AQLM layers of $row still incomplete" >&2; return 1; }
       "$PY" import_external.py --checkpoint "$BASE_CKPT" --quantized "$RUN/aqlm_layers/$row" \
         --accounting "$RUN/aqlm_layers/$row/accounting.json" --out "$ckpt" ;;
-    quip|qtip)
-      local repo=$QUIP_REPO commit=1d8f873e9a2a8b86b12bb1064c312c5689b77d98 out="$RUN/${method}_layers/$row"
+    quip|quipt0|qtip)   # quipt0 = diagnostic variant: QuIP# without its 10 tuning sweeps (DECISIONS D7)
+      local repo=$QUIP_REPO commit=1d8f873e9a2a8b86b12bb1064c312c5689b77d98 out="$RUN/${method}_layers/$row" extra=()
       [[ $method == qtip ]] && repo=$QTIP_REPO commit=e90c6688c8dfae326a3a81b5eb032db7c6680ec0
+      [[ $method == quipt0 ]] && method=quip extra=(--tune-iters 0)
       [[ "$(git -C "$repo" rev-parse HEAD)" == "$commit" ]] || { echo "$method commit changed" >&2; return 3; }
       # the toolkits' CUDA extensions need gcc 12's libstdc++
       LD_LIBRARY_PATH="/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
       PYTHONPATH="$SRC:$repo:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
         "$PY" "quantize_$method.py" --layers "$LAYERS" --calibration "$CALIBRATION" --checkpoint "$BASE_CKPT" \
-          "--$method-repo" "$repo" --out "$out" &&
+          "--$method-repo" "$repo" --out "$out" "${extra[@]}" &&
       "$PY" import_external.py --checkpoint "$BASE_CKPT" --quantized "$out" --accounting "$out/accounting.json" --out "$ckpt" ;;
     *) echo "no quantizer for $method in this repository" >&2; return 2 ;;
   esac || return 1
@@ -124,6 +126,13 @@ run_part() {   # runs in a subshell; exit 75 = a prerequisite is being built by 
   local ckpt="$RUN/checkpoints/$row" out="$RUN/evaluation/$row"
   if [[ "$kind" == build ]]; then   # helper: only AQLM layers, no row lock, no evaluation
     [[ -s "$ckpt/quant.json" ]] || aqlm_layers "$row"
+    return
+  fi
+  if [[ "$kind" == exp ]]; then   # experiment script jobs/experiments/<arg>.sh; writes $RUN/experiments/<arg>/done.json
+    exec 9>"$RUN/locks/exp_$arg.lock"
+    flock -n 9 || { echo "experiment $arg is running in another job"; exit 75; }
+    RUN="$RUN" SRC="$SRC" PY="$PY" BASE_CKPT="$BASE_CKPT" CALIBRATION="$CALIBRATION" LAYERS="$LAYERS" HANDOVER="$HANDOVER" \
+      OPENPI_ROOT="$OPENPI_ROOT" AQLM_REPO="$AQLM_REPO" QUIP_REPO="$QUIP_REPO" QTIP_REPO="$QTIP_REPO" bash "$SRC/jobs/experiments/$arg.sh"
     return
   fi
   mkdir -p "$out/libero" "$out/plus_parts"

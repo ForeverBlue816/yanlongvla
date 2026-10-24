@@ -40,7 +40,7 @@ SETTINGS = dict(out_group_size=1, in_group_size=IN_GROUP, nbits_per_codebook=NBI
                 lr=1e-4, max_epochs=1000, steps_per_epoch=100, relative_mse_tolerance=0.01, beam_size=1)   # official defaults + README recipe
 
 
-def quantize_layer(item, layers_dir, out, codebooks_per_layer, device):
+def quantize_layer(item, layers_dir, out, codebooks_per_layer, device, percdamp):
     from aq_engine import AQEngine
     from src.utils import _dequantize_weight
     src = load_file(str(layers_dir / item['file']))
@@ -49,7 +49,7 @@ def quantize_layer(item, layers_dir, out, codebooks_per_layer, device):
         layer.weight.copy_(src['weight'].float())
     engine = AQEngine(layer)
     xtx = src['hessian'].to(device=device, dtype=engine.XTX.dtype)   # shared E[x x^T] (= official XTX / nsamples)
-    xtx.diagonal().add_(PERCDAMP * xtx.diagonal().mean())
+    xtx.diagonal().add_(percdamp * xtx.diagonal().mean())
     engine.XTX = xtx
     random.seed(0)
     torch.manual_seed(0)
@@ -86,6 +86,7 @@ def main():
     p.add_argument('--out', required=True)
     p.add_argument('--max-layers', type=int, help='stop after this many layers (tests)')
     p.add_argument('--only', nargs='+', help='quantize only layers whose name contains one of these strings (tests)')
+    p.add_argument('--percdamp', type=float, default=PERCDAMP, help='decision 24: 0.01; 0 reproduces the official (undamped) code')
     a = p.parse_args()
     import aq_engine
     assert Path(a.aqlm_repo).resolve() in Path(aq_engine.__file__).resolve().parents, f'AQLM imported from {aq_engine.__file__}'
@@ -99,7 +100,7 @@ def main():
     meta = dict(method=f'aqlm_{a.bits}x8g8', bits_nominal=a.bits, backbone_bits=a.bits, expert_bits=a.bits,
                 structure=dict(num_codebooks=a.bits, nbits_per_codebook=NBITS, in_group_size=IN_GROUP, out_group_size=1, scales='FP16 per output row'),
                 aqlm_commit=subprocess.check_output(['git', '-C', a.aqlm_repo, 'rev-parse', 'HEAD'], text=True).strip(),
-                aqlm_settings=SETTINGS, percdamp=PERCDAMP, seed='random.seed(0) and torch.manual_seed(0) before each layer',
+                aqlm_settings=SETTINGS, percdamp=a.percdamp, seed='random.seed(0) and torch.manual_seed(0) before each layer',
                 calibration_index_sha256=sha256(Path(a.calibration) / 'index.json'),
                 payload_rule='uint8 code per codebook per 8 input weights + FP16 codebooks + FP16 per-row scale, all counted',
                 notes='pure PTQ, no layer-wise or end-to-end fine-tuning; official AQLM layer quantizer (AQEngine.quantize) with the shared per-layer Hessians (+1% diagonal damping) as XTX; no block or global fine-tuning',
@@ -120,7 +121,7 @@ def main():
         except OSError:
             continue
         if not (out / item['file']).exists():
-            record = quantize_layer(item, layers_dir, out, a.bits, device)
+            record = quantize_layer(item, layers_dir, out, a.bits, device, a.percdamp)
             print(json.dumps(dict(layer=k, name=item['name'], **{x: record[x] for x in ('payload_bytes', 'relative_output_error', 'seconds')})), flush=True)
             done_now += 1
         lock.close()

@@ -4,6 +4,9 @@ H = E[x x^T] for all 414 quantizable Linear layers, and the FP reference actions
 Usage:
   python calibrate.py --checkpoint /path/pi05_libero_pytorch --out /path/calibration [--hf-cache /path]
 
+--manifest and --noise-seed exist only for held-out checks (data/heldout_manifest.json, seed 1); every method uses the
+default calibration.
+
 The observations are drawn from the LeRobot dataset physical-intelligence/libero at a pinned revision, by episode
 and frame index (data/calibration_manifest.json). Expert layers see all 10 flow steps (fixed noise, seed 0).
 """
@@ -51,8 +54,10 @@ def main():
     p.add_argument('--checkpoint', required=True, help='official pi05_libero PyTorch checkpoint directory')
     p.add_argument('--out', required=True)
     p.add_argument('--hf-cache', default=None)
+    p.add_argument('--manifest', default=str(MANIFEST), help='held-out checks only; the methods use the default')
+    p.add_argument('--noise-seed', type=int, default=0)
     a = p.parse_args()
-    manifest = json.loads(MANIFEST.read_text())
+    manifest = json.loads(Path(a.manifest).read_text())
     root = download(manifest, a.hf_cache)
     observations = load_observations(manifest, root)
     policy = load_policy(a.checkpoint)
@@ -69,7 +74,7 @@ def main():
     actions = []
     try:
         for i, obs in enumerate(observations):
-            actions.append(np.asarray(policy.infer(obs, noise=fixed_noise(0))['actions'], dtype=np.float32))
+            actions.append(np.asarray(policy.infer(obs, noise=fixed_noise(a.noise_seed))['actions'], dtype=np.float32))
             if (i + 1) % 32 == 0:
                 print(json.dumps(dict(observations=i + 1)), flush=True)
     finally:
@@ -81,10 +86,10 @@ def main():
     for n in layers:
         h = (moments[n] / counts[n]).float().cpu()
         path = out / 'hessians' / (n.replace('.', '_') + '.pt')
-        torch.save(dict(name=n, covariance=h, samples=counts[n], note='uncentered E[x x^T] over all forward calls of the layer on the 256 calibration observations with fixed noise seed 0'), path)
+        torch.save(dict(name=n, covariance=h, samples=counts[n], note=f"uncentered E[x x^T] over all forward calls of the layer on the {len(observations)} observations of {Path(a.manifest).name} with fixed noise seed {a.noise_seed}"), path)
         index[n] = dict(file=str(path.relative_to(out)), samples=counts[n], in_features=layers[n].in_features, out_features=layers[n].out_features)
     np.save(out / 'fp_reference_actions.npy', np.stack(actions))
-    dump_json(out / 'index.json', dict(checkpoint_sha256=sha256(Path(a.checkpoint) / 'model.safetensors'), observations=len(observations), noise_seed=0, dataset=dict(name=manifest['dataset'], revision=manifest['revision']), layers=index))
+    dump_json(out / 'index.json', dict(checkpoint_sha256=sha256(Path(a.checkpoint) / 'model.safetensors'), observations=len(observations), noise_seed=a.noise_seed, manifest=Path(a.manifest).name, dataset=dict(name=manifest['dataset'], revision=manifest['revision']), layers=index))
     print(json.dumps(dict(status='complete', layers=len(index), out=str(out))), flush=True)
 
 

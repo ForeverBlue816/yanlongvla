@@ -81,7 +81,9 @@ def main():
     p.add_argument('--quip-repo', required=True, help='official QuIP# checkout (github.com/Cornell-RelaxML/quip-sharp)')
     p.add_argument('--out', required=True)
     p.add_argument('--only', nargs='+', help='quantize only layers whose name contains one of these strings (tests)')
+    p.add_argument('--tune-iters', type=int, default=SETTINGS['quip_tune_iters'], help='official default 10; 0 is a diagnostic variant')
     a = p.parse_args()
+    SETTINGS['quip_tune_iters'] = a.tune_iters
     from lib import codebook
     import lib
     assert Path(a.quip_repo).resolve() in Path(lib.__file__).resolve().parents, f'QuIP# imported from {lib.__file__}'
