@@ -50,11 +50,11 @@ MIN_EPISODES = 50
 COLLAPSE_RATE = 0.05
 REFERENCE_RATE = 0.5
 # Conservative hours per part, from earlier runs of this runtime (Plus 1000 ~5.1 h, LIBERO 2000 ~9.3 h, failure-heavy rows)
-PART_HOURS = dict(build=2.6, sanity=0.5, plus=1.35, libero_spatial=1.9, libero_object=2.3, libero_goal=2.4, libero_10=3.2)
+PART_HOURS = dict(build=11.0, sanity=0.5, plus=1.35, libero_spatial=1.9, libero_object=2.3, libero_goal=2.4, libero_10=3.2)
 SANITY_UNITS = 50   # Plus units in the sanity sample (with 5 episodes per LIBERO spatial task: 100 episodes)
 CALIBRATION_HOURS = 1.0
-QUANTIZE_HOURS = dict(rtn=0.2, gptq=1.5, awq=1.0, vptq=3.5, aqlm=2.6, quip=1.0, qtip=2.0)   # aqlm: the sanity job's share next to the helpers
-AQLM_HELPERS = 4   # extra jobs that quantize AQLM layers alongside the sanity job (~106 s per layer, 414 layers)
+QUANTIZE_HOURS = dict(rtn=0.2, gptq=1.5, awq=1.0, vptq=3.5, aqlm=0.2, quip=1.0, qtip=2.0)   # aqlm: import only; the helpers build the layers first
+AQLM_HELPERS = 4   # jobs that quantize AQLM layers side by side (LM layers with 16384 inputs take over an hour each)
 
 
 def now():
@@ -342,7 +342,9 @@ def step():
             st.pop('bundle', None)
             if st.get('status') == 'done':
                 continue
-            if last.get(name, 'not reached') in ('started',) or last.get(name, '').startswith('failed'):
+            if last.get(name) == 'started' and name.split(':')[1].startswith('build_'):
+                log(f"{name}: walltime reached in {bundle}; finished AQLM layers are kept, resubmitting")   # progress, not a failure
+            elif last.get(name, 'not reached') in ('started',) or last.get(name, '').startswith('failed'):
                 st['attempts'] += 1
                 log(f"{name}: unfinished in {bundle} ({last.get(name)}), attempt {st['attempts']}/{MAX_ATTEMPTS}")
                 if st['attempts'] >= MAX_ATTEMPTS:
@@ -370,6 +372,9 @@ def step():
                 continue
             if item['kind'] not in ('build', 'sanity') and not sanity_passed(row):
                 continue   # full evaluation only after the row's 100-episode sample passed
+            if item['kind'] == 'sanity' and any(i['kind'] == 'build' and i['row'] == row for i in plan['items']) \
+                    and not done(dict(kind='build', row=row), None):
+                continue   # AQLM: the sanity job imports the layers once the helpers have built all of them
             if item['kind'] == 'build' and lines:
                 continue   # a build helper gets a job of its own, so helpers run in parallel
             cost = PART_HOURS[item['suite'] if item['kind'] == 'libero' else item['kind']]
