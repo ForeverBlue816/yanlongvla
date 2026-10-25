@@ -84,6 +84,29 @@ One table: row, metric, held-out MSE (total, per DoF), Plus selection /1000 with
 - Diagnostics (per-block, per-step ‖Ω^{1/2} J_{v←o_l}‖_F² text vs image reader blocks; readout errors under both metrics for
   base / A / A-AM) run as a separate stage after the fits; π₀.₅ `raqft_studentq_am` only if A-AM passes the gate.
 
+## Correction (2026-10-25): Δo is row A's readout difference
+
+The first A-AM run (job 225092) took §0 literally: o^q from the quantized model's own reader on its own trajectory and o^FP from
+the FP model on its own trajectory. Under that reading Δo also contains the 2-bit head's own attention error and the divergence of
+the two trajectories, which the backbone-only trainable set cannot remove, and it is not row A's Δo. The spec states that this
+track changes only the readout metric relative to row A, and check (c) (Spearman > 0.8 between the Ω = I single-block action
+metric and L_A) presupposes a shared Δo; the literal run measured Spearman 0.157 and was stopped after 32 updates. Implemented
+now (`readout_deltas` in groot_amraq.py): Δo_{l,t} = pre-W_O output of the FP head's cross-attention in block l with the
+student's own step-t hidden state as query, over the student's tokens minus over the FP tokens (row A's reader, before W_O);
+J_{v←o} is still evaluated by one JVP through the FP expert at FP step t with the tangent at all 16 reader blocks. Check (a) in
+that run used a unit-norm tangent over ~1e6 readout elements, so ε = 1e-3 moved each element by ~1e-6 and the central difference
+was FP32-noise dominated (rel. err. 1.18 / 0.41); it now uses an unnormalised N(0,1) tangent, and an FP32 CPU re-check
+(groot_amraq_jvpcheck.py, ε ∈ {1e-2, 1e-3, 1e-4}, plus the VJP adjoint identity) is recorded in
+runs/.../raqft/backbone_am/jvp_check_cpu.json. λ is now estimated with N(0, I) tangents, so it equals 1/E‖J_d‖_F² literally
+(a common rescaling of all groups, cancelled by s). Checks (a) and (c) are now hard gates: a failing run stops before training.
+The cost check of the literal run passed (78.0 s vs 48.6 s per update on an A40, ratio 1.60, exact-JVP variant).
+
+JVP verification (CPU, 2026-10-25): in FP64 the central difference converges to the JVP at ~2e-8 relative error once the step no
+longer crosses kinks of the piecewise-smooth expert (unit tangent, ε = 1e-3: 2.1e-8 / 2.6e-8), and the VJP satisfies the adjoint
+identity to ~5e-8; in FP32 the ε = 1e-3 check stays at 2.6e-3 to 8.2e-3 (N(0,1) tangent, kink crossings) or 0.23 to 0.68 (unit
+tangent, rounding) whatever the implementation. Deviation from §2(a): the gate runs the expert in FP64 (unit tangent, ε = 1e-3,
+threshold 1e-3); the FP32 value is recorded next to it.
+
 ## 7. Results
 
 (pending — fine-tunes queued behind row A; estimated start 2026-10-26)
