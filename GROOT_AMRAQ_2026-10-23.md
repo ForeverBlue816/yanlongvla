@@ -205,14 +205,37 @@ Gate (e) found `nonfinite_suite.json` missing and stopped the run with exit 3 (c
 no training). A-AM is held in the controller until the user's decision on the FP16-overflow fix (above) and the FP32 suite
 (job 225654) are in; then it is resubmitted and repeats all gates.
 
+## Decisions (user, 2026-10-26, verbatim)
+
+Decisions (2026-10-26):
+1. Overflow fix: option A — apply the FP16 row-scale gradient fix to A-AM only; do not rerun row A. Record in both row docs that row A dropped 29/768 steps (row-scale overflow only, codebook gradients never overflowed) and A-AM does not. Unpause A-AM's gate suite.
+2. Branch on row A's Plus selection 1000 (paired vs base): if Δ ≥ +3 pp with 95% CI lower bound > 0, A-AM runs next as queued. Otherwise swap A-AM's slot for row B (prefix + DiT codebooks/scales trainable, same loss, same data and budget), and A-AM is deferred; it can later be run as B-AM.
+3. Queue the backbone-only (FP head, 2-bit backbone) Plus selection 1000 now, ahead of A-AM0 and the distillation control. We need the Plus ceiling for prefix-side fine-tuning to read row A's number.
+4. State which GPU model evaluated row A's LIBERO medium; if it was the A40, flag the mismatch in the table and re-evaluate on a 6000 Ada when a slot is free.
+
+### Implementation (agent, 2026-10-26)
+
+- Gradient numerics: row A dropped 29 of 768 updates (3.8%) because row-scale gradients overflowed FP16 in the trainable layer's round trip (row-scale overflow only; codebook gradients never overflowed on real data); row A is not re-run. A-AM uses a straight-through FP16 round trip for the row scale (forward bit-identical, FP32 row-scale gradients) and does not drop updates for this reason; its codebook path is row A's (option A, user decision 2026-10-26). Code: `groot_amraq.row_scale_ste` (asserts per layer that the forward weight is unchanged); recorded in checks.json
+  (`row_scale_ste_layers`). Unit test on fitted layers: row-scale gradients finite under a 1e6 output-gradient stress (max 2.1e9);
+  codebook gradients still overflow under that synthetic stress, as decided, but never did on real data.
+- Gate suite unpaused: the FP32 non-finite suite now runs under rose QoS on CPU (226172) with the fix in place; gate (e) reads it.
+- Branch (§2): `plustrain_controller.groot_rowA_branch()` pairs row A's Plus selection with base when it completes and writes
+  `groot/offline/rowA_branch.json`; A-AM is submitted only if `next == 'A-AM'` and the suite passed; otherwise row B is prepared
+  for A-AM's slot.
+- §3: the backbone-only Plus selection 1000 already exists (run 2026-10-21 on an RTX 6000 Ada): **569/1000** (FP 618, base 486,
+  head-only 2-bit 519). It is the Plus ceiling for prefix-side fine-tuning against which row A is read; no new run needed.
+- §4: row A's LIBERO medium (888) ran on an **RTX A40**; FP / base / backbone-only ran on RTX 6000 Ada. A GPU-matched re-run on an
+  RTX 6000 Ada is queued (226174, pinned, output `medium_6000ada`). Row A's Plus selection runs on an RTX 6000 Ada (matched).
+
 ## 7. Results
 
 Held-out action MSE vs FP (256 observations, CPU, same noise per observation; total / translation / rotation / gripper):
 
 | Row | metric | total | translation | rotation | gripper | Plus /1000 | LIBERO medium | s/update | checks |
 |---|---|---:|---:|---:|---:|---|---|---|---|
-| base `groot_n17_ptq_w2` | — | 6.30e-3 | 5.00e-3 | 1.85e-4 | 2.86e-2 | 486 (done) | 872 (done) | — | — |
-| A `raqft_bb` | local W_O (L2 after W_O) | 6.41e-3 | 4.72e-3 | 1.31e-4 | 3.03e-2 | running (225656) | 888 (+1.6 pp vs base [−1.7, +5.1]; A40) | 71 (A40) | 29 non-finite dropped (E140) |
+| base `groot_n17_ptq_w2` | — | 6.30e-3 | 5.00e-3 | 1.85e-4 | 2.86e-2 | 486 | 872 | — | — |
+| ceiling: backbone-only 2-bit (FP head) | — | | | | | 569 | 927 | — | — |
+| A `raqft_bb` | local W_O (L2 after W_O) | 6.41e-3 | 4.72e-3 | 1.31e-4 | 3.03e-2 | running (225656, 6000 Ada) | 888 (+1.6 pp vs base [−1.7, +5.1]) **A40 — GPU mismatch, 6000 Ada re-run queued** | 71 (A40) | 29 non-finite dropped (E140) |
 | A-AM `raqft_am_bb` | action metric (JVP) | pending | | | | | | | (d)/(a)/(c) green; (e) pending |
 | A-AM0 `raqft_am0_bb` | action metric, β = 0 | pending | | | | | | | |
 
