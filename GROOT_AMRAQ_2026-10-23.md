@@ -168,6 +168,27 @@ Queue unchanged: A-AM (225277) after row A; A-AM0 and the distillation control s
 Withdrawn Spearman check, for information only (job 225276, 64 observations): 0.25 (single block, Ω = I) and 0.39 (full metric,
 unit λ) against L_A.
 
+## Row A follow-up and A-AM pre-start (user, 2026-10-25, second message) — implementation
+
+1. Non-finite steps in row A. 29 of 768 updates (3.8%) had an infinite gradient norm (loss finite each time); 21 distinct
+   calibration observations, the set is **not** identical across epochs (epoch 0: 10, epoch 1: 8, epoch 2: 11 observations;
+   7 recur: 203, 205, 224, 225, 228, 240, 253; 225 in all three). 15 of the 21 are LIBERO-Spatial frames (tasks 30–38, the suite
+   of the 2-bit head used in the fine-tune); the others are Goal/Object/10 frames (1, 25, 56, 57, 72, 129). Full list with
+   episode / frame / task in `runs/.../raqft/backbone_raqft/nonfinite.json`. Diagnostic (`groot_raqft_nonfinite.py`, 4 recurring
+   observations × latents 0–3 × student at base and at final masters, row A's step line for line): per-block/step readout loss,
+   L_H5b, max |Δo|, max |o^FP|, non-finite forward outputs, and separate backward passes of the readout term and of the H5b term
+   with the first modules carrying non-finite gradients and the parameters affected. Then (i) λ_DoF and s with and without the
+   21 observations, (ii) the FP32 suite on exactly these observations (L_AM, JVP, gradients; 4-step dry run on the recurring
+   four) — `groot_amraq.py --nonfinite-suite` → `backbone_am/nonfinite_suite.json`, which the training run reads as gate (e):
+   A-AM does not train unless that file says passed. Results in §7 / the row doc when the CPU jobs finish.
+2. Row A evaluation order: held-out action MSE (256 observations, total and per DoF group) base vs row A runs on CPU
+   (`groot_offline.py`, GROOT_OFFLINE_DEVICE=cpu) before any rollout; Plus selection 1000 (paired vs FP and base) is queued as the
+   primary (job 225656, rose); LIBERO medium (225555, rose) is kept as confirmation since the GR00T Plus FP / PTQ rows are complete.
+3. Queue: A-AM keeps its rose copies; A-AM0 and the distillation control stay on killable QoS with one copy each and yield.
+   **Rows B and C of the GR00T RAQ-FT track (trainable-set decision of 2026-10-20) are deferred past the GR00T deadline: they are
+   untested, not abandoned.**
+4. Check (b) stays a gate at 2× (ratio > 2 → `amdiag` variant); the ratio with the corrected Δo is measured by the GPU run.
+
 ## 7. Results
 
 (pending — fine-tunes queued behind row A; estimated start 2026-10-26)
