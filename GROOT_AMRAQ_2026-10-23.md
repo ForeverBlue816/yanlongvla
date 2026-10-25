@@ -235,8 +235,8 @@ Held-out action MSE vs FP (256 observations, CPU, same noise per observation; to
 |---|---|---:|---:|---:|---:|---|---|---|---|
 | base `groot_n17_ptq_w2` | — | 6.30e-3 | 5.00e-3 | 1.85e-4 | 2.86e-2 | 486 | 872 | — | — |
 | ceiling: backbone-only 2-bit (FP head) | — | | | | | 569 | 927 | — | — |
-| A `raqft_bb` | local W_O (L2 after W_O) | 6.41e-3 | 4.72e-3 | 1.31e-4 | 3.03e-2 | running (225656, 6000 Ada) | 888 (+1.6 pp vs base [−1.7, +5.1]) **A40 — GPU mismatch, 6000 Ada re-run queued** | 71 (A40) | 29 non-finite dropped (E140) |
+| A `raqft_bb` | local W_O (L2 after W_O) | 6.41e-3 | 4.72e-3 | 1.31e-4 | 3.03e-2 | 510 (+2.4 pp vs base [−1.9, +6.6]; −10.8 vs FP; −5.9 vs ceiling) | 888 (+1.6 pp vs base [−1.7, +5.1]) **A40 — GPU mismatch, 6000 Ada re-run queued** | 71 (A40) | 29 non-finite dropped (E140) |
 | A-AM `raqft_am_bb` | action metric (JVP) | pending | | | | | | | (d)/(a)/(c) green; (e) pending |
 | A-AM0 `raqft_am0_bb` | action metric, β = 0 | pending | | | | | | | |
 
-(A-AM / A-AM0 fine-tunes not started; see 'Pending user decision' above.)
+(A-AM / A-AM0 not started. Branch 2026-10-26: row A Plus Δ vs base +2.4 pp [−1.9, +6.6] does not meet Δ ≥ +3 pp with CI lower bound > 0 → **A-AM deferred**, to be run later as B-AM on top of row B.)
