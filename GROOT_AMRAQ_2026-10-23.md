@@ -180,7 +180,14 @@ unit λ) against L_A.
    with the first modules carrying non-finite gradients and the parameters affected. Then (i) λ_DoF and s with and without the
    21 observations, (ii) the FP32 suite on exactly these observations (L_AM, JVP, gradients; 4-step dry run on the recurring
    four) — `groot_amraq.py --nonfinite-suite` → `backbone_am/nonfinite_suite.json`, which the training run reads as gate (e):
-   A-AM does not train unless that file says passed. Results in §7 / the row doc when the CPU jobs finish.
+   A-AM does not train unless that file says passed.
+   **Mechanism found (2026-10-25, GROOT_2026-10-15.md 'Non-finite updates'):** the FP16 round trip inside `TrainableVQLinear.weight()`
+   casts the codebook / row-scale gradients to FP16 in backward; sums above 65 504 become inf (readout term only; H5b never).
+   A-AM shares this layer, so the same overflow will occur in A-AM, and in the FP32 suite as well (the round trip is dtype-independent).
+   **Pending user decision:** (A) straight-through FP16 round trip (forward bit-identical, FP32 gradients) in A-AM only — A-AM would
+   then differ from row A in gradient numerics as well as in the metric; (B) the same fix in both rows and a re-run of row A
+   (~15 h on an A40 plus queue); (C) no change, both rows keep the 5% drop cap and FP16-rounded gradients. Until decided, A-AM stays
+   queued behind gate (e), which fails if the FP32 suite shows non-finite gradients.
 2. Row A evaluation order: held-out action MSE (256 observations, total and per DoF group) base vs row A runs on CPU
    (`groot_offline.py`, GROOT_OFFLINE_DEVICE=cpu) before any rollout; Plus selection 1000 (paired vs FP and base) is queued as the
    primary (job 225656, rose); LIBERO medium (225555, rose) is kept as confirmation since the GR00T Plus FP / PTQ rows are complete.
