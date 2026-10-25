@@ -107,6 +107,52 @@ identity to ~5e-8; in FP32 the ε = 1e-3 check stays at 2.6e-3 to 8.2e-3 (N(0,1)
 tangent, rounding) whatever the implementation. Deviation from §2(a): the gate runs the expert in FP64 (unit tangent, ε = 1e-3,
 threshold 1e-3); the FP32 value is recorded next to it.
 
+## Corrections (user, 2026-10-25, verbatim)
+
+A-AM corrections (2026-10-25). Three changes to the spec; do not start the A-AM run until all four checks below pass as hard gates.
+
+1. Δo definition — fix it explicitly and pin it.
+   Δo is whatever row A computes: FP head cross-attention evaluated with the student's queries, student-token readouts minus FP-token readouts, taken before W_O. Write this definition in one sentence into the A-AM doc and into row A's doc, identically. Add hard check (d): on one fixed batch of 8 observations, the Δo tensors produced by the row-A code path and the A-AM code path must be bit-identical (max abs diff == 0, same shapes, same block/step/head ordering). A-AM differs from A in the metric applied to Δo and in nothing else.
+
+2. Check (a) — accepted as revised.
+   JVP vs finite differences in FP64 on CPU (relative error ≈ 2e-8) plus the adjoint identity ⟨JVP(u), w⟩ = ⟨u, VJP(w)⟩. Keep the FP32 numbers in the log for the record; they are not a gate. Record the deviation from the original spec as you have done.
+
+3. Check (c) — replace it. The Spearman test is withdrawn; it compares two quantities that are not expected to correlate across samples, and 0.8 was never a meaningful threshold. The correct equivalence test is the truncated-pullback identity:
+   With Ω = I and the JVP tangent truncated immediately after W_O of the same block (i.e. the pullback stopped at the first linear map), L_AM_trunc must equal L_A per sample: max over 64 samples of |L_AM_trunc − L_A| / L_A < 1e-5 in FP32 (< 1e-10 in FP64). This is an exact identity, not a statistical one; it is the "W_O is the first-order special case" claim in the paper, so it must hold to the bit up to rounding. Report the number. The 64-observation Spearman job (225276) can finish for information only; do not gate on it.
+
+4. Gates and the 32 wasted steps.
+   All four checks (a), (b), (c)-new, (d) run in the training script before the first optimizer step and abort on failure with the failing value printed. A failed check never produces a checkpoint or a training log entry. Verify this by injecting a deliberate failure once (e.g. scale the tangent by 2) and confirming the script stops.
+
+5. Check (b) cost ratio is still outstanding: report wall-clock per update for A vs A-AM on the same GPU once row A finishes (~14:50). The 2× fallback rule to raqft_groot_prefix_amdiag stands.
+
+6. s (the L_AM normalization scalar) and the λ_DoF values must be recomputed with the corrected Δo; the old values are void. Record the new ones.
+
+Queue unchanged: A-AM (225277) after row A; A-AM0 and the distillation control stay killable. The 2026-10-28 start deadline for A-AM stands; if the four checks are not all green by 2026-10-27, report that instead of starting.
+
+### Implementation of the corrections (agent, 2026-10-25)
+
+Δo definition (pinned 2026-10-25, identical in GROOT_2026-10-15.md, GROOT_AMRAQ_2026-10-23.md, groot_raqft.py and groot_amraq.py): Δo_{l,t} is the pre-W_O output of the FP head's cross-attention in reader block l, evaluated with the student's own step-t hidden state as query over the student's backbone tokens, minus the same over the FP backbone tokens; the difference is taken in FP32 from the BF16 readouts.
+
+- Check (d): `groot_raqft.row_a_deltas` (row A's call sequence, additive function; the row A training loop is untouched) vs
+  `groot_amraq.readout_deltas` on observations 0–7 with the training seed of latent 0: same record count, same (step, block) order,
+  same shapes, max |Δo_A − Δo_AM| == 0 in FP32, and the per-record ‖post-W_O difference‖² equal; in addition the FP trajectory used
+  for the Jacobian (the real `get_action` after the same `torch.manual_seed`) must draw the same noise as the student trajectory,
+  and replaying its step-1 readouts through the JVP's forward function must reproduce the captured readouts.
+- Check (a): FP64 gate (unit-norm N(0,1) tangent over all readouts, ε = 1e-3, relative error < 1e-3) plus the adjoint identity
+  ⟨JVP(r), w⟩ = ⟨r, VJP(w)⟩ (relative difference < 1e-6); the FP32 numbers are recorded, not gated.
+- Check (c): truncated-pullback identity on 64 observations with the FP head in FP32 (max relative difference < 1e-5) and in FP64
+  (< 1e-10); the JVP of the map o ↦ W_O o at o^FP with tangent Δo, summed over the 64 records of a sample, against
+  Σ‖post-W_O(student tokens) − post-W_O(FP tokens)‖² from the same readouts. The Spearman test is withdrawn; its 64-observation
+  CPU job (225276) finishes for information only.
+- Check (b): wall-clock of 2 updates with row A's loop (line for line) vs 2 with L_AM on the same GPU, 8 latents each, reported
+  in the manifest; > 2× selects the `amdiag` variant (never aborts).
+- Order and mechanism: (d) → (a) → (c) → λ_DoF (N(0,1) tangents, 4 probes × 4 steps × 32 observations) → s (mean L_AM at step
+  0 over 64 observations) → (b) → first optimizer step. Every gate writes checks.json; a failure writes checks_failed.json, prints the
+  failing value and exits with status 3 before manifest.json, progress.json, history.json or any fit file exists.
+  `--checks-only` runs (d), (a), (c) and exits; `--inject-fail jvp` scales the JVP tangent by 2 so that (a) must fail.
+- λ_DoF and s of the literal run (λ ≈ 5.1e6 / 6.7e6 / 4.3e6, s ≈ 6.1e7) are void; the files of that run are kept under
+  `runs/.../raqft/backbone_am/void_literal_20261025/`. The new values are recorded in the manifest of the run that trains.
+
 ## 7. Results
 
 (pending — fine-tunes queued behind row A; estimated start 2026-10-26)
