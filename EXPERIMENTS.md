@@ -1406,3 +1406,8 @@ CPU reproduction (job 225643, row A's step line for line, 4 recurring observatio
 ### E141 — A-AM reached an A40, passed (d)/(a)/(c) on GPU, stopped at gate (e) by design (2026-10-25 08:05 UTC)
 
 Job 225570 (rose, A40): (d) 0.0; (a) FP64 5.0e-9 / 1.3e-9, adjoint 2e-15 / 3e-15 (FP32 0.59 / 0.23 recorded); (c) 1.6e-8 FP32, 2.5e-16 FP64; (e) suite file missing → exit 3 before any training artefact. The other two rose copies were cancelled when this one started, so A-AM is out of the queue; it is held (GROOT_AM_HELD) pending the user's decision on the FP16 gradient-overflow fix (E140) and the FP32 non-finite suite (225654, queued on CPU). Row A LIBERO medium is running on the A40 (225555); its Plus selection (225656) waits for a rose slot. CPU killable jobs on cpu-1 are being preempted repeatedly (diagnostic 225643 restarted twice).
+
+
+### E142 — Row A held-out action MSE before rollouts (2026-10-25 08:30 UTC)
+
+CPU (job 225719; SDPA, BF16; same device for all rows), 256 held-out observations, paired noise, dataset action convention, MSE vs FP: base ptq_w2 total 6.30e-3 (relative 4.05%; translation 5.00e-3, rotation 1.85e-4, gripper 2.86e-2); row A raqft_bb total 6.41e-3 (4.11%; translation 4.72e-3 −5.7%, rotation 1.31e-4 −29%, gripper 3.03e-2 +6.0%). The gripper term dominates the total; row A improves the continuous dimensions and slightly worsens the gripper agreement. Output moved to runs/plustrain_20261008/groot/offline (the controller's path; the script had written under groot/ptq). Rollouts: Plus selection 1000 queued (225656, rose), medium running (225555, A40).

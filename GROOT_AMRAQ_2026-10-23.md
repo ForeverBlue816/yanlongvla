@@ -207,4 +207,13 @@ no training). A-AM is held in the controller until the user's decision on the FP
 
 ## 7. Results
 
-(pending — fine-tunes queued behind row A; estimated start 2026-10-26)
+Held-out action MSE vs FP (256 observations, CPU, same noise per observation; total / translation / rotation / gripper):
+
+| Row | metric | total | translation | rotation | gripper | Plus /1000 | LIBERO medium | s/update | checks |
+|---|---|---:|---:|---:|---:|---|---|---|---|
+| base `groot_n17_ptq_w2` | — | 6.30e-3 | 5.00e-3 | 1.85e-4 | 2.86e-2 | 486 (done) | 872 (done) | — | — |
+| A `raqft_bb` | local W_O (L2 after W_O) | 6.41e-3 | 4.72e-3 | 1.31e-4 | 3.03e-2 | queued (225656) | running (225555) | 71 (A40) | 29 non-finite dropped (E140) |
+| A-AM `raqft_am_bb` | action metric (JVP) | pending | | | | | | | (d)/(a)/(c) green; (e) pending |
+| A-AM0 `raqft_am0_bb` | action metric, β = 0 | pending | | | | | | | |
+
+(A-AM / A-AM0 fine-tunes not started; see 'Pending user decision' above.)
