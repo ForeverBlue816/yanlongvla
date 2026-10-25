@@ -153,6 +153,21 @@ Queue unchanged: A-AM (225277) after row A; A-AM0 and the distillation control s
 - λ_DoF and s of the literal run (λ ≈ 5.1e6 / 6.7e6 / 4.3e6, s ≈ 6.1e7) are void; the files of that run are kept under
   `runs/.../raqft/backbone_am/void_literal_20261025/`. The new values are recorded in the manifest of the run that trains.
 
+### Gate results before the A-AM start (CPU, BF16 student, 2026-10-25; jobs 225379 / 225404)
+
+| Gate | Value | Threshold | Result |
+|---|---|---|---|
+| (d) Δo bit-identity, 8 observations | max abs diff 0.0; shapes, (step, block) order equal; FP/student noise identical; JVP-step replay diff 0.0 | == 0 | pass |
+| (a) JVP vs finite difference, FP64, unit tangent, ε = 1e-3 | 1.24e-8 | < 1e-3 | pass |
+| (a) adjoint identity ⟨Jr, w⟩ = ⟨r, Jᵀw⟩, FP64 | 2.4e-12 | < 1e-6 | pass |
+| (c) truncated pullback, 64 observations, FP32 | max rel. diff 2.66e-8 | < 1e-5 | pass |
+| (c) truncated pullback, 64 observations, FP64 | max rel. diff 3.2e-16 | < 1e-10 | pass |
+| injected failure (tangent × 2, job 225379) | (a) rel. err. 1.000, adjoint 0.500 → exit 3; only checks.json / checks_failed.json written | must stop | stopped |
+
+(b) and the new λ / s are measured by the GPU run itself (same GPU for A and A-AM) and reported in §7 with the training result.
+Withdrawn Spearman check, for information only (job 225276, 64 observations): 0.25 (single block, Ω = I) and 0.39 (full metric,
+unit λ) against L_A.
+
 ## 7. Results
 
 (pending — fine-tunes queued behind row A; estimated start 2026-10-26)
