@@ -242,6 +242,16 @@ rule vs row B's loop on the same GPU (> 2× → diagonal metric per suite head, 
 checks-only (d)/(a)/(c) pass run as one GPU job on a 96 GB RTX Pro 6000 (CPU nodes booked until ~10-28); the B-AM fine-tune is
 submitted when both pass. The FP32 suite of the deferred A-AM was cancelled.
 
+### B-AM gates and prerequisites (2026-10-25)
+
+GPU gate run on an RTX Pro 6000 (226390): (d) Δo bit-identity with row B's code path 0.0 (shapes/order/noise identical, replay 0.0);
+(a) FP64 JVP vs finite difference 2.4e-8 / 2.4e-8, adjoint 3.7e-15 / 1.0e-15; (c) truncated pullback 1.9e-8 (FP32) / 6.1e-16 (FP64);
+(e) FP32 suite on row A's 21 non-finite observations (routed to their suites): 21/21 finite (L_AM, JVP, gradients), 4-step dry run
+4/4 finite. λ_DoF (pooled over suites, N(0, I) tangents) = translation 19.27, rotation 21.34, gripper 63.77; removing the 21
+observations changes λ by 0.6% / 1.0% / 3.1% and the step-0 L_AM mean by 5.7% (s here = 109.8 with unit metric scaling of part (i);
+the training run recomputes s with its own λ and records it). B-AM fine-tune submitted (226502, rose, race copies); (b) is measured
+by that run before its first optimizer step.
+
 ## 7. Results
 
 Held-out action MSE vs FP (256 observations, CPU, same noise per observation; total / translation / rotation / gripper):
