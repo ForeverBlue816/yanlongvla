@@ -111,16 +111,19 @@ def main():
     else:
         dump_json(meta_path, meta)
 
+    # a layer is done only when its record exists too: the record is written last, so a layer cut off mid-save (disk
+    # quota, walltime) is quantized again
+    finished = lambda item: (out / item['file']).exists() and (out / (Path(item['file']).stem + '.json')).exists()
     done_now = 0
     for k, item in enumerate(listing, 1):
-        if (out / item['file']).exists() or (a.only and not any(s in item['name'] for s in a.only)):
+        if finished(item) or (a.only and not any(s in item['name'] for s in a.only)):
             continue
         lock = open(out / (item['file'] + '.lock'), 'w')
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)   # another job is quantizing this layer
         except OSError:
             continue
-        if not (out / item['file']).exists():
+        if not finished(item):
             record = quantize_layer(item, layers_dir, out, a.bits, device, a.percdamp)
             print(json.dumps(dict(layer=k, name=item['name'], **{x: record[x] for x in ('payload_bytes', 'relative_output_error', 'seconds')})), flush=True)
             done_now += 1
