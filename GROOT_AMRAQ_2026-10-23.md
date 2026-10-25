@@ -196,6 +196,15 @@ unit λ) against L_A.
    untested, not abandoned.**
 4. Check (b) stays a gate at 2× (ratio > 2 → `amdiag` variant); the ratio with the corrected Δo is measured by the GPU run.
 
+### A-AM GPU gate run (A40, job 225570, 2026-10-25 07:48–08:00 UTC)
+
+A rose copy reached an A40 before the FP32 non-finite suite had run. Gates on the GPU: (d) max |Δo_A − Δo_AM| = 0.0 (8 observations,
+same shapes/order/noise, replay 0.0); (a) FP64 JVP vs finite difference 5.0e-9 / 1.3e-9, adjoint identity 2e-15 / 3e-15 (FP32
+record only: 0.59 / 0.23); (c) truncated pullback max relative difference 1.6e-8 (FP32) and 2.5e-16 (FP64) over 64 observations.
+Gate (e) found `nonfinite_suite.json` missing and stopped the run with exit 3 (checks.json / checks_failed.json only; no manifest,
+no training). A-AM is held in the controller until the user's decision on the FP16-overflow fix (above) and the FP32 suite
+(job 225654) are in; then it is resubmitted and repeats all gates.
+
 ## 7. Results
 
 (pending — fine-tunes queued behind row A; estimated start 2026-10-26)
