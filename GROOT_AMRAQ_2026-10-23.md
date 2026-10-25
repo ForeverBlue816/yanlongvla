@@ -231,6 +231,17 @@ Decisions (2026-10-26):
 
 Row A Plus +2.4 pp vs base [−1.9, +6.6] → row B (GROOT_2026-10-15.md, 'Row B') takes A-AM's slot; A-AM is deferred and can be run later as B-AM on top of row B. The FP32 non-finite suite job for A-AM was cancelled; B-AM will get its own suite on row B's masters. All A-AM code and gates stay in place.
 
+### B-AM (user plan + amendment 2026-10-25): run in parallel with row B
+
+`groot_amraq.py --mode b_am` (row `raqft_b_am`, fit keys `backbone_bam` / `head_bam_<suite>`): row B's trainable set, routing and Δo
+(`groot_rowb.build_models`), L = L_AM / s + 0.1 L_H5b with Ω and λ_DoF as in the A-AM spec; λ (pooled over suites, each observation
+through its own suite's FP head) and s recomputed for row B's set; row-scale straight-through round trip. Gates before the first
+optimizer step: (d) Δo bit-identity with row B's (= row A's) code path per routed suite, (a) FP64 JVP / adjoint, (c) truncated
+pullback (FP32 and FP64, routed heads cast per observation), (e) FP32 non-finite suite on row A's 21 observations (routed), (b) cost
+rule vs row B's loop on the same GPU (> 2× → diagonal metric per suite head, row `raqft_groot_b_amdiag`). Prerequisites (e) and a
+checks-only (d)/(a)/(c) pass run as one GPU job on a 96 GB RTX Pro 6000 (CPU nodes booked until ~10-28); the B-AM fine-tune is
+submitted when both pass. The FP32 suite of the deferred A-AM was cancelled.
+
 ## 7. Results
 
 Held-out action MSE vs FP (256 observations, CPU, same noise per observation; total / translation / rotation / gripper):

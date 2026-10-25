@@ -1,0 +1,236 @@
+[
+ {
+  "row": "fp",
+  "label": "FP (BF16)",
+  "plus": {
+   "successes": 618,
+   "camera": 326,
+   "robot_init": 292,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "vs_ptq_w2": {
+    "difference_pp": 13.200000000000001,
+    "ci95_pp": [
+     8.227119232042059,
+     18.30577088982117
+    ]
+   }
+  },
+  "medium": {
+   "successes": 949,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "directory": "medium",
+   "vs_ptq_w2": {
+    "difference_pp": 7.7,
+    "ci95_pp": [
+     3.799999999999997,
+     11.902500000000005
+    ]
+   }
+  },
+  "bpw": {
+   "quantized_linear": 16.0,
+   "whole_model": 16.0
+  }
+ },
+ {
+  "row": "ptq_w2",
+  "label": "base: backbone + head 2-bit",
+  "plus": {
+   "successes": 486,
+   "camera": 257,
+   "robot_init": 229,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "vs_fp": {
+    "difference_pp": -13.200000000000001,
+    "ci95_pp": [
+     -18.30577088982117,
+     -8.227119232042059
+    ]
+   }
+  },
+  "medium": {
+   "successes": 872,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "directory": "medium",
+   "vs_fp": {
+    "difference_pp": -7.7,
+    "ci95_pp": [
+     -11.90250000000002,
+     -3.799999999999997
+    ]
+   }
+  },
+  "heldout_mse_vs_fp": {
+   "total": 0.0063039339147508144,
+   "relative": 0.04046763479709625,
+   "translation": 0.005000211298465729,
+   "rotation": 0.00018515151168685406,
+   "gripper": 0.02857145294547081
+  },
+  "bpw": {
+   "quantized_linear": 2.0230882432725696,
+   "whole_model": 5.595515218752068,
+   "note": "whole-model: other tensors at stored BF16 (conservative)"
+  }
+ },
+ {
+  "row": "ptq_bb",
+  "label": "backbone-only 2-bit (FP head) \u2014 prefix ceiling",
+  "plus": {
+   "successes": 569,
+   "camera": 288,
+   "robot_init": 281,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "vs_ptq_w2": {
+    "difference_pp": 8.3,
+    "ci95_pp": [
+     3.2159493379515895,
+     13.095689357130121
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -4.9,
+    "ci95_pp": [
+     -9.528836034607458,
+     -0.4018043242019891
+    ]
+   }
+  },
+  "medium": {
+   "successes": 927,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "directory": "medium",
+   "vs_ptq_w2": {
+    "difference_pp": 5.5,
+    "ci95_pp": [
+     1.7999999999999967,
+     9.399999999999991
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -2.1999999999999997,
+    "ci95_pp": [
+     -4.6000000000000085,
+     0.19999999999998863
+    ]
+   }
+  },
+  "bpw": {
+   "quantized_linear": 2.0226380030314126,
+   "whole_model": 10.629770352313729,
+   "note": "whole-model: other tensors at stored BF16 (conservative)"
+  }
+ },
+ {
+  "row": "ptq_head",
+  "label": "head-only 2-bit (FP backbone)",
+  "plus": {
+   "successes": 519,
+   "camera": 271,
+   "robot_init": 248,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "vs_ptq_w2": {
+    "difference_pp": 3.3000000000000003,
+    "ci95_pp": [
+     -0.6817882675248336,
+     7.670476188826621
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -9.9,
+    "ci95_pp": [
+     -14.34388285133359,
+     -5.078062060583394
+    ]
+   }
+  },
+  "medium": {
+   "successes": 917,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "directory": "medium",
+   "vs_ptq_w2": {
+    "difference_pp": 4.5,
+    "ci95_pp": [
+     1.3000000000000114,
+     7.8999999999999915
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -3.2,
+    "ci95_pp": [
+     -6.5,
+     -0.10000000000000853
+    ]
+   }
+  },
+  "bpw": {
+   "quantized_linear": 2.0235684995298033,
+   "whole_model": 10.965744866438339,
+   "note": "whole-model: other tensors at stored BF16 (conservative)"
+  }
+ },
+ {
+  "row": "raqft_bb",
+  "label": "row A: backbone RAQ-FT",
+  "plus": {
+   "successes": 510,
+   "camera": 268,
+   "robot_init": 242,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "vs_ptq_w2": {
+    "difference_pp": 2.4,
+    "ci95_pp": [
+     -1.8728131879259473,
+     6.636828646517138
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -10.8,
+    "ci95_pp": [
+     -15.656938315750631,
+     -5.790823048498945
+    ]
+   }
+  },
+  "medium": {
+   "successes": 888,
+   "gpu": "NVIDIA A40",
+   "directory": "medium",
+   "vs_ptq_w2": {
+    "difference_pp": 1.6,
+    "ci95_pp": [
+     -1.700000000000017,
+     5.1000000000000085
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -6.1,
+    "ci95_pp": [
+     -9.5,
+     -2.8999999999999915
+    ]
+   },
+   "gpu_mismatch": "row A medium ran on an RTX A40; FP / base / hybrids on RTX 6000 Ada; GPU-matched re-run queued last"
+  },
+  "heldout_mse_vs_fp": {
+   "total": 0.006406293250620365,
+   "relative": 0.041124723851680756,
+   "translation": 0.004715439397841692,
+   "rotation": 0.00013059326738584787,
+   "gripper": 0.030305959284305573
+  },
+  "bpw": {
+   "quantized_linear": 2.0230882432725696,
+   "whole_model": 5.595515218752068,
+   "note": "whole-model: other tensors at stored BF16 (conservative)"
+  }
+ },
+ {
+  "row": "raqft_rowb",
+  "label": "row B: prefix + DiT RAQ-FT"
+ },
+ {
+  "row": "raqft_b_am",
+  "label": "B-AM: row B set, action metric"
+ }
+]
