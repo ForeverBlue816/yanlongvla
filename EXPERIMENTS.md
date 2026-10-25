@@ -1426,3 +1426,8 @@ Row A medium (225555, A40, 2 h 24 min): 888/1000 (Spatial 243, Object 233, Goal 
 ### E145 — Row A Plus selection 510/1000 (+2.4 pp vs base, CI includes 0); branch → row B, A-AM deferred (2026-10-25 13:10 UTC)
 
 Row A Plus selection (225656, RTX 6000 Ada, 2 h 46 min): 510/1000 (camera 268/500, robot init 242/500). Paired: vs base ptq_w2 486 +2.4 pp [−1.9, +6.6] (camera +2.2 [−3.8, +8.2], robot init +2.6 [−2.6, +7.8]); vs backbone-only ceiling 569 −5.9 [−10.5, −1.3]; vs FP 618 −10.8 [−15.7, −5.8]. The 2026-10-26 branch rule (Δ ≥ +3 pp and CI lower bound > 0) is not met: controller wrote rowA_branch.json next = 'row B'; A-AM is deferred (B-AM later). Row B (prefix + DiT codebooks / row scales trainable, same loss, data and budget) is being implemented.
+
+
+### E146 — Row B implemented (prefix + per-suite DiT trainable, row A's loss); CPU smoke test queued (2026-10-25 13:45 UTC)
+
+`groot_rowb.py`: shared trainable backbone (216) + each suite's DiT (192 per suite; vl_self_attention frozen), every calibration observation routed to its suite's FP teacher / 2-bit student head (bank a: 74/66/65/51), row A's loss/data/budget, row-scale straight-through (no row-scale overflow drops), same non-finite guard; exports backbone_rowb + head_rowb_<suite>; row raqft_rowb wired into assembly (head_<key>_<suite> resolution), rollouts and offline MSE. Note recorded in the row doc: with row A's loss the DiT receives gradient only from the H5b term. CPU smoke test 226260 (rose); the controller submits the GPU fine-tune (rose, 3 race copies) once the smoke file exists and the branch says row B. A-AM FP32 suite job cancelled (A-AM deferred).

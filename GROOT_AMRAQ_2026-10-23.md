@@ -227,6 +227,10 @@ Decisions (2026-10-26):
 - §4: row A's LIBERO medium (888) ran on an **RTX A40**; FP / base / backbone-only ran on RTX 6000 Ada. A GPU-matched re-run on an
   RTX 6000 Ada is queued (226174, pinned, output `medium_6000ada`). Row A's Plus selection runs on an RTX 6000 Ada (matched).
 
+### Branch outcome (2026-10-25 13:10 UTC)
+
+Row A Plus +2.4 pp vs base [−1.9, +6.6] → row B (GROOT_2026-10-15.md, 'Row B') takes A-AM's slot; A-AM is deferred and can be run later as B-AM on top of row B. The FP32 non-finite suite job for A-AM was cancelled; B-AM will get its own suite on row B's masters. All A-AM code and gates stay in place.
+
 ## 7. Results
 
 Held-out action MSE vs FP (256 observations, CPU, same noise per observation; total / translation / rotation / gripper):
