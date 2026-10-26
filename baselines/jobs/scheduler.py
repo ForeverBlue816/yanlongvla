@@ -400,8 +400,10 @@ def step():
             if item['kind'] not in ('build', 'sanity', 'exp') and not sanity_passed(row):
                 continue   # full evaluation only after the row's 100-episode sample passed
             if item['kind'] == 'sanity' and any(i['kind'] == 'build' and i['row'] == row for i in plan['items']) \
-                    and not done(dict(kind='build', row=row), None):
-                continue   # AQLM: the sanity job imports the layers once the helpers have built all of them
+                    and not done(dict(kind='build', row=row), None) \
+                    and not all(items[i['name']].get('bundle') or items[i['name']].get('status') == 'done'
+                                for i in plan['items'] if i['kind'] == 'build' and i['row'] == row):
+                continue   # AQLM: submitted once every helper is queued; the job builds unclaimed layers and waits up to 2 h for the rest
             if item['kind'] == 'build' and lines:
                 continue   # a build helper gets a job of its own, so helpers run in parallel
             cost = item['hours'] if item['kind'] == 'exp' else PART_HOURS[item['suite'] if item['kind'] == 'libero' else item['kind']]
