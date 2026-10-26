@@ -1449,3 +1449,8 @@ B-AM prerequisites (226390, RTX Pro 6000, 35 min): (d) 0.0, (a) FP64 2.4e-8 / ad
 ### E150 — Row B 288/768 (A40), B-AM 640/768 (RTX Pro 6000); 12.5 h controller outage (2026-10-26 04:00 UTC)
 
 Row B (226432, A40): 288/768 updates at 03:34 after 12.9 h (162 s/update; ETA ~01:00 UTC 10-27), 0 updates dropped (row-scale straight-through; row A dropped 29), GPU memory 24 GB. B-AM (226509, RTX Pro 6000): all gates passed in the run itself — (d) 0.0, (a) FP64 2.4e-8, (c) 1.9e-8, (e) suite passed, (b) 68.8 s vs 62.7 s per update for row B's loop on the same GPU, ratio 1.10 → exact-JVP variant `raqft_groot_b_am`; λ_DoF 19.27 / 21.34 / 63.77, s = 109.84; 640/768 at 03:49 (70 s/update; ETA ~06:20 UTC), 0 updates dropped. Each job computes the held-out MSE on its GPU after training, then the controller queues Plus selection on RTX 6000 Ada. Outage: the systemd user manager running the controller and its watchdog was down from 2026-10-25 15:13 to 2026-10-26 03:51 (no scheduling decisions for 12.5 h; running jobs unaffected); the controller came back on login-1 and took the lock at once. Added a cron guard on login-1 (every 10 min: runs the watchdog, or starts the controller directly if the systemd unit/user manager is down).
+
+
+### E151 — raqft_on_vptq cancelled (2026-10-26)
+
+User: do not run the VPTQ fairness control; cancel it. Nothing had been queued (the VPTQ W2 checkpoint was never located). Queue order is now row B ‖ B-AM → their Plus → their medium → a8_studentq_seed2 Plus → row A medium re-run.
