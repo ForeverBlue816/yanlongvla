@@ -252,6 +252,15 @@ observations changes λ by 0.6% / 1.0% / 3.1% and the step-0 L_AM mean by 5.7% (
 the training run recomputes s with its own λ and records it). B-AM fine-tune submitted (226502, rose, race copies); (b) is measured
 by that run before its first optimizer step.
 
+### B-AM result (2026-10-26 12:50 UTC)
+
+Plus selection 1000 (RTX 6000 Ada, paired): **496/1000** (camera 246/500, robot init 250/500). Δ vs base 486: **+1.0 pp [−3.5, +5.1]**;
+vs row A 510: −1.4 pp [−7.3, +4.1]; vs backbone-only ceiling 569: −7.3 pp [−12.6, −1.7]; vs FP 618: −12.2 pp [−17.5, −7.2]. By
+category vs base: camera −2.2 [−9.1, +4.1], robot init +4.2 [−1.2, +9.7]. Held-out action MSE vs FP (RTX Pro 6000, same device as
+base): 1.16e-2 vs base 7.53e-3 (+54%; translation +78%, rotation +44%, gripper +40%) although the training loss fell from 0.19 to 0.12
+with no dropped updates. Pre-registered reading: B-AM's gain over base has a CI that includes 0 → B-AM is not the GR00T main row; the
+metric comparison B-AM vs row B (paired Δ) is reported when row B's Plus completes (2026-10-27).
+
 ## 7. Results
 
 Held-out action MSE vs FP (256 observations, CPU, same noise per observation; total / translation / rotation / gripper):

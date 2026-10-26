@@ -61,11 +61,11 @@
    }
   },
   "heldout_mse_vs_fp": {
-   "total": 0.0063039339147508144,
-   "relative": 0.04046763479709625,
-   "translation": 0.005000211298465729,
-   "rotation": 0.00018515151168685406,
-   "gripper": 0.02857145294547081
+   "total": 0.007534499745815992,
+   "relative": 0.04837185889482498,
+   "translation": 0.006146810948848724,
+   "rotation": 0.00017484778072685003,
+   "gripper": 0.03377651795744896
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -213,11 +213,11 @@
    "gpu_mismatch": "row A medium ran on an RTX A40; FP / base / hybrids on RTX 6000 Ada; GPU-matched re-run cancelled (user, 2026-10-26)"
   },
   "heldout_mse_vs_fp": {
-   "total": 0.006406293250620365,
-   "relative": 0.041124723851680756,
-   "translation": 0.004715439397841692,
-   "rotation": 0.00013059326738584787,
-   "gripper": 0.030305959284305573
+   "total": 0.007307053077965975,
+   "relative": 0.04691164195537567,
+   "translation": 0.005293867085129023,
+   "rotation": 0.00012923749454785138,
+   "gripper": 0.03488006070256233
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -231,6 +231,62 @@
  },
  {
   "row": "raqft_b_am",
-  "label": "B-AM: row B set, action metric"
+  "label": "B-AM: row B set, action metric",
+  "plus": {
+   "successes": 496,
+   "camera": 246,
+   "robot_init": 250,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "vs_ptq_w2": {
+    "difference_pp": 1.0,
+    "ci95_pp": [
+     -3.4987981358133178,
+     5.072490482303299
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -12.2,
+    "ci95_pp": [
+     -17.515409700268258,
+     -7.2212967535719015
+    ]
+   }
+  },
+  "heldout_mse_vs_fp": {
+   "total": 0.011576232500374317,
+   "relative": 0.0743199810385704,
+   "translation": 0.010974603705108166,
+   "rotation": 0.0002525014278944582,
+   "gripper": 0.04735231399536133
+  },
+  "bpw": {
+   "quantized_linear": 2.0230882432725696,
+   "whole_model": 5.595515218752068,
+   "note": "whole-model: other tensors at stored BF16 (conservative)"
+  }
+ },
+ {
+  "row": "amvq_w2",
+  "label": "AM-VQ: action-metric codebook fit of the base (PTQ)",
+  "heldout_mse_vs_fp": {
+   "total": 0.007935116067528725,
+   "relative": 0.05094384029507637,
+   "translation": 0.006385576445609331,
+   "rotation": 0.0001732208183966577,
+   "gripper": 0.03586942330002785
+  },
+  "bpw": {
+   "quantized_linear": 2.0230882432725696,
+   "whole_model": 5.595515218752068,
+   "note": "whole-model: other tensors at stored BF16 (conservative)"
+  }
+ },
+ {
+  "row": "raqft_rowb_amvq",
+  "label": "row B recipe from the AM-VQ base"
+ },
+ {
+  "row": "raqft_b_am_amvq",
+  "label": "B-AM recipe from the AM-VQ base"
  }
 ]
