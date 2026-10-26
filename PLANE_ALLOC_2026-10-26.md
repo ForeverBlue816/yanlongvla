@@ -1,0 +1,101 @@
+# π₀.₅ — plane-allocation track (2026-10-26)
+
+Status: scheduled 2026-10-26 13:20 UTC (user: "根据他的调整下我们的实验, raqft_on_vptq 这个可以先别做" — raqft_on_vptq stays cancelled, the
+rest of §4 applies). Results are appended in §Results.
+
+## Specification (user, 2026-10-26, verbatim)
+
+π₀.₅ plane-allocation track (2026-10-26). Equal-storage reallocation of RVQ planes across layers, built on the frozen a8_studentq pipeline. Fake-quant evaluation as for every other row; kernel support for a per-layer plane count is a separate deployment task.
+
+## 0. Format constraint (fixed)
+Every quantized Linear keeps the frozen format: RHT, 8-weight groups, 256×8 INT8 codebooks, row scales. The only free variable is the plane count p_l ∈ {1, 2, 3} per layer (1.0 / 2.0 / 3.0 bits per weight for its codes). No intra-layer mixing, no other code widths. Storage constraint: total code bytes (plus the extra codebooks) must not exceed the all-2-plane base; report linear and whole-model bpw with the same accounting; target linear bpw ≤ 2.02.
+
+## 1. Allocation rule (pre-registered)
+Fit all 414 layers at 1, 2 and 3 planes with the frozen fitter (same calibration data, Hessians, RHT seeds; sequential residual fit, p=1 is the first plane, p=3 adds a third residual plane). Measure, per layer and per plane count, the held-out readout error with all other layers at FP: the same readout metric as RAQ-FT (W_O-weighted cross-attention outputs of the expert reading the prefix, 256 held-out observations), and separately the expert-side error for expert layers. Compute marginal utility per byte: u_l(2→3) = Δerr / Δbytes and u_l(2→1) likewise. Then greedy equal-storage reallocation: repeatedly move a layer 2→1 where the error increase per byte is smallest, and spend the freed bytes 3-planes-first on the layers with the largest error reduction per byte, until no swap improves the sum. Freeze the resulting allocation as alloc_v1 before any rollout and record it (per-layer p_l, bytes, predicted Δerr).
+Two allocations to fit and screen, nothing else:
+  alloc_v1 — the greedy result above.
+  alloc_prior — a hand-set control: expert at 1 plane everywhere; backbone k_proj and v_proj at 3 planes (the tensors the expert reads directly); remaining freed bytes to the backbone layers with the highest D1 propagated-error score, 3 planes each, until the budget is spent.
+
+## 2. Screens (PTQ level, before fine-tune)
+Held-out action MSE and readout error for base (2-plane, 704), alloc_v1, alloc_prior. Roll out Plus selection 1000 for alloc_v1 (and alloc_prior only if its held-out numbers are at least as good as alloc_v1's), paired vs original_2bit 704 and FP 765. This is the PTQ-level result; report it regardless.
+
+## 3. Fine-tune and final row
+Apply the frozen raqft_studentq recipe unchanged to alloc_v1 (prefix codebooks / scales / norms trainable, 768 updates, same data and seeds), then A8 → a8_studentq_alloc. Plus selection 1000 paired vs a8_studentq 741, then added 1000 paired vs 698, then LIBERO 2000 paired vs 1941.
+Gate: a8_studentq_alloc replaces a8_studentq as the main row only if the paired gain on Plus selection has 95% CI lower bound > 0 AND added-1000 agrees in sign. Otherwise it is reported as the equal-storage allocation ablation. No retuning of the allocation after rollouts; a new allocation is a new named row.
+
+## 4. Queue and budget
+Cancel AM-VQ fitting (keep its diagnostics). B-AM finishes its Plus run. Row B continues on the A40 with its Plus run tomorrow.
+On the 6000 Ada freed by B-AM: alloc per-layer fits and readout screen (estimate ≤ 6 GPU-h; the 414×3 fits are reuse of the frozen fitter) → alloc_v1 Plus selection → raqft_on_vptq fine-tune → alloc_v1 RAQ-FT → their Plus runs. Report GPU-hours before starting the fits.
+Deadlines: PTQ-level alloc result by 2026-10-29; a8_studentq_alloc Plus selection by 2026-10-31; added 1000 and LIBERO by 2026-11-02.
+
+## 5. Reporting
+Table: row, planes per module (vision / LLM attn / LLM MLP / expert), linear and whole-model bpw, held-out MSE, readout error, Plus selection /1000 with Δ vs 704 / 741 / FP and 95% CI, added 1000, LIBERO 2000. Plus one figure: per-layer marginal utility per byte for 2→3 and 2→1, grouped by module, so the allocation is explainable.
+
+## Implementation (agent) — `scripts/plustrain_alloc.py`, controller keys `alloc_*`, rows `alloc_v1`, `alloc_prior`, `raqft_studentq_alloc`, `a8_studentq_alloc`
+
+**Fits.** The frozen fitter's outputs already exist for most plane counts and were checked for provenance: backbone p=2 = the base's
+own per-layer fits (`models/hd_srvq_backbone_layers/M2`, byte-identical SHA to the base checkpoint), backbone p=3 =
+`hd_srvq_backbone_layers/M3` (same calibration moments / Fisher SHAs and the same action-Fisher weighting as the M2 fits), expert
+p=1/2/3 = `hd_srvq_a_layers/M1..M3` (same recipe SHA and moments as the base's expert). Only the 288 backbone layers at p=1 are new:
+`backbone_vq_fit.fit_backbone(planes=1)` on the base's calibration artifacts (`runs/backbone/calibration`, moments / Fisher SHAs
+asserted equal to the base fits'), RHT signs from `layer_signs` (asserted equal to the base's), row scale asserted equal to the
+base's. The fitter's `planes in (2,3)` assertion was widened to (1,2,3); the 2- and 3-plane paths are unchanged. Byte accounting per
+layer and plane: codes out×in/8 bytes + one FP16 256×8 codebook (4 096 B); row scale, signs and mask are plane-independent.
+All-2-plane code+codebook bytes: 679 468 032.
+
+**Screen (one error per layer and plane count, every other layer at FP, 256 held-out observations).** FP engine (`HybridEngine('fp')`,
+no CUDA graphs); per observation the FP prefix KV, the FP expert trajectory with its readout records (`plustrain_raqft.Readout`,
+queries='fp', W_O metric — exactly the RAQ-FT metric) and the FP teacher path are computed once. Then for every (layer, p) the FP
+`nn.Linear` is swapped for the deployed quantized module built from the stored fit tensors (`BackboneVQLinear` / `VQLinear`, the
+same arithmetic as the quantized policy) and:
+- backbone layers: the prefix is recomputed and `Readout.loss` gives the readout error of the perturbed KV against the FP readouts
+  (mean over 10 steps × 18 expert layers of ‖W_O Δo‖², RAQ-FT's reduction); also relative to the FP readout energy;
+- expert layers: the expert-side error = Σ_t ‖v_q(x_t) − v_fp(x_t)‖² along the FP trajectory with FP prefix KV; also relative to
+  Σ_t ‖v_fp‖².
+Per-observation results are saved (resumable; two GPU workers).
+
+**Pre-registered interpretation choices (fixed before any screen result):**
+1. The utilities use *relative* errors (readout error / FP readout energy for backbone layers; velocity error / FP velocity energy
+   for expert layers) so that the two error kinds share a scale; `err[l, p]` is the mean over the 256 observations.
+2. Greedy rule as specified: downgrade (2→1) the layer with the smallest relative-error increase per byte freed; spend the freed
+   bytes (plus any unspent carry) on upgrades (2→3) in order of the largest reduction per byte; commit the swap set only if the sum of
+   errors decreases (a downgrade that costs nothing is also taken); stop when no swap improves the sum. Total bytes never exceed the
+   base; unspent bytes are reported.
+3. `alloc_prior`: expert at 1 plane; LLM k_proj / v_proj at 3 planes; the remaining bytes go, 3 planes each, to backbone layers ranked by
+   a D1 propagated-error score defined as: per LLM block i, s_i = mean over {K, V} × {image, language_state} of the reader-weighted
+   propagated fraction of the KV error (D1 of `raqft_studentq`); a layer in block j (not k/v_proj) scores Σ_{i>j} s_i, vision / projector
+   layers Σ_i s_i (upstream of every block); ties by smaller plane bytes. D1 has no per-Linear score, so this is the agent's reading
+   and is recorded as such.
+4. alloc_prior rolls out only if both its held-out action MSE and its full-model readout error are ≤ alloc_v1's.
+
+**Assembly.** Base checkpoint tensors with the chosen fits' `codes` / `codebooks` (and the mask byte set to 2^p − 1); signs and row
+scale asserted equal to the base's; `assemble_evening.write_checkpoint` → `models/hd_srvq_alloc_v1` / `alloc_prior` with the base's
+accounting (`whole_model_bpw` = payload × 8 / active original elements; linear bpw recomputed from the per-layer payloads); total
+payload ≤ base asserted.
+
+**Screens, rollouts, fine-tune.** `--stage offline`: held-out action MSE vs the FP reference actions (`offline_metrics.relative_action_mse`,
+same as every A8 row) and the full-model readout error for base / alloc_v1 / alloc_prior. Plus selection 1000 via the frozen
+`plustrain_run.py` (same units and noise seeds as 704 / 741 / 765; the π₀.₅ Plus rows run on the rollout GPU type of the earlier rows,
+L40S / 6000 Ada first free). `raqft_studentq_alloc` = the frozen `raqft_studentq` recipe with base `alloc_v1` (the trainable layer
+installer sums over the stored plane count per layer); `a8_studentq_alloc` = its A8 composition; selection → added 1000 → LIBERO 2000
+paired as specified.
+
+**GPU-hours (reported before the fits start; measured durations of the same stages in this pipeline where available).**
+
+| Stage | GPU-h (estimate) | basis |
+|---|---:|---|
+| backbone p=1 fits (288 layers) | ~1.7 | M2 fits took 1.68 h, M3 2.34 h |
+| per-layer screen (414 × 3, 256 obs) | ~6 (2 workers × ~3 h) | ~60 ms prefix forward per backbone eval, 10 expert steps per expert eval; refined after the first observation |
+| allocate + assemble + held-out screens | ~0.7 | |
+| alloc_v1 Plus selection 1000 | ~3.2 | raqft_studentq Plus took 3.2 h |
+| alloc_prior Plus (conditional) | ~3.2 | |
+| raqft_studentq_alloc fine-tune | ~1.3 | raqft_studentq took 1.3 h |
+| a8_studentq_alloc offline + Plus selection | ~8.7 | a8_studentq Plus took 8.4 h |
+| added 1000 | ~10 | a8_studentq confirmation took 10 h |
+| LIBERO 2000 | ~12 | a8_studentq full took 12 h |
+| **PTQ-level result (through alloc_v1 Plus)** | **~12 (15 with alloc_prior)** | above the ≤ 6 GPU-h estimate for fits + screen alone (~8) |
+| **full track** | **~47–50** | |
+
+## Results
+
+(pending — fit1 jobs 228205 / 228206 queued, rose, RTX 6000 Ada)
