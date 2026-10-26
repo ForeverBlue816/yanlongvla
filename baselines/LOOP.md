@@ -39,7 +39,7 @@ Sources, in priority order: (1) `baselines/README.md`, (2) the mentor's instruct
 
 - Clean slate: edit files in `baselines/` in place, delete superseded scripts and unused run artifacts, never run old
   code from `~/projects/pi05-handover/baselines` or `~/projects/openpi/diagnostics`.
-- Jobs: queue `gpu_bwp6000`, project `gs_ccds_taisp`, 12 h walltime packed with ~11 h of work, parts in plan order,
+- Jobs: queue `gpu_bwp6000`, project `gs_ccds_taisp`, 15 h walltime packed with ~13.75 h of estimated work (7 jobs waiting at most), parts in plan order,
   no PBS dependency holds. Never reuse old evaluation outputs.
 - Each iteration ends with a short note in `scheduler.log` style in this session: what changed, what was found, what
   is next. Pace the next iteration by what is pending (a few minutes while debugging, 20–30 minutes when quiet).
