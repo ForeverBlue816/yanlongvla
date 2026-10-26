@@ -3,7 +3,7 @@
 The plan is a priority-ordered list of parts. It starts with one 'sanity' part per row (build the checkpoint, then a
 100-episode sample kept out of the results); a row's evaluation parts are packed only once its sample passed (judged in
 monitor()). Parts are packed in plan order into bundles of up to
-BUDGET_HOURS of estimated work; each bundle is one 12-hour job (jobs/evaluate.pbs) that runs its parts back to back and
+BUDGET_HOURS of estimated work; each bundle is one 15-hour job (jobs/evaluate.pbs) that runs its parts back to back and
 builds any missing calibration or fake-quant checkpoint first. The feeder keeps MAX_WAITING bundles queued (state Q),
 topping up as they start running, and lets only one in-flight bundle build a given checkpoint (or the calibration).
 When a bundle leaves PBS, each unfinished part goes back to the pool; a part that was started but not finished counts as
@@ -39,10 +39,10 @@ PY = '/home/d250009/projects/openpi/.venv/bin/python'
 REFS = Path('/home/d250009/yanlongvla-clean/results')
 SUITES = ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10')
 PARTS = 4
-MAX_WAITING = 5
+MAX_WAITING = 7
 MAX_ATTEMPTS = 4
 NOT_YET_PORTED = ('aqlm', 'quip', 'qtip')   # rows of these methods are parked until their quantizer is in this repository
-BUDGET_HOURS = 11.0                         # estimated work per 12-hour job
+BUDGET_HOURS = 13.75                        # estimated work per 15-hour job (the estimates are conservative; parts resume at the walltime)
 # Early stop (collapse): after at least MIN_EPISODES finished episodes, a row with success rate <= COLLAPSE_RATE while the
 # reference rows succeed on >= REFERENCE_RATE of the same episodes is stopped and gets one debug job (jobs/debug.pbs).
 # Two collapsed rows pause all submissions (touch $RUN/STOP): that points at a shared bug, not a quantizer.
@@ -324,7 +324,8 @@ def done(item, src):
 def qsub(bundle, lines):
     (RUN / 'bundles').mkdir(exist_ok=True)
     (RUN / 'bundles' / f'{bundle}.tsv').write_text(''.join('\t'.join(l) + '\n' for l in lines))
-    args = ['qsub', '-o', str(RUN / 'logs'), '-N', f'bl_{bundle}'[:15], '-v', f'RUN={RUN},BUNDLE={bundle}',
+    # -l overrides the walltime directive of the frozen script
+    args = ['qsub', '-l', 'walltime=15:00:00', '-o', str(RUN / 'logs'), '-N', f'bl_{bundle}'[:15], '-v', f'RUN={RUN},BUNDLE={bundle}',
             str(Path(lines[0][4]) / 'jobs/evaluate.pbs')]
     return subprocess.run(args, capture_output=True, text=True, check=True).stdout.strip()
 

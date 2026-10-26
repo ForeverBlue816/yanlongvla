@@ -3,7 +3,7 @@
 #PBS -q gpu_bwp6000
 #PBS -P gs_ccds_taisp
 #PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
-#PBS -l walltime=12:00:00
+#PBS -l walltime=15:00:00
 #PBS -j oe
 # Runs a bundle of evaluation parts back to back (README steps 1-3). $RUN/bundles/$BUNDLE.tsv lists one part per line:
 #   item  row  kind(sanity|plus|libero)  arg(-, shard name or suite)  source-snapshot

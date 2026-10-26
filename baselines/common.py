@@ -118,6 +118,16 @@ def accounting(linear_payload_bytes, method, bits_nominal, extra=None):
     return result
 
 
+def hessian_damping(method):
+    """Diagonal damping added to the shared Hessian, as a fraction of its mean diagonal (mentor, 2026-10-26: the same value
+    for every Hessian-based row; recorded in each quant.json). GPTQ: percdamp 0.01; VPTQ: percdamp 0.01 on the normalized
+    H; QuIP#/QTIP: regularize_H divides H by its mean diagonal and adds sigma_reg 0.01; AQLM: 0.01 (departure from the
+    official code, which adds none). AWQ and RTN solve nothing with H (AWQ only scores candidates with it): no damping."""
+    if method.startswith(('gptq', 'vptq', 'quip', 'qtip', 'aqlm')):
+        return dict(fraction_of_mean_diagonal=0.01)
+    return dict(fraction_of_mean_diagonal=None, reason='no inverse or solve of the Hessian')
+
+
 def write_fakequant_checkpoint(source_dir, out_dir, replaced, info):
     """Copy the source checkpoint, replace the given weights (name -> dequantized tensor, cast to the stored dtype),
     drop the unused language heads, and write quant.json."""
@@ -143,7 +153,7 @@ def write_fakequant_checkpoint(source_dir, out_dir, replaced, info):
     for name in ('config.json',):
         if (source_dir / name).exists() and not (out_dir / name).exists():
             shutil.copy(source_dir / name, out_dir / name)
-    info = dict(info, replaced_layers=len(replaced), checkpoint_sha256=sha256(out_dir / 'model.safetensors'), source_checkpoint_sha256=sha256(source_dir / 'model.safetensors'))
+    info = dict(info, hessian_damping=hessian_damping(info.get('method', '')), replaced_layers=len(replaced), checkpoint_sha256=sha256(out_dir / 'model.safetensors'), source_checkpoint_sha256=sha256(source_dir / 'model.safetensors'))
     (out_dir / 'quant.json').write_text(json.dumps(info, indent=2) + '\n')
     return info
 
