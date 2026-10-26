@@ -96,6 +96,35 @@ paired as specified.
 | **PTQ-level result (through alloc_v1 Plus)** | **~12 (15 with alloc_prior)** | above the ≤ 6 GPU-h estimate for fits + screen alone (~8) |
 | **full track** | **~47–50** | |
 
+## Addendum to §1 (user, 2026-10-26, verbatim) — K-FAC predictor
+
+Addendum to §1 (K-FAC predictor, run alongside the measured search; it does NOT decide the allocation):
+For every layer l and plane count p ∈ {1,2,3}, also compute the Kronecker-factored first-order estimate of the readout distortion, D̂_l(p) = Σ_i G_l,ii · (ΔW_l(p))_i H_l^in (ΔW_l(p))_iᵀ, with H_l^in the existing layer Hessian and G_l = diag E[δ_l²] from Hutchinson probes of the readout objective (8 probes × 256 calibration observations, FP model, < 1 GPU-hour for all 414 layers). From it derive the predicted marginal utility per byte for 2→3 and 2→1, exactly as for the measured values.
+Report, per module (vision / LLM attention / LLM MLP / expert) and overall: Spearman correlation between predicted and measured utility, and the rank agreement of the top-20 layers to upgrade and the top-20 to downgrade. Also run the greedy allocation once on the predicted utilities only (alloc_kfac, no rollout) and report how many layers' plane counts differ from alloc_v1 and the measured readout error of alloc_kfac vs alloc_v1.
+The frozen allocation remains alloc_v1 (measured). If predicted and measured agree (overall Spearman ≥ 0.8 and alloc_kfac within 2% readout error of alloc_v1), the paper presents K-FAC as the analytic allocation rule with the search as validation; otherwise K-FAC goes to the appendix as a predictor comparison.
+
+### Implementation of the addendum (agent) — `plustrain_alloc.py --stage kfac`, controller key `alloc_kfac`
+
+- **Probe.** FP engine; for each of the 256 calibration observations (bank a) one grad-enabled pass: prefix forward (KV depends on the
+  backbone layer outputs), then the FP expert's 10 flow steps with the attention instrumented to compute, with gradient, the FP32
+  cross-attention readout over the FP prefix KV at every expert layer and project it with W_O (the RAQ-FT readout objective, 180
+  tensors); the trajectory is held fixed between steps (x_t detached), as the measured screen holds the FP queries fixed. Every
+  quantized Linear's output is captured (the graph is rooted at a layer's input where nothing upstream requires grad). For 8 probes
+  ε ~ N(0, I) over the readouts, δ_l = ∂⟨R, ε⟩/∂(output of l) by one `autograd.grad` each; G_l,ii = mean over observations × probes of
+  Σ_tokens δ². Deterministic seeds (20261026, observation index).
+- **D̂.** In the RHT-transformed basis (the fitter's; the quadratic form is invariant): ΔW = W_t − Ŵ_t(p) from the stored fit tensors,
+  H^in = the base's calibration Hessian of the layer (backbone: `runs/backbone/calibration` moments; expert: the step-averaged
+  expert input moments of the base fit), D̂_l(p) = Σ_i G_l,ii (ΔW_i H ΔW_iᵀ) in float64.
+- **Comparison (in `allocate`, written to `alloc/kfac/comparison.json`).** Predicted utilities per byte with the same byte accounting;
+  Spearman (scipy) between predicted and measured u(2→3) and u(2→1) per module and overall; overlap of the top-20 upgrade and top-20
+  downgrade sets; `alloc_kfac` = the same greedy procedure on D̂ (one objective, raw scale), the number of layers whose plane count
+  differs from alloc_v1, and `figures/plane_alloc_kfac_vs_measured.png`. `alloc_kfac` is assembled and gets the held-out screens
+  (full-model readout error and action MSE) but no rollout. Decision recorded in `alloc/offline.json` (`kfac_decision`): analytic rule
+  iff overall Spearman ≥ 0.8 for both utilities and alloc_kfac's full-model readout error is within 2% of alloc_v1's. The frozen
+  allocation remains alloc_v1.
+- Cost: probe ≈ 256 × (1 forward + 8 backward) ≈ 15–20 min; D̂ ≈ 10 min (1 242 quadratic forms). Runs as its own rose job alongside the
+  screen once the p=1 fits exist (D̂ needs them); nothing in the measured search depends on it.
+
 ## Results
 
 (pending — fit1 jobs 228205 / 228206 queued, rose, RTX 6000 Ada)
