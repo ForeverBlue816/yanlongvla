@@ -1454,3 +1454,8 @@ Row B (226432, A40): 288/768 updates at 03:34 after 12.9 h (162 s/update; ETA ~0
 ### E151 — raqft_on_vptq cancelled (2026-10-26)
 
 User: do not run the VPTQ fairness control; cancel it. Nothing had been queued (the VPTQ W2 checkpoint was never located). Queue order is now row B ‖ B-AM → their Plus → their medium → a8_studentq_seed2 Plus → row A medium re-run.
+
+
+### E152 — a8_studentq_seed2 and the row A medium re-run cancelled (2026-10-26)
+
+User: both are not meaningful; cancel. Job 226334 (raqft_studentq_seed2 fine-tune, pending) cancelled; the seed-2 rows are removed from the protocol and the controller again (cancelled 10-14, re-instated 10-25, cancelled 10-26). The row A GPU-matched medium re-run is removed from the plan; row A's medium (888) stays the A40 run and keeps its GPU-mismatch flag. Remaining GR00T queue: row B ‖ B-AM fine-tunes (running) → held-out MSE → Plus selection 1000 → LIBERO medium 1000, rollouts on RTX 6000 Ada.

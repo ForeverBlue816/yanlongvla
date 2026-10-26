@@ -210,7 +210,7 @@
      -2.8999999999999915
     ]
    },
-   "gpu_mismatch": "row A medium ran on an RTX A40; FP / base / hybrids on RTX 6000 Ada; GPU-matched re-run queued last"
+   "gpu_mismatch": "row A medium ran on an RTX A40; FP / base / hybrids on RTX 6000 Ada; GPU-matched re-run cancelled (user, 2026-10-26)"
   },
   "heldout_mse_vs_fp": {
    "total": 0.006406293250620365,
