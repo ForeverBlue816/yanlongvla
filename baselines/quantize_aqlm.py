@@ -40,6 +40,22 @@ SETTINGS = dict(out_group_size=1, in_group_size=IN_GROUP, nbits_per_codebook=NBI
                 lr=1e-4, max_epochs=1000, steps_per_epoch=100, relative_mse_tolerance=0.01, beam_size=1)   # official defaults + README recipe
 
 
+def intact(path):
+    """A safetensors file whose header and data length agree. A disk quota failure can leave an empty or cut-off file that
+    still passes an existence check (seen 2026-10-27: 48 layers)."""
+    import json as _json
+    import os
+    import struct
+    try:
+        size = os.path.getsize(path)
+        with open(path, 'rb') as f:
+            n = struct.unpack('<Q', f.read(8))[0]
+            header = _json.loads(f.read(n))
+        return 8 + n + max(v['data_offsets'][1] for k, v in header.items() if k != '__metadata__') == size
+    except Exception:
+        return False
+
+
 def quantize_layer(item, layers_dir, out, codebooks_per_layer, device, percdamp):
     from aq_engine import AQEngine
     from src.utils import _dequantize_weight
@@ -71,6 +87,7 @@ def quantize_layer(item, layers_dir, out, codebooks_per_layer, device, percdamp)
                       max_abs_diff_payload_vs_runtime=float((weight - runtime).abs().max()), seconds=time.time() - began)
     tmp = out / (item['file'] + '.partial')
     save_file(dict(weight=weight.to(torch.bfloat16).contiguous(), codes_u8=codes, codebooks_fp16=codebooks, scales_fp16=scales), str(tmp))
+    assert intact(tmp), f'{tmp} was not written completely (disk quota?)'
     tmp.replace(out / item['file'])
     dump_json(out / (Path(item['file']).stem + '.json'), dict(name=item['name'], group=item['group'], **record))
     return record
@@ -113,7 +130,7 @@ def main():
 
     # a layer is done only when its record exists too: the record is written last, so a layer cut off mid-save (disk
     # quota, walltime) is quantized again
-    finished = lambda item: (out / item['file']).exists() and (out / (Path(item['file']).stem + '.json')).exists()
+    finished = lambda item: intact(out / item['file']) and (out / (Path(item['file']).stem + '.json')).exists()
     done_now = 0
     for k, item in enumerate(listing, 1):
         if finished(item) or (a.only and not any(s in item['name'] for s in a.only)):
