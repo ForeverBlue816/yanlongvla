@@ -63,4 +63,13 @@ Priority: row B Plus → B-AM Plus → AM-VQ Fisher + fit + gate 1 → AM-VQ Plu
 
 ## Results
 
-(pending)
+- **Fitting cancelled (user, 2026-10-26)** after backbone_amvq + head_amvq Spatial (payload byte-identical to the base; mean action-metric
+  error 92.4 vs 97.2 for the base fit), Object 117/216; partial-row held-out MSE vs FP 7.94e-3 vs base 7.53e-3 (+5%, same GPU).
+- **Diagnostics (job 228185, 2026-10-26; `amvq/diagnostics.json`, `figures/groot_amvq_gout.png`, `figures/groot_bam_readout_sensitivity.png`).**
+  G_out concentration (backbone + Spatial head; median share of Σ G_out in the top-10% / top-1% output rows, Gini): vision 0.38 / 0.09 /
+  0.54 (n = 104), LLM 0.41 / 0.13 / 0.52 (112), vl_self_attention 0.23 / 0.04 / 0.28 (24), DiT 0.52 / 0.16 / 0.63 (192). Mean DoF
+  shares (translation / rotation / gripper, Ω with λ_DoF): vision 0.13 / 0.19 / 0.68, LLM 0.15 / 0.21 / 0.64, vl_self_attention
+  0.23 / 0.32 / 0.44, DiT 0.29 / 0.34 / 0.37 — the gripper dimension dominates the backbone-side sensitivity, the DiT is more balanced.
+  B-AM readout sensitivity ‖Ω^{1/2} J_{v←o_l}‖_F² per element (FP model, 32 observations, 2 probes): text-reading blocks 3.4e-6 vs
+  image-reading blocks 2.6e-6 on average; the first text block (0) is the most sensitive (1.0e-5), then block 4 (text) and block 30
+  (image); sensitivity grows with the flow step (1.0e-6 → 6.2e-6 from step 0 to 3).

@@ -127,4 +127,23 @@ The frozen allocation remains alloc_v1 (measured). If predicted and measured agr
 
 ## Results
 
-(pending — fit1 jobs 228205 / 228206 queued, rose, RTX 6000 Ada)
+**Fits and screen (2026-10-26/27, RTX 6000 Ada).** Backbone p=1 fits: 288 layers in 1.1 GPU-h (three worker jobs, dynamic claiming).
+Per-layer screen: 256 observations in 10.6 GPU-h (one worker did 250 observations, ~150 s per observation; the ≤ 6 GPU-h estimate
+was too low by ~1.8×). Mean relative error per module (other layers FP; backbone = readout, expert = velocity):
+
+| module | n | p=1 | p=2 | p=3 | p1/p2 | p3/p2 |
+|---|---:|---:|---:|---:|---:|---:|
+| vision | 162 | 3.69e-4 | 8.39e-5 | 5.45e-5 | 4.4 | 0.65 |
+| LLM attention | 72 | 1.88e-3 | 2.70e-4 | 7.75e-5 | 7.0 | 0.29 |
+| LLM MLP | 54 | 3.15e-3 | 6.48e-4 | 1.75e-4 | 4.9 | 0.27 |
+| expert | 126 | 3.38e-4 | 3.64e-5 | 7.33e-6 | 9.3 | 0.20 |
+
+Preview of the greedy rule on these numbers (the frozen alloc_v1.json is written by the `post` job, which also assembles and screens):
+79 layers → 1 plane, 203 → 3 planes, 132 stay at 2; by module (1 / 2 / 3 planes): vision 8 / 58 / 96, LLM attention 3 / 10 / 59, LLM MLP
+8 / 41 / 5, expert 60 / 23 / 43; predicted change of the summed relative error −31% (−0.0228 of 0.0726). The expert's low relative
+velocity errors make it the main donor of bytes (60 of 126 expert layers at 1 plane); the relative scales of the two error kinds are
+a pre-registered choice (see above) and the held-out screens / Plus decide.
+
+**K-FAC.** First probe run (228366) ended on an assertion: the last LLM block's q/o/MLP layers receive no gradient from the readout
+objective (only that block's K/V reach the expert), so G = 0 and D̂ = 0 for those layers is now recorded as structurally unused (the
+fitter treats their action-Fisher the same way). Re-run inside the `post` job.
