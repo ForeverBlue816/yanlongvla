@@ -162,3 +162,7 @@ fitter treats their action-Fisher the same way). Re-run inside the `post` job.
 **Status 2026-10-27 05:00 UTC (user follow-up §4).** fit1 and screen complete (E160); post job 228912 (rose, L40S) pending since 01:30 UTC with a Slurm
 start estimate of 2026-10-31; a duplicate copy 229297 was submitted on an RTX 6000 Ada (allowed fitting GPU), first to start wins, the other is cancelled.
 Frozen allocations, held-out screen, additivity check and the alloc_v1 Plus run all wait on this job.
+
+**Status 2026-10-27 15:40 UTC.** Allocations frozen (E164): alloc_v1 / alloc_prior / alloc_kfac. K-FAC Spearman overall 0.74 (2→3) / 0.63 (2→1) < 0.8
+(expert 0.18 / 0.31; LLM attention 0.98 / 0.97). Post job 229297 failed after writing alloc_v1/alloc_prior (matplotlib missing in the openpi env); the
+GPU part (assembly + held-out screen + additivity) is re-queued as race copies 230282 (6000 Ada) / 230283 (L40S), rose.

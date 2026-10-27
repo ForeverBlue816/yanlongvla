@@ -1562,3 +1562,22 @@ Unlike row B (DiT grads ~1e-9), the DiT now receives gradient from both terms.
 - **Row B medium** was submitted by the controller on an A40 (229605, killable). The base medium ran on a 6000 Ada, so this would have repeated
   row A's GPU mismatch. Cancelled and voided; `groot_n17_raqft_rowb_medium` / `_rowb2_medium` are now pinned to 6000 Ada in the controller
   (QoS unchanged, killable).
+
+### E164 — Plane allocation: post job failed on matplotlib; allocations frozen; K-FAC comparison (2026-10-27 15:40 UTC)
+
+- Post job 229297 (RTX 6000 Ada, started 14:46 UTC) completed the K-FAC probe (0.33 h) and D̂ (0.14 h), wrote `alloc_v1.json` / `alloc_prior.json` /
+  `utilities.json`, then died rendering the utility figure (`ModuleNotFoundError: matplotlib` — the openpi env has none). Fix: figures optional
+  (ImportError → logged skip); a re-run of the allocate stage now asserts the frozen plane counts are reproduced exactly; the post stage re-allocates
+  when any of the three allocation files is missing. The allocate stage (CPU only) was re-run on the login node: alloc_v1 and alloc_prior reproduced
+  exactly, alloc_kfac written. **All three allocations are frozen.**
+- **alloc_v1** (greedy, equal storage): 679 401 216 of 679 468 032 bytes; predicted Σ relative error change −0.0228. Mean planes: vision 2.54
+  (1/2/3 planes: 8/58/96 layers), LLM attention 2.78 (3/10/59), LLM MLP 1.94 (8/41/5), expert 1.87 (60/23/43).
+- **alloc_prior** (hand-set control): 678 980 864 bytes; predicted change +0.0244 (worse than uniform 2-plane on the screen metric). Vision 2.85,
+  LLM attention 2.50, LLM MLP 2.00, expert 1.00.
+- **K-FAC vs measured utilities** (Spearman, 2→3 / 2→1): vision 0.85 / 0.79 (n = 162), LLM attention 0.98 / 0.97 (72), LLM MLP 0.90 / 0.77 (54),
+  expert 0.18 / 0.31 (126), overall 0.74 / 0.63 (414). Top-20 overlap: upgrades 17/20, downgrades 8/20. alloc_kfac differs from alloc_v1 in 107 layers.
+  Decision rule (addendum: Spearman ≥ 0.8 and ≤ 2% readout error) already fails on Spearman overall; the readout-error part comes from the held-out screen.
+  The predictor works on the backbone attention and poorly on the expert, where the measured utility is an expert-side velocity error that the
+  readout-based K-FAC G does not see.
+- GPU part (assemble alloc_v1 / alloc_prior / alloc_kfac → held-out screen + additivity check): race copies 230282 (6000 Ada) and 230283 (L40S), rose;
+  first to start wins. The alloc_v1 Plus run follows from the controller once `alloc/offline.json` exists. Figures to be re-rendered with the groot env.
