@@ -228,6 +228,26 @@
  {
   "row": "raqft_rowb",
   "label": "row B: prefix + DiT RAQ-FT",
+  "plus": {
+   "successes": 504,
+   "camera": 248,
+   "robot_init": 256,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "vs_ptq_w2": {
+    "difference_pp": 1.7999999999999998,
+    "ci95_pp": [
+     -2.6056505985674527,
+     6.4643193635071565
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -11.4,
+    "ci95_pp": [
+     -16.300292807085093,
+     -6.356901686267275
+    ]
+   }
+  },
   "heldout_mse_vs_fp": {
    "total": 0.007689379621297121,
    "relative": 0.049406748265028,

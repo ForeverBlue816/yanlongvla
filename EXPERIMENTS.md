@@ -1539,3 +1539,26 @@ in the script and JSON); printed masses are shares of the whole attention row (p
    post job was submitted on an RTX 6000 Ada (229297, rose; an allowed fitting GPU per `plustrain_fit.ALLOWED_GPUS`; the post stage's held-out screen
    compares the rows within one job on one device, the Plus run stays on L40S). Whichever copy starts first runs; the other is cancelled.
    GR00T jobs now: B2 (killable, A40) and row B's Plus 229202 (rose, 6000 Ada, queued as before).
+
+**E162 addendum (05:05 UTC) — B2 job 229180 FAILED at its first batch**: `RuntimeError: mat2 is on cpu` — the W_O matrices for the readout metric were
+taken from the teacher heads while they lived on the host (the router keeps the teachers on the CPU between suites), so `delta @ W_Oᵀ` mixed devices.
+Fix: W_O copied to the training device at setup (`groot_rowb2.py`, one line). The failed ledger entry was voided so the controller resubmits the race
+copies (killable); the deadline 2026-10-28 01:00 UTC stands and the β / gate values will be reported from the new job's first batch.
+
+**E162 addendum (05:21 UTC) — B2 started**: job 229308 RUNNING on gpu-a40-1 (killable) since ~05:15 UTC, before the 2026-10-28 01:00 UTC deadline.
+Step-0 calibration: L_readout 1.77e4, L_vel 2.29e-3; ‖g_bb(L_readout)‖ 3.92e4, ‖g_DiT(L_readout)‖ 2.60e3, ‖g_DiT(L_vel)‖ 5.73e-3 → β = 6.84e6
+(β·‖g_DiT(L_vel)‖ = ‖g_bb(L_readout)‖ by construction). Gate passed: DiT codebook gradient norm on the first batch 3.88e4 ≫ 1e-4 (backbone 4.48e5).
+Unlike row B (DiT grads ~1e-9), the DiT now receives gradient from both terms.
+
+### E163 — Row B Plus; B2 preempted; row B medium re-pinned (2026-10-27 14:40 UTC)
+
+- **Row B Plus selection** (229202, RTX 6000 Ada, 05:46–08:38 UTC): **504/1000** (camera 248, robot init 256). Paired vs base +1.8 pp [−2.6, +6.5],
+  vs FP −11.4 [−16.3, −6.4]; row A 510 (+2.4 [−1.9, +6.6]), B-AM 496 (+1.0 [−3.5, +5.1]), backbone-only ceiling 569. Pre-registered reading
+  (2026-10-25): neither row B nor B-AM has a 95% CI lower bound > 0 vs base → unless B2 changes this, GR00T is reported as analysis.
+- **Row B2** (229308, killable A40): reached 112/768 updates (loss 4.98e4 at update 16 → 2.41e4 at 112), checkpoint at 64; preempted, requeued,
+  preempted again at 12:11 UTC while loading → 48 updates lost. Checkpoint interval cut from 64 to 8 updates (atomic save, numerics unchanged).
+  Race copies pending on A40 / 6000 Ada / L40S, killable (they never delay the allocation line). It started before the 2026-10-28 01:00 UTC
+  deadline, so it continues. At ~114 s per update, the remaining 704 updates need ≈ 22 GPU-hours of uninterrupted run time.
+- **Row B medium** was submitted by the controller on an A40 (229605, killable). The base medium ran on a 6000 Ada, so this would have repeated
+  row A's GPU mismatch. Cancelled and voided; `groot_n17_raqft_rowb_medium` / `_rowb2_medium` are now pinned to 6000 Ada in the controller
+  (QoS unchanged, killable).
