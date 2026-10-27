@@ -158,3 +158,7 @@ measured / predicted): how additive the single-layer screen is.
 **K-FAC.** First probe run (228366) ended on an assertion: the last LLM block's q/o/MLP layers receive no gradient from the readout
 objective (only that block's K/V reach the expert), so G = 0 and D̂ = 0 for those layers is now recorded as structurally unused (the
 fitter treats their action-Fisher the same way). Re-run inside the `post` job.
+
+**Status 2026-10-27 05:00 UTC (user follow-up §4).** fit1 and screen complete (E160); post job 228912 (rose, L40S) pending since 01:30 UTC with a Slurm
+start estimate of 2026-10-31; a duplicate copy 229297 was submitted on an RTX 6000 Ada (allowed fitting GPU), first to start wins, the other is cancelled.
+Frozen allocations, held-out screen, additivity check and the alloc_v1 Plus run all wait on this job.

@@ -1497,3 +1497,45 @@ Row B: the A40 job (226432) hit the 24 h limit at 14:27 UTC on 10-26 (no checkpo
 ### E160 — Row B2 scheduled; paper figure; plane-allocation follow-ups (2026-10-27 03:45 UTC)
 
 User §1: row B2 (`groot_rowb2.py`, row raqft_rowb2): student-head readouts (pre-W_O, inside the student's 2-bit head on its own trajectory) vs FP-head readouts on the FP trajectory, W_O metric; + β·L_vel (student vs FP head velocity on the same quantized prefix, executed window, 7 dims); β set once at step 0 from the two gradient norms (ratio 1, recorded); gate DiT codebook gradient norm > 1e-4 on the first batch; row B's trainable set and budget; checkpoint every 64 updates; killable race copies (never a rose slot, so alloc_v1's Plus is not delayed); start deadline 2026-10-28 01:00 UTC else skipped (controller writes decision.json). Submitted (229177 + copies). Row B keeps its name / MSE / Plus and is documented as prefix + vl_self_attention; B-AM medium marked log-only. §2: raqft_studentq_alloc now waits for the alloc_v1 Plus result; additivity check added to the held-out screen; remaining GPU-hours re-estimated with the 1.8× overrun (≈ 37–41 GPU-h, PLANE_ALLOC doc). §3: paper figure `figures/paper_amvq_diagnostics.{pdf,svg,png}` (readout sensitivity per reader block × flow step; G_out DoF shares per module) with a caption draft in GROOT_AMVQ_2026-10-26.md.
+
+### E161 — Figure v2 "readout sensitivity" (Nature-style re-render + π₀.₅ attention panel) (2026-10-27, in progress)
+
+User spec 2026-10-27 (figure revision v2). Script `scripts/paper_fig_readout_sensitivity_v2.py` → `figures/fig_readout_sensitivity_v2.{pdf,png}` (7.2 × 2.5 in,
+width ratios 1.35 : 0.85 : 1.1, wspace 0.3, 300 dpi PNG) + `figures/fig_readout_sensitivity_v2.json` (every printed number) + three supplementary PNGs.
+Font: Times New Roman is not installed on the cluster; **TeX Gyre Termes** (the Times-compatible GUST face, installed in `~/.fonts/termes`, embedded as
+Type 42) is used, mathtext `stix`. Palette and sizes exactly as specified (text #2F2F2F, grid/borders #E5E8F0 0.5 pt, panel background #F7F9F6).
+(a) and (b) re-rendered from `amvq/diagnostics.json` (same numbers as E159: step 3 / step 0 = 6.1×, top block 0; DoF shares vision 13/19/68, LLM 15/21/64,
+VL self-attn 23/32/44, DiT 29/34/37 %; top-10%-row concentration (median over layers, backbone + Spatial head) 0.38 / 0.41 / 0.23 / 0.52).
+(c) new: π₀.₅-LIBERO, Plus selection unit libero_spatial task 260 = "pick up the black bowl between the plate and the ramekin and place it on the plate",
+`…_view_0_0_100_0_0_initstate_101`, episode 0 (the lowest task index of that base task in the selection set; all 19 of its units are episode 0), harness noise
+seed 1 194 133 538 (SeedSequence([7, 0, 260, 0])). `scripts/paper_fig_c_client.py` (libero-plus env) replays the FP rollout exactly as `story_plus_client.py`
+and records every policy call; `scripts/paper_fig_c_capture.py` (openpi env, L40S like every Plus row; `slurm/paper_fig_c.sbatch`, job 229203 killable) then
+re-runs calls 0..k for FP / `bb_M2_ae_M2_fp32` (the W2 PTQ base, "original_2bit") / `raqft_studentq` from the seed so the k-th noise draw is the harness's,
+and hooks the expert's eager attention (`modeling_gemma.eager_attention_forward`, no CUDA graph; graph vs no-graph bit-identity asserted) at every expert layer
+for flow steps 0 and 9, mean over 8 heads × 10 action tokens, agent-view image-token segment [0, 256) → 16 × 16. k = the policy call whose chunk contains the
+first executed gripper-close command (action[6] > 0). Target / gripper boxes are fixed pixel boxes in the 224 × 224 frame (set by hand on `frame.png`, recorded
+in the script and JSON); printed masses are shares of the whole attention row (prefix + action tokens).
+
+### E162 — Follow-ups 2026-10-27 evening (held-out MSE reference, B2 status, panel (c) boxes, allocation state) (2026-10-27 05:00 UTC)
+
+1. **Held-out MSE reference.** Cause identified: the GPU model. Same script (`groot_offline.py`), same 256 held-out observations, same noise rule
+   (seed = observation index) — base 7.53e-3 came from job 227648 on an RTX Pro 6000 (Blackwell), 7.81e-3 from job 229136 on an A40. The FP
+   actions themselves differ between the two devices (MSE 1.2e-4, max |Δ| 0.75; base 3.2e-5, row A 2.3e-5, B-AM 6.8e-6 cross-device), i.e. BF16
+   kernel differences, not a script/observation/row-scale change (`groot_offline.py` keeps one directory per device for exactly this reason).
+   The single consistent table is job 229136 (A40, one job, one GPU, one script): FP reference; base 7.81e-3; row A 7.48e-3; row B 7.69e-3; B-AM 1.17e-2;
+   AM-VQ partial 8.20e-3 (`groot/offline/A40/summary.json`, now the table source in GROOT_2026-10-15.md with the device note). Row B's relative
+   change vs base is not quoted anywhere (the earlier −1.5% / −1.6% mention was only in a chat status, it is withdrawn). No new job needed.
+2. **B2 status.** `groot_rowb2.py` is implemented (E160); race copies 229177 (6000ada) / 229179 (l40) / 229180 (a40) / 229181 (pro6000), killable QoS;
+   **229180 started on gpu-a40-2 at 04:53 UTC** (before the 2026-10-28 01:00 UTC deadline), the other copies were cancelled by the controller. Being
+   killable it cannot delay alloc_v1's Plus (rose). The β calibration and the DiT-gradient gate (> 1e-4 on the first batch) run at the first update; the
+   values are reported as soon as the log prints them (loading at 04:57 UTC).
+3. **Panel (c).** Rule adopted: the target / gripper boxes are fixed from the captured frame (`frame.png` = the 224 × 224 model input, plus
+   `frame_raw256.png`) before any overlay is rendered; `paper_fig_readout_sensitivity_v2.py` refuses to render (c) while the boxes are unset
+   (placeholder "boxes pending"), records the pixel boxes in the JSON, and they are not moved afterwards. Capture job 229203 (L40S, killable) is pending.
+   Fallback: if it has not run by 2026-10-29 the figure ships with (a)/(b) and a (c) placeholder.
+4. **Allocation.** fit1 288/288 and screen 256/256 complete; `alloc/kfac` probe done; the post job 228912 (rose, L40S) has been pending since
+   01:30 UTC — Slurm's start estimate is 2026-10-31 (all L40S cards are allocated to other users). Not yet produced: frozen alloc_v1 / alloc_prior /
+   alloc_kfac, held-out screen, additivity check, `alloc/offline.json`, hence no Plus run queued yet. To honour the priority, a second copy of the same
+   post job was submitted on an RTX 6000 Ada (229297, rose; an allowed fitting GPU per `plustrain_fit.ALLOWED_GPUS`; the post stage's held-out screen
+   compares the rows within one job on one device, the Plus run stays on L40S). Whichever copy starts first runs; the other is cancelled.
+   GR00T jobs now: B2 (killable, A40) and row B's Plus 229202 (rose, 6000 Ada, queued as before).

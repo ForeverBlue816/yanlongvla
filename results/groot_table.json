@@ -61,11 +61,11 @@
    }
   },
   "heldout_mse_vs_fp": {
-   "total": 0.007534499745815992,
-   "relative": 0.04837185889482498,
-   "translation": 0.006146810948848724,
-   "rotation": 0.00017484778072685003,
-   "gripper": 0.03377651795744896
+   "total": 0.007810511626303196,
+   "relative": 0.05018506199121475,
+   "translation": 0.0063032410107553005,
+   "rotation": 0.00017649524670559913,
+   "gripper": 0.035234373062849045
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -213,11 +213,11 @@
    "gpu_mismatch": "row A medium ran on an RTX A40; FP / base / hybrids on RTX 6000 Ada; GPU-matched re-run cancelled (user, 2026-10-26)"
   },
   "heldout_mse_vs_fp": {
-   "total": 0.007307053077965975,
-   "relative": 0.04691164195537567,
-   "translation": 0.005293867085129023,
-   "rotation": 0.00012923749454785138,
-   "gripper": 0.03488006070256233
+   "total": 0.007481649052351713,
+   "relative": 0.04807201027870178,
+   "translation": 0.005311971064656973,
+   "rotation": 0.00013105676043778658,
+   "gripper": 0.036042459309101105
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -227,7 +227,19 @@
  },
  {
   "row": "raqft_rowb",
-  "label": "row B: prefix + DiT RAQ-FT"
+  "label": "row B: prefix + DiT RAQ-FT",
+  "heldout_mse_vs_fp": {
+   "total": 0.007689379621297121,
+   "relative": 0.049406748265028,
+   "translation": 0.006118433084338903,
+   "rotation": 0.0001703819289105013,
+   "gripper": 0.03495921194553375
+  },
+  "bpw": {
+   "quantized_linear": 2.0230882432725696,
+   "whole_model": 5.595515218752068,
+   "note": "whole-model: other tensors at stored BF16 (conservative)"
+  }
  },
  {
   "row": "raqft_b_am",
@@ -269,14 +281,16 @@
      -8.30250000000001,
      -1.6000000000000085
     ]
-   }
+   },
+   "log_only": true,
+   "gpu_mismatch": "B-AM medium ran on an RTX A40 (killable); not used anywhere (user, 2026-10-27), log only"
   },
   "heldout_mse_vs_fp": {
-   "total": 0.011576232500374317,
-   "relative": 0.0743199810385704,
-   "translation": 0.010974603705108166,
-   "rotation": 0.0002525014278944582,
-   "gripper": 0.04735231399536133
+   "total": 0.011710426770150661,
+   "relative": 0.0752432718873024,
+   "translation": 0.01100404653698206,
+   "rotation": 0.0002551449288148433,
+   "gripper": 0.048195406794548035
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -285,14 +299,18 @@
   }
  },
  {
+  "row": "raqft_rowb2",
+  "label": "row B2: student-head readouts + \u03b2\u00b7L_vel"
+ },
+ {
   "row": "amvq_w2",
   "label": "AM-VQ: action-metric codebook fit of the base (PTQ)",
   "heldout_mse_vs_fp": {
-   "total": 0.007935116067528725,
-   "relative": 0.05094384029507637,
-   "translation": 0.006385576445609331,
-   "rotation": 0.0001732208183966577,
-   "gripper": 0.03586942330002785
+   "total": 0.008202691562473774,
+   "relative": 0.05270494520664215,
+   "translation": 0.006551442202180624,
+   "rotation": 0.00017538083193358034,
+   "gripper": 0.03723837807774544
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
