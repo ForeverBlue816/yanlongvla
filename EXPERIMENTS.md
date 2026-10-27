@@ -1581,3 +1581,14 @@ Unlike row B (DiT grads ~1e-9), the DiT now receives gradient from both terms.
   readout-based K-FAC G does not see.
 - GPU part (assemble alloc_v1 / alloc_prior / alloc_kfac → held-out screen + additivity check): race copies 230282 (6000 Ada) and 230283 (L40S), rose;
   first to start wins. The alloc_v1 Plus run follows from the controller once `alloc/offline.json` exists. Figures to be re-rendered with the groot env.
+
+### E165 — alloc_v2 / alloc_v2_kfac pre-registered and frozen; screen re-queued (2026-10-27 16:20 UTC)
+
+User decisions 2026-10-28 §1–3 implemented (`plustrain_alloc.py`: `greedy(initial_budget, allowed)`, alloc_v2 / alloc_v2_kfac in `stage_allocate`,
+frozen-count assert for all four, screen rows base / v1 / v2 / v2_kfac / prior, amended backbone-only K-FAC rule, alloc_prior no rollout;
+`plustrain_protocol.py`: ALLOC_MODELS + `alloc_winner()` sets the RAQ-FT base; controller: Plus for v1 and v2, `alloc/winner.json` (tie → v2),
+RAQ-FT gated on the winner). Pre-registration text with timestamp and the frozen allocation table are in PLANE_ALLOC_2026-10-26.md. Results:
+alloc_v2 predicted +0.0136 on the screen metric (expert forced to 1 plane; 39.4 MB freed), alloc_v2_kfac differs from alloc_v2 in 52/288 backbone
+layers (18% > 10%). Screen GPU job re-queued as rose race copies (6000 Ada / L40S); CPU fallback at 2026-10-28 12:00 UTC if neither has started.
+Note recorded for the user: the "free-downgrade (< 1%)" wording has no counterpart in the frozen alloc_v1 greedy (its rule is "no increase"); v2 uses
+the identical code.

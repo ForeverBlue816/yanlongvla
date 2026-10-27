@@ -166,3 +166,45 @@ Frozen allocations, held-out screen, additivity check and the alloc_v1 Plus run 
 **Status 2026-10-27 15:40 UTC.** Allocations frozen (E164): alloc_v1 / alloc_prior / alloc_kfac. K-FAC Spearman overall 0.74 (2→3) / 0.63 (2→1) < 0.8
 (expert 0.18 / 0.31; LLM attention 0.98 / 0.97). Post job 229297 failed after writing alloc_v1/alloc_prior (matplotlib missing in the openpi env); the
 GPU part (assembly + held-out screen + additivity) is re-queued as race copies 230282 (6000 Ada) / 230283 (L40S), rose.
+
+## Pre-registration of alloc_v2 / alloc_v2_kfac (user decisions 2026-10-28 morning; recorded 2026-10-27 16:05 UTC, before any held-out screen or rollout of an assembled allocation)
+
+- **alloc_v2**: expert — all 126 layers at 1 plane (justified by the lossless whole-expert-1-plane row, 193/200). Backbone (vision, LLM attention,
+  LLM MLP; 288 layers) — the current backbone budget plus the bytes freed by the expert, allocated by the same greedy as alloc_v1 on the measured
+  readout utilities only, under the same storage ceiling (code + codebook bytes ≤ the uniform 2-plane base). Greedy as frozen in
+  `plustrain_alloc.greedy` (the rule alloc_v1 was built with): the freed bytes are first spent on 2→3 upgrades in order of the largest
+  readout-error reduction per byte; then, repeatedly, downgrade (2→1) the backbone layer with the smallest error increase per byte freed and
+  spend the freed bytes (plus carry) on further upgrades, committing a swap set only if the summed error decreases (a downgrade with no error
+  increase is taken as a free improvement). *Note on the user's wording "free-downgrade rule (< 1% increase)": the frozen alloc_v1 code has no
+  1%-threshold; its free-downgrade rule is "no increase". alloc_v2 uses the identical code so the two candidates differ only in the expert
+  rule and the budget; the wording is recorded here for the user to overrule.*
+- **alloc_v2_kfac**: the same expert rule; the backbone allocated by the same greedy on the K-FAC predicted utilities (D̂) instead of the measured
+  ones. Reported: the number of backbone layers whose plane count differs from alloc_v2, and, after the screen, the readout-error difference.
+- **Frozen now**: alloc_v1 (primary, frozen 2026-10-27 15:30 UTC), alloc_v2 (second pre-registered candidate), alloc_v2_kfac, alloc_prior. Any re-run of
+  the allocate stage asserts the frozen plane counts are reproduced.
+- **Screen** (one GPU job, or CPU if no GPU has started it by 2026-10-28 20:00 Beijing): held-out readout error and action MSE for base, alloc_v1,
+  alloc_v2, alloc_v2_kfac, alloc_prior; additivity check for v1 and v2 (and every assembled row).
+- **Rollouts**: Plus selection 1000 for alloc_v1 and alloc_v2 only (paired vs base 704 and FP 765); alloc_v2_kfac and alloc_prior get none.
+  RAQ-FT + A8 proceeds on whichever of v1 / v2 has the better Plus selection count (tie → v2, fewer expert bytes); the fine-tuned row is gated vs
+  a8_studentq 741 as before.
+- **K-FAC rule (amended before the screen)**: decided on the backbone only. If alloc_v2_kfac is within 2% readout error of alloc_v2 and differs
+  from it in fewer than 10% of the 288 backbone layers (< 28.8, i.e. ≤ 28), the paper presents K-FAC as the allocation rule for the prefix with the
+  search as validation; otherwise K-FAC is an appendix predictor comparison. The module-level Spearman table (LLM attention 0.98, LLM MLP 0.90,
+  vision 0.85, expert 0.18 for 2→3) is reported either way.
+
+**Frozen allocations (2026-10-27 16:20 UTC; `alloc/alloc_v2.json`, `alloc/alloc_v2_kfac.json`; alloc_v1 / alloc_prior re-verified identical).**
+
+| allocation | bytes (ceiling 679 468 032) | predicted Σ rel. error change (screen metric) | vision 1/2/3 | LLM attn 1/2/3 | LLM MLP 1/2/3 | expert 1/2/3 |
+|---|---|---|---|---|---|---|
+| alloc_v1 (primary) | 679 401 216 | −0.0228 | 8 / 58 / 96 | 3 / 10 / 59 | 8 / 41 / 5 | 60 / 23 / 43 |
+| alloc_v2 | 679 414 528 | +0.0136 | 10 / 88 / 64 | 3 / 13 / 56 | 7 / 35 / 12 | 126 / 0 / 0 |
+| alloc_v2_kfac | 679 408 384 | (predicted on D̂) | 12 / 56 / 94 | 3 / 13 / 56 | 7 / 37 / 10 | 126 / 0 / 0 |
+| alloc_prior | 678 980 864 | +0.0244 | 0 / 25 / 137 | 0 / 36 / 36 | 0 / 54 / 0 | 126 / 0 / 0 |
+
+- alloc_v2: the expert rule frees 39 444 480 bytes; 53 504 bytes unspent. On the per-layer screen metric the forced expert downgrade costs more than
+  the backbone upgrades recover (+0.0136 vs −0.0228 for v1) — exactly the expert-scale question the screen cannot settle (the 1-plane expert row was
+  lossless in rollouts, 193/200), hence both v1 and v2 get the Plus selection.
+- The pre-spend of the freed bytes packs fewer, larger vision layers to 3 planes (64 vs 96 in v1): the per-byte ranking with one large budget fills
+  with the highest-utility-per-byte layers until the budget is exhausted, whereas v1's swap loop upgrades small layers one downgrade at a time.
+- alloc_v2_kfac differs from alloc_v2 in **52 of 288 backbone layers (18%)** — already more than the 10% of the amended K-FAC rule, so K-FAC is the
+  appendix predictor comparison unless the screen shows otherwise on the readout-error half (the rule needs both halves).
