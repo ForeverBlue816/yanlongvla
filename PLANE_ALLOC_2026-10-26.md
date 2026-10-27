@@ -144,6 +144,17 @@ Preview of the greedy rule on these numbers (the frozen alloc_v1.json is written
 velocity errors make it the main donor of bytes (60 of 126 expert layers at 1 plane); the relative scales of the two error kinds are
 a pre-registered choice (see above) and the held-out screens / Plus decide.
 
+**Updated GPU-hour estimate for the remaining stages (user 2026-10-27 §2; measured stages of this pipeline, the screen-type stages scaled
+by the 1.8× overrun).** post (K-FAC probe + D̂, allocate, assemble, held-out screens incl. additivity) ~1.3 GPU-h; alloc_v1 Plus
+selection ~3.5 h; alloc_prior Plus (conditional) ~3.5 h; raqft_studentq_alloc fine-tune ~1.5 h (starts after the alloc_v1 Plus result,
+regardless of it); a8_studentq_alloc offline + Plus selection ~9 h; added 1000 ~10 h; LIBERO 2000 ~12 h. Remaining ≈ 37–41 GPU-h;
+spent so far 11.7 GPU-h (fits 1.1, screen 10.6). PTQ-level result expected 2026-10-28 (deadline 10-29); a8_studentq_alloc Plus
+selection 2026-10-29/30 (deadline 10-31); added 1000 + LIBERO by 2026-11-01/02 if the L40S queue cooperates.
+
+**Additivity check.** `offline.json` also reports, for base / alloc_v1 / alloc_prior / alloc_kfac, the sum over backbone layers of the
+per-layer relative readout errors at the chosen plane counts against the measured full-model relative readout error (ratio
+measured / predicted): how additive the single-layer screen is.
+
 **K-FAC.** First probe run (228366) ended on an assertion: the last LLM block's q/o/MLP layers receive no gradient from the readout
 objective (only that block's K/V reach the expert), so G = 0 and D̂ = 0 for those layers is now recorded as structurally unused (the
 fitter treats their action-Fisher the same way). Re-run inside the `post` job.
