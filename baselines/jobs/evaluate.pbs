@@ -102,7 +102,7 @@ quantize() {   # quantize <row>
       LD_LIBRARY_PATH="/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
       PYTHONPATH="$SRC:$repo:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
         "$PY" "quantize_$method.py" --layers "$LAYERS" --calibration "$CALIBRATION" --checkpoint "$BASE_CKPT" \
-          "--$method-repo" "$repo" --out "$out" "${extra[@]}" &&
+          "--$method-repo" "$repo" --bits "$bits" --out "$out" "${extra[@]}" &&
       "$PY" import_external.py --checkpoint "$BASE_CKPT" --quantized "$out" --accounting "$out/accounting.json" --out "$ckpt" ;;
     *) echo "no quantizer for $method in this repository" >&2; return 2 ;;
   esac || return 1

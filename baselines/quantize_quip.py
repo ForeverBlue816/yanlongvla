@@ -1,4 +1,4 @@
-"""QuIP# (Tseng et al. 2024) at 2 bits per weight on the exported layers (README step 2b). Pure PTQ with the shared Hessians:
+"""QuIP# (Tseng et al. 2024) at 2 or 3 bits per weight on the exported layers (README step 2b). Pure PTQ with the shared Hessians:
 the official per-layer quantizer (lib/algo/quip.py:quantize: randomized Hadamard incoherence, block LDL, LDLQ onto the
 E8P12 lattice codebook) on H = the shared E[x x^T], regularized as the official quantize_linear does; no block or
 end-to-end fine-tuning.
@@ -30,6 +30,9 @@ from safetensors.torch import load_file, save_file
 from common import dump_json, sha256
 
 PAD_TO = {4304: 4480}   # widths without a QuIP# Hadamard size -> padded width (140 * 32)
+# official recipes (README of the QuIP# repository): E8P12 with scale_override 0.9 at 2 bits; E8P12RVQ3B (E8P12 plus a residual
+# stage) with the default scales at 3 bits
+BITS = {2: dict(codebook='E8P12', scale_override=0.9), 3: dict(codebook='E8P12RVQ3B', scale_override=-1)}
 SETTINGS = dict(codebook='E8P12', scale_override=0.9, sigma_reg=1e-2, sigma_reg2=1e-2, incoh_mode='had', lora_rank=0,
                 resid_scale_override=-1, quip_tune_iters=10, use_fp64=False, full_svd=False, no_use_buffered=False,
                 rescale_WH=False, lowmem_ldlq=False)
@@ -81,9 +84,11 @@ def main():
     p.add_argument('--quip-repo', required=True, help='official QuIP# checkout (github.com/Cornell-RelaxML/quip-sharp)')
     p.add_argument('--out', required=True)
     p.add_argument('--only', nargs='+', help='quantize only layers whose name contains one of these strings (tests)')
+    p.add_argument('--bits', type=int, choices=(2, 3), default=2, help='2: E8P12 (2.000 bpw); 3: E8P12RVQ3B (3.000 bpw)')
     p.add_argument('--tune-iters', type=int, default=SETTINGS['quip_tune_iters'], help='official default 10; 0 is a diagnostic variant')
     a = p.parse_args()
     SETTINGS['quip_tune_iters'] = a.tune_iters
+    SETTINGS.update(BITS[a.bits])
     from lib import codebook
     import lib
     assert Path(a.quip_repo).resolve() in Path(lib.__file__).resolve().parents, f'QuIP# imported from {lib.__file__}'
@@ -97,11 +102,11 @@ def main():
     assert len(listing) == 414
     cb = codebook.get_codebook(SETTINGS['codebook'])
     table_bytes = sum(t.numel() * t.element_size() for t in cb.buffers())   # E8P12 lattice table, shared by all layers
-    meta = dict(method='quip_sharp_e8p12', bits_nominal=2, backbone_bits=2, expert_bits=2,
+    meta = dict(method=f"quip_sharp_{SETTINGS['codebook'].lower()}", bits_nominal=a.bits, backbone_bits=a.bits, expert_bits=a.bits,
                 quip_commit=subprocess.check_output(['git', '-C', a.quip_repo, 'rev-parse', 'HEAD'], text=True).strip(),
                 quip_settings=SETTINGS, padding={str(k): v for k, v in PAD_TO.items()}, seed='torch.manual_seed(0) before each layer',
                 codebook_table_bytes=table_bytes, calibration_index_sha256=sha256(Path(a.calibration) / 'index.json'),
-                payload_rule='packed E8P12 indices (16 bits per 8 weights) incl. padded rows/columns + FP16 SU and SV sign vectors (scales fused into SV) per layer + the shared E8P12 table once',
+                payload_rule=f"packed {SETTINGS['codebook']} indices (all stages as stored by the official code; 16 bits per 8 weights per stage at 2 bits) incl. padded rows/columns + FP16 SU and SV sign vectors (scales fused into SV) per layer + the shared lattice tables once",
                 notes='pure PTQ, no layer-wise or end-to-end fine-tuning; official QuIP# per-layer quantizer (RHT + LDLQ, E8P12) on the shared per-layer Hessians; no block or end-to-end fine-tuning',
                 exact_command=' '.join(sys.argv))
     acc_path = out / 'accounting.json'

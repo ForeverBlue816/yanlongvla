@@ -1,4 +1,4 @@
-"""QTIP (Tseng et al. 2024) at 2 bits per weight on the exported layers (README step 2b). Pure PTQ with the shared Hessians:
+"""QTIP (Tseng et al. 2024) at 2 or 3 bits per weight on the exported layers (README step 2b). Pure PTQ with the shared Hessians:
 the official per-layer steps of lib/algo/finetune.py:quantize_finetune_decoder_layer (randomized Hadamard incoherence,
 block LDL, LDLQ onto the bitshift trellis codebook, pack_trellis) on H = the shared E[x x^T], regularized with the
 official regularize_H; the layer and end-to-end fine-tuning that follows in the official script is not run.
@@ -29,6 +29,9 @@ from safetensors.torch import load_file, save_file
 from common import dump_json, sha256
 
 PAD_TO = {4304: 4480}
+# 2 bits: the official example.sh (K 2, scale_override 0.9). 3 bits: the same recipe with K 3 and the default scale (the QuIP#
+# README advises default scales above 2 bits; QTIP's example.sh only shows 2 bits)
+SCALE_OVERRIDE = {2: 0.9, 3: 1.0}
 SETTINGS = dict(codebook='bitshift', L=16, K=2, V=2, td_x=16, td_y=16, decode_mode='quantlut_sym', tlut_bits=9,
                 scale_override=0.9, sigma_reg=1e-2)
 
@@ -91,8 +94,10 @@ def main():
     p.add_argument('--checkpoint', required=True)
     p.add_argument('--qtip-repo', required=True, help='official QTIP checkout (github.com/Cornell-RelaxML/qtip)')
     p.add_argument('--out', required=True)
+    p.add_argument('--bits', type=int, choices=(2, 3), default=2, help='trellis bits per weight K')
     p.add_argument('--only', nargs='+', help='quantize only layers whose name contains one of these strings (tests)')
     a = p.parse_args()
+    SETTINGS.update(K=a.bits, scale_override=SCALE_OVERRIDE[a.bits])
     import lib
     from lib.codebook import bitshift
     from lib import utils
@@ -108,11 +113,11 @@ def main():
     s = SETTINGS
     cb = bitshift.bitshift_codebook(L=s['L'], K=s['K'], V=s['V'], tlut_bits=s['tlut_bits'], decode_mode=s['decode_mode']).to(device)
     has_kernel = utils.has_kernel(s['decode_mode'], s['L'], s['K'], s['V'], s['tlut_bits'], s['td_x'], s['td_y'])
-    meta = dict(method='qtip_bitshift_l16k2v2', bits_nominal=2, backbone_bits=2, expert_bits=2,
+    meta = dict(method=f'qtip_bitshift_l16k{a.bits}v2', bits_nominal=a.bits, backbone_bits=a.bits, expert_bits=a.bits,
                 qtip_commit=subprocess.check_output(['git', '-C', a.qtip_repo, 'rev-parse', 'HEAD'], text=True).strip(),
                 qtip_settings=SETTINGS, padding={str(k): v for k, v in PAD_TO.items()}, seed='torch.manual_seed(0) before each layer',
                 calibration_index_sha256=sha256(Path(a.calibration) / 'index.json'),
-                payload_rule='packed trellis (K=2 bits per weight) incl. padded rows/columns + FP16 SU and SV + FP32 Wscale + FP16 512x2 lookup table, per layer',
+                payload_rule=f'packed trellis (K={a.bits} bits per weight) incl. padded rows/columns + FP16 SU and SV + FP32 Wscale + FP16 512x2 lookup table, per layer',
                 notes='pure PTQ, no layer-wise or end-to-end fine-tuning; official QTIP per-layer quantization (RHT + LDLQ, bitshift trellis) on the shared per-layer Hessians; the official layer and end-to-end fine-tuning are not run',
                 exact_command=' '.join(sys.argv))
     records = {}
