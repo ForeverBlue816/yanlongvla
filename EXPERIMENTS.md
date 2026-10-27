@@ -1592,3 +1592,16 @@ alloc_v2 predicted +0.0136 on the screen metric (expert forced to 1 plane; 39.4 
 layers (18% > 10%). Screen GPU job re-queued as rose race copies (6000 Ada / L40S); CPU fallback at 2026-10-28 12:00 UTC if neither has started.
 Note recorded for the user: the "free-downgrade (< 1%)" wording has no counterpart in the frozen alloc_v1 greedy (its rule is "no increase"); v2 uses
 the identical code.
+Protocol unit tests after the ALLOC_MODELS / alloc_winner change (`tests/test_plustrain_round.py`, PYTHONPATH=scripts): 7/8 pass; the one failure
+(`test_contract_migration_only_for_code_hash_and_default_keys`) expects the migration to add only `loss='readout'` and now also sees `grid='none'`,
+the INT8-track default added 2026-10-15 (E113) — pre-existing, unrelated to the allocation change; the test expectation is stale, not the code.
+
+### E166 — raqft_on_vptq reassigned to Chamadol; hand-over (2026-10-27 17:10 UTC)
+
+User 2026-10-28: raqft_on_vptq removed from the plan and queue (nothing was queued; the controller and protocol had no reference since its
+cancellation on 2026-10-26; plan lines in PLANE_ALLOC / GROOT docs marked "reassigned"). Hand-over in `public-reports/baselines/raqft_handover/`:
+the frozen `plustrain_raqft.py` (byte-identical to the raqft_studentq run), `raqft_studentq_config.json` + the run contract, calibration bank (a)
+manifest (256 observations) and the held-out 256-frame selection, Plus selection 1000 / expansion 2000 (already in `baselines/data`, verified
+identical to our unit sets), `story_plus_client.py`, and a one-page README (trainable codebooks / row scales / norms with FP16 and stored-dtype
+round trips, codes frozen; loss, 768 updates, lrs 3e-4 / 2e-5 / 3e-4, clip 1.0; paired evaluation; bpw accounting check). The private runtime
+modules the script imports were not copied; they are listed with their cluster path. No further work on it from this side.

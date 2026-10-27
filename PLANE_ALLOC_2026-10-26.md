@@ -25,7 +25,7 @@ Gate: a8_studentq_alloc replaces a8_studentq as the main row only if the paired 
 
 ## 4. Queue and budget
 Cancel AM-VQ fitting (keep its diagnostics). B-AM finishes its Plus run. Row B continues on the A40 with its Plus run tomorrow.
-On the 6000 Ada freed by B-AM: alloc per-layer fits and readout screen (estimate ≤ 6 GPU-h; the 414×3 fits are reuse of the frozen fitter) → alloc_v1 Plus selection → raqft_on_vptq fine-tune → alloc_v1 RAQ-FT → their Plus runs. Report GPU-hours before starting the fits.
+On the 6000 Ada freed by B-AM: alloc per-layer fits and readout screen (estimate ≤ 6 GPU-h; the 414×3 fits are reuse of the frozen fitter) → alloc_v1 Plus selection → ~~raqft_on_vptq fine-tune~~ (reassigned to Chamadol 2026-10-28, see baselines/raqft_handover) → alloc_v1 RAQ-FT → their Plus runs. Report GPU-hours before starting the fits.
 Deadlines: PTQ-level alloc result by 2026-10-29; a8_studentq_alloc Plus selection by 2026-10-31; added 1000 and LIBERO by 2026-11-02.
 
 ## 5. Reporting
