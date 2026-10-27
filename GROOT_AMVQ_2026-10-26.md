@@ -61,6 +61,22 @@ Priority: row B Plus → B-AM Plus → AM-VQ Fisher + fit + gate 1 → AM-VQ Plu
 - **Scheduling.** The AM-VQ job runs on killable QoS so the rose Plus runs of row B / B-AM preempt it; row B / B-AM LIBERO medium
   runs wait until the AM-VQ Plus and the fine-tune decision are settled (or gate 1 fails, or the deadline passes).
 
+## Paper figure (2026-10-27): `figures/paper_amvq_diagnostics.pdf` (vector; `.svg`, `.png` preview; `scripts/paper_fig_amvq_diag.py`)
+
+![AM-VQ diagnostics](figures/paper_amvq_diagnostics.png)
+
+**Caption draft.** *Where the action metric puts its weight in GR00T N1.7.* **(a)** Readout sensitivity of the FP action head,
+‖Ω^{1/2} J_{v←o_ℓ}‖²_F per readout element, for each of the 16 DiT cross-attention (reader) blocks and each of the 4 flow steps
+(Hutchinson estimate with N(0, I) tangents at one block, 32 calibration observations routed to their suites, Ω with the executed-window
+weights and λ_DoF of B-AM). Blocks alternate between reading text tokens (white bands) and image tokens (grey bands). The first text
+block is the most sensitive at every step, and sensitivity grows with the flow step (mean over blocks: 6.1× from step 0 to step 3), so
+readout errors late in the flow and at the first text reader move the velocity most. **(b)** Codebook-side metric: share of the
+G_out energy (G_out = diag E[δ²] from Hutchinson probes of ⟨v, Ω^{1/2} ε⟩ through the full FP graph, 2 probes × 256 observations)
+attributed to each DoF group, averaged over the layers of each module (backbone and Spatial head). In the vision tower and the LLM the
+gripper dimension dominates (68% and 64%), i.e. the prefix side of the metric is driven mostly by the open/close decision; the
+action head (DiT) is nearly balanced across translation, rotation and gripper (29 / 34 / 37%). Both panels use the same Ω, so the two
+sides of the metric — codebook fitting and readout consistency — are read on one scale.
+
 ## Results
 
 - **Fitting cancelled (user, 2026-10-26)** after backbone_amvq + head_amvq Spatial (payload byte-identical to the base; mean action-metric
