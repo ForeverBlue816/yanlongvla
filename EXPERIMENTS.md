@@ -1619,3 +1619,22 @@ modules the script imports were not copied; they are listed with their cluster p
   deadline on 10-27, so the rule does not cancel it; at 114 s/update the remaining 480 updates need ~15 h of uninterrupted killable time.
 - **Row B medium** 230618 queued on 6000 Ada (killable, pinned). **Panel (c)** capture now has race copies 229203 (L40S) / 231184 (6000 Ada) /
   231185 (A40) under the killable QoS (user 2026-10-28 §5: any GPU type).
+
+**E167 addendum (06:00 UTC) — panel (c) rollout recorded.** Capture copy 231185 (A40) replayed the FP rollout of libero_spatial task 260: success,
+16 policy calls, 89 steps including settle (the L40S Plus row had 88 — a one-step divergence from GPU arithmetic, acceptable for a replay per the
+user's §5); first gripper-close command at executed step 39 → policy call 7 is the panel (c) observation (`fig_c/rollout.npz`, `rollout.json`).
+The attention stage then failed on a key-unpacking bug of mine (per-head entries share the store); fixed, re-queued with the recorded rollout
+(`--skip-rollout`) as killable race copies 231220 (A40) / 231221 (6000 Ada) / 231222 (L40S).
+Boxes fixed 06:10 UTC from `fig_c/frame.png` (before any overlay; `fig_c/boxes.json`, `boxes.png`): target = black bowl under the gripper,
+pixels (40, 126, 72, 150) = patch columns 3–4, rows 9–10; gripper = finger pads + body, pixels (17, 98, 94, 126) = columns 1–6, rows 7–8.
+A patch counts when its 14-px cell centre lies inside the box. They are not moved afterwards.
+
+### E168 — Plane-allocation screen complete (2026-10-28 10:30 UTC)
+
+Job 231187 (RTX 6000 Ada, 38 min) — held-out action MSE (relative) / readout error (relative): base 0.0372 / 0.1179; **alloc_v1 0.0256 / 0.0697**;
+**alloc_v2 0.0295 / 0.0626**; alloc_v2_kfac 0.0301 / 0.0663; alloc_prior 0.0319 / 0.0796. Both candidates beat the base at equal storage (v1 −31% MSE,
+v2 −47% readout error); they split on the two screens, so the Plus selection decides (both roll out, as pre-registered). Additivity: measured full-model
+readout error / Σ per-layer prediction = 1.43–1.73 (ranking preserved, absolute value under-predicted). **K-FAC amended rule fails on both halves**
+(readout +7.1% vs 2%; 52/288 = 18% differing layers vs 10%) → appendix predictor comparison. alloc_prior: no rollout. Table in PLANE_ALLOC_2026-10-26.md.
+`offline.json` lacked the `status: complete` field the controller keys on (my omission) — added by hand and in the script; the controller now plans
+the alloc_v1 / alloc_v2 Plus pack (rose, L40S).

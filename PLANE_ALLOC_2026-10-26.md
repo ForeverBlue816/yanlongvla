@@ -208,3 +208,21 @@ GPU part (assembly + held-out screen + additivity) is re-queued as race copies 2
   with the highest-utility-per-byte layers until the budget is exhausted, whereas v1's swap loop upgrades small layers one downgrade at a time.
 - alloc_v2_kfac differs from alloc_v2 in **52 of 288 backbone layers (18%)** — already more than the 10% of the amended K-FAC rule, so K-FAC is the
   appendix predictor comparison unless the screen shows otherwise on the readout-error half (the rule needs both halves).
+
+**Held-out screen (job 231187, RTX 6000 Ada, 2026-10-28 08:34–09:12 UTC; `alloc/offline.json`; 256 held-out observations, FP reference).**
+
+| row | held-out action MSE (relative) | readout error (relative, vs FP energy) | additivity: measured / Σ per-layer prediction | whole-model bpw |
+|---|---|---|---|---|
+| base (uniform 2 planes) | 0.0372 | 0.1179 | 1.73 | 2.9226 |
+| alloc_v1 | **0.0256** | 0.0697 | 1.45 | 2.9224 |
+| alloc_v2 | 0.0295 | **0.0626** | 1.43 | 2.9225 |
+| alloc_v2_kfac | 0.0301 | 0.0663 | 1.45 | 2.9224 |
+| alloc_prior | 0.0319 | 0.0796 | — | 2.9214 |
+
+- Both pre-registered candidates beat the base on both screens at equal storage: alloc_v1 −31% action MSE / −41% readout error; alloc_v2 −21% / −47%.
+  They split: v1 has the lower action MSE, v2 the lower readout error (its whole backbone budget is larger). The Plus selection decides (both roll out).
+- Additivity: the per-layer screen under-predicts the full-model readout error by 1.43–1.73×, consistently across allocations (the base worst), so the
+  per-layer utilities rank allocations correctly but are not additive in absolute value.
+- **K-FAC rule (amended, backbone only): fails on both halves** — alloc_v2_kfac is 7.1% worse than alloc_v2 in readout error (limit 2%) and differs in
+  52/288 = 18% of backbone layers (limit 10%). K-FAC is the appendix predictor comparison; the module-level Spearman table is reported either way.
+- alloc_prior: no rollout (user 2026-10-28); for the record it is worse than both candidates on both screens.
