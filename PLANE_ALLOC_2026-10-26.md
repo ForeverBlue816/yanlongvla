@@ -247,3 +247,79 @@ tight. Changes, all recorded here:
    winner vs **749** (raqft_studentq) and its A8 row vs **741**.
 4. Killable submit budget (5 per user) now: B2 229308 (one copy, GROOT_COPIES 2 → 1; copy 232155 cancelled), row B medium 230618, figure v3
    capture 232076, the pair 232230 and the pack 232232.
+
+## alloc_v3 — pre-registration (user spec 2026-10-29; written 2026-10-28 16:40 UTC, before the first probe job)
+
+One-shot end-to-end test of the improved analytic predictor. Does not delay the alloc_v1 / alloc_v2 Plus pack (232232) or their fine-tune pair
+(232448): the probe job is submitted on the rose QoS (no killable slot taken); those two stay first in the killable queue.
+
+### §1 Predictor (replaces the diagonal-G K-FAC)
+For every quantized layer l (414) and p ∈ {1, 2, 3}, with ΔW_l(p) = Ŵ_l(p) − W_l from the existing fits (RHT basis, exactly as `stage_kfac_dhat`
+reconstructs Ŵ: Σ_{q<p} codebook_q[codes_q] × row scale; the layer input is transformed by the same RHT signs, as the deployed module does):
+
+  D̂_l(p) = mean over observations n and probes s of ⟨g_{l,n,s}, ΔW_l(p)⟩²,  ⟨g, ΔW⟩ = Σ_τ δ_τᵀ (ΔW x_τ),
+
+computed in hooks (layer input x_τ captured in the forward pass, output gradient δ_τ from the backward pass of the probed objective; g is
+never materialised; per layer and plane one matmul x ΔWᵀ, then the probe-wise inner product with δ). Probes: Rademacher v_s, S = 4, seed
+SeedSequence([20261029, n, s]); N = 256 calibration observations (bank a, `datasets/libero-calibration`), latent per observation
+`make_latent(20261005)(100000 + n, 0)` (the screen's and the K-FAC probe's rule); all quantities at the FP model (`HybridEngine('fp')`, no CUDA graph).
+- Backbone layers (288): r_n = the RAQ-FT readout objective = the 180 W_O-projected FP32 cross-attention readouts of the FP expert over the FP prefix
+  KV (10 steps × 18 expert layers, FP queries along the FP trajectory, trajectory held fixed between steps as in the K-FAC probe); objective
+  v_sᵀ r_n with v_s Rademacher over all 180 × (8 × 10 × 1024) entries; backprop to every backbone layer (the prefix pass is grad-enabled).
+- Expert layers (126): r_n = the final action chunk of the 10-step sampler (prefix KV fixed, computed without grad), unnormalised with the policy's
+  own output transform (an affine map per action dim, so v_sᵀ a_n = (v_s ⊙ scale)ᵀ x_10 + const; the scale is read from the policy and verified
+  against `engine.infer` on the first observation), restricted to the executed window and valid dims a[:5, :7] (the held-out action MSE mask
+  `offline_metrics.relative_action_mse`); v_s Rademacher over the 35 entries; backprop through the unrolled 10 steps (x_{t+1} = x_t + dt·v_t with
+  grad through x_t). Expert weights are shared across steps: the inner product is accumulated over all 10 steps per probe before squaring,
+  ⟨g, ΔW⟩ = Σ_t Σ_τ δ_{t,τ}ᵀ ΔW x_{t,τ}.
+- Also stored: the Hutchinson estimate of the exact Gauss–Newton value for the uniform-2 model, D̂_total(2) = mean_{n,s} (Σ_l ⟨g_{l,n,s}, ΔW_l(2)⟩)²,
+  separately for the backbone objective (sum over the 288 backbone layers) and the expert objective (sum over the 126 expert layers), next to
+  Σ_l D̂_l(2) → the predictor's own additivity ratio.
+- Checks before use (recorded in `alloc/v3/checks.json`): on three layers (one LLM attention, one LLM MLP, one expert layer; the first of each
+  module in model order) compare the hook inner product ⟨g_{n,s}, ΔW_l(2)⟩ and D̂_l(2) against central finite differences of the probed objective
+  along ΔW_l(2) (f(W + εΔW) − f(W − εΔW)) / 2ε with only that layer perturbed, FP64, 2 observations (n = 0, 1), S = 4; relative error < 5 %
+  required. FP64 on CPU is specified; the engine hard-codes CUDA, so the FP64 check runs on the GPU in FP64 (same arithmetic precision; stated
+  in the record). On the expert layer, additionally verify that the step-accumulated D̂ differs from the per-step-sum Σ_t (Σ_τ δᵀΔW x)² (recorded
+  value and ratio; must differ).
+
+### §2 Calibration (Design 4; existing measurements only)
+Per module m ∈ {vision, LLM attention, LLM MLP, expert}: predicted utilities U_pred(2→3) = D̂(2) − D̂(3), U_pred(2→1) = D̂(1) − D̂(2); measured
+utilities from the held-out screen `alloc/utilities.json` (relative readout error for backbone layers, relative expert velocity error for expert
+layers; other layers FP). Calibration layers: 10 per module, stratified by predicted utility — for 2→3 the 5 layers at ranks ⌊k·(n_m − 1)/4⌋,
+k = 0..4, of U_pred(2→3) sorted ascending; for 2→1 the same for U_pred(2→1) (if a layer is picked twice it counts once and the set is not refilled).
+Fit log U_meas = log s_m + β_m log U_pred on those points by ordinary least squares (points with a non-positive utility on either side are
+dropped from the fit and listed); calibrated utility U_cal = s_m · U_pred^{β_m} for every layer of the module. Report s_m, β_m, then Spearman
+between calibrated predictions and ALL measured utilities per module and overall, for 2→3 and 2→1, in the K-FAC table's format
+(K-FAC: vision 0.85 / 0.79, LLM attn 0.98 / 0.97, LLM MLP 0.90 / 0.77, expert 0.18 / 0.31, overall 0.74 / 0.63 for 2→3 / 2→1).
+Units: backbone calibrated utilities are relative readout error; they are converted to relative action-MSE units with one exchange rate λ fitted
+through the origin by least squares on the allocation-level pairs (Δ readout error, Δ held-out action MSE vs the base) of alloc_v1, alloc_v2,
+alloc_v2_kfac and alloc_prior from the screen (job 231187). Expert calibrated utilities are relative expert velocity error along the FP
+trajectory and are used as action units directly (λ_expert = 1), as the spec states.
+
+### §3 Allocation
+Exact multiple-choice knapsack by dynamic programming over the byte budget (bytes scaled by the gcd of the per-plane byte counts) over 414 layers
+× {1, 2, 3}, byte ceiling **679 468 032** (= 2 planes everywhere, as for v1 / v2), objective = Σ_l U_cal,l(p_l) in action units (maximise the
+predicted MSE reduction). The expert is NOT forced to one plane. Reported: planes per module (1/2/3 counts), what the expert gets, layers differing
+from alloc_v1 and from alloc_v2, predicted total relative action MSE = 0.0372 (base, screen) − predicted reduction, per layer whether the utility
+curve is convex (U(1→2)/byte ≥ U(2→3)/byte) and the number of violations. Frozen as `alloc/alloc_v3.json` before any screen or rollout.
+
+### §4 Offline screen (GPU if available, CPU allowed)
+alloc_v3 assembled as `models/hd_srvq_alloc_v3` (payload ≤ base asserted); held-out readout error, relative action MSE (total and per DoF),
+additivity ratio, next to base / v1 / v2 / v2_kfac (same script, one job, device recorded). No PTQ-level rollout for v3.
+
+### §5 End-to-end
+`raqft_studentq_alloc_v3` = the frozen raqft_studentq recipe on alloc_v3; `a8_studentq_alloc_v3` = + A8. Plus selection 1000 on the same GPU
+model as a8_studentq (741; L40S), paired vs a8_studentq and vs the fine-tuned measured-allocation row a8_studentq_alloc (winner of v1 / v2), same
+units and seeds. Pre-registered reading: (i) predictor = the paper's allocation rule if a8_studentq_alloc_v3 is non-inferior to a8_studentq_alloc
+(paired Δ 95 % CI lower bound ≥ −3 pp) and beats 741 (CI lower bound > 0); (ii) if v3 beats the measured row with CI lower bound > 0, v3 is the
+main row and the measured search the validation experiment; (iii) otherwise the predictor goes to the appendix with the Spearman table and the
+measured allocation stays. No retuning of S, the calibration layer set, λ or the solver after any rollout.
+
+### §6 Budget, order, two flags
+Probe + predictor ≈ 2–3 GPU-h (backbone: 256 × 4 backward passes + 288 × 3 × 256 matmuls; expert: 256 × 4 unrolled 10-step backward passes).
+**Flag 1 — fine-tune time:** the spec budgets 1.5 h; the frozen raqft_studentq recipe took **9.06 h** on a 6000 Ada (job 197014) and is used
+unchanged, so the chain is ≈ 9 h + A8 offline 0.3 h + Plus ≈ 3 h. **Flag 2 — the 2026-11-02 deadline:** rose L40S start estimates are currently
+2026-11-02 for any new job; the deadline is only reachable if the Plus rows of a8_studentq_alloc and a8_studentq_alloc_v3 may use another GPU
+type (then both run on the same type, paired). Order: the probe job queues now on rose without touching the killable budget of the v1 / v2 Plus
+and fine-tunes; the fine-tune of alloc_v3 starts only after `raqft_studentq_alloc_v1/_v2` are complete (controller rule). The spec's mention of
+an "alloc_v2_kfac Plus" is noted: v2_kfac has no rollout under the 2026-10-28 morning pre-registration and none is added.
