@@ -1,0 +1,633 @@
+{
+ "font": "TeX Gyre Termes",
+ "mathtext": "stix",
+ "figure_inches": [
+  7.2,
+  2.5
+ ],
+ "width_ratios": [
+  1.35,
+  0.85,
+  1.1
+ ],
+ "wspace": 0.3,
+ "a": {
+  "blocks": [
+   0,
+   2,
+   4,
+   6,
+   8,
+   10,
+   12,
+   14,
+   16,
+   18,
+   20,
+   22,
+   24,
+   26,
+   28,
+   30
+  ],
+  "block_kind": {
+   "0": "text",
+   "2": "image",
+   "4": "text",
+   "6": "image",
+   "8": "text",
+   "10": "image",
+   "12": "text",
+   "14": "image",
+   "16": "text",
+   "18": "image",
+   "20": "text",
+   "22": "image",
+   "24": "text",
+   "26": "image",
+   "28": "text",
+   "30": "image"
+  },
+  "values": {
+   "block0_step0": 3.5037992754182113e-06,
+   "block0_step1": 4.4697069555015355e-06,
+   "block0_step2": 9.376750900938954e-06,
+   "block0_step3": 2.308575123488407e-05,
+   "block2_step0": 9.336187021312426e-07,
+   "block2_step1": 1.3317417308759859e-06,
+   "block2_step2": 2.1789751667896098e-06,
+   "block2_step3": 6.084583078998963e-06,
+   "block4_step0": 2.3490252859607234e-06,
+   "block4_step1": 3.303912389520423e-06,
+   "block4_step2": 5.651830145702328e-06,
+   "block4_step3": 1.475700051608927e-05,
+   "block6_step0": 1.1800684420243086e-06,
+   "block6_step1": 1.8702309857391398e-06,
+   "block6_step2": 3.090071168930362e-06,
+   "block6_step3": 6.8244600949058415e-06,
+   "block8_step0": 7.064964381975077e-07,
+   "block8_step1": 1.4276518878595072e-06,
+   "block8_step2": 1.4594770600228728e-06,
+   "block8_step3": 3.173288320344059e-06,
+   "block10_step0": 5.96169275983878e-07,
+   "block10_step1": 1.0823743583217045e-06,
+   "block10_step2": 2.112111948781234e-06,
+   "block10_step3": 3.4185886058951184e-06,
+   "block12_step0": 8.03861557250553e-07,
+   "block12_step1": 1.0014637746650354e-06,
+   "block12_step2": 7.396313740968238e-06,
+   "block12_step3": 2.9054473861463973e-06,
+   "block14_step0": 1.0494282690611666e-06,
+   "block14_step1": 1.1917712976266957e-06,
+   "block14_step2": 4.821650918067344e-06,
+   "block14_step3": 3.584010156795025e-06,
+   "block16_step0": 4.538495791000126e-07,
+   "block16_step1": 1.1781401963347209e-06,
+   "block16_step2": 1.4259597466247864e-06,
+   "block16_step3": 2.7512422174760005e-06,
+   "block18_step0": 1.1142594569661916e-06,
+   "block18_step1": 1.1018642814496702e-06,
+   "block18_step2": 2.0039579430516366e-06,
+   "block18_step3": 3.50556250281428e-06,
+   "block20_step0": 4.969888769069738e-07,
+   "block20_step1": 1.03535982397838e-06,
+   "block20_step2": 1.520396547147083e-06,
+   "block20_step3": 2.6297218279453558e-06,
+   "block22_step0": 5.552808634148255e-07,
+   "block22_step1": 1.4331800979732174e-06,
+   "block22_step2": 2.0861664052247988e-06,
+   "block22_step3": 3.78519680304997e-06,
+   "block24_step0": 4.024959617631461e-07,
+   "block24_step1": 6.598952001059672e-07,
+   "block24_step2": 1.109809626471146e-06,
+   "block24_step3": 2.614029034799106e-06,
+   "block26_step0": 6.134515278122345e-07,
+   "block26_step1": 1.1768468454196467e-06,
+   "block26_step2": 2.541875101716011e-06,
+   "block26_step3": 5.750495861357785e-06,
+   "block28_step0": 5.102920704672674e-07,
+   "block28_step1": 8.241116622074759e-07,
+   "block28_step2": 1.472454150052357e-06,
+   "block28_step3": 4.32907584367265e-06,
+   "block30_step0": 1.0158472827154073e-06,
+   "block30_step1": 1.6584925298395422e-06,
+   "block30_step2": 3.3286332448524926e-06,
+   "block30_step3": 1.0618099556112854e-05
+  },
+  "step3_over_step0_mean_over_blocks": 6.129380689972061,
+  "top_block_step3": 0,
+  "image_band_alpha": 0.6,
+  "image_band_meaning": "grey band = reader block reads image tokens; white = text tokens",
+  "step_colors": [
+   "#D8ECFA",
+   "#9FC5EA",
+   "#5B93C9",
+   "#2F2F2F"
+  ]
+ },
+ "b": {
+  "layers_counted": "backbone + head_libero_spatial rows of diagnostics.json",
+  "layer_counts": {
+   "vision": 104,
+   "llm": 112,
+   "vl_self_attention": 24,
+   "dit": 192
+  },
+  "dof_shares_mean": {
+   "vision": {
+    "translation": 0.1321001820289071,
+    "rotation": 0.1913158808094568,
+    "gripper": 0.6765839372302127
+   },
+   "llm": {
+    "translation": 0.14965636069613905,
+    "rotation": 0.20896931629419394,
+    "gripper": 0.641374322689848
+   },
+   "vl_self_attention": {
+    "translation": 0.23469216497495174,
+    "rotation": 0.32161286908035386,
+    "gripper": 0.4436949662271293
+   },
+   "dit": {
+    "translation": 0.2943296835003,
+    "rotation": 0.33980840872887325,
+    "gripper": 0.36586190741480556
+   }
+  },
+  "top10pct_row_concentration_median": {
+   "vision": 0.37815730308218054,
+   "llm": 0.41241379101289993,
+   "vl_self_attention": 0.22953924381398688,
+   "dit": 0.5168055889484593
+  },
+  "colors": {
+   "translation": "#D8ECFA",
+   "rotation": "#EBD1E3",
+   "gripper": "#FFF4A8"
+  }
+ },
+ "c": {
+  "layer": 0,
+  "step": 9,
+  "vmin": 0.0,
+  "vmax": 0.019170761108398438,
+  "alpha": 0.55,
+  "boxes": {
+   "target": [
+    40,
+    126,
+    72,
+    150
+   ],
+   "gripper": [
+    17,
+    98,
+    94,
+    126
+   ]
+  },
+  "per_model": {
+   "fp": {
+    "model": "original_fp",
+    "target_share_of_image_attention": 0.02270125205063538,
+    "gripper_share_of_image_attention": 0.06926462688995087,
+    "target_mass": 0.0016178557416424155,
+    "gripper_mass": 0.0049362992867827415,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.0,
+    "argmax_cell_row_col": [
+     12,
+     1
+    ],
+    "image_segment_mass": 0.07126724720001221,
+    "map_max": 0.014406204223632812,
+    "language_mass": 0.7214453220367432,
+    "wrist_mass": 0.16903504729270935,
+    "action_token_mass": 0.038199614733457565
+   },
+   "ptq2bit": {
+    "model": "bb_M2_ae_M2_fp32",
+    "target_share_of_image_attention": 0.02157568902470724,
+    "gripper_share_of_image_attention": 0.06969951824057073,
+    "target_mass": 0.0018614765722304583,
+    "gripper_mass": 0.006013435777276754,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.015395869500935078,
+    "argmax_cell_row_col": [
+     12,
+     1
+    ],
+    "image_segment_mass": 0.086276575922966,
+    "map_max": 0.017149543389678,
+    "language_mass": 0.666762113571167,
+    "wrist_mass": 0.19505658745765686,
+    "action_token_mass": 0.05192198604345322
+   },
+   "ours": {
+    "model": "raqft_studentq",
+    "target_share_of_image_attention": 0.020989243774295844,
+    "gripper_share_of_image_attention": 0.06615282074358418,
+    "target_mass": 0.0017084282590076327,
+    "gripper_mass": 0.005384536460042,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.01195441372692585,
+    "argmax_cell_row_col": [
+     12,
+     1
+    ],
+    "image_segment_mass": 0.08139541745185852,
+    "map_max": 0.019170761108398438,
+    "language_mass": 0.6956385374069214,
+    "wrist_mass": 0.1815127432346344,
+    "action_token_mass": 0.04148353636264801
+   }
+  },
+  "unit": {
+   "suite": "libero_spatial",
+   "task": 260,
+   "name": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_101",
+   "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+   "category": "Robot Initial States",
+   "difficulty_level": 1,
+   "episode": 0,
+   "seed": 7,
+   "noise_seed": 1194133538,
+   "plus_fp_row": {
+    "success": true,
+    "policy_calls": 16,
+    "steps_including_settle": 88
+   }
+  },
+  "policy_call": 7,
+  "rollout": {
+   "suite": "libero_spatial",
+   "task": 260,
+   "name": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_101",
+   "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+   "category": "Robot Initial States",
+   "difficulty_level": 1,
+   "episode": 0,
+   "seed": 7,
+   "noise_seed": 1194133538,
+   "plus_fp_row": {
+    "success": true,
+    "policy_calls": 16,
+    "steps_including_settle": 88
+   },
+   "prompt": "pick up the black bowl between the plate and the ramekin and place it on the plate view 0 0 100 0 0 initstate 101",
+   "success": true,
+   "policy_calls": 16,
+   "steps_including_settle": 89,
+   "first_gripper_close_step": 39,
+   "first_gripper_close_call": 7,
+   "gripper_convention": "LIBERO: action[6] = -1 open, +1 close; a close event is the first executed step with action[6] > 0"
+  },
+  "gpu": "NVIDIA A40",
+  "token_layout": {
+   "base_image": [
+    0,
+    256
+   ],
+   "wrist_image": [
+    256,
+    512
+   ],
+   "padding_image": [
+    512,
+    768
+   ],
+   "language": [
+    768,
+    968
+   ],
+   "action_tokens": [
+    968,
+    978
+   ],
+   "patch_grid": [
+    16,
+    16
+   ],
+   "note": "SigLIP 224/14 = 16x16 patches per image, row-major; the third image slot is the all-zero right-wrist image with mask False"
+  },
+  "per_model_checks": {
+   "fp": {
+    "model": "original_fp",
+    "replay_max_abs_diff_vs_fp_rollout_actions": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "graph_vs_nograph_bit_identical": true,
+    "prefix_plus_suffix_length": 978,
+    "action_tokens": 10
+   },
+   "ptq2bit": {
+    "model": "bb_M2_ae_M2_fp32",
+    "replay_max_abs_diff_vs_fp_rollout_actions": [
+     0.22267256234669686,
+     0.10559427202898264,
+     0.05063177134275443,
+     0.07699125172084564,
+     0.08206320354843144,
+     0.0973040072395801,
+     0.09927257990720861,
+     0.0801089042642712
+    ],
+    "graph_vs_nograph_bit_identical": true,
+    "prefix_plus_suffix_length": 978,
+    "action_tokens": 10
+   },
+   "ours": {
+    "model": "raqft_studentq",
+    "replay_max_abs_diff_vs_fp_rollout_actions": [
+     0.19951436043465132,
+     0.09642517029470188,
+     0.05758566970586776,
+     0.05877967011797436,
+     0.05881219406455751,
+     0.12456482041686767,
+     1.9305732236298025,
+     0.05745888803815846
+    ],
+    "graph_vs_nograph_bit_identical": true,
+    "prefix_plus_suffix_length": 978,
+    "action_tokens": 10
+   }
+  },
+  "overlay": "expert attention of reader block 0, last flow step (step 9 of 10), mean over 8 heads and 10 action tokens, agent-view image-token segment (16x16), bilinear upsampling; shared colour range across the three panels"
+ },
+ "supp_block8_laststep": {
+  "layer": 8,
+  "step": 9,
+  "vmin": 0.0,
+  "vmax": 0.010420292615890503,
+  "alpha": 0.55,
+  "boxes": {
+   "target": [
+    40,
+    126,
+    72,
+    150
+   ],
+   "gripper": [
+    17,
+    98,
+    94,
+    126
+   ]
+  },
+  "per_model": {
+   "fp": {
+    "model": "original_fp",
+    "target_share_of_image_attention": 0.04050065940510482,
+    "gripper_share_of_image_attention": 0.11775560231259642,
+    "target_mass": 0.002652448834851384,
+    "gripper_mass": 0.007711990736424923,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.0,
+    "argmax_cell_row_col": [
+     1,
+     15
+    ],
+    "image_segment_mass": 0.06549149751663208,
+    "map_max": 0.010420292615890503,
+    "language_mass": 0.40966686606407166,
+    "wrist_mass": 0.2454676479101181,
+    "action_token_mass": 0.2794354557991028
+   },
+   "ptq2bit": {
+    "model": "bb_M2_ae_M2_fp32",
+    "target_share_of_image_attention": 0.04922057279816567,
+    "gripper_share_of_image_attention": 0.1275106920241621,
+    "target_mass": 0.0029230155050754547,
+    "gripper_mass": 0.00757235661149025,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.01836352050304413,
+    "argmax_cell_row_col": [
+     1,
+     15
+    ],
+    "image_segment_mass": 0.05938605219125748,
+    "map_max": 0.007495550904422998,
+    "language_mass": 0.43533527851104736,
+    "wrist_mass": 0.23647572100162506,
+    "action_token_mass": 0.26894980669021606
+   },
+   "ours": {
+    "model": "raqft_studentq",
+    "target_share_of_image_attention": 0.040634266573599274,
+    "gripper_share_of_image_attention": 0.1548390562991968,
+    "target_mass": 0.0028548389673233032,
+    "gripper_mass": 0.010878517292439938,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.014128154143691063,
+    "argmax_cell_row_col": [
+     1,
+     15
+    ],
+    "image_segment_mass": 0.07025693356990814,
+    "map_max": 0.008908532559871674,
+    "language_mass": 0.41740697622299194,
+    "wrist_mass": 0.24127362668514252,
+    "action_token_mass": 0.2710321247577667
+   }
+  }
+ },
+ "supp_block0_firststep": {
+  "layer": 0,
+  "step": 0,
+  "vmin": 0.0,
+  "vmax": 0.023862285539507866,
+  "alpha": 0.55,
+  "boxes": {
+   "target": [
+    40,
+    126,
+    72,
+    150
+   ],
+   "gripper": [
+    17,
+    98,
+    94,
+    126
+   ]
+  },
+  "per_model": {
+   "fp": {
+    "model": "original_fp",
+    "target_share_of_image_attention": 0.02573890231431511,
+    "gripper_share_of_image_attention": 0.07195896066807254,
+    "target_mass": 0.00216276734136045,
+    "gripper_mass": 0.006046508438885212,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.0,
+    "argmax_cell_row_col": [
+     12,
+     1
+    ],
+    "image_segment_mass": 0.08402717858552933,
+    "map_max": 0.01829293929040432,
+    "language_mass": 0.6460213661193848,
+    "wrist_mass": 0.2285057008266449,
+    "action_token_mass": 0.041318658739328384
+   },
+   "ptq2bit": {
+    "model": "bb_M2_ae_M2_fp32",
+    "target_share_of_image_attention": 0.023197174833095024,
+    "gripper_share_of_image_attention": 0.07226638240218074,
+    "target_mass": 0.002459293697029352,
+    "gripper_mass": 0.007661461364477873,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.022762872278690338,
+    "argmax_cell_row_col": [
+     12,
+     1
+    ],
+    "image_segment_mass": 0.10601694881916046,
+    "map_max": 0.021093863993883133,
+    "language_mass": 0.5821920037269592,
+    "wrist_mass": 0.25660771131515503,
+    "action_token_mass": 0.055230263620615005
+   },
+   "ours": {
+    "model": "raqft_studentq",
+    "target_share_of_image_attention": 0.02332761916621177,
+    "gripper_share_of_image_attention": 0.06992516252235428,
+    "target_mass": 0.0022695185616612434,
+    "gripper_mass": 0.006802942603826523,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.014724889770150185,
+    "argmax_cell_row_col": [
+     12,
+     1
+    ],
+    "image_segment_mass": 0.09728890657424927,
+    "map_max": 0.023862285539507866,
+    "language_mass": 0.6170806884765625,
+    "wrist_mass": 0.24041323363780975,
+    "action_token_mass": 0.04511668160557747
+   }
+  }
+ },
+ "supp_block8_firststep": {
+  "layer": 8,
+  "step": 0,
+  "vmin": 0.0,
+  "vmax": 0.020620470866560936,
+  "alpha": 0.55,
+  "boxes": {
+   "target": [
+    40,
+    126,
+    72,
+    150
+   ],
+   "gripper": [
+    17,
+    98,
+    94,
+    126
+   ]
+  },
+  "per_model": {
+   "fp": {
+    "model": "original_fp",
+    "target_share_of_image_attention": 0.0396925178640684,
+    "gripper_share_of_image_attention": 0.20428009123275795,
+    "target_mass": 0.0033185328356921673,
+    "gripper_mass": 0.01707904227077961,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.0,
+    "argmax_cell_row_col": [
+     1,
+     15
+    ],
+    "image_segment_mass": 0.08360600471496582,
+    "map_max": 0.020620470866560936,
+    "language_mass": 0.6316682696342468,
+    "wrist_mass": 0.28146177530288696,
+    "action_token_mass": 0.003339341375976801
+   },
+   "ptq2bit": {
+    "model": "bb_M2_ae_M2_fp32",
+    "target_share_of_image_attention": 0.06259825407404951,
+    "gripper_share_of_image_attention": 0.21504783906867533,
+    "target_mass": 0.004091452807188034,
+    "gripper_mass": 0.01405563298612833,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.04101695865392685,
+    "argmax_cell_row_col": [
+     1,
+     15
+    ],
+    "image_segment_mass": 0.06536049395799637,
+    "map_max": 0.009429872035980225,
+    "language_mass": 0.6541302800178528,
+    "wrist_mass": 0.2775815427303314,
+    "action_token_mass": 0.002884849440306425
+   },
+   "ours": {
+    "model": "raqft_studentq",
+    "target_share_of_image_attention": 0.043629336885160616,
+    "gripper_share_of_image_attention": 0.2890399498081298,
+    "target_mass": 0.0039801518432796,
+    "gripper_mass": 0.02636810392141342,
+    "target_cells": 4,
+    "gripper_cells": 12,
+    "target_uniform_share": 0.015625,
+    "gripper_uniform_share": 0.046875,
+    "l1_to_fp_over_image_segment": 0.0362713560461998,
+    "argmax_cell_row_col": [
+     1,
+     15
+    ],
+    "image_segment_mass": 0.0912265032529831,
+    "map_max": 0.013749337755143642,
+    "language_mass": 0.6353950500488281,
+    "wrist_mass": 0.27040180563926697,
+    "action_token_mass": 0.003060033777728677
+   }
+  }
+ }
+}

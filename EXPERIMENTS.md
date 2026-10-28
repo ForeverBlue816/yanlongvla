@@ -1638,3 +1638,44 @@ readout error / Σ per-layer prediction = 1.43–1.73 (ranking preserved, absolu
 (readout +7.1% vs 2%; 52/288 = 18% differing layers vs 10%) → appendix predictor comparison. alloc_prior: no rollout. Table in PLANE_ALLOC_2026-10-26.md.
 `offline.json` lacked the `status: complete` field the controller keys on (my omission) — added by hand and in the script; the controller now plans
 the alloc_v1 / alloc_v2 Plus pack (rose, L40S).
+
+### E169 — Figure v2 delivered with panel (c) (2026-10-28 12:50 UTC)
+
+Capture race (E167, `--skip-rollout`): 231220 started on gpu-a40-2 at 12:24 UTC, ran 14 min 51 s, COMPLETED; 231221 (6000 Ada) / 231222 (L40S) cancelled
+(user 2026-10-28 decision 5: any GPU type is allowed for the capture). Rollout stage (E168, also an A40): FP episode success, 16 policy calls, 89 steps
+including settle, first gripper-close command executed at step 39 → **policy call k = 7**. Graph vs no-graph bit-identity assertion passed for all three
+models. Outputs `runs/plustrain_20261008/diagnostics/fig_c/{attention.npz, capture.json}`.
+
+Rendered: `figures/fig_readout_sensitivity_v2.{pdf,png}` (7.2 × 2.5 in, 300 dpi), supplementary `…_supp_block8_laststep.png`, `…_supp_block0_firststep.png`,
+`…_supp_block8_firststep.png`, `figures/fig_readout_sensitivity_v2.json` (every printed number incl. box coordinates and the per-model attention budget).
+Font TeX Gyre Termes (E161). Nothing overflows (checked at 300 dpi). The plotting script is published as `figures/fig_readout_sensitivity_v2.py` (it only reads
+`amvq/diagnostics.json`, `attention.npz`, `capture.json`, `frame.png`); the two capture scripts (`scripts/paper_fig_c_client.py`, `scripts/paper_fig_c_capture.py`)
+import the private runtime and stay in the research checkout.
+
+**Boxes (fixed 2026-10-28 06:10 UTC from the raw frame, before any overlay; pixel (x0, y0, x1, y1) in the 224 × 224 model input):** target = black bowl
+(40, 126, 72, 150) → 4 patch cells (1.6 % of the 256 image tokens); gripper = finger pads + body (17, 98, 94, 126) → 12 cells (4.7 %).
+
+**Printed numbers, panel (c) = reader block 0, last flow step (9 of 10), mean over 8 heads × 10 action tokens.** The number under each image is the share of the
+*agent-view image-token attention* that falls inside the fixed box (the share of the whole attention row is in the JSON as `target_mass` / `gripper_mass`; those
+are 0.002–0.006 and would print as 0.00, so the within-image share is shown — change of the printed quantity vs E161, recorded here and in the JSON):
+
+| model | target (unif. 0.016) | gripper (unif. 0.047) | image segment | language | wrist image | action tokens | L1 to FP (image seg.) |
+|---|---|---|---|---|---|---|---|
+| FP (`original_fp`) | 0.023 | 0.069 | 0.071 | 0.721 | 0.169 | 0.038 | — |
+| 2-bit PTQ (`bb_M2_ae_M2_fp32`) | 0.022 | 0.070 | 0.086 | 0.667 | 0.195 | 0.052 | 0.0154 |
+| ours (`raqft_studentq`) | 0.021 | 0.066 | 0.081 | 0.696 | 0.182 | 0.041 | 0.0120 |
+
+Supplementary (same unit, same call): block 8 last step — target 0.041 / 0.049 / 0.041, gripper 0.118 / 0.128 / 0.155, L1 to FP 0.018 (PTQ) / 0.014 (ours);
+block 0 first step — target 0.026 / 0.023 / 0.023, gripper 0.072 / 0.072 / 0.070, L1 0.023 / 0.015; block 8 first step — target 0.040 / 0.063 / 0.044,
+gripper 0.204 / 0.215 / 0.289, L1 0.041 / 0.036 (order FP / PTQ / ours).
+
+**What the data show (to be stated honestly in the caption).** (i) At this call the expert's cross-attention is dominated by the language segment
+(0.65–0.72 of the row at block 0) and the wrist image (0.17–0.28); the agent-view image segment receives only 0.06–0.11. (ii) Within the agent-view
+segment the maximum cell is a border cell in every model, block and step (block 0: cell (12, 1), left edge; block 8: cell (1, 15), top-right corner), i.e.
+the usual register-like image tokens, not the bowl or the gripper; the bowl box sits at ≈1.4× uniform and the gripper box at ≈1.5× uniform (block 0) to
+≈2.5–6× uniform (block 8). (iii) The three maps are close to each other: ours is nearer to FP than PTQ is in all four (block, step) pairs by the L1 distance
+over the image segment, but the differences are small and this is a single observation — the panel is illustrative, the quantitative claim stays with
+the readout-error / Plus tables. Caption draft: "(c) Expert cross-attention of reader block 0 at the last flow step (mean over heads and action tokens) on the
+agent-view image tokens, π₀.₅-LIBERO, task 'pick up the black bowl between the plate and the ramekin and place it on the plate', the policy call that issues
+the first gripper close in the full-precision rollout; FP, the 2-bit PTQ base and our fine-tuned 2-bit model, shared colour scale. Numbers: share of the
+agent-view attention inside the fixed bowl (target) and gripper boxes (uniform 0.016 / 0.047)."
