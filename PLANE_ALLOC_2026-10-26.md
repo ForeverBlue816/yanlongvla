@@ -323,3 +323,8 @@ unchanged, so the chain is ≈ 9 h + A8 offline 0.3 h + Plus ≈ 3 h. **Flag 2 �
 type (then both run on the same type, paired). Order: the probe job queues now on rose without touching the killable budget of the v1 / v2 Plus
 and fine-tunes; the fine-tune of alloc_v3 starts only after `raqft_studentq_alloc_v1/_v2` are complete (controller rule). The spec's mention of
 an "alloc_v2_kfac Plus" is noted: v2_kfac has no rollout under the 2026-10-28 morning pre-registration and none is added.
+
+**2026-10-28 18:00 UTC (user):** no deadline on any of this; use every available GPU. The 2026-11-02 remark in the alloc_v3 pre-registration §6 is
+therefore not a constraint (the spec's date is kept as written, the flag is withdrawn). Race copies added so each line is queued on every allowed
+GPU type (loser cancelled when one starts): alloc Plus pack 232232 (A40, killable) + rose copies on L40S / 6000 Ada; RAQ-FT pair 232448 (6000 Ada,
+killable) + rose copy on L40S; alloc_v3 232494 / 232495 (rose, 6000 Ada / L40S).
