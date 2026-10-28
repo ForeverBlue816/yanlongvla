@@ -226,3 +226,24 @@ GPU part (assembly + held-out screen + additivity) is re-queued as race copies 2
 - **K-FAC rule (amended, backbone only): fails on both halves** — alloc_v2_kfac is 7.1% worse than alloc_v2 in readout error (limit 2%) and differs in
   52/288 = 18% of backbone layers (limit 10%). K-FAC is the appendix predictor comparison; the module-level Spearman table is reported either way.
 - alloc_prior: no rollout (user 2026-10-28); for the record it is worse than both candidates on both screens.
+
+## 2026-10-28 14:30 UTC — user decision (afternoon): any GPU type for the Plus rows; fine-tune both candidates now
+
+Slurm's start estimate for the two rose L40S Plus jobs (231799 / 231800, submitted 10:20 UTC) was 2026-11-02; the user decided the time is too
+tight. Changes, all recorded here:
+
+1. **Plus selection for alloc_v1 and alloc_v2 may run on any GPU type.** Both rose jobs were cancelled and replaced by one killable 2-GPU pack
+   on A40 (job **232232**, `slurm/alloc_plus_pack.sbatch`, one model per GPU; requeue on preemption, resume from `episodes.jsonl`). The Plus guard
+   (`plustrain_guard.py`) accepts a non-L40S device only with `PLUSTRAIN_ANY_GPU=1` and now records the device in its proof. **Caveat:** the
+   reference counts 704 (base) and 765 (FP) were measured on L40S; the kernel arithmetic differs across GPU models (E162: FP actions differ
+   cross-device, MSE 1.2e-4 on GR00T), so a non-L40S alloc count vs 704 is a cross-device comparison. The paired bootstrap is still on identical
+   units and noise seeds; the device of every row is stated next to the number.
+2. **RAQ-FT on both candidates now, not after the Plus.** Rows `raqft_studentq_alloc_v1` (base alloc_v1) and `raqft_studentq_alloc_v2` (base
+   alloc_v2), the frozen `raqft_studentq` recipe unchanged (768 updates, student queries, bank (a)), one killable 2-GPU pair job on A40
+   (**232230**, `slurm/alloc_raqft_pair.sbatch`; resume from `training_state.pt` on preemption). The **selection rule is unchanged**: the winner is
+   decided by the PTQ-level Plus counts (tie → v2, `alloc/winner.json`), and only the winner's fine-tune continues as `a8_studentq_alloc` (W2A8,
+   gated vs a8_studentq 741). The loser's fine-tune is kept on disk, not rolled out. Cost: one extra ~9 h fine-tune.
+3. The comparison targets stay as stated in the morning: alloc_v1 / alloc_v2 (PTQ bases, no fine-tune) vs the uniform base **704**; the fine-tuned
+   winner vs **749** (raqft_studentq) and its A8 row vs **741**.
+4. Killable submit budget (5 per user) now: B2 229308 (one copy, GROOT_COPIES 2 → 1; copy 232155 cancelled), row B medium 230618, figure v3
+   capture 232076, the pair 232230 and the pack 232232.
