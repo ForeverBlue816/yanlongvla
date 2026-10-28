@@ -1679,3 +1679,26 @@ the readout-error / Plus tables. Caption draft: "(c) Expert cross-attention of r
 agent-view image tokens, π₀.₅-LIBERO, task 'pick up the black bowl between the plate and the ramekin and place it on the plate', the policy call that issues
 the first gripper close in the full-precision rollout; FP, the 2-bit PTQ base and our fine-tuned 2-bit model, shared colour scale. Numbers: share of the
 agent-view attention inside the fixed bowl (target) and gripper boxes (uniform 0.016 / 0.047)."
+
+### E170 — alloc_v3: analytic per-sample-gradient predictor, pre-registered and submitted (2026-10-28 17:30 UTC)
+
+User spec 2026-10-29 (pasted 2026-10-28 afternoon); pre-registration written into PLANE_ALLOC_2026-10-26.md (section "alloc_v3 — pre-registration",
+16:40 UTC) before any probe job. Implementation `scripts/plustrain_alloc_v3.py` (stages probe / check / calibrate / allocate / assemble / offline,
+resumable, `--stage all` in one GPU job). Design points fixed in code and doc: Rademacher probes S = 4 (seed SeedSequence([20261029, n, s, ·])),
+256 calibration observations (bank a), latent `make_latent(20261005)(100000 + n, 0)`; backbone objective = the 180 W_O-projected FP32 readouts;
+expert objective = unnormalised a[:5, :7] of the unrolled 10-step sampler with grad through x_t (the policy's output transform is affine per dim; the
+slope is fitted from two noises on observation 0 and asserted affine to 1e-4), inner product accumulated over the 10 steps before squaring; ΔW in
+the RHT basis exactly as `stage_kfac_dhat` (deployed module applies transform(x, signs)); per layer one matmul x'ΔWᵀ then probe-wise dot with δ
+(BF16 δ from the BF16 model; FP32 accumulation; TF32 off). Hutchinson Gauss-Newton total of the uniform-2 model stored for backbone and expert
+objectives. Check stage: first LLM attention / first LLM MLP / first expert layer, observations 0–1, FP64 on the GPU (model.double() with casting
+pre-hooks; FP32 fallback recorded if FP64 cannot run), central FD along ΔW_l(2) with ε = 1e-3 vs the hook inner product (< 5 % on D̂ and on every
+inner product), actual Δf at ε = 1 as the linearity error, expert step-accumulated vs per-step-sum. If the check fails the job stops before calibration.
+Calibration: stratified 10 layers per module (ranks ⌊k(n−1)/4⌋ of the predicted utility, both transitions), log-log OLS, Spearman table (calibrated and
+raw) next to the K-FAC table; λ through the origin on the 4 (Δ readout_rel, Δ MSE_rel) pairs of job 231187. Allocation: exact MCKP as an ILP (HiGHS,
+zero gap; the byte gcd is 256 → 2.65 M DP states, DP kept as cross-check on small instances and verified equal on a 40-layer sub-instance), ceiling
+679 468 032 B, expert free. Offline: base / v1 / v2 / v2_kfac / v3 in one job with per-DoF MSE and additivity.
+Protocol: `alloc_v3` in ALLOC_MODELS; rows `raqft_studentq_alloc_v3` (gated on the v1 / v2 fine-tunes being complete) and `a8_studentq_alloc_v3`
+(A8 offline + Plus by the controller, rose L40S as every A8 row).
+Jobs: race 232494 (6000 Ada) / 232495 (L40S), rose QoS (killable budget untouched: Plus pack 232232, fine-tune pair 232448 — resubmitted on 6000 Ada after
+232230 failed on the frozen script's ALLOWED_GPUS assert for A40 — figure capture 232076, B2 229308, row B medium 230618).
+Flags recorded in the pre-registration: the fine-tune takes ≈ 9 h (not 1.5 h); the 2026-11-02 deadline needs the two A8 Plus rows on a non-L40S type.
