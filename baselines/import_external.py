@@ -38,7 +38,8 @@ def main():
         assert tuple(w.shape) == tuple(layer.weight.shape), name
         replaced[name] = w
         payload += int(acc['layers'][name]['payload_bytes'])
-    info = accounting(payload, acc['method'], acc['bits_nominal'], dict(backbone_bits=acc.get('backbone_bits', acc['bits_nominal']), expert_bits=acc.get('expert_bits', acc['bits_nominal']), external_accounting=str(Path(a.accounting))))
+    meta = {k: v for k, v in acc.items() if k not in ('layers', 'linear_payload_bytes')}   # toolkit commit, settings, notes, exact command
+    info = accounting(payload, acc['method'], acc['bits_nominal'], dict(meta, backbone_bits=acc.get('backbone_bits', acc['bits_nominal']), expert_bits=acc.get('expert_bits', acc['bits_nominal']), external_accounting=str(Path(a.accounting))))
     write_fakequant_checkpoint(a.checkpoint, a.out, replaced, info)
     print(json.dumps({k: info[k] for k in ('method', 'bits_nominal', 'quantizable_linear_bpw', 'whole_model_bpw')}), flush=True)
 
