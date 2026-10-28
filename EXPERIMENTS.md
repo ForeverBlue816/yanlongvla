@@ -1605,3 +1605,17 @@ manifest (256 observations) and the held-out 256-frame selection, Plus selection
 identical to our unit sets), `story_plus_client.py`, and a one-page README (trainable codebooks / row scales / norms with FP16 and stored-dtype
 round trips, codes frozen; loss, 768 updates, lrs 3e-4 / 2e-5 / 3e-4, clip 1.0; paired evaluation; bpw accounting check). The private runtime
 modules the script imports were not copied; they are listed with their cluster path. No further work on it from this side.
+
+### E167 — Screen OOM fixed; assembly done; B2 running; panel (c) copies (2026-10-28 05:45 UTC)
+
+- Screen race copies 230356 (6000 Ada, started 18:39 UTC) and 230357 (L40S, started 03:59 UTC) both **assembled alloc_v1 / alloc_v2 / alloc_v2_kfac /
+  alloc_prior** (`models/hd_srvq_alloc_*`; whole-model bpw 2.9224 / 2.9225 / 2.9224 / 2.9214 vs base 2.9226 — every allocation is at or under the
+  storage ceiling) and then died of **CUDA OOM in the held-out screen**: `stage_offline` cached the 256 FP readout captures on the GPU (10 steps × 18
+  layers of queries / suffix KV / readouts ≈ 140 MB each ≈ 37 GB). Fix: the FP capture is recomputed per row and observation (deterministic latent),
+  nothing cached. Re-queued as rose race copies 231187 (6000 Ada) / 231188 (L40S). The CPU fallback rule (20:00 Beijing) is moot in its premise —
+  two GPUs started the screen — but the deadline check stays.
+- **Row B2** (229308, killable A40): preempted repeatedly on 10-27 (race copies re-queued by the controller each time); running again since
+  05:22 UTC with **288/768 updates** done cumulatively (loss 2.24e4 at update 288, from 4.98e4 at update 16). It started before the 09:00 Beijing
+  deadline on 10-27, so the rule does not cancel it; at 114 s/update the remaining 480 updates need ~15 h of uninterrupted killable time.
+- **Row B medium** 230618 queued on 6000 Ada (killable, pinned). **Panel (c)** capture now has race copies 229203 (L40S) / 231184 (6000 Ada) /
+  231185 (A40) under the killable QoS (user 2026-10-28 §5: any GPU type).
