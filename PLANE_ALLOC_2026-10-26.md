@@ -364,3 +364,23 @@ on the v1 fine-tune (A8 offline → Plus, gated vs a8_studentq 741); the v2 fine
 152.80, H5b 1.24e-4), `raqft_studentq_alloc_v2` **191.2** (readout 191.16, H5b 1.57e-4); the frozen raqft_studentq on the uniform base ended at
 173.8. v2 is recorded and not rolled out (user §2). whole-model bpw 2.9224 for both (= their bases). A8 row started: `a8_studentq_alloc_offline`
 race 233481 (A40, started 06:05 UTC) / 233482 / 233483.
+
+## alloc_v3 results — §1 probe and §2 calibration (job 233459, L40S, probe 30 min; calibration on CPU 07:21 UTC)
+
+**Spearman (calibrated prediction vs ALL measured utilities), reported first as instructed, next to the K-FAC table:**
+
+| module | predictor v3: 2→3 / 2→1 | K-FAC (diag-G): 2→3 / 2→1 | v3 before calibration |
+|---|---|---|---|
+| vision (162) | 0.98 / 0.97 | 0.85 / 0.79 | raw 0.98 / 0.97 |
+| LLM attention (72) | 0.99 / 0.99 | 0.98 / 0.97 | raw 0.99 / 0.99 |
+| LLM MLP (54) | 0.88 / 0.90 | 0.90 / 0.77 | raw 0.88 / 0.90 |
+| expert (126) | 0.29 / 0.51 | 0.18 / 0.31 | raw 0.27 / 0.51 |
+| overall (414) | 0.91 / 0.92 | 0.74 / 0.63 | — |
+
+Calibration (Design 4, 10 stratified layers per module, log-log OLS): vision s = 4.22e-07, β = 0.771 (18 fit points); llm_attn s = 1.7e-07, β = 0.932 (14 fit points); llm_mlp s = 4.05e-07, β = 0.854 (14 fit points); expert s = 0.000338, β = 0.488 (15 fit points). Within a module the calibration is monotone, so the per-module
+Spearman equals the raw predictor's; the overall value changes because s_m / β_m put the modules on one scale (0.91 / 0.92 vs K-FAC 0.74 / 0.63).
+Exchange rate λ (relative readout error → relative action MSE, through the origin on the four Δ-vs-base pairs of job 231187) = **0.1628**.
+Hutchinson Gauss–Newton total of the uniform-2 model vs the sum of per-layer D̂: backbone objective 6.906e+05 vs 5.978e+05 (ratio 1.155);
+expert objective 0.4195 vs 0.5726 (ratio 0.733).
+Check stage: the first run (233459) ran out of GPU memory in FP64 (four retained graphs); made memory-lean (one forward per probe, fit cache of the
+three layers only) and resubmitted; the allocation is made only after the check passes.
