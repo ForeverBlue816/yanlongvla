@@ -1702,3 +1702,24 @@ Protocol: `alloc_v3` in ALLOC_MODELS; rows `raqft_studentq_alloc_v3` (gated on t
 Jobs: race 232494 (6000 Ada) / 232495 (L40S), rose QoS (killable budget untouched: Plus pack 232232, fine-tune pair 232448 — resubmitted on 6000 Ada after
 232230 failed on the frozen script's ALLOWED_GPUS assert for A40 — figure capture 232076, B2 229308, row B medium 230618).
 Flags recorded in the pre-registration: the fine-tune takes ≈ 9 h (not 1.5 h); the 2026-11-02 deadline needs the two A8 Plus rows on a non-L40S type.
+
+### E171 — Plus of alloc_v1 / alloc_v2, fine-tunes, figure v3 delivered, row B medium, alloc_v3 resubmitted (2026-10-29 06:00 UTC)
+
+- **alloc Plus pack 232521 (two A40) COMPLETED:** alloc_v1 720 (+1.6 [−1.3, +4.5] vs base 704; −4.5 [−8.4, −0.8] vs FP), alloc_v2 662 (−4.2
+  [−8.1, −0.5] vs base); v1 vs v2 +5.8 [+1.6, +10.0]; v1 vs raqft_studentq 749: −2.9 [−6.0, +0.1]. Winner alloc_v1 (`alloc/winner.json`). The two
+  rose race copies (232522 / 232523) failed at once on the run lock (`BlockingIOError`) because the A40 copy already held it — the lock works across
+  nodes. Paired files `alloc/paired/*.json`. Table and reading in PLANE_ALLOC.
+- **RAQ-FT pair 232524 (two L40S, rose):** raqft_studentq_alloc_v1 complete (loss 152.8), v2 at 732/768. The 6000 Ada copy 232448 cancelled.
+- **Figure v3 delivered** (E161 → v3; `FIG_READOUT_SENSITIVITY.md` has the rule change, reason and all printed numbers): capture 232076 (A40, 9 min 44 s;
+  first attempt preempted one minute before the end, script made resumable per model × set). (c1) language share of reader block 0 at the last step,
+  mean over 256 held-out observations: FP 0.753, 2-bit PTQ 0.688 (Δ −0.065 [−0.066, −0.065]), ours 0.719 (Δ −0.035 [−0.035, −0.034]); the
+  difference is negative on all 256 observations for both. (c2) dropped by the pre-registered rule: the FP image-reading layer (calibration set) is
+  layer 4 with 0.126 < 0.20 third-person-image mass. (a) fixes applied (label tones, ylim 5e-5, right margin +1.2 blocks — not less, else "step 3"
+  collides with panel (b)'s y labels); width ratios 1.3 : 0.85 : 0.95. Files `figures/fig_readout_sensitivity_v3.{pdf,png,json}`,
+  `…_supp_language_share_per_layer.png`, script `figures/fig_readout_sensitivity_v3.py`.
+- **Row B LIBERO medium 230618 (6000 Ada, 1 h): 916/1000**, +4.4 [+1.3, +7.9] vs base, −3.3 [−6.6, −0.2] vs FP (GROOT table refreshed by
+  `groot_table.py`). This is the first GR00T row with a CI lower bound above zero vs base — on medium, not on Plus (504, +1.8 [−2.6, +6.5]).
+- **alloc_v3 jobs 232494 / 232495 FAILED** at the first expert probe: `SeedSequence` rejects a string entropy element (`'expert'` tag); fixed to an
+  integer tag (999), race resubmitted 233458 (6000 Ada) / 233459 (L40S), rose. `action_affine.json` from the failed run: the action affine check
+  passed (residual < 1e-4) before the failure.
+- B2 229308 at 528/768, pending again after preemption.

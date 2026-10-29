@@ -328,3 +328,24 @@ an "alloc_v2_kfac Plus" is noted: v2_kfac has no rollout under the 2026-10-28 mo
 therefore not a constraint (the spec's date is kept as written, the flag is withdrawn). Race copies added so each line is queued on every allowed
 GPU type (loser cancelled when one starts): alloc Plus pack 232232 (A40, killable) + rose copies on L40S / 6000 Ada; RAQ-FT pair 232448 (6000 Ada,
 killable) + rose copy on L40S; alloc_v3 232494 / 232495 (rose, 6000 Ada / L40S).
+
+## Results 2026-10-29 — PTQ-level Plus of alloc_v1 / alloc_v2 (job 232521, two A40, 5 h 51 min; winner.json written 02:03 UTC)
+
+Plus selection 1000 (500 camera + 500 robot-init units, seed 7, same noise seeds), paired suite-stratified bootstrap (2000 draws, seed 20260930):
+
+| row | successes | Δ vs base 704 | Δ vs FP 765 | device |
+|---|---|---|---|---|
+| alloc_v1 (greedy on measured utilities) | **720** | **+1.6 [−1.3, +4.5]** | −4.5 [−8.4, −0.8] | A40 |
+| alloc_v2 (expert all 1 plane, backbone greedy) | 662 | −4.2 [−8.1, −0.5] | −10.3 [−16.0, −4.8] | A40 |
+| alloc_v1 vs alloc_v2 (paired) | | **+5.8 [+1.6, +10.0]** | | |
+| alloc_v1 vs raqft_studentq 749 | | −2.9 [−6.0, +0.1] | | |
+
+Reading: the reallocation alone (no fine-tune) is +1.6 pp over the uniform base with an interval covering zero, i.e. not a significant PTQ-level gain
+by itself; alloc_v2 is significantly worse than the base, so forcing the whole expert to one plane costs more in rollout than the held-out screen
+suggested (v2 had the better readout error 0.0626 vs 0.0697 but the worse action MSE 0.0295 vs 0.0256 — the action MSE was the better predictor
+of the Plus outcome). **Winner = alloc_v1** (rule: better count). Cross-device caveat as recorded 2026-10-28: 704 / 765 / 749 were measured on
+L40S, these two rows on A40 (guard proof records the device; graph/eager exact on 256/256).
+RAQ-FT on both: `raqft_studentq_alloc_v1` **complete** (768 updates, L40S pair job 232524, final readout loss 152.8, H5b 1.2e-4; the frozen
+raqft_studentq ended at 173.8 on the uniform base), `raqft_studentq_alloc_v2` at 732/768 at 05:40 UTC. Next by the controller: a8_studentq_alloc
+on the v1 fine-tune (A8 offline → Plus, gated vs a8_studentq 741); the v2 fine-tune is kept, not rolled out. Diagnostics job for the v1 fine-tune
+(233454) queued by the controller.
