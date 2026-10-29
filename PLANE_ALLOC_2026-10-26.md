@@ -431,3 +431,43 @@ alloc_v3 lands between v1 and v2 on action MSE (0.0301 vs 0.0249 / 0.0295) with 
 (1.75): its backbone allocation leans on the predictor where the measured screen says the sum of per-layer errors under-predicts the full model.
 §5 end-to-end: `raqft_studentq_alloc_v3` queued (234147, 6000 Ada killable, controller) + L40S rose race copy; then A8 offline → Plus paired vs
 a8_studentq 741 and vs a8_studentq_alloc (its Plus at 628/1000 at 13:52 UTC).
+
+## alloc_v3 follow-up (user 2026-10-29 afternoon; CPU, 14:09 UTC) — analysis and two v4 variants, no new probes, no Plus input
+
+### Step 2 — v3 calibrated utilities vs all 414 measured utilities, per module
+
+| module | n | Spearman 2→3 / 2→1 | Σ pred / Σ meas (2→3) | Σ pred / Σ meas (2→1) | bytes-weighted ratio 2→3 / 2→1 |
+|---|---|---|---|---|---|
+| vision | 162 | 0.98 / 0.97 | 0.005669 / 0.004774 (1.19) | 0.0358 / 0.04616 (0.78) | 1.21 / 0.78 |
+| llm_attn | 72 | 0.99 / 0.99 | 0.01436 / 0.01386 (1.04) | 0.1134 / 0.1157 (0.98) | 0.96 / 0.93 |
+| llm_mlp | 54 | 0.88 / 0.90 | 0.03022 / 0.02552 (1.18) | 0.1383 / 0.1349 (1.03) | 1.18 / 1.03 |
+| expert | 126 | 0.29 / 0.51 | 0.001264 / 0.003659 (0.35) | 0.004344 / 0.03804 (0.11) | 0.19 / 0.09 |
+| overall | 414 | 0.91 / 0.92 | 0.05151 / 0.04782 (1.08) | 0.2918 / 0.3348 (0.87) | 1.16 / 0.99 |
+
+| module | v3 lower than v1 (layers / bytes) | v3 higher than v1 (layers / bytes) | total | share |
+|---|---|---|---|---|
+| vision | 68 / 20,182,784 | 0 / 0 | 68 | 44 % |
+| llm_attn | 9 / 4,755,456 | 0 / 0 | 9 | 6 % |
+| llm_mlp | 3 / 12,595,200 | 5 / 20,992,000 | 8 | 5 % |
+| expert | 23 / 4,366,336 | 48 / 20,959,232 | 71 | 46 % |
+
+The expert accounts for most of the disagreement by layer count (71 of 156 differing layers, 46 %; v3 gives 48 expert layers more planes and 23
+fewer than v1), vision is second (68 layers, all v3 lower than v1; small bytes). By bytes moved the LLM MLP is first (33.6 MB over 8 layers).
+The expert's calibrated utilities are far too small in absolute terms (Σ pred / Σ meas = 0.35 for 2→3 and 0.11 for 2→1, bytes-weighted 0.19 /
+0.09) with Spearman 0.29 / 0.51; vision over-predicts 2→3 (1.19) and under-predicts 2→1 (0.78); the LLM modules are within ±20 %.
+
+### Step 3 — v4 variants (frozen `alloc/alloc_v4_recal.json`, `alloc/alloc_v4_hybrid.json`; checkpoints assembled, bpw ≤ base)
+
+- **alloc_v4_recal**: modules identified in step 2 = expert, llm_mlp (expert by layer count, LLM MLP by bytes). The pooled 10-layer log-log fit
+  of v3 is replaced, for those modules only, by one (s, β) per transition from the protocol's own stratified 5-layer sets (the same layers; the
+  pooled fit is what v3 used, so "the same protocol" can only be re-fit per transition without new data): expert: 2→3 s = 3.66e-06, β = -0.022; 2→1 s = 0.00766, β = 1.136 (pooled v3 fit s = 0.000338, β = 0.488); llm_mlp: 2→3 s = 2.51e-06, β = 0.634; 2→1 s = 1.21e-05, β = 0.536 (pooled v3 fit s = 4.05e-07, β = 0.854). ILP re-solved: planes 1/2/3 —
+  vision 13/103/46, LLM attn 3/18/51, LLM MLP 5/43/6, expert 42/58/26; differs from v1 in 125 layers, from v3 in 60.
+- **alloc_v4_hybrid**: LP shadow price of the byte constraint μ = 3.365e-11 per byte; the 83 layers (20 % of 414) with the smallest
+  |per-byte calibrated utility − μ| (either transition) take their measured utilities (λ-converted for backbone layers), the rest keep v3's
+  predictions: by module {'vision': 45, 'llm_attn': 3, 'llm_mlp': 13, 'expert': 22}. ILP re-solved: vision 14/111/37, LLM attn 4/17/51, LLM MLP 8/39/7, expert 28/59/39;
+  differs from v1 in 143 layers, from v3 in 26. Measuring only those 83 layers would have cost ≈ **2.1 GPU-h**
+  (full screen 10.7 GPU-h for 414 layers on one GPU, proportional share; + ~0.1 h shared FP capture).
+- v3 for reference: vision 15/112/35, LLM attn 4/17/51, LLM MLP 8/39/7, expert 27/62/37.
+
+Offline screen of base / v1 / v3 / v4_recal / v4_hybrid submitted (the engine needs a GPU; same screen as before). Rollout rule: a v4 variant rolls
+out only if its held-out relative action MSE ≤ alloc_v1's 0.0249; otherwise report and stop. No Plus result enters v4's calibration or selection.
