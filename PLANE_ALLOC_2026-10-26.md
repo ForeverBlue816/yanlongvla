@@ -395,3 +395,11 @@ derivative is right and the ε = 1e-3 difference is noise-dominated: the model c
 Amendment (recorded before the allocation is made): the check reports central differences at ε = 1e-3, 1e-2 and 1e-1 plus the ε = 1 secant, the
 5 % criterion is applied at **ε = 0.1** (noise 100× smaller, curvature error ≈ 0.1 × the ε = 1 linearity error, i.e. < 1 %), and the readout
 attention is evaluated in FP64 in the check. The expert step-accumulated vs per-step-sum check passed (ratio 1.0010, differ). Rerun submitted.
+
+**2026-10-29 13:40 UTC — check rerun (234109, FP64, ε sweep):** the expert layer passes at ε = 0.1 (D̂ relative error 0.3 %, every inner product
+< 0.9 %; at ε = 1e-3 the same values were off by up to 6.5× — the float32-noise diagnosis holds). The two backbone layers do not: their errors are
+the same at ε = 1e-3, 1e-2 and 1e-1 (q_proj up to 0.33, gate_proj up to 0.55 per probe; D̂ 1.2 % / 6.1 %), so not noise but a definitional mismatch:
+the probe holds the FP trajectory x_t fixed between flow steps (pre-registration §1, as in the K-FAC probe and the measured screen, whose queries
+are the FP queries along the FP trajectory), whereas the finite-difference objective re-integrated x_t with the perturbed prefix KV, i.e. it also
+differentiated through the trajectory. The FD is now evaluated with the observation's FP trajectory held fixed (the expert FD keeps the trajectory
+free, by definition). Rerun submitted (`checks_eps_sweep_trajectory_free.json` kept).
