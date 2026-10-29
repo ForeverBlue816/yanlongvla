@@ -488,3 +488,13 @@ Reading: the gap to v1 is in the expert (v1 puts 60 expert layers at 1 plane and
 consistent with step 2's finding that the expert utilities are under-predicted by 3–10× and only weakly ranked (Spearman 0.29 / 0.51). The
 measured-utility hybrid on 83 boundary layers closes only part of the gap because the expert's mis-prediction is global (scale), not local to the
 boundary. v3's end-to-end row (RAQ-FT → A8 → Plus) continues as queued.
+
+## 2026-10-29 14:50 UTC — user decision: the predictor line's single end-to-end test runs on alloc_v4_recal, not alloc_v3
+
+alloc_v3's RAQ-FT (jobs 234147 / 234194, not started) and its A8 / Plus are cancelled. Reason, recorded before the fine-tune starts: v4_recal's
+held-out action MSE 0.0277 vs v3's 0.0301 in the same screen (job 234214), same cost (no new probes), and no Plus result was used to choose or
+calibrate it. Chain: `raqft_studentq_alloc_v4_recal` (frozen raqft_studentq recipe on `models/hd_srvq_alloc_v4_recal`) → `a8_studentq_alloc_v4_recal`
+(A8 offline → Plus selection 1000), paired vs a8_studentq_alloc (the v1 row) and vs a8_studentq (741), same units and seeds. No further predictor
+variants (no v5). The expert-scale under-estimate (Σ pred / Σ meas 0.35 for 2→3, 0.11 for 2→1; Spearman 0.29 / 0.51) is reported as the predictor's
+known limitation. Reading rule unchanged: a8_studentq_alloc_v4_recal within 3 pp of the v1 row → the predictor-based allocation goes into the method
+section as the low-cost version with the search as validation; otherwise appendix.
