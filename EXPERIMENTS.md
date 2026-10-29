@@ -1733,3 +1733,13 @@ model → ε sweep, criterion at 0.1; backbone FD must hold the FP trajectory fi
 156 layers differ from v1; predicted MSE 0.0332; offline: readout 0.0885, action MSE 0.0301 (v1 0.0249, v2 0.0295, base 0.0372), additivity 1.75.
 Full tables in PLANE_ALLOC. Fine-tune raqft_studentq_alloc_v3 queued (234147 + L40S copy). a8_studentq_alloc Plus (233590, 6000 Ada) at 628/1000.
 B2 576/768 (A40 preemptions; controller re-races on four GPU types).
+
+### E173 — alloc_v3 follow-up: analysis and v4 variants (2026-10-29 14:40 UTC)
+
+Step 2 (CPU): per-module Spearman and utility sums (`alloc/v3/analysis.{json,md}`): expert Σpred/Σmeas 0.35 (2→3) / 0.11 (2→1), Spearman
+0.29 / 0.51; vision 1.19 / 0.78; LLM modules within ±20 %. v3 vs v1 differ in 156 layers: expert 71 (46 %; 48 higher, 23 lower), vision 68
+(all lower), LLM MLP 8 (most bytes, 33.6 MB), LLM attn 9. Step 3: alloc_v4_recal (expert + LLM MLP recalibrated per transition from the
+protocol's 5-layer stratified sets; expert 42/58/26) and alloc_v4_hybrid (83 layers nearest the ILP boundary by |per-byte utility − LP shadow
+price 1.1e-10/B| take measured utilities; expert 28/59/39; measuring those alone ≈ 2.1 GPU-h of the 10.7 GPU-h screen). Offline (234214, 6000
+Ada): v4_recal 0.0277, v4_hybrid 0.0282, v3 0.0301, v1 0.0256, base 0.0372 → neither v4 rolls out (rule: ≤ v1). No Plus input anywhere.
+Script `scripts/plustrain_alloc_v4.py`.

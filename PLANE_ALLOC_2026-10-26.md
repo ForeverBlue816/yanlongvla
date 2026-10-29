@@ -471,3 +471,20 @@ The expert's calibrated utilities are far too small in absolute terms (Σ pred /
 
 Offline screen of base / v1 / v3 / v4_recal / v4_hybrid submitted (the engine needs a GPU; same screen as before). Rollout rule: a v4 variant rolls
 out only if its held-out relative action MSE ≤ alloc_v1's 0.0249; otherwise report and stop. No Plus result enters v4's calibration or selection.
+
+### v4 offline screen (job 234214, 6000 Ada, 21 min, 14:36 UTC) — neither variant rolls out
+
+| row | readout | action MSE | per DoF (x / y / z / rx / ry / rz / grip) | additivity |
+|---|---|---|---|---|
+| base | 0.1179 | 0.0372 | 0.0395 / 0.0196 / 0.0225 / 0.0736 / 0.0723 / 0.0552 / 0.0430 | — |
+| alloc_v1 | 0.0697 | **0.0256** | 0.0196 / 0.0114 / 0.0115 / 0.0334 / 0.0288 / 0.0287 / 0.0319 | 1.451 |
+| alloc_v3 | 0.0885 | 0.0301 | 0.0268 / 0.0138 / 0.0151 / 0.0450 / 0.0435 / 0.0413 / 0.0364 | 1.749 |
+| alloc_v4_recal | 0.0824 | 0.0277 | 0.0251 / 0.0128 / 0.0139 / 0.0428 / 0.0391 / 0.0386 / 0.0334 | 1.676 |
+| alloc_v4_hybrid | 0.0815 | 0.0282 | 0.0226 / 0.0125 / 0.0138 / 0.0409 / 0.0354 / 0.0353 / 0.0347 | 1.639 |
+
+Both v4 variants improve on v3 (0.0301 → 0.0277 / 0.0282) but stay above alloc_v1 (0.0256 in this job; 0.0249 in job 234126, same GPU model —
+the run-to-run spread of the screen is ~0.0007), so by the pre-set rule (held-out MSE ≤ alloc_v1) **neither is rolled out**; reported and stopped.
+Reading: the gap to v1 is in the expert (v1 puts 60 expert layers at 1 plane and 43 at 3; the predictor-based rows keep most of the expert at 2),
+consistent with step 2's finding that the expert utilities are under-predicted by 3–10× and only weakly ranked (Spearman 0.29 / 0.51). The
+measured-utility hybrid on 83 boundary layers closes only part of the gap because the expert's mis-prediction is global (scale), not local to the
+boundary. v3's end-to-end row (RAQ-FT → A8 → Plus) continues as queued.
