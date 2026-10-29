@@ -349,3 +349,13 @@ RAQ-FT on both: `raqft_studentq_alloc_v1` **complete** (768 updates, L40S pair j
 raqft_studentq ended at 173.8 on the uniform base), `raqft_studentq_alloc_v2` at 732/768 at 05:40 UTC. Next by the controller: a8_studentq_alloc
 on the v1 fine-tune (A8 offline → Plus, gated vs a8_studentq 741); the v2 fine-tune is kept, not rolled out. Diagnostics job for the v1 fine-tune
 (233454) queued by the controller.
+
+## 2026-10-29 06:10 UTC — user instructions (priority 1 → 5 → B2 Plus → anything else)
+
+1. **a8_studentq_alloc** (A8 on the alloc_v1 fine-tune): A8 offline check, then Plus selection 1000 on whichever GPU is free first (race copies on
+   A40 killable / 6000 Ada rose / L40S rose, `slurm/a8_alloc_chain.sh`), paired against a8_studentq 741 as evaluated; the GPU model is recorded in
+   the row (guard proof + this doc). **Matched re-evaluation rule:** only if the paired Δ's CI lower bound lands within ±2 pp of the gate boundary
+   (between −2 and +2), queue one matched re-evaluation of a8_studentq on the same GPU model before deciding; otherwise the gate is unchanged.
+   Then added 1000 and LIBERO 2000.
+2. **alloc_v2 fine-tune:** let it finish, record the final loss, no rollout (v2 significantly worse at the PTQ level; the pre-registered rule picks v1).
+5. **alloc_v3** (233458 / 233459): proceed as pre-registered; when D̂ is in, the Spearman table next to the K-FAC one is reported before anything else.

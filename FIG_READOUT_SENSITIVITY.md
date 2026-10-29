@@ -34,6 +34,8 @@ asserted 0), language [768, L−10), action tokens [L−10, L)) → `runs/plustr
 capture `diagnostics/fig_c/{attention.npz, capture.json, frame.png}` is reused for (c2).
 
 
+**Accepted by the user 2026-10-29 (§6): (c2) stays out; the 0.126 number (layer 4, FP third-person-image mass on the calibration set) is recorded here and in the JSON.**
+
 ## v3 printed numbers (capture job 232076, A40, 2026-10-29 ~05:00 UTC; `diagnostics/fig_c1/{groups.npz, capture.json}`)
 
 Panel (c1), reader block 0, last flow step, mean over the 256 held-out observations (same latent per observation across models;
