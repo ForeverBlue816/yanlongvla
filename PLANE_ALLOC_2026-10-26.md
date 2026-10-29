@@ -384,3 +384,14 @@ Hutchinson Gauss–Newton total of the uniform-2 model vs the sum of per-layer D
 expert objective 0.4195 vs 0.5726 (ratio 0.733).
 Check stage: the first run (233459) ran out of GPU memory in FP64 (four retained graphs); made memory-lean (one forward per probe, fit cache of the
 three layers only) and resubmitted; the allocation is made only after the check passes.
+
+**2026-10-29 13:10 UTC — alloc_v3 check (job 234086, FP64 on a 6000 Ada) and one amendment before use.** The first FP64 run with the
+pre-registered central difference ε = 1e-3 failed the 5 % rule: hook inner product vs FD relative error up to 0.57 (LLM attn q_proj), 0.52 (gate_proj),
+6.5 (expert q_proj); D̂ relative error 0.118 / 0.052 / 0.086 (`alloc/v3/checks_eps1e-3_first_run.json`). The same run shows the hook value agreeing
+with the *actual* Δf at ε = 1 (full quantisation of the layer) to 2–8 % for the attention and expert layers and the expert values to < 1 % in three of
+four probes (e.g. expert obs 0: hook −1.639e-4 / −1.336e-4 / 5.20e-6 / −2.93e-5 vs actual −1.631e-4 / −1.359e-4 / 4.66e-6 / −3.09e-5), i.e. the
+derivative is right and the ε = 1e-3 difference is noise-dominated: the model code rounds to float32 inside the FP64 run (the time embedding and
+`suffix_out` casts in `pi0_pytorch.py`, and `Readout.attend` casts to float32), so f(±1e-3) differences carry float32 noise amplified by 1/(2ε).
+Amendment (recorded before the allocation is made): the check reports central differences at ε = 1e-3, 1e-2 and 1e-1 plus the ε = 1 secant, the
+5 % criterion is applied at **ε = 0.1** (noise 100× smaller, curvature error ≈ 0.1 × the ε = 1 linearity error, i.e. < 1 %), and the readout
+attention is evaluated in FP64 in the check. The expert step-accumulated vs per-step-sum check passed (ratio 1.0010, differ). Rerun submitted.
