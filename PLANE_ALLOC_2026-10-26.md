@@ -359,3 +359,8 @@ on the v1 fine-tune (A8 offline → Plus, gated vs a8_studentq 741); the v2 fine
    Then added 1000 and LIBERO 2000.
 2. **alloc_v2 fine-tune:** let it finish, record the final loss, no rollout (v2 significantly worse at the PTQ level; the pre-registered rule picks v1).
 5. **alloc_v3** (233458 / 233459): proceed as pre-registered; when D̂ is in, the Spearman table next to the K-FAC one is reported before anything else.
+
+**2026-10-29 06:15 UTC — both fine-tunes complete (L40S pair job 232524, 7.4 h):** `raqft_studentq_alloc_v1` final training loss 152.8 (readout
+152.80, H5b 1.24e-4), `raqft_studentq_alloc_v2` **191.2** (readout 191.16, H5b 1.57e-4); the frozen raqft_studentq on the uniform base ended at
+173.8. v2 is recorded and not rolled out (user §2). whole-model bpw 2.9224 for both (= their bases). A8 row started: `a8_studentq_alloc_offline`
+race 233481 (A40, started 06:05 UTC) / 233482 / 233483.
