@@ -403,3 +403,31 @@ the probe holds the FP trajectory x_t fixed between flow steps (pre-registration
 are the FP queries along the FP trajectory), whereas the finite-difference objective re-integrated x_t with the perturbed prefix KV, i.e. it also
 differentiated through the trajectory. The FD is now evaluated with the observation's FP trajectory held fixed (the expert FD keeps the trajectory
 free, by definition). Rerun submitted (`checks_eps_sweep_trajectory_free.json` kept).
+
+## alloc_v3 — check passed, allocation frozen, offline screen (job 234126, 6000 Ada, 13:16–13:51 UTC)
+
+**§1 check (FP64, ε = 0.1, FP trajectory fixed for backbone layers):** all pass — expert.q_proj: D̂ 0.012 %, inner products ≤ 0.14 %; expert.gate_proj: D̂ 0.0053 %, inner products ≤ 0.28 %; expert.q_proj: D̂ 0.3 %, inner products ≤ 0.86 %. Expert step-accumulated vs per-step-sum: ratio 1.0010 (differ).
+Linearity error (ε = 1 secant vs derivative) is large on individual probes (up to 3× on the LLM attention layer), i.e. the first-order predictor is
+exact as a derivative but the 2-bit error of a layer is not small for it; that is what the calibration (§2) absorbs.
+
+**§3 allocation `alloc/alloc_v3.json` (exact ILP, ceiling 679 468 032 B, used 679,452,672 B):** planes 1/2/3 per module —
+vision 15/112/35, LLM attn 4/17/51, LLM MLP 8/39/7, **expert 27/62/37** (not forced; v1 had 60/23/43, v2 126/0/0).
+Layers differing from alloc_v1: **156**, from alloc_v2: 149 (of 414). Predicted relative action MSE 0.0332 (base 0.0372; the predictor
+values alloc_v1 at a reduction of 0.0024 and alloc_v2 at -0.00011, i.e. it ranks v1 ≫ v2, as the Plus did).
+Convexity U(1→2)/byte ≥ U(2→3)/byte: 14 violations on the calibrated utilities, 0 on the measured ones.
+Assembled `models/hd_srvq_alloc_v3`: whole-model bpw 2.9226, linear bpw 2.0201, payload 1 225 073 636 B (base 1 225 088 996).
+
+**§4 offline screen (one job, 6000 Ada; relative readout error, relative held-out action MSE, per-DoF relative MSE x/y/z/rx/ry/rz/gripper, additivity):**
+
+| row | readout | action MSE | per DoF | additivity |
+|---|---|---|---|---|
+| bb_M2_ae_M2_fp32 | 0.1180 | 0.0372 | 0.0395 / 0.0196 / 0.0225 / 0.0739 / 0.0720 / 0.0554 / 0.0430 | — |
+| alloc_v1 | 0.0697 | 0.0249 | 0.0196 / 0.0115 / 0.0115 / 0.0333 / 0.0287 / 0.0287 / 0.0308 | 1.451 |
+| alloc_v2 | 0.0627 | 0.0295 | 0.0356 / 0.0242 / 0.0210 / 0.0731 / 0.0566 / 0.0606 / 0.0313 | 1.436 |
+| alloc_v2_kfac | 0.0664 | 0.0302 | 0.0351 / 0.0241 / 0.0206 / 0.0757 / 0.0575 / 0.0627 / 0.0325 | 1.454 |
+| alloc_v3 | 0.0885 | 0.0301 | 0.0268 / 0.0138 / 0.0150 / 0.0448 / 0.0434 / 0.0411 / 0.0364 | 1.749 |
+
+alloc_v3 lands between v1 and v2 on action MSE (0.0301 vs 0.0249 / 0.0295) with a worse readout error (0.0885) and the largest additivity ratio
+(1.75): its backbone allocation leans on the predictor where the measured screen says the sum of per-layer errors under-predicts the full model.
+§5 end-to-end: `raqft_studentq_alloc_v3` queued (234147, 6000 Ada killable, controller) + L40S rose race copy; then A8 offline → Plus paired vs
+a8_studentq 741 and vs a8_studentq_alloc (its Plus at 628/1000 at 13:52 UTC).

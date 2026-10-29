@@ -1723,3 +1723,13 @@ Flags recorded in the pre-registration: the fine-tune takes ≈ 9 h (not 1.5 h);
   integer tag (999), race resubmitted 233458 (6000 Ada) / 233459 (L40S), rose. `action_affine.json` from the failed run: the action affine check
   passed (residual < 1e-4) before the failure.
 - B2 229308 at 528/768, pending again after preemption.
+
+
+### E172 — alloc_v3 frozen and screened; A8 row of alloc_v1 in Plus (2026-10-29 14:00 UTC)
+
+alloc_v3 chain (E170) complete after three check reruns (OOM in FP64 → memory-lean check; ε = 1e-3 noise-dominated by float32 casts inside the
+model → ε sweep, criterion at 0.1; backbone FD must hold the FP trajectory fixed as the probe does → fixed): all three layers pass (D̂ errors
+0.01 % / 0.005 % / 0.3 %). Spearman (calibrated predictor vs measured) overall 0.91 / 0.92 vs K-FAC 0.74 / 0.63. alloc_v3: expert 27/62/37 planes,
+156 layers differ from v1; predicted MSE 0.0332; offline: readout 0.0885, action MSE 0.0301 (v1 0.0249, v2 0.0295, base 0.0372), additivity 1.75.
+Full tables in PLANE_ALLOC. Fine-tune raqft_studentq_alloc_v3 queued (234147 + L40S copy). a8_studentq_alloc Plus (233590, 6000 Ada) at 628/1000.
+B2 576/768 (A40 preemptions; controller re-races on four GPU types).
