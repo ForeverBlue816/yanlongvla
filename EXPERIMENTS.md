@@ -1770,3 +1770,17 @@ Held-out MSE job for B2 (235059 / 235060) queued.
   B2 has the highest held-out MSE of the 2-bit rows but the best Plus count (556); held-out MSE does not order the GR00T rows' rollouts.
 - a8_studentq_alloc LIBERO 2000 (235037, L40S): 1703 / 2000 episodes done, 1671 successes so far.
 - GR00T baseline harness pushed (8bf1a7f); its smoke test was preempted on an A40 and is re-raced on three GPU types.
+
+### E177 — B2 on π₀.₅ dropped; AM-VQ base on π₀.₅ queued end to end (2026-10-30 19:55 UTC)
+
+- raqft_studentq_b2 (E176 follow-up; `scripts/plustrain_raqft_b2.py` written and registered) cancelled by the user before any job ran;
+  rows removed from the protocol, script kept (PI05_B2_2026-10-30.md).
+- AM-VQ base on π₀.₅ (user 2026-10-31 spec, AMVQ_PI05_2026-10-31.md, recorded before the first job): `scripts/plustrain_amvq_pi05.py` with
+  stages lambda (λ_DoF on FP, 4 probes × 10 steps × 32 observations), fisher (G = diag E[δ²], 8 probes × 256 observations, per DoF group,
+  Ω = γ · λ_DoF), check (three layers, 8-probe G vs exact diag on 2 observations, per-layer total < 5 %), fit (`backbone_vq_fit.fit_backbone`
+  with F = G ⊗ 1 over input groups, base H_in / signs / row scales / masks asserted), assemble (`models/hd_srvq_amvq_pi05`, payload asserted
+  byte-identical), offline (base 704 / plain 702 / amvq on 256 held-out observations). One job `--stage all`, race 236272 (rose) / 236273
+  (killable), both pinned to RTX 6000 Ada; follow-on `slurm/amvq_pi05_followon.sh` (PTQ Plus → paired vs 704 / 702 / FP; the controller's
+  raqft_studentq_amvq → Plus vs 749; a8_studentq_amvq offline → Plus vs 741 via the A8 chain pinned to 6000 Ada; added 1000 by hand).
+  Protocol: `amvq_pi05` in ALLOC_MODELS, rows `raqft_studentq_amvq`, `a8_studentq_amvq`.
+- Running elsewhere: a8_studentq_alloc LIBERO 2000 (235037), GR00T harness smoke test (236245, 6000 Ada).
