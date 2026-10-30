@@ -1753,3 +1753,11 @@ Script `scripts/plustrain_alloc_v4.py`.
 - GR00T B2 (raqft_rowb2): training complete at 768/768 (job 234039, A40, final loss 16 692 from 34 677; 3 non-finite updates skipped; fits
   exported for backbone + four heads). The controller had not planned its Plus; submitted by hand as a race on four GPU types (235054–235057),
   plus the held-out MSE job (235059 / 235060).
+
+### E175 — GR00T row B2 Plus: 556 / 1000 (2026-10-30 07:30 UTC)
+
+Row B2 (student-head readouts + β·L_vel; training complete 768/768, E174) LIBERO-Plus selection 1000 on RTX 6000 Ada (job 235123, 2 h 12 min
+after a resume from 245 episodes; first attempt 235054 died on a bridge port collision): **556 / 1000** (camera 283 / 500, robot init 273 / 500).
+Paired (same units and noise seeds): **vs 2-bit base ptq_w2 486: +7.0 pp [+2.3, +11.6]**; vs FP 618: −6.2 [−11.0, −1.4]; vs row B 504: +5.2
+[−0.5, +10.3]; vs backbone-only 2-bit (head FP) 569: −1.3 [−6.5, +3.9]. First GR00T both-2-bit row whose Plus interval vs the base excludes zero.
+Held-out MSE job for B2 (235059 / 235060) queued.
