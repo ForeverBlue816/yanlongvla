@@ -519,3 +519,18 @@ re-evaluation of a8_studentq was queued (user rule 2026-10-29 §1). The controll
 **raqft_studentq_alloc_v4_recal** complete (234340, L40S, 8.9 h): final training loss **200.7** (readout 200.72, H5b 1.3e-4); v1's 152.8, v2's 191.2,
 uniform 173.8. A8 offline done; `a8_studentq_alloc_v4_recal` Plus running (234920, L40S, started 04:06 UTC); paired vs a8_studentq_alloc and
 a8_studentq when it completes.
+
+## Result 2026-10-30 — predictor line end-to-end: a8_studentq_alloc_v4_recal (Plus selection 234920, L40S, 9.5 h)
+
+| comparison (Plus selection 1000, paired) | successes | Δ pp [95 % CI] |
+|---|---|---|
+| vs a8_studentq_alloc (v1 row, measured search) | 730 vs 737 | −0.7 [−3.3, +1.9] |
+| vs a8_studentq (uniform allocation) | 730 vs 741 | −1.1 [−4.2, +2.1] |
+| vs uniform 2-bit base | 730 vs 704 | +2.6 [−0.6, +5.9] |
+| vs FP | 730 vs 765 | −3.5 [−7.2, −0.1] |
+
+Reading. User rule of 2026-10-29 14:50 UTC ("v4_recal within 3 pp of the v1 row → the predictor-based allocation goes into the method
+section as the low-cost version with the search as validation"): the point difference is −0.7 pp, within 3 pp. The stricter form written in
+the alloc_v3 pre-registration (§5: paired CI lower bound ≥ −3 pp vs the v1 row, and beats 741 with CI lower bound > 0) is not met: the lower
+bound is −3.3 pp, and the row does not beat 741. Both readings are recorded; which one applies is the user's call.
+All three end-to-end W2A8 rows (uniform 741, measured search 737, predictor 730) lie within 1.1 pp of each other on the same 1000 units.

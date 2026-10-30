@@ -1761,3 +1761,12 @@ after a resume from 245 episodes; first attempt 235054 died on a bridge port col
 Paired (same units and noise seeds): **vs 2-bit base ptq_w2 486: +7.0 pp [+2.3, +11.6]**; vs FP 618: −6.2 [−11.2, −0.9] (GROOT table bootstrap; ../baselines/paired_stats.py gives [−11.0, −1.4]); vs row B 504: +5.2
 [−0.5, +10.3]; vs backbone-only 2-bit (head FP) 569: −1.3 [−6.5, +3.9]. First GR00T both-2-bit row whose Plus interval vs the base excludes zero.
 Held-out MSE job for B2 (235059 / 235060) queued.
+
+### E176 — predictor-line end-to-end row; B2 held-out MSE; LIBERO 2000 of a8_studentq_alloc in progress (2026-10-30 18:10 UTC)
+
+- a8_studentq_alloc_v4_recal Plus selection 730 / 1000 (L40S, 234920): vs v1 row 737 −0.7 [−3.3, +1.9]; vs a8_studentq 741 −1.1 [−4.2, +2.1];
+  vs base 704 +2.6 [−0.6, +5.9]; vs FP 765 −3.5 [−7.2, −0.1]. Readings in PLANE_ALLOC.
+- GR00T B2 held-out action MSE (6000 Ada job): 8.38e-3 (relative 0.0539) vs base ptq_w2 7.51e-3 (0.0483), row B 7.39e-3, raqft_bb 7.19e-3 —
+  B2 has the highest held-out MSE of the 2-bit rows but the best Plus count (556); held-out MSE does not order the GR00T rows' rollouts.
+- a8_studentq_alloc LIBERO 2000 (235037, L40S): 1703 / 2000 episodes done, 1671 successes so far.
+- GR00T baseline harness pushed (8bf1a7f); its smoke test was preempted on an A40 and is re-raced on three GPU types.
