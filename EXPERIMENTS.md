@@ -1758,6 +1758,6 @@ Script `scripts/plustrain_alloc_v4.py`.
 
 Row B2 (student-head readouts + β·L_vel; training complete 768/768, E174) LIBERO-Plus selection 1000 on RTX 6000 Ada (job 235123, 2 h 12 min
 after a resume from 245 episodes; first attempt 235054 died on a bridge port collision): **556 / 1000** (camera 283 / 500, robot init 273 / 500).
-Paired (same units and noise seeds): **vs 2-bit base ptq_w2 486: +7.0 pp [+2.3, +11.6]**; vs FP 618: −6.2 [−11.0, −1.4]; vs row B 504: +5.2
+Paired (same units and noise seeds): **vs 2-bit base ptq_w2 486: +7.0 pp [+2.3, +11.6]**; vs FP 618: −6.2 [−11.2, −0.9] (GROOT table bootstrap; ../baselines/paired_stats.py gives [−11.0, −1.4]); vs row B 504: +5.2
 [−0.5, +10.3]; vs backbone-only 2-bit (head FP) 569: −1.3 [−6.5, +3.9]. First GR00T both-2-bit row whose Plus interval vs the base excludes zero.
 Held-out MSE job for B2 (235059 / 235060) queued.
