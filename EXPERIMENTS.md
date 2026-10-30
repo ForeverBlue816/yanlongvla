@@ -1743,3 +1743,13 @@ protocol's 5-layer stratified sets; expert 42/58/26) and alloc_v4_hybrid (83 lay
 price 1.1e-10/B| take measured utilities; expert 28/59/39; measuring those alone ≈ 2.1 GPU-h of the 10.7 GPU-h screen). Offline (234214, 6000
 Ada): v4_recal 0.0277, v4_hybrid 0.0282, v3 0.0301, v1 0.0256, base 0.0372 → neither v4 rolls out (rule: ≤ v1). No Plus input anywhere.
 Script `scripts/plustrain_alloc_v4.py`.
+
+### E174 — a8_studentq_alloc Plus + confirmation; v4_recal fine-tune; B2 training complete (2026-10-30 04:30 UTC)
+
+- a8_studentq_alloc (W2A8 on the alloc_v1 fine-tune): Plus selection 737 (vs a8_studentq 741: −0.4 [−3.5, +2.6]; vs base 704: +3.3 [−0.2, +6.6];
+  vs FP −2.8 [−6.4, +0.6]); gate not met, no matched re-evaluation (CI lower bound outside ±2 pp). Added 1000 (confirmation): 1436 / 2000 vs
+  a8_studentq 1439 / 2000, Δ −0.15 [−2.6, +2.2]. LIBERO 2000 queued (235037).
+- raqft_studentq_alloc_v4_recal: final loss 200.7 (v1 152.8, v2 191.2, uniform 173.8); a8_studentq_alloc_v4_recal Plus running (234920).
+- GR00T B2 (raqft_rowb2): training complete at 768/768 (job 234039, A40, final loss 16 692 from 34 677; 3 non-finite updates skipped; fits
+  exported for backbone + four heads). The controller had not planned its Plus; submitted by hand as a race on four GPU types (235054–235057),
+  plus the held-out MSE job (235059 / 235060).

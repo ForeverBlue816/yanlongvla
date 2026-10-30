@@ -498,3 +498,24 @@ calibrate it. Chain: `raqft_studentq_alloc_v4_recal` (frozen raqft_studentq reci
 variants (no v5). The expert-scale under-estimate (Σ pred / Σ meas 0.35 for 2→3, 0.11 for 2→1; Spearman 0.29 / 0.51) is reported as the predictor's
 known limitation. Reading rule unchanged: a8_studentq_alloc_v4_recal within 3 pp of the v1 row → the predictor-based allocation goes into the method
 section as the low-cost version with the search as validation; otherwise appendix.
+
+## Results 2026-10-30 04:30 UTC — a8_studentq_alloc (W2A8 on the alloc_v1 fine-tune), its confirmation, and the v4_recal fine-tune
+
+**a8_studentq_alloc** (A8 offline 233543: relative MSE vs FP 0.0217, A8 vs W2 4.9e-6; Plus selection 233590, 6000 Ada, 10.0 h):
+
+| comparison (Plus selection 1000, paired) | successes | Δ pp [95 % CI] |
+|---|---|---|
+| vs a8_studentq (741) | 737 | −0.4 [−3.5, +2.6] |
+| vs uniform 2-bit base (704) | 737 | +3.3 [−0.2, +6.6] |
+| vs raqft_studentq (749) | 737 | −1.2 [−4.2, +1.8] |
+| vs FP (765) | 737 | −2.8 [−6.4, +0.6] |
+
+Gate vs a8_studentq (CI lower bound > 0): not met. The CI lower bound −3.5 is outside the ±2 pp band around the boundary, so no matched
+re-evaluation of a8_studentq was queued (user rule 2026-10-29 §1). The controller then ran the added 1000 units (confirmation 234572, L40S,
+9.7 h): **a8_studentq_alloc 1436 / 2000 vs a8_studentq 1439 / 2000, Δ −0.15 [−2.6, +2.2]** — the two W2A8 rows are equal within 0.2 pp on
+2000 units. LIBERO 2000 of a8_studentq_alloc is queued (235037, rose L40S). Reading: the measured plane reallocation gives a better PTQ base
+(720 vs 704) and a lower fine-tune loss (152.8 vs 173.8), but after RAQ-FT + A8 the end-to-end success equals the uniform-allocation row.
+
+**raqft_studentq_alloc_v4_recal** complete (234340, L40S, 8.9 h): final training loss **200.7** (readout 200.72, H5b 1.3e-4); v1's 152.8, v2's 191.2,
+uniform 173.8. A8 offline done; `a8_studentq_alloc_v4_recal` Plus running (234920, L40S, started 04:06 UTC); paired vs a8_studentq_alloc and
+a8_studentq when it completes.
