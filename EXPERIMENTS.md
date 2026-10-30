@@ -1791,3 +1791,14 @@ Held-out MSE job for B2 (235059 / 235060) queued.
 reproduced), calibrate (five layer sets), export, identity import round trip, GPTQ W2 g128 on all four suites (2.1406 linear / 5.683 whole-model
 bpw), and 5 Plus units (3 spatial + 2 libero_10) on the prepared FP checkpoints: success, policy-call counts and noise seeds identical to our
 reference episodes. One fix on the way: the clients now accept the `{description, units}` format of the published unit files (3dd4ea9).
+
+### E179 — AM-VQ base on π₀.₅: check passed, fit + assembly + offline done; PTQ Plus running; a8_studentq_alloc LIBERO 2000 (2026-10-30 22:10 UTC)
+
+- `amvq_pi05` (RTX 6000 Ada, 236283 → 236327): three-layer check at 128 probes 2.4 / 2.2 / 2.5 % (8-probe 5.5 / 6.7 / 2.2 %); 414 layers refit in
+  1.9 h with the K-FAC action metric G ⊗ H_in — mean Hessian error 0.00684 vs 0.00685 for the base, action-metric error 107.9 vs 110.7 (lower on
+  274 / 414 layers); assembled `models/hd_srvq_amvq_pi05`, 2.0201 / 2.9226 bpw, payload byte-identical to original_2bit. Offline (256 held-out):
+  relative action MSE amvq 0.0388 / base 0.0372 / plain 0.0394; readout error 0.1146 / 0.1179 / 0.1188. ≈ 2.9 GPU-h so far. PTQ Plus 236416
+  (6000 Ada) started 21:57 UTC; fine-tune `raqft_studentq_amvq` queued (236403). Details AMVQ_PI05_2026-10-31.md §Results.
+- a8_studentq_alloc LIBERO 2000 (235037, L40S, 11.6 h): **1955 / 2000 vs a8_studentq 1941 / 2000, Δ +0.7 [−0.35, +1.7]**; per suite 494 / 493 /
+  490 / 478 vs 492 / 491 / 492 / 466. PLANE_ALLOC_2026-10-26.md updated.
+

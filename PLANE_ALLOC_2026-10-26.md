@@ -513,7 +513,8 @@ section as the low-cost version with the search as validation; otherwise appendi
 Gate vs a8_studentq (CI lower bound > 0): not met. The CI lower bound −3.5 is outside the ±2 pp band around the boundary, so no matched
 re-evaluation of a8_studentq was queued (user rule 2026-10-29 §1). The controller then ran the added 1000 units (confirmation 234572, L40S,
 9.7 h): **a8_studentq_alloc 1436 / 2000 vs a8_studentq 1439 / 2000, Δ −0.15 [−2.6, +2.2]** — the two W2A8 rows are equal within 0.2 pp on
-2000 units. LIBERO 2000 of a8_studentq_alloc is queued (235037, rose L40S). Reading: the measured plane reallocation gives a better PTQ base
+2000 units. LIBERO 2000 (235037, L40S, 11.6 h): **a8_studentq_alloc 1955 / 2000 vs a8_studentq 1941 / 2000, Δ +0.7 [−0.35, +1.7]**
+(spatial 494 / 492, object 493 / 491, goal 490 / 492, libero_10 478 / 466). Reading: the measured plane reallocation gives a better PTQ base
 (720 vs 704) and a lower fine-tune loss (152.8 vs 173.8), but after RAQ-FT + A8 the end-to-end success equals the uniform-allocation row.
 
 **raqft_studentq_alloc_v4_recal** complete (234340, L40S, 8.9 h): final training loss **200.7** (readout 200.72, H5b 1.3e-4); v1's 152.8, v2's 191.2,
