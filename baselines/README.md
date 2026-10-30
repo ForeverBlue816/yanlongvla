@@ -1,5 +1,7 @@
 # Baseline harness: 2-bit VQ / scalar quantization of π₀.₅-LIBERO, evaluated like our method
 
+> **GR00T N1.7:** the same baselines at 2 bits on LIBERO-Plus for GR00T N1.7 (`nvidia/GR00T-N1.7-LIBERO`) are set up in [`groot/`](groot/README.md) (RTN excluded).
+
 This directory lets you quantize the **whole** π₀.₅-LIBERO policy (backbone **and** action expert, both 2-bit) with any method, evaluate it on **LIBERO** and **LIBERO-Plus** with exactly the protocol used for our rows, and compare against our published per-episode outcomes with the same paired statistics. Our method's rows (FP, original 2-bit, RAQ-FT, and the final W2A8 row) are in `../results/plus_episodes/` and `../results/libero_full/`.
 
 Everything is evaluated through the **same BF16 dense runtime** (dequantized weights): the comparison measures quantization error only, never kernel speed. Bits-per-weight is counted the same way for every method.
