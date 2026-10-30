@@ -40,6 +40,7 @@ def main():
     p.add_argument('--port', type=int, default=None, help='first port to try (default: derived from the job id)')
     a = p.parse_args()
     units = json.loads(Path(a.units).read_text())
+    units = units['units'] if isinstance(units, dict) else units        # ../data/plus_units_*.json carry a 'units' list
     out = Path(a.out); out.parent.mkdir(parents=True, exist_ok=True)
     done = {(json.loads(l)['suite'], json.loads(l)['task']) for l in out.read_text().splitlines() if l.strip()} if out.exists() else set()
     for suite in SUITES:

@@ -47,6 +47,7 @@ def main():
     from libero.libero import benchmark, get_libero_path
     from libero.libero.envs import OffScreenRenderEnv
     units = json.loads(a.units.read_text())
+    units = units['units'] if isinstance(units, dict) else units
     done = set()
     if a.out.exists():
         for line in a.out.read_text().splitlines():
