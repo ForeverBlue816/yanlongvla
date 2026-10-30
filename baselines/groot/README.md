@@ -26,6 +26,8 @@ Unchanged from π₀.₅: the 256 calibration observations (`../data/calibration
 settle steps, step limits 220/280/300/520, noise seed `SeedSequence([7, suite_index, task, 0])`), the per-layer quantizer
 interface, and the paired bootstrap (`../paired_stats.py`). Calibration noise seed: `SeedSequence([7, observation_index])`.
 
+**Smoke-tested 2026-10-30** on our cluster (RTX 6000 Ada): preparation, calibration, export, the import round trip, GPTQ on all four suites, and 5 LIBERO-Plus units on the prepared FP checkpoints, which reproduced our reference episodes exactly (same success, same number of policy calls, same noise seeds).
+
 ## Steps
 
 You need two environments: GR00T (Isaac-GR00T at the commit above, plus `openpi-client`) and LIBERO-Plus (as for π₀.₅), and a Hugging Face read token with access to `nvidia/Cosmos-Reason2-2B` (`export HF_TOKEN=...`).

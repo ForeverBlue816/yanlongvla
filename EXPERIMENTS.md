@@ -1784,3 +1784,10 @@ Held-out MSE job for B2 (235059 / 235060) queued.
   raqft_studentq_amvq → Plus vs 749; a8_studentq_amvq offline → Plus vs 741 via the A8 chain pinned to 6000 Ada; added 1000 by hand).
   Protocol: `amvq_pi05` in ALLOC_MODELS, rows `raqft_studentq_amvq`, `a8_studentq_amvq`.
 - Running elsewhere: a8_studentq_alloc LIBERO 2000 (235037), GR00T harness smoke test (236245, 6000 Ada).
+
+### E178 — GR00T baseline harness smoke test passed (2026-10-30 18:48 UTC)
+
+`baselines/groot/` end-to-end on a 6000 Ada: prepare (backbone identical across suites; constants 2,340,421,632 / 1,607,188,736 / 3,144,016,000
+reproduced), calibrate (five layer sets), export, identity import round trip, GPTQ W2 g128 on all four suites (2.1406 linear / 5.683 whole-model
+bpw), and 5 Plus units (3 spatial + 2 libero_10) on the prepared FP checkpoints: success, policy-call counts and noise seeds identical to our
+reference episodes. One fix on the way: the clients now accept the `{description, units}` format of the published unit files (3dd4ea9).
