@@ -95,3 +95,19 @@ object / goal / 10; 55 at 0.1, 5 at 1.0). Payload byte-identical to the base per
 **2026-10-31 11:05 UTC — Plus preempted at 854 / 1000 (236971, L40S, 2.1 h).** Resubmitted as rose race copies 237264 / 237265 / 237266
 (6000 Ada / L40S / A40) plus the requeued killable copy; the harness resumes from `plus/episodes.jsonl`. On the 854 finished units:
 **v2 428 vs base 431** (FP 541, B2 493 on the same units). Audit GPU time so far: refit 0.3 h + offline 0.07 h + Plus 2.1 h = 2.5 h.
+
+**2026-10-31 11:53 UTC — Plus complete (236971 L40S 2.1 h + 237264 RTX 6000 Ada 0.8 h).** Plus selection 1000: **groot_n17_ptq_w2_v2 483 / 1000**
+(camera 250, robot-init 233; per suite spatial 155 / object 114 / goal 127 / 10 87). Paired (`groot/ptq/paired_v2_vs_*.json`):
+
+| Reference | Ref. successes | Δ pp | paired CI95 | improvements / regressions | camera | robot-init |
+|---|---|---|---|---|---|---|
+| ptq_w2 (base) | 486 | **−0.3** | [−3.4, +2.6] | 57 / 60 | 250 vs 257 | 233 vs 229 |
+| raqft_rowb2 (B2) | 556 | −7.3 | [−12.2, −2.5] | 79 / 152 | 250 vs 283 | 233 vs 273 |
+| fp | 618 | −13.5 | [−18.7, −8.5] | 63 / 198 | 250 vs 326 | 233 vs 292 |
+
+**Answer to the audit.** No broken layer: the damping-fixed layer-2 `down_proj` (error 0.0553 → 0.0216 without the outlier channel) and the
+61 refit layers lower the held-out MSE by 6 % but leave the rollout where it was (483 vs 486). The 486-vs-573 gap to QTIP is not a fit defect
+of the kind QuIP# hit on this layer. The base row stays `ptq_w2` (486); `ptq_w2_v2` is recorded as the audit row.
+
+**Actual GPU time:** refit 0.3 h (L40S) + held-out MSE 0.07 h (6000 Ada) + Plus 2.9 h (L40S 2.1 h, 6000 Ada 0.8 h) = **3.3 GPU-h**
+(estimate was 3–4 h). CPU on the login node for the 1080-fit scan, the Hessian analysis and the four assemblies.

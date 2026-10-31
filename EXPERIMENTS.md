@@ -1836,3 +1836,10 @@ raqft_studentq_amvq (K-FAC base + unchanged RAQ-FT recipe) on Plus selection 100
 but the PTQ row (695) is below 704, so reading rule §4 keeps the Fisher base; K-FAC = ablation row. a8_studentq_amvq Plus (236808) at 470
 units: 347 vs 338. GR00T ptq_w2_v2 Plus preempted at 854 units (428 vs base 431, FP 541, B2 493 on those units); resubmitted as rose race
 237264/237265/237266 + requeued 236971. Audit GPU time 2.5 h so far.
+
+### E185 — GR00T audit closed: ptq_w2_v2 Plus 483 / 1000 vs base 486 (2026-10-31 14:35 UTC)
+
+groot_n17_ptq_w2_v2 (base + 61 refit layers, layer-2 down_proj at damping 1e-4) on Plus selection 1000 (236971 L40S 2.1 h + 237264 6000 Ada
+0.8 h after a preemption): **483** (camera 250 / robot-init 233). Paired vs ptq_w2 486: −0.3 [−3.4, +2.6] (57 / 60); vs B2 556: −7.3
+[−12.2, −2.5]; vs FP 618: −13.5 [−18.7, −8.5]. Held-out MSE −6 % did not move the rollout; no broken layer. Base row stays ptq_w2.
+Audit GPU time 3.3 h total. Doc GROOT_AUDIT_2026-11-01.md. a8_studentq_amvq Plus (236808) at 926 units: 681 vs a8_studentq 679 / alloc 676 / FP 700.
