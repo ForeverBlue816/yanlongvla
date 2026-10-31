@@ -1820,3 +1820,10 @@ four ff.net.2, two vision MLPs. (2) LLM layer-2 down_proj: Hessian diag max/mean
 diagonal there; recorded error 0.0000, weight error 0.131. (3) Refit of the 33 layers at 10× / 100× (+ 0.1× / 0.01× on layer 2) queued
 (236878/236879/236880); then v2 assembly, held-out MSE, Plus as groot_n17_ptq_w2_v2 if the model changes. Budget ≈ 3–4 GPU-h. Per-unit Plus
 files of FP / PTQ / B2 published to baselines/groot/results (65cda2a).
+
+### E183 — GR00T audit: refits done, v2 composed, offline + Plus submitted (2026-10-31 08:40 UTC)
+
+Layer-2 down_proj: error without the outlier channel 0.0553 (largest in the model; the full-H 0.0000 hid it) → 0.0216 at damping 0.0001
+(10× / 100× make it worse: 0.081 / 0.092; ≤ 1e-5 not positive definite). Flagged DiT layers: 10× gives −1…−5 % (attention) and up to −57 %
+(ff.net.2); 100× worse on every attention layer. v2 = base + 61 refit layers (2 backbone, 59 head), payload identical. Refit GPU time 18 min
+(L40S). Chain: assemble → offline (6000 Ada) → Plus groot_n17_ptq_w2_v2.

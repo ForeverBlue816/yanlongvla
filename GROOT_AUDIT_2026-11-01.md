@@ -64,3 +64,21 @@ per-unit Plus files; README section; commit 65cda2a.
 
 ## Results
 
+**2026-10-31 08:30 UTC — refits done (236879, L40S, 17 min; layer-2 extras 236888, 1 min).** 136 refit records (`fit/refit_d*/`):
+
+| Layers | 10× damping (0.1) | 100× damping (1.0) |
+|---|---|---|
+| DiT `attn1.to_k` / `to_q` (blocks 19–31, 4 suites) | error −1…−5 % (lower on 46 / 52 fits) | +42…+68 % (worse on every fit) |
+| DiT `ff.net.2` (blocks 16, 22, 23, 24) | −8…−57 % | −65…+32 % (better only on blocks 16, 22) |
+| vision `blocks.11.fc1` / `blocks.14.fc2` | −1 % / +1 % | +19 % / +45 % |
+| **LLM layer-2 `down_proj`** (outlier-excluded error, base 0.0553) | 0.0807 | 0.0923 |
+| same, lower damping 0.001 / **0.0001** | 0.0344 / **0.0216** | 1e-5, 1e-6: Cholesky fails (H + damping not positive definite in FP32) |
+
+Higher damping does nothing useful: ≤ 5 % on the attention layers, harmful at 100×. On layer 2 the outlier-excluded error drops 2.6× at
+0.0001 (= 4× the median diagonal instead of 406×). **v2 selection** (`audit_v2_selection.json`, lowest full-H error per layer, layer 2 on
+the outlier-excluded metric): backbone 2 layers (layer-2 down_proj at 0.0001, vision fc1 at 0.1), heads 16 / 14 / 14 / 15 layers (spatial /
+object / goal / 10; 55 at 0.1, 5 at 1.0). Payload byte-identical to the base per key (2.023 / 5.596 bpw); mean full-H error backbone
+0.006628 → 0.006626, heads unchanged to 4 digits. The flagged set changes the model → assembling `ptq_w2_v2` (4 suites), offline held-out MSE
+(6000 Ada; fp / ptq_w2 cached on that device) and Plus `groot_n17_ptq_w2_v2` (race 6000 Ada rose / L40S / A40) submitted by
+`groot/ptq/audit_v2_chain.sh`.
+
