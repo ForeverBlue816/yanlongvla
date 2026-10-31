@@ -1843,3 +1843,12 @@ groot_n17_ptq_w2_v2 (base + 61 refit layers, layer-2 down_proj at damping 1e-4) 
 0.8 h after a preemption): **483** (camera 250 / robot-init 233). Paired vs ptq_w2 486: −0.3 [−3.4, +2.6] (57 / 60); vs B2 556: −7.3
 [−12.2, −2.5]; vs FP 618: −13.5 [−18.7, −8.5]. Held-out MSE −6 % did not move the rollout; no broken layer. Base row stays ptq_w2.
 Audit GPU time 3.3 h total. Doc GROOT_AUDIT_2026-11-01.md. a8_studentq_amvq Plus (236808) at 926 units: 681 vs a8_studentq 679 / alloc 676 / FP 700.
+
+### E186 — a8_studentq_amvq Plus 745 / 1000 (+0.4 vs 741); AM-VQ reading rule applied; TCQ line started (2026-10-31 15:25 UTC)
+
+a8_studentq_amvq (K-FAC base, RAQ-FT, A8) on Plus selection 1000 (236808, L40S, 8.0 h): **745** (camera 368 / robot-init 377). Paired vs
+a8_studentq 741: +0.4 [−2.8, +3.8] (66 / 62); vs a8_studentq_alloc 737: +0.8 [−2.4, +4.2]; vs FP 765: −2.0 [−6.0, +2.0]. Reading rule §4:
+fine-tuned rows within 2 pp (735 vs 749, 745 vs 741) but PTQ 695 < 704 → Fisher base stays; K-FAC = ablation. Added 1000 running
+(race 237576/237577/237578). New line: TCQ base + RAQ-FT on GR00T (user 2026-11-01, TCQ_RAQFT_2026-11-01.md pre-registered d3d8e56):
+scripts/groot_tcq.py (QTIP engine from src/qtip e90c668, our RHT / Hessians / WLS scales + tlut / damping / payload); gate job race
+237602/237603/237604 (§1 a–d on 4 layers + 2-observation round trip).
