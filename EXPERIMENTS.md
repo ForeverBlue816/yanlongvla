@@ -1802,3 +1802,8 @@ reference episodes. One fix on the way: the clients now accept the `{description
 - a8_studentq_alloc LIBERO 2000 (235037, L40S, 11.6 h): **1955 / 2000 vs a8_studentq 1941 / 2000, Δ +0.7 [−0.35, +1.7]**; per suite 494 / 493 /
   490 / 478 vs 492 / 491 / 492 / 466. PLANE_ALLOC_2026-10-26.md updated.
 
+### E180 — amvq_pi05 PTQ Plus: 695 / 1000 (2026-10-31 02:25 UTC)
+
+amvq_pi05 (K-FAC action-metric fit, 2.02 bpw) on Plus selection 1000, 6000 Ada 236416 (4.4 h): **695** (camera 339 / robot-init 356). Paired vs
+original_2bit 704: −0.9 [−4.1, +2.4]; vs plain 702: −0.7 [−3.8, +2.5]; vs FP 765: −7.0 [−11.6, −2.5]. Four-base PTQ table so far: plain 702,
+Fisher 704, K-FAC 695 (H5a row pending in the doc). Fine-tune raqft_studentq_amvq running (236422, 6000 Ada); its Plus and the A8 row follow.
