@@ -91,3 +91,7 @@ object / goal / 10; 55 at 0.1, 5 at 1.0). Payload byte-identical to the base per
 | **ptq_w2_v2** | **7.05e-3** | **0.0453** | 6.05e-3 | 1.73e-4 | 3.07e-2 |
 
 −6 % total. Plus `groot_n17_ptq_w2_v2` running (236971, L40S, started 08:50 UTC).
+
+**2026-10-31 11:05 UTC — Plus preempted at 854 / 1000 (236971, L40S, 2.1 h).** Resubmitted as rose race copies 237264 / 237265 / 237266
+(6000 Ada / L40S / A40) plus the requeued killable copy; the harness resumes from `plus/episodes.jsonl`. On the 854 finished units:
+**v2 428 vs base 431** (FP 541, B2 493 on the same units). Audit GPU time so far: refit 0.3 h + offline 0.07 h + Plus 2.1 h = 2.5 h.

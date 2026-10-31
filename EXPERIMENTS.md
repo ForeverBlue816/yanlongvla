@@ -1828,3 +1828,11 @@ Layer-2 down_proj: error without the outlier channel 0.0553 (largest in the mode
 (ff.net.2); 100× worse on every attention layer. v2 = base + 61 refit layers (2 backbone, 59 head), payload identical. Refit GPU time 18 min
 (L40S). Chain: assemble → offline (6000 Ada) → Plus groot_n17_ptq_w2_v2.
 - 08:53 UTC: ptq_w2_v2 held-out MSE 7.05e-3 (rel 0.0453) vs base 7.51e-3 (0.0483), −6 %; payload identical. Plus 236971 (L40S) running.
+
+### E184 — raqft_studentq_amvq Plus 735 / 1000; GR00T v2 Plus at 854 / 1000 tracks the base (2026-10-31 11:05 UTC)
+
+raqft_studentq_amvq (K-FAC base + unchanged RAQ-FT recipe) on Plus selection 1000 (236798, L40S, 3.5 h incl. one preemption): **735**
+(camera 362 / robot-init 373). Paired vs raqft_studentq 749: −1.4 [−4.5, +1.7] (54 / 68); vs FP 765: −3.0 [−6.9, +0.9]. Within 2 pp of 749,
+but the PTQ row (695) is below 704, so reading rule §4 keeps the Fisher base; K-FAC = ablation row. a8_studentq_amvq Plus (236808) at 470
+units: 347 vs 338. GR00T ptq_w2_v2 Plus preempted at 854 units (428 vs base 431, FP 541, B2 493 on those units); resubmitted as rose race
+237264/237265/237266 + requeued 236971. Audit GPU time 2.5 h so far.
