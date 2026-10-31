@@ -41,13 +41,16 @@ The largest errors in absolute terms are the cross-attention `attn1.to_v` of DiT
 Our damping: GPTQ feedback with 1 % of the mean diagonal (`vq_core.gptq_encode_uniform(damping=.01)`, after the fitter normalises H by
 its mean diagonal; `fit_uniform` had no damping argument until this audit). On layer 2 that is 3.97 absolute = 406× the median diagonal:
 the feedback is effectively switched off for every channel except the outlier. Recorded error of the layer: 0.0000 (the metric is
-dominated by channel 1821), relative weight error 0.131 (normal); error with the outlier channel excluded: see §Results.
+dominated by channel 1821), relative weight error 0.131 (normal); **error with the outlier channel excluded: 0.0553** (`audit_layer2_base_excl.json`) — 7× the down_proj
+median (0.0078) and the largest of any layer in the model; diagonal-only error without the channel 0.146 ≈ the plain weight error 0.131, i.e.
+the feedback gave the other 6143 channels nothing, while the outlier column itself is reproduced to 1.5e-6. On the outlier-excluded metric
+layer 2 is flagged; it is in the refit set.
 
 ## (3) Refit plan
 
 `groot_ptq.py --stage refit` (new; `vq_fit.fit_uniform(damping=…)` passthrough): the 32 flagged layers + layer-2 down_proj at relative
-damping 0.1 and 1.0 (10× / 100× the base 0.01), outputs `groot/ptq/fit/refit_d<damping>/<key>/`; layer 2 additionally at 0.001 and 0.0001
-(agent addition: on that layer the base damping is already 406× the median diagonal, so lower is the direction that can change anything).
+damping 0.1 and 1.0 (10× / 100× the base 0.01), outputs `groot/ptq/fit/refit_d<damping>/<key>/`; layer 2 additionally at 0.001, 1e-4, 1e-5 and 1e-6
+(agent addition, second job groot_audit_refit_l2: on that layer the base damping is already 406× the median diagonal, so lower is the direction that can change anything).
 Each refit record carries the full-H error and the error with the max-diagonal channel excluded. `--stage v2` composes
 `fit/backbone_v2` + `fit/head_v2_<suite>` (base fits, flagged layers replaced where a damped refit has the lower error) → row `ptq_w2_v2`
 (`models/groot_ptq/ptq_w2_v2/<suite>`), `groot_offline.py` row `ptq_w2_v2` (held-out MSE vs FP, same device as the base row), then
