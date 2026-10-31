@@ -1812,3 +1812,11 @@ Fisher 704, K-FAC 695 (H5a row pending in the doc). Fine-tune raqft_studentq_amv
 
 raqft_studentq_amvq (236422, 6000 Ada, 8.8 h): final readout loss 191.5 (raqft_studentq 198.9, alloc_v1 157.8), validation 474.5 (475.1 / 329.5).
 A8 offline complete (236799). Plus rows: raqft_studentq_amvq 236798 (L40S), a8_studentq_amvq 236808 (L40S); paired vs 749 / 741 when complete.
+
+### E182 — GR00T base audit started (user 2026-11-01): layer errors, layer-2 Hessian outlier, refit queued (2026-10-31 08:50 UTC)
+
+Doc GROOT_AUDIT_2026-11-01.md. (1) 32 / 1080 fits flagged > 3× module median, none catastrophic (max 0.020): late DiT self-attention to_k/to_q,
+four ff.net.2, two vision MLPs. (2) LLM layer-2 down_proj: Hessian diag max/mean 6144 (one channel), our 1 %-of-mean damping = 406× the median
+diagonal there; recorded error 0.0000, weight error 0.131. (3) Refit of the 33 layers at 10× / 100× (+ 0.1× / 0.01× on layer 2) queued
+(236878/236879/236880); then v2 assembly, held-out MSE, Plus as groot_n17_ptq_w2_v2 if the model changes. Budget ≈ 3–4 GPU-h. Per-unit Plus
+files of FP / PTQ / B2 published to baselines/groot/results (65cda2a).
