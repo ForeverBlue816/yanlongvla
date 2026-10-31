@@ -1827,3 +1827,4 @@ Layer-2 down_proj: error without the outlier channel 0.0553 (largest in the mode
 (10× / 100× make it worse: 0.081 / 0.092; ≤ 1e-5 not positive definite). Flagged DiT layers: 10× gives −1…−5 % (attention) and up to −57 %
 (ff.net.2); 100× worse on every attention layer. v2 = base + 61 refit layers (2 backbone, 59 head), payload identical. Refit GPU time 18 min
 (L40S). Chain: assemble → offline (6000 Ada) → Plus groot_n17_ptq_w2_v2.
+- 08:53 UTC: ptq_w2_v2 held-out MSE 7.05e-3 (rel 0.0453) vs base 7.51e-3 (0.0483), −6 %; payload identical. Plus 236971 (L40S) running.

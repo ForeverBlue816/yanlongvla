@@ -82,3 +82,12 @@ object / goal / 10; 55 at 0.1, 5 at 1.0). Payload byte-identical to the base per
 (6000 Ada; fp / ptq_w2 cached on that device) and Plus `groot_n17_ptq_w2_v2` (race 6000 Ada rose / L40S / A40) submitted by
 `groot/ptq/audit_v2_chain.sh`.
 
+**2026-10-31 08:53 UTC — assembled + held-out MSE (236968, RTX 6000 Ada, 4 min).** `ptq_w2_v2`, 432 layers per suite, 591,859,936 B payload
+= base (2.0231 / 5.5955 bpw). Held-out action MSE vs FP (256 observations, same device dir as the base):
+
+| Row | total | relative | translation | rotation | gripper |
+|---|---|---|---|---|---|
+| ptq_w2 (base, 486) | 7.51e-3 | 0.0483 | 6.27e-3 | 1.75e-4 | 3.32e-2 |
+| **ptq_w2_v2** | **7.05e-3** | **0.0453** | 6.05e-3 | 1.73e-4 | 3.07e-2 |
+
+−6 % total. Plus `groot_n17_ptq_w2_v2` running (236971, L40S, started 08:50 UTC).
