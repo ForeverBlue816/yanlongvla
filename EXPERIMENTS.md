@@ -1807,3 +1807,8 @@ reference episodes. One fix on the way: the clients now accept the `{description
 amvq_pi05 (K-FAC action-metric fit, 2.02 bpw) on Plus selection 1000, 6000 Ada 236416 (4.4 h): **695** (camera 339 / robot-init 356). Paired vs
 original_2bit 704: −0.9 [−4.1, +2.4]; vs plain 702: −0.7 [−3.8, +2.5]; vs FP 765: −7.0 [−11.6, −2.5]. Four-base PTQ table so far: plain 702,
 Fisher 704, K-FAC 695 (H5a row pending in the doc). Fine-tune raqft_studentq_amvq running (236422, 6000 Ada); its Plus and the A8 row follow.
+
+### E181 — raqft_studentq_amvq fine-tune complete; its Plus and the A8 Plus running (2026-10-31 08:05 UTC)
+
+raqft_studentq_amvq (236422, 6000 Ada, 8.8 h): final readout loss 191.5 (raqft_studentq 198.9, alloc_v1 157.8), validation 474.5 (475.1 / 329.5).
+A8 offline complete (236799). Plus rows: raqft_studentq_amvq 236798 (L40S), a8_studentq_amvq 236808 (L40S); paired vs 749 / 741 when complete.
