@@ -1892,3 +1892,11 @@ Plus 1000 `groot_n17_tcq_w2` (239997, 6000 Ada) at 474 units: 271 successes; at 
 B2 175, FP 183. V0 `tcq_raqft` (240000, 6000 Ada): step-0 L_readout 9 878 (B2 17 719), β 9.33e7, gate passed (432/432 layers with
 non-zero table and scale gradients, DiT grad 5.0e4); 50 s per update → ≈ 10.7 h (B2's history sums to 25.5 h at 115 s/update on the A40;
 the earlier "4.9 h" was one resumed segment). V1 240498/240499 queued (rose two-running limit).
+
+### E191 — groot_tcq_w2 Plus 1000 = 529 (+4.3 vs base 486; −4.4 vs QTIP 573; −2.7 vs B2 556; −8.9 vs FP) (2026-11-01 23:30 UTC)
+
+239997 (6000 Ada, 2.55 h): **529** (camera 273 / robot-init 256). Paired: vs ptq_w2 486 +4.3 [+0.1, +8.5] (126 / 83); vs B2 556 −2.7
+[−7.5, +2.5]; vs FP 618 −8.9 [−13.5, −4.7]; vs QTIP 573 (totals) −4.4 → beyond the 3 pp of §2's rule; the per-layer audit (413/432 layers
+better than the base, exceptions = layer-2 down_proj and 18 early DiT layers) finds no broken layer; fine-tunes continue (addendum).
+V0 (240000) at update 272 / 768 after 4.1 h (50 s/update, ends ≈ 06:15 UTC); V1 waited 6 h — added rose copies 240971 (A40) / 240972
+(6000 Ada) to 240498 (L40S) / 240499 (A40 killable). Session died at ~21:00 UTC: the chain's pairing was run by hand.
