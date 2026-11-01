@@ -1865,3 +1865,15 @@ no Python.h on the compute nodes) → 2 rounds 11.6 GPU-h > 6, 1 round 5.8 → f
 Full fit (1 round): backbone_tcq complete (237721 A40 1.78 h + 237723 L40S 1.0 h): H-error mean 0.00448 vs base 0.00663, payload 304.08 MB
 vs 305.41 MB; head_tcq_libero_spatial complete (237724 6000 Ada 2.03 h): 0.00373 vs 0.00604, 285.12 MB vs 286.45 MB; all 432 layers at
 damping 0.01. Remaining heads: 238678 (6000 Ada rose), 238683 / 238684 (killable) via groot/tcq/fit_chain.py.
+
+### E188 — TCQ fit complete (5 keys), tcq_w2 assembled (2.014 bpw), §2 races + V0 fine-tune + V1 group re-fit launched (2026-11-01 16:10 UTC)
+
+All five TCQ fit keys complete at 1 round, damping 0.01 everywhere: backbone (A40 1.78 h + L40S 1.0 h), head spatial (6000 Ada 2.03 h),
+head libero_10 (6000 Ada 1.98 h), head object (A6000 2.8 h), head goal (A6000 2.9 h) ≈ 12.5 GPU-h. `tcq_w2` assembled for the 4 suites:
+432 quantized layers, 589 201 408 B linear payload, **2.014 bpw linear** (base 2.023), whole-model 5.589. User addendum (16:00 UTC,
+TCQ_RAQFT doc): two fine-tune variants in parallel — V0 `tcq_raqft` (tlut + row scales + norms) and V1 `tcq_raqft_g16` (+ per-row-group
+tables re-fitted by WLS, + column scales); pre-registered with the storage rule G = 16 / 8 / 4 / 2 by layer size (16 everywhere = 2.066 bpw
+> 2.05 cap) → 2.043 bpw. Jobs: eval race 239994/239995/239996 (round trip + held-out MSE + readout), Plus race groot_n17_tcq_w2
+239997/239998/239999, V0 race 240000 (6000 Ada rose) / 240001 (A40 killable), V1 group re-fit 239982 (A6000, 5 keys in sequence) →
+assemble `tcq_w2_g16` → held-out MSE → V1 fine-tune. Code: groot_tcq.py `--stage g16`, grouped decode + column scale; groot_tcq_raqft.py
+`--variant g16`. The V0 smoke run was folded into the full run (its gate step aborts before step 1 on failure).
