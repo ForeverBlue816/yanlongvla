@@ -1877,3 +1877,11 @@ tables re-fitted by WLS, + column scales); pre-registered with the storage rule 
 239997/239998/239999, V0 race 240000 (6000 Ada rose) / 240001 (A40 killable), V1 group re-fit 239982 (A6000, 5 keys in sequence) →
 assemble `tcq_w2_g16` → held-out MSE → V1 fine-tune. Code: groot_tcq.py `--stage g16`, grouped decode + column scale; groot_tcq_raqft.py
 `--variant g16`. The V0 smoke run was folded into the full run (its gate step aborts before step 1 on failure).
+
+### E189 — TCQ §2 offline: tcq_w2 held-out MSE −32 %, readout −49 % vs base; V1 base tcq_w2_g16 −40 % / −48 % (2026-11-01 17:50 UTC)
+
+`tcq_w2` (239994, 6000 Ada 14 min): round trip bit-exact (432 layers, 2 obs); held-out MSE vs FP 0.005131 vs base 0.007509 (−32 %);
+readout 8 218 vs 16 136 (−49 %). V1 base `tcq_w2_g16` (group re-fit 239982 A6000 32 min, all 8 976 groups accepted, H-error −2 %;
+2.043 bpw; eval 240301 A6000 24 min): round trip bit-exact; held-out MSE 0.004702 vs base 0.007811 on the A6000 (−40 %); readout 8 384 vs
+16 147 (−48 %). V1 fine-tune 240302 host-RAM OOM on gpu-a6000-1 (22 GB per GPU there) → resubmitted 240498 (L40S rose) / 240499 (A40
+killable). V0 240000/240001 and Plus 239997–239999 still queued.
