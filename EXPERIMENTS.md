@@ -1852,3 +1852,16 @@ fine-tuned rows within 2 pp (735 vs 749, 745 vs 741) but PTQ 695 < 704 → Fishe
 (race 237576/237577/237578). New line: TCQ base + RAQ-FT on GR00T (user 2026-11-01, TCQ_RAQFT_2026-11-01.md pre-registered d3d8e56):
 scripts/groot_tcq.py (QTIP engine from src/qtip e90c668, our RHT / Hessians / WLS scales + tlut / damping / payload); gate job race
 237602/237603/237604 (§1 a–d on 4 layers + 2-observation round trip).
+
+### E187 — a8_studentq_amvq confirmation 2000 = 1444 (+0.25 vs 1439); TCQ gates (a)(c)(d) passed, fit 2 of 5 keys done (2026-11-01 07:30 UTC)
+
+a8_studentq_amvq added 1000 (237694, L40S 8.3 h): **1444 / 2000** (camera 706 / robot-init 738). Paired vs a8_studentq 1439: +0.25
+[−2.1, +2.7] (129 / 124); vs alloc 1436: +0.4 [−2.2, +3.0]; vs FP 1483: −1.95 [−5.2, +1.4]. Reading unchanged: K-FAC base = ablation row.
+AM-VQ line ≈ 32.5 GPU-h. TCQ (TCQ_RAQFT_2026-11-01.md §Results): gate (a) ratios 0.705 (LLM attn) / 0.659 (LLM MLP) / 0.992 (DiT attn1;
+N1.7's DiT has no attn2) — pass; LLM layer-2 down_proj 7.96 (5.6e-5 vs 7.0e-6, reported); all 4 gate layers damping 0.01, no retry;
+pack → decode bit-identical; (c) all 432 widths multiples of 16, no padding; (d) eager Viterbi 1.07 ms/step (torch.compile unavailable,
+no Python.h on the compute nodes) → 2 rounds 11.6 GPU-h > 6, 1 round 5.8 → fit uses 1 round. Gate runs 237603/237604/237690/237703
+(script errors, 16 min) + 237718/237719/237720 (13+10+8 min, forward-check key filter empty) + 238675 (forward check, running).
+Full fit (1 round): backbone_tcq complete (237721 A40 1.78 h + 237723 L40S 1.0 h): H-error mean 0.00448 vs base 0.00663, payload 304.08 MB
+vs 305.41 MB; head_tcq_libero_spatial complete (237724 6000 Ada 2.03 h): 0.00373 vs 0.00604, 285.12 MB vs 286.45 MB; all 432 layers at
+damping 0.01. Remaining heads: 238678 (6000 Ada rose), 238683 / 238684 (killable) via groot/tcq/fit_chain.py.
