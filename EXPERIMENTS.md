@@ -1885,3 +1885,10 @@ readout 8 218 vs 16 136 (−49 %). V1 base `tcq_w2_g16` (group re-fit 239982 A60
 2.043 bpw; eval 240301 A6000 24 min): round trip bit-exact; held-out MSE 0.004702 vs base 0.007811 on the A6000 (−40 %); readout 8 384 vs
 16 147 (−48 %). V1 fine-tune 240302 host-RAM OOM on gpu-a6000-1 (22 GB per GPU there) → resubmitted 240498 (L40S rose) / 240499 (A40
 killable). V0 240000/240001 and Plus 239997–239999 still queued.
+
+### E190 — TCQ Plus running; V0 gate passed; fine-tune cost corrected to ~11 h per variant (2026-11-01 19:55 UTC)
+
+Plus 1000 `groot_n17_tcq_w2` (239997, 6000 Ada) at 474 units: 271 successes; at 245 units paired on the same units tcq_w2 163 vs base 157,
+B2 175, FP 183. V0 `tcq_raqft` (240000, 6000 Ada): step-0 L_readout 9 878 (B2 17 719), β 9.33e7, gate passed (432/432 layers with
+non-zero table and scale gradients, DiT grad 5.0e4); 50 s per update → ≈ 10.7 h (B2's history sums to 25.5 h at 115 s/update on the A40;
+the earlier "4.9 h" was one resumed segment). V1 240498/240499 queued (rose two-running limit).
