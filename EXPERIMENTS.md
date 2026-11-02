@@ -1926,3 +1926,11 @@ ratios 1.000 / 1.002); layer-2 down_proj weight MSE 0.0749 (one-sided 0.4119, Ch
 5.61e-5). Vs Chamadol per layer: weight-MSE median 0.995, output-error median 0.964, max 0.997. One-sided damping control (241908): weight
 MSE 0.40–0.41 at every damping 1e-4…1.0 → damping is not the lever. V1' (old base) cancelled. Head refits: libero_10 112/216 (5090), the
 other three queued (killable + rose copies).
+
+### E195 — tcq_w2_rht (two-sided rotation) offline: MSE 0.005697 (−24 % vs base; one-sided 0.005131), readout 8 282 (one-sided 8 218); Plus running (2026-11-02 21:40 UTC)
+
+All five rht keys fitted (heads unchanged vs one-sided; libero_10 57 min 5090, spatial 1.0 h 5090, object 1.0 h 5090, goal 1.95 h L40S);
+assembled 2.018 bpw; round trip bit-exact (243219). Held-out and readout as above: in-distribution the two bases are level; the layer-2
+weight-error fix shows only out of distribution if at all → Plus 1000 `groot_n17_tcq_w2_rht` 243222 (6000 Ada) running. Layer-2 paper
+table complete for the fit metrics (one-sided 0.40–0.41 / two-sided 0.074–0.075 at every damping). g16 on the rht base fitted (243226,
+A6000 42 min) and assembled as tcq_w2_rht_g16; its eval 243236 running; V0_rht (killable A40) and V1 (g16_rht, rose L40S) queued.
