@@ -1917,3 +1917,12 @@ submitted (241907-9). V0' (7.5e-5) cancelled at update 272 (18 non-finite, headi
 4.1 h). Untrained-TCQ diagnostic (241548, 6000 Ada 17 min): all 19 training observations finite, L_readout 6.8k–20.7k; training made the
 same observations worse within one epoch (obs 47: 14.8k → 39k at update 48 at both table rates) — training damage, not a base effect on
 those observations. V1' at 432 / 768 (10 non-finite) continues.
+
+### E194 — two-sided rotation: backbone_tcq_rht done; layer-2 down_proj weight MSE 0.412 → 0.075, H-error 5.6e-5 → 4.1e-6 (2026-11-02 17:25 UTC)
+
+User addendum 2 (TCQ base fix) implemented (`groot_tcq.py --rotation two`: QTIP's SU/SV per-layer seed, our block Walsh; signs_out in
+records; rows tcq_w2_rht / tcq_raqft_rht(_g16)). Backbone refit complete (2.2 h): 215/216 layers identical to the one-sided fit (median
+ratios 1.000 / 1.002); layer-2 down_proj weight MSE 0.0749 (one-sided 0.4119, Chamadol 0.0717, RVQ 0.1312), H-error 4.09e-6 (one-sided
+5.61e-5). Vs Chamadol per layer: weight-MSE median 0.995, output-error median 0.964, max 0.997. One-sided damping control (241908): weight
+MSE 0.40–0.41 at every damping 1e-4…1.0 → damping is not the lever. V1' (old base) cancelled. Head refits: libero_10 112/216 (5090), the
+other three queued (killable + rose copies).
