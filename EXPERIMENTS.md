@@ -1907,3 +1907,13 @@ V0 240000 (6000 Ada, 6.1 h) at update 416: 39 non-finite gradient events, loss ~
 240498 (L40S, 1.9 h) same pathology at update ~100 → cancelled. Cause: a TCQ table scalar is shared by 4× more weights than an RVQ codebook
 scalar → the B2 rate overshoots. Relaunch with table rate 7.5e-5 (only change): V0' 241020/241021/241022, V1' 241023/241024/241025.
 Aborted runs archived under raqft/*_lr3e-4_aborted. TCQ doc updated.
+
+### E193 — Chamadol's QTIP code in; per-layer fits identical except LLM layer-2 down_proj (his weight MSE 0.072 vs ours 0.412); V0' cancelled; diagnostic (2026-11-02 08:40 UTC)
+
+Per-layer comparison of `baselines/groot/qtip/accounting_*.json` with our TCQ fit: same layers/shapes, weight-MSE ratio median 1.005,
+output-error ratio 1.04 (backbone), 1.000 / 1.03 (head) → the 573-vs-529 gap is not aggregate fit quality. Only layer-2 down_proj differs
+(two-sided Hadamard in QTIP vs our one-sided block Walsh on the Hessian-outlier layer). Refit race at dampings 0.1 / 1.0 / 1e-3 / 1e-4
+submitted (241907-9). V0' (7.5e-5) cancelled at update 272 (18 non-finite, heading past 38; loss not improving on repeated observations;
+4.1 h). Untrained-TCQ diagnostic (241548, 6000 Ada 17 min): all 19 training observations finite, L_readout 6.8k–20.7k; training made the
+same observations worse within one epoch (obs 47: 14.8k → 39k at update 48 at both table rates) — training damage, not a base effect on
+those observations. V1' at 432 / 768 (10 non-finite) continues.
