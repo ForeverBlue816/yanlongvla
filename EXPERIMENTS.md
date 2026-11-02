@@ -1900,3 +1900,10 @@ the earlier "4.9 h" was one resumed segment). V1 240498/240499 queued (rose two-
 better than the base, exceptions = layer-2 down_proj and 18 early DiT layers) finds no broken layer; fine-tunes continue (addendum).
 V0 (240000) at update 272 / 768 after 4.1 h (50 s/update, ends ≈ 06:15 UTC); V1 waited 6 h — added rose copies 240971 (A40) / 240972
 (6000 Ada) to 240498 (L40S) / 240499 (A40 killable). Session died at ~21:00 UTC: the chain's pairing was run by hand.
+
+### E192 — V0 fine-tune aborted by the B2 stop rule (39 non-finite gradients, loss 2× B2); V0/V1 relaunched with table rate 7.5e-5 (2026-11-02 01:40 UTC)
+
+V0 240000 (6000 Ada, 6.1 h) at update 416: 39 non-finite gradient events, loss ~2× B2 at the same updates despite a lower start; V1
+240498 (L40S, 1.9 h) same pathology at update ~100 → cancelled. Cause: a TCQ table scalar is shared by 4× more weights than an RVQ codebook
+scalar → the B2 rate overshoots. Relaunch with table rate 7.5e-5 (only change): V0' 241020/241021/241022, V1' 241023/241024/241025.
+Aborted runs archived under raqft/*_lr3e-4_aborted. TCQ doc updated.
