@@ -1,0 +1,3270 @@
+{
+  "method": "qtip_bitshift_l16k2v2",
+  "bits_nominal": 2,
+  "backbone_bits": 2,
+  "expert_bits": 2,
+  "qtip_commit": "e90c6688c8dfae326a3a81b5eb032db7c6680ec0",
+  "qtip_settings": {
+    "codebook": "bitshift",
+    "L": 16,
+    "K": 2,
+    "V": 2,
+    "td_x": 16,
+    "td_y": 16,
+    "decode_mode": "quantlut_sym",
+    "tlut_bits": 9,
+    "scale_override": 0.9,
+    "sigma_reg": 0.01
+  },
+  "padding": {
+    "4304": 4480
+  },
+  "seed": "torch.manual_seed(0) before each layer",
+  "calibration_index_sha256": "c483e328e39670527b8420bb4ff2bfed96223f4d7008ab50183cf9301ea2be3e",
+  "payload_rule": "packed trellis (K=2 bits per weight) incl. padded rows/columns + FP16 SU and SV + FP32 Wscale + FP16 512x2 lookup table, per layer",
+  "notes": "pure PTQ, no layer-wise or end-to-end fine-tuning; official QTIP per-layer quantization (RHT + LDLQ, bitshift trellis) on the shared per-layer Hessians; the official layer and end-to-end fine-tuning are not run",
+  "exact_command": "quantize_qtip.py --layers /scratch/d250009/pi05-handover/runs/groot_baselines/layers/head_libero_spatial --calibration /scratch/d250009/pi05-handover/runs/groot_baselines/calibration/head_libero_spatial --checkpoint /scratch/d250009/pi05-handover/runs/groot_baselines/checkpoints/libero_spatial --out /scratch/d250009/pi05-handover/runs/groot_baselines/q/qtip_w2/head_libero_spatial --qtip-repo /home/d250009/projects/pi05-handover/runs/toolkits/qtip --bits 2",
+  "layers": {
+    "action_head.model.transformer_blocks.0.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.34080037474632263,
+      "relative_output_error": 0.014263304881751537,
+      "seconds": 16.475735425949097
+    },
+    "action_head.model.transformer_blocks.0.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.33894607424736023,
+      "relative_output_error": 0.00042127317283302546,
+      "seconds": 2.8616995811462402
+    },
+    "action_head.model.transformer_blocks.0.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.30174270272254944,
+      "relative_output_error": 0.0003921938478015363,
+      "seconds": 2.890824556350708
+    },
+    "action_head.model.transformer_blocks.0.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.4901161193847656e-08,
+      "relative_weight_error": 0.34045615792274475,
+      "relative_output_error": 0.017611727118492126,
+      "seconds": 3.5389304161071777
+    },
+    "action_head.model.transformer_blocks.0.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.403591447044164e-08,
+      "relative_weight_error": 0.290385901927948,
+      "relative_output_error": 0.00015998010348994285,
+      "seconds": 7.45055890083313
+    },
+    "action_head.model.transformer_blocks.0.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3291564881801605,
+      "relative_output_error": 5.219374725129455e-05,
+      "seconds": 8.922884225845337
+    },
+    "action_head.model.transformer_blocks.1.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.434615791775286e-08,
+      "relative_weight_error": 0.305512934923172,
+      "relative_output_error": 0.00044542740215547383,
+      "seconds": 2.9556679725646973
+    },
+    "action_head.model.transformer_blocks.1.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.31712833046913147,
+      "relative_output_error": 0.00016668133321218193,
+      "seconds": 2.899735689163208
+    },
+    "action_head.model.transformer_blocks.1.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9895431907789316e-08,
+      "relative_weight_error": 0.3055923879146576,
+      "relative_output_error": 0.0005657919100485742,
+      "seconds": 2.9039382934570312
+    },
+    "action_head.model.transformer_blocks.1.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3055230677127838,
+      "relative_output_error": 0.00035131917684338987,
+      "seconds": 2.980900287628174
+    },
+    "action_head.model.transformer_blocks.1.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.28929537534713745,
+      "relative_output_error": 0.00023150283959694207,
+      "seconds": 6.28619384765625
+    },
+    "action_head.model.transformer_blocks.1.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 2.384185791015625e-07,
+      "relative_weight_error": 0.3235248327255249,
+      "relative_output_error": 2.621260136947967e-05,
+      "seconds": 8.902700901031494
+    },
+    "action_head.model.transformer_blocks.10.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2787844500271603e-08,
+      "relative_weight_error": 0.3410014510154724,
+      "relative_output_error": 0.010313650593161583,
+      "seconds": 3.60807204246521
+    },
+    "action_head.model.transformer_blocks.10.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3757229447364807,
+      "relative_output_error": 0.009787602350115776,
+      "seconds": 2.92423677444458
+    },
+    "action_head.model.transformer_blocks.10.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.680735633475706e-08,
+      "relative_weight_error": 0.31132739782333374,
+      "relative_output_error": 0.0003117882879450917,
+      "seconds": 2.871910810470581
+    },
+    "action_head.model.transformer_blocks.10.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3408185839653015,
+      "relative_output_error": 0.013358713127672672,
+      "seconds": 3.5946335792541504
+    },
+    "action_head.model.transformer_blocks.10.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.2973047196865082,
+      "relative_output_error": 0.0008812719606794417,
+      "seconds": 6.329614639282227
+    },
+    "action_head.model.transformer_blocks.10.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3153655529022217,
+      "relative_output_error": 1.531197085569147e-05,
+      "seconds": 8.967448472976685
+    },
+    "action_head.model.transformer_blocks.11.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.2123921300808433e-08,
+      "relative_weight_error": 0.3360905945301056,
+      "relative_output_error": 0.0003412964870221913,
+      "seconds": 2.906607151031494
+    },
+    "action_head.model.transformer_blocks.11.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3345186710357666,
+      "relative_output_error": 0.0007644116994924843,
+      "seconds": 2.9222283363342285
+    },
+    "action_head.model.transformer_blocks.11.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.002242010552436e-08,
+      "relative_weight_error": 0.33555474877357483,
+      "relative_output_error": 0.000508935539983213,
+      "seconds": 2.9117271900177
+    },
+    "action_head.model.transformer_blocks.11.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.3349210321903229,
+      "relative_output_error": 0.0008683988708071411,
+      "seconds": 2.899832010269165
+    },
+    "action_head.model.transformer_blocks.11.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.5569322537630796e-08,
+      "relative_weight_error": 0.29777970910072327,
+      "relative_output_error": 0.000688944011926651,
+      "seconds": 6.345388650894165
+    },
+    "action_head.model.transformer_blocks.11.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.31475716829299927,
+      "relative_output_error": 1.3493770893546753e-05,
+      "seconds": 8.938190460205078
+    },
+    "action_head.model.transformer_blocks.12.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3405843675136566,
+      "relative_output_error": 0.014821004122495651,
+      "seconds": 3.580404758453369
+    },
+    "action_head.model.transformer_blocks.12.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3583512008190155,
+      "relative_output_error": 0.0026654580142349005,
+      "seconds": 2.8673288822174072
+    },
+    "action_head.model.transformer_blocks.12.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.33029189705848694,
+      "relative_output_error": 0.0007749747019261122,
+      "seconds": 2.904263734817505
+    },
+    "action_head.model.transformer_blocks.12.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.862645149230957e-08,
+      "relative_weight_error": 0.3402039110660553,
+      "relative_output_error": 0.01809840276837349,
+      "seconds": 3.577331781387329
+    },
+    "action_head.model.transformer_blocks.12.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.856156010646373e-08,
+      "relative_weight_error": 0.29887673258781433,
+      "relative_output_error": 0.0005597971612587571,
+      "seconds": 6.29296350479126
+    },
+    "action_head.model.transformer_blocks.12.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3150290548801422,
+      "relative_output_error": 1.4450499293161556e-05,
+      "seconds": 8.906322956085205
+    },
+    "action_head.model.transformer_blocks.13.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3444594740867615,
+      "relative_output_error": 0.0002782607916742563,
+      "seconds": 2.9452834129333496
+    },
+    "action_head.model.transformer_blocks.13.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.33826324343681335,
+      "relative_output_error": 0.0013456298038363457,
+      "seconds": 2.848874568939209
+    },
+    "action_head.model.transformer_blocks.13.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.34437984228134155,
+      "relative_output_error": 0.00044302584137767553,
+      "seconds": 2.911200523376465
+    },
+    "action_head.model.transformer_blocks.13.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.34232082962989807,
+      "relative_output_error": 0.0010323558235540986,
+      "seconds": 2.895214080810547
+    },
+    "action_head.model.transformer_blocks.13.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.2992936074733734,
+      "relative_output_error": 0.0005866758292540908,
+      "seconds": 6.354915380477905
+    },
+    "action_head.model.transformer_blocks.13.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.32159319519996643,
+      "relative_output_error": 3.81193240173161e-05,
+      "seconds": 8.968936681747437
+    },
+    "action_head.model.transformer_blocks.14.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.60770320892334e-08,
+      "relative_weight_error": 0.3414515554904938,
+      "relative_output_error": 0.010453222319483757,
+      "seconds": 3.631082773208618
+    },
+    "action_head.model.transformer_blocks.14.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.37588581442832947,
+      "relative_output_error": 0.012620254419744015,
+      "seconds": 2.9277853965759277
+    },
+    "action_head.model.transformer_blocks.14.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.33725762367248535,
+      "relative_output_error": 0.000565850583370775,
+      "seconds": 2.901423931121826
+    },
+    "action_head.model.transformer_blocks.14.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.28819772019051e-08,
+      "relative_weight_error": 0.34101492166519165,
+      "relative_output_error": 0.01270955242216587,
+      "seconds": 3.5799272060394287
+    },
+    "action_head.model.transformer_blocks.14.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.0789822125807405e-08,
+      "relative_weight_error": 0.30603325366973877,
+      "relative_output_error": 0.000526667688973248,
+      "seconds": 6.317584276199341
+    },
+    "action_head.model.transformer_blocks.14.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.32458335161209106,
+      "relative_output_error": 2.023480919888243e-05,
+      "seconds": 8.90634799003601
+    },
+    "action_head.model.transformer_blocks.15.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.594163899833802e-08,
+      "relative_weight_error": 0.3528599739074707,
+      "relative_output_error": 0.00046848037163726985,
+      "seconds": 2.94610595703125
+    },
+    "action_head.model.transformer_blocks.15.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.35692664980888367,
+      "relative_output_error": 0.0019878644961863756,
+      "seconds": 2.8964288234710693
+    },
+    "action_head.model.transformer_blocks.15.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.6574419937096536e-08,
+      "relative_weight_error": 0.3523690700531006,
+      "relative_output_error": 0.0007868469110690057,
+      "seconds": 2.8941965103149414
+    },
+    "action_head.model.transformer_blocks.15.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.35096997022628784,
+      "relative_output_error": 0.0018414347432553768,
+      "seconds": 2.88466215133667
+    },
+    "action_head.model.transformer_blocks.15.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.1510141929611564e-08,
+      "relative_weight_error": 0.3063294589519501,
+      "relative_output_error": 0.0005969753838144243,
+      "seconds": 6.342275619506836
+    },
+    "action_head.model.transformer_blocks.15.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.33131277561187744,
+      "relative_output_error": 3.5784250940196216e-05,
+      "seconds": 8.950625658035278
+    },
+    "action_head.model.transformer_blocks.16.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.4107066565193236e-08,
+      "relative_weight_error": 0.3403528928756714,
+      "relative_output_error": 0.015469597652554512,
+      "seconds": 3.6315653324127197
+    },
+    "action_head.model.transformer_blocks.16.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3670467138290405,
+      "relative_output_error": 0.005623675882816315,
+      "seconds": 2.8973495960235596
+    },
+    "action_head.model.transformer_blocks.16.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.059722075704485e-08,
+      "relative_weight_error": 0.34878408908843994,
+      "relative_output_error": 0.0010731888469308615,
+      "seconds": 2.863835573196411
+    },
+    "action_head.model.transformer_blocks.16.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3403177261352539,
+      "relative_output_error": 0.018052661791443825,
+      "seconds": 3.538048505783081
+    },
+    "action_head.model.transformer_blocks.16.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.768015398643911e-08,
+      "relative_weight_error": 0.3078908622264862,
+      "relative_output_error": 0.0005623968318104744,
+      "seconds": 6.317479133605957
+    },
+    "action_head.model.transformer_blocks.16.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3379061222076416,
+      "relative_output_error": 5.022891127737239e-05,
+      "seconds": 8.938373804092407
+    },
+    "action_head.model.transformer_blocks.17.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.188779373886064e-08,
+      "relative_weight_error": 0.3531181514263153,
+      "relative_output_error": 0.0006298111984506249,
+      "seconds": 2.951373338699341
+    },
+    "action_head.model.transformer_blocks.17.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.35896071791648865,
+      "relative_output_error": 0.002065470442175865,
+      "seconds": 2.8804116249084473
+    },
+    "action_head.model.transformer_blocks.17.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3524988889694214,
+      "relative_output_error": 0.0009648061823099852,
+      "seconds": 2.9042508602142334
+    },
+    "action_head.model.transformer_blocks.17.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.35151445865631104,
+      "relative_output_error": 0.0017856183694675565,
+      "seconds": 2.91728138923645
+    },
+    "action_head.model.transformer_blocks.17.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3090931177139282,
+      "relative_output_error": 0.0005973805673420429,
+      "seconds": 6.314528226852417
+    },
+    "action_head.model.transformer_blocks.17.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.34515470266342163,
+      "relative_output_error": 5.8240624639438465e-05,
+      "seconds": 8.94468641281128
+    },
+    "action_head.model.transformer_blocks.18.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.4476321414113045e-08,
+      "relative_weight_error": 0.3411076068878174,
+      "relative_output_error": 0.010825409553945065,
+      "seconds": 3.5750668048858643
+    },
+    "action_head.model.transformer_blocks.18.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3751710057258606,
+      "relative_output_error": 0.011850650422275066,
+      "seconds": 2.888887643814087
+    },
+    "action_head.model.transformer_blocks.18.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3550097644329071,
+      "relative_output_error": 0.0011321328347548842,
+      "seconds": 2.9085099697113037
+    },
+    "action_head.model.transformer_blocks.18.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.441413471387932e-08,
+      "relative_weight_error": 0.34118932485580444,
+      "relative_output_error": 0.012023476883769035,
+      "seconds": 3.560347557067871
+    },
+    "action_head.model.transformer_blocks.18.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.722722562495619e-08,
+      "relative_weight_error": 0.31612953543663025,
+      "relative_output_error": 0.0007055249880068004,
+      "seconds": 6.3160974979400635
+    },
+    "action_head.model.transformer_blocks.18.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3512677252292633,
+      "relative_output_error": 9.23429979593493e-05,
+      "seconds": 8.92177939414978
+    },
+    "action_head.model.transformer_blocks.19.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3674390912055969,
+      "relative_output_error": 0.0014368313131853938,
+      "seconds": 2.942387104034424
+    },
+    "action_head.model.transformer_blocks.19.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3597158193588257,
+      "relative_output_error": 0.0020207318011671305,
+      "seconds": 2.9196460247039795
+    },
+    "action_head.model.transformer_blocks.19.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.995784598169848e-08,
+      "relative_weight_error": 0.3671349883079529,
+      "relative_output_error": 0.0015503042377531528,
+      "seconds": 2.9087038040161133
+    },
+    "action_head.model.transformer_blocks.19.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.60770320892334e-08,
+      "relative_weight_error": 0.3662392795085907,
+      "relative_output_error": 0.0020121328998357058,
+      "seconds": 2.9259941577911377
+    },
+    "action_head.model.transformer_blocks.19.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.777656042482704e-08,
+      "relative_weight_error": 0.31819409132003784,
+      "relative_output_error": 0.0007494974415749311,
+      "seconds": 6.302629232406616
+    },
+    "action_head.model.transformer_blocks.19.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.34732332825660706,
+      "relative_output_error": 7.44225544622168e-05,
+      "seconds": 8.913227558135986
+    },
+    "action_head.model.transformer_blocks.2.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3408365845680237,
+      "relative_output_error": 0.010959192179143429,
+      "seconds": 3.588106393814087
+    },
+    "action_head.model.transformer_blocks.2.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3551936447620392,
+      "relative_output_error": 0.0012208442203700542,
+      "seconds": 2.8667221069335938
+    },
+    "action_head.model.transformer_blocks.2.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3008746802806854,
+      "relative_output_error": 0.000538462889380753,
+      "seconds": 2.9052865505218506
+    },
+    "action_head.model.transformer_blocks.2.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.4901161193847656e-08,
+      "relative_weight_error": 0.34034937620162964,
+      "relative_output_error": 0.013856244273483753,
+      "seconds": 3.582829713821411
+    },
+    "action_head.model.transformer_blocks.2.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.2892063856124878,
+      "relative_output_error": 0.00038709238287992775,
+      "seconds": 6.33993673324585
+    },
+    "action_head.model.transformer_blocks.2.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.31766483187675476,
+      "relative_output_error": 1.710090509732254e-05,
+      "seconds": 8.920792818069458
+    },
+    "action_head.model.transformer_blocks.20.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.6872385205933824e-08,
+      "relative_weight_error": 0.34053128957748413,
+      "relative_output_error": 0.015326122753322124,
+      "seconds": 3.599069833755493
+    },
+    "action_head.model.transformer_blocks.20.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3698301613330841,
+      "relative_output_error": 0.005947403144091368,
+      "seconds": 2.9161767959594727
+    },
+    "action_head.model.transformer_blocks.20.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.3612211048603058,
+      "relative_output_error": 0.0017975721275433898,
+      "seconds": 2.867485523223877
+    },
+    "action_head.model.transformer_blocks.20.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.6904672267846763e-08,
+      "relative_weight_error": 0.3402256369590759,
+      "relative_output_error": 0.017651723697781563,
+      "seconds": 3.5700137615203857
+    },
+    "action_head.model.transformer_blocks.20.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.32033389806747437,
+      "relative_output_error": 0.000792652543168515,
+      "seconds": 6.314043760299683
+    },
+    "action_head.model.transformer_blocks.20.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3513681888580322,
+      "relative_output_error": 0.00015034302487038076,
+      "seconds": 9.081660509109497
+    },
+    "action_head.model.transformer_blocks.21.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.36783909797668457,
+      "relative_output_error": 0.0015880754217505455,
+      "seconds": 2.91567325592041
+    },
+    "action_head.model.transformer_blocks.21.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3646504282951355,
+      "relative_output_error": 0.002610533032566309,
+      "seconds": 2.906461477279663
+    },
+    "action_head.model.transformer_blocks.21.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.367480993270874,
+      "relative_output_error": 0.0016797459684312344,
+      "seconds": 2.89316725730896
+    },
+    "action_head.model.transformer_blocks.21.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3664077818393707,
+      "relative_output_error": 0.002145499689504504,
+      "seconds": 2.9359898567199707
+    },
+    "action_head.model.transformer_blocks.21.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 6.221335979716969e-08,
+      "relative_weight_error": 0.3220491111278534,
+      "relative_output_error": 0.0008827100973576307,
+      "seconds": 6.3313493728637695
+    },
+    "action_head.model.transformer_blocks.21.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3468620479106903,
+      "relative_output_error": 0.000111812048999127,
+      "seconds": 8.912280321121216
+    },
+    "action_head.model.transformer_blocks.22.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.4974269763333723e-08,
+      "relative_weight_error": 0.3409556448459625,
+      "relative_output_error": 0.01119760237634182,
+      "seconds": 3.606642007827759
+    },
+    "action_head.model.transformer_blocks.22.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.37678852677345276,
+      "relative_output_error": 0.010971536859869957,
+      "seconds": 2.86092472076416
+    },
+    "action_head.model.transformer_blocks.22.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.36879539489746094,
+      "relative_output_error": 0.0018259529024362564,
+      "seconds": 2.8680505752563477
+    },
+    "action_head.model.transformer_blocks.22.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3410499691963196,
+      "relative_output_error": 0.011366448365151882,
+      "seconds": 3.553490400314331
+    },
+    "action_head.model.transformer_blocks.22.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 6.342816050164402e-08,
+      "relative_weight_error": 0.32768335938453674,
+      "relative_output_error": 0.0010471087880432606,
+      "seconds": 6.354055881500244
+    },
+    "action_head.model.transformer_blocks.22.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3509102165699005,
+      "relative_output_error": 0.00022290014021564275,
+      "seconds": 8.869374752044678
+    },
+    "action_head.model.transformer_blocks.23.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.3718223571777344,
+      "relative_output_error": 0.0020113184582442045,
+      "seconds": 2.895052671432495
+    },
+    "action_head.model.transformer_blocks.23.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3675031065940857,
+      "relative_output_error": 0.002887112321332097,
+      "seconds": 2.8965749740600586
+    },
+    "action_head.model.transformer_blocks.23.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.999968273798004e-08,
+      "relative_weight_error": 0.37168553471565247,
+      "relative_output_error": 0.002054019132629037,
+      "seconds": 2.8968796730041504
+    },
+    "action_head.model.transformer_blocks.23.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3708931505680084,
+      "relative_output_error": 0.002300471067428589,
+      "seconds": 2.8446035385131836
+    },
+    "action_head.model.transformer_blocks.23.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 6.705522537231445e-08,
+      "relative_weight_error": 0.32910412549972534,
+      "relative_output_error": 0.001179586979560554,
+      "seconds": 6.355280637741089
+    },
+    "action_head.model.transformer_blocks.23.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.34771910309791565,
+      "relative_output_error": 0.0001668128534220159,
+      "seconds": 8.91820764541626
+    },
+    "action_head.model.transformer_blocks.24.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.3448592401109636e-08,
+      "relative_weight_error": 0.3407895565032959,
+      "relative_output_error": 0.01488113310188055,
+      "seconds": 3.613477945327759
+    },
+    "action_head.model.transformer_blocks.24.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3744174838066101,
+      "relative_output_error": 0.007071466650813818,
+      "seconds": 2.90326189994812
+    },
+    "action_head.model.transformer_blocks.24.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.36885732412338257,
+      "relative_output_error": 0.0022352058440446854,
+      "seconds": 2.921745538711548
+    },
+    "action_head.model.transformer_blocks.24.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3405495285987854,
+      "relative_output_error": 0.017351917922496796,
+      "seconds": 3.514594793319702
+    },
+    "action_head.model.transformer_blocks.24.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 6.897153070895001e-08,
+      "relative_weight_error": 0.33041179180145264,
+      "relative_output_error": 0.0012518494622781873,
+      "seconds": 6.314777135848999
+    },
+    "action_head.model.transformer_blocks.24.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.34973594546318054,
+      "relative_output_error": 0.00024394031788688153,
+      "seconds": 8.935893058776855
+    },
+    "action_head.model.transformer_blocks.25.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3705342710018158,
+      "relative_output_error": 0.0020375740714371204,
+      "seconds": 2.9263498783111572
+    },
+    "action_head.model.transformer_blocks.25.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3658080995082855,
+      "relative_output_error": 0.00238157925195992,
+      "seconds": 2.8456461429595947
+    },
+    "action_head.model.transformer_blocks.25.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.370649129152298,
+      "relative_output_error": 0.002068356843665242,
+      "seconds": 2.8444766998291016
+    },
+    "action_head.model.transformer_blocks.25.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.370149701833725,
+      "relative_output_error": 0.0018823862774297595,
+      "seconds": 2.9623711109161377
+    },
+    "action_head.model.transformer_blocks.25.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 6.377376848831773e-08,
+      "relative_weight_error": 0.3317085802555084,
+      "relative_output_error": 0.0013110183645039797,
+      "seconds": 6.29964280128479
+    },
+    "action_head.model.transformer_blocks.25.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3479377031326294,
+      "relative_output_error": 0.00017054997442755848,
+      "seconds": 8.888628244400024
+    },
+    "action_head.model.transformer_blocks.26.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.631077222758904e-08,
+      "relative_weight_error": 0.3411392271518707,
+      "relative_output_error": 0.011330231092870235,
+      "seconds": 3.574796676635742
+    },
+    "action_head.model.transformer_blocks.26.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.3782353103160858,
+      "relative_output_error": 0.008708720095455647,
+      "seconds": 2.869781017303467
+    },
+    "action_head.model.transformer_blocks.26.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.37151390314102173,
+      "relative_output_error": 0.0023923562839627266,
+      "seconds": 2.9075939655303955
+    },
+    "action_head.model.transformer_blocks.26.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.60770320892334e-08,
+      "relative_weight_error": 0.34124457836151123,
+      "relative_output_error": 0.01070697046816349,
+      "seconds": 3.564673662185669
+    },
+    "action_head.model.transformer_blocks.26.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 7.166090654209256e-08,
+      "relative_weight_error": 0.3347180187702179,
+      "relative_output_error": 0.0014151348732411861,
+      "seconds": 6.301391839981079
+    },
+    "action_head.model.transformer_blocks.26.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 7.450580596923828e-08,
+      "relative_weight_error": 0.3526063859462738,
+      "relative_output_error": 0.00028249784372746944,
+      "seconds": 8.933078527450562
+    },
+    "action_head.model.transformer_blocks.27.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.37105196714401245,
+      "relative_output_error": 0.002156495815142989,
+      "seconds": 2.903451681137085
+    },
+    "action_head.model.transformer_blocks.27.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.3663671016693115,
+      "relative_output_error": 0.0023281315807253122,
+      "seconds": 2.8561582565307617
+    },
+    "action_head.model.transformer_blocks.27.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3714427351951599,
+      "relative_output_error": 0.0020355519372969866,
+      "seconds": 2.9001495838165283
+    },
+    "action_head.model.transformer_blocks.27.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.37127363681793213,
+      "relative_output_error": 0.0019862179178744555,
+      "seconds": 2.890045642852783
+    },
+    "action_head.model.transformer_blocks.27.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 6.68787834001705e-08,
+      "relative_weight_error": 0.33544808626174927,
+      "relative_output_error": 0.0012992395786568522,
+      "seconds": 6.3489601612091064
+    },
+    "action_head.model.transformer_blocks.27.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3477023243904114,
+      "relative_output_error": 9.439219138585031e-05,
+      "seconds": 8.928640842437744
+    },
+    "action_head.model.transformer_blocks.28.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.7423084247857332e-08,
+      "relative_weight_error": 0.3406437337398529,
+      "relative_output_error": 0.014814279973506927,
+      "seconds": 3.542558193206787
+    },
+    "action_head.model.transformer_blocks.28.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.37198731303215027,
+      "relative_output_error": 0.0034359022974967957,
+      "seconds": 2.885444164276123
+    },
+    "action_head.model.transformer_blocks.28.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.36855998635292053,
+      "relative_output_error": 0.0021181509364396334,
+      "seconds": 2.928581476211548
+    },
+    "action_head.model.transformer_blocks.28.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.3278516891878098e-08,
+      "relative_weight_error": 0.3405560553073883,
+      "relative_output_error": 0.01657191663980484,
+      "seconds": 3.5571553707122803
+    },
+    "action_head.model.transformer_blocks.28.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 7.078051567077637e-08,
+      "relative_weight_error": 0.33568450808525085,
+      "relative_output_error": 0.001164603279903531,
+      "seconds": 6.319521188735962
+    },
+    "action_head.model.transformer_blocks.28.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 7.450580596923828e-08,
+      "relative_weight_error": 0.35019031167030334,
+      "relative_output_error": 8.660036837682128e-05,
+      "seconds": 8.850511074066162
+    },
+    "action_head.model.transformer_blocks.29.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3695763349533081,
+      "relative_output_error": 0.0019731277134269476,
+      "seconds": 2.8872931003570557
+    },
+    "action_head.model.transformer_blocks.29.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3611811101436615,
+      "relative_output_error": 0.0017476254142820835,
+      "seconds": 2.910853147506714
+    },
+    "action_head.model.transformer_blocks.29.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3696657717227936,
+      "relative_output_error": 0.0017618763959035277,
+      "seconds": 2.919315814971924
+    },
+    "action_head.model.transformer_blocks.29.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3689209818840027,
+      "relative_output_error": 0.001902516814880073,
+      "seconds": 2.8705475330352783
+    },
+    "action_head.model.transformer_blocks.29.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 6.006399644320481e-08,
+      "relative_weight_error": 0.33468249440193176,
+      "relative_output_error": 0.0009690666338428855,
+      "seconds": 6.3503663539886475
+    },
+    "action_head.model.transformer_blocks.29.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.35461339354515076,
+      "relative_output_error": 0.00012097500439267606,
+      "seconds": 9.15407657623291
+    },
+    "action_head.model.transformer_blocks.3.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.30080750584602356,
+      "relative_output_error": 0.0004472022410482168,
+      "seconds": 2.925008535385132
+    },
+    "action_head.model.transformer_blocks.3.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.31990423798561096,
+      "relative_output_error": 0.00016712014621589333,
+      "seconds": 2.940403461456299
+    },
+    "action_head.model.transformer_blocks.3.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.30064883828163147,
+      "relative_output_error": 0.0007377223810181022,
+      "seconds": 2.9121596813201904
+    },
+    "action_head.model.transformer_blocks.3.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.3799657355993986e-08,
+      "relative_weight_error": 0.3002694547176361,
+      "relative_output_error": 0.0004860154876951128,
+      "seconds": 2.865058183670044
+    },
+    "action_head.model.transformer_blocks.3.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.28701308369636536,
+      "relative_output_error": 0.0006978261517360806,
+      "seconds": 6.364842891693115
+    },
+    "action_head.model.transformer_blocks.3.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.31072062253952026,
+      "relative_output_error": 1.9359516954864375e-05,
+      "seconds": 8.937486171722412
+    },
+    "action_head.model.transformer_blocks.30.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.4395575337621267e-08,
+      "relative_weight_error": 0.3413270115852356,
+      "relative_output_error": 0.010869067162275314,
+      "seconds": 3.5852065086364746
+    },
+    "action_head.model.transformer_blocks.30.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.3762022852897644,
+      "relative_output_error": 0.003933698404580355,
+      "seconds": 2.884434700012207
+    },
+    "action_head.model.transformer_blocks.30.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3703005015850067,
+      "relative_output_error": 0.0024012383073568344,
+      "seconds": 2.9172170162200928
+    },
+    "action_head.model.transformer_blocks.30.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.34125837683677673,
+      "relative_output_error": 0.00987154245376587,
+      "seconds": 3.600102424621582
+    },
+    "action_head.model.transformer_blocks.30.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 6.22158040641807e-08,
+      "relative_weight_error": 0.3328651785850525,
+      "relative_output_error": 0.0007605651044286788,
+      "seconds": 6.357349395751953
+    },
+    "action_head.model.transformer_blocks.30.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3486877977848053,
+      "relative_output_error": 0.0001221043203258887,
+      "seconds": 8.966919898986816
+    },
+    "action_head.model.transformer_blocks.31.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3572744131088257,
+      "relative_output_error": 0.0015529756201431155,
+      "seconds": 2.996798515319824
+    },
+    "action_head.model.transformer_blocks.31.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.552020982373506e-08,
+      "relative_weight_error": 0.3428342938423157,
+      "relative_output_error": 0.000470086932182312,
+      "seconds": 2.9057846069335938
+    },
+    "action_head.model.transformer_blocks.31.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.3580330014228821,
+      "relative_output_error": 0.0011448663426563144,
+      "seconds": 2.8698837757110596
+    },
+    "action_head.model.transformer_blocks.31.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.35730183124542236,
+      "relative_output_error": 0.0012547534424811602,
+      "seconds": 2.8953466415405273
+    },
+    "action_head.model.transformer_blocks.31.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.32879453897476196,
+      "relative_output_error": 0.00043568797991611063,
+      "seconds": 6.393738269805908
+    },
+    "action_head.model.transformer_blocks.31.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.31753963232040405,
+      "relative_output_error": 4.8138750571524724e-05,
+      "seconds": 8.983362913131714
+    },
+    "action_head.model.transformer_blocks.4.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.862645149230957e-08,
+      "relative_weight_error": 0.34064412117004395,
+      "relative_output_error": 0.013992348685860634,
+      "seconds": 3.598422050476074
+    },
+    "action_head.model.transformer_blocks.4.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.33368027210235596,
+      "relative_output_error": 0.0003469619550742209,
+      "seconds": 2.910221815109253
+    },
+    "action_head.model.transformer_blocks.4.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.2877461314201355,
+      "relative_output_error": 0.0026529082097113132,
+      "seconds": 2.8531405925750732
+    },
+    "action_head.model.transformer_blocks.4.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1175870895385742e-08,
+      "relative_weight_error": 0.3400700092315674,
+      "relative_output_error": 0.018360894173383713,
+      "seconds": 3.5628366470336914
+    },
+    "action_head.model.transformer_blocks.4.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.2866133749485016,
+      "relative_output_error": 0.001187582383863628,
+      "seconds": 6.36614465713501
+    },
+    "action_head.model.transformer_blocks.4.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.2978268265724182,
+      "relative_output_error": 9.188259355141781e-06,
+      "seconds": 9.00057053565979
+    },
+    "action_head.model.transformer_blocks.5.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 7.450580596923828e-08,
+      "relative_weight_error": 0.2886311113834381,
+      "relative_output_error": 0.0005558714037761092,
+      "seconds": 2.9377031326293945
+    },
+    "action_head.model.transformer_blocks.5.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3223460018634796,
+      "relative_output_error": 0.00021974883566144854,
+      "seconds": 2.875812530517578
+    },
+    "action_head.model.transformer_blocks.5.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.28765466809272766,
+      "relative_output_error": 0.0012687580892816186,
+      "seconds": 2.863450527191162
+    },
+    "action_head.model.transformer_blocks.5.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.454488251009025e-08,
+      "relative_weight_error": 0.288276344537735,
+      "relative_output_error": 0.0007132714963518083,
+      "seconds": 2.945498466491699
+    },
+    "action_head.model.transformer_blocks.5.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.2863975465297699,
+      "relative_output_error": 0.0018073538085445762,
+      "seconds": 6.365385055541992
+    },
+    "action_head.model.transformer_blocks.5.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3012629449367523,
+      "relative_output_error": 1.138411789725069e-05,
+      "seconds": 8.940800666809082
+    },
+    "action_head.model.transformer_blocks.6.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3410065472126007,
+      "relative_output_error": 0.010819005779922009,
+      "seconds": 3.604400634765625
+    },
+    "action_head.model.transformer_blocks.6.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.37324097752571106,
+      "relative_output_error": 0.0074060456827282906,
+      "seconds": 2.9451818466186523
+    },
+    "action_head.model.transformer_blocks.6.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3047560453414917,
+      "relative_output_error": 0.000388332293368876,
+      "seconds": 2.897315263748169
+    },
+    "action_head.model.transformer_blocks.6.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.862645149230957e-08,
+      "relative_weight_error": 0.3403705656528473,
+      "relative_output_error": 0.014513012021780014,
+      "seconds": 3.5465054512023926
+    },
+    "action_head.model.transformer_blocks.6.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.28951552510261536,
+      "relative_output_error": 0.001496894401498139,
+      "seconds": 6.334052085876465
+    },
+    "action_head.model.transformer_blocks.6.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3054572343826294,
+      "relative_output_error": 7.573466973553877e-06,
+      "seconds": 8.972713708877563
+    },
+    "action_head.model.transformer_blocks.7.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.3026179075241089,
+      "relative_output_error": 0.0004996274947188795,
+      "seconds": 2.945587635040283
+    },
+    "action_head.model.transformer_blocks.7.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.34105348587036133,
+      "relative_output_error": 0.0007324375910684466,
+      "seconds": 2.916132926940918
+    },
+    "action_head.model.transformer_blocks.7.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 3.725290298461914e-08,
+      "relative_weight_error": 0.3022148609161377,
+      "relative_output_error": 0.001201275154016912,
+      "seconds": 2.9096012115478516
+    },
+    "action_head.model.transformer_blocks.7.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.249057721812278e-08,
+      "relative_weight_error": 0.3030104339122772,
+      "relative_output_error": 0.0005812341114506125,
+      "seconds": 2.867323398590088
+    },
+    "action_head.model.transformer_blocks.7.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.8768637128659975e-08,
+      "relative_weight_error": 0.2893696129322052,
+      "relative_output_error": 0.001505480264313519,
+      "seconds": 6.349056720733643
+    },
+    "action_head.model.transformer_blocks.7.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3062930107116699,
+      "relative_output_error": 1.1533582437550649e-05,
+      "seconds": 8.976447343826294
+    },
+    "action_head.model.transformer_blocks.8.attn1.to_k": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2351741790771484e-08,
+      "relative_weight_error": 0.3403102159500122,
+      "relative_output_error": 0.014793976210057735,
+      "seconds": 3.575631618499756
+    },
+    "action_head.model.transformer_blocks.8.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3450702726840973,
+      "relative_output_error": 0.0015965794445946813,
+      "seconds": 2.883302927017212
+    },
+    "action_head.model.transformer_blocks.8.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.30437371134757996,
+      "relative_output_error": 0.0009539562161080539,
+      "seconds": 2.9051895141601562
+    },
+    "action_head.model.transformer_blocks.8.attn1.to_v": {
+      "payload_bytes": 795652,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 7168,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.4901161193847656e-08,
+      "relative_weight_error": 0.34003061056137085,
+      "relative_output_error": 0.0190278347581625,
+      "seconds": 3.5585684776306152
+    },
+    "action_head.model.transformer_blocks.8.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.2902032136917114,
+      "relative_output_error": 0.0011461314279586077,
+      "seconds": 6.367929458618164
+    },
+    "action_head.model.transformer_blocks.8.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.30558496713638306,
+      "relative_output_error": 5.849199624208268e-06,
+      "seconds": 8.941898822784424
+    },
+    "action_head.model.transformer_blocks.9.attn1.to_k": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3235940635204315,
+      "relative_output_error": 0.00038357244920916855,
+      "seconds": 2.9324002265930176
+    },
+    "action_head.model.transformer_blocks.9.attn1.to_out.0": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.33472779393196106,
+      "relative_output_error": 0.0005793521995656192,
+      "seconds": 2.9500770568847656
+    },
+    "action_head.model.transformer_blocks.9.attn1.to_q": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.32332342863082886,
+      "relative_output_error": 0.0006177402683533728,
+      "seconds": 2.9035611152648926
+    },
+    "action_head.model.transformer_blocks.9.attn1.to_v": {
+      "payload_bytes": 598020,
+      "trellis_bytes": 589824,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.32361796498298645,
+      "relative_output_error": 0.000538036460056901,
+      "seconds": 2.929291009902954
+    },
+    "action_head.model.transformer_blocks.9.ff.net.0.proj": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        1536
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.2904965579509735,
+      "relative_output_error": 0.0010368614457547665,
+      "seconds": 6.364845514297485
+    },
+    "action_head.model.transformer_blocks.9.ff.net.2": {
+      "payload_bytes": 2376708,
+      "trellis_bytes": 2359296,
+      "sign_vector_bytes": 15360,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1536,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.30763426423072815,
+      "relative_output_error": 1.1524562978593167e-05,
+      "seconds": 8.975485563278198
+    },
+    "action_head.vl_self_attention.transformer_blocks.0.attn1.to_k": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.188153302995488e-08,
+      "relative_weight_error": 0.3375302851200104,
+      "relative_output_error": 0.0017232439713552594,
+      "seconds": 5.173523902893066
+    },
+    "action_head.vl_self_attention.transformer_blocks.0.attn1.to_out.0": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3441290855407715,
+      "relative_output_error": 0.00045425776625052094,
+      "seconds": 4.533303260803223
+    },
+    "action_head.vl_self_attention.transformer_blocks.0.attn1.to_q": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.2264430299401283e-08,
+      "relative_weight_error": 0.33695080876350403,
+      "relative_output_error": 0.0024834908545017242,
+      "seconds": 4.512255668640137
+    },
+    "action_head.vl_self_attention.transformer_blocks.0.attn1.to_v": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.332990334252827e-08,
+      "relative_weight_error": 0.33710777759552,
+      "relative_output_error": 0.005070509389042854,
+      "seconds": 4.534099102020264
+    },
+    "action_head.vl_self_attention.transformer_blocks.0.ff.net.0.proj": {
+      "payload_bytes": 4216836,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 20480,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        8192,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.254241841612384e-08,
+      "relative_weight_error": 0.34376904368400574,
+      "relative_output_error": 0.001130671938881278,
+      "seconds": 8.453737497329712
+    },
+    "action_head.vl_self_attention.transformer_blocks.0.ff.net.2": {
+      "payload_bytes": 4216836,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 20480,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        8192
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3647346496582031,
+      "relative_output_error": 0.00407786387950182,
+      "seconds": 15.56779408454895
+    },
+    "action_head.vl_self_attention.transformer_blocks.1.attn1.to_k": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 3.2964635465759784e-08,
+      "relative_weight_error": 0.3412294387817383,
+      "relative_output_error": 0.003015798283740878,
+      "seconds": 4.588688850402832
+    },
+    "action_head.vl_self_attention.transformer_blocks.1.attn1.to_out.0": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.35868406295776367,
+      "relative_output_error": 0.008258264511823654,
+      "seconds": 4.519791841506958
+    },
+    "action_head.vl_self_attention.transformer_blocks.1.attn1.to_q": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.7343048714101315e-08,
+      "relative_weight_error": 0.341523677110672,
+      "relative_output_error": 0.003775579622015357,
+      "seconds": 4.513889312744141
+    },
+    "action_head.vl_self_attention.transformer_blocks.1.attn1.to_v": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.5715081619637203e-08,
+      "relative_weight_error": 0.341082900762558,
+      "relative_output_error": 0.006178377196192741,
+      "seconds": 4.541383981704712
+    },
+    "action_head.vl_self_attention.transformer_blocks.1.ff.net.0.proj": {
+      "payload_bytes": 4216836,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 20480,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        8192,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.527908797375858e-08,
+      "relative_weight_error": 0.34361740946769714,
+      "relative_output_error": 0.001067821984179318,
+      "seconds": 8.419519662857056
+    },
+    "action_head.vl_self_attention.transformer_blocks.1.ff.net.2": {
+      "payload_bytes": 4216836,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 20480,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        8192
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.35073691606521606,
+      "relative_output_error": 0.008927425369620323,
+      "seconds": 15.577120780944824
+    },
+    "action_head.vl_self_attention.transformer_blocks.2.attn1.to_k": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.5893314159475267e-08,
+      "relative_weight_error": 0.3391890227794647,
+      "relative_output_error": 0.004303916357457638,
+      "seconds": 4.5225419998168945
+    },
+    "action_head.vl_self_attention.transformer_blocks.2.attn1.to_out.0": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 3.0228875402826816e-08,
+      "relative_weight_error": 0.3683944046497345,
+      "relative_output_error": 0.01219663955271244,
+      "seconds": 4.539447069168091
+    },
+    "action_head.vl_self_attention.transformer_blocks.2.attn1.to_q": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.636284079926554e-08,
+      "relative_weight_error": 0.33923423290252686,
+      "relative_output_error": 0.005035335663706064,
+      "seconds": 4.564859390258789
+    },
+    "action_head.vl_self_attention.transformer_blocks.2.attn1.to_v": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.8350996217341162e-08,
+      "relative_weight_error": 0.3392205238342285,
+      "relative_output_error": 0.006779945455491543,
+      "seconds": 4.545404434204102
+    },
+    "action_head.vl_self_attention.transformer_blocks.2.ff.net.0.proj": {
+      "payload_bytes": 4216836,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 20480,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        8192,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.6562839745311067e-08,
+      "relative_weight_error": 0.3448358476161957,
+      "relative_output_error": 0.0018209387781098485,
+      "seconds": 8.496607542037964
+    },
+    "action_head.vl_self_attention.transformer_blocks.2.ff.net.2": {
+      "payload_bytes": 4216836,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 20480,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        8192
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.33813878893852234,
+      "relative_output_error": 0.01313668955117464,
+      "seconds": 15.574559450149536
+    },
+    "action_head.vl_self_attention.transformer_blocks.3.attn1.to_k": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.5861481844913214e-08,
+      "relative_weight_error": 0.34033194184303284,
+      "relative_output_error": 0.00694836862385273,
+      "seconds": 4.545343399047852
+    },
+    "action_head.vl_self_attention.transformer_blocks.3.attn1.to_out.0": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.9802322387695312e-08,
+      "relative_weight_error": 0.3622394800186157,
+      "relative_output_error": 0.01739838719367981,
+      "seconds": 4.497939348220825
+    },
+    "action_head.vl_self_attention.transformer_blocks.3.attn1.to_q": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.9583134164568037e-08,
+      "relative_weight_error": 0.3404648005962372,
+      "relative_output_error": 0.007653223350644112,
+      "seconds": 4.507429361343384
+    },
+    "action_head.vl_self_attention.transformer_blocks.3.attn1.to_v": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 2.8911927074659616e-08,
+      "relative_weight_error": 0.34072384238243103,
+      "relative_output_error": 0.008959616534411907,
+      "seconds": 4.482786178588867
+    },
+    "action_head.vl_self_attention.transformer_blocks.3.ff.net.0.proj": {
+      "payload_bytes": 4216836,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 20480,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        8192,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.581296136369929e-08,
+      "relative_weight_error": 0.34330275654792786,
+      "relative_output_error": 0.0032011151779443026,
+      "seconds": 8.394121885299683
+    },
+    "action_head.vl_self_attention.transformer_blocks.3.ff.net.2": {
+      "payload_bytes": 4216836,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 20480,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        8192
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.33624058961868286,
+      "relative_output_error": 0.01168854907155037,
+      "seconds": 15.649093389511108
+    }
+  },
+  "linear_payload_bytes": 285655904
+}

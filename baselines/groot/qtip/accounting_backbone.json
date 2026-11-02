@@ -1,0 +1,3358 @@
+{
+  "method": "qtip_bitshift_l16k2v2",
+  "bits_nominal": 2,
+  "backbone_bits": 2,
+  "expert_bits": 2,
+  "qtip_commit": "e90c6688c8dfae326a3a81b5eb032db7c6680ec0",
+  "qtip_settings": {
+    "codebook": "bitshift",
+    "L": 16,
+    "K": 2,
+    "V": 2,
+    "td_x": 16,
+    "td_y": 16,
+    "decode_mode": "quantlut_sym",
+    "tlut_bits": 9,
+    "scale_override": 0.9,
+    "sigma_reg": 0.01
+  },
+  "padding": {
+    "4304": 4480
+  },
+  "seed": "torch.manual_seed(0) before each layer",
+  "calibration_index_sha256": "3f216cfd3383b08888c9057dc7cb45a395f1601d0b0ba8553f62c633a60ee149",
+  "payload_rule": "packed trellis (K=2 bits per weight) incl. padded rows/columns + FP16 SU and SV + FP32 Wscale + FP16 512x2 lookup table, per layer",
+  "notes": "pure PTQ, no layer-wise or end-to-end fine-tuning; official QTIP per-layer quantization (RHT + LDLQ, bitshift trellis) on the shared per-layer Hessians; the official layer and end-to-end fine-tuning are not run",
+  "exact_command": "quantize_qtip.py --layers /scratch/d250009/pi05-handover/runs/groot_baselines/layers/backbone --calibration /scratch/d250009/pi05-handover/runs/groot_baselines/calibration/backbone --checkpoint /scratch/d250009/pi05-handover/runs/groot_baselines/checkpoints/libero_spatial --out /scratch/d250009/pi05-handover/runs/groot_baselines/q/qtip_w2/backbone --qtip-repo /home/d250009/projects/pi05-handover/runs/toolkits/qtip --bits 2",
+  "layers": {
+    "backbone.model.model.language_model.layers.0.mlp.down_proj": {
+      "name": "backbone.model.model.language_model.layers.0.mlp.down_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.32766467332839966,
+      "relative_output_error": 0.0016792240785434842,
+      "seconds": 18.298996448516846
+    },
+    "backbone.model.model.language_model.layers.0.mlp.gate_proj": {
+      "name": "backbone.model.model.language_model.layers.0.mlp.gate_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3252904415130615,
+      "relative_output_error": 0.0008200861630029976,
+      "seconds": 9.153960704803467
+    },
+    "backbone.model.model.language_model.layers.0.mlp.up_proj": {
+      "name": "backbone.model.model.language_model.layers.0.mlp.up_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 7.084690878400579e-08,
+      "relative_weight_error": 0.3252144455909729,
+      "relative_output_error": 0.001765112392604351,
+      "seconds": 8.122988939285278
+    },
+    "backbone.model.model.language_model.layers.0.self_attn.k_proj": {
+      "name": "backbone.model.model.language_model.layers.0.self_attn.k_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.33052462339401245,
+      "relative_output_error": 0.0010463172802701592,
+      "seconds": 5.029473543167114
+    },
+    "backbone.model.model.language_model.layers.0.self_attn.o_proj": {
+      "name": "backbone.model.model.language_model.layers.0.self_attn.o_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3342280089855194,
+      "relative_output_error": 0.0017339237965643406,
+      "seconds": 4.4660797119140625
+    },
+    "backbone.model.model.language_model.layers.0.self_attn.q_proj": {
+      "name": "backbone.model.model.language_model.layers.0.self_attn.q_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3304998278617859,
+      "relative_output_error": 0.0011221356689929962,
+      "seconds": 4.4762163162231445
+    },
+    "backbone.model.model.language_model.layers.0.self_attn.v_proj": {
+      "name": "backbone.model.model.language_model.layers.0.self_attn.v_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0151416063308716e-07,
+      "relative_weight_error": 0.3301216959953308,
+      "relative_output_error": 0.0050282785668969154,
+      "seconds": 4.360423564910889
+    },
+    "backbone.model.model.language_model.layers.1.mlp.down_proj": {
+      "name": "backbone.model.model.language_model.layers.1.mlp.down_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.32523098587989807,
+      "relative_output_error": 0.000854077166877687,
+      "seconds": 11.62593674659729
+    },
+    "backbone.model.model.language_model.layers.1.mlp.gate_proj": {
+      "name": "backbone.model.model.language_model.layers.1.mlp.gate_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0880557965720072e-07,
+      "relative_weight_error": 0.3283286392688751,
+      "relative_output_error": 0.0004747415368910879,
+      "seconds": 8.121276617050171
+    },
+    "backbone.model.model.language_model.layers.1.mlp.up_proj": {
+      "name": "backbone.model.model.language_model.layers.1.mlp.up_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3279721438884735,
+      "relative_output_error": 0.004472627770155668,
+      "seconds": 8.157540082931519
+    },
+    "backbone.model.model.language_model.layers.1.self_attn.k_proj": {
+      "name": "backbone.model.model.language_model.layers.1.self_attn.k_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.243376553058624e-08,
+      "relative_weight_error": 0.33587446808815,
+      "relative_output_error": 0.0017234582919627428,
+      "seconds": 4.406383752822876
+    },
+    "backbone.model.model.language_model.layers.1.self_attn.o_proj": {
+      "name": "backbone.model.model.language_model.layers.1.self_attn.o_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.6239059631479904e-08,
+      "relative_weight_error": 0.31394121050834656,
+      "relative_output_error": 0.001162022352218628,
+      "seconds": 4.431693077087402
+    },
+    "backbone.model.model.language_model.layers.1.self_attn.q_proj": {
+      "name": "backbone.model.model.language_model.layers.1.self_attn.q_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 6.219170245458372e-08,
+      "relative_weight_error": 0.3357718884944916,
+      "relative_output_error": 0.002188397105783224,
+      "seconds": 4.473335266113281
+    },
+    "backbone.model.model.language_model.layers.1.self_attn.v_proj": {
+      "name": "backbone.model.model.language_model.layers.1.self_attn.v_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.033828973770142e-08,
+      "relative_weight_error": 0.335576593875885,
+      "relative_output_error": 0.0051400731317698956,
+      "seconds": 4.360369682312012
+    },
+    "backbone.model.model.language_model.layers.10.mlp.down_proj": {
+      "name": "backbone.model.model.language_model.layers.10.mlp.down_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.33663421869277954,
+      "relative_output_error": 0.0037124669179320335,
+      "seconds": 11.626619577407837
+    },
+    "backbone.model.model.language_model.layers.10.mlp.gate_proj": {
+      "name": "backbone.model.model.language_model.layers.10.mlp.gate_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.32701611518859863,
+      "relative_output_error": 0.0023476555943489075,
+      "seconds": 8.15660309791565
+    },
+    "backbone.model.model.language_model.layers.10.mlp.up_proj": {
+      "name": "backbone.model.model.language_model.layers.10.mlp.up_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.32708612084388733,
+      "relative_output_error": 0.005358785856515169,
+      "seconds": 8.102154970169067
+    },
+    "backbone.model.model.language_model.layers.10.self_attn.k_proj": {
+      "name": "backbone.model.model.language_model.layers.10.self_attn.k_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.568167686462402e-08,
+      "relative_weight_error": 0.32557642459869385,
+      "relative_output_error": 0.0015201907372102141,
+      "seconds": 4.40855860710144
+    },
+    "backbone.model.model.language_model.layers.10.self_attn.o_proj": {
+      "name": "backbone.model.model.language_model.layers.10.self_attn.o_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3314589560031891,
+      "relative_output_error": 0.0038674247916787863,
+      "seconds": 4.460647821426392
+    },
+    "backbone.model.model.language_model.layers.10.self_attn.q_proj": {
+      "name": "backbone.model.model.language_model.layers.10.self_attn.q_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3252871334552765,
+      "relative_output_error": 0.0017056476790457964,
+      "seconds": 4.465051651000977
+    },
+    "backbone.model.model.language_model.layers.10.self_attn.v_proj": {
+      "name": "backbone.model.model.language_model.layers.10.self_attn.v_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0710209608078003e-07,
+      "relative_weight_error": 0.3252066969871521,
+      "relative_output_error": 0.004968327935785055,
+      "seconds": 4.368951797485352
+    },
+    "backbone.model.model.language_model.layers.11.mlp.down_proj": {
+      "name": "backbone.model.model.language_model.layers.11.mlp.down_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3405360281467438,
+      "relative_output_error": 0.005230376031249762,
+      "seconds": 11.62978982925415
+    },
+    "backbone.model.model.language_model.layers.11.mlp.gate_proj": {
+      "name": "backbone.model.model.language_model.layers.11.mlp.gate_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.32855698466300964,
+      "relative_output_error": 0.0023759014438837767,
+      "seconds": 8.123912811279297
+    },
+    "backbone.model.model.language_model.layers.11.mlp.up_proj": {
+      "name": "backbone.model.model.language_model.layers.11.mlp.up_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.350252755917609e-08,
+      "relative_weight_error": 0.3284841477870941,
+      "relative_output_error": 0.005626159254461527,
+      "seconds": 8.168572425842285
+    },
+    "backbone.model.model.language_model.layers.11.self_attn.k_proj": {
+      "name": "backbone.model.model.language_model.layers.11.self_attn.k_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.009374141693115e-08,
+      "relative_weight_error": 0.32668498158454895,
+      "relative_output_error": 0.0016355070983991027,
+      "seconds": 4.409432649612427
+    },
+    "backbone.model.model.language_model.layers.11.self_attn.o_proj": {
+      "name": "backbone.model.model.language_model.layers.11.self_attn.o_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3407086431980133,
+      "relative_output_error": 0.005909272003918886,
+      "seconds": 4.434624910354614
+    },
+    "backbone.model.model.language_model.layers.11.self_attn.q_proj": {
+      "name": "backbone.model.model.language_model.layers.11.self_attn.q_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3264971077442169,
+      "relative_output_error": 0.0010821394389495254,
+      "seconds": 4.4802165031433105
+    },
+    "backbone.model.model.language_model.layers.11.self_attn.v_proj": {
+      "name": "backbone.model.model.language_model.layers.11.self_attn.v_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.847564458847046e-08,
+      "relative_weight_error": 0.3265509307384491,
+      "relative_output_error": 0.004568128846585751,
+      "seconds": 4.354912757873535
+    },
+    "backbone.model.model.language_model.layers.12.mlp.down_proj": {
+      "name": "backbone.model.model.language_model.layers.12.mlp.down_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3402482271194458,
+      "relative_output_error": 0.005663663614541292,
+      "seconds": 11.690181255340576
+    },
+    "backbone.model.model.language_model.layers.12.mlp.gate_proj": {
+      "name": "backbone.model.model.language_model.layers.12.mlp.gate_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3287484347820282,
+      "relative_output_error": 0.0024269490968436003,
+      "seconds": 8.13061809539795
+    },
+    "backbone.model.model.language_model.layers.12.mlp.up_proj": {
+      "name": "backbone.model.model.language_model.layers.12.mlp.up_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0091571311932057e-07,
+      "relative_weight_error": 0.32875773310661316,
+      "relative_output_error": 0.006285880692303181,
+      "seconds": 8.140971422195435
+    },
+    "backbone.model.model.language_model.layers.12.self_attn.k_proj": {
+      "name": "backbone.model.model.language_model.layers.12.self_attn.k_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.033828973770142e-08,
+      "relative_weight_error": 0.3264304995536804,
+      "relative_output_error": 0.0008794975001364946,
+      "seconds": 4.397708415985107
+    },
+    "backbone.model.model.language_model.layers.12.self_attn.o_proj": {
+      "name": "backbone.model.model.language_model.layers.12.self_attn.o_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3321055471897125,
+      "relative_output_error": 0.005807701498270035,
+      "seconds": 4.431742429733276
+    },
+    "backbone.model.model.language_model.layers.12.self_attn.q_proj": {
+      "name": "backbone.model.model.language_model.layers.12.self_attn.q_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3257555365562439,
+      "relative_output_error": 0.0013938811607658863,
+      "seconds": 4.4867262840271
+    },
+    "backbone.model.model.language_model.layers.12.self_attn.v_proj": {
+      "name": "backbone.model.model.language_model.layers.12.self_attn.v_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.872019290924072e-08,
+      "relative_weight_error": 0.32616257667541504,
+      "relative_output_error": 0.002011951059103012,
+      "seconds": 4.3561766147613525
+    },
+    "backbone.model.model.language_model.layers.13.mlp.down_proj": {
+      "name": "backbone.model.model.language_model.layers.13.mlp.down_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.7881393432617188e-07,
+      "relative_weight_error": 0.3422083556652069,
+      "relative_output_error": 0.006012835539877415,
+      "seconds": 11.820989608764648
+    },
+    "backbone.model.model.language_model.layers.13.mlp.gate_proj": {
+      "name": "backbone.model.model.language_model.layers.13.mlp.gate_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.32973915338516235,
+      "relative_output_error": 0.0027711656875908375,
+      "seconds": 8.172993898391724
+    },
+    "backbone.model.model.language_model.layers.13.mlp.up_proj": {
+      "name": "backbone.model.model.language_model.layers.13.mlp.up_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.799815987003967e-08,
+      "relative_weight_error": 0.32966527342796326,
+      "relative_output_error": 0.006216401234269142,
+      "seconds": 8.149603843688965
+    },
+    "backbone.model.model.language_model.layers.13.self_attn.k_proj": {
+      "name": "backbone.model.model.language_model.layers.13.self_attn.k_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.102506399154663e-08,
+      "relative_weight_error": 0.32436108589172363,
+      "relative_output_error": 0.000937518896535039,
+      "seconds": 4.373247385025024
+    },
+    "backbone.model.model.language_model.layers.13.self_attn.o_proj": {
+      "name": "backbone.model.model.language_model.layers.13.self_attn.o_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 4.960293153999373e-08,
+      "relative_weight_error": 0.3280974328517914,
+      "relative_output_error": 0.006367872469127178,
+      "seconds": 4.437140464782715
+    },
+    "backbone.model.model.language_model.layers.13.self_attn.q_proj": {
+      "name": "backbone.model.model.language_model.layers.13.self_attn.q_proj",
+      "group": "backbone",
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3240685760974884,
+      "relative_output_error": 0.0012833470245823264,
+      "seconds": 4.437620401382446
+    },
+    "backbone.model.model.language_model.layers.13.self_attn.v_proj": {
+      "name": "backbone.model.model.language_model.layers.13.self_attn.v_proj",
+      "group": "backbone",
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.195638656616211e-08,
+      "relative_weight_error": 0.32389959692955017,
+      "relative_output_error": 0.0022385301999747753,
+      "seconds": 4.35805344581604
+    },
+    "backbone.model.model.language_model.layers.14.mlp.down_proj": {
+      "name": "backbone.model.model.language_model.layers.14.mlp.down_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.34137842059135437,
+      "relative_output_error": 0.00572934141382575,
+      "seconds": 11.593610286712646
+    },
+    "backbone.model.model.language_model.layers.14.mlp.gate_proj": {
+      "name": "backbone.model.model.language_model.layers.14.mlp.gate_proj",
+      "group": "backbone",
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.33027005195617676,
+      "relative_output_error": 0.0031183690298348665,
+      "seconds": 8.110979318618774
+    },
+    "backbone.model.model.language_model.layers.14.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.309507393278182e-08,
+      "relative_weight_error": 0.33035415410995483,
+      "relative_output_error": 0.006454865913838148,
+      "seconds": 15.153709650039673
+    },
+    "backbone.model.model.language_model.layers.14.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 7.543712854385376e-08,
+      "relative_weight_error": 0.3264705538749695,
+      "relative_output_error": 0.0009587051463313401,
+      "seconds": 5.429872512817383
+    },
+    "backbone.model.model.language_model.layers.14.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.33395516872406006,
+      "relative_output_error": 0.004269894678145647,
+      "seconds": 4.5147175788879395
+    },
+    "backbone.model.model.language_model.layers.14.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.32581353187561035,
+      "relative_output_error": 0.0015517993597313762,
+      "seconds": 4.540812969207764
+    },
+    "backbone.model.model.language_model.layers.14.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 7.986091077327728e-08,
+      "relative_weight_error": 0.32619836926460266,
+      "relative_output_error": 0.002595189493149519,
+      "seconds": 4.389012336730957
+    },
+    "backbone.model.model.language_model.layers.15.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.33568012714385986,
+      "relative_output_error": 0.004523696843534708,
+      "seconds": 11.67223834991455
+    },
+    "backbone.model.model.language_model.layers.15.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3286457657814026,
+      "relative_output_error": 0.003088554600253701,
+      "seconds": 7.304125785827637
+    },
+    "backbone.model.model.language_model.layers.15.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.048027666518465e-08,
+      "relative_weight_error": 0.32868847250938416,
+      "relative_output_error": 0.006058424711227417,
+      "seconds": 7.302055597305298
+    },
+    "backbone.model.model.language_model.layers.15.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 6.752088665962219e-08,
+      "relative_weight_error": 0.3264875113964081,
+      "relative_output_error": 0.002557581989094615,
+      "seconds": 4.383459091186523
+    },
+    "backbone.model.model.language_model.layers.15.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.33604058623313904,
+      "relative_output_error": 0.006307150702923536,
+      "seconds": 4.465803384780884
+    },
+    "backbone.model.model.language_model.layers.15.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.32631608843803406,
+      "relative_output_error": 0.0018117865547537804,
+      "seconds": 4.501235246658325
+    },
+    "backbone.model.model.language_model.layers.15.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.12696123123169e-08,
+      "relative_weight_error": 0.326633095741272,
+      "relative_output_error": 0.009277334436774254,
+      "seconds": 4.37334132194519
+    },
+    "backbone.model.model.language_model.layers.2.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.26767978072166443,
+      "relative_output_error": 0.00035184415173716843,
+      "seconds": 11.537889242172241
+    },
+    "backbone.model.model.language_model.layers.2.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3288823962211609,
+      "relative_output_error": 0.0010546469129621983,
+      "seconds": 7.321140766143799
+    },
+    "backbone.model.model.language_model.layers.2.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.32857921719551086,
+      "relative_output_error": 0.00659936061128974,
+      "seconds": 7.246037483215332
+    },
+    "backbone.model.model.language_model.layers.2.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.195638656616211e-08,
+      "relative_weight_error": 0.3359037935733795,
+      "relative_output_error": 0.002386661944910884,
+      "seconds": 4.372822999954224
+    },
+    "backbone.model.model.language_model.layers.2.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3328542113304138,
+      "relative_output_error": 0.002482264069840312,
+      "seconds": 4.435753583908081
+    },
+    "backbone.model.model.language_model.layers.2.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3356778025627136,
+      "relative_output_error": 0.0024563155602663755,
+      "seconds": 4.475212574005127
+    },
+    "backbone.model.model.language_model.layers.2.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.847564458847046e-08,
+      "relative_weight_error": 0.3353966772556305,
+      "relative_output_error": 0.006487361621111631,
+      "seconds": 4.34371542930603
+    },
+    "backbone.model.model.language_model.layers.3.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.34198251366615295,
+      "relative_output_error": 0.005028883460909128,
+      "seconds": 11.598968744277954
+    },
+    "backbone.model.model.language_model.layers.3.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.32747626304626465,
+      "relative_output_error": 0.0013132712338119745,
+      "seconds": 7.2628209590911865
+    },
+    "backbone.model.model.language_model.layers.3.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 7.290145731531084e-08,
+      "relative_weight_error": 0.3272463381290436,
+      "relative_output_error": 0.008461110293865204,
+      "seconds": 7.251002550125122
+    },
+    "backbone.model.model.language_model.layers.3.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.568167686462402e-08,
+      "relative_weight_error": 0.33078834414482117,
+      "relative_output_error": 0.003700865898281336,
+      "seconds": 4.3726959228515625
+    },
+    "backbone.model.model.language_model.layers.3.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3324471414089203,
+      "relative_output_error": 0.002474370878189802,
+      "seconds": 4.424036026000977
+    },
+    "backbone.model.model.language_model.layers.3.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.33065423369407654,
+      "relative_output_error": 0.00262364256195724,
+      "seconds": 4.450605392456055
+    },
+    "backbone.model.model.language_model.layers.3.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0058283805847168e-07,
+      "relative_weight_error": 0.33059293031692505,
+      "relative_output_error": 0.008135559968650341,
+      "seconds": 4.351318120956421
+    },
+    "backbone.model.model.language_model.layers.4.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.34506478905677795,
+      "relative_output_error": 0.005283299367874861,
+      "seconds": 11.590701341629028
+    },
+    "backbone.model.model.language_model.layers.4.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0411895345896482e-07,
+      "relative_weight_error": 0.3277674615383148,
+      "relative_output_error": 0.0013565177796408534,
+      "seconds": 7.270150661468506
+    },
+    "backbone.model.model.language_model.layers.4.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 7.162816473282874e-08,
+      "relative_weight_error": 0.32751524448394775,
+      "relative_output_error": 0.008442346937954426,
+      "seconds": 7.2591423988342285
+    },
+    "backbone.model.model.language_model.layers.4.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.313225746154785e-08,
+      "relative_weight_error": 0.32884421944618225,
+      "relative_output_error": 0.002800669288262725,
+      "seconds": 4.371936798095703
+    },
+    "backbone.model.model.language_model.layers.4.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.33030232787132263,
+      "relative_output_error": 0.002754857065156102,
+      "seconds": 4.437803030014038
+    },
+    "backbone.model.model.language_model.layers.4.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.32874149084091187,
+      "relative_output_error": 0.0027053961530327797,
+      "seconds": 4.434413194656372
+    },
+    "backbone.model.model.language_model.layers.4.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.173527359962463e-08,
+      "relative_weight_error": 0.3287699520587921,
+      "relative_output_error": 0.007994394749403,
+      "seconds": 4.366770267486572
+    },
+    "backbone.model.model.language_model.layers.5.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3418785035610199,
+      "relative_output_error": 0.005373513326048851,
+      "seconds": 11.576975107192993
+    },
+    "backbone.model.model.language_model.layers.5.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0009080142481253e-07,
+      "relative_weight_error": 0.32942235469818115,
+      "relative_output_error": 0.0027164097409695387,
+      "seconds": 7.312415599822998
+    },
+    "backbone.model.model.language_model.layers.5.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3293740749359131,
+      "relative_output_error": 0.008007769472897053,
+      "seconds": 7.2378621101379395
+    },
+    "backbone.model.model.language_model.layers.5.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.96515154838562e-08,
+      "relative_weight_error": 0.32946768403053284,
+      "relative_output_error": 0.0027306335978209972,
+      "seconds": 4.393348455429077
+    },
+    "backbone.model.model.language_model.layers.5.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3342273533344269,
+      "relative_output_error": 0.002559381304308772,
+      "seconds": 4.4136152267456055
+    },
+    "backbone.model.model.language_model.layers.5.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3292654752731323,
+      "relative_output_error": 0.002905250061303377,
+      "seconds": 4.441313028335571
+    },
+    "backbone.model.model.language_model.layers.5.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3294203281402588,
+      "relative_output_error": 0.007585436571389437,
+      "seconds": 4.3589794635772705
+    },
+    "backbone.model.model.language_model.layers.6.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3428104519844055,
+      "relative_output_error": 0.005316348280757666,
+      "seconds": 11.538623094558716
+    },
+    "backbone.model.model.language_model.layers.6.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.32831907272338867,
+      "relative_output_error": 0.0020362280774861574,
+      "seconds": 7.261409759521484
+    },
+    "backbone.model.model.language_model.layers.6.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 7.782978173054289e-08,
+      "relative_weight_error": 0.3282318413257599,
+      "relative_output_error": 0.007832668721675873,
+      "seconds": 7.300922870635986
+    },
+    "backbone.model.model.language_model.layers.6.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.568167686462402e-08,
+      "relative_weight_error": 0.33062687516212463,
+      "relative_output_error": 0.0030325159896165133,
+      "seconds": 4.39631724357605
+    },
+    "backbone.model.model.language_model.layers.6.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.339598685503006,
+      "relative_output_error": 0.0028527427930384874,
+      "seconds": 4.4601006507873535
+    },
+    "backbone.model.model.language_model.layers.6.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.33013975620269775,
+      "relative_output_error": 0.002019593957811594,
+      "seconds": 4.44741415977478
+    },
+    "backbone.model.model.language_model.layers.6.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0151416063308716e-07,
+      "relative_weight_error": 0.32943063974380493,
+      "relative_output_error": 0.008179337717592716,
+      "seconds": 4.328436851501465
+    },
+    "backbone.model.model.language_model.layers.7.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3403034806251526,
+      "relative_output_error": 0.004491025116294622,
+      "seconds": 11.537643432617188
+    },
+    "backbone.model.model.language_model.layers.7.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.611130735720508e-08,
+      "relative_weight_error": 0.32675349712371826,
+      "relative_output_error": 0.0015974113484844565,
+      "seconds": 7.277604579925537
+    },
+    "backbone.model.model.language_model.layers.7.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.362712833331898e-08,
+      "relative_weight_error": 0.3267134428024292,
+      "relative_output_error": 0.007154921069741249,
+      "seconds": 7.274101495742798
+    },
+    "backbone.model.model.language_model.layers.7.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.195638656616211e-08,
+      "relative_weight_error": 0.32786825299263,
+      "relative_output_error": 0.002380031393840909,
+      "seconds": 4.453093528747559
+    },
+    "backbone.model.model.language_model.layers.7.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.33187031745910645,
+      "relative_output_error": 0.0038337737787514925,
+      "seconds": 4.464040994644165
+    },
+    "backbone.model.model.language_model.layers.7.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3280622959136963,
+      "relative_output_error": 0.002186352154240012,
+      "seconds": 4.453277587890625
+    },
+    "backbone.model.model.language_model.layers.7.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.12696123123169e-08,
+      "relative_weight_error": 0.3276039659976959,
+      "relative_output_error": 0.008311865851283073,
+      "seconds": 4.384531021118164
+    },
+    "backbone.model.model.language_model.layers.8.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3433021903038025,
+      "relative_output_error": 0.0053107840940356255,
+      "seconds": 11.535152435302734
+    },
+    "backbone.model.model.language_model.layers.8.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3280017077922821,
+      "relative_output_error": 0.0020288696978241205,
+      "seconds": 7.27636981010437
+    },
+    "backbone.model.model.language_model.layers.8.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3279052972793579,
+      "relative_output_error": 0.007362141739577055,
+      "seconds": 7.237188339233398
+    },
+    "backbone.model.model.language_model.layers.8.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.381903171539307e-08,
+      "relative_weight_error": 0.32911235094070435,
+      "relative_output_error": 0.001614295644685626,
+      "seconds": 4.3723413944244385
+    },
+    "backbone.model.model.language_model.layers.8.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3247644603252411,
+      "relative_output_error": 0.0030832611955702305,
+      "seconds": 4.453673839569092
+    },
+    "backbone.model.model.language_model.layers.8.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3286418914794922,
+      "relative_output_error": 0.0018824011785909534,
+      "seconds": 4.480357885360718
+    },
+    "backbone.model.model.language_model.layers.8.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.0058283805847168e-07,
+      "relative_weight_error": 0.3284866213798523,
+      "relative_output_error": 0.004088337533175945,
+      "seconds": 4.342167615890503
+    },
+    "backbone.model.model.language_model.layers.9.mlp.down_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        6144
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3371076285839081,
+      "relative_output_error": 0.004617950413376093,
+      "seconds": 11.453501224517822
+    },
+    "backbone.model.model.language_model.layers.9.mlp.gate_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.32774868607521057,
+      "relative_output_error": 0.0021212564315646887,
+      "seconds": 7.267707824707031
+    },
+    "backbone.model.model.language_model.layers.9.mlp.up_proj": {
+      "payload_bytes": 3164164,
+      "trellis_bytes": 3145728,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        6144,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.3276660442352295,
+      "relative_output_error": 0.0061346907168626785,
+      "seconds": 7.263276815414429
+    },
+    "backbone.model.model.language_model.layers.9.self_attn.k_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 7.82310962677002e-08,
+      "relative_weight_error": 0.3269878029823303,
+      "relative_output_error": 0.002425252692773938,
+      "seconds": 4.396401405334473
+    },
+    "backbone.model.model.language_model.layers.9.self_attn.o_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 6.865423074486898e-08,
+      "relative_weight_error": 0.3391321301460266,
+      "relative_output_error": 0.005767722614109516,
+      "seconds": 4.4501259326934814
+    },
+    "backbone.model.model.language_model.layers.9.self_attn.q_proj": {
+      "payload_bytes": 1058820,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 8.940696716308594e-08,
+      "relative_weight_error": 0.32684415578842163,
+      "relative_output_error": 0.0016765652690082788,
+      "seconds": 4.463681936264038
+    },
+    "backbone.model.model.language_model.layers.9.self_attn.v_proj": {
+      "payload_bytes": 532484,
+      "trellis_bytes": 524288,
+      "sign_vector_bytes": 6144,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        2048
+      ],
+      "transform_roundtrip_max_abs": 9.220093488693237e-08,
+      "relative_weight_error": 0.326434463262558,
+      "relative_output_error": 0.007870580069720745,
+      "seconds": 4.3600194454193115
+    },
+    "backbone.model.model.visual.blocks.0.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.516914486885071e-08,
+      "relative_weight_error": 0.35049670934677124,
+      "relative_output_error": 0.0005065055447630584,
+      "seconds": 2.628608465194702
+    },
+    "backbone.model.model.visual.blocks.0.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 1.1920928955078125e-07,
+      "relative_weight_error": 0.3754820227622986,
+      "relative_output_error": 0.0008829854195937514,
+      "seconds": 2.705040216445923
+    },
+    "backbone.model.model.visual.blocks.0.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 7.59027898311615e-08,
+      "relative_weight_error": 0.39408138394355774,
+      "relative_output_error": 0.0010954661993309855,
+      "seconds": 2.7364256381988525
+    },
+    "backbone.model.model.visual.blocks.0.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.494803190231323e-08,
+      "relative_weight_error": 0.3766116797924042,
+      "relative_output_error": 0.0007742888992652297,
+      "seconds": 7.831321954727173
+    },
+    "backbone.model.model.visual.blocks.1.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.34701043367385864,
+      "relative_output_error": 0.0006315690116025507,
+      "seconds": 2.614314556121826
+    },
+    "backbone.model.model.visual.blocks.1.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3501794934272766,
+      "relative_output_error": 0.0011274941498413682,
+      "seconds": 2.6865336894989014
+    },
+    "backbone.model.model.visual.blocks.1.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.3551048040390015e-08,
+      "relative_weight_error": 0.3843790888786316,
+      "relative_output_error": 0.0022420131135731936,
+      "seconds": 2.7325403690338135
+    },
+    "backbone.model.model.visual.blocks.1.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 6.426125764846802e-08,
+      "relative_weight_error": 0.3712896406650543,
+      "relative_output_error": 0.0007022363715805113,
+      "seconds": 7.816848993301392
+    },
+    "backbone.model.model.visual.blocks.10.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.842877388000488e-08,
+      "relative_weight_error": 0.34389129281044006,
+      "relative_output_error": 0.007277705240994692,
+      "seconds": 2.6265223026275635
+    },
+    "backbone.model.model.visual.blocks.10.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.208510517855757e-08,
+      "relative_weight_error": 0.3372662663459778,
+      "relative_output_error": 0.0064443135634064674,
+      "seconds": 2.692098617553711
+    },
+    "backbone.model.model.visual.blocks.10.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.8673322200775146e-08,
+      "relative_weight_error": 0.3290126323699951,
+      "relative_output_error": 0.00932338647544384,
+      "seconds": 2.720014810562134
+    },
+    "backbone.model.model.visual.blocks.10.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.494803190231323e-08,
+      "relative_weight_error": 0.35685333609580994,
+      "relative_output_error": 0.001132708741351962,
+      "seconds": 7.776479244232178
+    },
+    "backbone.model.model.visual.blocks.11.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.3318217396736145e-08,
+      "relative_weight_error": 0.3440258204936981,
+      "relative_output_error": 0.009460151195526123,
+      "seconds": 2.6075174808502197
+    },
+    "backbone.model.model.visual.blocks.11.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.921468305634335e-08,
+      "relative_weight_error": 0.3315783143043518,
+      "relative_output_error": 0.00818996038287878,
+      "seconds": 2.6745519638061523
+    },
+    "backbone.model.model.visual.blocks.11.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.541369318962097e-08,
+      "relative_weight_error": 0.3279961347579956,
+      "relative_output_error": 0.014466788619756699,
+      "seconds": 2.7325148582458496
+    },
+    "backbone.model.model.visual.blocks.11.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.3085386753082275e-08,
+      "relative_weight_error": 0.3456498086452484,
+      "relative_output_error": 0.0017756085144355893,
+      "seconds": 7.7521867752075195
+    },
+    "backbone.model.model.visual.blocks.12.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.563480615615845e-08,
+      "relative_weight_error": 0.33759140968322754,
+      "relative_output_error": 0.00838196836411953,
+      "seconds": 2.581343173980713
+    },
+    "backbone.model.model.visual.blocks.12.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.884360921801999e-08,
+      "relative_weight_error": 0.3277142643928528,
+      "relative_output_error": 0.007479442749172449,
+      "seconds": 2.706545829772949
+    },
+    "backbone.model.model.visual.blocks.12.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.3085386753082275e-08,
+      "relative_weight_error": 0.3249272108078003,
+      "relative_output_error": 0.013456636108458042,
+      "seconds": 2.7024524211883545
+    },
+    "backbone.model.model.visual.blocks.12.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.634501576423645e-08,
+      "relative_weight_error": 0.3493598699569702,
+      "relative_output_error": 0.002895240904763341,
+      "seconds": 7.741878986358643
+    },
+    "backbone.model.model.visual.blocks.13.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.842877388000488e-08,
+      "relative_weight_error": 0.3395741581916809,
+      "relative_output_error": 0.009982524439692497,
+      "seconds": 2.6265807151794434
+    },
+    "backbone.model.model.visual.blocks.13.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.644322532636579e-08,
+      "relative_weight_error": 0.32695138454437256,
+      "relative_output_error": 0.008624708279967308,
+      "seconds": 2.6475472450256348
+    },
+    "backbone.model.model.visual.blocks.13.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.145557224750519e-08,
+      "relative_weight_error": 0.3257371485233307,
+      "relative_output_error": 0.009993254207074642,
+      "seconds": 2.699732542037964
+    },
+    "backbone.model.model.visual.blocks.13.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.494803190231323e-08,
+      "relative_weight_error": 0.3495042324066162,
+      "relative_output_error": 0.003573876805603504,
+      "seconds": 7.701933860778809
+    },
+    "backbone.model.model.visual.blocks.14.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.563480615615845e-08,
+      "relative_weight_error": 0.33591654896736145,
+      "relative_output_error": 0.008019369095563889,
+      "seconds": 2.6091792583465576
+    },
+    "backbone.model.model.visual.blocks.14.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.658169589471072e-08,
+      "relative_weight_error": 0.3247636556625366,
+      "relative_output_error": 0.010010127909481525,
+      "seconds": 2.6565306186676025
+    },
+    "backbone.model.model.visual.blocks.14.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.3551048040390015e-08,
+      "relative_weight_error": 0.3316076695919037,
+      "relative_output_error": 0.004431882873177528,
+      "seconds": 2.66921329498291
+    },
+    "backbone.model.model.visual.blocks.14.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.21540641784668e-08,
+      "relative_weight_error": 0.36820271611213684,
+      "relative_output_error": 0.010757011361420155,
+      "seconds": 7.686252117156982
+    },
+    "backbone.model.model.visual.blocks.15.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.21540641784668e-08,
+      "relative_weight_error": 0.3393956124782562,
+      "relative_output_error": 0.0066374922171235085,
+      "seconds": 2.571388006210327
+    },
+    "backbone.model.model.visual.blocks.15.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.560671757441014e-08,
+      "relative_weight_error": 0.3205007314682007,
+      "relative_output_error": 0.011276902630925179,
+      "seconds": 2.6857612133026123
+    },
+    "backbone.model.model.visual.blocks.15.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.587935447692871e-08,
+      "relative_weight_error": 0.3320061266422272,
+      "relative_output_error": 0.0032745494972914457,
+      "seconds": 2.7148962020874023
+    },
+    "backbone.model.model.visual.blocks.15.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.587935447692871e-08,
+      "relative_weight_error": 0.3731117248535156,
+      "relative_output_error": 0.0068613383919000626,
+      "seconds": 7.7140116691589355
+    },
+    "backbone.model.model.visual.blocks.16.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.168840289115906e-08,
+      "relative_weight_error": 0.3389091193675995,
+      "relative_output_error": 0.010028719902038574,
+      "seconds": 2.565436363220215
+    },
+    "backbone.model.model.visual.blocks.16.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.757304511964321e-08,
+      "relative_weight_error": 0.31856557726860046,
+      "relative_output_error": 0.012973197735846043,
+      "seconds": 2.6535539627075195
+    },
+    "backbone.model.model.visual.blocks.16.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.727633833885193e-08,
+      "relative_weight_error": 0.3300495445728302,
+      "relative_output_error": 0.003036299254745245,
+      "seconds": 2.750311851501465
+    },
+    "backbone.model.model.visual.blocks.16.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.587935447692871e-08,
+      "relative_weight_error": 0.37329307198524475,
+      "relative_output_error": 0.008392781019210815,
+      "seconds": 7.774359226226807
+    },
+    "backbone.model.model.visual.blocks.17.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.2619725465774536e-08,
+      "relative_weight_error": 0.33157747983932495,
+      "relative_output_error": 0.006675065960735083,
+      "seconds": 2.603752613067627
+    },
+    "backbone.model.model.visual.blocks.17.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.838204065687023e-08,
+      "relative_weight_error": 0.3167780935764313,
+      "relative_output_error": 0.013833116739988327,
+      "seconds": 2.6385855674743652
+    },
+    "backbone.model.model.visual.blocks.17.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.727633833885193e-08,
+      "relative_weight_error": 0.3278040289878845,
+      "relative_output_error": 0.003080387832596898,
+      "seconds": 2.7021484375
+    },
+    "backbone.model.model.visual.blocks.17.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3715980052947998,
+      "relative_output_error": 0.007341955788433552,
+      "seconds": 7.6747095584869385
+    },
+    "backbone.model.model.visual.blocks.18.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.21540641784668e-08,
+      "relative_weight_error": 0.34043368697166443,
+      "relative_output_error": 0.0033366067800670862,
+      "seconds": 2.5970630645751953
+    },
+    "backbone.model.model.visual.blocks.18.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.6249275581212714e-08,
+      "relative_weight_error": 0.3155145049095154,
+      "relative_output_error": 0.013363894075155258,
+      "seconds": 2.641986131668091
+    },
+    "backbone.model.model.visual.blocks.18.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.51808625459671e-08,
+      "relative_weight_error": 0.3280279338359833,
+      "relative_output_error": 0.0026451407466083765,
+      "seconds": 2.6587741374969482
+    },
+    "backbone.model.model.visual.blocks.18.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.681067705154419e-08,
+      "relative_weight_error": 0.3683808147907257,
+      "relative_output_error": 0.008057083003222942,
+      "seconds": 7.673497438430786
+    },
+    "backbone.model.model.visual.blocks.19.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.4016709327697754e-08,
+      "relative_weight_error": 0.34351885318756104,
+      "relative_output_error": 0.004704502876847982,
+      "seconds": 2.589456796646118
+    },
+    "backbone.model.model.visual.blocks.19.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.1083694668486714e-08,
+      "relative_weight_error": 0.3156012296676636,
+      "relative_output_error": 0.013533632270991802,
+      "seconds": 2.6615819931030273
+    },
+    "backbone.model.model.visual.blocks.19.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.774199962615967e-08,
+      "relative_weight_error": 0.3272375464439392,
+      "relative_output_error": 0.002493963809683919,
+      "seconds": 2.6453704833984375
+    },
+    "backbone.model.model.visual.blocks.19.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.3543328642845154,
+      "relative_output_error": 0.006508455146104097,
+      "seconds": 7.681923866271973
+    },
+    "backbone.model.model.visual.blocks.2.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.818422555923462e-08,
+      "relative_weight_error": 0.3601868450641632,
+      "relative_output_error": 0.0016439318424090743,
+      "seconds": 2.5540356636047363
+    },
+    "backbone.model.model.visual.blocks.2.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.7624780563637614e-08,
+      "relative_weight_error": 0.36265629529953003,
+      "relative_output_error": 0.001630726852454245,
+      "seconds": 2.6386945247650146
+    },
+    "backbone.model.model.visual.blocks.2.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.096647560596466e-08,
+      "relative_weight_error": 0.39299750328063965,
+      "relative_output_error": 0.004551826510578394,
+      "seconds": 2.7647879123687744
+    },
+    "backbone.model.model.visual.blocks.2.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 7.35744833946228e-08,
+      "relative_weight_error": 0.39194050431251526,
+      "relative_output_error": 0.0013705382589250803,
+      "seconds": 7.706255912780762
+    },
+    "backbone.model.model.visual.blocks.20.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.634501576423645e-08,
+      "relative_weight_error": 0.3391643464565277,
+      "relative_output_error": 0.0031571665313094854,
+      "seconds": 2.5561230182647705
+    },
+    "backbone.model.model.visual.blocks.20.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.969626050093211e-08,
+      "relative_weight_error": 0.3156687915325165,
+      "relative_output_error": 0.013546396046876907,
+      "seconds": 2.640901565551758
+    },
+    "backbone.model.model.visual.blocks.20.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.774199962615967e-08,
+      "relative_weight_error": 0.324831485748291,
+      "relative_output_error": 0.0025364169850945473,
+      "seconds": 2.7314138412475586
+    },
+    "backbone.model.model.visual.blocks.20.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 6.05359673500061e-08,
+      "relative_weight_error": 0.35252681374549866,
+      "relative_output_error": 0.004673691466450691,
+      "seconds": 7.646282196044922
+    },
+    "backbone.model.model.visual.blocks.21.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.75091689825058e-08,
+      "relative_weight_error": 0.3377658426761627,
+      "relative_output_error": 0.0029298076406121254,
+      "seconds": 2.5868263244628906
+    },
+    "backbone.model.model.visual.blocks.21.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.034961875731824e-08,
+      "relative_weight_error": 0.31604117155075073,
+      "relative_output_error": 0.009852965362370014,
+      "seconds": 2.622525691986084
+    },
+    "backbone.model.model.visual.blocks.21.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.727633833885193e-08,
+      "relative_weight_error": 0.32078009843826294,
+      "relative_output_error": 0.0024922348093241453,
+      "seconds": 2.633958578109741
+    },
+    "backbone.model.model.visual.blocks.21.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 6.100162863731384e-08,
+      "relative_weight_error": 0.33854952454566956,
+      "relative_output_error": 0.00323659460991621,
+      "seconds": 7.610569715499878
+    },
+    "backbone.model.model.visual.blocks.22.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.34397032856941223,
+      "relative_output_error": 0.002535055624321103,
+      "seconds": 2.5333285331726074
+    },
+    "backbone.model.model.visual.blocks.22.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.573212208924815e-08,
+      "relative_weight_error": 0.31924405694007874,
+      "relative_output_error": 0.009601643308997154,
+      "seconds": 2.652012348175049
+    },
+    "backbone.model.model.visual.blocks.22.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.494803190231323e-08,
+      "relative_weight_error": 0.31744471192359924,
+      "relative_output_error": 0.0030564465560019016,
+      "seconds": 2.6769797801971436
+    },
+    "backbone.model.model.visual.blocks.22.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 6.705522537231445e-08,
+      "relative_weight_error": 0.3548720180988312,
+      "relative_output_error": 0.004586250055581331,
+      "seconds": 7.636994123458862
+    },
+    "backbone.model.model.visual.blocks.23.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 7.916241884231567e-08,
+      "relative_weight_error": 0.33789998292922974,
+      "relative_output_error": 0.0010521142976358533,
+      "seconds": 2.5350396633148193
+    },
+    "backbone.model.model.visual.blocks.23.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.917058049613843e-08,
+      "relative_weight_error": 0.32183802127838135,
+      "relative_output_error": 0.007957628928124905,
+      "seconds": 2.6707913875579834
+    },
+    "backbone.model.model.visual.blocks.23.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.4016709327697754e-08,
+      "relative_weight_error": 0.319706529378891,
+      "relative_output_error": 0.00245953188277781,
+      "seconds": 2.664829969406128
+    },
+    "backbone.model.model.visual.blocks.23.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 6.658956408500671e-08,
+      "relative_weight_error": 0.2801753580570221,
+      "relative_output_error": 3.7165133107919246e-05,
+      "seconds": 7.62134861946106
+    },
+    "backbone.model.model.visual.blocks.3.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.842877388000488e-08,
+      "relative_weight_error": 0.36426177620887756,
+      "relative_output_error": 0.003031649859622121,
+      "seconds": 2.5674126148223877
+    },
+    "backbone.model.model.visual.blocks.3.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.35667091608047485,
+      "relative_output_error": 0.0026954831555485725,
+      "seconds": 2.5974810123443604
+    },
+    "backbone.model.model.visual.blocks.3.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.5390257835388184e-08,
+      "relative_weight_error": 0.36465975642204285,
+      "relative_output_error": 0.0038452078588306904,
+      "seconds": 2.669668674468994
+    },
+    "backbone.model.model.visual.blocks.3.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 7.82310962677002e-08,
+      "relative_weight_error": 0.37936732172966003,
+      "relative_output_error": 0.0015831697965040803,
+      "seconds": 7.56256103515625
+    },
+    "backbone.model.model.visual.blocks.4.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.122274160385132e-08,
+      "relative_weight_error": 0.37053975462913513,
+      "relative_output_error": 0.00401386758312583,
+      "seconds": 2.524649143218994
+    },
+    "backbone.model.model.visual.blocks.4.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.788181857089512e-08,
+      "relative_weight_error": 0.34397631883621216,
+      "relative_output_error": 0.0025406666100025177,
+      "seconds": 2.6275038719177246
+    },
+    "backbone.model.model.visual.blocks.4.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.470348358154297e-08,
+      "relative_weight_error": 0.35775259137153625,
+      "relative_output_error": 0.00547103863209486,
+      "seconds": 2.6656224727630615
+    },
+    "backbone.model.model.visual.blocks.4.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 6.146728992462158e-08,
+      "relative_weight_error": 0.38475164771080017,
+      "relative_output_error": 0.003384329378604889,
+      "seconds": 7.563616037368774
+    },
+    "backbone.model.model.visual.blocks.5.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.7497451305389404e-08,
+      "relative_weight_error": 0.35686326026916504,
+      "relative_output_error": 0.00543237803503871,
+      "seconds": 2.5188252925872803
+    },
+    "backbone.model.model.visual.blocks.5.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.046523827128112e-08,
+      "relative_weight_error": 0.3375647962093353,
+      "relative_output_error": 0.0029706230852752924,
+      "seconds": 2.571958541870117
+    },
+    "backbone.model.model.visual.blocks.5.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.21540641784668e-08,
+      "relative_weight_error": 0.347329318523407,
+      "relative_output_error": 0.005461915396153927,
+      "seconds": 2.6630070209503174
+    },
+    "backbone.model.model.visual.blocks.5.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.960464477539063e-08,
+      "relative_weight_error": 0.38420596718788147,
+      "relative_output_error": 0.004317983519285917,
+      "seconds": 7.551374435424805
+    },
+    "backbone.model.model.visual.blocks.6.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.4016709327697754e-08,
+      "relative_weight_error": 0.36981460452079773,
+      "relative_output_error": 0.007648107595741749,
+      "seconds": 2.5881476402282715
+    },
+    "backbone.model.model.visual.blocks.6.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.680349891510559e-08,
+      "relative_weight_error": 0.33900728821754456,
+      "relative_output_error": 0.005769421346485615,
+      "seconds": 2.601123094558716
+    },
+    "backbone.model.model.visual.blocks.6.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.8673322200775146e-08,
+      "relative_weight_error": 0.33703190088272095,
+      "relative_output_error": 0.005478162784129381,
+      "seconds": 2.66090726852417
+    },
+    "backbone.model.model.visual.blocks.6.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.774199962615967e-08,
+      "relative_weight_error": 0.37326258420944214,
+      "relative_output_error": 0.0031874128617346287,
+      "seconds": 7.600178241729736
+    },
+    "backbone.model.model.visual.blocks.7.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.3085386753082275e-08,
+      "relative_weight_error": 0.3472684621810913,
+      "relative_output_error": 0.009256526827812195,
+      "seconds": 2.5643510818481445
+    },
+    "backbone.model.model.visual.blocks.7.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.8539837987627834e-08,
+      "relative_weight_error": 0.33849748969078064,
+      "relative_output_error": 0.004614539910107851,
+      "seconds": 2.609661102294922
+    },
+    "backbone.model.model.visual.blocks.7.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.681067705154419e-08,
+      "relative_weight_error": 0.33411386609077454,
+      "relative_output_error": 0.010031318292021751,
+      "seconds": 2.6367080211639404
+    },
+    "backbone.model.model.visual.blocks.7.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.122274160385132e-08,
+      "relative_weight_error": 0.36929795145988464,
+      "relative_output_error": 0.0029528560116887093,
+      "seconds": 7.548583507537842
+    },
+    "backbone.model.model.visual.blocks.8.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 4.7497451305389404e-08,
+      "relative_weight_error": 0.35027170181274414,
+      "relative_output_error": 0.009464343078434467,
+      "seconds": 2.522507429122925
+    },
+    "backbone.model.model.visual.blocks.8.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.850709617836401e-08,
+      "relative_weight_error": 0.3393500745296478,
+      "relative_output_error": 0.004225455224514008,
+      "seconds": 2.6147000789642334
+    },
+    "backbone.model.model.visual.blocks.8.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.541369318962097e-08,
+      "relative_weight_error": 0.33657246828079224,
+      "relative_output_error": 0.008630833588540554,
+      "seconds": 2.6839280128479004
+    },
+    "backbone.model.model.visual.blocks.8.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.4016709327697754e-08,
+      "relative_weight_error": 0.37065884470939636,
+      "relative_output_error": 0.00408713985234499,
+      "seconds": 7.592722415924072
+    },
+    "backbone.model.model.visual.blocks.9.attn.proj": {
+      "payload_bytes": 268292,
+      "trellis_bytes": 262144,
+      "sign_vector_bytes": 4096,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.029141902923584e-08,
+      "relative_weight_error": 0.3428325951099396,
+      "relative_output_error": 0.010625761933624744,
+      "seconds": 2.5396347045898438
+    },
+    "backbone.model.model.visual.blocks.9.attn.qkv": {
+      "payload_bytes": 796676,
+      "trellis_bytes": 786432,
+      "sign_vector_bytes": 8192,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        3072,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 3.9064616430550814e-08,
+      "relative_weight_error": 0.3386511504650116,
+      "relative_output_error": 0.0064288415014743805,
+      "seconds": 2.618370771408081
+    },
+    "backbone.model.model.visual.blocks.9.mlp.linear_fc1": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        1024
+      ],
+      "transform_roundtrip_max_abs": 5.681067705154419e-08,
+      "relative_weight_error": 0.3286260664463043,
+      "relative_output_error": 0.011653252877295017,
+      "seconds": 2.683319330215454
+    },
+    "backbone.model.model.visual.blocks.9.mlp.linear_fc2": {
+      "payload_bytes": 1060868,
+      "trellis_bytes": 1048576,
+      "sign_vector_bytes": 10240,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        1024,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.21540641784668e-08,
+      "relative_weight_error": 0.36782824993133545,
+      "relative_output_error": 0.003622720018029213,
+      "seconds": 7.614217281341553
+    },
+    "backbone.model.model.visual.deepstack_merger_list.0.linear_fc1": {
+      "payload_bytes": 4212740,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.51808625459671e-08,
+      "relative_weight_error": 0.3370639979839325,
+      "relative_output_error": 0.0005700452020391822,
+      "seconds": 8.142112016677856
+    },
+    "backbone.model.model.visual.deepstack_merger_list.0.linear_fc2": {
+      "payload_bytes": 2111492,
+      "trellis_bytes": 2097152,
+      "sign_vector_bytes": 12288,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 2.4849214241839945e-08,
+      "relative_weight_error": 0.35585731267929077,
+      "relative_output_error": 0.0015551483957096934,
+      "seconds": 7.79915714263916
+    },
+    "backbone.model.model.visual.deepstack_merger_list.1.linear_fc1": {
+      "payload_bytes": 4212740,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.4016709327697754e-08,
+      "relative_weight_error": 0.33519771695137024,
+      "relative_output_error": 0.002452474320307374,
+      "seconds": 8.130440950393677
+    },
+    "backbone.model.model.visual.deepstack_merger_list.1.linear_fc2": {
+      "payload_bytes": 2111492,
+      "trellis_bytes": 2097152,
+      "sign_vector_bytes": 12288,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 2.0927018340444192e-08,
+      "relative_weight_error": 0.35855695605278015,
+      "relative_output_error": 0.010182065889239311,
+      "seconds": 7.772223949432373
+    },
+    "backbone.model.model.visual.deepstack_merger_list.2.linear_fc1": {
+      "payload_bytes": 4212740,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.587935447692871e-08,
+      "relative_weight_error": 0.3273603618144989,
+      "relative_output_error": 0.0036381015088409185,
+      "seconds": 8.099268198013306
+    },
+    "backbone.model.model.visual.deepstack_merger_list.2.linear_fc2": {
+      "payload_bytes": 2111492,
+      "trellis_bytes": 2097152,
+      "sign_vector_bytes": 12288,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 3.176046448061243e-08,
+      "relative_weight_error": 0.35340893268585205,
+      "relative_output_error": 0.006552820093929768,
+      "seconds": 7.78228759765625
+    },
+    "backbone.model.model.visual.merger.linear_fc1": {
+      "payload_bytes": 4212740,
+      "trellis_bytes": 4194304,
+      "sign_vector_bytes": 16384,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        4096,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 5.2619725465774536e-08,
+      "relative_weight_error": 0.33901160955429077,
+      "relative_output_error": 0.004068178124725819,
+      "seconds": 8.09954571723938
+    },
+    "backbone.model.model.visual.merger.linear_fc2": {
+      "payload_bytes": 2111492,
+      "trellis_bytes": 2097152,
+      "sign_vector_bytes": 12288,
+      "wscale_bytes": 4,
+      "tlut_bytes": 2048,
+      "padded_shape": [
+        2048,
+        4096
+      ],
+      "transform_roundtrip_max_abs": 2.1516825654543936e-08,
+      "relative_weight_error": 0.3331972360610962,
+      "relative_output_error": 0.002083868021145463,
+      "seconds": 7.7801477909088135
+    }
+  },
+  "linear_payload_bytes": 304579424
+}
