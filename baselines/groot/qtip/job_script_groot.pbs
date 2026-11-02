@@ -1,0 +1,163 @@
+#!/bin/bash
+#PBS -N gr_job
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=15:00:00
+#PBS -j oe
+# One GR00T N1.7 job: runs the tasks in $TASKS (names joined by +) back to back. A task is  kind__row[__key]:
+#   prepare                      official checkpoints -> $GRUN/checkpoints (groot/prepare_checkpoints.py)
+#   calibrate                    shared 256-observation calibration + layer export ($GRUN/calibration, $GRUN/layers)
+#   q__<row>                     GPTQ / AWQ, 2 bits, group 128 (groot/quantize.py)
+#   qk__<row>__<key>             one layer set of VPTQ / AQLM / QuIP# / QTIP (key = backbone | head_<suite>); the π0.5 quantizers, unchanged
+#   imp__<row>                   the five layer sets -> four per-suite fake-quant checkpoints ($GRUN/ckpt/<row>)
+#   sn__<row>                    sanity sample: first 50 libero_spatial units, gate as decision 17
+#   ev__<row>                    LIBERO-Plus 1000 with run_plus.py, then paired statistics vs FP and vs our 2-bit PTQ
+# Rows: fp (prepared checkpoints, run on this GPU), gptq_w2, awq_w2, vptq_w2, aqlm_w2, quip_w2 (no tuning sweeps), quip10_w2 (official 10 sweeps), qtip_w2.
+# A task finishes by touching $GRUN/tasks/<task>.done; $GRUN/jobs/$PBS_JOBID.progress records start/end of every task.
+set -uo pipefail
+: "${GRUN:?}" "${TASKS:?}" "${SRC:?}"
+HANDOVER=/home/d250009/projects/pi05-handover
+OPENPI_ROOT=/home/d250009/projects/openpi
+PY_O="$OPENPI_ROOT/.venv/bin/python"                # the π0.5 harness interpreter: external quantizers, simulator client
+PY_G="$HANDOVER/runs/envs/groot/bin/python"         # GR00T environment (Isaac-GR00T at the pinned commit)
+VPTQ_REPO=$HANDOVER/runs/toolkits/VPTQ
+AQLM_REPO=$HANDOVER/runs/toolkits/AQLM
+QUIP_REPO=$HANDOVER/runs/toolkits/quip-sharp
+QTIP_REPO=$HANDOVER/runs/toolkits/qtip
+G=$GRUN
+JOB=${PBS_JOBID:-local}
+mkdir -p "$G/logs"; exec >> "$G/logs/$JOB.log" 2>&1   # PBS does not return the output files of this job from scratch; keep our own log (no set -x: the token is in the environment)
+PROGRESS=$G/jobs/$JOB.progress
+mkdir -p "$G/tasks" "$G/jobs" "$G/logs" "$G/sanity" "$G/stopped" "$G/eval" "$G/ckpt" "$G/q" "$G/paired"
+export HF_TOKEN="$(cat "$HOME/.hf_token")" HF_HOME="$G/hf" HF_HUB_DISABLE_TELEMETRY=1 OMP_NUM_THREADS=8 PYTHONUNBUFFERED=1
+export MUJOCO_GL=egl MAGICK_HOME="$HANDOVER/runs/envs/libero-plus/imagemagick" LD_LIBRARY_PATH="$HANDOVER/runs/envs/libero-plus/imagemagick/lib:${LD_LIBRARY_PATH:-}"
+export OPENPI_CLIENT_MSGPACK="$OPENPI_ROOT/packages/openpi-client/src/openpi_client/msgpack_numpy.py"
+export SRC
+if command -v nvidia-smi >/dev/null && [[ -n "${CUDA_VISIBLE_DEVICES:-}" ]]; then
+  MUJOCO_EGL_DEVICE_ID=$(nvidia-smi -i "$CUDA_VISIBLE_DEVICES" --query-gpu=index --format=csv,noheader | tr -d '[:space:]'); export MUJOCO_EGL_DEVICE_ID
+  GPU_NAME=$(nvidia-smi --query-gpu=name --format=csv,noheader | head -1)
+else
+  GPU_NAME=none
+fi
+echo "job $JOB on $(hostname), GPU: $GPU_NAME, $(date -Is), tasks: $TASKS"
+note() { echo -e "$1\t$2\t$(date -Is)" >> "$PROGRESS"; }
+
+method_of() { local m=${1%_w2}; [[ $m == quip10 ]] && m=quip; echo "$m"; }
+suite_of() { [[ $1 == backbone ]] && echo libero_spatial || echo "${1#head_}"; }
+ckpt_of() { [[ $1 == fp ]] && echo "$G/checkpoints" || echo "$G/ckpt/$1"; }
+
+t_prepare() { cd "$SRC/groot" && "$PY_G" prepare_checkpoints.py --out "$G/checkpoints" --hf-cache "$G/hf"; }
+
+t_calibrate() {
+  cd "$SRC/groot" || return 1
+  [[ -s "$G/calibration/backbone/index.json" && -s "$G/calibration/head_libero_10/index.json" ]] || \
+    "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --out "$G/calibration" --hf-cache "$HANDOVER/runs/cache/libero-calibration" || return 1
+  "$PY_G" export_layers.py --checkpoints "$G/checkpoints" --calibration "$G/calibration" --out "$G/layers"
+}
+
+t_q() {   # t_q <row>: GPTQ or AWQ
+  local row=$1 m; m=$(method_of "$row")
+  cd "$SRC/groot" && "$PY_G" quantize.py --method "$m" --group 128 --checkpoints "$G/checkpoints" --calibration "$G/calibration" --out "$G/ckpt/$row"
+}
+
+t_qk() {   # t_qk <row> <key>
+  local row=$1 key=$2 m suite out; m=$(method_of "$row"); suite=$(suite_of "$key"); out="$G/q/$row/$key"
+  local common=(--layers "$G/layers/$key" --calibration "$G/calibration/$key" --checkpoint "$G/checkpoints/$suite" --out "$out")
+  cd "$SRC" || return 1
+  case "$m" in
+    vptq)
+      [[ "$(git -C "$VPTQ_REPO" rev-parse HEAD)" == 5a8dfb93d2a7475151f66c559a44e057fe5322f9 ]] || { echo "VPTQ commit changed" >&2; return 3; }
+      local vsite="$HANDOVER/runs/envs/vptq/site-packages" osite="$OPENPI_ROOT/.venv/lib/python3.11/site-packages"
+      LD_LIBRARY_PATH="$(ls -d "$osite"/nvidia/*/lib | tr '\n' ':')$vsite/libcudf/lib64:$vsite/libkvikio/lib64:$vsite/nvidia/nvcomp:$vsite/libcudf_cu12.libs:$vsite/cuml_cu12.libs:/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
+      PYTHONPATH="$SRC:$VPTQ_REPO:$vsite:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
+        "$PY_O" quantize_vptq.py --bits 2 "${common[@]}" --vptq-repo "$VPTQ_REPO" ;;
+    aqlm)
+      [[ "$(git -C "$AQLM_REPO" rev-parse HEAD)" == e79a896ed6656fe4ed06193d42d004e7d0bbdbb2 ]] || { echo "AQLM commit changed" >&2; return 3; }
+      local waited=0   # several jobs may share a layer set; wait for the last layers of the others
+      while :; do
+        PYTHONPATH="$SRC:$AQLM_REPO:$OPENPI_ROOT" "$PY_O" quantize_aqlm.py --bits 2 "${common[@]}" --aqlm-repo "$AQLM_REPO" || return 1
+        [[ -s "$out/accounting.json" ]] && break
+        (( waited >= 7200 )) && { echo "AQLM layers of $row/$key still incomplete" >&2; return 1; }
+        sleep 60; waited=$((waited + 60))
+      done ;;
+    quip|qtip)
+      local repo=$QUIP_REPO commit=1d8f873e9a2a8b86b12bb1064c312c5689b77d98 extra=()
+      [[ $m == qtip ]] && repo=$QTIP_REPO commit=e90c6688c8dfae326a3a81b5eb032db7c6680ec0
+      [[ $row == quip_w2 ]] && extra=(--tune-iters 0)     # main row: without tuning sweeps; quip10_w2 is the official 10-sweep row
+      [[ "$(git -C "$repo" rev-parse HEAD)" == "$commit" ]] || { echo "$m commit changed" >&2; return 3; }
+      LD_LIBRARY_PATH="/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
+      PYTHONPATH="$SRC:$repo:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
+        "$PY_O" "quantize_$m.py" "${common[@]}" "--$m-repo" "$repo" --bits 2 "${extra[@]}" ;;
+    *) echo "no quantizer for $m" >&2; return 2 ;;
+  esac
+  [[ -s "$out/accounting.json" ]]
+}
+
+t_imp() {   # t_imp <row>
+  local row=$1
+  cd "$SRC/groot" && "$PY_G" import_external.py --checkpoints "$G/checkpoints" --quantized "$G/q/$row" --out "$G/ckpt/$row" || return 1
+  "$PY_G" - "$G/ckpt/$row" "$SRC" "$row" <<'PY'
+import json, sys
+from pathlib import Path
+out, src, row = sys.argv[1:]
+for suite in ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10'):
+    p = Path(out) / suite / 'quant.json'
+    q = json.loads(p.read_text())
+    q['source_snapshot'] = src
+    q['baseline_git_head'] = (Path(src) / 'GIT_HEAD').read_text().strip()
+    q['row'] = row
+    p.write_text(json.dumps(q, indent=2))
+q = json.loads((Path(out) / 'libero_spatial' / 'quant.json').read_text())
+print(json.dumps({k: q.get(k) for k in ('method', 'bits_nominal', 'quantizable_linear_bpw', 'whole_model_bpw')}))
+PY
+}
+
+run_plus() {   # run_plus <checkpoints> <units|-> <out>
+  local ck=$1 units=$2 out=$3 extra=()
+  [[ $units != - ]] && extra=(--units "$units")
+  cd "$SRC/groot" && "$PY_G" run_plus.py --checkpoints "$ck" "${extra[@]}" --out "$out" --groot-python "$PY_G" --plus-python "$SRC/groot/jobs/plus_python.sh"
+}
+
+t_sn() {   # t_sn <row>
+  local row=$1 ck; ck=$(ckpt_of "$row")
+  [[ -s "$G/sanity50.json" ]] || "$PY_G" - "$SRC" "$G/sanity50.json" <<'PY'
+import json, sys
+src, out = sys.argv[1:]
+units = json.load(open(f'{src}/data/plus_units_selection_1000.json'))['units']
+json.dump({'description': 'first 50 libero_spatial units of the Plus 1000 (sanity gate, decision 17)', 'units': [u for u in units if u['suite'] == 'libero_spatial'][:50]}, open(out, 'w'))
+PY
+  rm -f "$G/sanity/$row.plus.jsonl"
+  run_plus "$ck" "$G/sanity50.json" "$G/sanity/$row.plus.jsonl" || return 1
+  "$PY_G" "$SRC/groot/jobs/gate.py" --row "$row" --candidate "$G/sanity/$row.plus.jsonl" --reference "$SRC/groot/data/reference/groot_fp.plus_1000.jsonl" --stopped-dir "$G/stopped" --out "$G/sanity/$row.json"
+}
+
+t_ev() {   # t_ev <row>
+  local row=$1 ck out; ck=$(ckpt_of "$row"); out="$G/eval/$row"
+  mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
+  run_plus "$ck" - "$out/plus_1000.jsonl" || return 1
+  cd "$SRC" || return 1
+  local refs="$SRC/groot/data/reference"
+  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$refs/groot_fp.plus_1000.jsonl" > "$G/paired/${row}_vs_fp_reference.json"
+  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$refs/groot_2bit_ours_ptq.plus_1000.jsonl" > "$G/paired/${row}_vs_ours_2bit_ptq.json"
+  [[ -s "$G/eval/fp/plus_1000.jsonl" && $row != fp ]] && "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$G/paired/${row}_vs_fp_my_gpu.json"
+  return 0
+}
+
+for task in ${TASKS//+/ }; do
+  kind=${task%%__*}; rest=${task#*__}; row=${rest%%__*}; key=""
+  [[ $rest == *__* ]] && key=${rest#*__}
+  [[ $kind == prepare || $kind == calibrate ]] && row=""
+  if [[ -n "$row" && -e "$G/stopped/$row" ]]; then note "$task" "skipped: row stopped"; continue; fi
+  if [[ -e "$G/tasks/$task.done" ]]; then note "$task" "already done"; continue; fi
+  if ! python3 "$SRC/groot/jobs/gsched.py" ready "$task"; then note "$task" "skipped: prerequisites not done"; continue; fi
+  note "$task" start
+  echo "=== $task $(date -Is)"
+  case "$kind" in
+    prepare) t_prepare ;; calibrate) t_calibrate ;; q) t_q "$row" ;; qk) t_qk "$row" "$key" ;; imp) t_imp "$row" ;;
+    sn) t_sn "$row" ;; ev) t_ev "$row" ;; *) echo "unknown task $task" >&2; false ;;
+  esac
+  rc=$?
+  if [[ $rc -eq 0 ]]; then touch "$G/tasks/$task.done"; note "$task" "done"; else note "$task" "failed rc=$rc"; echo "task $task failed (rc $rc)" >&2; fi
+done
+echo "job $JOB finished $(date -Is)"

@@ -1,0 +1,1456 @@
+{
+ "dataset": "physical-intelligence/libero",
+ "revision": "a4336d589d589045d1c56423ffdf3b88a0e19b1f",
+ "selection_seed": 20260929,
+ "selection": "one episode per task, plus a second for 20 seeded-random tasks; not claimed identical to ActQuant selection",
+ "episodes": [
+  {
+   "episode_index": 601,
+   "tasks": [
+    "put the bowl on top of the cabinet"
+   ],
+   "length": 120
+  },
+  {
+   "episode_index": 1513,
+   "tasks": [
+    "pick up the black bowl next to the plate and place it on the plate"
+   ],
+   "length": 111
+  },
+  {
+   "episode_index": 1522,
+   "tasks": [
+    "pick up the black bowl on the cookie box and place it on the plate"
+   ],
+   "length": 97
+  },
+  {
+   "episode_index": 1067,
+   "tasks": [
+    "pick up the bbq sauce and place it in the basket"
+   ],
+   "length": 162
+  },
+  {
+   "episode_index": 1203,
+   "tasks": [
+    "pick up the milk and place it in the basket"
+   ],
+   "length": 143
+  },
+  {
+   "episode_index": 302,
+   "tasks": [
+    "put the white mug on the plate and put the chocolate pudding to the right of the plate"
+   ],
+   "length": 252
+  },
+  {
+   "episode_index": 909,
+   "tasks": [
+    "pick up the tomato sauce and place it in the basket"
+   ],
+   "length": 133
+  },
+  {
+   "episode_index": 1271,
+   "tasks": [
+    "pick up the black bowl on the ramekin and place it on the plate"
+   ],
+   "length": 101
+  },
+  {
+   "episode_index": 797,
+   "tasks": [
+    "put the cream cheese in the bowl"
+   ],
+   "length": 109
+  },
+  {
+   "episode_index": 717,
+   "tasks": [
+    "turn on the stove"
+   ],
+   "length": 86
+  },
+  {
+   "episode_index": 996,
+   "tasks": [
+    "pick up the cream cheese and place it in the basket"
+   ],
+   "length": 126
+  },
+  {
+   "episode_index": 1538,
+   "tasks": [
+    "pick up the black bowl on the stove and place it on the plate"
+   ],
+   "length": 145
+  },
+  {
+   "episode_index": 475,
+   "tasks": [
+    "put the wine bottle on top of the cabinet"
+   ],
+   "length": 92
+  },
+  {
+   "episode_index": 1687,
+   "tasks": [
+    "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate"
+   ],
+   "length": 143
+  },
+  {
+   "episode_index": 1277,
+   "tasks": [
+    "pick up the black bowl next to the cookie box and place it on the plate"
+   ],
+   "length": 111
+  },
+  {
+   "episode_index": 1657,
+   "tasks": [
+    "pick up the black bowl from table center and place it on the plate"
+   ],
+   "length": 126
+  },
+  {
+   "episode_index": 614,
+   "tasks": [
+    "open the top drawer and put the bowl inside"
+   ],
+   "length": 176
+  },
+  {
+   "episode_index": 1602,
+   "tasks": [
+    "pick up the black bowl between the plate and the ramekin and place it on the plate"
+   ],
+   "length": 95
+  },
+  {
+   "episode_index": 1139,
+   "tasks": [
+    "pick up the orange juice and place it in the basket"
+   ],
+   "length": 129
+  },
+  {
+   "episode_index": 286,
+   "tasks": [
+    "put both the alphabet soup and the cream cheese box in the basket"
+   ],
+   "length": 277
+  },
+  {
+   "episode_index": 822,
+   "tasks": [
+    "pick up the salad dressing and place it in the basket"
+   ],
+   "length": 115
+  },
+  {
+   "episode_index": 109,
+   "tasks": [
+    "pick up the book and place it in the back compartment of the caddy"
+   ],
+   "length": 167
+  },
+  {
+   "episode_index": 1419,
+   "tasks": [
+    "pick up the black bowl on the wooden cabinet and place it on the plate"
+   ],
+   "length": 135
+  },
+  {
+   "episode_index": 134,
+   "tasks": [
+    "turn on the stove and put the moka pot on it"
+   ],
+   "length": 262
+  },
+  {
+   "episode_index": 139,
+   "tasks": [
+    "put the yellow and white mug in the microwave and close it"
+   ],
+   "length": 286
+  },
+  {
+   "episode_index": 16,
+   "tasks": [
+    "put the black bowl in the bottom drawer of the cabinet and close it"
+   ],
+   "length": 248
+  },
+  {
+   "episode_index": 485,
+   "tasks": [
+    "put the wine bottle on the rack"
+   ],
+   "length": 199
+  },
+  {
+   "episode_index": 525,
+   "tasks": [
+    "open the middle drawer of the cabinet"
+   ],
+   "length": 146
+  },
+  {
+   "episode_index": 918,
+   "tasks": [
+    "pick up the chocolate pudding and place it in the basket"
+   ],
+   "length": 162
+  },
+  {
+   "episode_index": 1074,
+   "tasks": [
+    "pick up the alphabet soup and place it in the basket"
+   ],
+   "length": 149
+  },
+  {
+   "episode_index": 219,
+   "tasks": [
+    "put both the alphabet soup and the tomato sauce in the basket"
+   ],
+   "length": 267
+  },
+  {
+   "episode_index": 401,
+   "tasks": [
+    "put the bowl on the stove"
+   ],
+   "length": 104
+  },
+  {
+   "episode_index": 584,
+   "tasks": [
+    "push the plate to the front of the stove"
+   ],
+   "length": 155
+  },
+  {
+   "episode_index": 1059,
+   "tasks": [
+    "pick up the butter and place it in the basket"
+   ],
+   "length": 161
+  },
+  {
+   "episode_index": 370,
+   "tasks": [
+    "put both the cream cheese box and the butter in the basket"
+   ],
+   "length": 247
+  },
+  {
+   "episode_index": 1587,
+   "tasks": [
+    "pick up the black bowl next to the ramekin and place it on the plate"
+   ],
+   "length": 137
+  },
+  {
+   "episode_index": 568,
+   "tasks": [
+    "put the bowl on the plate"
+   ],
+   "length": 104
+  },
+  {
+   "episode_index": 1140,
+   "tasks": [
+    "pick up the ketchup and place it in the basket"
+   ],
+   "length": 162
+  },
+  {
+   "episode_index": 33,
+   "tasks": [
+    "put the white mug on the left plate and put the yellow and white mug on the right plate"
+   ],
+   "length": 259
+  },
+  {
+   "episode_index": 179,
+   "tasks": [
+    "put both moka pots on the stove"
+   ],
+   "length": 410
+  },
+  {
+   "episode_index": 493,
+   "tasks": [
+    "put the bowl on top of the cabinet"
+   ],
+   "length": 97
+  },
+  {
+   "episode_index": 1542,
+   "tasks": [
+    "pick up the black bowl next to the plate and place it on the plate"
+   ],
+   "length": 117
+  },
+  {
+   "episode_index": 1580,
+   "tasks": [
+    "pick up the black bowl on the cookie box and place it on the plate"
+   ],
+   "length": 100
+  },
+  {
+   "episode_index": 889,
+   "tasks": [
+    "pick up the bbq sauce and place it in the basket"
+   ],
+   "length": 135
+  },
+  {
+   "episode_index": 1053,
+   "tasks": [
+    "pick up the milk and place it in the basket"
+   ],
+   "length": 127
+  },
+  {
+   "episode_index": 210,
+   "tasks": [
+    "put the white mug on the plate and put the chocolate pudding to the right of the plate"
+   ],
+   "length": 286
+  },
+  {
+   "episode_index": 839,
+   "tasks": [
+    "pick up the tomato sauce and place it in the basket"
+   ],
+   "length": 139
+  },
+  {
+   "episode_index": 1524,
+   "tasks": [
+    "pick up the black bowl on the ramekin and place it on the plate"
+   ],
+   "length": 123
+  },
+  {
+   "episode_index": 581,
+   "tasks": [
+    "put the cream cheese in the bowl"
+   ],
+   "length": 95
+  },
+  {
+   "episode_index": 605,
+   "tasks": [
+    "turn on the stove"
+   ],
+   "length": 93
+  },
+  {
+   "episode_index": 1246,
+   "tasks": [
+    "pick up the cream cheese and place it in the basket"
+   ],
+   "length": 132
+  },
+  {
+   "episode_index": 1553,
+   "tasks": [
+    "pick up the black bowl on the stove and place it on the plate"
+   ],
+   "length": 133
+  },
+  {
+   "episode_index": 479,
+   "tasks": [
+    "put the wine bottle on top of the cabinet"
+   ],
+   "length": 87
+  },
+  {
+   "episode_index": 1430,
+   "tasks": [
+    "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate"
+   ],
+   "length": 169
+  },
+  {
+   "episode_index": 1448,
+   "tasks": [
+    "pick up the black bowl next to the cookie box and place it on the plate"
+   ],
+   "length": 119
+  },
+  {
+   "episode_index": 1665,
+   "tasks": [
+    "pick up the black bowl from table center and place it on the plate"
+   ],
+   "length": 117
+  },
+  {
+   "episode_index": 465,
+   "tasks": [
+    "open the top drawer and put the bowl inside"
+   ],
+   "length": 227
+  },
+  {
+   "episode_index": 1330,
+   "tasks": [
+    "pick up the black bowl between the plate and the ramekin and place it on the plate"
+   ],
+   "length": 168
+  },
+  {
+   "episode_index": 1041,
+   "tasks": [
+    "pick up the orange juice and place it in the basket"
+   ],
+   "length": 119
+  },
+  {
+   "episode_index": 205,
+   "tasks": [
+    "put both the alphabet soup and the cream cheese box in the basket"
+   ],
+   "length": 238
+  }
+ ],
+ "observation_count": 256,
+ "noise_seed": 0,
+ "observations": [
+  {
+   "episode_index": 16,
+   "frame_index": 108
+  },
+  {
+   "episode_index": 16,
+   "frame_index": 128
+  },
+  {
+   "episode_index": 16,
+   "frame_index": 149
+  },
+  {
+   "episode_index": 16,
+   "frame_index": 151
+  },
+  {
+   "episode_index": 16,
+   "frame_index": 229
+  },
+  {
+   "episode_index": 33,
+   "frame_index": 227
+  },
+  {
+   "episode_index": 33,
+   "frame_index": 229
+  },
+  {
+   "episode_index": 33,
+   "frame_index": 235
+  },
+  {
+   "episode_index": 33,
+   "frame_index": 256
+  },
+  {
+   "episode_index": 109,
+   "frame_index": 14
+  },
+  {
+   "episode_index": 109,
+   "frame_index": 33
+  },
+  {
+   "episode_index": 109,
+   "frame_index": 47
+  },
+  {
+   "episode_index": 109,
+   "frame_index": 124
+  },
+  {
+   "episode_index": 134,
+   "frame_index": 64
+  },
+  {
+   "episode_index": 134,
+   "frame_index": 95
+  },
+  {
+   "episode_index": 134,
+   "frame_index": 130
+  },
+  {
+   "episode_index": 134,
+   "frame_index": 222
+  },
+  {
+   "episode_index": 139,
+   "frame_index": 4
+  },
+  {
+   "episode_index": 139,
+   "frame_index": 66
+  },
+  {
+   "episode_index": 139,
+   "frame_index": 74
+  },
+  {
+   "episode_index": 139,
+   "frame_index": 161
+  },
+  {
+   "episode_index": 139,
+   "frame_index": 252
+  },
+  {
+   "episode_index": 179,
+   "frame_index": 227
+  },
+  {
+   "episode_index": 179,
+   "frame_index": 233
+  },
+  {
+   "episode_index": 179,
+   "frame_index": 257
+  },
+  {
+   "episode_index": 179,
+   "frame_index": 278
+  },
+  {
+   "episode_index": 205,
+   "frame_index": 95
+  },
+  {
+   "episode_index": 205,
+   "frame_index": 172
+  },
+  {
+   "episode_index": 205,
+   "frame_index": 177
+  },
+  {
+   "episode_index": 205,
+   "frame_index": 180
+  },
+  {
+   "episode_index": 210,
+   "frame_index": 103
+  },
+  {
+   "episode_index": 210,
+   "frame_index": 150
+  },
+  {
+   "episode_index": 210,
+   "frame_index": 221
+  },
+  {
+   "episode_index": 210,
+   "frame_index": 225
+  },
+  {
+   "episode_index": 219,
+   "frame_index": 10
+  },
+  {
+   "episode_index": 219,
+   "frame_index": 22
+  },
+  {
+   "episode_index": 219,
+   "frame_index": 96
+  },
+  {
+   "episode_index": 219,
+   "frame_index": 191
+  },
+  {
+   "episode_index": 286,
+   "frame_index": 124
+  },
+  {
+   "episode_index": 286,
+   "frame_index": 131
+  },
+  {
+   "episode_index": 286,
+   "frame_index": 170
+  },
+  {
+   "episode_index": 286,
+   "frame_index": 213
+  },
+  {
+   "episode_index": 286,
+   "frame_index": 267
+  },
+  {
+   "episode_index": 302,
+   "frame_index": 111
+  },
+  {
+   "episode_index": 302,
+   "frame_index": 160
+  },
+  {
+   "episode_index": 302,
+   "frame_index": 189
+  },
+  {
+   "episode_index": 302,
+   "frame_index": 203
+  },
+  {
+   "episode_index": 370,
+   "frame_index": 51
+  },
+  {
+   "episode_index": 370,
+   "frame_index": 124
+  },
+  {
+   "episode_index": 370,
+   "frame_index": 125
+  },
+  {
+   "episode_index": 370,
+   "frame_index": 176
+  },
+  {
+   "episode_index": 401,
+   "frame_index": 1
+  },
+  {
+   "episode_index": 401,
+   "frame_index": 17
+  },
+  {
+   "episode_index": 401,
+   "frame_index": 20
+  },
+  {
+   "episode_index": 401,
+   "frame_index": 23
+  },
+  {
+   "episode_index": 465,
+   "frame_index": 46
+  },
+  {
+   "episode_index": 465,
+   "frame_index": 144
+  },
+  {
+   "episode_index": 465,
+   "frame_index": 181
+  },
+  {
+   "episode_index": 465,
+   "frame_index": 217
+  },
+  {
+   "episode_index": 475,
+   "frame_index": 11
+  },
+  {
+   "episode_index": 475,
+   "frame_index": 15
+  },
+  {
+   "episode_index": 475,
+   "frame_index": 56
+  },
+  {
+   "episode_index": 475,
+   "frame_index": 79
+  },
+  {
+   "episode_index": 479,
+   "frame_index": 7
+  },
+  {
+   "episode_index": 479,
+   "frame_index": 9
+  },
+  {
+   "episode_index": 479,
+   "frame_index": 21
+  },
+  {
+   "episode_index": 479,
+   "frame_index": 32
+  },
+  {
+   "episode_index": 479,
+   "frame_index": 43
+  },
+  {
+   "episode_index": 485,
+   "frame_index": 41
+  },
+  {
+   "episode_index": 485,
+   "frame_index": 50
+  },
+  {
+   "episode_index": 485,
+   "frame_index": 58
+  },
+  {
+   "episode_index": 485,
+   "frame_index": 163
+  },
+  {
+   "episode_index": 493,
+   "frame_index": 16
+  },
+  {
+   "episode_index": 493,
+   "frame_index": 38
+  },
+  {
+   "episode_index": 493,
+   "frame_index": 52
+  },
+  {
+   "episode_index": 493,
+   "frame_index": 80
+  },
+  {
+   "episode_index": 525,
+   "frame_index": 4
+  },
+  {
+   "episode_index": 525,
+   "frame_index": 38
+  },
+  {
+   "episode_index": 525,
+   "frame_index": 77
+  },
+  {
+   "episode_index": 525,
+   "frame_index": 132
+  },
+  {
+   "episode_index": 525,
+   "frame_index": 136
+  },
+  {
+   "episode_index": 568,
+   "frame_index": 12
+  },
+  {
+   "episode_index": 568,
+   "frame_index": 54
+  },
+  {
+   "episode_index": 568,
+   "frame_index": 72
+  },
+  {
+   "episode_index": 568,
+   "frame_index": 88
+  },
+  {
+   "episode_index": 568,
+   "frame_index": 102
+  },
+  {
+   "episode_index": 581,
+   "frame_index": 18
+  },
+  {
+   "episode_index": 581,
+   "frame_index": 38
+  },
+  {
+   "episode_index": 581,
+   "frame_index": 70
+  },
+  {
+   "episode_index": 581,
+   "frame_index": 81
+  },
+  {
+   "episode_index": 584,
+   "frame_index": 26
+  },
+  {
+   "episode_index": 584,
+   "frame_index": 124
+  },
+  {
+   "episode_index": 584,
+   "frame_index": 133
+  },
+  {
+   "episode_index": 584,
+   "frame_index": 140
+  },
+  {
+   "episode_index": 601,
+   "frame_index": 7
+  },
+  {
+   "episode_index": 601,
+   "frame_index": 19
+  },
+  {
+   "episode_index": 601,
+   "frame_index": 75
+  },
+  {
+   "episode_index": 601,
+   "frame_index": 98
+  },
+  {
+   "episode_index": 605,
+   "frame_index": 7
+  },
+  {
+   "episode_index": 605,
+   "frame_index": 15
+  },
+  {
+   "episode_index": 605,
+   "frame_index": 30
+  },
+  {
+   "episode_index": 605,
+   "frame_index": 34
+  },
+  {
+   "episode_index": 605,
+   "frame_index": 67
+  },
+  {
+   "episode_index": 614,
+   "frame_index": 66
+  },
+  {
+   "episode_index": 614,
+   "frame_index": 67
+  },
+  {
+   "episode_index": 614,
+   "frame_index": 107
+  },
+  {
+   "episode_index": 614,
+   "frame_index": 122
+  },
+  {
+   "episode_index": 614,
+   "frame_index": 168
+  },
+  {
+   "episode_index": 717,
+   "frame_index": 16
+  },
+  {
+   "episode_index": 717,
+   "frame_index": 17
+  },
+  {
+   "episode_index": 717,
+   "frame_index": 32
+  },
+  {
+   "episode_index": 717,
+   "frame_index": 41
+  },
+  {
+   "episode_index": 797,
+   "frame_index": 9
+  },
+  {
+   "episode_index": 797,
+   "frame_index": 53
+  },
+  {
+   "episode_index": 797,
+   "frame_index": 62
+  },
+  {
+   "episode_index": 797,
+   "frame_index": 95
+  },
+  {
+   "episode_index": 822,
+   "frame_index": 3
+  },
+  {
+   "episode_index": 822,
+   "frame_index": 7
+  },
+  {
+   "episode_index": 822,
+   "frame_index": 10
+  },
+  {
+   "episode_index": 822,
+   "frame_index": 11
+  },
+  {
+   "episode_index": 822,
+   "frame_index": 99
+  },
+  {
+   "episode_index": 839,
+   "frame_index": 18
+  },
+  {
+   "episode_index": 839,
+   "frame_index": 62
+  },
+  {
+   "episode_index": 839,
+   "frame_index": 83
+  },
+  {
+   "episode_index": 839,
+   "frame_index": 137
+  },
+  {
+   "episode_index": 889,
+   "frame_index": 16
+  },
+  {
+   "episode_index": 889,
+   "frame_index": 72
+  },
+  {
+   "episode_index": 889,
+   "frame_index": 88
+  },
+  {
+   "episode_index": 889,
+   "frame_index": 108
+  },
+  {
+   "episode_index": 889,
+   "frame_index": 122
+  },
+  {
+   "episode_index": 909,
+   "frame_index": 37
+  },
+  {
+   "episode_index": 909,
+   "frame_index": 63
+  },
+  {
+   "episode_index": 909,
+   "frame_index": 73
+  },
+  {
+   "episode_index": 909,
+   "frame_index": 108
+  },
+  {
+   "episode_index": 909,
+   "frame_index": 109
+  },
+  {
+   "episode_index": 918,
+   "frame_index": 39
+  },
+  {
+   "episode_index": 918,
+   "frame_index": 52
+  },
+  {
+   "episode_index": 918,
+   "frame_index": 76
+  },
+  {
+   "episode_index": 918,
+   "frame_index": 83
+  },
+  {
+   "episode_index": 996,
+   "frame_index": 0
+  },
+  {
+   "episode_index": 996,
+   "frame_index": 2
+  },
+  {
+   "episode_index": 996,
+   "frame_index": 20
+  },
+  {
+   "episode_index": 996,
+   "frame_index": 73
+  },
+  {
+   "episode_index": 996,
+   "frame_index": 121
+  },
+  {
+   "episode_index": 1041,
+   "frame_index": 21
+  },
+  {
+   "episode_index": 1041,
+   "frame_index": 27
+  },
+  {
+   "episode_index": 1041,
+   "frame_index": 46
+  },
+  {
+   "episode_index": 1041,
+   "frame_index": 52
+  },
+  {
+   "episode_index": 1041,
+   "frame_index": 103
+  },
+  {
+   "episode_index": 1053,
+   "frame_index": 22
+  },
+  {
+   "episode_index": 1053,
+   "frame_index": 70
+  },
+  {
+   "episode_index": 1053,
+   "frame_index": 75
+  },
+  {
+   "episode_index": 1053,
+   "frame_index": 83
+  },
+  {
+   "episode_index": 1059,
+   "frame_index": 45
+  },
+  {
+   "episode_index": 1059,
+   "frame_index": 62
+  },
+  {
+   "episode_index": 1059,
+   "frame_index": 75
+  },
+  {
+   "episode_index": 1059,
+   "frame_index": 92
+  },
+  {
+   "episode_index": 1067,
+   "frame_index": 40
+  },
+  {
+   "episode_index": 1067,
+   "frame_index": 81
+  },
+  {
+   "episode_index": 1067,
+   "frame_index": 141
+  },
+  {
+   "episode_index": 1067,
+   "frame_index": 148
+  },
+  {
+   "episode_index": 1074,
+   "frame_index": 17
+  },
+  {
+   "episode_index": 1074,
+   "frame_index": 39
+  },
+  {
+   "episode_index": 1074,
+   "frame_index": 62
+  },
+  {
+   "episode_index": 1074,
+   "frame_index": 69
+  },
+  {
+   "episode_index": 1139,
+   "frame_index": 9
+  },
+  {
+   "episode_index": 1139,
+   "frame_index": 12
+  },
+  {
+   "episode_index": 1139,
+   "frame_index": 17
+  },
+  {
+   "episode_index": 1139,
+   "frame_index": 48
+  },
+  {
+   "episode_index": 1139,
+   "frame_index": 56
+  },
+  {
+   "episode_index": 1140,
+   "frame_index": 18
+  },
+  {
+   "episode_index": 1140,
+   "frame_index": 38
+  },
+  {
+   "episode_index": 1140,
+   "frame_index": 116
+  },
+  {
+   "episode_index": 1140,
+   "frame_index": 122
+  },
+  {
+   "episode_index": 1203,
+   "frame_index": 26
+  },
+  {
+   "episode_index": 1203,
+   "frame_index": 28
+  },
+  {
+   "episode_index": 1203,
+   "frame_index": 34
+  },
+  {
+   "episode_index": 1203,
+   "frame_index": 123
+  },
+  {
+   "episode_index": 1246,
+   "frame_index": 26
+  },
+  {
+   "episode_index": 1246,
+   "frame_index": 39
+  },
+  {
+   "episode_index": 1246,
+   "frame_index": 54
+  },
+  {
+   "episode_index": 1246,
+   "frame_index": 123
+  },
+  {
+   "episode_index": 1271,
+   "frame_index": 29
+  },
+  {
+   "episode_index": 1271,
+   "frame_index": 38
+  },
+  {
+   "episode_index": 1271,
+   "frame_index": 40
+  },
+  {
+   "episode_index": 1271,
+   "frame_index": 86
+  },
+  {
+   "episode_index": 1271,
+   "frame_index": 91
+  },
+  {
+   "episode_index": 1277,
+   "frame_index": 45
+  },
+  {
+   "episode_index": 1277,
+   "frame_index": 46
+  },
+  {
+   "episode_index": 1277,
+   "frame_index": 62
+  },
+  {
+   "episode_index": 1277,
+   "frame_index": 72
+  },
+  {
+   "episode_index": 1330,
+   "frame_index": 7
+  },
+  {
+   "episode_index": 1330,
+   "frame_index": 9
+  },
+  {
+   "episode_index": 1330,
+   "frame_index": 25
+  },
+  {
+   "episode_index": 1330,
+   "frame_index": 108
+  },
+  {
+   "episode_index": 1419,
+   "frame_index": 1
+  },
+  {
+   "episode_index": 1419,
+   "frame_index": 18
+  },
+  {
+   "episode_index": 1419,
+   "frame_index": 47
+  },
+  {
+   "episode_index": 1419,
+   "frame_index": 70
+  },
+  {
+   "episode_index": 1430,
+   "frame_index": 10
+  },
+  {
+   "episode_index": 1430,
+   "frame_index": 19
+  },
+  {
+   "episode_index": 1430,
+   "frame_index": 135
+  },
+  {
+   "episode_index": 1430,
+   "frame_index": 143
+  },
+  {
+   "episode_index": 1448,
+   "frame_index": 5
+  },
+  {
+   "episode_index": 1448,
+   "frame_index": 29
+  },
+  {
+   "episode_index": 1448,
+   "frame_index": 53
+  },
+  {
+   "episode_index": 1448,
+   "frame_index": 96
+  },
+  {
+   "episode_index": 1448,
+   "frame_index": 112
+  },
+  {
+   "episode_index": 1513,
+   "frame_index": 6
+  },
+  {
+   "episode_index": 1513,
+   "frame_index": 19
+  },
+  {
+   "episode_index": 1513,
+   "frame_index": 31
+  },
+  {
+   "episode_index": 1513,
+   "frame_index": 60
+  },
+  {
+   "episode_index": 1522,
+   "frame_index": 57
+  },
+  {
+   "episode_index": 1522,
+   "frame_index": 69
+  },
+  {
+   "episode_index": 1522,
+   "frame_index": 73
+  },
+  {
+   "episode_index": 1522,
+   "frame_index": 78
+  },
+  {
+   "episode_index": 1524,
+   "frame_index": 59
+  },
+  {
+   "episode_index": 1524,
+   "frame_index": 66
+  },
+  {
+   "episode_index": 1524,
+   "frame_index": 70
+  },
+  {
+   "episode_index": 1524,
+   "frame_index": 108
+  },
+  {
+   "episode_index": 1538,
+   "frame_index": 49
+  },
+  {
+   "episode_index": 1538,
+   "frame_index": 59
+  },
+  {
+   "episode_index": 1538,
+   "frame_index": 118
+  },
+  {
+   "episode_index": 1538,
+   "frame_index": 123
+  },
+  {
+   "episode_index": 1542,
+   "frame_index": 19
+  },
+  {
+   "episode_index": 1542,
+   "frame_index": 42
+  },
+  {
+   "episode_index": 1542,
+   "frame_index": 54
+  },
+  {
+   "episode_index": 1542,
+   "frame_index": 102
+  },
+  {
+   "episode_index": 1553,
+   "frame_index": 21
+  },
+  {
+   "episode_index": 1553,
+   "frame_index": 32
+  },
+  {
+   "episode_index": 1553,
+   "frame_index": 41
+  },
+  {
+   "episode_index": 1553,
+   "frame_index": 86
+  },
+  {
+   "episode_index": 1580,
+   "frame_index": 7
+  },
+  {
+   "episode_index": 1580,
+   "frame_index": 36
+  },
+  {
+   "episode_index": 1580,
+   "frame_index": 73
+  },
+  {
+   "episode_index": 1580,
+   "frame_index": 88
+  },
+  {
+   "episode_index": 1587,
+   "frame_index": 39
+  },
+  {
+   "episode_index": 1587,
+   "frame_index": 66
+  },
+  {
+   "episode_index": 1587,
+   "frame_index": 91
+  },
+  {
+   "episode_index": 1587,
+   "frame_index": 116
+  },
+  {
+   "episode_index": 1602,
+   "frame_index": 1
+  },
+  {
+   "episode_index": 1602,
+   "frame_index": 53
+  },
+  {
+   "episode_index": 1602,
+   "frame_index": 73
+  },
+  {
+   "episode_index": 1602,
+   "frame_index": 78
+  },
+  {
+   "episode_index": 1657,
+   "frame_index": 1
+  },
+  {
+   "episode_index": 1657,
+   "frame_index": 29
+  },
+  {
+   "episode_index": 1657,
+   "frame_index": 55
+  },
+  {
+   "episode_index": 1657,
+   "frame_index": 102
+  },
+  {
+   "episode_index": 1665,
+   "frame_index": 12
+  },
+  {
+   "episode_index": 1665,
+   "frame_index": 51
+  },
+  {
+   "episode_index": 1665,
+   "frame_index": 96
+  },
+  {
+   "episode_index": 1665,
+   "frame_index": 98
+  },
+  {
+   "episode_index": 1687,
+   "frame_index": 73
+  },
+  {
+   "episode_index": 1687,
+   "frame_index": 84
+  },
+  {
+   "episode_index": 1687,
+   "frame_index": 90
+  },
+  {
+   "episode_index": 1687,
+   "frame_index": 101
+  }
+ ]
+}
