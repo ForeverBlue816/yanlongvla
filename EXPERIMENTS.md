@@ -1934,3 +1934,10 @@ assembled 2.018 bpw; round trip bit-exact (243219). Held-out and readout as abov
 weight-error fix shows only out of distribution if at all → Plus 1000 `groot_n17_tcq_w2_rht` 243222 (6000 Ada) running. Layer-2 paper
 table complete for the fit metrics (one-sided 0.40–0.41 / two-sided 0.074–0.075 at every damping). g16 on the rht base fitted (243226,
 A6000 42 min) and assembled as tcq_w2_rht_g16; its eval 243236 running; V0_rht (killable A40) and V1 (g16_rht, rose L40S) queued.
+
+### E196 — groot_tcq_w2_rht Plus 1000 = 559 (+7.3 vs base 486; +3.0 vs one-sided 529; +0.3 vs B2 556; −1.4 vs QTIP 573; −5.9 vs FP) (2026-11-03 01:30 UTC)
+
+243222 (6000 Ada, 2.7 h): **559** (camera 272 / robot-init 287). Paired: vs ptq_w2 +7.3 [+2.6, +12.1] (141 / 68); vs tcq_w2 +3.0
+[−1.3, +7.5] (123 / 93; robot-init 287 vs 256, camera 272 vs 273); vs raqft_rowb2 +0.3 [−5.0, +5.3]; vs FP −5.9 [−10.3, −1.5]; vs QTIP 573
+−1.4 (totals) → within the 3 pp of §2, no further audit. Pure-PTQ TCQ with the two-sided rotation now equals the fine-tuned RVQ row B2.
+V0 on it (243242, 3e-4): L_readout 0.75× B2 at the same updates, 1 non-finite by update 144, ≈ 14:30 UTC finish. V1 (g16_rht) queued.
