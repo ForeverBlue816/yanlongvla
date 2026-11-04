@@ -1941,3 +1941,12 @@ A6000 42 min) and assembled as tcq_w2_rht_g16; its eval 243236 running; V0_rht (
 [−1.3, +7.5] (123 / 93; robot-init 287 vs 256, camera 272 vs 273); vs raqft_rowb2 +0.3 [−5.0, +5.3]; vs FP −5.9 [−10.3, −1.5]; vs QTIP 573
 −1.4 (totals) → within the 3 pp of §2, no further audit. Pure-PTQ TCQ with the two-sided rotation now equals the fine-tuned RVQ row B2.
 V0 on it (243242, 3e-4): L_readout 0.75× B2 at the same updates, 1 non-finite by update 144, ≈ 14:30 UTC finish. V1 (g16_rht) queued.
+
+### E197 — V0 (B2 recipe on tcq_w2_rht) Plus 1000 = 589: +3.0 [−2.0, +7.8] vs own PTQ 559, +1.6 vs QTIP 573, −2.9 [−7.1, +1.4] vs FP; V1 trained (2026-11-04 05:40 UTC)
+
+groot_n17_tcq_raqft_rht (244633, 6000 Ada 2.6 h): **589** (camera 301 / robot-init 288). Paired: vs tcq_w2_rht 559 +3.0 [−2.0, +7.8]
+(126 / 96; camera +29, robot-init +1); vs tcq_w2 529 +6.0 [+1.1, +11.0]; vs ptq_w2 486 +10.3 [+5.3, +15.5]; vs B2 556 +3.3 [−2.3, +8.8];
+vs FP 618 −2.9 [−7.1, +1.4]. Offline got worse (MSE 0.00966 vs 0.00570; readout 21 496 vs 8 282). Pre-registered reading not met on its
+own (CI includes 0); waits for V1. V1 (243320, 6000 Ada 17.9 h): 768 updates, loss 35 452 → 47 606; assembly/eval/Plus via
+v1rht_post_chain. Shift track: on-policy states complete (256 rollouts of tcq_w2_rht, 240 successful, mean capture phase 0.18;
+244657 6000 Ada 32 min); Σ_shift statistics race 245415–7 submitted. Session loss stopped the drivers overnight (restarted 05:35).
