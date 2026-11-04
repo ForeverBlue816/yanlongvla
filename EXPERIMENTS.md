@@ -1958,3 +1958,10 @@ outside the DiT (top-5 share 5–30 %, eff. rank 20–840), DiT top-5 22–48 %;
 perturbations about half of the backbone's. Fits B / C started (drivers 06:34; jobs.json concurrent-write incident repaired, ledger
 writers now locked). V1 on tcq_w2_rht_g16: offline MSE 0.0190 / readout 29 014 (V0 0.00966 / 21 496; PTQ 0.00570 / 8 282); Plus
 245445 running. V0' (addendum 3) smoke passed (μ 45.2, gate ok, 34.8 GB) and the full run 245490 started 06:32 (6000 Ada).
+
+### E199 — V1 (group tables + column scales, B2 recipe) on tcq_w2_rht_g16: Plus 1000 = 525, −6.4 [−11.3, −1.3] vs V0 → V0 stands, V1 ablation (2026-11-04 08:50 UTC)
+
+245445 (6000 Ada 2.6 h): **525** (camera 272 / robot-init 253). Paired: vs tcq_w2_rht 559 −3.4 [−7.8, +1.1]; vs V0 589 −6.4 [−11.3, −1.3];
+vs B2 556 −3.1 [−8.1, +2.7]; vs FP −9.3 [−13.9, −4.2]. Addendum-1 reading: V1 does not beat V0 by > 2 pp → V0's format (per-layer
+tables, 2.018 bpw) stands, V1's row-group tables + column scales are an ablation (and hurt). V0 remains the GR00T fine-tuned row pending
+V0' (training: held-out L_readout 10 057 → 10 037 at update 64). Shift fits B / C queued (arm-C spatial head preempted twice, resumes).
