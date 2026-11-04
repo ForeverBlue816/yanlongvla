@@ -1950,3 +1950,11 @@ vs FP 618 −2.9 [−7.1, +1.4]. Offline got worse (MSE 0.00966 vs 0.00570; read
 own (CI includes 0); waits for V1. V1 (243320, 6000 Ada 17.9 h): 768 updates, loss 35 452 → 47 606; assembly/eval/Plus via
 v1rht_post_chain. Shift track: on-policy states complete (256 rollouts of tcq_w2_rht, 240 successful, mean capture phase 0.18;
 244657 6000 Ada 32 min); Σ_shift statistics race 245415–7 submitted. Session loss stopped the drivers overnight (restarted 05:35).
+
+### E198 — Shift track: Σ_shift statistics done; V1 offline worse than V0; V0' smoke passed and full run started (2026-11-04 06:45 UTC)
+
+Σ_shift (245415, 6000 Ada 54 min, 0 skipped calls): tr(Σ)/tr(H) 0.03 (DiT FFN in) – 0.59 (vl_self_attention FFN out); not low-rank
+outside the DiT (top-5 share 5–30 %, eff. rank 20–840), DiT top-5 22–48 %; on-policy pairs carry 71–85 % of the DiT's Σ trace, image
+perturbations about half of the backbone's. Fits B / C started (drivers 06:34; jobs.json concurrent-write incident repaired, ledger
+writers now locked). V1 on tcq_w2_rht_g16: offline MSE 0.0190 / readout 29 014 (V0 0.00966 / 21 496; PTQ 0.00570 / 8 282); Plus
+245445 running. V0' (addendum 3) smoke passed (μ 45.2, gate ok, 34.8 GB) and the full run 245490 started 06:32 (6000 Ada).
