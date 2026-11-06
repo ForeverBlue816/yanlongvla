@@ -47,6 +47,9 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | a8_fp | 0.0003 | 0.0007 | 0.0004 | 0.0012 | 0.857 | 0.918 |
 | a8_raqft | 0.0385 | 0.1856 | 0.0542 | 0.3413 | 0.851 | 0.946 |
 | a8_studentq | 0.0384 | 0.1855 | 0.0540 | 0.3405 | 0.850 | 0.945 |
+| a8_studentq_alloc | 0.0281 | 0.1399 | 0.0392 | 0.2635 | 0.931 | 0.975 |
+| a8_studentq_alloc_v4_recal | 0.0308 | 0.1349 | 0.0429 | 0.2554 | 0.927 | 0.972 |
+| a8_studentq_amvq | 0.0391 | 0.1843 | 0.0558 | 0.3453 | 0.844 | 0.943 |
 | bb_M2_ae_M2_fp32 | 0.0622 | 0.2155 | 0.0711 | 0.3445 | 0.867 | 0.940 |
 | plustrain_b_backbone | 0.0762 | 0.2437 | 0.0760 | 0.3419 | 0.881 | 0.949 |
 | plustrain_b_h5b | 0.0740 | 0.2351 | 0.0894 | 0.4051 | 0.856 | 0.937 |
@@ -63,6 +66,8 @@ KV relative error (image / language) on training256 and savedPlus200, with D1 pr
 | raqft_seed2 | 0.0390 | 0.1829 | 0.0540 | 0.3292 | 0.847 | 0.939 |
 | raqft_simple | 0.0386 | 0.1809 | 0.0547 | 0.3440 | 0.845 | 0.941 |
 | raqft_studentq | 0.0383 | 0.1853 | 0.0539 | 0.3401 | 0.850 | 0.945 |
+| raqft_studentq_alloc_v4_recal | 0.0307 | 0.1347 | 0.0428 | 0.2551 | 0.927 | 0.972 |
+| raqft_studentq_amvq | 0.0390 | 0.1841 | 0.0558 | 0.3451 | 0.845 | 0.943 |
 
 Gate (unchanged): ≥ +3 pp over 704/1000 with paired 95% CI lower bound > 0 on the Plus subset. Gate status: **{"plustrain_b_backbone": false, "plustrain_c_backbone": false, "plustrain_b_h5b": true, "plustrain_c_h5b": false, "raqft_a_2bit": true, "raqft_a_c2": true, "raqft_c_2bit": true, "raqft_seed2": false, "raqft_beta0": false, "raqft_deep": false, "raqft_studentq": true, "raqft_plainvq": true, "raqft_kvmse": false, "raqft_nowo": true, "raqft_simple": true, "story_plain_bb_M2_ae_M2_fp32": false}**.
 
@@ -73,10 +78,15 @@ A8 feasibility decision: **decided** — W2A8 = True; a8_fp: 763/1000, -0.2 pp v
 Final deployable row: **frozen** — a8_studentq (backbone raqft_studentq, A8 True); LIBERO full 2000/1900 and expanded Plus 1000+1000 follow..
 LIBERO full a8_raqft: 1944/2000 (all tasks) — vs FP +0.80 pp [-1.20, +3.25]; excluding LIBERO-10 tasks 8/9: 1857/1900, vs FP +0.11 pp.
 LIBERO full a8_studentq: 1941/2000 (all tasks) — vs FP +0.65 pp [-1.10, +2.80]; excluding LIBERO-10 tasks 8/9: 1856/1900, vs FP +0.05 pp.
+LIBERO full a8_studentq_alloc: 1955/2000 (all tasks) — vs FP +1.35 pp [-0.35, +3.40]; excluding LIBERO-10 tasks 8/9: 1865/1900, vs FP +0.53 pp.
+Expanded Plus, expanded 2000 (overlaps selection; not independent confirmation): a8_studentq_alloc 1436/2000, +3.75 pp vs original 2-bit [+1.06, +6.49].
 Expanded Plus, expanded 2000 (overlaps selection; not independent confirmation): a8_studentq 1439/2000, +3.90 pp vs original 2-bit [+1.42, +6.62].
 Expanded Plus, expanded 2000 (overlaps selection; not independent confirmation): a8_raqft 1429/2000, +3.40 pp vs original 2-bit [+0.94, +5.85].
+Expanded Plus, expanded 2000 (overlaps selection; not independent confirmation): a8_studentq_amvq 1444/2000, +4.15 pp vs original 2-bit [+1.21, +7.20].
+Expanded Plus, added 1000 only: a8_studentq_alloc 699/1000, +4.20 pp vs original 2-bit [+0.60, +7.83].
 Expanded Plus, added 1000 only: a8_studentq 698/1000, +4.10 pp vs original 2-bit [+0.76, +7.84].
 Expanded Plus, added 1000 only: a8_raqft 689/1000, +3.20 pp vs original 2-bit [-0.03, +6.62].
+Expanded Plus, added 1000 only: a8_studentq_amvq 699/1000, +4.20 pp vs original 2-bit [+0.92, +7.55].
 
 **Deployable W2A8 (a8_studentq; FINAL_2026-10-14)** — paired on identical instances and noise seeds; main row chosen on the selection subset, confirmed on the added 1000 and LIBERO full.
 
@@ -228,7 +238,7 @@ The detector gate failed: tasks8/9 are not both among the top5 TV tasks for eith
 All1600 evaluation observations per model. [Full per-observation distributions and mode agreement](results/causal_h2_followup.json).
 <!-- STRUCTURE_ROUND_END -->
 
-# Archived experiments — October5 causal follow-up — 2026-10-23 11:41 SGT
+# Archived experiments — October5 causal follow-up — 2026-11-06 13:27 SGT
 
 H3: complete; completed conditions: 15. H2 detector verdict: drop_metric_from_paper. H5 fitting is authorized; evaluation waits for H4 failure labels. Only completed validated milestones publish. [Evidence](results/causal_round.json). Older rounds below are historical.
 

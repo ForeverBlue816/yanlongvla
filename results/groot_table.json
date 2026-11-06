@@ -61,11 +61,11 @@
    }
   },
   "heldout_mse_vs_fp": {
-   "total": 0.007810511626303196,
-   "relative": 0.05018506199121475,
-   "translation": 0.0063032410107553005,
-   "rotation": 0.00017649524670559913,
-   "gripper": 0.035234373062849045
+   "total": 0.007509273011237383,
+   "relative": 0.04826408624649048,
+   "translation": 0.00626567006111145,
+   "rotation": 0.0001749929942889139,
+   "gripper": 0.03324291855096817
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -213,11 +213,11 @@
    "gpu_mismatch": "row A medium ran on an RTX A40; FP / base / hybrids on RTX 6000 Ada; GPU-matched re-run cancelled (user, 2026-10-26)"
   },
   "heldout_mse_vs_fp": {
-   "total": 0.007481649052351713,
-   "relative": 0.04807201027870178,
-   "translation": 0.005311971064656973,
-   "rotation": 0.00013105676043778658,
-   "gripper": 0.036042459309101105
+   "total": 0.0071883671917021275,
+   "relative": 0.04620153829455376,
+   "translation": 0.005249746143817902,
+   "rotation": 0.00012871167564298958,
+   "gripper": 0.03418319672346115
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -248,12 +248,31 @@
     ]
    }
   },
+  "medium": {
+   "successes": 916,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "directory": "medium",
+   "vs_ptq_w2": {
+    "difference_pp": 4.3999999999999995,
+    "ci95_pp": [
+     1.2999999999999972,
+     7.8999999999999915
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -3.3000000000000003,
+    "ci95_pp": [
+     -6.59999999999998,
+     -0.19999999999998863
+    ]
+   }
+  },
   "heldout_mse_vs_fp": {
-   "total": 0.007689379621297121,
-   "relative": 0.049406748265028,
-   "translation": 0.006118433084338903,
-   "rotation": 0.0001703819289105013,
-   "gripper": 0.03495921194553375
+   "total": 0.007391034625470638,
+   "relative": 0.047504134476184845,
+   "translation": 0.006021106615662575,
+   "rotation": 0.00016930235142353922,
+   "gripper": 0.03316601365804672
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -306,11 +325,11 @@
    "gpu_mismatch": "B-AM medium ran on an RTX A40 (killable); not used anywhere (user, 2026-10-27), log only"
   },
   "heldout_mse_vs_fp": {
-   "total": 0.011710426770150661,
-   "relative": 0.0752432718873024,
-   "translation": 0.01100404653698206,
-   "rotation": 0.0002551449288148433,
-   "gripper": 0.048195406794548035
+   "total": 0.011324196122586727,
+   "relative": 0.07278360426425934,
+   "translation": 0.010906022973358631,
+   "rotation": 0.0002511143684387207,
+   "gripper": 0.04579795151948929
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,
@@ -320,17 +339,49 @@
  },
  {
   "row": "raqft_rowb2",
-  "label": "row B2: student-head readouts + \u03b2\u00b7L_vel"
+  "label": "row B2: student-head readouts + \u03b2\u00b7L_vel",
+  "plus": {
+   "successes": 556,
+   "camera": 283,
+   "robot_init": 273,
+   "gpu": "NVIDIA RTX 6000 Ada Generation",
+   "vs_ptq_w2": {
+    "difference_pp": 7.000000000000001,
+    "ci95_pp": [
+     2.3343833152662308,
+     11.641215187293959
+    ]
+   },
+   "vs_fp": {
+    "difference_pp": -6.2,
+    "ci95_pp": [
+     -11.228391988678306,
+     -0.9313125708942696
+    ]
+   }
+  },
+  "heldout_mse_vs_fp": {
+   "total": 0.00838224496692419,
+   "relative": 0.0538749061524868,
+   "translation": 0.00676037697121501,
+   "rotation": 0.00015161233022809029,
+   "gripper": 0.03793974965810776
+  },
+  "bpw": {
+   "quantized_linear": 2.0230882432725696,
+   "whole_model": 5.595515218752068,
+   "note": "whole-model: other tensors at stored BF16 (conservative)"
+  }
  },
  {
   "row": "amvq_w2",
   "label": "AM-VQ: action-metric codebook fit of the base (PTQ)",
   "heldout_mse_vs_fp": {
-   "total": 0.008202691562473774,
-   "relative": 0.05270494520664215,
-   "translation": 0.006551442202180624,
-   "rotation": 0.00017538083193358034,
-   "gripper": 0.03723837807774544
+   "total": 0.00791378878057003,
+   "relative": 0.05086401477456093,
+   "translation": 0.006395026575773954,
+   "rotation": 0.00017234461847692728,
+   "gripper": 0.03569440543651581
   },
   "bpw": {
    "quantized_linear": 2.0230882432725696,

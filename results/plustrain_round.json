@@ -229,6 +229,100 @@
     "a8_feasibility": "decided"
   },
   "LIBERO_full": {
+    "a8_studentq_alloc": {
+      "status": "complete",
+      "model": "a8_studentq_alloc",
+      "stage": "full",
+      "episodes": 2000,
+      "successes": 1955,
+      "comparisons": {
+        "vs_FP": {
+          "all_tasks": {
+            "successes": 1955,
+            "episodes": 2000,
+            "success_percent": 97.75,
+            "reference_successes": 1928,
+            "reference_success_percent": 96.39999999999999,
+            "difference_pp": 1.35,
+            "paired_difference_ci95_pp": [
+              -0.3512500000000219,
+              3.401249999999998
+            ],
+            "success_ci95_percent": [
+              96.49874999999999,
+              98.8
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          },
+          "excluding_libero10_tasks8_9": {
+            "successes": 1865,
+            "episodes": 1900,
+            "success_percent": 98.15789473684211,
+            "reference_successes": 1855,
+            "reference_success_percent": 97.63157894736842,
+            "difference_pp": 0.5263157894736842,
+            "paired_difference_ci95_pp": [
+              -0.7894736842105061,
+              1.7368421052631646
+            ],
+            "success_ci95_percent": [
+              97.10526315789474,
+              99.0
+            ],
+            "bootstrap": "Paired suite-stratified task/episode bootstrap; suite weights equal retained task counts;2000 draws, analysis seed20260930"
+          }
+        },
+        "vs_original_2bit_unavailable": "AssertionError()"
+      },
+      "source_sha256": {
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task0.jsonl": "869c6a1d1571b7cdd4d44ebd2d4d1f7e1dfbd90f155a033381eafb3b4304b471",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task1.jsonl": "f8ddfd102d1d09a19995a989e46759662352bc9d85ae14e32fc2306f7812ca89",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task2.jsonl": "4cd62658356cd06fa4c8593c3d7b6e0abe340db328b3b3c30303be2e61f8da42",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task3.jsonl": "56007637372ffeb6610ad1b65e0cf5508d125a6064d1eb9e83631942fe175981",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task4.jsonl": "038e5549923d27ad5bffa7a1b7f40a75760655168812460057ec976d7e6b559f",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task5.jsonl": "c8db06ccb4e53fe476d24a0e08c4118a74abc9f27f0a951e5a32ba8fd07e6cdb",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task6.jsonl": "ec3f0e3d26209e50aa05a504bb775572b282f98bc19e13e5dc88ea720db26a03",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task7.jsonl": "f797f0202900987995e2dbb5bdb0a1fbe2aec2e261fc8fcd41ae64796728c3f8",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task8.jsonl": "bbcc67dd9c7d1c5ce49d4be960e2d71989940af808729fc2e8695e51adea9007",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_10_task9.jsonl": "069c9ac47a0cd281e824c79ddc29be1d1823918d40add9ef529d1768ff7bfcaf",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task0.jsonl": "e605ea665df8dcacf42b858b0c3a3c333a718a56aa3b34b699b1fa9b8b046f0a",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task1.jsonl": "9e40e7599cbe6b9a531b0a9343ccbb1d8c5a7dc361910543378e37069b0a028b",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task2.jsonl": "356735f353678d8896eaf513c88677e4265ed8e0e203684634f6c0ed5f9ecb92",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task3.jsonl": "b004c837dc877d5cbcb68dec2bdf461f49c532e0e7d70ba214183457f85eaae7",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task4.jsonl": "305c9a97f6b9261a91e5dcc0b7d1fc7504806dededa60932295689c47c97b713",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task5.jsonl": "abe4629772b6cb318f1cc8c760ea951430465dcf86b49f498495a5ae095e05d4",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task6.jsonl": "142e5c9b40f00a26ff0b9abf9cea438ea4fccfe4db75a14ecbb9512c6017b67b",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task7.jsonl": "f4e8a30c60fb1919af91fc0074be1e2a105b09a0935bf0a45581f479f47b0457",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task8.jsonl": "be0bd74dad1bdfb4869ddd39ee20feb52b8f02b9baa0aff15d5bfae72af78e47",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_goal_task9.jsonl": "91c13cc127d3b6b12a52b9dbaa8d7d76de8963e64f0e9a70a7b4fc97498bff74",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task0.jsonl": "b2da6c39a555fb72eab4594ed2876ec551b06f2fd95f772c6f1037b55b4ece72",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task1.jsonl": "e409d8183691697f3774355037c4f511ddc3e2fee9c17dda62551429480f5ded",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task2.jsonl": "aaedb8521950be4c61454a12fc63b861a457e05fd1b6b19276a8ac451f87c2b4",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task3.jsonl": "b9e604339dae953bbbb3a1f9cd40e1a68152864b71e8c993d921f3505c61f42e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task4.jsonl": "35355c58b5adb9fefa3a13841770dc70c025955b5e2de29fdb84b21f76486f6d",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task5.jsonl": "2d18d7d9a0908ada46b2c3b894ea8e2057b9c8f1263c353be77998b4ca79e03b",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task6.jsonl": "d9d1ef6923c22ae58071f8fbbef446a9f8d92060e1d2cc865daf72a09e0396df",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task7.jsonl": "5156d2708c20863d336423f04ddd0b20366bc78e9519bfb28a71819a9cb4421a",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task8.jsonl": "554ffbda38021ea69b6ba7c50a02af41698cd10cc1db8ab1dccf9e65a89a586b",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_object_task9.jsonl": "c8a4aabfc3b4a5d0552d9989c586bc2402add8345cec67d86ccf9e1563a78709",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task0.jsonl": "06178579b167c9cb2eb6acb379260064ffb32bf891edef3366b1756856487763",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task1.jsonl": "03037ef81abf6bcff508931e72526b48af8b1577cc45b72195faf82004bb8c2c",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task2.jsonl": "231d8eecdff1245bb6907d90550790059edc1edae8a8ebc7e55af3ad9825920e",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task3.jsonl": "1333bf1d231442e9ea181bdb276b864bb8ad43ed33637bdd7acececd021c2686",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task4.jsonl": "1ff0c1bfcbf76b82a426d867646ee49de13494a3b128966dea792b893c0fd022",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task5.jsonl": "14c78e6030978ce42dc878233e978ec2d7ead8cb5b35eb354a346f4abc8e0f5f",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task6.jsonl": "cf3470eee37f14563d8c3fdcec60e53c958af32016ee879c54d8e54c3fe27661",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task7.jsonl": "502bbff5c72d9a3127677c0ba5cb6601fafc6becd1b1fea6c690de98828676fa",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task8.jsonl": "3804b4aed7abd9b09db4734c25f41638a38ec8dfad7641974a8262aab75fac93",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/libero_spatial_task9.jsonl": "48c9d83e59771c39dc3744ce3e482c45de72225380f18262475d889c99363e2f",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/manifest.json": "f41a6a613ec210178162fda3313042927e695a0815ee81ab0a71fd36762bcd4b",
+        "/projects/yanlongvla/runs/g0/libero_spatial_seed7.jsonl": "c48c9ce9e91db0ed941a81a4e685272cad073fbdf4894946d2d3cfbe8be7a960",
+        "/projects/yanlongvla/runs/g0/libero_object_seed7.jsonl": "3d68187984edcf6096dc6f95191285614bae448d4f13f078463e69a1ef0e53b2",
+        "/projects/yanlongvla/runs/g0/libero_goal_seed7.jsonl": "f16b3ae379e754fd0bac6cd93565ad22b4f2f167e3b2396ac37e4e5c5d05d2f8",
+        "/projects/yanlongvla/runs/g0/libero_10_seed7.jsonl": "9153acbb728f32bfcc3a4032659af7bb8daa6f2ce0fadfe745ea6d6dd1643192",
+        "/projects/yanlongvla/runs/plustrain_20261008/libero/a8_studentq_alloc/full/reuse.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+      }
+    },
     "a8_studentq": {
       "status": "complete",
       "model": "a8_studentq",
@@ -475,6 +569,18 @@
               "paired_improvements": 119,
               "paired_regressions": 241
             },
+            "a8_studentq_alloc": {
+              "successes": 1436,
+              "episodes": 2000,
+              "success_percent": 71.8,
+              "difference_from_reference_pp": -2.35,
+              "paired_difference_ci95_pp": [
+                -5.050818961739282,
+                0.7086873686540116
+              ],
+              "paired_improvements": 122,
+              "paired_regressions": 169
+            },
             "a8_studentq": {
               "successes": 1439,
               "episodes": 2000,
@@ -510,6 +616,18 @@
               ],
               "paired_improvements": 120,
               "paired_regressions": 174
+            },
+            "a8_studentq_amvq": {
+              "successes": 1444,
+              "episodes": 2000,
+              "success_percent": 72.2,
+              "difference_from_reference_pp": -1.95,
+              "paired_difference_ci95_pp": [
+                -5.12502738490685,
+                1.2665743642273561
+              ],
+              "paired_improvements": 137,
+              "paired_regressions": 176
             }
           }
         },
@@ -530,6 +648,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq_alloc": {
+              "successes": 1436,
+              "episodes": 2000,
+              "success_percent": 71.8,
+              "difference_from_reference_pp": 3.75,
+              "paired_difference_ci95_pp": [
+                1.0580338110768133,
+                6.4851699802141285
+              ],
+              "paired_improvements": 190,
+              "paired_regressions": 115
             },
             "a8_studentq": {
               "successes": 1439,
@@ -566,6 +696,18 @@
               ],
               "paired_improvements": 160,
               "paired_regressions": 92
+            },
+            "a8_studentq_amvq": {
+              "successes": 1444,
+              "episodes": 2000,
+              "success_percent": 72.2,
+              "difference_from_reference_pp": 4.15,
+              "paired_difference_ci95_pp": [
+                1.211556045624241,
+                7.201738754815607
+              ],
+              "paired_improvements": 190,
+              "paired_regressions": 107
             }
           }
         }
@@ -588,6 +730,18 @@
               ],
               "paired_improvements": 53,
               "paired_regressions": 114
+            },
+            "a8_studentq_alloc": {
+              "successes": 687,
+              "episodes": 1000,
+              "success_percent": 68.7,
+              "difference_from_reference_pp": -2.9000000000000004,
+              "paired_difference_ci95_pp": [
+                -6.764627371191986,
+                0.5797061001901983
+              ],
+              "paired_improvements": 56,
+              "paired_regressions": 85
             },
             "a8_studentq": {
               "successes": 685,
@@ -624,6 +778,18 @@
               ],
               "paired_improvements": 60,
               "paired_regressions": 93
+            },
+            "a8_studentq_amvq": {
+              "successes": 706,
+              "episodes": 1000,
+              "success_percent": 70.6,
+              "difference_from_reference_pp": -1.0,
+              "paired_difference_ci95_pp": [
+                -5.32041579620467,
+                3.0632229684199186
+              ],
+              "paired_improvements": 71,
+              "paired_regressions": 81
             }
           }
         },
@@ -644,6 +810,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq_alloc": {
+              "successes": 687,
+              "episodes": 1000,
+              "success_percent": 68.7,
+              "difference_from_reference_pp": 3.2,
+              "paired_difference_ci95_pp": [
+                -0.5024465838229698,
+                6.865308133867729
+              ],
+              "paired_improvements": 86,
+              "paired_regressions": 54
             },
             "a8_studentq": {
               "successes": 685,
@@ -680,6 +858,18 @@
               ],
               "paired_improvements": 78,
               "paired_regressions": 50
+            },
+            "a8_studentq_amvq": {
+              "successes": 706,
+              "episodes": 1000,
+              "success_percent": 70.6,
+              "difference_from_reference_pp": 5.1,
+              "paired_difference_ci95_pp": [
+                0.6756468065533475,
+                9.532602309686515
+              ],
+              "paired_improvements": 102,
+              "paired_regressions": 51
             }
           }
         }
@@ -702,6 +892,18 @@
               ],
               "paired_improvements": 66,
               "paired_regressions": 127
+            },
+            "a8_studentq_alloc": {
+              "successes": 749,
+              "episodes": 1000,
+              "success_percent": 74.9,
+              "difference_from_reference_pp": -1.7999999999999998,
+              "paired_difference_ci95_pp": [
+                -5.600410664960632,
+                2.1503089293471365
+              ],
+              "paired_improvements": 66,
+              "paired_regressions": 84
             },
             "a8_studentq": {
               "successes": 754,
@@ -738,6 +940,18 @@
               ],
               "paired_improvements": 60,
               "paired_regressions": 81
+            },
+            "a8_studentq_amvq": {
+              "successes": 738,
+              "episodes": 1000,
+              "success_percent": 73.8,
+              "difference_from_reference_pp": -2.9000000000000004,
+              "paired_difference_ci95_pp": [
+                -7.368203242468709,
+                1.6701135396498499
+              ],
+              "paired_improvements": 66,
+              "paired_regressions": 95
             }
           }
         },
@@ -758,6 +972,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq_alloc": {
+              "successes": 749,
+              "episodes": 1000,
+              "success_percent": 74.9,
+              "difference_from_reference_pp": 4.3,
+              "paired_difference_ci95_pp": [
+                0.4209394615691704,
+                8.061425389297312
+              ],
+              "paired_improvements": 104,
+              "paired_regressions": 61
             },
             "a8_studentq": {
               "successes": 754,
@@ -794,6 +1020,18 @@
               ],
               "paired_improvements": 82,
               "paired_regressions": 42
+            },
+            "a8_studentq_amvq": {
+              "successes": 738,
+              "episodes": 1000,
+              "success_percent": 73.8,
+              "difference_from_reference_pp": 3.2,
+              "paired_difference_ci95_pp": [
+                -0.742198619422318,
+                6.69145430874762
+              ],
+              "paired_improvements": 88,
+              "paired_regressions": 56
             }
           }
         }
@@ -818,6 +1056,18 @@
               ],
               "paired_improvements": 61,
               "paired_regressions": 122
+            },
+            "a8_studentq_alloc": {
+              "successes": 699,
+              "episodes": 1000,
+              "success_percent": 69.89999999999999,
+              "difference_from_reference_pp": -1.9,
+              "paired_difference_ci95_pp": [
+                -5.744853367487097,
+                2.006207081749056
+              ],
+              "paired_improvements": 68,
+              "paired_regressions": 87
             },
             "a8_studentq": {
               "successes": 698,
@@ -854,6 +1104,18 @@
               ],
               "paired_improvements": 56,
               "paired_regressions": 85
+            },
+            "a8_studentq_amvq": {
+              "successes": 699,
+              "episodes": 1000,
+              "success_percent": 69.89999999999999,
+              "difference_from_reference_pp": -1.9,
+              "paired_difference_ci95_pp": [
+                -5.662990476280049,
+                1.954988850988946
+              ],
+              "paired_improvements": 72,
+              "paired_regressions": 91
             }
           }
         },
@@ -874,6 +1136,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq_alloc": {
+              "successes": 699,
+              "episodes": 1000,
+              "success_percent": 69.89999999999999,
+              "difference_from_reference_pp": 4.2,
+              "paired_difference_ci95_pp": [
+                0.6016847340924741,
+                7.834209267641058
+              ],
+              "paired_improvements": 97,
+              "paired_regressions": 55
             },
             "a8_studentq": {
               "successes": 698,
@@ -910,6 +1184,18 @@
               ],
               "paired_improvements": 79,
               "paired_regressions": 47
+            },
+            "a8_studentq_amvq": {
+              "successes": 699,
+              "episodes": 1000,
+              "success_percent": 69.89999999999999,
+              "difference_from_reference_pp": 4.2,
+              "paired_difference_ci95_pp": [
+                0.9164206915155866,
+                7.5454320688680765
+              ],
+              "paired_improvements": 90,
+              "paired_regressions": 48
             }
           }
         }
@@ -932,6 +1218,18 @@
               ],
               "paired_improvements": 28,
               "paired_regressions": 63
+            },
+            "a8_studentq_alloc": {
+              "successes": 326,
+              "episodes": 500,
+              "success_percent": 65.2,
+              "difference_from_reference_pp": -3.5999999999999996,
+              "paired_difference_ci95_pp": [
+                -9.293897663960353,
+                1.6292325535287406
+              ],
+              "paired_improvements": 32,
+              "paired_regressions": 50
             },
             "a8_studentq": {
               "successes": 329,
@@ -968,6 +1266,18 @@
               ],
               "paired_improvements": 27,
               "paired_regressions": 46
+            },
+            "a8_studentq_amvq": {
+              "successes": 338,
+              "episodes": 500,
+              "success_percent": 67.60000000000001,
+              "difference_from_reference_pp": -1.2,
+              "paired_difference_ci95_pp": [
+                -7.11131037045579,
+                4.252824825502799
+              ],
+              "paired_improvements": 41,
+              "paired_regressions": 47
             }
           }
         },
@@ -988,6 +1298,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq_alloc": {
+              "successes": 326,
+              "episodes": 500,
+              "success_percent": 65.2,
+              "difference_from_reference_pp": 3.4000000000000004,
+              "paired_difference_ci95_pp": [
+                -1.8123024444458637,
+                8.338816565936243
+              ],
+              "paired_improvements": 47,
+              "paired_regressions": 30
             },
             "a8_studentq": {
               "successes": 329,
@@ -1024,6 +1346,18 @@
               ],
               "paired_improvements": 40,
               "paired_regressions": 24
+            },
+            "a8_studentq_amvq": {
+              "successes": 338,
+              "episodes": 500,
+              "success_percent": 67.60000000000001,
+              "difference_from_reference_pp": 5.800000000000001,
+              "paired_difference_ci95_pp": [
+                0.5702538346156091,
+                10.789747660574076
+              ],
+              "paired_improvements": 53,
+              "paired_regressions": 24
             }
           }
         }
@@ -1046,6 +1380,18 @@
               ],
               "paired_improvements": 33,
               "paired_regressions": 59
+            },
+            "a8_studentq_alloc": {
+              "successes": 373,
+              "episodes": 500,
+              "success_percent": 74.6,
+              "difference_from_reference_pp": -0.2,
+              "paired_difference_ci95_pp": [
+                -4.6124487153038185,
+                4.562508705123129
+              ],
+              "paired_improvements": 36,
+              "paired_regressions": 37
             },
             "a8_studentq": {
               "successes": 369,
@@ -1082,6 +1428,18 @@
               ],
               "paired_improvements": 29,
               "paired_regressions": 39
+            },
+            "a8_studentq_amvq": {
+              "successes": 361,
+              "episodes": 500,
+              "success_percent": 72.2,
+              "difference_from_reference_pp": -2.6,
+              "paired_difference_ci95_pp": [
+                -7.2725859491698035,
+                2.1976821197460104
+              ],
+              "paired_improvements": 31,
+              "paired_regressions": 44
             }
           }
         },
@@ -1102,6 +1460,18 @@
               ],
               "paired_improvements": 0,
               "paired_regressions": 0
+            },
+            "a8_studentq_alloc": {
+              "successes": 373,
+              "episodes": 500,
+              "success_percent": 74.6,
+              "difference_from_reference_pp": 5.0,
+              "paired_difference_ci95_pp": [
+                0.23843372431021453,
+                9.708064293183696
+              ],
+              "paired_improvements": 50,
+              "paired_regressions": 25
             },
             "a8_studentq": {
               "successes": 369,
@@ -1138,6 +1508,18 @@
               ],
               "paired_improvements": 39,
               "paired_regressions": 23
+            },
+            "a8_studentq_amvq": {
+              "successes": 361,
+              "episodes": 500,
+              "success_percent": 72.2,
+              "difference_from_reference_pp": 2.6,
+              "paired_difference_ci95_pp": [
+                -1.6574762307852988,
+                7.007661656555294
+              ],
+              "paired_improvements": 37,
+              "paired_regressions": 24
             }
           }
         }
@@ -1146,9 +1528,11 @@
     "overlap": 1000,
     "models": [
       "bb_M2_ae_M2_fp32",
+      "a8_studentq_alloc",
       "a8_studentq",
       "original_fp",
-      "a8_raqft"
+      "a8_raqft",
+      "a8_studentq_amvq"
     ]
   },
   "deployable_W2A8": {
@@ -6693,6 +7077,148 @@
         "V/language_state/w_cross_fraction": -0.05117614839568588
       }
     },
+    "a8_studentq_alloc": {
+      "KV": {
+        "original_training256": {
+          "all": {
+            "mean_local_ratio": 0.029092391379569482,
+            "local_quantiles_05_50_95": [
+              0.020123257171963754,
+              0.027931158500037648,
+              0.0422159576680472
+            ],
+            "mean_total_ratio": 0.029092391379569482,
+            "total_quantiles_05_50_95": [
+              0.020123257171963754,
+              0.027931158500037648,
+              0.0422159576680472
+            ],
+            "pooled_local_ratio": 0.02861837516647132,
+            "pooled_total_ratio": 0.02861837516647132,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.02858852713752905,
+            "local_quantiles_05_50_95": [
+              0.01980102389361798,
+              0.02743274479156047,
+              0.04181678411631581
+            ],
+            "mean_total_ratio": 0.028453428577517315,
+            "total_quantiles_05_50_95": [
+              0.019745266211381556,
+              0.02731351583333238,
+              0.04162513348750827
+            ],
+            "pooled_local_ratio": 0.02811392596390045,
+            "pooled_total_ratio": 0.027987045958247216,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.139542225674036,
+            "local_quantiles_05_50_95": [
+              0.1018054857728926,
+              0.13657318710293387,
+              0.18834385765333275
+            ],
+            "mean_total_ratio": 0.00063896280205217,
+            "total_quantiles_05_50_95": [
+              0.00031884950408060935,
+              0.0006095212045803093,
+              0.0010427770290002798
+            ],
+            "pooled_local_ratio": 0.13988920104064045,
+            "pooled_total_ratio": 0.0006313292082240915,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.04296875
+          }
+        },
+        "Plus200": {
+          "all": {
+            "mean_local_ratio": 0.04136249210978185,
+            "local_quantiles_05_50_95": [
+              0.03050139189788295,
+              0.0409159603610785,
+              0.053305427250429194
+            ],
+            "mean_total_ratio": 0.04136249210978185,
+            "total_quantiles_05_50_95": [
+              0.03050139189788295,
+              0.0409159603610785,
+              0.053305427250429194
+            ],
+            "pooled_local_ratio": 0.041158731691672654,
+            "pooled_total_ratio": 0.041158731691672654,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.0394057774469061,
+            "local_quantiles_05_50_95": [
+              0.02889883586381999,
+              0.03882065716722569,
+              0.05120590763068531
+            ],
+            "mean_total_ratio": 0.03904983368002965,
+            "total_quantiles_05_50_95": [
+              0.028663259636832472,
+              0.038483981335601526,
+              0.05069655309187419
+            ],
+            "pooled_local_ratio": 0.039196174783007756,
+            "pooled_total_ratio": 0.03885317912658814,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.26504224965011713,
+            "local_quantiles_05_50_95": [
+              0.2012758003383147,
+              0.2618000948576972,
+              0.3369637266185831
+            ],
+            "mean_total_ratio": 0.0023126584297522056,
+            "total_quantiles_05_50_95": [
+              0.001720472520461096,
+              0.002285284159809073,
+              0.0030722610996658053
+            ],
+            "pooled_local_ratio": 0.2634693461012863,
+            "pooled_total_ratio": 0.00230555256508451,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        }
+      },
+      "D1_pooled": {
+        "K/image/local_fraction": 0.08112367793191687,
+        "K/image/propagated_fraction": 0.9381079441956859,
+        "K/image/cross_fraction": -0.019216171657597328,
+        "K/image/w_local_fraction": 0.0313523694551208,
+        "K/image/w_propagated_fraction": 0.9744562862279391,
+        "K/image/w_cross_fraction": -0.005799379084012151,
+        "K/language_state/local_fraction": 0.11122957821936195,
+        "K/language_state/propagated_fraction": 0.9305627113330189,
+        "K/language_state/cross_fraction": -0.041770270015851846,
+        "K/language_state/w_local_fraction": 0.07322930886741012,
+        "K/language_state/w_propagated_fraction": 0.9673126194366561,
+        "K/language_state/w_cross_fraction": -0.04052250350778351,
+        "V/image/local_fraction": 0.04149497582226584,
+        "V/image/propagated_fraction": 0.9646955560695992,
+        "V/image/cross_fraction": -0.006172375148308085,
+        "V/image/w_local_fraction": 0.02645111829865965,
+        "V/image/w_propagated_fraction": 0.9724218666060348,
+        "V/image/w_cross_fraction": 0.001145108374230148,
+        "V/language_state/local_fraction": 0.06152161430249714,
+        "V/language_state/propagated_fraction": 0.974672762240763,
+        "V/language_state/cross_fraction": -0.03616953784542123,
+        "V/language_state/w_local_fraction": 0.05116011131696502,
+        "V/language_state/w_propagated_fraction": 0.979505533010922,
+        "V/language_state/w_cross_fraction": -0.030640624440930478
+      }
+    },
     "raqft_nowo": {
       "KV": {
         "original_training256": {
@@ -7117,6 +7643,148 @@
         "V/language_state/w_local_fraction": 0.14235527102682533,
         "V/language_state/w_propagated_fraction": 0.9597134497293481,
         "V/language_state/w_cross_fraction": -0.10204246904186506
+      }
+    },
+    "raqft_studentq_amvq": {
+      "KV": {
+        "original_training256": {
+          "all": {
+            "mean_local_ratio": 0.0404157424241849,
+            "local_quantiles_05_50_95": [
+              0.027680611924008558,
+              0.038839943849182296,
+              0.0568972496489908
+            ],
+            "mean_total_ratio": 0.0404157424241849,
+            "total_quantiles_05_50_95": [
+              0.027680611924008558,
+              0.038839943849182296,
+              0.0568972496489908
+            ],
+            "pooled_local_ratio": 0.03966423042282069,
+            "pooled_total_ratio": 0.03966423042282069,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.03976254445814621,
+            "local_quantiles_05_50_95": [
+              0.02710994980591333,
+              0.03810374346728297,
+              0.056279300058581276
+            ],
+            "mean_total_ratio": 0.03957539346118616,
+            "total_quantiles_05_50_95": [
+              0.027009290802246608,
+              0.037939842686929355,
+              0.05602445418129767
+            ],
+            "pooled_local_ratio": 0.03900926397194191,
+            "pooled_total_ratio": 0.03883322846166908,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.18422638688580273,
+            "local_quantiles_05_50_95": [
+              0.14420543673573727,
+              0.1796134216243696,
+              0.23874729907289113
+            ],
+            "mean_total_ratio": 0.000840348962998743,
+            "total_quantiles_05_50_95": [
+              0.00042999519228581067,
+              0.0008324616495583527,
+              0.001374039915187877
+            ],
+            "pooled_local_ratio": 0.18414906636459744,
+            "pooled_total_ratio": 0.0008310019611515776,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        },
+        "Plus200": {
+          "all": {
+            "mean_local_ratio": 0.058862515101894566,
+            "local_quantiles_05_50_95": [
+              0.04288198556160154,
+              0.0580449276031421,
+              0.08069338078280432
+            ],
+            "mean_total_ratio": 0.058862515101894566,
+            "total_quantiles_05_50_95": [
+              0.04288198556160154,
+              0.0580449276031421,
+              0.08069338078280432
+            ],
+            "pooled_local_ratio": 0.0583075764528604,
+            "pooled_total_ratio": 0.0583075764528604,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 0.995
+          },
+          "image": {
+            "mean_local_ratio": 0.056341716251304644,
+            "local_quantiles_05_50_95": [
+              0.04089122789164132,
+              0.05540615904544581,
+              0.07809368444361711
+            ],
+            "mean_total_ratio": 0.055831781745603555,
+            "total_quantiles_05_50_95": [
+              0.040624260375686276,
+              0.05494565798653206,
+              0.07737847161166551
+            ],
+            "pooled_local_ratio": 0.05577626310621716,
+            "pooled_total_ratio": 0.055288216275584334,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.347176558799393,
+            "local_quantiles_05_50_95": [
+              0.2745436315757453,
+              0.34479245642683365,
+              0.4419415555871406
+            ],
+            "mean_total_ratio": 0.00303073335629101,
+            "total_quantiles_05_50_95": [
+              0.0023045596513086505,
+              0.0029964821819239854,
+              0.003932146527099702
+            ],
+            "pooled_local_ratio": 0.34506653273785676,
+            "pooled_total_ratio": 0.0030193601772760498,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        }
+      },
+      "D1_pooled": {
+        "K/image/local_fraction": 0.16276858180614262,
+        "K/image/propagated_fraction": 0.916840728165727,
+        "K/image/cross_fraction": -0.0795930687418645,
+        "K/image/w_local_fraction": 0.056077298037010344,
+        "K/image/w_propagated_fraction": 0.9897557760179667,
+        "K/image/w_cross_fraction": -0.045822451457532436,
+        "K/language_state/local_fraction": 0.2830804699344737,
+        "K/language_state/propagated_fraction": 0.8447468845917907,
+        "K/language_state/cross_fraction": -0.127807346361167,
+        "K/language_state/w_local_fraction": 0.1798550154998135,
+        "K/language_state/w_propagated_fraction": 0.927321638827203,
+        "K/language_state/w_cross_fraction": -0.10715809035612456,
+        "V/image/local_fraction": 0.07368415988086628,
+        "V/image/propagated_fraction": 0.9744452455463192,
+        "V/image/cross_fraction": -0.048108511955293705,
+        "V/image/w_local_fraction": 0.039056720000073424,
+        "V/image/w_propagated_fraction": 0.9899640576926508,
+        "V/image/w_cross_fraction": -0.028999081412434777,
+        "V/language_state/local_fraction": 0.1742888313653389,
+        "V/language_state/propagated_fraction": 0.943029376676828,
+        "V/language_state/cross_fraction": -0.11729394671373075,
+        "V/language_state/w_local_fraction": 0.14450807516389744,
+        "V/language_state/w_propagated_fraction": 0.9574317148108137,
+        "V/language_state/w_cross_fraction": -0.1019154100090307
       }
     },
     "raqft_a_c2": {
@@ -7599,6 +8267,148 @@
         "V/language_state/w_local_fraction": 0.14371324867674715,
         "V/language_state/w_propagated_fraction": 0.9602090832041783,
         "V/language_state/w_cross_fraction": -0.1038961243576599
+      }
+    },
+    "raqft_studentq_alloc_v4_recal": {
+      "KV": {
+        "original_training256": {
+          "all": {
+            "mean_local_ratio": 0.03171878308488819,
+            "local_quantiles_05_50_95": [
+              0.021754670160835925,
+              0.030206116688730356,
+              0.04531680660825333
+            ],
+            "mean_total_ratio": 0.03171878308488819,
+            "total_quantiles_05_50_95": [
+              0.021754670160835925,
+              0.030206116688730356,
+              0.04531680660825333
+            ],
+            "pooled_local_ratio": 0.031199401925938917,
+            "pooled_total_ratio": 0.031199401925938917,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.03125197704300371,
+            "local_quantiles_05_50_95": [
+              0.021320574169176973,
+              0.029701853308341047,
+              0.044825883219505674
+            ],
+            "mean_total_ratio": 0.031104935520260033,
+            "total_quantiles_05_50_95": [
+              0.021241032996759723,
+              0.029576657886847192,
+              0.04463507030834733
+            ],
+            "pooled_local_ratio": 0.03073030260081528,
+            "pooled_total_ratio": 0.03059162722096028,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.13459792383301206,
+            "local_quantiles_05_50_95": [
+              0.0973446992531421,
+              0.1301887580078238,
+              0.18513447826731155
+            ],
+            "mean_total_ratio": 0.0006138475646281587,
+            "total_quantiles_05_50_95": [
+              0.0003128059828481181,
+              0.0005937175971007366,
+              0.0009949431415709176
+            ],
+            "pooled_local_ratio": 0.13468216648578962,
+            "pooled_total_ratio": 0.000607774704978636,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.05859375
+          }
+        },
+        "Plus200": {
+          "all": {
+            "mean_local_ratio": 0.04497864637297989,
+            "local_quantiles_05_50_95": [
+              0.031871818541938636,
+              0.04501879902218275,
+              0.059780985148703995
+            ],
+            "mean_total_ratio": 0.04497864637297989,
+            "total_quantiles_05_50_95": [
+              0.031871818541938636,
+              0.04501879902218275,
+              0.059780985148703995
+            ],
+            "pooled_local_ratio": 0.04469713976377227,
+            "pooled_total_ratio": 0.04469713976377227,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.04312836856686113,
+            "local_quantiles_05_50_95": [
+              0.030348440650445396,
+              0.04309191183316817,
+              0.05773984407462306
+            ],
+            "mean_total_ratio": 0.042739279922855825,
+            "total_quantiles_05_50_95": [
+              0.03005090084636243,
+              0.04273810060393635,
+              0.05721927696434537
+            ],
+            "pooled_local_ratio": 0.042839977709438246,
+            "pooled_total_ratio": 0.04246512442631929,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.2565748680497727,
+            "local_quantiles_05_50_95": [
+              0.19341990672871548,
+              0.2542238323678609,
+              0.3327514167441
+            ],
+            "mean_total_ratio": 0.002239366450124069,
+            "total_quantiles_05_50_95": [
+              0.0016511282806218372,
+              0.0022205714015469027,
+              0.003023568881910052
+            ],
+            "pooled_local_ratio": 0.25508510025042885,
+            "pooled_total_ratio": 0.0022320153374529705,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        }
+      },
+      "D1_pooled": {
+        "K/image/local_fraction": 0.07315683503753506,
+        "K/image/propagated_fraction": 0.9483686862473691,
+        "K/image/cross_fraction": -0.021509545201903287,
+        "K/image/w_local_fraction": 0.028101368769711272,
+        "K/image/w_propagated_fraction": 0.9810034716317825,
+        "K/image/w_cross_fraction": -0.00909493664431225,
+        "K/language_state/local_fraction": 0.11279784962700119,
+        "K/language_state/propagated_fraction": 0.9270069444408218,
+        "K/language_state/cross_fraction": -0.03978310928417331,
+        "K/language_state/w_local_fraction": 0.07410481673602314,
+        "K/language_state/w_propagated_fraction": 0.9678948933837336,
+        "K/language_state/w_cross_fraction": -0.041980761491424205,
+        "V/image/local_fraction": 0.034283863819378764,
+        "V/image/propagated_fraction": 0.970371284434164,
+        "V/image/cross_fraction": -0.0046358477073176465,
+        "V/image/w_local_fraction": 0.020000995675646,
+        "V/image/w_propagated_fraction": 0.9758861071134891,
+        "V/image/w_cross_fraction": 0.004132477591837035,
+        "V/language_state/local_fraction": 0.06250311584462168,
+        "V/language_state/propagated_fraction": 0.9720423313427973,
+        "V/language_state/cross_fraction": -0.03452100578726111,
+        "V/language_state/w_local_fraction": 0.051888906203924806,
+        "V/language_state/w_propagated_fraction": 0.9765054811000514,
+        "V/language_state/w_cross_fraction": -0.02837019464221246
       }
     },
     "raqft_seed2": {
@@ -8595,6 +9405,148 @@
         "V/language_state/w_cross_fraction": -0.10221159434467843
       }
     },
+    "a8_studentq_alloc_v4_recal": {
+      "KV": {
+        "original_training256": {
+          "all": {
+            "mean_local_ratio": 0.03184318761821698,
+            "local_quantiles_05_50_95": [
+              0.02179652974216482,
+              0.030442509732744705,
+              0.04561423619435829
+            ],
+            "mean_total_ratio": 0.03184318761821698,
+            "total_quantiles_05_50_95": [
+              0.02179652974216482,
+              0.030442509732744705,
+              0.04561423619435829
+            ],
+            "pooled_local_ratio": 0.03131883022555189,
+            "pooled_total_ratio": 0.03131883022555189,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.031376080643170795,
+            "local_quantiles_05_50_95": [
+              0.021331338193437067,
+              0.029868933488744878,
+              0.04512240270044251
+            ],
+            "mean_total_ratio": 0.03122846708967219,
+            "total_quantiles_05_50_95": [
+              0.021248987193143096,
+              0.029710253782965407,
+              0.04493026848730829
+            ],
+            "pooled_local_ratio": 0.030849397385185565,
+            "pooled_total_ratio": 0.030710184571167424,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.13477741477632071,
+            "local_quantiles_05_50_95": [
+              0.09790238930535552,
+              0.13110126779906067,
+              0.18553285511408316
+            ],
+            "mean_total_ratio": 0.0006147205285447906,
+            "total_quantiles_05_50_95": [
+              0.00031272606943634696,
+              0.0005954648289226542,
+              0.0009997526725658477
+            ],
+            "pooled_local_ratio": 0.13487516785935427,
+            "pooled_total_ratio": 0.0006086456543844812,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0625
+          }
+        },
+        "Plus200": {
+          "all": {
+            "mean_local_ratio": 0.04504516160551814,
+            "local_quantiles_05_50_95": [
+              0.031882636228387995,
+              0.044956941964560015,
+              0.05885457178724796
+            ],
+            "mean_total_ratio": 0.04504516160551814,
+            "total_quantiles_05_50_95": [
+              0.031882636228387995,
+              0.044956941964560015,
+              0.05885457178724796
+            ],
+            "pooled_local_ratio": 0.04475887691467455,
+            "pooled_total_ratio": 0.04475887691467455,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.04319259486073324,
+            "local_quantiles_05_50_95": [
+              0.030521871630615812,
+              0.04323791850613448,
+              0.057040393191777
+            ],
+            "mean_total_ratio": 0.042802894932873335,
+            "total_quantiles_05_50_95": [
+              0.03029665234008637,
+              0.04285519364076605,
+              0.05644073673746944
+            ],
+            "pooled_local_ratio": 0.04289942443812915,
+            "pooled_total_ratio": 0.04252405099130769,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.2568908180083003,
+            "local_quantiles_05_50_95": [
+              0.19329562228529493,
+              0.25431661248336124,
+              0.3329062933701321
+            ],
+            "mean_total_ratio": 0.002242266672644808,
+            "total_quantiles_05_50_95": [
+              0.0016587571880082438,
+              0.002219516634855624,
+              0.0030316630912528603
+            ],
+            "pooled_local_ratio": 0.25540630708874157,
+            "pooled_total_ratio": 0.002234825923366867,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        }
+      },
+      "D1_pooled": {
+        "K/image/local_fraction": 0.07392343212099464,
+        "K/image/propagated_fraction": 0.9476011872728755,
+        "K/image/cross_fraction": -0.021508605974965303,
+        "K/image/w_local_fraction": 0.028234479159334955,
+        "K/image/w_propagated_fraction": 0.9809393171107815,
+        "K/image/w_cross_fraction": -0.00916379698461553,
+        "K/language_state/local_fraction": 0.11319550738437394,
+        "K/language_state/propagated_fraction": 0.9265953149792641,
+        "K/language_state/cross_fraction": -0.03976909051085354,
+        "K/language_state/w_local_fraction": 0.07452194945142741,
+        "K/language_state/w_propagated_fraction": 0.9674818165567513,
+        "K/language_state/w_cross_fraction": -0.04198455918056619,
+        "V/image/local_fraction": 0.034751862213483774,
+        "V/image/propagated_fraction": 0.9699183151325765,
+        "V/image/cross_fraction": -0.004650795660486518,
+        "V/image/w_local_fraction": 0.020246566106436333,
+        "V/image/w_propagated_fraction": 0.9756904872037868,
+        "V/image/w_cross_fraction": 0.004082613855785399,
+        "V/language_state/local_fraction": 0.06279582915622989,
+        "V/language_state/propagated_fraction": 0.9717388902454258,
+        "V/language_state/cross_fraction": -0.034510406117288984,
+        "V/language_state/w_local_fraction": 0.052188997398888486,
+        "V/language_state/w_propagated_fraction": 0.9762488110040748,
+        "V/language_state/w_cross_fraction": -0.02841383032500588
+      }
+    },
     "raqft_plainvq": {
       "KV": {
         "original_training256": {
@@ -9075,6 +10027,148 @@
         "V/language_state/w_local_fraction": 0.09964976772308956,
         "V/language_state/w_propagated_fraction": 0.9515842953502524,
         "V/language_state/w_cross_fraction": -0.051204887390823836
+      }
+    },
+    "a8_studentq_amvq": {
+      "KV": {
+        "original_training256": {
+          "all": {
+            "mean_local_ratio": 0.04048559585680139,
+            "local_quantiles_05_50_95": [
+              0.027433381422929396,
+              0.038962631797120034,
+              0.056576644293412685
+            ],
+            "mean_total_ratio": 0.04048559585680139,
+            "total_quantiles_05_50_95": [
+              0.027433381422929396,
+              0.038962631797120034,
+              0.056576644293412685
+            ],
+            "pooled_local_ratio": 0.039732423728580005,
+            "pooled_total_ratio": 0.039732423728580005,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "image": {
+            "mean_local_ratio": 0.039831999269199815,
+            "local_quantiles_05_50_95": [
+              0.026871005006392387,
+              0.03824334666392935,
+              0.056078091211731705
+            ],
+            "mean_total_ratio": 0.039644498366823086,
+            "total_quantiles_05_50_95": [
+              0.026769764998052524,
+              0.03802012631927906,
+              0.05585765393830598
+            ],
+            "pooled_local_ratio": 0.03907710403095414,
+            "pooled_total_ratio": 0.03890074647823362,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.1843996596392351,
+            "local_quantiles_05_50_95": [
+              0.1441367028448781,
+              0.17974197835107203,
+              0.2386186282494192
+            ],
+            "mean_total_ratio": 0.0008410974899782961,
+            "total_quantiles_05_50_95": [
+              0.00042840343519660363,
+              0.0008359056627870044,
+              0.0013730381416904593
+            ],
+            "pooled_local_ratio": 0.1842820901664009,
+            "pooled_total_ratio": 0.0008316772503463995,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        },
+        "Plus200": {
+          "all": {
+            "mean_local_ratio": 0.058886308429414,
+            "local_quantiles_05_50_95": [
+              0.043038750316342134,
+              0.057839784423592486,
+              0.08086779901733895
+            ],
+            "mean_total_ratio": 0.058886308429414,
+            "total_quantiles_05_50_95": [
+              0.043038750316342134,
+              0.057839784423592486,
+              0.08086779901733895
+            ],
+            "pooled_local_ratio": 0.05833752269481243,
+            "pooled_total_ratio": 0.05833752269481243,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 0.995
+          },
+          "image": {
+            "mean_local_ratio": 0.05636338776578903,
+            "local_quantiles_05_50_95": [
+              0.04104071093821226,
+              0.05541805213433002,
+              0.0782889784797567
+            ],
+            "mean_total_ratio": 0.055853303215495004,
+            "total_quantiles_05_50_95": [
+              0.04077262983927135,
+              0.054929291407080694,
+              0.07741969659943834
+            ],
+            "pooled_local_ratio": 0.0558042343928659,
+            "pooled_total_ratio": 0.055315905873245336,
+            "pooled_anchor_bracketed_by_primary_doses": true,
+            "fraction_observations_bracketed": 1.0
+          },
+          "language_state": {
+            "mean_local_ratio": 0.3474094383644582,
+            "local_quantiles_05_50_95": [
+              0.27375153906052035,
+              0.3444881683703133,
+              0.44053094823130506
+            ],
+            "mean_total_ratio": 0.0030330052139189907,
+            "total_quantiles_05_50_95": [
+              0.002302055293563476,
+              0.0029909930328661516,
+              0.003925925225203114
+            ],
+            "pooled_local_ratio": 0.3452983116512707,
+            "pooled_total_ratio": 0.0030216168215671255,
+            "pooled_anchor_bracketed_by_primary_doses": false,
+            "fraction_observations_bracketed": 0.0
+          }
+        }
+      },
+      "D1_pooled": {
+        "K/image/local_fraction": 0.16316436825336977,
+        "K/image/propagated_fraction": 0.9163429924861194,
+        "K/image/cross_fraction": -0.07949111949809283,
+        "K/image/w_local_fraction": 0.05615699746956529,
+        "K/image/w_propagated_fraction": 0.9895378130683528,
+        "K/image/w_cross_fraction": -0.04568411287484416,
+        "K/language_state/local_fraction": 0.2831098193906732,
+        "K/language_state/propagated_fraction": 0.8443834320514283,
+        "K/language_state/cross_fraction": -0.12747328391943205,
+        "K/language_state/w_local_fraction": 0.18027965511867988,
+        "K/language_state/w_propagated_fraction": 0.926893326437723,
+        "K/language_state/w_cross_fraction": -0.10715478658466401,
+        "V/image/local_fraction": 0.07401940109931479,
+        "V/image/propagated_fraction": 0.9740860123462015,
+        "V/image/cross_fraction": -0.048084588679171286,
+        "V/image/w_local_fraction": 0.03925108952061331,
+        "V/image/w_propagated_fraction": 0.989768190061408,
+        "V/image/w_cross_fraction": -0.028997685977256955,
+        "V/language_state/local_fraction": 0.1742892022415887,
+        "V/language_state/propagated_fraction": 0.9427920606313251,
+        "V/language_state/cross_fraction": -0.11705697750638053,
+        "V/language_state/w_local_fraction": 0.1445297440717087,
+        "V/language_state/w_propagated_fraction": 0.9571274453579616,
+        "V/language_state/w_cross_fraction": -0.10163273817275764
       }
     }
   },
@@ -10146,6 +11240,32 @@
         "graph_eager_max_abs": 0.0
       }
     },
+    "a8_studentq_alloc": {
+      "base": {
+        "versus_fp": {
+          "absolute_mse": 0.004700238198110586,
+          "relative_mse": 0.02166489619836748
+        },
+        "graph_eager_max_abs": 0.0
+      },
+      "a8": {
+        "sites": {
+          "backbone": 288,
+          "expert": 126,
+          "fp_linear": 0
+        },
+        "kv8": false,
+        "versus_fp": {
+          "absolute_mse": 0.004708864208711951,
+          "relative_mse": 0.021704656231031298
+        },
+        "versus_base": {
+          "absolute_mse": 9.903742382550027e-07,
+          "relative_mse": 4.929359538248266e-06
+        },
+        "graph_eager_max_abs": 0.0
+      }
+    },
     "a8_fp": {
       "base": {
         "versus_fp": {
@@ -10232,6 +11352,32 @@
         "graph_eager_max_abs": 0.0
       }
     },
+    "a8_studentq_alloc_v4_recal": {
+      "base": {
+        "versus_fp": {
+          "absolute_mse": 0.004616652093628484,
+          "relative_mse": 0.021279621197207204
+        },
+        "graph_eager_max_abs": 0.0
+      },
+      "a8": {
+        "sites": {
+          "backbone": 288,
+          "expert": 126,
+          "fp_linear": 0
+        },
+        "kv8": false,
+        "versus_fp": {
+          "absolute_mse": 0.0046202899070651735,
+          "relative_mse": 0.02129638903900011
+        },
+        "versus_base": {
+          "absolute_mse": 9.630118049311564e-07,
+          "relative_mse": 4.704227317309585e-06
+        },
+        "graph_eager_max_abs": 0.0
+      }
+    },
     "a8_2bit_kv8": {
       "base": {
         "versus_fp": {
@@ -10254,6 +11400,32 @@
         "versus_base": {
           "absolute_mse": 1.1864420635920656e-06,
           "relative_mse": 5.651499975291593e-06
+        },
+        "graph_eager_max_abs": 0.0
+      }
+    },
+    "a8_studentq_amvq": {
+      "base": {
+        "versus_fp": {
+          "absolute_mse": 0.005094780262788807,
+          "relative_mse": 0.023483466346701516
+        },
+        "graph_eager_max_abs": 0.0
+      },
+      "a8": {
+        "sites": {
+          "backbone": 288,
+          "expert": 126,
+          "fp_linear": 0
+        },
+        "kv8": false,
+        "versus_fp": {
+          "absolute_mse": 0.005196118158582188,
+          "relative_mse": 0.02395056501293658
+        },
+        "versus_base": {
+          "absolute_mse": 6.580868498307966e-06,
+          "relative_mse": 3.2475784216669864e-05
         },
         "graph_eager_max_abs": 0.0
       }
