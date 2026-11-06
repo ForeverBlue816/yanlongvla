@@ -1,0 +1,29 @@
+#!/bin/bash
+#PBS -N gr_vptq_test
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=06:00:00
+#PBS -j oe
+# GOAL 31 Oct item c: VPTQ layer test on GR00T layers (k-means iterations 100 / 500 / 2000 / 5000, other structures with the bits counted); see jobs/experiments/vptq_variants.py.
+# Submit: qsub -v SRC=<source dir> vptq_test.pbs
+set -uo pipefail
+: "${SRC:?}"
+HANDOVER=/home/d250009/projects/pi05-handover
+OPENPI_ROOT=/home/d250009/projects/openpi
+G=/scratch/d250009/pi05-handover/runs/groot_baselines
+VPTQ_REPO=$HANDOVER/runs/toolkits/VPTQ
+PY="$OPENPI_ROOT/.venv/bin/python"
+exec >> "$G/logs/vptq_test_${PBS_JOBID:-local}.log" 2>&1
+vsite="$HANDOVER/runs/envs/vptq/site-packages"; osite="$OPENPI_ROOT/.venv/lib/python3.11/site-packages"
+export LD_LIBRARY_PATH="$(ls -d "$osite"/nvidia/*/lib | tr '\n' ':')$vsite/libcudf/lib64:$vsite/libkvikio/lib64:$vsite/nvidia/nvcomp:$vsite/libcudf_cu12.libs:$vsite/cuml_cu12.libs:/usr/local/gcc-12.3/lib64:${LD_LIBRARY_PATH:-}"
+export PYTHONPATH="$SRC:$VPTQ_REPO:$vsite:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" PYTHONUNBUFFERED=1
+cd "$SRC" || exit 1
+echo "on $(hostname) $(nvidia-smi --query-gpu=name --format=csv,noheader) $(date -Is)"
+VAR="base iter500 iter2000 iter5000 v3k64 v5k1024 v6k2048 v6k4096 v8k4096 v8k65536"
+"$PY" jobs/experiments/vptq_variants.py --layers "$G/layers/backbone" --calibration "$G/calibration/backbone" --all-layers-json "$G/layers/backbone/layers.json" \
+  --layer-substr visual.blocks.20.mlp.linear_fc2 visual.blocks.3.attn.qkv visual.blocks.10.mlp.linear_fc1 language_model.layers.2.mlp.down_proj language_model.layers.15.self_attn.q_proj language_model.layers.10.mlp.up_proj \
+  --vptq-repo "$VPTQ_REPO" --variants $VAR --out "$G/experiments/vptq_test_backbone"
+"$PY" jobs/experiments/vptq_variants.py --layers "$G/layers/head_libero_spatial" --calibration "$G/calibration/head_libero_spatial" --all-layers-json "$G/layers/head_libero_spatial/layers.json" \
+  --layer-substr transformer_blocks.14.ff.net.0.proj transformer_blocks.8.attn1.to_k \
+  --vptq-repo "$VPTQ_REPO" --variants $VAR --out "$G/experiments/vptq_test_head"

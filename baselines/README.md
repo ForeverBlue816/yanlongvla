@@ -1,7 +1,5 @@
 # Baseline harness: 2-bit VQ / scalar quantization of π₀.₅-LIBERO, evaluated like our method
 
-> **GR00T N1.7:** the same baselines at 2 bits on LIBERO-Plus for GR00T N1.7 (`nvidia/GR00T-N1.7-LIBERO`) are set up in [`groot/`](groot/README.md) (RTN excluded).
-
 This directory lets you quantize the **whole** π₀.₅-LIBERO policy (backbone **and** action expert, both 2-bit) with any method, evaluate it on **LIBERO** and **LIBERO-Plus** with exactly the protocol used for our rows, and compare against our published per-episode outcomes with the same paired statistics. Our method's rows (FP, original 2-bit, RAQ-FT, and the final W2A8 row) are in `../results/plus_episodes/` and `../results/libero_full/`.
 
 Everything is evaluated through the **same BF16 dense runtime** (dequantized weights): the comparison measures quantization error only, never kernel speed. Bits-per-weight is counted the same way for every method.
@@ -91,3 +89,9 @@ Published reference rows (per-episode, identical instances and noise seeds):
 | `a8_raqft` (ours, final W2A8 row: + INT8 activations, BF16 KV cache) | 740 | 1944 | 2.9226 |
 
 For the table in the paper, report for each baseline: whole-model bpw, Plus 1000 successes with the paired difference and 95% CI vs `original_fp` and vs `original_2bit`, LIBERO 2000 (and the 1900 column), and whether both backbone and expert were quantized at the nominal width. Please also keep `quant.json`, the Hessian index and the exact toolkit commit so the row is reproducible.
+
+## Notes on the reported results (added 31 Oct 2026)
+- Calibration uses unperturbed frames only (the shared 256 observations, the same for every method and every row), so LIBERO-Plus is out of distribution for every method.
+- QuIP# main row: the official configuration (E8P12, 10 tuning sweeps, scale 0.9). The row without sweeps is an appendix row, footnote: the sweeps raise the weight error on our low-rank Hessians (decision 29), so the official default is not the best setting on these Hessians. Row names: on π0.5 `quip_w2` is the official row and `quipt0_w2` the 0-sweep row; on GR00T `quip10_w2` is the official row and `quip_w2` the 0-sweep row (see `RESULTS.md`).
+- Plus 1000 (equal per task) and Added 1000 (pool-proportional) are reported as defined; the union is unweighted. Per-suite and per-task breakdown: `experiments/breakdown` (appendix).
+- GR00T N1.7 runs with PyTorch SDPA attention instead of flash-attn (flash-attn does not build for the RTX PRO 6000 Blackwell GPUs of this cluster, decision G10). The matching FP row gives 618/1000 on our GPU, identical to the reference FP result, so the choice does not move the FP baseline.

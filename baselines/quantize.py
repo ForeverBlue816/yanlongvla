@@ -22,13 +22,29 @@ from safetensors import safe_open
 from common import quantizable_layers, build_model, write_fakequant_checkpoint, accounting, sha256, QUANTIZABLE_ELEMENTS
 
 
-def quant_params(w, bits):
-    """Per-row-group asymmetric min/max: w (rows, g) -> scale, zero (rows, 1)."""
+def quant_params(w, bits, mse=False, grid=100, maxshrink=0.8, norm=2.4):
+    """Per-row-group asymmetric min/max: w (rows, g) -> scale, zero (rows, 1). With mse=True the range is searched as in the
+    official GPTQ (IST-DASLab/gptq quant.py, Quantizer.find_params with mse=True): shrink min and max by p = 1 - i/grid, i < maxshrink * grid,
+    and keep the p with the smallest sum |q - w|^norm per row."""
     maxq = 2 ** bits - 1
     lo = w.amin(dim=1, keepdim=True)
     hi = w.amax(dim=1, keepdim=True)
     scale = (hi - lo).clamp_min(1e-8) / maxq
     zero = torch.round(-lo / scale).clamp(0, maxq)
+    if mse:
+        best = torch.full((w.shape[0], 1), float('inf'), device=w.device)
+        s0, z0 = scale.clone(), zero.clone()
+        for i in range(int(maxshrink * grid)):
+            p = 1 - i / grid
+            lo1, hi1 = p * lo, p * hi
+            s1 = (hi1 - lo1).clamp_min(1e-8) / maxq
+            z1 = torch.round(-lo1 / s1).clamp(0, maxq)
+            err = (fake_quant(w, s1, z1, maxq) - w).abs().pow(norm).sum(dim=1, keepdim=True)
+            better = err < best
+            best = torch.where(better, err, best)
+            s0 = torch.where(better, s1, s0)
+            z0 = torch.where(better, z1, z0)
+        scale, zero = s0, z0
     return scale, zero, maxq
 
 
@@ -69,7 +85,7 @@ def awq_clip(w, h, bits, group, grid=20, max_shrink=0.5):
     return q
 
 
-def awq(weight, hessian, bits, group, grid=20, clip=True):
+def awq(weight, hessian, bits, group, grid=20, clip=True, act_scale=None):
     """AWQ (Lin et al. 2024) with the shared Hessian. Scale search: per-input-channel scale s = rms(x)^alpha, alpha on a
     20-point grid in [0, 1), rms(x) from diag(E[x x^T]); quantize W*s with RTN, keep the alpha with the smallest output
     error tr(E H E^T). Then auto_clip on the scaled weight (official order; the official code skips q/k projections, so
@@ -77,6 +93,8 @@ def awq(weight, hessian, bits, group, grid=20, clip=True):
     w = weight.float()
     h = hessian.float()
     rms = torch.sqrt(torch.diagonal(h).clamp_min(0) / torch.diagonal(h).mean()).clamp_min(1e-4)
+    if act_scale is not None:   # layer test only (GOAL v4 4c): the official statistic, mean |x| per input channel, instead of rms(x)
+        rms = (act_scale.float().to(h.device) / act_scale.float().mean().to(h.device)).clamp_min(1e-4)
     best = None
     for alpha in [i / grid for i in range(grid)]:
         s = rms.pow(alpha)
@@ -95,12 +113,36 @@ def awq(weight, hessian, bits, group, grid=20, clip=True):
     return q, alpha, ((e @ h) * e).sum().item()
 
 
-def gptq(weight, hessian, bits, group, blocksize=128, percdamp=0.01):
+SELECT_DEFAULT = ('base', 'mse', 'ao', 'ao_mse', 'd0.1', 'mse_d0.1', 'ao_mse_d0.1', 'mse_d0.3', 'ao_mse_d0.3')   # same list as groot/quantize.py
+
+
+def gptq_variant(name):
+    """'base' | tokens joined by '_': 'ao' (act-order), 'mse' (MSE-searched clipping), 'd<x>' (damping x as a fraction of the mean diagonal),
+    e.g. 'ao_mse_d0.1' -> gptq(..., actorder=True, mse=True, percdamp=0.1)."""
+    kw = {}
+    for t in ([] if name == 'base' else name.split('_')):
+        if t == 'ao':
+            kw['actorder'] = True
+        elif t == 'mse':
+            kw['mse'] = True
+        elif t.startswith('d'):
+            kw['percdamp'] = float(t[1:])
+        else:
+            raise ValueError(name)
+    return kw
+
+
+def gptq(weight, hessian, bits, group, blocksize=128, percdamp=0.01, actorder=False, mse=False):
     """GPTQ (Frantar et al. 2022): column-wise quantization with Hessian-based error feedback; groups along the input dim
-    quantized in order (no act-order). Reference implementation, float32."""
+    quantized in order. Reference implementation, float32. Official options (IST-DASLab/gptq): actorder=True quantizes the columns
+    by decreasing Hessian diagonal (groups are formed in that order, so a column-to-group index is stored: 16 bits per input column,
+    counted by the caller); mse=True searches the clipping range of every group by the weight error (quant_params)."""
     W = weight.float().clone()
     out, inp = W.shape
     H = hessian.float().clone()
+    if actorder:
+        perm = torch.argsort(torch.diag(H), descending=True)
+        W, H = W[:, perm], H[perm][:, perm]
     dead = torch.diag(H) == 0
     H[dead, dead] = 1
     W[:, dead] = 0
@@ -121,7 +163,7 @@ def gptq(weight, hessian, bits, group, blocksize=128, percdamp=0.01):
         for i in range(i2 - i1):
             col = i1 + i
             if col % group == 0:
-                scale, zero, _ = quant_params(W[:, col:min(col + group, inp)], bits)
+                scale, zero, _ = quant_params(W[:, col:min(col + group, inp)], bits, mse=mse)
             w = W1[:, i:i + 1]
             d = Hinv1[i, i]
             q = fake_quant(w, scale, zero, maxq)
@@ -131,6 +173,8 @@ def gptq(weight, hessian, bits, group, blocksize=128, percdamp=0.01):
             Err1[:, i:i + 1] = err
         Q[:, i1:i2] = Q1
         W[:, i2:] -= Err1 @ Hinv[i1:i2, i2:]
+    if actorder:
+        Q = Q[:, torch.argsort(perm)]
     return Q
 
 
@@ -141,6 +185,7 @@ def main():
     p.add_argument('--group', type=int, default=128)
     p.add_argument('--checkpoint', required=True)
     p.add_argument('--calibration', help='output of calibrate.py (required for gptq)')
+    p.add_argument('--select', action='store_true', help='GPTQ: per layer, the official-option variant (SELECT_DEFAULT) with the smallest calibration output error (row gptq_best_w2; same rule as the GR00T row)')
     p.add_argument('--out', required=True)
     a = p.parse_args()
     cfg, model = build_model(a.checkpoint, device='cuda')
@@ -150,6 +195,7 @@ def main():
     index = json.loads((Path(a.calibration) / 'index.json').read_text())['layers'] if a.method != 'rtn' else None
     replaced = {}
     alphas = {}
+    chosen = {}
     payload_bits = 0
     for k, (name, layer) in enumerate(sorted(layers.items())):
         w = layer.weight.detach()
@@ -157,7 +203,21 @@ def main():
             q = rtn(w, a.bits, a.group)
         else:
             h = torch.load(Path(a.calibration) / index[name]['file'], map_location='cuda', weights_only=True)['covariance']
-            if a.method == 'gptq':
+            if a.method == 'gptq' and a.select:   # choose by the calibration output error only (no evaluation data is used)
+                den = ((w.float() @ h.float()) * w.float()).sum()
+                best = None
+                for v in SELECT_DEFAULT:
+                    qv = gptq(w, h, a.bits, a.group, **gptq_variant(v))
+                    dw = w.float() - qv
+                    e = (((dw @ h.float()) * dw).sum() / den).item()
+                    if v == 'base':
+                        base_e = e
+                    if best is None or e < best[0]:
+                        best = (e, v, qv)
+                q = best[2]; chosen[name] = dict(variant=best[1], output_error=best[0], base_output_error=base_e)
+                if 'ao' in best[1].split('_'):
+                    payload_bits += 16 * w.shape[1]   # column order of act-order layers: a 16-bit index per input column
+            elif a.method == 'gptq':
                 q = gptq(w, h, a.bits, a.group)
             else:
                 q, alpha, _ = awq(w, h, a.bits, a.group, clip=name.rsplit('.', 1)[-1] not in ('q_proj', 'k_proj'))
@@ -179,6 +239,9 @@ def main():
         extra['calibration_index_sha256'] = sha256(Path(a.calibration) / 'index.json')
     if alphas:
         extra['awq_alpha_by_layer'] = alphas
+    if chosen:
+        extra.update(gptq_select=list(SELECT_DEFAULT), gptq_variant_by_layer=chosen,
+                     payload_rule=extra['payload_rule'] + ' + 16-bit column index per input column of the layers that chose act-order')
     info = accounting(payload_bits / 8, a.method, a.bits, extra)
     write_fakequant_checkpoint(a.checkpoint, a.out, replaced, info)
     print(json.dumps({k: info[k] for k in ('method', 'bits_nominal', 'quantizable_linear_bpw', 'whole_model_bpw')}), flush=True)

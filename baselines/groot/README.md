@@ -26,8 +26,6 @@ Unchanged from π₀.₅: the 256 calibration observations (`../data/calibration
 settle steps, step limits 220/280/300/520, noise seed `SeedSequence([7, suite_index, task, 0])`), the per-layer quantizer
 interface, and the paired bootstrap (`../paired_stats.py`). Calibration noise seed: `SeedSequence([7, observation_index])`.
 
-**Smoke-tested 2026-10-30** on our cluster (RTX 6000 Ada): preparation, calibration, export, the import round trip, GPTQ on all four suites, and 5 LIBERO-Plus units on the prepared FP checkpoints, which reproduced our reference episodes exactly (same success, same number of policy calls, same noise seeds).
-
 ## Steps
 
 You need two environments: GR00T (Isaac-GR00T at the commit above, plus `openpi-client`) and LIBERO-Plus (as for π₀.₅), and a Hugging Face read token with access to `nvidia/Cosmos-Reason2-2B` (`export HF_TOKEN=...`).
@@ -129,15 +127,3 @@ Input widths that drive the AQLM cost:
 | 4096 | vision merger |
 
 Expect tens of GPU-hours for the five layer sets. Build them in parallel, as decision 20 did for π₀.₅.
-
-## Our per-unit Plus files (`results/`)
-
-`results/` holds the per-unit LIBERO-Plus 1000 outcomes of our three GR00T rows, in the format `run_plus.py` writes, so any baseline can be paired against them with `../paired_stats.py plus`:
-
-| File | Row | Plus /1000 |
-|---|---|---|
-| `results/groot_fp.plus_1000.jsonl` | FP (BF16) | 618 |
-| `results/groot_2bit_ours_ptq.plus_1000.jsonl` (+ `.accounting.json`) | ours, 2-bit VQ PTQ, backbone + head (2.023 / 5.596 bpw) | 486 |
-| `results/groot_2bit_ours_b2.plus_1000.jsonl` (+ `.accounting.json`) | ours, 2-bit VQ + fine-tune, row B2 (same payload, 2.023 / 5.596 bpw) | 556 |
-
-All three on an RTX 6000 Ada, seed 7, identical noise seeds. `data/reference/` keeps the FP and PTQ files under their earlier names (byte-identical).

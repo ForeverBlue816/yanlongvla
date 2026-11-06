@@ -1,0 +1,381 @@
+#!/bin/bash
+#PBS -N gr_job
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=15:00:00
+#PBS -j oe
+# One GR00T N1.7 job: runs the tasks in $TASKS (names joined by +) back to back. A task is  kind__row[__key]:
+#   prepare                      official checkpoints -> $GRUN/checkpoints (groot/prepare_checkpoints.py)
+#   calibrate                    shared 256-observation calibration + layer export ($GRUN/calibration, $GRUN/layers)
+#   q__<row>                     GPTQ / AWQ, 2 bits, group 128 (groot/quantize.py)
+#   qk__<row>__<key>             one layer set of VPTQ / AQLM / QuIP# / QTIP (key = backbone | head_<suite>); the π0.5 quantizers, unchanged
+#   imp__<row>                   the five layer sets -> four per-suite fake-quant checkpoints ($GRUN/ckpt/<row>)
+#   sn__<row>                    sanity sample: first 50 libero_spatial units, gate as decision 17
+#   ev__<row>                    LIBERO-Plus 1000 with run_plus.py, then paired statistics vs FP and vs our 2-bit PTQ
+# Rows: fp (prepared checkpoints, run on this GPU), gptq_w2, awq_w2, vptq_w2, aqlm_w2, quip_w2 (no tuning sweeps), quip10_w2 (official 10 sweeps), qtip_w2.
+# A task finishes by touching $GRUN/tasks/<task>.done; $GRUN/jobs/$PBS_JOBID.progress records start/end of every task.
+set -uo pipefail
+: "${GRUN:?}" "${TASKS:?}" "${SRC:?}"
+HANDOVER=/home/d250009/projects/pi05-handover
+OPENPI_ROOT=/home/d250009/projects/openpi
+PY_O="$OPENPI_ROOT/.venv/bin/python"                # the π0.5 harness interpreter: external quantizers, simulator client
+PY_G="$HANDOVER/runs/envs/groot/bin/python"         # GR00T environment (Isaac-GR00T at the pinned commit)
+VPTQ_REPO=$HANDOVER/runs/toolkits/VPTQ
+AQLM_REPO=$HANDOVER/runs/toolkits/AQLM
+QUIP_REPO=$HANDOVER/runs/toolkits/quip-sharp
+QTIP_REPO=$HANDOVER/runs/toolkits/qtip
+G=$GRUN
+JOB=${PBS_JOBID:-local}
+mkdir -p "$G/logs"; exec >> "$G/logs/$JOB.log" 2>&1   # PBS does not return the output files of this job from scratch; keep our own log (no set -x: the token is in the environment)
+PROGRESS=$G/jobs/$JOB.progress
+mkdir -p "$G/tasks" "$G/jobs" "$G/logs" "$G/sanity" "$G/stopped" "$G/eval" "$G/ckpt" "$G/q" "$G/paired"
+export HF_TOKEN="$(cat "$HOME/.hf_token")" HF_HOME="$G/hf" HF_HUB_DISABLE_TELEMETRY=1 OMP_NUM_THREADS=8 PYTHONUNBUFFERED=1
+export MUJOCO_GL=egl MAGICK_HOME="$HANDOVER/runs/envs/libero-plus/imagemagick" LD_LIBRARY_PATH="$HANDOVER/runs/envs/libero-plus/imagemagick/lib:${LD_LIBRARY_PATH:-}"
+export OPENPI_CLIENT_MSGPACK="$OPENPI_ROOT/packages/openpi-client/src/openpi_client/msgpack_numpy.py"
+export SRC
+if command -v nvidia-smi >/dev/null && [[ -n "${CUDA_VISIBLE_DEVICES:-}" ]]; then
+  MUJOCO_EGL_DEVICE_ID=$(nvidia-smi -i "$CUDA_VISIBLE_DEVICES" --query-gpu=index --format=csv,noheader | tr -d '[:space:]'); export MUJOCO_EGL_DEVICE_ID
+  GPU_NAME=$(nvidia-smi --query-gpu=name --format=csv,noheader | head -1)
+else
+  GPU_NAME=none
+fi
+echo "job $JOB on $(hostname), GPU: $GPU_NAME, $(date -Is), tasks: $TASKS"
+note() { echo -e "$1\t$2\t$(date -Is)" >> "$PROGRESS"; }
+
+source "$SRC/simpler/s5.sh"   # Task 5 (SimplerEnv Fractal) steps
+
+method_of() { local m=${1%%_*}; [[ $m == quip10 ]] && m=quip; echo "$m"; }   # gptq_actorder_w2 -> gptq, vptq_iter500_w2 -> vptq
+suite_of() { [[ ${GROOT_PROFILE:-} == fractal ]] && { echo fractal; return; }; [[ $1 == backbone ]] && echo libero_spatial || echo "${1#head_}"; }
+ckpt_of() { [[ $1 == fp ]] && echo "$G/checkpoints" || echo "$G/ckpt/$1"; }
+
+t_prepare() { cd "$SRC/groot" && "$PY_G" prepare_checkpoints.py --out "$G/checkpoints" --hf-cache "$G/hf"; }
+
+t_calibrate() {
+  cd "$SRC/groot" || return 1
+  [[ -s "$G/calibration/backbone/index.json" && -s "$G/calibration/head_libero_10/index.json" ]] || \
+    "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --out "$G/calibration" --hf-cache "$HANDOVER/runs/cache/libero-calibration" || return 1
+  "$PY_G" export_layers.py --checkpoints "$G/checkpoints" --calibration "$G/calibration" --out "$G/layers"
+}
+
+t_cal() {   # t_cal <heldout|1024>: Hessians of another observation set, libero_spatial only (backbone and the libero_spatial head), for the overfitting tests (GOAL 1 Nov 1.3)
+  local name=$1 args
+  case "$name" in
+    heldout) args=(--manifest "$SRC/data/heldout_manifest.json" --noise-seed 1 --out "$G/calibration_heldout") ;;
+    1024) args=(--manifest "$SRC/data/calibration_manifest_1024.json" --noise-seed 7 --out "$G/calibration_1024") ;;
+    alt256) cd "$SRC/groot" || return 1   # GOAL v4 1.6: 256 other observations, all suites, then the layer export (layers_alt)
+      "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --manifest "$SRC/data/calibration_manifest_alt256.json" --noise-seed 11 --out "$G/calibration_alt" --hf-cache "$HANDOVER/runs/cache/libero-calibration" || return 1
+      "$PY_G" export_layers.py --checkpoints "$G/checkpoints" --calibration "$G/calibration_alt" --out "$G/layers_alt"; return ;;
+    absmean) args=(--manifest "$SRC/data/calibration_manifest.json" --noise-seed 7 --absmean --out "$G/calibration_absmean") ;;   # the methods' 256 observations plus mean |x| (GOAL v4 4c)
+    *) echo "unknown calibration $name" >&2; return 2 ;;
+  esac
+  cd "$SRC/groot" && "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --suites libero_spatial --hf-cache "$HANDOVER/runs/cache/libero-calibration" "${args[@]}"
+}
+
+t_q() {   # t_q <row>: GPTQ or AWQ
+  local row=$1 m v flags=(); m=$(method_of "$row"); v=${row#*_}; v=${v%_w2}   # GPTQ variants (official options): gptq_actorder_w2, gptq_mse_w2, gptq_damp10_w2, gptq_combo_w2
+  case "$v" in actorder) flags=(--actorder) ;; mse) flags=(--mse) ;; aomse) flags=(--actorder --mse) ;; damp10) flags=(--percdamp 0.1) ;; combo) flags=(--actorder --mse --percdamp 0.1) ;; best) flags=(--select default) ;; esac   # best: per layer the variant with the smallest calibration error
+  cd "$SRC/groot" && "$PY_G" quantize.py --method "$m" --group 128 "${flags[@]}" --checkpoints "$G/checkpoints" --calibration "$G/calibration" --out "$G/ckpt/$row"
+}
+
+t_qk() {   # t_qk <row> <key>
+  local row=$1 key=$2 m suite out; m=$(method_of "$row"); suite=$(suite_of "$key"); out="$G/q/$row/$key"
+  local ld=layers cd=calibration; [[ $row == *_alt_w2 ]] && { ld=layers_alt; cd=calibration_alt; }   # qtip_alt_w2: Hessians of 256 other observations (GOAL v4 1.6)
+  local common=(--layers "$G/$ld/$key" --calibration "$G/$cd/$key" --checkpoint "$G/checkpoints/$suite" --out "$out")
+  cd "$SRC" || return 1
+  case "$m" in
+    vptq)
+      local vextra=(); [[ $row =~ ^vptq_iter([0-9]+)(t0)?_w2$ ]] && { vextra=(--kmeans-iter "${BASH_REMATCH[1]}"); [[ -n ${BASH_REMATCH[2]} ]] && vextra+=(--kmeans-tol 1e-30); }   # vptq_iter500_w2: 500 Hessian-weighted k-means iterations, same bits; t0 = tolerance 1e-30 (cuml refuses 0)
+      [[ $row =~ ^vptq_v([0-9]+)k([0-9]+)_w2$ ]] && vextra=(--vector-len "${BASH_REMATCH[1]}" --centroids "${BASH_REMATCH[2]}")   # vptq_v5k1024_w2: 5-weight vectors, 1024 centroids (2.016 bits per weight with the codebook counted)
+      [[ "$(git -C "$VPTQ_REPO" rev-parse HEAD)" == 5a8dfb93d2a7475151f66c559a44e057fe5322f9 ]] || { echo "VPTQ commit changed" >&2; return 3; }
+      local vsite="$HANDOVER/runs/envs/vptq/site-packages" osite="$OPENPI_ROOT/.venv/lib/python3.11/site-packages"
+      LD_LIBRARY_PATH="$(ls -d "$osite"/nvidia/*/lib | tr '\n' ':')$vsite/libcudf/lib64:$vsite/libkvikio/lib64:$vsite/nvidia/nvcomp:$vsite/libcudf_cu12.libs:$vsite/cuml_cu12.libs:/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
+      PYTHONPATH="$SRC:$VPTQ_REPO:$vsite:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
+        "$PY_O" quantize_vptq.py --bits 2 "${common[@]}" --vptq-repo "$VPTQ_REPO" "${vextra[@]}" ;;
+    aqlm)
+      [[ "$(git -C "$AQLM_REPO" rev-parse HEAD)" == e79a896ed6656fe4ed06193d42d004e7d0bbdbb2 ]] || { echo "AQLM commit changed" >&2; return 3; }
+      local waited=0   # several jobs may share a layer set; wait for the last layers of the others
+      while :; do
+        PYTHONPATH="$SRC:$AQLM_REPO:$OPENPI_ROOT" "$PY_O" quantize_aqlm.py --bits 2 "${common[@]}" --aqlm-repo "$AQLM_REPO" || return 1
+        [[ -s "$out/accounting.json" ]] && break
+        (( waited >= 7200 )) && { echo "AQLM layers of $row/$key still incomplete" >&2; return 1; }
+        sleep 60; waited=$((waited + 60))
+      done ;;
+    quip|qtip)
+      local repo=$QUIP_REPO commit=1d8f873e9a2a8b86b12bb1064c312c5689b77d98 extra=()
+      [[ $m == qtip ]] && repo=$QTIP_REPO commit=e90c6688c8dfae326a3a81b5eb032db7c6680ec0
+      [[ $row == quip_w2 ]] && extra=(--tune-iters 0)     # main row: without tuning sweeps; quip10_w2 is the official 10-sweep row
+      [[ "$(git -C "$repo" rev-parse HEAD)" == "$commit" ]] || { echo "$m commit changed" >&2; return 3; }
+      LD_LIBRARY_PATH="/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
+      PYTHONPATH="$SRC:$repo:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
+        "$PY_O" "quantize_$m.py" "${common[@]}" "--$m-repo" "$repo" --bits 2 "${extra[@]}" ;;
+    *) echo "no quantizer for $m" >&2; return 2 ;;
+  esac
+  [[ -s "$out/accounting.json" ]]
+}
+
+t_imp() {   # t_imp <row>
+  local row=$1
+  cd "$SRC/groot" && "$PY_G" import_external.py --checkpoints "$G/checkpoints" --quantized "$G/q/$row" --out "$G/ckpt/$row" || return 1
+  "$PY_G" - "$G/ckpt/$row" "$SRC" "$row" <<'PY'
+import json, sys
+from pathlib import Path
+out, src, row = sys.argv[1:]
+for suite in sorted(d.name for d in Path(out).iterdir() if (d / 'quant.json').exists()):
+    p = Path(out) / suite / 'quant.json'
+    q = json.loads(p.read_text())
+    q['source_snapshot'] = src
+    q['baseline_git_head'] = (Path(src) / 'GIT_HEAD').read_text().strip()
+    q['row'] = row
+    p.write_text(json.dumps(q, indent=2))
+q = json.loads((Path(out) / suite / 'quant.json').read_text())
+print(json.dumps({k: q.get(k) for k in ('method', 'bits_nominal', 'quantizable_linear_bpw', 'whole_model_bpw')}))
+PY
+}
+
+run_plus() {   # run_plus <checkpoints> <units|-> <out>
+  local ck=$1 units=$2 out=$3 extra=()
+  [[ $units != - ]] && extra=(--units "$units")
+  cd "$SRC/groot" && "$PY_G" run_plus.py --checkpoints "$ck" "${extra[@]}" --out "$out" --groot-python "$PY_G" --plus-python "$SRC/groot/jobs/plus_python.sh"
+}
+
+t_sn() {   # t_sn <row>
+  local row=$1 ck; ck=$(ckpt_of "$row")
+  [[ -s "$G/sanity50.json" ]] || "$PY_G" - "$SRC" "$G/sanity50.json" <<'PY'
+import json, sys
+src, out = sys.argv[1:]
+units = json.load(open(f'{src}/data/plus_units_selection_1000.json'))['units']
+json.dump({'description': 'first 50 libero_spatial units of the Plus 1000 (sanity gate, decision 17)', 'units': [u for u in units if u['suite'] == 'libero_spatial'][:50]}, open(out, 'w'))
+PY
+  rm -f "$G/sanity/$row.plus.jsonl"
+  run_plus "$ck" "$G/sanity50.json" "$G/sanity/$row.plus.jsonl" || return 1
+  "$PY_G" "$SRC/groot/jobs/gate.py" --row "$row" --candidate "$G/sanity/$row.plus.jsonl" --reference "$SRC/groot/data/reference/groot_fp.plus_1000.jsonl" --stopped-dir "$G/stopped" --out "$G/sanity/$row.json"
+  local rc=$?
+  [[ $row == vptq_?* && $row != vptq_w2 && -e "$G/stopped/$row" ]] && rm -rf "$G/q/$row"
+  [[ $row != fp && -e "$G/stopped/$row" ]] && rm -rf "$G/ckpt/$row"   # a row stopped by the gate does not need its 26 GB fake-quant checkpoint (scratch quota, decision G22)
+  return $rc
+}
+
+t_ev() {   # t_ev <row>
+  local row=$1 ck out; ck=$(ckpt_of "$row"); out="$G/eval/$row"
+  mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
+  run_plus "$ck" - "$out/plus_1000.jsonl" || return 1
+  cd "$SRC" || return 1
+  local refs="$SRC/groot/data/reference"
+  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$refs/groot_fp.plus_1000.jsonl" > "$G/paired/${row}_vs_fp_reference.json"
+  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$refs/groot_2bit_ours_ptq.plus_1000.jsonl" > "$G/paired/${row}_vs_ours_2bit_ptq.json"
+  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$refs/groot_2bit_ours_b2.plus_1000.jsonl" > "$G/paired/${row}_vs_b2.json"   # the mentor's 2-bit row B2 (556/1000)
+  [[ -s "$G/eval/fp/plus_1000.jsonl" && $row != fp ]] && "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$G/paired/${row}_vs_fp_my_gpu.json"
+  if [[ $row != fp && -s "$G/paired/${row}_vs_fp_reference.json" ]]; then
+    for f in "$G"/q/"$row"/*/accounting.json; do [[ -s $f ]] && cp "$f" "$out/q_accounting_$(basename "$(dirname "$f")").json"; done
+    [[ $row == vptq_?* && $row != vptq_w2 ]] && rm -rf "$G/q/$row"   # new VPTQ rows: the 13 GB quantizer output goes too once the row is evaluated (accounting kept in eval/)
+  fi
+  [[ $row != fp && -s "$G/paired/${row}_vs_fp_reference.json" ]] && rm -rf "$G/ckpt/$row"   # results and paired stats exist: free the checkpoint (rebuild with imp__<row> from q/<row>)
+  return 0
+}
+
+# Bisection (GOAL 1 Nov 2.2): a checkpoint that is FP except for the layers of one component, quantized with the method of <row>; 200 units (every 5th unit of the Plus 1000)
+mx_sel() {   # mx_sel <component> -> MX_ONLY, MX_SKIP, MX_OVER (override for GPTQ rows)
+  MX_ONLY=""; MX_SKIP=""; MX_OVER=""; MX_REPL=""
+  case "$1" in
+    all) ;;   # every layer of the row (a full model, 200 units)
+    l2fix) MX_REPL="backbone.model.model.language_model.layers.2.mlp.down_proj=$G/q/aqlm_l2fix/backbone/backbone_model_model_language_model_layers_2_mlp_down_proj.safetensors" ;;   # AQLM with layer 2 down_proj re-quantized at 0.1% damping (xp aqlm_l2fix)
+    vision) MX_ONLY='visual\.' ;; language) MX_ONLY='language_model\.' ;; head) MX_ONLY='action_head\.' ;;
+    vision_a) MX_ONLY='visual\.blocks\.([0-9]|1[01])\.' ;; vision_b) MX_ONLY='visual\.(blocks\.(1[2-9]|2[0-3])\.|merger|deepstack)' ;;
+    vis_0_3) MX_ONLY='visual\.blocks\.[0-3]\.' ;; vis_4_7) MX_ONLY='visual\.blocks\.[4-7]\.' ;; vis_8_11) MX_ONLY='visual\.blocks\.([89]|1[01])\.' ;;
+    lang_a) MX_ONLY='language_model\.layers\.[0-7]\.' ;; lang_b) MX_ONLY='language_model\.layers\.([89]|1[0-5])\.' ;;
+    head_dit) MX_ONLY='action_head\.model\.transformer_blocks' ;; head_vl) MX_ONLY='action_head\.vl_self_attention' ;;
+    l2down) MX_ONLY='language_model\.layers\.2\.mlp\.down_proj' ;;
+    not_l2down) MX_SKIP='language_model\.layers\.2\.mlp\.down_proj' ;;
+    base_l2down) MX_OVER='language_model\.layers\.2\.mlp\.down_proj=base' ;;   # the row's variant everywhere except that layer, which uses plain GPTQ
+    *) echo "unknown component $1" >&2; return 2 ;;
+  esac
+}
+
+t_mx() {   # t_mx <component> <row>
+  local comp=$1 row=$2 m v flags=() sel=() out="$G/ckpt/mx_${2}__$1" ev="$G/mix/${1}__${2}"; m=$(method_of "$row"); v=${row#*_}; v=${v%_w2}
+  trap 'rm -rf "$out"' RETURN   # a failed or finished test never leaves its 26 GB checkpoint behind (scratch quota, 2 Nov)
+  mx_sel "$comp" || return 2
+  mkdir -p "$G/mix"; echo "$GPU_NAME" > "$G/mix/${comp}__${row}.gpu.txt"
+  [[ -n $MX_REPL ]] && sel+=(--replace "$MX_REPL"); [[ -n $MX_ONLY ]] && sel+=(--only "$MX_ONLY"); [[ -n $MX_SKIP ]] && sel+=(--skip "$MX_SKIP"); [[ -n $MX_OVER ]] && sel+=(--override "$MX_OVER")
+  if [[ $m == gptq || $m == awq ]]; then
+    case "$v" in actorder) flags=(--actorder) ;; mse) flags=(--mse) ;; aomse) flags=(--actorder --mse) ;; damp10) flags=(--percdamp 0.1) ;; combo) flags=(--actorder --mse --percdamp 0.1) ;; best) flags=(--select default) ;; esac
+    cd "$SRC/groot" && "$PY_G" quantize.py --method "$m" --group 128 "${flags[@]}" "${sel[@]}" --checkpoints "$G/checkpoints" --calibration "$G/calibration" --out "$out" || return 1
+  else
+    [[ -n $MX_OVER || -n $MX_SKIP ]] && { echo "component $comp only for GPTQ rows" >&2; return 2; }
+    cd "$SRC/groot" && "$PY_G" import_external.py --checkpoints "$G/checkpoints" --quantized "$G/q/$row" "${sel[@]}" --out "$out" || return 1
+  fi
+  [[ -s "$G/sanity200.json" ]] || "$PY_G" - "$SRC" "$G/sanity200.json" <<'PY'
+import json, sys
+src, out = sys.argv[1:]
+units = json.load(open(f'{src}/data/plus_units_selection_1000.json'))['units']
+json.dump({'description': 'every 5th unit of the Plus 1000 (200 units, 100 camera and 100 robot-init), bisection and component tests', 'units': units[::5]}, open(out, 'w'))
+PY
+  run_plus "$out" "$G/sanity200.json" "$ev.plus_200.jsonl" || return 1
+  cd "$SRC" || return 1
+  "$PY_G" paired_stats.py plus --candidate "$ev.plus_200.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$ev.vs_fp_my_gpu.json"
+  rm -rf "$out"
+  return 0
+}
+
+t_kn() {   # t_kn <math|efficient|default>: FP on the 200 units with one SDPA kernel (GOAL 1 Nov 2.6: do the unit flips against the mentor's FP follow the attention kernel?)
+  local b=$1 ev="$G/kernel/$1"; mkdir -p "$G/kernel"
+  [[ -s "$G/sanity200.json" ]] || { echo "sanity200.json missing (run an mx task first)" >&2; return 1; }
+  if [[ $b == default ]]; then unset SDPA_BACKEND; else export SDPA_BACKEND=$b; fi
+  run_plus "$G/checkpoints" "$G/sanity200.json" "$ev.plus_200.jsonl" || return 1
+  cd "$SRC" || return 1
+  "$PY_G" paired_stats.py plus --candidate "$ev.plus_200.jsonl" --reference "$SRC/groot/data/reference/groot_fp.plus_1000.jsonl" > "$ev.vs_mentor_fp.json"
+  "$PY_G" paired_stats.py plus --candidate "$ev.plus_200.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$ev.vs_our_fp.json"
+}
+
+t_rr() {   # t_rr <row>: noise floor (GOAL 1 Nov item 0): evaluate the row a second time, same units and seeds, and compare unit by unit with the first run
+  local row=$1 ck out="$G/eval/${1}_rerun"; mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
+  if [[ $row == fp ]]; then ck="$G/checkpoints"; else t_imp "$row" || return 1; ck="$G/ckpt/$row"; fi
+  run_plus "$ck" - "$out/plus_1000.jsonl" || return 1
+  cd "$SRC" || return 1
+  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$G/eval/$row/plus_1000.jsonl" > "$G/paired/${row}_rerun_vs_first.json"
+  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$SRC/groot/data/reference/groot_fp.plus_1000.jsonl" > "$G/paired/${row}_rerun_vs_fp_reference.json"
+  [[ $row != fp ]] && rm -rf "$G/ckpt/$row"
+  return 0
+}
+
+t_sd() {   # t_sd <row>: rigour R3, evaluation-seed sensitivity: the row on the same 1000 units with evaluation seed 8 (env seed and policy noise seeds; protocol seed is 7), paired against the seed-7 run
+  local row=$1 ck out="$G/eval/${1}_seed8"; mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
+  if [[ $row == fp ]]; then ck="$G/checkpoints"; else t_imp "$row" || return 1; ck="$G/ckpt/$row"; fi
+  EVAL_SEED=8 run_plus "$ck" - "$out/plus_1000.jsonl" || return 1
+  cd "$SRC" || return 1
+  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$G/eval/$row/plus_1000.jsonl" > "$G/paired/${row}_seed8_vs_seed7.json"
+  [[ $row != fp ]] && rm -rf "$G/ckpt/$row"
+  return 0
+}
+
+t_dj() {   # t_dj <row>: rigour R7, disjoint-units replication: the row on 500 units outside the Plus 1000 selection (data/plus_units_disjoint_500.json)
+  local row=$1 ck out="$G/eval/${1}_disjoint500"; mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
+  if [[ $row == fp ]]; then ck="$G/checkpoints"; else t_imp "$row" || return 1; ck="$G/ckpt/$row"; fi
+  run_plus "$ck" "$SRC/data/plus_units_disjoint_500.json" "$out/plus_500.jsonl" || return 1
+  [[ $row != fp ]] && rm -rf "$G/ckpt/$row"
+  return 0
+}
+
+vptq_env() {   # the environment of the VPTQ toolkit (as in qk__vptq)
+  local vsite="$HANDOVER/runs/envs/vptq/site-packages" osite="$OPENPI_ROOT/.venv/lib/python3.11/site-packages"
+  export LD_LIBRARY_PATH="$(ls -d "$osite"/nvidia/*/lib | tr '\n' ':')$vsite/libcudf/lib64:$vsite/libkvikio/lib64:$vsite/nvidia/nvcomp:$vsite/libcudf_cu12.libs:$vsite/cuml_cu12.libs:/usr/local/gcc-12.3/lib64:${LD_LIBRARY_PATH:-}"
+  export PYTHONPATH="$SRC:$VPTQ_REPO:$vsite:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT"
+}
+
+t_xp() {   # t_xp <name>: experiments for the mentor (no checkpoint)
+  local name=$1 key
+  cd "$SRC" || return 1
+  case "$name" in
+    layererr)   # (a) per-layer output error of QTIP and both QuIP# rows on the shared Hessians, (b) damping retries
+      for key in backbone head_libero_spatial head_libero_object head_libero_goal head_libero_10; do
+        "$PY_G" jobs/experiments/layer_errors.py --layers "$G/layers/$key" --device cuda --out "$G/experiments/layer_errors/$key" \
+          --rows qtip_w2="$G/q/qtip_w2/$key" quip_w2="$G/q/quip_w2/$key" quip10_w2="$G/q/quip10_w2/$key" || return 1
+      done
+      "$PY_G" jobs/experiments/groot_row_tables.py --errors "$G/experiments/layer_errors" --q "$G/q" --rows qtip_w2 quip_w2 quip10_w2 --out "$G/experiments/layer_errors_tables" ;;
+    gptqgrid)   # GPTQ 2-bit: finer damping grid with and without MSE clipping and act-order on every layer
+      "$PY_G" jobs/experiments/gptq_variants_all.py --layers "$G/layers" --variants grid --out "$G/experiments/gptq_grid" ;;
+    vptqgrid)   # VPTQ: fine grid of structures (bits counted), k-means iterations with and without the tolerance
+      vptq_env
+      local V="base iter500 iter500t0 iter2000t0 v5k768 v5k1024 v5k1280 v6k2048 v6k2560 v6k3072 v6k3584 v6k4096 v7k4096 v7k6144 v7k8192 v8k8192 v8k12288 v8k16384"
+      "$PY_O" jobs/experiments/vptq_variants.py --layers "$G/layers/backbone" --calibration "$G/calibration/backbone" --all-layers-json "$G/layers/backbone/layers.json" "$G/layers/head_libero_spatial/layers.json" \
+        --layer-substr visual.blocks.20.mlp.linear_fc2 visual.blocks.3.attn.qkv visual.blocks.10.mlp.linear_fc1 visual.blocks.14.attn.proj language_model.layers.2.mlp.down_proj language_model.layers.15.self_attn.q_proj language_model.layers.10.mlp.up_proj language_model.layers.20.mlp.gate_proj \
+        --vptq-repo "$VPTQ_REPO" --variants $V --out "$G/experiments/vptq_grid_backbone" || return 1
+      "$PY_O" jobs/experiments/vptq_variants.py --layers "$G/layers/head_libero_spatial" --calibration "$G/calibration/head_libero_spatial" --all-layers-json "$G/layers/backbone/layers.json" "$G/layers/head_libero_spatial/layers.json" \
+        --layer-substr transformer_blocks.14.ff.net.0.proj transformer_blocks.8.attn1.to_k transformer_blocks.2.attn1.to_q vl_self_attention.transformer_blocks.1.attn1.to_q \
+        --vptq-repo "$VPTQ_REPO" --variants $V --out "$G/experiments/vptq_grid_head" ;;
+    awqscale)   # GOAL v4 4c: AWQ with rms(x) (ours) or mean |x| (official) as the scale statistic, layer errors
+      "$PY_G" jobs/experiments/awq_scale_check.py --layers "$G/layers/backbone" --calibration "$G/calibration_absmean/backbone" --heldout "$G/calibration_heldout/backbone" --out "$G/experiments/awq_scale" ;;
+    aqlm_l2fix)   # AQLM on the outlier layer with 0.1% instead of 1% damping (GOAL v4 4a follow-up): the layer only, for the intervention test mx__l2fix__aqlm_w2
+      PYTHONPATH="$SRC:$AQLM_REPO:$OPENPI_ROOT" "$PY_O" quantize_aqlm.py --bits 2 --layers "$G/layers/backbone" --calibration "$G/calibration/backbone" --checkpoint "$G/checkpoints/libero_spatial" \
+        --out "$G/q/aqlm_l2fix/backbone" --aqlm-repo "$AQLM_REPO" --only language_model.layers.2.mlp.down_proj --percdamp 0.001 ;;
+    damp_aqlm2)   # the layers the first damp_aqlm run did not reach (it stalled on layer 2 down_proj at the 0.1% stopping rule)
+      LD_LIBRARY_PATH="/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" PYTHONPATH="$SRC:$AQLM_REPO:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
+        "$PY_O" jobs/experiments/damping_checks.py --mode aqlm --layers "$G/layers/backbone" --heldout "$G/calibration_heldout/backbone" --repo "$AQLM_REPO" --out "$G/experiments/damp_aqlm2" \
+        --pick language_model.layers.2.mlp.down_proj language_model.layers.15.self_attn.q_proj language_model.layers.10.mlp.up_proj --no-tight language_model.layers.2.mlp.down_proj ;;
+    damp_aqlm|damp_quip)   # GOAL v4 4a / 4b: AQLM damping and stopping rule, QuIP# damping retry, on calibration and held-out Hessians
+      local mode=${name#damp_} repo=$AQLM_REPO
+      [[ $mode == quip ]] && repo=$QUIP_REPO
+      LD_LIBRARY_PATH="/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" PYTHONPATH="$SRC:$repo:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
+        "$PY_O" jobs/experiments/damping_checks.py --mode "$mode" --layers "$G/layers/backbone" --heldout "$G/calibration_heldout/backbone" --repo "$repo" --out "$G/experiments/$name" ;;
+    heldout|cal1024)   # VPTQ structures on the calibration Hessian and on the held-out Hessian; cal1024 quantizes with the 1024-observation Hessians instead (does the gap close?)
+      vptq_env
+      local V="base v5k1024 v6k3072 v6k4096 v8k12288" extra=() tag=heldout
+      [[ $name == cal1024 ]] && { extra=(--quant-calibration "$G/calibration_1024/backbone"); tag=cal1024; }
+      "$PY_O" jobs/experiments/vptq_variants.py --layers "$G/layers/backbone" --calibration "$G/calibration/backbone" --heldout "$G/calibration_heldout/backbone" "${extra[@]}" --all-layers-json "$G/layers/backbone/layers.json" "$G/layers/head_libero_spatial/layers.json" \
+        --layer-substr visual.blocks.20.mlp.linear_fc2 visual.blocks.3.attn.qkv visual.blocks.10.mlp.linear_fc1 visual.blocks.14.attn.proj language_model.layers.2.mlp.down_proj language_model.layers.15.self_attn.q_proj language_model.layers.10.mlp.up_proj language_model.layers.20.mlp.gate_proj \
+        --vptq-repo "$VPTQ_REPO" --variants $V --out "$G/experiments/${tag}_backbone" || return 1
+      [[ $name == cal1024 ]] && extra=(--quant-calibration "$G/calibration_1024/head_libero_spatial")
+      "$PY_O" jobs/experiments/vptq_variants.py --layers "$G/layers/head_libero_spatial" --calibration "$G/calibration/head_libero_spatial" --heldout "$G/calibration_heldout/head_libero_spatial" "${extra[@]}" --all-layers-json "$G/layers/backbone/layers.json" "$G/layers/head_libero_spatial/layers.json" \
+        --layer-substr transformer_blocks.14.ff.net.0.proj transformer_blocks.8.attn1.to_k transformer_blocks.2.attn1.to_q vl_self_attention.transformer_blocks.1.attn1.to_q \
+        --vptq-repo "$VPTQ_REPO" --variants $V --out "$G/experiments/${tag}_head" ;;
+    *) echo "unknown experiment $name" >&2; return 2 ;;
+  esac
+}
+
+# Task 5, quantized rows on SimplerEnv Fractal (GOAL v4 1c): the LIBERO pipeline again with GROOT_PROFILE=fractal (one checkpoint, so the layer sets are backbone and head_fractal)
+# and its own run folder $GRUN/s5q. Tasks f5__<step>__<row>[__<key|family>]: prep, cal, q (GPTQ/AWQ), qk (toolkit quantizers), imp (fake-quant checkpoint), ev (one family), fin (paired stats, checkpoint deleted).
+t_f5() {   # t_f5 <task>
+  local t=${1#f5__} step row key="" r fam
+  step=${t%%__*}; r=${t#*__}; row=${r%%__*}; [[ $r == *__* ]] && key=${r#*__}
+  local G0=$GRUN G=$GRUN/s5q S5=$GRUN/s5; export GROOT_PROFILE=fractal
+  mkdir -p "$G"/{q,ckpt,eval,paired,logs}
+  [[ -e "$G0/stopped/f5_$row" && $step != prep && $step != cal ]] && { echo "row f5_$row stopped"; return 0; }
+  case "$step" in
+    prep) cd "$SRC/groot" && "$PY_G" prepare_fractal.py --source "$S5/checkpoints/fractal" --out "$G/checkpoints" ;;
+    cal)   # the 256 calibration observations (and the 64 held-out ones) of the Fractal manifests; layer export
+      cd "$SRC/groot" || return 1
+      "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --out "$G/calibration" --dataset-root "$S5/data" || return 1
+      "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --manifest "$SRC/data/fractal_heldout_manifest.json" --noise-seed 1 --out "$G/calibration_heldout" --dataset-root "$S5/data" || return 1
+      "$PY_G" export_layers.py --checkpoints "$G/checkpoints" --calibration "$G/calibration" --out "$G/layers" ;;
+    q) t_q "$row" ;;
+    qk) t_qk "$row" "$key" ;;
+    imp) t_imp "$row" ;;
+    ev)   # one family; the first family (pick_coke_can) is the sanity gate: a row at 5 percent or less is stopped (FP has 98), except the original GPTQ row (as for LIBERO)
+      mkdir -p "$G/eval/$row"; s5_run "$G/ckpt/$row/fractal" "$key" "$G/eval/$row" || return 1
+      if [[ $key == pick_coke_can && $row != gptq_w2 ]]; then
+        local k; k=$(grep -m1 "^success rate" "$G/eval/$row/$key.log" | awk '{print $3}')
+        python3 -c "import sys; sys.exit(0 if float('$k') > 0.05 else 1)" || { echo "pick_coke_can $k: row stopped by the gate" > "$G0/stopped/f5_$row"; rm -rf "$G/ckpt/$row"; }
+      fi ;;
+    fin) python3 "$SRC/simpler/s5_stats.py" --fp "$S5/eval/fp" --row "$G/eval/$row" --out "$G/paired/$row.json" && rm -rf "$G/ckpt/$row" ;;
+    *) echo "unknown f5 step $step" >&2; return 2 ;;
+  esac
+}
+
+ckpt_slot() {   # at most 2 tasks that write a 26 GB fake-quant checkpoint run at once over all jobs (flock on two slot files): jobs start together, the feeder cannot see that
+  local waited=0 i
+  while :; do
+    for i in 0 1; do
+      exec {SLOTFD}>"$G/ckpt.slot$i"
+      flock -n "$SLOTFD" && return 0
+      exec {SLOTFD}>&-
+    done
+    (( waited >= 14400 )) && return 1
+    sleep 120; waited=$((waited + 120))
+  done
+}
+
+for task in ${TASKS//+/ }; do
+  kind=${task%%__*}; rest=${task#*__}; row=${rest%%__*}; key=""
+  [[ $rest == *__* ]] && key=${rest#*__}
+  [[ $kind == prepare || $kind == calibrate ]] && row=""
+  if [[ -n "$row" && -e "$G/stopped/$row" ]]; then note "$task" "skipped: row stopped"; continue; fi
+  if [[ -e "$G/tasks/$task.done" ]]; then note "$task" "already done"; continue; fi
+  if ! python3 "$SRC/groot/jobs/gsched.py" ready "$task"; then note "$task" "skipped: prerequisites not done"; continue; fi
+  SLOTFD=""
+  if [[ $kind == mx || $kind == imp || $kind == q || ( ( $kind == rr || $kind == sd || $kind == dj ) && $row != fp ) || $task == f5__imp__* || $task == f5__q__* ]]; then
+    ckpt_slot || { note "$task" "failed rc=75 (no checkpoint slot)"; continue; }
+  fi
+  note "$task" start
+  echo "=== $task $(date -Is)"
+  case "$kind" in
+    s5) ( t_s5 "$row" ) ;;
+    f5) ( t_f5 "$task" ) ;;
+    prepare) t_prepare ;; calibrate) t_calibrate ;; q) t_q "$row" ;; qk) t_qk "$row" "$key" ;; imp) t_imp "$row" ;;
+    sn) t_sn "$row" ;; ev) t_ev "$row" ;; rr) t_rr "$row" ;; sd) t_sd "$row" ;; dj) t_dj "$row" ;; kn) ( t_kn "$row" ) ;; cal) t_cal "$row" ;; mx) t_mx "$row" "$key" ;; xp) ( t_xp "$row" ) ;; *) echo "unknown task $task" >&2; false ;;
+  esac
+  rc=$?
+  [[ -n $SLOTFD ]] && exec {SLOTFD}>&-
+  if [[ $rc -eq 0 ]]; then touch "$G/tasks/$task.done"; note "$task" "done"; else note "$task" "failed rc=$rc"; echo "task $task failed (rc $rc)" >&2; fi
+done
+echo "job $JOB finished $(date -Is)"

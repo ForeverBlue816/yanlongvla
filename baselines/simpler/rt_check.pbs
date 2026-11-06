@@ -1,0 +1,12 @@
+#!/bin/bash
+#PBS -N rt_check
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=4:ngpus=1:mem=40gb
+#PBS -l walltime=00:20:00
+#PBS -j oe
+# Renderer check (E6 / H1): see rt_check.py. Output in $G/s5/rt_check/.
+H=/home/d250009/projects/pi05-handover; G=/scratch/d250009/pi05-handover/runs/groot_baselines
+ISAAC=$H/runs/toolkits/Isaac-GR00T; PY=$ISAAC/gr00t/eval/sim/SimplerEnv/simpler_uv/.venv/bin/python
+OUT=$G/s5/rt_check; mkdir -p $OUT
+{ nvidia-smi --query-gpu=name,driver_version --format=csv,noheader; cd $ISAAC && $PY /home/d250009/yanlongvla-clean/baselines/simpler/rt_check.py $OUT; } > $OUT/rt_check.log 2>&1
