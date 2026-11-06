@@ -1988,3 +1988,7 @@ episode k → layout k mod N, seed SeedSequence([7, t, k]) for the env RNG, nump
 (`simpler_server.py`: official policy + sim wrapper + `reset(options={'noise_seed'})`); the gr00t WidowX wrapper's reset is patched at runtime
 to forward reset options. `simpler_eval.py`, README for Chamadol, Slurm jobs updated; calibration job 275756 running (pro6000-12), check job
 275755 pending.
+
+### E200b — SimplerEnv evaluation is Chamadol's (2026-11-06 06:45 UTC)
+User: we do not test SimplerEnv-Bridge ourselves; Chamadol runs the FP baseline (840 episodes) and the SimplerEnv runs of our 2-bit rows.
+Check job 275755 cancelled. Bridge calibration done (432 layers, 6.5 min, 275756); TCQ fits 275894 queued (rose pro6000; head then backbone).

@@ -121,5 +121,7 @@ activations are not. The held-out split is for offline checks only (action MSE o
 ## 6. Order of work
 
 1. FP baseline with the commands above (700 episodes); send `episodes.json`.
-2. The six PTQ baselines (GPTQ, AWQ, VPTQ, AQLM, QuIP#, QTIP; 2-bit, same configurations as the LIBERO rows) calibrated on
+2. Our 2-bit rows (`tcq_w2_rht`, `tcq_w2_rht_bbl`): we will share the assembled checkpoint directories when the fits finish; evaluate them
+   with the same server, script and seeds.
+3. The six PTQ baselines (GPTQ, AWQ, VPTQ, AQLM, QuIP#, QTIP; 2-bit, same configurations as the LIBERO rows) calibrated on
    `data/bridge-calibration`, evaluated with the same script and seeds; one `episodes.json` per method plus the accounting file.

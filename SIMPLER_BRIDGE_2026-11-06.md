@@ -60,3 +60,8 @@ checkpoint, and tell Chamadol how to evaluate the FP baseline `nvidia/GR00T-N1.7
 ## Status
 - 2026-11-06 05:30 UTC: datasets built; FP dir prepared; code written; `simpler_check` (killable, pro6000) and `simpler_calib` (rose, pro6000)
   queued (cluster full: only pro6000 had free GPUs). Arm-B (iso) fit copies paused / cancelled to free killable slots (resumable).
+
+- 2026-11-06 06:45 UTC (user): **we do not run SimplerEnv evaluation; Chamadol runs all of it** (the FP baseline on the 840 episodes, and later
+  our 2-bit rows). The environment-check job 275755 was cancelled before it started. Our side: calibration (done, 432 layers, 6.5 min),
+  TCQ fits 275894 (head, then backbone), assembly of `tcq_w2_rht` / `tcq_w2_rht_bbl`, and the offline held-out MSE. The assembled
+  checkpoint directories are handed to Chamadol for the SimplerEnv runs with the same script and seeds.
