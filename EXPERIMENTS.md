@@ -2001,3 +2001,13 @@ offline error. Plus: the 6000 Ada copy 274953 and the A40 copy 275462 both start
 one episodes.jsonl; the duplicate-unit guard aborted both (915 rows, 752 unique units, 163 run twice of which 55 disagree across GPUs).
 Moved to `plus_INVALID_mixed_gpu_20261106`; single 6000 Ada copy 276498 submitted (rose), no race copies. Shift whitening (partial summary,
 module means): no module with cosine(H, Σ) > 0.95 (highest per-layer 0.97 in one DiT ff.net.2; module means 0.16–0.52).
+
+### E202 — Decisions 2026-11-06 applied: Slurm drivers, one-GPU-per-file protocol note, arm D prepared, Bridge fits paused (2026-11-06 15:00 UTC)
+(1) Drivers: `slurm/drivers.sbatch` (CPU, 24 h, self-chaining via `--dependency=afterany`, STOP file, ledger `groot/drivers/ledger.log`); session
+drivers killed. (2) Protocol note (TCQ doc + public groot README): one GPU model per result file, recorded in the manifest; 55/163 (34 %)
+cross-GPU discordance from the aborted V0' rerun logged; matched re-evaluation only within ±2 pp of a gate. (3) V0' Plus: single copy 276498
+(6000 Ada, rose), pairing extended with QTIP 573 (Chamadol's per-unit file). (4) Arm D pre-registered (SHIFT doc): D₁ = refit on H_mix1
+(256 calibration + 256 on-policy states of tcq_w2_rht, equal weight per observation), D₂ = refit on H_mix2 (on-policy states of D₁); code:
+`groot_shift.py --stage hmix --round r`, `groot_tcq.py --metric mix --dround r` (keys backbone_tcq_rht_d<r> / head_tcq_rht_d<r>_<suite>),
+`groot_onpolicy.py --row`, rows tcq_w2_rht_d1 / d2 registered; D fits start only after C's Plus is read; round-1 H job `shift_hmix.sbatch`.
+(5) SimplerEnv-Bridge 2-bit fits paused (275894 cancelled); calibration kept.

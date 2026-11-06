@@ -65,3 +65,6 @@ checkpoint, and tell Chamadol how to evaluate the FP baseline `nvidia/GR00T-N1.7
   our 2-bit rows). The environment-check job 275755 was cancelled before it started. Our side: calibration (done, 432 layers, 6.5 min),
   TCQ fits 275894 (head, then backbone), assembly of `tcq_w2_rht` / `tcq_w2_rht_bbl`, and the offline held-out MSE. The assembled
   checkpoint directories are handed to Chamadol for the SimplerEnv runs with the same script and seeds.
+- 2026-11-06 14:30 UTC (user decision #5): **2-bit fits paused** pending Yanlong's decision (job 275894 cancelled before it started; the job
+  script `simpler_fit.sbatch` resumes from nothing lost). Calibration artefacts kept: `ptq/hessians/backbone_simpler_bridge`,
+  `ptq/hessians/head_simpler_bridge` (432 layers), datasets, FP dir.

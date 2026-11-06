@@ -127,3 +127,11 @@ Input widths that drive the AQLM cost:
 | 4096 | vision merger |
 
 Expect tens of GPU-hours for the five layer sets. Build them in parallel, as decision 20 did for π₀.₅.
+
+## Protocol note: one GPU model per result file (2026-11-06)
+
+Every Plus / LIBERO result file comes from one GPU model, recorded in its `manifest.json` (`gpu`). Rows may run on whichever GPU is free
+first, but a file must not mix GPU types. Evidence: an aborted rerun of one of our rows had an RTX 6000 Ada copy and an A40 copy writing
+into one file; of the 163 units both GPUs ran, 55 (34 %) ended differently (success or number of policy calls). Such files are discarded.
+A matched re-evaluation on the same GPU is queued only when a decisive comparison lands within ±2 pp of its gate; otherwise rows are
+compared as run. Please record the GPU model with every file you send.
