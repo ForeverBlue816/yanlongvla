@@ -17,7 +17,7 @@ from pathlib import Path
 import torch
 from safetensors.torch import save_file
 
-from groot_common import SUITES, quantizable_layers, part_of, read_tensors
+from groot_common import SUITES, BB_SUITE, quantizable_layers, part_of, read_tensors
 
 
 def main():
@@ -26,7 +26,7 @@ def main():
     p.add_argument('--calibration', required=True)
     p.add_argument('--out', required=True)
     a = p.parse_args()
-    keys = [('backbone', 'libero_spatial', 'backbone')] + [(f'head_{s}', s, 'head') for s in SUITES]
+    keys = [('backbone', BB_SUITE, 'backbone')] + [(f'head_{s}', s, 'head') for s in SUITES]
     for key, suite, part in keys:
         tensors = read_tensors(Path(a.checkpoints) / suite)
         index = json.loads((Path(a.calibration) / key / 'index.json').read_text())['layers']

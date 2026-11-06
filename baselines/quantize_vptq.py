@@ -17,6 +17,7 @@ Usage:
 import argparse
 import json
 import logging
+import math
 import subprocess
 import sys
 from pathlib import Path
@@ -79,7 +80,13 @@ def main():
     p.add_argument('--vptq-repo', required=True, help='microsoft/VPTQ algorithm-branch checkout')
     p.add_argument('--bits', type=int, choices=(2, 3), required=True)
     p.add_argument('--out', required=True)
+    p.add_argument('--kmeans-tol', type=float, default=KMEANS_TOL, help='k-means stopping tolerance (rows vptq_iter<N>t0_w2 use 1e-30: cuml refuses 0, 1e-30 runs all iterations)')
+    p.add_argument('--vector-len', type=int, default=VECTOR_LEN, help='weights per vector (rows vptq_v<L>k<K>_w2: other true-2-bit structures)')
+    p.add_argument('--centroids', type=int, default=CENTROIDS, help='centroids per layer')
+    p.add_argument('--kmeans-iter', type=int, default=KMEANS_ITER, help='Hessian-weighted k-means iterations (row vptq_iterN_w2); the bits do not change')
     a = p.parse_args()
+    globals().update(KMEANS_TOL=a.kmeans_tol, KMEANS_ITER=a.kmeans_iter, VECTOR_LEN=a.vector_len, CENTROIDS=a.centroids)   # module constants used below
+    index_bits = math.log2(CENTROIDS)   # bits of one stored index; the codes are counted packed at this width (a non power of two centroid count is counted at log2 k bits: mixed-radix packing, assumption A6)
     res = RESIDUAL_CENTROIDS[a.bits]
     import vptq
     from vptq.quantizer import NPVectorQuantizer
@@ -93,13 +100,13 @@ def main():
     index = json.loads((Path(a.calibration) / 'index.json').read_text())
     assert index['checkpoint_sha256'] == sha256(Path(a.checkpoint) / 'model.safetensors'), 'calibration was made from another checkpoint'
     listing = json.loads((Path(a.layers) / 'layers.json').read_text())['layers']
-    assert len(listing) == 414, len(listing)
-    meta = dict(method=f'vptq_v4_k256_r{res}', bits_nominal=a.bits, backbone_bits=a.bits, expert_bits=a.bits,
+    assert len(listing) in (414, 216), len(listing)   # 414: pi0.5; 216: one GR00T layer set (decision G9)
+    meta = dict(method=f'vptq_v{VECTOR_LEN}_k{CENTROIDS}_r{res}', bits_nominal=a.bits, backbone_bits=a.bits, expert_bits=a.bits,
                 structure=dict(vector_len=VECTOR_LEN, centroids=CENTROIDS, residual_centroids=res, outlier_percent=0, codebooks_per_layer=1),
                 vptq_commit=subprocess.check_output(['git', '-C', a.vptq_repo, 'rev-parse', 'HEAD'], text=True).strip(),
                 kmeans=dict(mode='hessian', init='random', seed=0, iterations=KMEANS_ITER, tol=KMEANS_TOL), percdamp=PERCDAMP,
                 calibration_index_sha256=sha256(Path(a.calibration) / 'index.json'),
-                payload_rule='uint8 index per 4-weight vector (2 bits/weight) + FP16 256x4 codebook per layer'
+                payload_rule=f'{index_bits:.4g}-bit index per {VECTOR_LEN}-weight vector (packed) + FP16 {CENTROIDS}x{VECTOR_LEN} codebook per layer'
                              + ('; + packed 4-bit residual index per vector (1 bit/weight) + FP16 16x4 residual codebook' if res else '') + '; padded output rows counted',
                 notes='pure PTQ, no layer-wise or end-to-end fine-tuning; Hessian-weighted k-means and VPTQ error feedback with the shared per-layer Hessians',
                 exact_command=' '.join(sys.argv))
@@ -124,7 +131,7 @@ def main():
         VPTQ(linear, quantizer=quantizer, hessian=h, inv_hessian=inv_factor, perm=None, zero_idx=None, logger=log, collect_act=False,
              layer_name=name, block_size=128, step=1, percdamp=PERCDAMP, enable_perm=False, enable_norm=False, norm_dim=0, debug=False).fast_vector_quant()
         codebook = quantizer.centroids[1].to(torch.float16).contiguous().cpu()
-        codes = quantizer.indices[1].to(torch.uint8).contiguous().cpu()
+        codes = quantizer.indices[1].to(torch.uint8 if CENTROIDS <= 256 else torch.int16).contiguous().cpu()   # int16 holds the index in the file; the payload counts index_bits
         assert tuple(codebook.shape) == (CENTROIDS, VECTOR_LEN), codebook.shape
         stored = dict(codebook_fp16=codebook, codes_u8=codes)
         if res:
@@ -132,7 +139,7 @@ def main():
             assert tuple(stored['res_codebook_fp16'].shape) == (res, VECTOR_LEN)
         weight = decode(codebook, codes, item['out_features'], item['in_features'], stored.get('res_codebook_fp16'), stored.get('res_codes_u4')).to(torch.bfloat16)
         assert torch.isfinite(weight).all(), name
-        nbytes = {k: v.numel() * v.element_size() for k, v in stored.items()}
+        nbytes = {k: (math.ceil(v.numel() * index_bits / 8) if k == 'codes_u8' else v.numel() * v.element_size()) for k, v in stored.items()}
         save_file(dict(stored, weight=weight), str(file))
         acc['layers'][name] = dict(payload_bytes=sum(nbytes.values()), codebook_bytes=sum(v for k, v in nbytes.items() if 'codebook' in k),
                                    stored_bytes=nbytes, samples=index['layers'][name]['samples'], group=item['group'])
@@ -140,7 +147,7 @@ def main():
         print(json.dumps(dict(layer=k, name=name, payload_bytes=acc['layers'][name]['payload_bytes'])), flush=True)
         torch.cuda.empty_cache()
 
-    assert len(acc['layers']) == 414
+    assert len(acc['layers']) == len(listing)
     payload = sum(v['payload_bytes'] for v in acc['layers'].values())
     acc['linear_payload_bytes'] = payload
     acc['codebook_bytes'] = sum(v['codebook_bytes'] for v in acc['layers'].values())

@@ -113,7 +113,7 @@ def main():
     index = json.loads((Path(a.calibration) / 'index.json').read_text())
     assert index['checkpoint_sha256'] == sha256(Path(a.checkpoint) / 'model.safetensors'), 'calibration was made from another checkpoint'
     listing = json.loads((layers_dir / 'layers.json').read_text())['layers']
-    assert len(listing) == 414 and all(i['in_features'] % IN_GROUP == 0 for i in listing)
+    assert len(listing) in (414, 216) and all(i['in_features'] % IN_GROUP == 0 for i in listing)
     meta = dict(method=f'aqlm_{a.bits}x8g8', bits_nominal=a.bits, backbone_bits=a.bits, expert_bits=a.bits,
                 structure=dict(num_codebooks=a.bits, nbits_per_codebook=NBITS, in_group_size=IN_GROUP, out_group_size=1, scales='FP16 per output row'),
                 aqlm_commit=subprocess.check_output(['git', '-C', a.aqlm_repo, 'rev-parse', 'HEAD'], text=True).strip(),

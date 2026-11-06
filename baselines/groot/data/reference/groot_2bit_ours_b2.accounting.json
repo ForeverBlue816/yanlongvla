@@ -1,0 +1,16 @@
+{
+ "row": "raqft_rowb2",
+ "suite": "libero_spatial",
+ "parts": [
+  "backbone_rowb2",
+  "head_rowb2"
+ ],
+ "quantized_layers": 432,
+ "quantized_parameters": 2340421632,
+ "linear_payload_bytes": 591859936,
+ "quantized_linear_bpw": 2.0230882432725696,
+ "retained_bytes": 1607188736,
+ "active_parameters": 3144016000,
+ "whole_model_bpw": 5.595515218752068,
+ "note": "retained = all other inference tensors at stored BF16 (embedding not int8 here; AdaLN linears not replaced by tables) - conservative"
+}

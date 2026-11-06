@@ -109,7 +109,7 @@ def main():
     index = json.loads((Path(a.calibration) / 'index.json').read_text())
     assert index['checkpoint_sha256'] == sha256(Path(a.checkpoint) / 'model.safetensors'), 'calibration was made from another checkpoint'
     listing = json.loads((layers_dir / 'layers.json').read_text())['layers']
-    assert len(listing) == 414
+    assert len(listing) in (414, 216)
     s = SETTINGS
     cb = bitshift.bitshift_codebook(L=s['L'], K=s['K'], V=s['V'], tlut_bits=s['tlut_bits'], decode_mode=s['decode_mode']).to(device)
     has_kernel = utils.has_kernel(s['decode_mode'], s['L'], s['K'], s['V'], s['tlut_bits'], s['td_x'], s['td_y'])

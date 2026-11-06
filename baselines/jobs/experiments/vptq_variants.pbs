@@ -1,0 +1,22 @@
+#!/bin/bash
+#PBS -N vptq_var
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=03:00:00
+#PBS -j oe
+# Task 0 (decision D8): VPTQ on the worst layers of vptq_w2 under several settings; see vptq_variants.py. Submit: qsub -v SRC=<source dir> vptq_variants.pbs
+set -uo pipefail
+: "${SRC:?}"
+HANDOVER=/home/d250009/projects/pi05-handover
+OPENPI_ROOT=/home/d250009/projects/openpi
+RUN=$HANDOVER/runs/readme_baselines
+VPTQ_REPO=$HANDOVER/runs/toolkits/VPTQ
+PY="$OPENPI_ROOT/.venv/bin/python"
+vsite="$HANDOVER/runs/envs/vptq/site-packages"; osite="$OPENPI_ROOT/.venv/lib/python3.11/site-packages"
+export LD_LIBRARY_PATH="$(ls -d "$osite"/nvidia/*/lib | tr '\n' ':')$vsite/libcudf/lib64:$vsite/libkvikio/lib64:$vsite/nvidia/nvcomp:$vsite/libcudf_cu12.libs:$vsite/cuml_cu12.libs:/usr/local/gcc-12.3/lib64:${LD_LIBRARY_PATH:-}"
+export PYTHONPATH="$SRC:$VPTQ_REPO:$vsite:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" PYTHONUNBUFFERED=1
+cd "$SRC" || exit 1
+echo "on $(hostname) $(nvidia-smi --query-gpu=name --format=csv,noheader) $(date -Is)"
+"$PY" jobs/experiments/vptq_variants.py --layers "$RUN/layers" --calibration "$RUN/calibration" --heldout "$RUN/experiments/heldout/calibration" \
+  --vptq-repo "$VPTQ_REPO" --out "$RUN/experiments/vptq_variants"

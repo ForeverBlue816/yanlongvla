@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -N gr_audit
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=04:00:00
+#PBS -j oe
+# GOAL 31 Oct items a and b: GPTQ and AWQ audit on GR00T layers (jobs/experiments/audit_gptq_awq.py). Submit: qsub -v SRC=<source dir> audit.pbs
+set -uo pipefail
+: "${SRC:?}"
+G=/scratch/d250009/pi05-handover/runs/groot_baselines
+TK=/scratch/d250009/pi05-handover/runs/toolkits
+exec >> "$G/logs/audit_${PBS_JOBID:-local}.log" 2>&1
+echo "on $(hostname) $(nvidia-smi --query-gpu=name --format=csv,noheader) $(date -Is)"
+cd "$SRC" || exit 1
+PY=/home/d250009/projects/pi05-handover/runs/envs/groot/bin/python
+"$PY" jobs/experiments/audit_gptq_awq.py --layers "$G/layers" --gptq-repo "$TK/gptq" --awq-repo "$TK/llm-awq" --out "$G/experiments/audit_gptq_awq"
+[[ -n "${SKIP_SWEEP:-}" ]] || "$PY" jobs/experiments/gptq_variants_all.py --layers "$G/layers" --out "$G/experiments/gptq_variants_all"

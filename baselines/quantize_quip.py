@@ -51,11 +51,19 @@ def quantize_layer(item, layers_dir, out, cb, scratch, device):
     hp = torch.zeros(pn, pn, dtype=torch.float64)
     hp[:n, :n] = h
     scale = wp.square().mean().sqrt()   # official quantize_linear: quantize W / rms(W), fuse rms(W) into SV
-    hp = utils.regularize_H(hp, pn, SETTINGS['sigma_reg'])
-    torch.manual_seed(0)
     began = time.time()
-    hat, attr = quip.quantize(hp.float().to(device), (wp / scale).to(device), SETTINGS['lora_rank'], cb,
-                              Namespace(save_pfx=str(scratch), **SETTINGS), device)
+    # Decision G18: GR00T layers with a huge outlier channel (language-model layer 2 down_proj: largest diagonal 6000 x the mean) make
+    # the official Cholesky of the damped, Hadamard-rotated Hessian fail in float32 at sigma_reg 0.01; retry with 10x and 100x damping
+    # for those layers only and record the value used (every other layer, and every pi0.5 layer, is unchanged).
+    for sigma_used in (SETTINGS['sigma_reg'], 10 * SETTINGS['sigma_reg'], 100 * SETTINGS['sigma_reg']):
+        torch.manual_seed(0)
+        try:
+            hat, attr = quip.quantize(utils.regularize_H(hp.clone(), pn, sigma_used).float().to(device), (wp / scale).to(device), SETTINGS['lora_rank'], cb,
+                                      Namespace(save_pfx=str(scratch), **SETTINGS), device)
+            break
+        except torch.linalg.LinAlgError:
+            if sigma_used == 100 * SETTINGS['sigma_reg']:
+                raise
     sv16 = (attr['SV'].float() * scale).to(torch.float16)   # stored sign vector with both scales fused (official layout)
     # The evaluated weight is QuIP#'s own reconstruction; decoding the stored FP16 SV differs from it only by the FP16
     # rounding of the fused per-layer scale (relative ~5e-4), recorded below.
@@ -68,7 +76,7 @@ def quantize_layer(item, layers_dir, out, cb, scratch, device):
                   padded_shape=[pm, pn], fp16_scale_rounding=float(abs(sv16.float().abs().mean() / (attr['SV'].float().abs().mean() * scale) - 1)),
                   relative_weight_error=float(e.norm() / w.norm()),
                   relative_output_error=float(((e @ h.float()) * e).sum() / ((w @ h.float()) * w).sum()),
-                  seconds=time.time() - began)
+                  sigma_reg_used=sigma_used, seconds=time.time() - began)
     tmp = out / (item['file'] + '.partial')
     save_file(dict(weight=weight.to(torch.bfloat16).contiguous(), qidxs_packed=qidxs, su_fp16=su16, sv_fp16=sv16.cpu().contiguous()), str(tmp))
     tmp.replace(out / item['file'])
@@ -99,7 +107,7 @@ def main():
     index = json.loads((Path(a.calibration) / 'index.json').read_text())
     assert index['checkpoint_sha256'] == sha256(Path(a.checkpoint) / 'model.safetensors'), 'calibration was made from another checkpoint'
     listing = json.loads((layers_dir / 'layers.json').read_text())['layers']
-    assert len(listing) == 414
+    assert len(listing) in (414, 216)
     cb = codebook.get_codebook(SETTINGS['codebook'])
     table_bytes = sum(t.numel() * t.element_size() for t in cb.buffers())   # E8P12 lattice table, shared by all layers
     meta = dict(method=f"quip_sharp_{SETTINGS['codebook'].lower()}", bits_nominal=a.bits, backbone_bits=a.bits, expert_bits=a.bits,

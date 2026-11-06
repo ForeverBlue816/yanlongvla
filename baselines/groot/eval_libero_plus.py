@@ -17,6 +17,8 @@ from pathlib import Path
 
 import numpy as np
 
+EVAL_SEED = int(os.environ.get('EVAL_SEED', 7))   # rigour R3: a second evaluation seed; 7 (default) is the protocol of every table
+
 SUITES = ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10')
 LIMITS = dict(libero_spatial=220, libero_object=280, libero_goal=300, libero_10=520)
 DUMMY_ACTION = [0.0] * 6 + [-1.0]
@@ -59,14 +61,14 @@ def main():
     for entry in units:
         if (entry['suite'], entry['task']) in done:
             continue
-        random.seed(7); np.random.seed(7); torch.manual_seed(7)
+        random.seed(EVAL_SEED); np.random.seed(EVAL_SEED); torch.manual_seed(EVAL_SEED)
         suite = suites[entry['suite']]; task = suite.get_task(entry['task']); assert task.name == entry['name'], (task.name, entry['name'])
-        noise_seed = int(np.random.SeedSequence([7, SUITES.index(entry['suite']), entry['task'], 0]).generate_state(1)[0])
+        noise_seed = int(np.random.SeedSequence([EVAL_SEED, SUITES.index(entry['suite']), entry['task'], 0]).generate_state(1)[0])
         env = None; t = calls = 0; success = False; start = time.perf_counter()
         try:
             bddl = str(Path(get_libero_path('bddl_files')) / task.problem_folder / task.bddl_file)   # Plus parses viewpoint / robot parameters from it
             env = OffScreenRenderEnv(bddl_file_name=bddl, camera_heights=RESOLUTION, camera_widths=RESOLUTION)
-            env.seed(7); states = suite.get_task_init_states(entry['task'])
+            env.seed(EVAL_SEED); states = suite.get_task_init_states(entry['task'])
             env.reset(); obs = env.set_init_state(states[0]); plan = collections.deque()
             while t < LIMITS[entry['suite']] + SETTLE_STEPS:
                 if t < SETTLE_STEPS:

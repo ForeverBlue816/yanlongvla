@@ -53,7 +53,7 @@ REFERENCE_RATE = 0.5
 PART_HOURS = dict(build=11.0, sanity=0.5, plus=1.35, libero_spatial=1.9, libero_object=2.3, libero_goal=2.4, libero_10=3.2)
 SANITY_UNITS = 50   # Plus units in the sanity sample (with 5 episodes per LIBERO spatial task: 100 episodes)
 CALIBRATION_HOURS = 1.0
-QUANTIZE_HOURS = dict(rtn=0.2, gptq=1.5, awq=1.0, vptq=3.5, aqlm=0.2, quip=1.0, quipt0=1.0, qtip=2.0)   # aqlm: import only; the helpers build the layers first
+QUANTIZE_HOURS = dict(rtn=0.2, gptq_best=4.0, gptq=1.5, awq=1.0, vptq=3.5, aqlm=0.2, quip=1.0, quipt0=1.0, qtip=2.0)   # aqlm: import only; the helpers build the layers first
 AQLM_HELPERS = 4   # jobs that quantize AQLM layers side by side (LM layers with 16384 inputs take over an hour each)
 
 
@@ -169,6 +169,20 @@ def add_variant(row):
     plan['source'] = str(snapshot())
     save(RUN / 'plan.json', plan)
     log(f'added diagnostic row {row} (sanity sample only); bundles submitted from now on use {plan["source"]}')
+
+
+def add_row(row):
+    """A new row evaluated on the Plus 1000 only (sanity sample first, then the four p1000 parts), at the front of the plan (GOAL 1 Nov 1.1)."""
+    plan = load(RUN / 'plan.json', None)
+    if row not in plan['rows']:
+        plan['rows'].append(row)
+    new = [dict(name=f'{row}:sanity', kind='sanity', row=row, part='sample')] + [dict(name=f'{row}:p1000_{i}', kind='plus', row=row, part=f'p1000_{i}') for i in range(PARTS)]
+    have = {i['name'] for i in plan['items']}
+    at = sum(1 for i in plan['items'] if i['kind'] == 'exp')
+    plan['items'][at:at] = [i for i in new if i['name'] not in have]
+    plan['source'] = str(snapshot())
+    save(RUN / 'plan.json', plan)
+    log(f'added row {row} (sanity sample and Plus 1000); bundles submitted from now on use {plan["source"]}')
 
 
 def sanity_passed(row):
@@ -529,6 +543,8 @@ if __name__ == '__main__':
         add_sanity()
     elif cmd == 'add-exp':
         add_exp(sys.argv[2], sys.argv[3])
+    elif cmd == 'add-row':
+        add_row(sys.argv[2])
     elif cmd == 'add-variant':
         add_variant(sys.argv[2])
     elif cmd == 'step':

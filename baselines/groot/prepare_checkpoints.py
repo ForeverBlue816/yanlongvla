@@ -55,6 +55,8 @@ def main():
         for f in src.iterdir():
             if f.name.startswith('model') or f.name == 'config.json':
                 continue
+            if f.name.startswith('global_step'):   # DeepSpeed training state (optimizer shards, about 28 GB per suite); inference needs none of it (decision G12)
+                continue
             target = dst / f.name
             if not target.exists():
                 if f.is_dir():
