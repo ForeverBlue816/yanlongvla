@@ -1965,3 +1965,18 @@ writers now locked). V1 on tcq_w2_rht_g16: offline MSE 0.0190 / readout 29 014 (
 vs B2 556 −3.1 [−8.1, +2.7]; vs FP −9.3 [−13.9, −4.2]. Addendum-1 reading: V1 does not beat V0 by > 2 pp → V0's format (per-layer
 tables, 2.018 bpw) stands, V1's row-group tables + column scales are an ablation (and hurt). V0 remains the GR00T fine-tuned row pending
 V0' (training: held-out L_readout 10 057 → 10 037 at update 64). Shift fits B / C queued (arm-C spatial head preempted twice, resumes).
+
+### E200 — SimplerEnv-Bridge line opened: checkpoint, Bridge calibration / held-out sets, quantization code, seeded evaluator (2026-11-06 05:40 UTC)
+User (2026-11-06): build the dataset GR00T needs on SimplerEnv-Bridge, adapt our quantization code to it, and tell Chamadol how to evaluate
+the FP baseline `nvidia/GR00T-N1.7-SimplerEnv-Bridge`. Doc: `SIMPLER_BRIDGE_2026-11-06.md`. Done today: (1) checkpoint @ 940134b3 downloaded
+(6.5 GB, no optimizer states); its backbone is byte-identical to the LIBERO checkpoints' (494 equal tensors; the 537 differing ones are all
+`action_head.*`) → backbone fits transfer, head needs Bridge calibration. (2) `datasets/bridge-calibration` + `bridge-heldout`: 256 observations
+each from `IPEC-COMMUNITY/bridge_orig_lerobot` @ 0e9d76d0 (64 disjoint episodes × 4 frames; 5 episodes per SimplerEnv task family + 34 random;
+seed SeedSequence([20261106, split])), frames decoded from AV1 with PyAV and stored as PNG bytes (self-contained; compact 23 + 22 MB copies
+in the public repo). (3) `scripts/groot_simpler.py` (prepare / smoke / calib / fit = TCQ two-sided / assemble into a flat checkpoint the
+official server loads / offline held-out MSE), rows `tcq_w2_rht` and `tcq_w2_rht_bbl` (LIBERO backbone fit reused). (4) `scripts/simpler_eval.py`:
+per-episode seeded SimplerEnv evaluation (seed SeedSequence([7, task, k]), 300 env steps, 4 of 8 actions per call, success = any step, one
+JSON record per episode) + SimplerEnv python-3.10 island (`scripts/simpler_setup.sh`). (5) Chamadol instructions
+`public-reports/baselines/groot/simpler/README.md`. Queued: 275755 `simpler_check` (Vulkan / reset determinism / FP smoke / 4 episodes,
+killable pro6000), 275756 `simpler_calib` (rose pro6000). Arm-B (iso) fit copies 273889 / 274947 cancelled and the iso driver paused to free
+killable slots (B is killable-only and resumable). FP SimplerEnv numbers and the 2-bit rows: pending the check job.

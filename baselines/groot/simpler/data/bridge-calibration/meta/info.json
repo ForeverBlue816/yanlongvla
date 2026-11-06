@@ -1,0 +1,12 @@
+{
+ "source": {
+  "dataset": "IPEC-COMMUNITY/bridge_orig_lerobot",
+  "revision": "0e9d76d07e9df3ea3eba257b2520d4913833fad2",
+  "codebase_version": "v2.0",
+  "fps": 5,
+  "robot_type": "widowx"
+ },
+ "derived": "self-contained frames: image = PNG bytes of observation.images.image_0 at frame_index; state = observation.state (8); action (7)",
+ "episodes": 64,
+ "frames": 2121
+}
