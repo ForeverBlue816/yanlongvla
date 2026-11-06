@@ -68,3 +68,4 @@ checkpoint, and tell Chamadol how to evaluate the FP baseline `nvidia/GR00T-N1.7
 - 2026-11-06 14:30 UTC (user decision #5): **2-bit fits paused** pending Yanlong's decision (job 275894 cancelled before it started; the job
   script `simpler_fit.sbatch` resumes from nothing lost). Calibration artefacts kept: `ptq/hessians/backbone_simpler_bridge`,
   `ptq/hessians/head_simpler_bridge` (432 layers), datasets, FP dir.
+- 2026-11-06 15:20 UTC (user): **SimplerEnv-Bridge testing on hold** (ours and Chamadol's) until our calibration / 2-bit rows are done. Nothing queued; hold note added to Chamadol's README.

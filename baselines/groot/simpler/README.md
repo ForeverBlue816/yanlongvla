@@ -1,5 +1,7 @@
 # GR00T N1.7 on SimplerEnv-Bridge (WidowX): FP baseline evaluation and 2-bit calibration data
 
+> **On hold (2026-11-06):** do not start the SimplerEnv-Bridge evaluation yet. We will give the go-ahead once our calibration / 2-bit rows on this checkpoint are ready; the protocol below stays as pre-registered.
+
 Written for Chamadol. Goal: evaluate the official **FP** checkpoint `nvidia/GR00T-N1.7-SimplerEnv-Bridge` on the 7 SimplerEnv WidowX tasks
 with a **seeded, per-episode** protocol, so that every 2-bit row (ours and the six PTQ baselines) can be paired with it episode by episode.
 Afterwards the same calibration data and the same script serve the baselines. Everything here mirrors `../README.md` (LIBERO-Plus harness).
