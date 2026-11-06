@@ -43,36 +43,45 @@ quantized row, write a directory with the same files and the fake-quantized weig
 
 ## 3. Protocol (pre-registered)
 
+SimplerEnv's Bridge tasks are "visual matching" tasks with a **finite set of initial layouts** (object xy grid × orientations, robot
+initial pose fixed): `spoon_on_towel` 24, `carrot_on_plate` 24, `stack_cube` 24, `put_eggplant_in_basket` 8, `put_eggplant_in_sink` 1
+(`ManiSkill2_real2sim/.../put_on_in_scene.py`, `len(xy_configs) × len(quat_configs)`). The two drawer tasks (`OpenSmallDrawerCustomInScene`,
+`CloseSmallDrawerCustomInScene`) draw the robot joint offset, cabinet pose, overlay brightness and cabinet texture from RNGs instead.
+We therefore evaluate **every layout**, several times with different policy noise:
+
 | Item | Value |
 |---|---|
 | Tasks (7) | `widowx_spoon_on_towel`, `widowx_carrot_on_plate`, `widowx_stack_cube`, `widowx_put_eggplant_in_basket`, `widowx_put_eggplant_in_sink`, `widowx_open_drawer`, `widowx_close_drawer` |
-| Episodes | 100 per task = 700 per policy |
-| Seeds | episode `k` of task index `t` (order above) is reset with `SeedSequence([7, t, k]).generate_state(1)[0] % (2^31 − 1)`; ManiSkill2 derives the object layout and robot initial pose from it, so the initial scene is identical for every policy |
-| Horizon | 300 env steps (= `--max-episode-steps 300` in NVIDIA's README), 8-step chunk, **4** executed per call (`--n-action-steps 4`), one environment (no async vector env), no early termination on success |
+| Episodes | **120 per task = 840 per policy**. Object tasks: episode `k` uses layout `k mod N` (`obj_init_options.episode_id`), so each of the 24 / 8 / 1 layouts is run 5 / 15 / 120 times. Drawer tasks: 120 seeded draws. |
+| Seeds | episode `k` of task index `t` (order above): `s = SeedSequence([7, t, k]).generate_state(1)[0] mod (2^31 − 1)`; `env.reset(seed=s)` (ManiSkill2 main + episode RNG), `numpy.random.seed(s)` (the drawer tasks use numpy's global RNG), and the **policy noise** `torch.manual_seed(s)` on the server via `reset(options={'noise_seed': s})` (`simpler_server.py`). Same scene and same noise for every policy. |
+| Horizon | 300 env steps (= `--max-episode-steps 300` in NVIDIA's README; the ManiSkill2 limits of 60 / 120 do not apply), 8-step chunk, **4** executed per call (`--n-action-steps 4`), one environment, no early termination on success |
 | Success | the episode counts as a success if any step reports `success` (same rule as `gr00t/eval/rollout_policy.py`) |
-| Policy noise | the server's flow-matching noise is not seeded by the client; the FP row is therefore evaluated once (as the LIBERO-Plus rows) |
-| Reference numbers (NVIDIA, their protocol: 5 async envs, unseeded) | spoon_on_towel 78, carrot_on_plate 58, put_eggplant_in_basket 53, stack_cube 48, put_eggplant_in_sink 2, close_drawer 97, open_drawer 100 → 62.3 % |
+| Reference numbers (NVIDIA, their protocol: 100 episodes, 5 async envs, unseeded layouts and noise) | spoon_on_towel 78, carrot_on_plate 58, put_eggplant_in_basket 53, stack_cube 48, put_eggplant_in_sink 2, close_drawer 97, open_drawer 100 → 62.3 % |
+
+`eval_simpler_bridge.py` patches `gr00t.eval.sim.SimplerEnv.simpler_env.WidowXBridgeEnv.reset` at runtime to forward the reset `options`
+(the shipped wrapper drops them); nothing in the Isaac-GR00T checkout is modified.
 
 ## 4. Commands
 
-Terminal 1 (GR00T environment, GPU):
+Terminal 1 (GR00T environment, GPU) — the seeded server (the official `run_gr00t_server.py --use-sim-policy-wrapper` also works, but then the
+policy noise is not seeded):
 ```bash
 cd /path/Isaac-GR00T
-python gr00t/eval/run_gr00t_server.py --model-path <snapshot dir or quantized dir> --embodiment-tag SIMPLER_ENV_WIDOWX --use-sim-policy-wrapper --port 5555
+python /path/baselines/groot/simpler/simpler_server.py --model-path <snapshot dir or quantized dir> --port 5555
 ```
 Terminal 2 (SimplerEnv venv, same node; Vulkan variables set):
 ```bash
 cd /path/Isaac-GR00T
-<venv>/bin/python /path/baselines/groot/simpler/eval_simpler_bridge.py --episodes 100 --seed 7 --port 5555 --out results/simpler_bridge/fp/episodes.json
+<venv>/bin/python /path/baselines/groot/simpler/eval_simpler_bridge.py --episodes 120 --seed 7 --port 5555 --out results/simpler_bridge/fp/episodes.json
 ```
 `eval_simpler_bridge.py` is resumable (episodes already in `--out` are skipped), prints one JSON line per episode and a per-task summary
 at the end. `--tasks` restricts the task list, `--video-dir` records videos. Expect roughly 1–2 s per policy call on an RTX 6000 Ada
-(≤ 75 calls per episode).
+(≤ 75 calls per episode, ≈ 840 episodes → a day on one GPU; the tasks can be split over GPUs with `--tasks`, one server each).
 
 Output: `episodes.json`, a list of records
-`{"task", "task_index", "episode", "seed", "success", "env_steps", "policy_calls", "seconds"}`; pair two policies on `(task, episode)`.
-Please send the file and the per-task table (successes / 100 per task, average of the 7 task rates), with the GPU model, the Isaac-GR00T
-commit and the SimplerEnv commit.
+`{"task", "task_index", "episode", "layout", "seed", "success", "policy_calls", "env_steps", "seconds"}`; pair two policies on
+`(task, episode)` (same layout, same noise). Please send the file and the per-task table (successes / 120 per task, average of the 7 task
+rates), with the GPU model, the Isaac-GR00T commit and the SimplerEnv commit.
 
 ## 5. Calibration data for the 2-bit baselines (`data/`)
 

@@ -37,19 +37,23 @@ checkpoint, and tell Chamadol how to evaluate the FP baseline `nvidia/GR00T-N1.7
   a flat checkpoint the official `run_gr00t_server.py` serves unchanged), `offline` (held-out chunk MSE vs FP).
 - Rows: `tcq_w2_rht` (backbone + head calibrated on Bridge), `tcq_w2_rht_bbl` (LIBERO-calibrated backbone fit reused — same weights —
   with the Bridge head; calibration-transfer ablation).
-- Evaluation: `research/scripts/simpler_eval.py` (SimplerEnv island, ZMQ `PolicyClient`): one env, episode k of task t reset with seed
-  `SeedSequence([7, t, k])` (ManiSkill2 main + episode RNG → object layout / robot init), 300 env steps, 4 of 8 actions per call, success =
-  any step, one JSON record per episode (pairing on task × episode). Slurm: `simpler_check` (Vulkan / reset determinism / FP smoke /
+- Evaluation: `research/scripts/simpler_eval.py` (SimplerEnv island, ZMQ `PolicyClient`) + `simpler_server.py` (official Gr00tPolicy + sim
+  wrapper + `reset(options={'noise_seed'})` → `torch.manual_seed`). **Exhaustive layouts** (user 2026-11-06: "测试全部的 bridge"): the object
+  tasks have finite visual-matching layout sets (spoon 24, carrot 24, stack 24, eggplant-basket 8, eggplant-sink 1 = `len(xy_configs) ×
+  len(quat_configs)`), the drawer tasks are RNG-driven (ManiSkill2 episode RNG + numpy global RNG). 120 episodes per task (840 per policy):
+  episode k → layout k mod N (`obj_init_options.episode_id`; the gr00t wrapper's `reset` is patched at runtime to forward options), seed
+  `SeedSequence([7, t, k])` for env RNG, numpy RNG and policy noise; 300 env steps, 4 of 8 actions per call, success = any step, one JSON
+  record per episode (pairing on task × episode = same layout + same noise). NVIDIA's 100-episode numbers are the sanity check only. Slurm: `simpler_check` (Vulkan / reset determinism / FP smoke /
   4 episodes), `simpler_calib`, `simpler_fit`, `simpler_eval` (`SIMPLER_ROW`, `SIMPLER_MODEL`, `SIMPLER_EPISODES`).
 - SimplerEnv island built by `research/scripts/simpler_setup.sh` (= upstream `setup_SimplerEnv.sh` without the GPU sanity check) at
   `src/Isaac-GR00T/gr00t/eval/sim/SimplerEnv/simpler_uv/.venv` + `msgpack msgpack-numpy tqdm transforms3d`. The login node has no
   `libvulkan.so.1`; whether the GPU nodes do is what `simpler_check` answers first.
 
 ## Pre-registration
-- FP reference: 7 tasks × 100 seeded episodes (700) with the script above; reported per task and averaged (NVIDIA's table is the sanity
-  check, not the reference: different seeding / vectorisation).
+- FP reference: 7 tasks × 120 episodes (840; every layout of the object tasks 5 / 15 / 120 times) with the script above; reported per
+  task and averaged (NVIDIA's table is the sanity check, not the reference: different seeding / vectorisation / episode count).
 - 2-bit rows evaluated with the same seeds and paired per episode; a 2-bit row is read against FP by the paired difference (bootstrap
-  CI over the 700 episodes, stratified by task).
+  CI over the 840 episodes, stratified by task).
 - Chamadol: FP baseline first with the same script, then the six PTQ baselines quantized on `data/bridge-calibration` (same observation
   count and loader contract as LIBERO), evaluated with the same script and seeds.
 

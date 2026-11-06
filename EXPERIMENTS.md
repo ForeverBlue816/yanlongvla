@@ -1980,3 +1980,11 @@ JSON record per episode) + SimplerEnv python-3.10 island (`scripts/simpler_setup
 `public-reports/baselines/groot/simpler/README.md`. Queued: 275755 `simpler_check` (Vulkan / reset determinism / FP smoke / 4 episodes,
 killable pro6000), 275756 `simpler_calib` (rose pro6000). Arm-B (iso) fit copies 273889 / 274947 cancelled and the iso driver paused to free
 killable slots (B is killable-only and resumable). FP SimplerEnv numbers and the 2-bit rows: pending the check job.
+
+### E200a — SimplerEnv-Bridge protocol changed to exhaustive layouts + seeded policy noise (2026-11-06 06:40 UTC)
+User: evaluate all of Bridge, not 100 random episodes. SimplerEnv's Bridge tasks have finite visual-matching layout sets (spoon 24, carrot 24,
+stack 24, eggplant-basket 8, eggplant-sink 1; the two drawer tasks are RNG-driven). New protocol: 120 episodes per task (840 per policy),
+episode k → layout k mod N, seed SeedSequence([7, t, k]) for the env RNG, numpy's global RNG (drawer tasks) and the policy noise
+(`simpler_server.py`: official policy + sim wrapper + `reset(options={'noise_seed'})`); the gr00t WidowX wrapper's reset is patched at runtime
+to forward reset options. `simpler_eval.py`, README for Chamadol, Slurm jobs updated; calibration job 275756 running (pro6000-12), check job
+275755 pending.
