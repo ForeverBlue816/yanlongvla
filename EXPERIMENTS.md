@@ -1992,3 +1992,12 @@ to forward reset options. `simpler_eval.py`, README for Chamadol, Slurm jobs upd
 ### E200b — SimplerEnv evaluation is Chamadol's (2026-11-06 06:45 UTC)
 User: we do not test SimplerEnv-Bridge ourselves; Chamadol runs the FP baseline (840 episodes) and the SimplerEnv runs of our 2-bit rows.
 Check job 275755 cancelled. Bridge calibration done (432 layers, 6.5 min, 275756); TCQ fits 275894 queued (rose pro6000; head then backbone).
+
+### E201 — V0' offline passes the pre-registered "working fine-tune" bar; V0' Plus rerun #2 invalid (two GPU types in one file), resubmitted (2026-11-06 14:10 UTC)
+Offline (274952, RTX 6000 Ada, 256 held-out observations): decode round trip bitwise (432 layers, 590,290,944 payload bytes); held-out action
+MSE vs FP **0.005269** (tcq_w2_rht 0.005697, V0 0.009663, V1 0.019043, B2 0.008382, ptq_w2 0.007509); B2 readout L_readout **7880**, L_vel 0.00096
+(ptq_w2 16136). Addendum-3 bar (MSE ≤ 0.005697 and readout ≤ 8282): **met** — first fine-tune on the TCQ base that does not worsen the
+offline error. Plus: the 6000 Ada copy 274953 and the A40 copy 275462 both started (the canceller had died with the session) and appended to
+one episodes.jsonl; the duplicate-unit guard aborted both (915 rows, 752 unique units, 163 run twice of which 55 disagree across GPUs).
+Moved to `plus_INVALID_mixed_gpu_20261106`; single 6000 Ada copy 276498 submitted (rose), no race copies. Shift whitening (partial summary,
+module means): no module with cosine(H, Σ) > 0.95 (highest per-layer 0.97 in one DiT ff.net.2; module means 0.16–0.52).
