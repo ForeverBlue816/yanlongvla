@@ -2023,3 +2023,11 @@ Bookkeeping: drivers 276522 ran from 15:56 UTC (CPU queue 1 h 40 min), successor
 276943 queued (rose), H_mix1 276514 queued; B's three queued fits cancelled to free killable slots (iso driver keeps one slot free for the
 successor from now on); Σ-by-source job 275467 was capped to 96 GB by the submit plugin (3 GB/CPU) and OOM-killed after the spatial pass →
 277015 at 64 CPU / 192 GB.
+
+### E204 — Arms C / D: Plus only, read against QTIP 573; C's Plus no longer waits for B; arm D chained; drivers as a supervision loop (2026-11-07 02:45 UTC)
+User: C and D are tested on LIBERO-Plus 1000 only and compared with QTIP 573; no LIBERO medium (V0' medium 277013 also cancelled, hold).
+`shift_chain.sh`: medium removed; C assembled + Plus as soon as C's fits complete; pairing vs QTIP / A / FP / B2 / V0'. `d_chain.sh` (new):
+after C's Plus → H_mix₁ → D₁ fits → Plus → on-policy D₁ → H_mix₂ → D₂ fits → Plus, pairing vs QTIP / A / C / FP (+ D₁ for D₂).
+`fit_chain_metric.py` takes `d1|d2` (→ `--metric mix --dround r`) and keeps one killable slot free in every arm. `drivers.sbatch` is a
+supervision loop (every 5 min restart a missing driver; `.done` markers); found that processes restarted via `srun --overlap` die with the
+step (the iso driver restarted that way at 02:10 was gone by 02:30). Drivers job 277017 replaces 276522 (+ its successor 277012).
