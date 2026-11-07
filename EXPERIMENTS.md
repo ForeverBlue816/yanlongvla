@@ -2047,3 +2047,11 @@ Plus race 277253 (6000 Ada rose) / 277254 (L40S) / 277255 (A40) → paired vs A 
 277253 (RTX 6000 Ada, 2.8 h). C − A(559) = −0.6 [−4.7, +3.7] (103 / 109); vs QTIP 573 −2.0 [−5.7, +1.8]; vs B2 556 −0.3; vs V0' 604 −5.1
 [−9.3, −1.0]; vs FP 618 −6.5 [−10.7, −2.4]. Halves vs A: camera +3.6 [−0.4, +7.8] (290 vs 272), robot-init −4.8 [−8.6, −1.0] (263 vs 287).
 Pre-registered gate (C − A lb > 0) not met. B / D on hold pending the user.
+
+### E207 — Shift track next steps (user 2026-11-07): arm D re-specified (randomized-init on-policy states + trace-balanced per-source H), B cancelled, optional V0' recipe on C (2026-11-07 14:55 UTC)
+Pre-registration in SHIFT doc. Code: `groot_onpolicy.py --init random` (+ client: `env.seed(SeedSequence([20261107, i]))`, `env.reset()`, no
+`set_init_state`), `groot_shift.py --stage hsrc|hd` (H_s = per-source E[xxᵀ]; H_D = H_clean + Σ_s w_s H_s, w_s = tr(H_clean)/(3 tr(H_s))),
+`groot_tcq.py` D fits read `backbone_hd<r>` / `head_hd<r>_<suite>`, `groot_tcq_raqft_s.py --variant v0s_c|v0s_d1|v0s_d2`, rows
+`tcq_raqft_c_s / d1_s / d2_s`, `slurm/shift_hsrc.sbatch`, `shift/d_gate.py`, `shift/d_chain.sh` (rewritten; round 2 and the D fine-tune only
+if D₁ passes the gate; item 4 after D₁'s Plus is queued). B driver removed from the drivers loop. Arm C hypothesis noted (fixed init states
+narrowed the on-policy coverage of initial-state variety). D round 1 launched by removing `shift/d.hold`.
