@@ -2011,3 +2011,15 @@ cross-GPU discordance from the aborted V0' rerun logged; matched re-evaluation o
 `groot_shift.py --stage hmix --round r`, `groot_tcq.py --metric mix --dround r` (keys backbone_tcq_rht_d<r> / head_tcq_rht_d<r>_<suite>),
 `groot_onpolicy.py --row`, rows tcq_w2_rht_d1 / d2 registered; D fits start only after C's Plus is read; round-1 H job `shift_hmix.sbatch`.
 (5) SimplerEnv-Bridge 2-bit fits paused (275894 cancelled); calibration kept.
+
+### E203 — V0' Plus 1000 = 604: V0' replaces V0 as the GR00T fine-tuned row; medium queued; drivers/diagnostics bookkeeping (2026-11-07 02:20 UTC)
+V0' (`tcq_raqft_rht_s`) Plus selection 1000 = **604** (276498, RTX 6000 Ada, 2 h 37 min, single copy). Paired: **+4.5 [+0.6, +8.2]** vs
+A `tcq_w2_rht` 559 (104 / 59 units; camera 311 vs 272, robot-init 293 vs 287); +1.5 [−2.9, +6.0] vs V0 589; +3.1 [−0.7, +6.9] vs QTIP 573;
++4.8 [−0.1, +9.7] vs B2 556; −1.4 [−5.3, +2.5] vs FP 618. Held-out 40 obs (276523, L40S): L_readout V0' 8947 vs A 10092 vs V0 24870.
+Pre-registered reading (TCQ doc Addendum 3 / §4): V0' is the main GR00T row (CI lb > 0 vs A and above QTIP); V0 failed that gate. Decisive
+pair already on one GPU model → no matched re-run. LIBERO medium 1000 for V0': 277013 (L40S). Per-unit files exported to
+`baselines/groot/results/groot_2bit_ours_tcq_raqft_rht_s.plus_1000.jsonl` and `..._tcq_w2_rht.plus_1000.jsonl`.
+Bookkeeping: drivers 276522 ran from 15:56 UTC (CPU queue 1 h 40 min), successor 277012; C goal head 276524 running (A40, rose), C libero_10
+276943 queued (rose), H_mix1 276514 queued; B's three queued fits cancelled to free killable slots (iso driver keeps one slot free for the
+successor from now on); Σ-by-source job 275467 was capped to 96 GB by the submit plugin (3 GB/CPU) and OOM-killed after the spatial pass →
+277015 at 64 CPU / 192 GB.
