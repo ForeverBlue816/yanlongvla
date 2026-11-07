@@ -2055,3 +2055,7 @@ Pre-registration in SHIFT doc. Code: `groot_onpolicy.py --init random` (+ client
 `tcq_raqft_c_s / d1_s / d2_s`, `slurm/shift_hsrc.sbatch`, `shift/d_gate.py`, `shift/d_chain.sh` (rewritten; round 2 and the D fine-tune only
 if D₁ passes the gate; item 4 after D₁'s Plus is queued). B driver removed from the drivers loop. Arm C hypothesis noted (fixed init states
 narrowed the on-policy coverage of initial-state variety). D round 1 launched by removing `shift/d.hold`.
+
+### E207a — Arm D amendments (user 2026-11-07 15:10 UTC): official LIBERO init states by seed; damping pinned to A's 0.01 (2026-11-07 15:20 UTC)
+H_s = E[xxᵀ] confirmed. Capture re-queued (277920–277922 cancelled before start) with `set_init_state(states[k])`, k drawn from the rollout
+seed among the task's 50 official init states. `--metric mix` pins each layer's damping to A's recorded 0.01 (escalation only on Cholesky failure).
