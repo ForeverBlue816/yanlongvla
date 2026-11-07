@@ -2038,3 +2038,7 @@ driver. C: goal head 215/216 (276524, A40), libero_10 88/216 (276943 queued, ≈
 
 ### E204b — C first: D hold (276514 cancelled), C libero_10 head as a 4-GPU-type race (277094–277097) (2026-11-07 04:15 UTC)
 User: only C is queued until its Plus is in. `race_fit.sbatch` = self-cancelling race copies (A40 / 6000 Ada rose, L40S / RTX 5090 killable).
+
+### E205 — Arm C fits complete and assembled; C Plus 1000 queued (2026-11-07 06:40 UTC)
+Last C task (libero_10 head) 277095 on RTX 6000 Ada, 1.58 h; rel. weight-MSE 0.1318, H-err 0.0060. `tcq_w2_rht_shift` assembled (4 suites).
+Plus race 277253 (6000 Ada rose) / 277254 (L40S) / 277255 (A40) → paired vs A `tcq_w2_rht` 559 (adoption: CI lb > 0) and QTIP 573.
