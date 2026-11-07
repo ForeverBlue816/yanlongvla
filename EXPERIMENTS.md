@@ -2031,3 +2031,7 @@ after C's Plus → H_mix₁ → D₁ fits → Plus → on-policy D₁ → H_mix�
 `fit_chain_metric.py` takes `d1|d2` (→ `--metric mix --dround r`) and keeps one killable slot free in every arm. `drivers.sbatch` is a
 supervision loop (every 5 min restart a missing driver; `.done` markers); found that processes restarted via `srun --overlap` die with the
 step (the iso driver restarted that way at 02:10 was gone by 02:30). Drivers job 277017 replaces 276522 (+ its successor 277012).
+
+### E204a — Arm B on hold; C read against A 559 (and QTIP 573) (2026-11-07 04:00 UTC)
+User: do not run B; focus on C; the comparison is C vs A = `tcq_w2_rht` 559 (clean-frame H, our TCQ base). `shift/iso.hold` stops the B fit
+driver. C: goal head 215/216 (276524, A40), libero_10 88/216 (276943 queued, ≈ 2.1 A40-hours left), then assemble + Plus 1000 (≈ 2.6 h on 6000 Ada).
