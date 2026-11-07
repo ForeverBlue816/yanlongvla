@@ -2042,3 +2042,8 @@ User: only C is queued until its Plus is in. `race_fit.sbatch` = self-cancelling
 ### E205 — Arm C fits complete and assembled; C Plus 1000 queued (2026-11-07 06:40 UTC)
 Last C task (libero_10 head) 277095 on RTX 6000 Ada, 1.58 h; rel. weight-MSE 0.1318, H-err 0.0060. `tcq_w2_rht_shift` assembled (4 suites).
 Plus race 277253 (6000 Ada rose) / 277254 (L40S) / 277255 (A40) → paired vs A `tcq_w2_rht` 559 (adoption: CI lb > 0) and QTIP 573.
+
+### E206 — Arm C (shift-aware H) Plus 1000 = 553: not adopted (2026-11-07 14:40 UTC)
+277253 (RTX 6000 Ada, 2.8 h). C − A(559) = −0.6 [−4.7, +3.7] (103 / 109); vs QTIP 573 −2.0 [−5.7, +1.8]; vs B2 556 −0.3; vs V0' 604 −5.1
+[−9.3, −1.0]; vs FP 618 −6.5 [−10.7, −2.4]. Halves vs A: camera +3.6 [−0.4, +7.8] (290 vs 272), robot-init −4.8 [−8.6, −1.0] (263 vs 287).
+Pre-registered gate (C − A lb > 0) not met. B / D on hold pending the user.
