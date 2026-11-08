@@ -2059,3 +2059,11 @@ narrowed the on-policy coverage of initial-state variety). D round 1 launched by
 ### E207a — Arm D amendments (user 2026-11-07 14:56 UTC): official LIBERO init states by seed; damping pinned to A's 0.01 (2026-11-07 15:05 UTC)
 H_s = E[xxᵀ] confirmed. Capture re-queued (277920–277922 cancelled before start; new race 277933–277935) with `set_init_state(states[k])`, k drawn from the rollout
 seed among the task's 50 official init states. `--metric mix` pins each layer's damping to A's recorded 0.01 (escalation only on Cholesky failure).
+
+### E208 — π₀.₅ LIBERO W2A8 (a8_studentq) released on Hugging Face for edge profiling (2026-11-08 08:05 UTC)
+User: open-source the 2-bit + A8 + 2-step checkpoint so colleagues can measure latency / memory / cache on Jetson. Repo
+**https://huggingface.co/ForeverBlue/pi05-libero-w2a8** (public): `model.safetensors` = `models/hd_srvq_raqft_studentq` (1,225,476,780 B,
+sha d700b3fc…, 10-step tables inside), `vq.json`, `tables/tables_2step.safetensors` (= `runs/story_round/tables/n2`, exact 2-step tables,
+t = 1.0 / 0.5), openpi norm stats, `dequantize.py` (format reader: rotated / dense decode, `rotate`, A8 fake quant; verified against
+`rht` / `backbone_rht` transforms and three layers' outputs, ≤ 6e-7 relative), model card (format spec, runtime, accuracy 741 / 698 / 1941,
+RTX 6000 Ada efficiency table). No fitting / fine-tuning code published. Staging copy: `hf_stage/pi05-libero-w2a8/`.
