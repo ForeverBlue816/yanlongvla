@@ -2067,3 +2067,10 @@ sha d700b3fc…, 10-step tables inside), `vq.json`, `tables/tables_2step.safeten
 t = 1.0 / 0.5), openpi norm stats, `dequantize.py` (format reader: rotated / dense decode, `rotate`, A8 fake quant; verified against
 `rht` / `backbone_rht` transforms and three layers' outputs, ≤ 6e-7 relative), model card (format spec, runtime, accuracy 741 / 698 / 1941,
 RTX 6000 Ada efficiency table). No fitting / fine-tuning code published. Staging copy: `hf_stage/pi05-libero-w2a8/`.
+
+### E209 — Arm D₁ fits moved to a GPU-type task pool (2026-11-08 12:15 UTC)
+The four per-task D₁ fit jobs (278599–278602, one GPU type each; goal / libero_10 not yet submitted for lack of killable slots) sat 5.75 h
+in `Priority` with the cluster 100 % allocated. Replaced by `slurm/pool_fit.sbatch`: 8 identical copies 279087–279094 (rose: 6000 Ada,
+A40, L40S, A6000, RTX 5090; killable: 6000 Ada, A40, pro6000); a copy that starts claims the next unfinished fit task under a per-task flock
+(released if the job dies), runs it (resumable per layer; same `groot_tcq.py --metric mix --dround 1`, damping pinned to A), then the next.
+`shift/d1.hold` keeps `fit_chain_metric.py d1` out; `d_chain.sh` continues to assembly / Plus once all D₁ fit keys are complete.
