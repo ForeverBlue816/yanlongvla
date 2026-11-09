@@ -2087,3 +2087,7 @@ round 2, no D fine-tune. Item 4 (V0' recipe on C, tcq_raqft_c_s) running: 280075
 ### E211a — tcq_raqft_d1_s Plus on any GPU (6000 Ada preferred), matched re-run only within ±2 pp of the gate; fine-tune started (2026-11-09 04:20 UTC)
 Plus stage gained a one-GPU-per-file guard (`gpu.txt`; partial file archived if resumed on another model) and `--plus-subdir`. Fine-tune 280619
 running on RTX 6000 Ada since 04:05 UTC (≈ 19 h at V0''s rate).
+
+### E211b — tcq_raqft_d1_s offline check is no longer a gate (2026-11-09 05:23 UTC)
+User: the fine-tuned row need not beat D₁ offline; Plus decides. The offline comparison vs D₁ (held-out MSE vs FP, readout, 40-obs held-out)
+still runs on 6000 Ada alongside Plus and is reported, but Plus 1000 is run whatever it shows. Reading vs V0' 604 unchanged.
