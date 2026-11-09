@@ -19,15 +19,15 @@ from pathlib import Path
 import torch
 
 HERE = Path(__file__).resolve().parent
-PROFILE = os.environ.get('GROOT_PROFILE', 'libero')   # 'fractal': the official SimplerEnv Fractal checkpoint as one 'suite' (Task 5); everything else is identical
-SUITES = ('fractal',) if PROFILE == 'fractal' else ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10')
+PROFILE = os.environ.get('GROOT_PROFILE', 'libero')   # 'fractal' / 'bridge': the official SimplerEnv Fractal / Bridge checkpoint as one 'suite' (Task 5, GOAL v6 2c); everything else is identical
+SUITES = (PROFILE,) if PROFILE in ('fractal', 'bridge') else ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10')
 BB_SUITE = SUITES[0]   # the checkpoint the backbone layers are taken from
 REPO_ID = 'nvidia/GR00T-N1.7-LIBERO'
 REVISION = '2ea293aa20ba7cf5bbf3ba17a5fbcb1a01cbfe21'          # snapshot used for every row of the report
 ISAAC_GROOT_COMMIT = 'd2b7e75b937e3ec9aa5dbc798f08b89692c49734'  # github.com/NVIDIA/Isaac-GR00T
 OFFICIAL_BACKBONE = 'nvidia/Cosmos-Reason2-2B'                  # gated (accept the licence, HF_TOKEN); config + processor only, all backbone weights are in the checkpoint; used by every reference row
 PUBLIC_BACKBONE = 'Qwen/Qwen3-VL-2B-Instruct'                   # same architecture; NOT used for the reference rows (the processor config also comes from the gated repo)
-EMBODIMENT = 'SIMPLER_ENV_GOOGLE' if PROFILE == 'fractal' else 'LIBERO_PANDA'
+EMBODIMENT = {'fractal': 'SIMPLER_ENV_GOOGLE', 'bridge': 'SIMPLER_ENV_WIDOWX'}.get(PROFILE, 'LIBERO_PANDA')
 N_ACTION_STEPS = 8                                              # official LIBERO rollout: 8 of the 16-step action window per call
 
 # ---- the quantizable-layer rule (432 Linear per suite checkpoint) ---------------------------------------------------
@@ -128,6 +128,18 @@ def fractal_observation(obs):
             'language': {'annotation.human.action.task_description': [[str(obs['prompt'])]]}}
 
 
+def bridge_observation(obs):
+    """Bridge observation (groot/bridge_obs.py) -> Gr00tPolicy input, the keys of WidowXBridgeEnv (gr00t/eval/sim/SimplerEnv/simpler_env.py):
+    image_0 uint8 (256, 256, 3); state float32 (8,) = x y z roll pitch yaw pad gripper; prompt str."""
+    import numpy as np
+    img = np.asarray(obs['image'], dtype=np.uint8)
+    state = np.asarray(obs['state'], dtype=np.float32)
+    assert img.shape == (256, 256, 3) and state.shape == (8,), (img.shape, state.shape)
+    return {'video': {'image_0': img[None, None]},
+            'state': {k: state[i].reshape(1, 1, 1) for i, k in enumerate(('x', 'y', 'z', 'roll', 'pitch', 'yaw', 'pad', 'gripper'))},
+            'language': {'annotation.human.action.task_description': [[str(obs['prompt'])]]}}
+
+
 def env_action(chunk):
     """GR00T action window (T, 7) in the dataset convention -> LIBERO env actions (gripper [0,1] -> [-1,1], sign, inverted;
     gr00t/eval/sim/LIBERO/libero_env.py)."""
@@ -146,8 +158,8 @@ def infer(policy, obs):
     if seed is not None:
         torch.manual_seed(int(seed))
         policy.reset()
-    if PROFILE == 'fractal':   # calibration only: the actions are not used
-        action, _ = policy.get_action(fractal_observation(obs))
+    if PROFILE in ('fractal', 'bridge'):   # calibration only: the actions are not used
+        action, _ = policy.get_action((fractal_observation if PROFILE == 'fractal' else bridge_observation)(obs))
         return action
     action, _ = policy.get_action(groot_observation(obs))
     get = lambda k: action[f'action.{k}'] if f'action.{k}' in action else action[k]

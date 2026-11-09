@@ -23,7 +23,7 @@ from groot_common import SUITES, BB_SUITE, PROFILE, load_policy, quantizable_lay
 _pi05_calibrate = parent_module('calibrate')               # ../calibrate.py: the π0.5 harness loader (same observations)
 download, load_observations = _pi05_calibrate.download, _pi05_calibrate.load_observations
 
-MANIFEST = HERE.parent / ('data/fractal_calibration_manifest.json' if PROFILE == 'fractal' else 'data/calibration_manifest.json')
+MANIFEST = {'fractal': HERE.parent / 'data/fractal_calibration_manifest.json', 'bridge': HERE / 'simpler/data/bridge-calibration/observation_manifest.json'}.get(PROFILE, HERE.parent / 'data/calibration_manifest.json')
 
 
 def main():
@@ -42,6 +42,9 @@ def main():
     if PROFILE == 'fractal':   # Task 5: frames and states from the downloaded Fractal data (s5__data), see fractal_obs.py
         from fractal_obs import load_observations as load_fractal
         observations = load_fractal(manifest, a.dataset_root)
+    elif PROFILE == 'bridge':   # GOAL v6 2c: self-contained parquet next to the manifest (groot/simpler/build_bridge_calibration.py)
+        from bridge_obs import load_observations as load_bridge
+        observations = load_bridge(Path(a.manifest).parent)
     else:
         observations = load_observations(manifest, Path(a.dataset_root) if a.dataset_root else download(manifest, a.hf_cache))
     assert len(observations) == manifest['observation_count'] and (Path(a.manifest) != MANIFEST or len(observations) == 256)

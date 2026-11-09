@@ -21,8 +21,9 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--source', required=True)
     p.add_argument('--out', required=True)
+    p.add_argument('--name', default='fractal', help="suite folder name: 'fractal' or 'bridge' (GOAL v6 2c; same 432 Linear layers)")
     a = p.parse_args()
-    src, dst = Path(a.source), Path(a.out) / 'fractal'
+    src, dst = Path(a.source), Path(a.out) / a.name
     dst.mkdir(parents=True, exist_ok=True)
     shards = sorted(json.loads((src / 'model.safetensors.index.json').read_text())['weight_map'].values())
     if not (dst / 'model.safetensors').exists():

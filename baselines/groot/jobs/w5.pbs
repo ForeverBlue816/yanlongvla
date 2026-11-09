@@ -1,0 +1,29 @@
+#!/bin/bash
+#PBS -N gr_w5
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=01:00:00
+#PBS -j oe
+# GOAL v8 W5: activation statistics of GR00T N1.7 Bridge at weight scale 1.0 vs 0.95 (groot/simpler/w5_activations.py), optional x1.3 init-noise probe.
+# Submit:  qsub -v SRC=/home/d250009/yanlongvla-clean/baselines [,N=128][,NOISE=1.3][,TAG=name] groot/jobs/w5.pbs
+# Output:  $OUT/w5<TAG>.json and $OUT/logs/<jobid>.log
+set -uo pipefail
+: "${SRC:?}"
+G=/scratch/d250009/pi05-handover/runs/groot_baselines
+OUT=$G/explore/w5
+HANDOVER=/home/d250009/projects/pi05-handover
+ISAAC=/scratch/d250009/pi05-handover/runs/toolkits/Isaac-GR00T
+PY_G="$HANDOVER/runs/envs/groot/bin/python"
+N=${N:-128}
+TAG=${TAG:-}
+mkdir -p "$OUT/logs"; exec >> "$OUT/logs/${PBS_JOBID:-local}.log" 2>&1   # PBS does not return output files from scratch; keep our own log
+export HF_TOKEN="$(cat "$HOME/.hf_token")" HF_HOME="$G/hf" HF_HUB_DISABLE_TELEMETRY=1 OMP_NUM_THREADS=8 PYTHONUNBUFFERED=1
+echo "job ${PBS_JOBID:-local} on $(hostname), GPU: $(nvidia-smi --query-gpu=name --format=csv,noheader | head -1), $(date -Is), N=$N NOISE=${NOISE:-none}"
+cd "$ISAAC" || exit 1
+noise=(); [[ -n ${NOISE:-} ]] && noise=(--init-noise-scale "$NOISE")
+rc=0
+# scales 1.0 and 0.95 in memory on the FP checkpoint (the sh95 checkpoint is the same weights rounded to BF16)
+"$PY_G" "$SRC/groot/simpler/w5_activations.py" --model-path "$G/s5b/checkpoints/bridge" --scales 1.0 0.95 --n "$N" "${noise[@]}" --out "$OUT/w5${TAG}.json" || rc=$?
+echo "done rc=$rc $(date -Is)"
+exit $rc

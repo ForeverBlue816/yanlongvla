@@ -32,12 +32,12 @@ def plus_identity(r):
     return (r['suite'], r['task'])
 
 
-def plus_paired(candidate_rows, reference_rows, draws=2000, seed=20260930):
+def plus_paired(candidate_rows, reference_rows, draws=2000, seed=20260930, other_seeds=False):
     ref = {plus_identity(r): r for r in reference_rows}
     rows = [r for r in candidate_rows if plus_identity(r) in ref]
     missing = [plus_identity(r) for r in candidate_rows if plus_identity(r) not in ref]
     assert rows, 'no common instances'
-    for r in rows:
+    for r in rows if not other_seeds else ():   # --other-seeds: rigour R3 pairs the same units under two evaluation seeds on purpose
         assert r.get('noise_seed') == ref[plus_identity(r)].get('noise_seed'), 'noise seeds differ: not a paired evaluation'
     c = np.array([float(r['success']) for r in rows])
     f = np.array([float(ref[plus_identity(r)]['success']) for r in rows])
@@ -101,9 +101,10 @@ def main():
     p.add_argument('--candidate', required=True)
     p.add_argument('--reference', required=True)
     p.add_argument('--episodes', type=int, default=50)
+    p.add_argument('--other-seeds', action='store_true', help='plus: pair the same units although the noise seeds differ (evaluation-seed comparison, R3)')
     a = p.parse_args()
     c, r = read_rows(a.candidate), read_rows(a.reference)
-    print(json.dumps(plus_paired(c, r) if a.kind == 'plus' else libero_paired(c, r, a.episodes), indent=2))
+    print(json.dumps(plus_paired(c, r, other_seeds=a.other_seeds) if a.kind == 'plus' else libero_paired(c, r, a.episodes), indent=2))
 
 
 if __name__ == '__main__':

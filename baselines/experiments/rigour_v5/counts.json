@@ -1,0 +1,36 @@
+{
+ "groot": {
+  "aqlm_w2": 401,
+  "fp": 618,
+  "fp_rerun": 618,
+  "gptq_aomse_w2": 454,
+  "gptq_best_w2": 476,
+  "gptq_combo_w2": 439,
+  "gptq_mse_w2": 300,
+  "gptq_w2": 0,
+  "qtip_w2": 573,
+  "qtip_w2_rerun": 572,
+  "quip10_w2": 531,
+  "quip_w2": 554,
+  "vptq_iter500_w2": 487,
+  "vptq_iter500t0_w2": 471,
+  "vptq_v5k1024_w2": 493,
+  "vptq_v6k3072_w2": 458,
+  "vptq_v6k4096_w2": 535,
+  "vptq_v8k12288_w2": 426,
+  "vptq_w2": 495
+ },
+ "pi05": {
+  "aqlm_w2": 639,
+  "awq_w2": 154,
+  "gptq_best_w2": 657,
+  "gptq_w2": 393,
+  "qtip_w2": 726,
+  "quip_w2": 662,
+  "quipt0_w2": 740,
+  "vptq_w2": 685,
+  "fp_w16": 765,
+  "original_2bit": 704
+ },
+ "groot_floor": 2.0
+}

@@ -18,6 +18,7 @@ Usage:
 """
 import argparse
 import json
+import os
 import subprocess
 import sys
 import time
@@ -56,7 +57,7 @@ def quantize_layer(item, layers_dir, out, cb, scratch, device):
     # the official Cholesky of the damped, Hadamard-rotated Hessian fail in float32 at sigma_reg 0.01; retry with 10x and 100x damping
     # for those layers only and record the value used (every other layer, and every pi0.5 layer, is unchanged).
     for sigma_used in (SETTINGS['sigma_reg'], 10 * SETTINGS['sigma_reg'], 100 * SETTINGS['sigma_reg']):
-        torch.manual_seed(0)
+        torch.manual_seed(int(os.environ.get('QUANT_SEED', 0)))   # A5 (9 Nov): QUANT_SEED draws other random Hadamard signs; unset = 0, the stored rows
         try:
             hat, attr = quip.quantize(utils.regularize_H(hp.clone(), pn, sigma_used).float().to(device), (wp / scale).to(device), SETTINGS['lora_rank'], cb,
                                       Namespace(save_pfx=str(scratch), **SETTINGS), device)

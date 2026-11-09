@@ -1,0 +1,1001 @@
+suite,category,level,name,FP,QTIP,QuIP# 0 sweeps,QuIP# 10 sweeps,VPTQ,AQLM,GPTQ,GPTQ MSE,GPTQ act-order+MSE,GPTQ combo,VPTQ v5 k1024,GPTQ best,VPTQ 500 iter,VPTQ 500 iter t0,VPTQ v6 k4096,VPTQ v6 k3072,VPTQ v8 k12288
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_23_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,1,0,1,1,1,1,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_11_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_350_15_100_0_0_initstate_0,1,0,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_173_0_0_initstate_0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_42_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_72_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_299_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_165_0_0_initstate_0,1,1,1,0,1,0,0,1,0,0,1,0,0,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_139_0_0_initstate_0,0,0,1,0,1,1,0,1,0,1,0,0,1,0,0,0,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_332_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_21_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,1,1,1,1,1,0,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_2_352_initstate_0,1,1,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_195_0_0_initstate_0,1,1,0,0,0,1,0,1,1,1,0,0,0,0,1,0,0
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_322_15_100_0_0_initstate_0,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_45_15_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,1,0,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_10_2_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_289_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,1,0,1,1,1,1,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_301_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_131_0_0_initstate_0,0,0,1,1,1,0,0,0,1,0,1,0,0,1,1,0,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_356_6_initstate_0,1,1,1,1,0,1,0,1,0,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_19_15_100_0_0_initstate_0,1,0,0,1,1,0,0,0,0,1,1,1,1,1,0,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_2_354_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_358_350_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_354_350_initstate_0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_44_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_145_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_288_0_100_0_0_initstate_0,1,1,1,1,0,0,0,0,0,1,0,1,1,1,1,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_313_15_100_0_0_initstate_0,1,1,0,0,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_134_0_0_initstate_0,0,0,1,0,1,0,0,0,0,1,1,0,1,1,0,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_333_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_17_15_100_0_0_initstate_0,1,0,1,0,1,0,0,0,0,1,1,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_14_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,0,1,1,1,1,0
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_345_15_100_0_0_initstate_0,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_354_8_initstate_0,1,1,1,0,1,1,0,1,0,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_6_350_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_10_8_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_289_0_100_0_0_initstate_0,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,0,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_166_0_0_initstate_0,1,0,1,1,0,0,0,0,0,0,0,0,0,1,1,0,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_54_0_100_0_0_initstate_0,0,1,1,1,0,1,0,1,1,1,1,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_335_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,0,1,1,1,1,0,1
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_29_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,0,1,0,1,1,1,1,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_15_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,0,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_198_0_0_initstate_0,0,0,1,1,1,0,0,0,1,1,0,0,1,0,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_316_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_41_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_68_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_350_8_initstate_0,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_300_0_100_0_0_initstate_0,1,1,1,1,0,0,0,1,0,0,0,0,0,0,1,0,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_140_0_0_initstate_0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_334_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_4_10_initstate_0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_13_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_200_0_0_initstate_0,1,0,0,0,0,1,0,1,0,1,0,0,1,0,1,0,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_322_0_100_0_0_initstate_0,0,1,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_36_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_67_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_151_0_0_initstate_0,1,1,1,1,0,1,0,0,1,0,0,0,0,1,1,0,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_167_0_0_initstate_0,0,1,1,0,0,0,0,1,0,0,1,0,0,1,0,0,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_57_0_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_188_0_0_initstate_0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_21_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_353_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_171_0_0_initstate_0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,1,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_6_10_initstate_0,1,1,1,1,1,0,0,1,1,1,0,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_69_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_285_0_100_0_0_initstate_0,1,1,1,1,0,0,0,0,1,1,1,1,1,0,1,0,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_307_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,1,0,1,1,0,1,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_49_0_100_0_0_initstate_0,1,1,1,1,1,0,0,1,0,1,1,0,1,1,1,1,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_183_0_0_initstate_0,1,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_16_15_100_0_0_initstate_0,0,1,1,1,1,0,0,0,0,1,1,0,1,1,1,1,0
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_347_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_316_0_100_0_0_initstate_0,1,0,1,0,1,1,0,1,1,1,1,1,1,1,1,0,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_6_354_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_10_10_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_293_0_100_0_0_initstate_0,0,1,1,1,1,0,0,0,0,0,1,0,0,0,1,0,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_309_15_100_0_0_initstate_0,1,1,0,1,1,1,0,1,1,1,0,1,1,0,1,1,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_136_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,1,1,0,0,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_356_8_initstate_0,1,1,0,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_20_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_346_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_319_15_100_0_0_initstate_0,1,0,1,1,0,1,0,1,1,0,1,1,1,0,0,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_126_0_0_initstate_0,1,1,1,1,1,1,0,1,0,0,0,0,1,1,1,0,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_65_15_100_0_0_initstate_0,1,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_156_0_0_initstate_0,0,0,1,1,1,1,0,0,1,1,1,1,0,1,1,0,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_308_0_100_0_0_initstate_0,1,1,1,0,0,1,0,0,0,0,0,0,1,0,1,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_54_15_100_0_0_initstate_0,1,0,0,0,1,1,0,0,1,0,0,1,0,0,1,1,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_332_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_28_0_100_0_0_initstate_0,1,1,1,1,0,0,0,0,0,1,0,0,1,1,1,0,1
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_346_15_100_0_0_initstate_0,0,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_318_15_100_0_0_initstate_0,1,1,0,1,1,1,0,1,1,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_34_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,0,0,0,1,1,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_61_15_100_0_0_initstate_0,1,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_350_350_initstate_0,1,1,0,1,1,0,0,1,0,0,0,0,0,0,1,1,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_352_350_initstate_0,1,1,1,0,0,1,0,1,0,0,0,0,0,1,1,0,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_56_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,0,0,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_189_0_0_initstate_0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_17_0_100_0_0_initstate_0,1,1,1,0,1,0,0,0,0,1,1,0,1,1,1,0,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_358_8_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_318_0_100_0_0_initstate_0,1,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_122_0_0_initstate_0,1,1,1,0,1,1,0,0,0,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_71_15_100_0_0_initstate_0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_292_0_100_0_0_initstate_0,1,1,1,1,0,0,0,0,0,1,1,1,0,1,1,1,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_300_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_48_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,0,1,0,1,0,0,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_186_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_30_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,1,0,0,1,1,0,1,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_358_15_100_0_0_initstate_0,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_315_15_100_0_0_initstate_0,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_41_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_65_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_297_15_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,0,1,1,1,1
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_314_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_52_15_100_0_0_initstate_0,0,1,1,0,1,1,0,1,1,0,0,1,1,1,1,1,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_343_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Camera Viewpoints,4,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_19_0_100_0_0_initstate_0,1,1,1,0,1,1,0,0,0,1,1,0,1,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_199_0_0_initstate_0,0,1,1,1,0,0,0,0,0,1,0,1,0,0,1,0,0
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_172_0_0_initstate_0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_34_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,1,1
+libero_spatial,Camera Viewpoints,2,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_149_0_0_initstate_0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Camera Viewpoints,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_285_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_202,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_481,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_330,1,1,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_498,1,1,1,0,1,1,0,1,1,0,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_253,1,1,1,1,0,1,0,1,1,1,0,1,1,0,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_135,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_287,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_184,1,1,1,1,1,1,0,0,1,0,0,0,1,0,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_99,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_422,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_451,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,0,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_300,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_458,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_453,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_225,0,0,0,0,0,0,0,1,1,0,1,1,1,0,0,0,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_196,1,1,1,0,1,0,0,0,1,1,1,0,0,0,0,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_107,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_444,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_159,1,1,1,0,0,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_372,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_141,1,1,1,1,1,1,0,1,1,1,1,1,1,0,0,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_420,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_318,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_483,1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_175,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_146,1,1,1,0,0,0,0,0,0,0,0,1,0,1,1,1,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_327,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_454,1,1,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_129,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_102,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_271,1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_270,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_278,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_373,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_475,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_366,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_247,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_344,1,1,0,1,1,1,0,0,1,1,1,1,0,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_309,1,0,1,1,0,1,0,0,1,0,1,0,0,1,1,1,1
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_132,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_421,1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_410,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_388,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_13,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_435,1,1,1,1,1,0,0,0,1,1,1,1,0,0,1,0,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_326,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_237,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_424,1,0,1,1,1,1,0,1,0,1,0,0,0,0,0,0,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_439,1,1,1,1,0,0,0,0,1,0,1,1,0,1,1,1,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_312,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_351,0,1,1,1,1,1,0,0,0,1,0,1,1,1,0,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_100,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_158,1,0,1,1,0,0,0,0,1,0,0,0,0,0,1,0,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_123,1,1,1,1,1,1,0,1,1,1,0,1,1,0,1,1,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_495,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_406,1,1,0,0,1,1,0,0,1,0,0,1,1,1,1,1,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_367,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_214,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_469,1,1,0,1,1,1,0,1,0,0,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_322,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_221,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_130,1,1,1,1,1,1,0,1,0,1,1,1,1,1,1,1,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_258,1,0,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_433,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_385,1,1,0,1,0,1,0,1,0,0,1,0,1,0,0,0,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_306,0,1,1,1,0,1,0,0,1,0,1,1,0,0,0,0,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_447,1,1,1,1,1,1,0,1,0,0,1,0,1,1,1,0,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_204,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,0,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_89,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_332,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_101,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_230,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_448,0,0,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_273,1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_125,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_106,1,1,1,1,1,1,0,1,1,0,1,0,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_457,1,1,1,1,1,1,0,0,1,1,0,1,0,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_464,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_349,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_222,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_401,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_120,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_78,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_333,1,1,1,1,1,1,0,1,1,0,1,0,1,1,1,0,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_95,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_236,0,0,1,1,1,0,0,0,0,0,1,0,1,1,1,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_117,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_324,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_269,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_302,0,0,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_241,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_110,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_398,0,1,1,1,0,1,0,0,1,0,1,1,1,1,0,1,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_493,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_55,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_496,1,1,1,0,1,0,0,0,0,0,0,1,0,1,1,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_347,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_494,1,1,0,0,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_229,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,5,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_262,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_281,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_250,0,1,0,1,0,0,0,0,0,0,1,0,0,0,1,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_348,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_223,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_345,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_276,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_47,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_294,1,1,0,0,1,1,0,0,1,0,1,0,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_459,1,1,1,1,1,1,0,0,1,0,1,0,1,0,0,0,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_292,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_371,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_140,0,0,1,1,1,0,0,0,1,1,1,1,0,0,1,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_148,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_183,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,4,pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_115,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_266,1,1,1,1,1,1,0,0,0,1,0,1,0,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_387,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_394,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,2,pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_359,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_362,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_411,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_50,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_spatial,Robot Initial States,3,pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_368,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_spatial,Robot Initial States,1,pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_103,1,1,0,0,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_52_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,3,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_125_0_0_initstate_0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_305_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_198_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_115_0_0_initstate_0,0,0,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_177_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_296_15_100_0_0_initstate_0,0,1,0,1,1,0,0,1,0,0,0,1,0,1,0,0,1
+libero_object,Camera Viewpoints,2,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_335_0_100_0_0_initstate_0,1,0,0,0,1,1,0,0,1,1,1,1,0,1,1,1,0
+libero_object,Camera Viewpoints,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_71_15_100_0_0_initstate_0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,1,0
+libero_object,Camera Viewpoints,4,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_13_15_100_0_0_initstate_0,1,0,1,1,1,1,0,1,0,1,1,0,0,0,0,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_8_8_initstate_0,0,1,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_6_358_initstate_0,1,1,0,1,1,1,0,0,1,1,0,0,1,0,1,0,1
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_165_0_0_initstate_0,0,1,0,0,0,0,0,0,1,0,1,1,0,1,0,1,0
+libero_object,Camera Viewpoints,1,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_358_352_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_18_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,0,1,1,1,1,1,1,0
+libero_object,Camera Viewpoints,5,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_175_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_286_15_100_0_0_initstate_0,0,0,0,0,1,0,0,1,0,0,1,1,0,1,1,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_334_0_100_0_0_initstate_0,1,0,1,0,1,1,0,0,1,0,0,0,0,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_68_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_4_15_100_0_0_initstate_0,1,0,1,1,1,1,0,1,0,1,1,1,1,1,1,0,1
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_47_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,3,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_128_0_0_initstate_0,1,1,1,0,0,0,0,1,0,1,1,1,1,0,0,0,1
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_306_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_orange_juice_and_place_it_in_the_basket_view_356_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,0,1,1,0,0,1,0,1
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_16_15_100_0_0_initstate_0,1,0,0,1,1,1,0,1,1,0,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_milk_and_place_it_in_the_basket_view_315_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_350_4_initstate_0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_188_0_0_initstate_0,0,1,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_67_15_100_0_0_initstate_0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_2_354_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_8_10_initstate_0,0,0,0,0,0,0,0,1,1,0,1,1,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_37_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_307_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+libero_object,Camera Viewpoints,4,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_358_8_initstate_0,0,0,0,0,1,1,0,1,0,0,0,1,0,1,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_20_15_100_0_0_initstate_0,1,1,0,1,1,1,0,1,1,0,1,1,0,1,1,1,0
+libero_object,Camera Viewpoints,5,pick_up_the_milk_and_place_it_in_the_basket_view_322_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_294_15_100_0_0_initstate_0,0,0,1,0,0,0,0,0,1,0,0,1,1,1,0,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_190_0_0_initstate_0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1
+libero_object,Camera Viewpoints,2,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_10_350_initstate_0,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,0
+libero_object,Camera Viewpoints,2,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_7_15_100_0_0_initstate_0,0,0,1,0,1,1,0,1,0,1,1,1,1,0,1,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_60_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_121_0_0_initstate_0,1,1,1,0,1,1,0,1,0,1,1,0,1,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_166_0_0_initstate_0,1,0,0,0,0,1,0,0,0,1,0,0,0,0,1,0,1
+libero_object,Camera Viewpoints,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_191_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_120_0_0_initstate_0,0,0,0,0,1,1,0,1,0,1,1,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_milk_and_place_it_in_the_basket_view_324_0_100_0_0_initstate_0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_350_358_initstate_0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_330_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_10_2_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_2_8_initstate_0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_57_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,1,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_33_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,4,pick_up_the_butter_and_place_it_in_the_basket_view_311_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_196_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_4_350_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,4,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_354_6_initstate_0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_155_0_0_initstate_0,0,1,0,0,1,1,0,1,1,1,1,1,1,1,1,0,1
+libero_object,Camera Viewpoints,2,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_356_352_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_141_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_2_352_initstate_0,1,1,0,1,1,0,0,1,1,1,1,0,1,1,1,1,1
+libero_object,Camera Viewpoints,2,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_58_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,1,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_40_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_307_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_orange_juice_and_place_it_in_the_basket_view_352_15_100_0_0_initstate_0,1,1,1,0,1,0,0,0,1,0,1,1,0,0,1,1,1
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_22_15_100_0_0_initstate_0,1,1,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_milk_and_place_it_in_the_basket_view_317_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_350_8_initstate_0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_183_0_0_initstate_0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_143_0_0_initstate_0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_11_15_100_0_0_initstate_0,1,0,0,1,1,1,0,0,1,1,1,0,1,1,1,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_132_0_0_initstate_0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_35_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_314_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_orange_juice_and_place_it_in_the_basket_view_356_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_29_15_100_0_0_initstate_0,1,1,0,1,1,0,0,1,1,0,1,1,0,1,1,1,0
+libero_object,Camera Viewpoints,2,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_354_354_initstate_0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_153_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_340_0_100_0_0_initstate_0,1,1,1,1,0,1,0,0,1,0,0,1,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_144_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_2_4_initstate_0,0,1,1,1,0,1,0,1,1,0,1,0,1,0,1,1,0
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_58_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_31_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_305_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_358_350_initstate_0,1,1,1,1,1,0,0,1,0,1,1,1,0,0,1,1,1
+libero_object,Camera Viewpoints,2,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_119_0_0_initstate_0,0,0,0,0,1,1,0,1,0,1,1,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_354_350_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_290_15_100_0_0_initstate_0,1,0,1,0,0,0,0,0,1,0,1,1,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_333_0_100_0_0_initstate_0,0,0,1,1,0,1,0,0,0,0,0,1,1,0,1,1,0
+libero_object,Camera Viewpoints,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_69_0_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1
+libero_object,Camera Viewpoints,2,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_8_15_100_0_0_initstate_0,1,1,0,1,1,1,0,1,0,1,1,1,1,1,0,1,1
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_48_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,4,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_129_0_0_initstate_0,1,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_352_354_initstate_0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_orange_juice_and_place_it_in_the_basket_view_355_15_100_0_0_initstate_0,1,1,0,1,0,0,0,0,1,0,1,1,0,1,1,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_4_10_initstate_0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_milk_and_place_it_in_the_basket_view_324_15_100_0_0_initstate_0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_292_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,1
+libero_object,Camera Viewpoints,1,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_342_15_100_0_0_initstate_0,1,1,1,1,0,0,0,0,1,1,0,1,1,0,1,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_142_0_0_initstate_0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_2_6_initstate_0,1,1,1,0,0,0,0,1,0,0,1,0,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_137_0_0_initstate_0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_123_0_0_initstate_0,0,1,0,0,0,1,0,1,1,0,1,0,0,0,0,1,0
+libero_object,Camera Viewpoints,5,pick_up_the_butter_and_place_it_in_the_basket_view_311_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_200_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_22_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_171_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_290_0_100_0_0_initstate_0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_340_15_100_0_0_initstate_0,1,1,0,1,1,0,0,0,1,0,0,1,1,1,1,1,1
+libero_object,Camera Viewpoints,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_64_15_100_0_0_initstate_0,0,0,0,1,0,0,0,1,1,1,1,1,1,1,1,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_6_15_100_0_0_initstate_0,1,0,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1
+libero_object,Camera Viewpoints,2,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_139_0_0_initstate_0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_39_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,4,pick_up_the_butter_and_place_it_in_the_basket_view_310_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_358_6_initstate_0,1,1,1,0,0,0,0,1,1,0,0,1,0,0,0,1,0
+libero_object,Camera Viewpoints,2,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_4_8_initstate_0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_milk_and_place_it_in_the_basket_view_327_15_100_0_0_initstate_0,1,0,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_297_0_100_0_0_initstate_0,0,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_332_15_100_0_0_initstate_0,0,0,0,0,1,0,0,0,1,1,0,1,0,0,1,0,0
+libero_object,Camera Viewpoints,3,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_10_4_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,4,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_14_15_100_0_0_initstate_0,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0
+libero_object,Camera Viewpoints,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_49_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_6_350_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Camera Viewpoints,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_352_352_initstate_0,1,1,1,0,0,0,0,0,0,0,0,1,0,1,0,0,0
+libero_object,Camera Viewpoints,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_193_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Camera Viewpoints,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_30_15_100_0_0_initstate_0,1,0,1,1,0,1,0,0,1,0,1,1,1,0,1,1,0
+libero_object,Camera Viewpoints,5,pick_up_the_milk_and_place_it_in_the_basket_view_322_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,2,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_164,1,1,1,1,1,1,0,0,1,0,1,0,1,0,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_403,0,1,1,1,0,1,0,0,1,0,0,1,0,0,1,0,1
+libero_object,Robot Initial States,1,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_77,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0,1,0
+libero_object,Robot Initial States,3,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_260,1,1,1,1,0,0,0,0,0,1,1,1,1,0,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_262,0,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_238,1,0,1,1,0,0,0,0,1,0,0,0,0,0,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_366,1,0,1,0,1,1,0,0,1,1,1,0,1,1,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_409,1,1,1,1,1,0,0,0,1,0,1,1,0,0,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_65,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_381,0,1,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0
+libero_object,Robot Initial States,5,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_454,1,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+libero_object,Robot Initial States,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_443,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_397,0,1,1,1,0,1,0,0,0,1,1,0,1,1,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_300,0,1,1,0,0,0,0,0,0,0,0,1,0,0,0,1,0
+libero_object,Robot Initial States,3,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_362,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_418,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_276,1,0,1,1,1,1,0,1,1,1,0,0,1,1,1,1,1
+libero_object,Robot Initial States,1,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_209,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,1,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_115,0,0,1,0,1,1,0,0,0,0,1,1,1,1,0,1,1
+libero_object,Robot Initial States,4,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_421,0,0,1,1,1,1,0,1,1,0,1,0,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_194,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_333,1,0,1,1,1,0,0,0,1,1,1,1,0,0,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_257,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_200,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_object,Robot Initial States,3,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_252,0,0,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1
+libero_object,Robot Initial States,1,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_228,1,0,0,0,1,0,0,0,1,1,1,1,1,1,0,1,1
+libero_object,Robot Initial States,5,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_376,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,1,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_269,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,1,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_11,1,0,1,1,1,1,0,0,1,0,1,1,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_394,1,1,1,1,1,1,0,0,1,1,0,0,1,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_413,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,2,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_127,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,1,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_60,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_302,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_298,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_286,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+libero_object,Robot Initial States,3,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_369,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1,0
+libero_object,Robot Initial States,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_345,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_321,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_234,1,1,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0
+libero_object,Robot Initial States,4,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_273,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_207,0,0,1,0,0,1,0,0,1,0,1,1,1,0,1,1,0
+libero_object,Robot Initial States,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_470,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_412,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_478,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_296,1,1,0,1,1,0,0,0,0,0,0,1,0,0,1,0,0
+libero_object,Robot Initial States,3,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_419,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_315,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_351,1,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_254,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_203,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_487,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,2,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_90,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_482,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_248,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_466,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_439,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,2,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_155,1,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_371,1,1,1,0,0,0,0,0,1,0,1,0,1,1,1,0,1
+libero_object,Robot Initial States,1,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_74,1,1,1,1,0,1,0,0,1,1,1,1,1,0,0,1,1
+libero_object,Robot Initial States,4,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_213,1,1,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0
+libero_object,Robot Initial States,3,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_267,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_460,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,2,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_152,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_398,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_126,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_229,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_465,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,1,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_121,0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_474,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_293,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_object,Robot Initial States,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_417,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_210,1,1,1,1,1,1,0,1,1,1,0,1,1,0,1,1,1
+libero_object,Robot Initial States,1,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_192,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_448,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_196,1,0,1,1,0,0,0,0,0,0,1,0,0,0,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_359,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,3,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_295,0,0,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,5,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_361,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_494,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0
+libero_object,Robot Initial States,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_183,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_437,0,1,1,1,1,1,0,0,1,1,0,1,0,1,0,1,1
+libero_object,Robot Initial States,3,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_120,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_312,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_268,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,1,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_346,1,1,1,1,0,0,0,0,0,0,0,1,0,0,1,0,0
+libero_object,Robot Initial States,2,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_289,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,1,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_175,1,0,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,1,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_191,1,1,1,1,1,1,0,0,1,1,1,1,1,0,1,1,1
+libero_object,Robot Initial States,2,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_204,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,2,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_343,1,1,1,1,1,1,0,0,1,1,1,1,1,0,1,1,0
+libero_object,Robot Initial States,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_377,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,1,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_180,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,2,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_132,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,2,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_348,0,1,1,1,1,0,0,0,1,1,1,1,1,0,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_456,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_429,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_255,1,1,1,0,1,1,0,0,0,1,0,1,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_221,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,1,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_284,1,1,1,1,1,1,0,1,1,1,0,1,0,0,0,0,1
+libero_object,Robot Initial States,3,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_363,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_407,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_450,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_62,1,1,1,1,1,1,0,1,0,1,1,0,1,1,0,1,1
+libero_object,Robot Initial States,5,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_388,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_216,1,1,0,0,1,0,0,1,0,0,1,0,1,1,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_219,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_305,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0
+libero_object,Robot Initial States,2,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_131,0,0,1,0,0,0,0,0,0,1,0,0,1,1,0,0,1
+libero_object,Robot Initial States,4,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_303,1,1,1,1,0,1,0,0,1,1,1,1,0,0,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_217,1,1,1,0,1,0,0,0,1,1,1,1,1,1,1,1,0
+libero_object,Robot Initial States,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_480,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,3,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_142,0,0,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_milk_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_188,0,1,0,0,1,0,0,0,1,0,0,1,0,0,1,0,1
+libero_object,Robot Initial States,4,pick_up_the_tomato_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_236,1,1,1,0,1,1,0,1,0,0,1,0,1,1,0,1,1
+libero_object,Robot Initial States,4,pick_up_the_chocolate_pudding_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_319,1,1,1,1,0,0,0,0,1,0,1,1,0,1,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_ketchup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_205,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_161,0,1,1,1,0,0,0,0,0,1,0,0,1,0,0,0,0
+libero_object,Robot Initial States,1,pick_up_the_bbq_sauce_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_364,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_object,Robot Initial States,4,pick_up_the_salad_dressing_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_313,1,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,4,pick_up_the_butter_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_327,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,5,pick_up_the_orange_juice_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_350,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_object,Robot Initial States,2,pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_492,1,1,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1
+libero_goal,Camera Viewpoints,4,push_the_plate_to_the_front_of_the_stove_view_0_0_155_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,turn_on_the_stove_view_0_0_180_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_top_of_the_cabinet_view_69_0_100_0_0_initstate_0,1,1,1,1,0,1,0,0,0,0,1,0,0,1,1,1,1
+libero_goal,Camera Viewpoints,2,open_the_middle_drawer_of_the_cabinet_view_15_15_100_0_0_initstate_0,1,1,0,1,1,0,0,0,1,0,1,1,1,0,1,0,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_47_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_stove_view_27_15_100_0_0_initstate_0,1,1,1,1,0,0,0,1,0,1,1,1,1,1,0,1,1
+libero_goal,Camera Viewpoints,2,put_the_wine_bottle_on_top_of_the_cabinet_view_45_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,0,0,1,1,0,0,1
+libero_goal,Camera Viewpoints,2,put_the_wine_bottle_on_the_rack_view_0_0_100_358_350_initstate_0,1,1,1,1,0,0,0,0,1,0,1,0,1,1,1,1,0
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_the_plate_view_0_0_183_0_0_initstate_0,1,1,1,1,1,0,0,1,0,1,1,0,1,1,0,1,1
+libero_goal,Camera Viewpoints,3,put_the_cream_cheese_in_the_bowl_view_302_15_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,push_the_plate_to_the_front_of_the_stove_view_0_0_156_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,turn_on_the_stove_view_0_0_100_354_352_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_top_of_the_cabinet_view_0_0_150_0_0_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,open_the_middle_drawer_of_the_cabinet_view_1_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_58_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_the_stove_view_22_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,0,0,0,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,put_the_wine_bottle_on_top_of_the_cabinet_view_38_0_100_0_0_initstate_0,1,1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,put_the_wine_bottle_on_the_rack_view_0_0_100_358_356_initstate_0,1,1,1,1,1,0,0,0,1,0,0,0,1,0,1,0,0
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_the_plate_view_343_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,0,1,0,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_cream_cheese_in_the_bowl_view_0_0_100_352_352_initstate_0,1,1,1,1,1,1,0,0,1,0,0,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,push_the_plate_to_the_front_of_the_stove_view_0_0_100_350_356_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,turn_on_the_stove_view_328_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_top_of_the_cabinet_view_68_0_100_0_0_initstate_0,1,1,1,0,0,1,0,0,1,0,1,0,1,1,1,1,0
+libero_goal,Camera Viewpoints,1,open_the_middle_drawer_of_the_cabinet_view_0_0_100_2_354_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_53_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_the_stove_view_17_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,0,1,0,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_wine_bottle_on_top_of_the_cabinet_view_36_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,0,1,0,1,0,0,0,1
+libero_goal,Camera Viewpoints,1,put_the_wine_bottle_on_the_rack_view_349_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,0,1,1,1,0,1,0,0
+libero_goal,Camera Viewpoints,4,put_the_bowl_on_the_plate_view_0_0_186_0_0_initstate_0,1,1,1,1,1,0,0,0,1,0,1,1,1,1,1,0,1
+libero_goal,Camera Viewpoints,3,put_the_cream_cheese_in_the_bowl_view_0_0_100_352_350_initstate_0,1,1,1,1,1,0,0,0,1,1,1,0,0,1,0,0,1
+libero_goal,Camera Viewpoints,4,push_the_plate_to_the_front_of_the_stove_view_290_15_100_0_0_initstate_0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,turn_on_the_stove_view_329_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_top_of_the_cabinet_view_0_0_147_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,open_the_middle_drawer_of_the_cabinet_view_14_15_100_0_0_initstate_0,1,1,1,1,0,1,0,0,1,0,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_59_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_stove_view_25_15_100_0_0_initstate_0,0,0,1,1,0,0,0,0,1,0,1,1,1,1,0,1,1
+libero_goal,Camera Viewpoints,5,put_the_wine_bottle_on_top_of_the_cabinet_view_41_15_100_0_0_initstate_0,1,1,1,0,1,0,0,0,0,1,0,0,0,1,0,0,0
+libero_goal,Camera Viewpoints,2,put_the_wine_bottle_on_the_rack_view_352_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,0,1,1,1,1,1,1,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_plate_view_0_0_100_356_8_initstate_0,1,1,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,put_the_cream_cheese_in_the_bowl_view_306_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,push_the_plate_to_the_front_of_the_stove_view_297_15_100_0_0_initstate_0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,turn_on_the_stove_view_0_0_171_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_top_of_the_cabinet_view_62_15_100_0_0_initstate_0,1,0,1,0,1,0,0,0,0,0,0,0,1,1,1,0,0
+libero_goal,Camera Viewpoints,2,open_the_middle_drawer_of_the_cabinet_view_7_15_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_54_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_stove_view_0_0_100_4_352_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_6_10_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_wine_bottle_on_the_rack_view_345_15_100_0_0_initstate_0,1,1,1,1,0,0,0,0,0,0,1,0,0,0,1,0,0
+libero_goal,Camera Viewpoints,4,put_the_bowl_on_the_plate_view_0_0_187_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_cream_cheese_in_the_bowl_view_306_15_100_0_0_initstate_0,1,1,1,1,0,1,0,1,1,1,1,1,1,0,1,0,1
+libero_goal,Camera Viewpoints,5,push_the_plate_to_the_front_of_the_stove_view_296_15_100_0_0_initstate_0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,turn_on_the_stove_view_322_15_100_0_0_initstate_0,1,1,1,1,1,0,0,1,0,1,0,1,1,1,1,0,0
+libero_goal,Camera Viewpoints,4,put_the_bowl_on_top_of_the_cabinet_view_70_15_100_0_0_initstate_0,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1,1,0
+libero_goal,Camera Viewpoints,2,open_the_middle_drawer_of_the_cabinet_view_12_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,0,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_52_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_the_stove_view_16_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,1,put_the_wine_bottle_on_top_of_the_cabinet_view_35_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,0,1,0,1,0,0,0,0
+libero_goal,Camera Viewpoints,4,put_the_wine_bottle_on_the_rack_view_0_0_100_358_6_initstate_0,1,1,1,1,1,0,0,1,0,0,1,0,1,0,1,0,0
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_the_plate_view_342_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,0,1,1,1
+libero_goal,Camera Viewpoints,5,put_the_cream_cheese_in_the_bowl_view_0_0_100_352_10_initstate_0,1,0,1,0,1,0,0,0,1,1,0,0,1,1,1,0,0
+libero_goal,Camera Viewpoints,4,push_the_plate_to_the_front_of_the_stove_view_299_15_100_0_0_initstate_0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,turn_on_the_stove_view_325_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_top_of_the_cabinet_view_0_0_142_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,open_the_middle_drawer_of_the_cabinet_view_0_0_100_2_10_initstate_0,1,0,0,0,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_138_0_0_initstate_0,1,0,0,1,0,1,0,0,0,1,1,1,1,1,1,0,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_stove_view_18_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,put_the_wine_bottle_on_top_of_the_cabinet_view_43_15_100_0_0_initstate_0,0,1,1,0,1,0,0,0,0,1,0,0,0,1,0,0,0
+libero_goal,Camera Viewpoints,2,put_the_wine_bottle_on_the_rack_view_347_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,0,1,1,0,0,1,0,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_plate_view_337_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_cream_cheese_in_the_bowl_view_310_15_100_0_0_initstate_0,0,1,1,0,1,0,0,0,1,0,1,1,1,1,0,0,1
+libero_goal,Camera Viewpoints,2,push_the_plate_to_the_front_of_the_stove_view_0_0_154_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,turn_on_the_stove_view_0_0_100_354_8_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_top_of_the_cabinet_view_0_0_145_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,open_the_middle_drawer_of_the_cabinet_view_2_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_60_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_the_stove_view_28_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,1,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_126_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_wine_bottle_on_the_rack_view_356_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,0,1,0,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_the_plate_view_333_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_cream_cheese_in_the_bowl_view_0_0_167_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,push_the_plate_to_the_front_of_the_stove_view_285_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,3,turn_on_the_stove_view_315_0_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_10_8_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,open_the_middle_drawer_of_the_cabinet_view_10_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_134_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_stove_view_29_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,put_the_wine_bottle_on_top_of_the_cabinet_view_39_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,0,0,1,1,0,0,0
+libero_goal,Camera Viewpoints,4,put_the_wine_bottle_on_the_rack_view_0_0_192_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_the_plate_view_330_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_cream_cheese_in_the_bowl_view_304_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,0,1,0
+libero_goal,Camera Viewpoints,4,push_the_plate_to_the_front_of_the_stove_view_293_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,turn_on_the_stove_view_316_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_top_of_the_cabinet_view_73_0_100_0_0_initstate_0,1,1,1,0,0,1,0,0,0,0,1,1,1,1,1,0,1
+libero_goal,Camera Viewpoints,2,open_the_middle_drawer_of_the_cabinet_view_0_0_100_2_352_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,0,1,1,1,1
+libero_goal,Camera Viewpoints,3,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_8_354_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_the_stove_view_24_15_100_0_0_initstate_0,1,1,0,1,1,1,0,1,1,0,1,1,0,1,1,1,1
+libero_goal,Camera Viewpoints,5,put_the_wine_bottle_on_top_of_the_cabinet_view_37_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,put_the_wine_bottle_on_the_rack_view_348_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,0,0,0,0,1,0,0,0
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_the_plate_view_0_0_182_0_0_initstate_0,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_cream_cheese_in_the_bowl_view_0_0_163_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,push_the_plate_to_the_front_of_the_stove_view_289_15_100_0_0_initstate_0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,turn_on_the_stove_view_327_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_top_of_the_cabinet_view_63_0_100_0_0_initstate_0,1,1,1,1,0,0,0,0,0,1,1,0,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,open_the_middle_drawer_of_the_cabinet_view_0_0_100_2_4_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_8_10_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_stove_view_0_0_100_4_10_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_wine_bottle_on_top_of_the_cabinet_view_37_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,1,0,1,1,0,0,1
+libero_goal,Camera Viewpoints,3,put_the_wine_bottle_on_the_rack_view_0_0_100_358_8_initstate_0,1,1,1,1,1,0,0,0,0,0,0,0,1,0,0,0,0
+libero_goal,Camera Viewpoints,3,put_the_bowl_on_the_plate_view_0_0_190_0_0_initstate_0,1,1,0,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_cream_cheese_in_the_bowl_view_311_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1
+libero_goal,Camera Viewpoints,3,push_the_plate_to_the_front_of_the_stove_view_0_0_100_350_358_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,turn_on_the_stove_view_329_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_top_of_the_cabinet_view_75_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,0,1,1,1,0,1,0,1
+libero_goal,Camera Viewpoints,3,open_the_middle_drawer_of_the_cabinet_view_5_15_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_8_358_initstate_0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_stove_view_19_0_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,0,1,1,1,1
+libero_goal,Camera Viewpoints,5,put_the_wine_bottle_on_top_of_the_cabinet_view_38_15_100_0_0_initstate_0,1,1,1,1,0,1,0,0,1,1,1,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,3,put_the_wine_bottle_on_the_rack_view_353_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,1,1,0,1,1,0,1,1
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_the_plate_view_0_0_100_356_352_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,0,1,1,1,1
+libero_goal,Camera Viewpoints,2,put_the_cream_cheese_in_the_bowl_view_0_0_161_0_0_initstate_0,1,0,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1
+libero_goal,Camera Viewpoints,4,push_the_plate_to_the_front_of_the_stove_view_287_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,2,turn_on_the_stove_view_320_0_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,4,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_10_352_initstate_0,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,2,open_the_middle_drawer_of_the_cabinet_view_0_0_100_2_350_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Camera Viewpoints,3,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_133_0_0_initstate_0,1,1,1,0,1,1,0,0,1,0,1,1,0,0,1,0,0
+libero_goal,Camera Viewpoints,2,put_the_bowl_on_the_stove_view_18_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1
+libero_goal,Camera Viewpoints,3,put_the_wine_bottle_on_top_of_the_cabinet_view_34_0_100_0_0_initstate_0,1,1,1,0,1,1,0,0,0,0,1,1,1,0,0,0,0
+libero_goal,Camera Viewpoints,4,put_the_wine_bottle_on_the_rack_view_0_0_193_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Camera Viewpoints,1,put_the_bowl_on_the_plate_view_0_0_100_356_10_initstate_0,0,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,0
+libero_goal,Robot Initial States,2,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_176,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,turn_on_the_stove_view_0_0_100_0_0_initstate_488,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_105,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,0
+libero_goal,Robot Initial States,2,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_471,0,0,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_304,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,1,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_2,1,1,1,1,1,1,0,1,1,0,0,1,1,1,1,1,1
+libero_goal,Robot Initial States,5,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_363,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_280,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_439,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,5,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_357,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+libero_goal,Robot Initial States,3,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_246,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0
+libero_goal,Robot Initial States,3,turn_on_the_stove_view_0_0_100_0_0_initstate_318,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_goal,Robot Initial States,1,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_205,1,1,1,1,0,0,0,1,1,1,1,0,0,1,1,1,1
+libero_goal,Robot Initial States,1,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_211,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,1,1
+libero_goal,Robot Initial States,1,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_94,1,1,0,0,1,1,0,0,1,1,1,1,1,0,1,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_282,1,1,0,1,1,1,0,1,1,1,0,1,1,1,0,1,0
+libero_goal,Robot Initial States,3,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_63,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1
+libero_goal,Robot Initial States,4,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_300,1,1,1,1,0,0,0,0,0,0,0,0,0,1,1,0,0
+libero_goal,Robot Initial States,5,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_219,1,0,0,0,0,0,0,0,0,1,0,0,1,0,1,0,0
+libero_goal,Robot Initial States,2,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_127,1,0,0,1,0,0,0,0,0,0,1,1,0,0,0,0,0
+libero_goal,Robot Initial States,5,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_356,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,turn_on_the_stove_view_0_0_100_0_0_initstate_188,1,1,1,0,1,0,0,1,1,0,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_465,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_461,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_294,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_352,1,1,0,0,1,1,0,1,1,1,1,1,1,1,0,0,1
+libero_goal,Robot Initial States,5,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_413,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_440,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_329,0,0,0,0,1,0,0,0,0,1,0,0,1,1,0,1,0
+libero_goal,Robot Initial States,4,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_307,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_476,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,turn_on_the_stove_view_0_0_100_0_0_initstate_448,1,1,0,1,1,1,0,0,1,0,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,4,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_315,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,1,0
+libero_goal,Robot Initial States,5,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_181,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_324,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_332,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,1,0
+libero_goal,Robot Initial States,3,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_433,1,1,0,0,1,1,0,1,0,1,1,1,1,1,1,1,0
+libero_goal,Robot Initial States,1,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_170,1,1,1,1,1,0,0,0,1,0,1,1,1,1,1,1,0
+libero_goal,Robot Initial States,4,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_419,1,1,0,1,1,0,0,1,1,1,1,1,0,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_417,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_416,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,turn_on_the_stove_view_0_0_100_0_0_initstate_128,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_165,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,5,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_221,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,3,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_244,1,1,1,1,1,1,0,0,1,0,0,0,1,1,1,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_322,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,1,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_73,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,2,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_500,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_489,1,1,1,1,1,0,0,0,0,1,0,0,1,0,1,0,0
+libero_goal,Robot Initial States,3,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_177,1,1,1,1,0,0,0,0,0,0,1,0,1,0,0,0,0
+libero_goal,Robot Initial States,3,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_136,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,3,turn_on_the_stove_view_0_0_100_0_0_initstate_418,0,1,0,0,1,0,0,0,0,0,1,0,1,0,0,1,1
+libero_goal,Robot Initial States,1,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_235,1,1,1,1,1,1,0,1,1,1,1,1,1,0,1,1,1
+libero_goal,Robot Initial States,5,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_321,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_54,1,1,1,1,1,0,0,0,1,1,1,1,1,0,0,0,0
+libero_goal,Robot Initial States,1,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_272,1,1,1,1,1,1,0,1,1,1,1,0,1,1,0,1,1
+libero_goal,Robot Initial States,3,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_423,1,0,0,0,1,0,0,0,1,1,0,0,1,1,0,0,1
+libero_goal,Robot Initial States,5,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_210,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_299,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0
+libero_goal,Robot Initial States,4,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_7,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+libero_goal,Robot Initial States,2,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_196,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,turn_on_the_stove_view_0_0_100_0_0_initstate_408,0,1,1,1,1,0,0,0,0,0,1,1,1,1,1,1,0
+libero_goal,Robot Initial States,2,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_295,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_481,0,0,0,0,1,1,0,0,0,0,1,0,0,0,0,1,0
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_194,1,1,1,1,0,1,0,0,0,1,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,1,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_62,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,4,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_483,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_250,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_209,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_77,1,1,0,1,0,0,0,0,1,0,0,1,0,0,0,0,0
+libero_goal,Robot Initial States,2,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_386,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,turn_on_the_stove_view_0_0_100_0_0_initstate_398,1,1,1,0,0,0,0,0,0,0,0,1,0,0,1,0,1
+libero_goal,Robot Initial States,1,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_305,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,4,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_491,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_314,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_422,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+libero_goal,Robot Initial States,2,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_373,0,1,0,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,1,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_40,0,1,1,1,1,0,0,0,1,0,1,0,1,1,1,1,1
+libero_goal,Robot Initial States,5,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_479,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_467,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_466,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,turn_on_the_stove_view_0_0_100_0_0_initstate_368,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,1,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_375,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,5,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_401,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_444,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+libero_goal,Robot Initial States,2,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_402,0,0,1,1,1,1,0,1,1,0,1,1,1,1,1,0,0
+libero_goal,Robot Initial States,3,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_193,1,1,0,1,0,0,0,0,0,0,1,0,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_190,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_goal,Robot Initial States,5,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_469,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_247,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_266,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,turn_on_the_stove_view_0_0_100_0_0_initstate_438,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,2,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_135,0,1,1,1,0,0,0,0,0,1,1,1,1,1,0,1,1
+libero_goal,Robot Initial States,3,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_381,1,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_174,1,1,1,1,1,0,0,0,1,0,1,1,1,1,1,1,0
+libero_goal,Robot Initial States,2,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_212,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,0
+libero_goal,Robot Initial States,3,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_303,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_110,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_249,0,1,0,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_147,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,5,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_496,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,turn_on_the_stove_view_0_0_100_0_0_initstate_328,0,1,1,1,0,1,0,0,0,0,0,0,1,0,0,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_405,1,1,0,1,0,1,0,0,0,0,1,0,0,1,0,1,1
+libero_goal,Robot Initial States,4,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_291,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_234,1,1,1,1,1,0,0,0,0,0,0,0,0,0,1,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_142,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_23,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,1,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_220,1,1,1,1,1,1,0,0,1,0,1,1,1,1,1,0,1
+libero_goal,Robot Initial States,2,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_19,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,3,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_27,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+libero_goal,Robot Initial States,4,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_426,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,turn_on_the_stove_view_0_0_100_0_0_initstate_378,0,1,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1
+libero_goal,Robot Initial States,5,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_385,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,1,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_11,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_484,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_232,0,1,1,1,1,0,0,1,0,1,1,0,1,1,0,1,1
+libero_goal,Robot Initial States,4,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_343,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1,1,0
+libero_goal,Robot Initial States,2,put_the_wine_bottle_on_the_rack_view_0_0_100_0_0_initstate_140,1,1,1,1,0,0,0,0,0,0,1,1,1,0,1,1,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_plate_view_0_0_100_0_0_initstate_449,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,4,put_the_cream_cheese_in_the_bowl_view_0_0_100_0_0_initstate_257,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,1,push_the_plate_to_the_front_of_the_stove_view_0_0_100_0_0_initstate_126,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+libero_goal,Robot Initial States,2,turn_on_the_stove_view_0_0_100_0_0_initstate_288,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,5,put_the_bowl_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_215,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,3,open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,1,1,1
+libero_goal,Robot Initial States,5,open_the_top_drawer_and_put_the_bowl_inside_view_0_0_100_0_0_initstate_124,1,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0
+libero_goal,Robot Initial States,3,put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_132,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1
+libero_goal,Robot Initial States,2,put_the_wine_bottle_on_top_of_the_cabinet_view_0_0_100_0_0_initstate_113,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_13_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_312_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_35_15_100_0_0_initstate_0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_10_352_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_196_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_8_356_initstate_0,1,1,1,0,0,0,0,0,1,0,1,1,0,0,0,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_27_15_100_0_0_initstate_0,1,0,1,1,0,1,0,0,0,1,1,0,1,1,1,0,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_326_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_184_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_350_6_initstate_0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_2_354_initstate_0,1,0,1,1,1,1,0,1,1,0,0,1,1,1,1,1,1
+libero_10,Camera Viewpoints,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_167_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_44_0_100_0_0_initstate_0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_63_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_194_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_46_0_100_0_0_initstate_0,1,1,1,0,1,0,0,0,1,0,1,0,1,1,0,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_4_10_initstate_0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+libero_10,Camera Viewpoints,4,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_315_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_190_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_350_350_initstate_0,1,0,1,0,1,1,0,0,0,0,1,0,0,0,0,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_2_350_initstate_0,1,0,0,0,0,1,0,1,0,0,0,0,1,1,1,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_308_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,3,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_122_0_0_initstate_0,1,1,0,1,0,0,0,0,1,0,0,1,1,1,1,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_64_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_351_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_131_0_0_initstate_0,1,1,1,1,1,0,0,0,1,0,1,0,1,1,1,1,0
+libero_10,Camera Viewpoints,1,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_4_8_initstate_0,1,1,0,0,0,0,0,0,1,1,1,1,1,0,0,1,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_317_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_338_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_157_0_0_initstate_0,1,1,1,0,1,1,0,0,0,1,0,0,1,0,0,0,0
+libero_10,Camera Viewpoints,1,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_1_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_170_0_0_initstate_0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_33_15_100_0_0_initstate_0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_73_0_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_358_6_initstate_0,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,1
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_56_0_100_0_0_initstate_0,1,1,1,0,0,0,0,0,0,0,1,0,1,0,1,1,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_4_350_initstate_0,1,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_354_2_initstate_0,1,1,1,1,0,0,0,1,1,1,0,1,1,1,0,0,1
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_356_352_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_350_354_initstate_0,1,0,1,1,1,0,0,0,0,0,1,0,0,1,1,0,1
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_7_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_305_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,3,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_32_0_100_0_0_initstate_0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_65_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_347_15_100_0_0_initstate_0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_57_0_100_0_0_initstate_0,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_18_15_100_0_0_initstate_0,1,1,1,0,0,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_354_352_initstate_0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_183_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_298_15_100_0_0_initstate_0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_2_8_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_352_350_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,3,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_38_0_100_0_0_initstate_0,1,1,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_65_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_354_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_135_0_0_initstate_0,1,0,1,1,1,0,0,0,0,0,1,1,1,1,1,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_20_15_100_0_0_initstate_0,1,1,1,0,0,1,0,0,1,1,1,1,1,1,1,0,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_178_0_0_initstate_0,1,1,0,0,1,0,0,1,1,0,0,1,0,1,1,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_182_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_153_0_0_initstate_0,1,0,1,0,0,0,0,0,0,1,1,0,1,0,0,0,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_4_15_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_352_352_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_41_0_100_0_0_initstate_0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_61_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_350_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_132_0_0_initstate_0,1,1,1,0,0,1,0,0,1,1,0,1,1,0,0,1,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_28_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_321_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_344_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_158_0_0_initstate_0,1,1,1,0,0,0,0,0,1,1,1,0,0,1,0,1,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_11_15_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_162_0_0_initstate_0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_6_356_initstate_0,1,1,1,1,1,0,0,0,1,0,1,0,0,0,1,1,1
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_142_0_0_initstate_0,1,1,1,0,0,1,0,0,0,1,1,1,0,1,1,1,1
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_356_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_8_350_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_29_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,0,1,0,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_174_0_0_initstate_0,1,1,0,1,1,0,0,0,0,1,1,1,1,0,1,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_181_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_286_0_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_10_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_300_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_37_15_100_0_0_initstate_0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_10,Camera Viewpoints,4,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_150_0_0_initstate_0,1,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,1
+libero_10,Camera Viewpoints,1,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_345_0_100_0_0_initstate_0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0
+libero_10,Camera Viewpoints,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_137_0_0_initstate_0,1,0,1,1,1,0,0,1,1,0,1,1,0,1,1,0,0
+libero_10,Camera Viewpoints,1,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_21_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,0,1,1,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_325_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_333_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_297_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_5_15_100_0_0_initstate_0,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_311_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_125_0_0_initstate_0,1,1,1,0,0,0,0,0,0,0,0,1,0,0,1,1,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_144_0_0_initstate_0,1,1,0,1,0,1,0,0,0,0,1,1,1,1,1,0,1
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_358_4_initstate_0,1,0,0,0,0,0,0,0,0,0,1,0,1,0,1,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_52_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,0,1,1,0,1,1,1,1,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_22_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,0,1,1,0
+libero_10,Camera Viewpoints,4,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_316_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_331_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_154_0_0_initstate_0,1,1,1,0,0,0,0,0,0,1,1,0,1,0,0,0,0
+libero_10,Camera Viewpoints,3,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_2_6_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_301_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,3,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_128_0_0_initstate_0,1,0,1,1,1,1,0,0,0,1,0,0,0,1,1,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_74_0_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_355_15_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_51_0_100_0_0_initstate_0,1,1,1,1,1,0,0,0,1,1,1,1,1,1,0,1,0
+libero_10,Camera Viewpoints,1,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_26_0_100_0_0_initstate_0,1,1,1,1,0,0,0,0,1,1,1,1,1,1,1,1,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_319_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_188_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,4,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_350_356_initstate_0,1,1,0,1,1,1,0,0,1,1,1,0,1,1,1,0,1
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_15_15_100_0_0_initstate_0,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_308_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,3,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_6_10_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_67_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,2,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_353_0_100_0_0_initstate_0,1,1,1,0,1,0,0,0,1,0,0,1,0,0,1,0,1
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_48_15_100_0_0_initstate_0,1,1,1,0,0,0,0,0,0,1,1,0,0,0,1,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_4_6_initstate_0,0,1,1,0,0,1,0,1,1,1,1,0,0,1,1,1,1
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_322_15_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_340_0_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_289_0_100_0_0_initstate_0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_2_15_100_0_0_initstate_0,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Camera Viewpoints,1,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_352_356_initstate_0,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,1
+libero_10,Camera Viewpoints,4,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_127_0_0_initstate_0,0,0,1,1,1,0,0,0,1,0,0,0,0,1,1,0,0
+libero_10,Camera Viewpoints,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_68_0_100_0_0_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Camera Viewpoints,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_358_350_initstate_0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_441,1,1,0,1,1,0,0,1,0,1,0,1,1,0,0,1,1
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_117,1,1,1,1,1,0,0,0,1,1,1,0,0,1,1,1,1
+libero_10,Robot Initial States,1,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_63,1,1,1,1,0,1,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_395,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_250,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_354,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_332,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_428,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_399,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1
+libero_10,Robot Initial States,3,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_496,1,1,1,1,1,1,0,0,0,0,1,0,1,1,1,1,0
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_191,1,1,1,1,1,1,0,1,0,0,1,0,1,1,1,1,1
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_387,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_203,1,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,1
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_255,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,1,0
+libero_10,Robot Initial States,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_270,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_404,1,1,1,1,1,1,0,1,0,1,1,1,0,1,1,1,1
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_412,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_408,1,1,1,0,0,1,0,1,1,1,1,1,1,0,1,1,0
+libero_10,Robot Initial States,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_379,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_466,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_131,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_477,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_103,1,1,1,1,1,1,0,0,1,1,1,1,1,0,1,0,1
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_295,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_10,1,1,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_394,1,1,1,1,0,0,0,0,0,0,1,0,1,0,0,0,1
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_492,1,0,0,0,1,1,0,0,0,0,0,0,1,0,0,1,0
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_228,0,1,1,1,0,1,0,1,0,1,0,1,0,0,1,0,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_209,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+libero_10,Robot Initial States,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_296,0,0,1,1,0,0,0,0,1,0,0,1,1,1,1,1,0
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_461,1,1,1,1,1,0,0,1,1,0,0,1,1,1,1,1,0
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_97,1,1,1,1,0,0,0,0,0,0,0,1,0,1,1,1,1
+libero_10,Robot Initial States,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_333,1,1,1,1,1,1,0,0,0,0,1,1,1,0,1,1,1
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_235,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_470,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_254,1,0,1,1,1,0,0,0,1,1,0,0,1,1,1,1,1
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_292,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_258,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_299,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,1,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_186,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,0
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_451,0,1,1,1,1,0,0,0,1,0,0,1,1,1,0,1,1
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_437,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_3,1,1,1,1,1,1,0,0,1,0,1,1,1,1,1,1,1
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_405,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_60,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,1,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_124,1,1,1,1,1,0,0,0,1,1,1,1,1,0,1,1,0
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_262,1,1,1,1,1,0,0,0,1,1,1,1,1,0,1,1,1
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_498,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_229,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_436,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_201,1,1,0,0,1,1,0,1,1,0,0,1,1,1,1,1,1
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_47,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_253,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_465,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_20,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_324,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_252,1,1,1,1,1,0,0,0,1,1,0,1,1,1,1,0,0
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_248,1,1,0,0,1,1,0,1,1,1,1,0,1,0,1,1,0
+libero_10,Robot Initial States,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_479,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,1,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_6,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_311,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_267,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,3,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_393,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,0
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_445,1,1,0,1,0,0,0,0,0,1,1,0,0,0,1,1,0
+libero_10,Robot Initial States,1,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_210,1,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_84,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_352,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_308,0,0,1,0,1,0,0,1,1,1,1,1,1,0,0,0,1
+libero_10,Robot Initial States,4,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_359,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_116,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_471,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_417,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_303,1,1,1,1,1,1,0,0,1,0,1,0,1,1,1,1,1
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_45,1,1,1,0,1,0,0,0,0,1,0,0,0,0,0,1,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_90,1,1,0,0,0,0,0,0,1,1,1,1,0,1,0,1,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_54,1,0,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_242,1,0,1,1,0,0,0,1,1,0,0,1,0,0,0,0,0
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_338,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_499,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,5,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_426,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_81,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_427,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_213,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_215,0,0,1,1,0,0,0,0,1,0,1,1,1,0,1,1,1
+libero_10,Robot Initial States,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_390,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0
+libero_10,Robot Initial States,4,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_204,0,1,1,1,0,0,0,0,1,1,1,1,1,0,1,0,0
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_282,0,0,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_78,0,0,1,1,1,1,0,1,0,1,1,0,1,1,1,1,1
+libero_10,Robot Initial States,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_139,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_316,0,0,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_71,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_487,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,1,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_113,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_315,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_380,1,1,1,1,0,0,0,0,1,0,0,1,0,1,0,0,1
+libero_10,Robot Initial States,3,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_74,1,1,0,1,1,1,0,0,1,1,1,1,1,1,1,1,0
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_302,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_148,1,0,1,1,1,0,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,5,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_249,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_446,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_271,1,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_87,1,1,1,1,1,1,0,0,1,1,1,1,0,1,1,1,1
+libero_10,Robot Initial States,1,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_23,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,0
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_475,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_330,1,1,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_174,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,1,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_482,1,0,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1
+libero_10,Robot Initial States,3,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_138,1,1,1,1,0,0,0,1,1,1,0,1,1,1,1,0,1
+libero_10,Robot Initial States,3,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_319,1,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0
+libero_10,Robot Initial States,3,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_266,1,1,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_411,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_367,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,1,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_193,1,1,1,1,1,0,0,0,1,0,1,0,0,1,1,1,1
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE5_put_the_white_mug_on_the_left_plate_and_put_the_yellow_and_white_mug_on_the_right_plate_view_0_0_100_0_0_initstate_175,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0
+libero_10,Robot Initial States,5,KITCHEN_SCENE6_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_view_0_0_100_0_0_initstate_340,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,5,KITCHEN_SCENE4_put_the_black_bowl_in_the_bottom_drawer_of_the_cabinet_and_close_it_view_0_0_100_0_0_initstate_424,0,0,0,0,0,1,0,0,0,0,1,1,1,0,1,1,1
+libero_10,Robot Initial States,2,LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_152,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE1_put_both_the_alphabet_soup_and_the_cream_cheese_box_in_the_basket_view_0_0_100_0_0_initstate_218,0,0,0,1,0,0,0,0,1,1,0,0,1,0,1,0,0
+libero_10,Robot Initial States,3,KITCHEN_SCENE8_put_both_moka_pots_on_the_stove_view_0_0_100_0_0_initstate_239,1,1,0,0,0,0,0,0,1,0,1,0,0,1,0,0,0
+libero_10,Robot Initial States,3,STUDY_SCENE1_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_view_0_0_100_0_0_initstate_456,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+libero_10,Robot Initial States,5,LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_231,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,4,LIVING_ROOM_SCENE6_put_the_white_mug_on_the_plate_and_put_the_chocolate_pudding_to_the_right_of_the_plate_view_0_0_100_0_0_initstate_237,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+libero_10,Robot Initial States,2,KITCHEN_SCENE3_turn_on_the_stove_and_put_the_moka_pot_on_it_view_0_0_100_0_0_initstate_473,1,1,1,1,1,1,0,0,0,0,1,1,1,1,1,1,0
