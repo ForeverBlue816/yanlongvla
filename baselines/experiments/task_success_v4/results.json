@@ -1,0 +1,1804 @@
+{
+ "LIBERO-Plus 1000": {
+  "fp_w16": {
+   "n": 1000,
+   "successes": 765,
+   "by_suite": {
+    "libero_spatial": [
+     201,
+     245
+    ],
+    "libero_object": [
+     205,
+     251
+    ],
+    "libero_goal": [
+     196,
+     256
+    ],
+    "libero_10": [
+     163,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     372,
+     500
+    ],
+    "Robot Initial States": [
+     393,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     93,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     113,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     97,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     69,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     108,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     92,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     99,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     94,
+     123
+    ]
+   }
+  },
+  "quipt0_w2": {
+   "n": 1000,
+   "successes": 740,
+   "by_suite": {
+    "libero_spatial": [
+     201,
+     245
+    ],
+    "libero_object": [
+     202,
+     251
+    ],
+    "libero_goal": [
+     188,
+     256
+    ],
+    "libero_10": [
+     149,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     364,
+     500
+    ],
+    "Robot Initial States": [
+     376,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     89,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     111,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     101,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     63,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     112,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     91,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     87,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     86,
+     123
+    ]
+   }
+  },
+  "qtip_w2": {
+   "n": 1000,
+   "successes": 726,
+   "by_suite": {
+    "libero_spatial": [
+     194,
+     245
+    ],
+    "libero_object": [
+     194,
+     251
+    ],
+    "libero_goal": [
+     182,
+     256
+    ],
+    "libero_10": [
+     156,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     355,
+     500
+    ],
+    "Robot Initial States": [
+     371,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     84,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     112,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     98,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     61,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     110,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     82,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     84,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     95,
+     123
+    ]
+   }
+  },
+  "vptq_w2": {
+   "n": 1000,
+   "successes": 685,
+   "by_suite": {
+    "libero_spatial": [
+     193,
+     245
+    ],
+    "libero_object": [
+     188,
+     251
+    ],
+    "libero_goal": [
+     174,
+     256
+    ],
+    "libero_10": [
+     130,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     329,
+     500
+    ],
+    "Robot Initial States": [
+     356,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     80,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     106,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     94,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     49,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     113,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     82,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     80,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     81,
+     123
+    ]
+   }
+  },
+  "quip_w2": {
+   "n": 1000,
+   "successes": 662,
+   "by_suite": {
+    "libero_spatial": [
+     180,
+     245
+    ],
+    "libero_object": [
+     178,
+     251
+    ],
+    "libero_goal": [
+     176,
+     256
+    ],
+    "libero_10": [
+     128,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     323,
+     500
+    ],
+    "Robot Initial States": [
+     339,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     79,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     101,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     95,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     48,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     101,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     77,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     81,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     80,
+     123
+    ]
+   }
+  },
+  "aqlm_w2": {
+   "n": 1000,
+   "successes": 639,
+   "by_suite": {
+    "libero_spatial": [
+     179,
+     245
+    ],
+    "libero_object": [
+     180,
+     251
+    ],
+    "libero_goal": [
+     155,
+     256
+    ],
+    "libero_10": [
+     125,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     304,
+     500
+    ],
+    "Robot Initial States": [
+     335,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     76,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     103,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     78,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     47,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     103,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     77,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     77,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     78,
+     123
+    ]
+   }
+  },
+  "gptq_w2": {
+   "n": 1000,
+   "successes": 393,
+   "by_suite": {
+    "libero_spatial": [
+     130,
+     245
+    ],
+    "libero_object": [
+     135,
+     251
+    ],
+    "libero_goal": [
+     84,
+     256
+    ],
+    "libero_10": [
+     44,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     181,
+     500
+    ],
+    "Robot Initial States": [
+     212,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     56,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     73,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     38,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     14,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     74,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     62,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     46,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     30,
+     123
+    ]
+   }
+  },
+  "awq_w2": {
+   "n": 1000,
+   "successes": 154,
+   "by_suite": {
+    "libero_spatial": [
+     76,
+     245
+    ],
+    "libero_object": [
+     43,
+     251
+    ],
+    "libero_goal": [
+     35,
+     256
+    ],
+    "libero_10": [
+     0,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     77,
+     500
+    ],
+    "Robot Initial States": [
+     77,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     31,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     25,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     21,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     0,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     45,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     18,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     14,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     0,
+     123
+    ]
+   }
+  },
+  "gptq_best_w2": {
+   "n": 1000,
+   "successes": 657,
+   "by_suite": {
+    "libero_spatial": [
+     189,
+     245
+    ],
+    "libero_object": [
+     183,
+     251
+    ],
+    "libero_goal": [
+     161,
+     256
+    ],
+    "libero_10": [
+     124,
+     248
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     320,
+     500
+    ],
+    "Robot Initial States": [
+     337,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     78,
+     120
+    ],
+    "Camera Viewpoints / libero_object": [
+     104,
+     126
+    ],
+    "Camera Viewpoints / libero_goal": [
+     82,
+     129
+    ],
+    "Camera Viewpoints / libero_10": [
+     56,
+     125
+    ],
+    "Robot Initial States / libero_spatial": [
+     111,
+     125
+    ],
+    "Robot Initial States / libero_object": [
+     79,
+     125
+    ],
+    "Robot Initial States / libero_goal": [
+     79,
+     127
+    ],
+    "Robot Initial States / libero_10": [
+     68,
+     123
+    ]
+   }
+  }
+ },
+ "LIBERO-Plus added 1000": {
+  "fp_w16": {
+   "n": 1000,
+   "successes": 736,
+   "by_suite": {
+    "libero_spatial": [
+     177,
+     215
+    ],
+    "libero_object": [
+     195,
+     251
+    ],
+    "libero_goal": [
+     197,
+     265
+    ],
+    "libero_10": [
+     167,
+     269
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     355,
+     500
+    ],
+    "Robot Initial States": [
+     381,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     83,
+     108
+    ],
+    "Camera Viewpoints / libero_object": [
+     97,
+     118
+    ],
+    "Camera Viewpoints / libero_goal": [
+     100,
+     132
+    ],
+    "Camera Viewpoints / libero_10": [
+     75,
+     142
+    ],
+    "Robot Initial States / libero_spatial": [
+     94,
+     107
+    ],
+    "Robot Initial States / libero_object": [
+     98,
+     133
+    ],
+    "Robot Initial States / libero_goal": [
+     97,
+     133
+    ],
+    "Robot Initial States / libero_10": [
+     92,
+     127
+    ]
+   }
+  },
+  "quipt0_w2": {
+   "n": 1000,
+   "successes": 678,
+   "by_suite": {
+    "libero_spatial": [
+     164,
+     215
+    ],
+    "libero_object": [
+     189,
+     251
+    ],
+    "libero_goal": [
+     186,
+     265
+    ],
+    "libero_10": [
+     139,
+     269
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     315,
+     500
+    ],
+    "Robot Initial States": [
+     363,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     73,
+     108
+    ],
+    "Camera Viewpoints / libero_object": [
+     92,
+     118
+    ],
+    "Camera Viewpoints / libero_goal": [
+     87,
+     132
+    ],
+    "Camera Viewpoints / libero_10": [
+     63,
+     142
+    ],
+    "Robot Initial States / libero_spatial": [
+     91,
+     107
+    ],
+    "Robot Initial States / libero_object": [
+     97,
+     133
+    ],
+    "Robot Initial States / libero_goal": [
+     99,
+     133
+    ],
+    "Robot Initial States / libero_10": [
+     76,
+     127
+    ]
+   }
+  },
+  "qtip_w2": {
+   "n": 1000,
+   "successes": 685,
+   "by_suite": {
+    "libero_spatial": [
+     167,
+     215
+    ],
+    "libero_object": [
+     186,
+     251
+    ],
+    "libero_goal": [
+     183,
+     265
+    ],
+    "libero_10": [
+     149,
+     269
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     324,
+     500
+    ],
+    "Robot Initial States": [
+     361,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     76,
+     108
+    ],
+    "Camera Viewpoints / libero_object": [
+     95,
+     118
+    ],
+    "Camera Viewpoints / libero_goal": [
+     91,
+     132
+    ],
+    "Camera Viewpoints / libero_10": [
+     62,
+     142
+    ],
+    "Robot Initial States / libero_spatial": [
+     91,
+     107
+    ],
+    "Robot Initial States / libero_object": [
+     91,
+     133
+    ],
+    "Robot Initial States / libero_goal": [
+     92,
+     133
+    ],
+    "Robot Initial States / libero_10": [
+     87,
+     127
+    ]
+   }
+  },
+  "vptq_w2": {
+   "n": 1000,
+   "successes": 632,
+   "by_suite": {
+    "libero_spatial": [
+     156,
+     215
+    ],
+    "libero_object": [
+     188,
+     251
+    ],
+    "libero_goal": [
+     167,
+     265
+    ],
+    "libero_10": [
+     121,
+     269
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     292,
+     500
+    ],
+    "Robot Initial States": [
+     340,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     67,
+     108
+    ],
+    "Camera Viewpoints / libero_object": [
+     95,
+     118
+    ],
+    "Camera Viewpoints / libero_goal": [
+     81,
+     132
+    ],
+    "Camera Viewpoints / libero_10": [
+     49,
+     142
+    ],
+    "Robot Initial States / libero_spatial": [
+     89,
+     107
+    ],
+    "Robot Initial States / libero_object": [
+     93,
+     133
+    ],
+    "Robot Initial States / libero_goal": [
+     86,
+     133
+    ],
+    "Robot Initial States / libero_10": [
+     72,
+     127
+    ]
+   }
+  },
+  "quip_w2": {
+   "n": 1000,
+   "successes": 611,
+   "by_suite": {
+    "libero_spatial": [
+     158,
+     215
+    ],
+    "libero_object": [
+     170,
+     251
+    ],
+    "libero_goal": [
+     168,
+     265
+    ],
+    "libero_10": [
+     115,
+     269
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     280,
+     500
+    ],
+    "Robot Initial States": [
+     331,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     68,
+     108
+    ],
+    "Camera Viewpoints / libero_object": [
+     80,
+     118
+    ],
+    "Camera Viewpoints / libero_goal": [
+     84,
+     132
+    ],
+    "Camera Viewpoints / libero_10": [
+     48,
+     142
+    ],
+    "Robot Initial States / libero_spatial": [
+     90,
+     107
+    ],
+    "Robot Initial States / libero_object": [
+     90,
+     133
+    ],
+    "Robot Initial States / libero_goal": [
+     84,
+     133
+    ],
+    "Robot Initial States / libero_10": [
+     67,
+     127
+    ]
+   }
+  },
+  "aqlm_w2": {
+   "n": 1000,
+   "successes": 589,
+   "by_suite": {
+    "libero_spatial": [
+     159,
+     215
+    ],
+    "libero_object": [
+     167,
+     251
+    ],
+    "libero_goal": [
+     141,
+     265
+    ],
+    "libero_10": [
+     122,
+     269
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     275,
+     500
+    ],
+    "Robot Initial States": [
+     314,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     72,
+     108
+    ],
+    "Camera Viewpoints / libero_object": [
+     84,
+     118
+    ],
+    "Camera Viewpoints / libero_goal": [
+     67,
+     132
+    ],
+    "Camera Viewpoints / libero_10": [
+     52,
+     142
+    ],
+    "Robot Initial States / libero_spatial": [
+     87,
+     107
+    ],
+    "Robot Initial States / libero_object": [
+     83,
+     133
+    ],
+    "Robot Initial States / libero_goal": [
+     74,
+     133
+    ],
+    "Robot Initial States / libero_10": [
+     70,
+     127
+    ]
+   }
+  },
+  "gptq_w2": {
+   "n": 1000,
+   "successes": 351,
+   "by_suite": {
+    "libero_spatial": [
+     116,
+     215
+    ],
+    "libero_object": [
+     119,
+     251
+    ],
+    "libero_goal": [
+     74,
+     265
+    ],
+    "libero_10": [
+     42,
+     269
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     154,
+     500
+    ],
+    "Robot Initial States": [
+     197,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     48,
+     108
+    ],
+    "Camera Viewpoints / libero_object": [
+     54,
+     118
+    ],
+    "Camera Viewpoints / libero_goal": [
+     38,
+     132
+    ],
+    "Camera Viewpoints / libero_10": [
+     14,
+     142
+    ],
+    "Robot Initial States / libero_spatial": [
+     68,
+     107
+    ],
+    "Robot Initial States / libero_object": [
+     65,
+     133
+    ],
+    "Robot Initial States / libero_goal": [
+     36,
+     133
+    ],
+    "Robot Initial States / libero_10": [
+     28,
+     127
+    ]
+   }
+  },
+  "awq_w2": {
+   "n": 1000,
+   "successes": 153,
+   "by_suite": {
+    "libero_spatial": [
+     77,
+     215
+    ],
+    "libero_object": [
+     42,
+     251
+    ],
+    "libero_goal": [
+     33,
+     265
+    ],
+    "libero_10": [
+     1,
+     269
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     82,
+     500
+    ],
+    "Robot Initial States": [
+     71,
+     500
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     35,
+     108
+    ],
+    "Camera Viewpoints / libero_object": [
+     19,
+     118
+    ],
+    "Camera Viewpoints / libero_goal": [
+     28,
+     132
+    ],
+    "Camera Viewpoints / libero_10": [
+     0,
+     142
+    ],
+    "Robot Initial States / libero_spatial": [
+     42,
+     107
+    ],
+    "Robot Initial States / libero_object": [
+     23,
+     133
+    ],
+    "Robot Initial States / libero_goal": [
+     5,
+     133
+    ],
+    "Robot Initial States / libero_10": [
+     1,
+     127
+    ]
+   }
+  }
+ },
+ "LIBERO-Plus 2000 (both)": {
+  "fp_w16": {
+   "n": 2000,
+   "successes": 1501,
+   "by_suite": {
+    "libero_spatial": [
+     378,
+     460
+    ],
+    "libero_object": [
+     400,
+     502
+    ],
+    "libero_goal": [
+     393,
+     521
+    ],
+    "libero_10": [
+     330,
+     517
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     727,
+     1000
+    ],
+    "Robot Initial States": [
+     774,
+     1000
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     176,
+     228
+    ],
+    "Camera Viewpoints / libero_object": [
+     210,
+     244
+    ],
+    "Camera Viewpoints / libero_goal": [
+     197,
+     261
+    ],
+    "Camera Viewpoints / libero_10": [
+     144,
+     267
+    ],
+    "Robot Initial States / libero_spatial": [
+     202,
+     232
+    ],
+    "Robot Initial States / libero_object": [
+     190,
+     258
+    ],
+    "Robot Initial States / libero_goal": [
+     196,
+     260
+    ],
+    "Robot Initial States / libero_10": [
+     186,
+     250
+    ]
+   }
+  },
+  "quipt0_w2": {
+   "n": 2000,
+   "successes": 1418,
+   "by_suite": {
+    "libero_spatial": [
+     365,
+     460
+    ],
+    "libero_object": [
+     391,
+     502
+    ],
+    "libero_goal": [
+     374,
+     521
+    ],
+    "libero_10": [
+     288,
+     517
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     679,
+     1000
+    ],
+    "Robot Initial States": [
+     739,
+     1000
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     162,
+     228
+    ],
+    "Camera Viewpoints / libero_object": [
+     203,
+     244
+    ],
+    "Camera Viewpoints / libero_goal": [
+     188,
+     261
+    ],
+    "Camera Viewpoints / libero_10": [
+     126,
+     267
+    ],
+    "Robot Initial States / libero_spatial": [
+     203,
+     232
+    ],
+    "Robot Initial States / libero_object": [
+     188,
+     258
+    ],
+    "Robot Initial States / libero_goal": [
+     186,
+     260
+    ],
+    "Robot Initial States / libero_10": [
+     162,
+     250
+    ]
+   }
+  },
+  "qtip_w2": {
+   "n": 2000,
+   "successes": 1411,
+   "by_suite": {
+    "libero_spatial": [
+     361,
+     460
+    ],
+    "libero_object": [
+     380,
+     502
+    ],
+    "libero_goal": [
+     365,
+     521
+    ],
+    "libero_10": [
+     305,
+     517
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     679,
+     1000
+    ],
+    "Robot Initial States": [
+     732,
+     1000
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     160,
+     228
+    ],
+    "Camera Viewpoints / libero_object": [
+     207,
+     244
+    ],
+    "Camera Viewpoints / libero_goal": [
+     189,
+     261
+    ],
+    "Camera Viewpoints / libero_10": [
+     123,
+     267
+    ],
+    "Robot Initial States / libero_spatial": [
+     201,
+     232
+    ],
+    "Robot Initial States / libero_object": [
+     173,
+     258
+    ],
+    "Robot Initial States / libero_goal": [
+     176,
+     260
+    ],
+    "Robot Initial States / libero_10": [
+     182,
+     250
+    ]
+   }
+  },
+  "vptq_w2": {
+   "n": 2000,
+   "successes": 1317,
+   "by_suite": {
+    "libero_spatial": [
+     349,
+     460
+    ],
+    "libero_object": [
+     376,
+     502
+    ],
+    "libero_goal": [
+     341,
+     521
+    ],
+    "libero_10": [
+     251,
+     517
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     621,
+     1000
+    ],
+    "Robot Initial States": [
+     696,
+     1000
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     147,
+     228
+    ],
+    "Camera Viewpoints / libero_object": [
+     201,
+     244
+    ],
+    "Camera Viewpoints / libero_goal": [
+     175,
+     261
+    ],
+    "Camera Viewpoints / libero_10": [
+     98,
+     267
+    ],
+    "Robot Initial States / libero_spatial": [
+     202,
+     232
+    ],
+    "Robot Initial States / libero_object": [
+     175,
+     258
+    ],
+    "Robot Initial States / libero_goal": [
+     166,
+     260
+    ],
+    "Robot Initial States / libero_10": [
+     153,
+     250
+    ]
+   }
+  },
+  "quip_w2": {
+   "n": 2000,
+   "successes": 1273,
+   "by_suite": {
+    "libero_spatial": [
+     338,
+     460
+    ],
+    "libero_object": [
+     348,
+     502
+    ],
+    "libero_goal": [
+     344,
+     521
+    ],
+    "libero_10": [
+     243,
+     517
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     603,
+     1000
+    ],
+    "Robot Initial States": [
+     670,
+     1000
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     147,
+     228
+    ],
+    "Camera Viewpoints / libero_object": [
+     181,
+     244
+    ],
+    "Camera Viewpoints / libero_goal": [
+     179,
+     261
+    ],
+    "Camera Viewpoints / libero_10": [
+     96,
+     267
+    ],
+    "Robot Initial States / libero_spatial": [
+     191,
+     232
+    ],
+    "Robot Initial States / libero_object": [
+     167,
+     258
+    ],
+    "Robot Initial States / libero_goal": [
+     165,
+     260
+    ],
+    "Robot Initial States / libero_10": [
+     147,
+     250
+    ]
+   }
+  },
+  "aqlm_w2": {
+   "n": 2000,
+   "successes": 1228,
+   "by_suite": {
+    "libero_spatial": [
+     338,
+     460
+    ],
+    "libero_object": [
+     347,
+     502
+    ],
+    "libero_goal": [
+     296,
+     521
+    ],
+    "libero_10": [
+     247,
+     517
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     579,
+     1000
+    ],
+    "Robot Initial States": [
+     649,
+     1000
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     148,
+     228
+    ],
+    "Camera Viewpoints / libero_object": [
+     187,
+     244
+    ],
+    "Camera Viewpoints / libero_goal": [
+     145,
+     261
+    ],
+    "Camera Viewpoints / libero_10": [
+     99,
+     267
+    ],
+    "Robot Initial States / libero_spatial": [
+     190,
+     232
+    ],
+    "Robot Initial States / libero_object": [
+     160,
+     258
+    ],
+    "Robot Initial States / libero_goal": [
+     151,
+     260
+    ],
+    "Robot Initial States / libero_10": [
+     148,
+     250
+    ]
+   }
+  },
+  "gptq_w2": {
+   "n": 2000,
+   "successes": 744,
+   "by_suite": {
+    "libero_spatial": [
+     246,
+     460
+    ],
+    "libero_object": [
+     254,
+     502
+    ],
+    "libero_goal": [
+     158,
+     521
+    ],
+    "libero_10": [
+     86,
+     517
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     335,
+     1000
+    ],
+    "Robot Initial States": [
+     409,
+     1000
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     104,
+     228
+    ],
+    "Camera Viewpoints / libero_object": [
+     127,
+     244
+    ],
+    "Camera Viewpoints / libero_goal": [
+     76,
+     261
+    ],
+    "Camera Viewpoints / libero_10": [
+     28,
+     267
+    ],
+    "Robot Initial States / libero_spatial": [
+     142,
+     232
+    ],
+    "Robot Initial States / libero_object": [
+     127,
+     258
+    ],
+    "Robot Initial States / libero_goal": [
+     82,
+     260
+    ],
+    "Robot Initial States / libero_10": [
+     58,
+     250
+    ]
+   }
+  },
+  "awq_w2": {
+   "n": 2000,
+   "successes": 307,
+   "by_suite": {
+    "libero_spatial": [
+     153,
+     460
+    ],
+    "libero_object": [
+     85,
+     502
+    ],
+    "libero_goal": [
+     68,
+     521
+    ],
+    "libero_10": [
+     1,
+     517
+    ]
+   },
+   "by_perturbation": {
+    "Camera Viewpoints": [
+     159,
+     1000
+    ],
+    "Robot Initial States": [
+     148,
+     1000
+    ]
+   },
+   "by_perturbation_suite": {
+    "Camera Viewpoints / libero_spatial": [
+     66,
+     228
+    ],
+    "Camera Viewpoints / libero_object": [
+     44,
+     244
+    ],
+    "Camera Viewpoints / libero_goal": [
+     49,
+     261
+    ],
+    "Camera Viewpoints / libero_10": [
+     0,
+     267
+    ],
+    "Robot Initial States / libero_spatial": [
+     87,
+     232
+    ],
+    "Robot Initial States / libero_object": [
+     41,
+     258
+    ],
+    "Robot Initial States / libero_goal": [
+     19,
+     260
+    ],
+    "Robot Initial States / libero_10": [
+     1,
+     250
+    ]
+   }
+  }
+ },
+ "LIBERO": {
+  "fp_w16": {
+   "libero_spatial": [
+    491,
+    500
+   ],
+   "libero_object": [
+    494,
+    500
+   ],
+   "libero_goal": [
+    484,
+    500
+   ],
+   "libero_10": [
+    459,
+    500
+   ]
+  },
+  "quipt0_w2": {
+   "libero_spatial": [
+    495,
+    500
+   ],
+   "libero_object": [
+    496,
+    500
+   ],
+   "libero_goal": [
+    493,
+    500
+   ],
+   "libero_10": [
+    466,
+    500
+   ]
+  },
+  "qtip_w2": {
+   "libero_spatial": [
+    493,
+    500
+   ],
+   "libero_object": [
+    498,
+    500
+   ],
+   "libero_goal": [
+    489,
+    500
+   ],
+   "libero_10": [
+    471,
+    500
+   ]
+  },
+  "vptq_w2": {
+   "libero_spatial": [
+    492,
+    500
+   ],
+   "libero_object": [
+    493,
+    500
+   ],
+   "libero_goal": [
+    490,
+    500
+   ],
+   "libero_10": [
+    465,
+    500
+   ]
+  },
+  "quip_w2": {
+   "libero_spatial": [
+    490,
+    500
+   ],
+   "libero_object": [
+    490,
+    500
+   ],
+   "libero_goal": [
+    487,
+    500
+   ],
+   "libero_10": [
+    458,
+    500
+   ]
+  },
+  "aqlm_w2": {
+   "libero_spatial": [
+    491,
+    500
+   ],
+   "libero_object": [
+    495,
+    500
+   ],
+   "libero_goal": [
+    477,
+    500
+   ],
+   "libero_10": [
+    452,
+    500
+   ]
+  },
+  "gptq_w2": {
+   "libero_spatial": [
+    448,
+    500
+   ],
+   "libero_object": [
+    486,
+    500
+   ],
+   "libero_goal": [
+    238,
+    500
+   ],
+   "libero_10": [
+    228,
+    500
+   ]
+  },
+  "awq_w2": {
+   "libero_spatial": [
+    401,
+    500
+   ],
+   "libero_object": [
+    340,
+    500
+   ],
+   "libero_goal": [
+    222,
+    500
+   ],
+   "libero_10": [
+    68,
+    500
+   ]
+  }
+ }
+}

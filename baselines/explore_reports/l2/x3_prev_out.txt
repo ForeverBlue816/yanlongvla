@@ -1,0 +1,8 @@
+widowx_carrot_on_plate episode 0 diverges: False
+  prev ran 300 in both: 4 diverge of 45
+  prev ended early in fpsl (so fpnt prev ran longer): 23 diverge of 74
+  divergent episodes: [2, 3, 4, 5, 13, 14, 15, 16, 18, 22, 24, 31, 32, 37, 38, 56, 58, 74, 75, 86, 87, 95, 96, 101, 104, 111, 116]
+widowx_stack_cube episode 0 diverges: False
+  prev ended early in fpsl (so fpnt prev ran longer): 6 diverge of 36
+  prev ran 300 in both: 1 diverge of 83
+  divergent episodes: [4, 5, 6, 7, 23, 97, 101]

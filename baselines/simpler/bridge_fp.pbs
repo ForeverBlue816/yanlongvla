@@ -1,0 +1,29 @@
+#!/bin/bash
+#PBS -N gr_bridge
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=04:00:00
+#PBS -j oe
+# GR00T N1.7 SimplerEnv-Bridge (WidowX), protocol of groot/simpler/README.md: one task per job (100 episodes, seed 7, 300 steps,
+# 4 executed steps per call, one env), resumable. Submit: qsub -v TASK=widowx_carrot_on_plate[,MODEL=<dir>,ROW=fp] simpler/bridge_fp.pbs
+# Not submitted yet (written 2026-11-06 while the project is at its GPU cap).
+H=/home/d250009/projects/pi05-handover; G=/scratch/d250009/pi05-handover/runs/groot_baselines
+ISAAC=$H/runs/toolkits/Isaac-GR00T; PY_G=$H/runs/envs/groot/bin/python
+SIMPLER_PY=$ISAAC/gr00t/eval/sim/SimplerEnv/simpler_uv/.venv/bin/python
+SRC=/home/d250009/yanlongvla-clean/baselines
+TASK=${TASK:?TASK not set}; ROW=${ROW:-fp}; MODEL=${MODEL:-$G/s5b/checkpoints/bridge}
+OUT=$G/s5b/eval/$ROW; mkdir -p "$OUT"
+export HF_TOKEN=$(cat ~/.hf_token)
+nvidia-smi --query-gpu=name --format=csv,noheader > "$OUT/gpu.txt"
+port=$((20000 + ${PBS_JOBID%%.*} % 20000)); t=0
+( cd "$ISAAC" && exec "$PY_G" gr00t/eval/run_gr00t_server.py --model-path "$MODEL" --embodiment-tag SIMPLER_ENV_WIDOWX \
+    --use-sim-policy-wrapper --port "$port" > "$OUT/$TASK.server.log" 2>&1 ) &
+spid=$!
+until grep -q -i "ready\|listening\|serving" "$OUT/$TASK.server.log" 2>/dev/null; do
+  kill -0 $spid 2>/dev/null || { echo "server died" >&2; exit 1; }
+  sleep 10; t=$((t + 10)); [[ $t -gt 900 ]] && { kill $spid; echo "server start timeout" >&2; exit 1; }
+done
+( cd "$ISAAC" && PATH=$H/runs/toolkits/bin:$PATH "$SIMPLER_PY" "$SRC/groot/simpler/eval_simpler_bridge.py" --tasks "$TASK" \
+    --episodes 100 --seed 7 --port "$port" --out "$OUT/$TASK.json" ) > "$OUT/$TASK.log" 2>&1
+rc=$?; kill $spid 2>/dev/null; wait $spid 2>/dev/null; exit $rc

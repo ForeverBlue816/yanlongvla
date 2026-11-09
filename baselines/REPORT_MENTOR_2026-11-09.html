@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GR00T N1.7 2-bit baselines: progress report for the mentor (9 Nov 2026)</title>
+<style>
+  :root { --fg:#1b1f24; --muted:#5b6470; --line:#d9dde3; --bg:#ffffff; --soft:#f5f7fa;
+          --ok:#14633a; --okbg:#e3f4ea; --part:#7a4b00; --partbg:#fdf0d5; --open:#8a1f1f; --openbg:#fbe4e4;
+          --run:#1b4f9c; --runbg:#e2ecfb; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8ebef; --muted:#9aa4b2; --line:#343b45; --bg:#14181d; --soft:#1c2128;
+            --ok:#7fd6a2; --okbg:#173325; --part:#f0c46b; --partbg:#3a2d10; --open:#f29a9a; --openbg:#3d1d1d;
+            --run:#8db8f5; --runbg:#15283f; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  main { max-width: 1000px; margin: 0 auto; padding: 28px 20px 80px; }
+  h1 { font-size: 1.7rem; margin: 0 0 4px; line-height:1.25; }
+  h2 { font-size: 1.3rem; margin: 40px 0 10px; padding-top: 10px; border-top: 2px solid var(--line); }
+  h3 { font-size: 1.08rem; margin: 22px 0 6px; }
+  p, li { max-width: 78ch; }
+  .meta { color: var(--muted); margin: 0 0 18px; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 6px; font-size: .92rem; }
+  th, td { border: 1px solid var(--line); padding: 5px 8px; text-align: left; vertical-align: top; }
+  th { background: var(--soft); }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .scroll { overflow-x: auto; }
+  .note { color: var(--muted); font-size: .88rem; margin: 4px 0 14px; max-width: 90ch; }
+  .badge { display:inline-block; padding: 1px 9px; border-radius: 999px; font-size: .78rem; font-weight: 700; white-space: nowrap; letter-spacing:.02em; }
+  .ok   { color: var(--ok);   background: var(--okbg); }
+  .part { color: var(--part); background: var(--partbg); }
+  .open { color: var(--open); background: var(--openbg); }
+  .run  { color: var(--run);  background: var(--runbg); }
+  .box { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+  .summary li { margin: 6px 0; }
+  .tree { list-style: none; margin: 8px 0; padding-left: 0; font-size: .95rem; }
+  .tree ul { list-style: none; margin: 2px 0 2px 14px; padding-left: 16px; border-left: 2px solid var(--line); }
+  .tree li { margin: 4px 0; max-width: none; }
+  .tree a { color: inherit; }
+  .branch { border: 1px solid var(--line); border-radius: 10px; padding: 4px 16px 12px; margin: 18px 0; }
+  .branch > h3:first-child { margin-top: 12px; }
+  .item { border-top: 1px dashed var(--line); margin-top: 14px; padding-top: 8px; }
+  .item:first-of-type { border-top: 0; }
+  dl { margin: 6px 0; display: grid; grid-template-columns: 6.5em 1fr; gap: 3px 12px; }
+  dt { font-weight: 700; color: var(--muted); }
+  dd { margin: 0; }
+  dd ul, dd ol { margin: 2px 0 4px; padding-left: 20px; }
+  code { font-family: ui-monospace,Menlo,Consolas,monospace; font-size: .88em; background: var(--soft); padding: 0 4px; border-radius: 4px; }
+  @media (max-width: 640px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+</style>
+</head>
+<body>
+<main>
+
+<h1>GR00T N1.7 2-bit quantization baselines: progress report for the mentor</h1>
+<p class="meta">Status on 9 Nov 2026, 22:45 (UTC+8). Models: GR00T N1.7 on LIBERO-Plus, SimplerEnv-Bridge and SimplerEnv-Fractal. A short pi0.5 note is in section 2.<br>
+<b>Code and evidence:</b> <a href="https://github.com/ForeverBlue816/yanlongvla/pull/5">pull request #5</a> (branch <code>baselines-nov9-shrink-fp-repro</code>). Each item below has a "Code and evidence" line with file links.<br>
+All numbers come from complete runs with a <code>.done</code> file. Runs that are still active are marked "running".</p>
+
+<h2 id="summary">1. Summary</h2>
+<ol class="summary">
+  <li><b>LIBERO-Plus:</b> our FP equals your FP (618 of 1000). Every 2-bit method is below FP. QTIP is the best (573). AQLM is the worst (401).</li>
+  <li><b>Bridge is the opposite.</b> QTIP, QuIP#, VPTQ and AQLM are at or above FP (total of 840 episodes: FP 503, 2-bit rows 527 to 565). The gains come from two tasks, carrot_on_plate and stack_cube.</li>
+  <li><b>A plain weight shrink gives the same gain.</b> FP weights × 0.95, with no quantizer, get 587 of 840 and are the best Bridge row. So the Bridge result is no evidence that quantization helps.</li>
+  <li><b>The 2-bit error does not work as a shrink.</b> On real inputs, it shrinks the layer outputs by only 0.2 to 0.9%. The part of the error that is not a shrink gives the gain alone. <b>We do not yet know why.</b></li>
+  <li><b>Our FP matches NVIDIA's FP on Bridge</b> when we use NVIDIA's command (61.5% against 62.3%). The stack_cube difference (30% against 48%) is solved. NVIDIA's command always walks the same fixed list of start layouts (seed 2022), and the list has many easy layouts. With a new list for each run, the same command gives 33.8%.</li>
+  <li><b>Fractal open_drawer is not solved.</b> Ours is 48 to 58 of 100 (54.2% over 500 episodes). NVIDIA reports 65. We ruled out seed, attention kernel, checkpoint version and library versions. <b>Question for the mentor (A20).</b></li>
+  <li><b>Runs were not bit-identical because the env keeps state between episodes.</b> We found the cause. With a new env for each episode, repeated runs are identical.</li>
+  <li>Branch F (section 4) lists the <b>decisions that we need from the mentor</b>.</li>
+</ol>
+
+<h3>Status legend</h3>
+<p><span class="badge ok">ANSWERED</span> a test gave a clear answer. &nbsp;
+<span class="badge part">PARTLY</span> some part is answered. &nbsp;
+<span class="badge open">OPEN</span> no answer yet. &nbsp;
+<span class="badge open">OPEN: MENTOR</span> we need the mentor. &nbsp;
+<span class="badge run">RUNNING</span> jobs are active.</p>
+
+<h2 id="main">2. First main results</h2>
+<p>Terms: <b>FP</b> = the original model (16 bits per weight, bf16). <b>bpw</b> = bits per weight. "Linear bpw" counts only the 432 quantized weight tensors. <b>Difference</b> = difference to FP in percentage points, with the 95% interval.</p>
+
+<h3>2.1 GR00T N1.7 on LIBERO-Plus (1000 units, one episode each)</h3>
+<div class="scroll"><table>
+<tr><th>Row</th><th class="n">Linear bpw</th><th class="n">Successes of 1000</th><th class="n">%</th><th>Difference to FP [95%]</th></tr>
+<tr><td><b>FP, mentor's reference</b></td><td class="n">16</td><td class="n">618</td><td class="n">61.8</td><td>-</td></tr>
+<tr><td><b>FP, ours</b></td><td class="n">16</td><td class="n">618</td><td class="n">61.8</td><td>identical on every unit</td></tr>
+<tr><td>QTIP</td><td class="n">2.018</td><td class="n">573</td><td class="n">57.3</td><td>-4.5 [-7.9, -1.2]</td></tr>
+<tr><td>QuIP#, 0 sweeps (appendix)</td><td class="n">2.031</td><td class="n">554</td><td class="n">55.4</td><td>-6.4 [-10.5, -2.5]</td></tr>
+<tr><td>QuIP#, 10 sweeps (official)</td><td class="n">2.031</td><td class="n">531</td><td class="n">53.1</td><td>-8.7 [-13.1, -4.6]</td></tr>
+<tr><td>VPTQ</td><td class="n">2.003</td><td class="n">495</td><td class="n">49.5</td><td>-12.3 [-17.8, -7.3]</td></tr>
+<tr><td>GPTQ, best variant per layer</td><td class="n">2.148</td><td class="n">476</td><td class="n">47.6</td><td>-14.2 [-20.1, -8.5]</td></tr>
+<tr><td>AQLM</td><td class="n">2.020</td><td class="n">401</td><td class="n">40.1</td><td>-21.7 [-27.8, -15.9]</td></tr>
+<tr><td>Mentor's 2-bit PTQ (reference)</td><td class="n">-</td><td class="n">486</td><td class="n">48.6</td><td>-13.2</td></tr>
+<tr><td>Mentor's B2, fine-tuned 2-bit (not plain PTQ)</td><td class="n">2.023</td><td class="n">556</td><td class="n">55.6</td><td>-6.2 [-11.4, -1.0]</td></tr>
+</table></div>
+<p class="note">Plain GPTQ gets 0 and AWQ stopped at the sanity gate (0 of 50). NVIDIA publishes no LIBERO-Plus score. It publishes only standard LIBERO (Spatial 97.65, Goal 97.5, Object 98.45, Long 94.35), which we have not run for GR00T.</p>
+
+<h3>2.2 GR00T N1.7 on SimplerEnv-Bridge (mentor's seeded protocol)</h3>
+<p>120 episodes per task, seed 7, 1 env, n-action-steps 4. The cell shows successes of 120 and the % in brackets. Layouts: 24 for spoon, carrot and stack_cube; 8 for basket (15 episodes each); 1 for sink; random scene for the drawers. Every episode has its own seed. All rows use the same 120 seeds.</p>
+<div class="scroll"><table>
+<tr><th>Task</th><th class="n">NVIDIA FP (published, % of 100)</th><th class="n">Our FP</th><th class="n">QTIP</th><th class="n">QuIP# 0 sw</th><th class="n">QuIP# 10 sw (official)</th><th class="n">VPTQ</th><th class="n">AQLM</th><th class="n">FP × 0.95 (control, no quantizer)</th></tr>
+<tr><td>spoon_on_towel</td><td class="n">78</td><td class="n">101 (84.2)</td><td class="n">100 (83.3)</td><td class="n">107 (89.2)</td><td class="n">93 (77.5)</td><td class="n">94 (78.3)</td><td class="n">55 (45.8)</td><td class="n">97 (80.8)</td></tr>
+<tr><td>carrot_on_plate</td><td class="n">58</td><td class="n">75 (62.5)</td><td class="n">93 (77.5)</td><td class="n">107 (89.2)</td><td class="n">98 (81.7)</td><td class="n">97 (80.8)</td><td class="n">87 (72.5)</td><td class="n">102 (85.0)</td></tr>
+<tr><td>stack_cube</td><td class="n">48</td><td class="n">36 (30.0)</td><td class="n">72 (60.0)</td><td class="n">69 (57.5)</td><td class="n">66 (55.0)</td><td class="n">81 (67.5)</td><td class="n">62 (51.7)</td><td class="n">69 (57.5)</td></tr>
+<tr><td>put_eggplant_in_basket</td><td class="n">53</td><td class="n">56 (46.7)</td><td class="n">27 (22.5)</td><td class="n">41 (34.2)</td><td class="n">51 (42.5)</td><td class="n">52 (43.3)</td><td class="n">81 (67.5)</td><td class="n">78 (65.0)</td></tr>
+<tr><td>put_eggplant_in_sink</td><td class="n">2</td><td class="n">0 (0.0)</td><td class="n">4 (3.3)</td><td class="n">6 (5.0)</td><td class="n"><span class="badge run">running</span></td><td class="n">0 (0.0)</td><td class="n">3 (2.5)</td><td class="n">1 (0.8)</td></tr>
+<tr><td>open_drawer</td><td class="n">100</td><td class="n">120 (100)</td><td class="n">118 (98.3)</td><td class="n">117 (97.5)</td><td class="n"><span class="badge run">running</span></td><td class="n">120 (100)</td><td class="n">120 (100)</td><td class="n">120 (100)</td></tr>
+<tr><td>close_drawer</td><td class="n">97</td><td class="n">115 (95.8)</td><td class="n">117 (97.5)</td><td class="n">118 (98.3)</td><td class="n"><span class="badge run">running</span></td><td class="n">120 (100)</td><td class="n">119 (99.2)</td><td class="n">120 (100)</td></tr>
+<tr><th>Total of 840</th><th class="n">62.3%</th><th class="n">503 (59.9)</th><th class="n">531 (63.2)</th><th class="n">565 (67.3)</th><th class="n">not complete</th><th class="n">564 (67.1)</th><th class="n">527 (62.7)</th><th class="n">587 (69.9)</th></tr>
+<tr><th>Difference to FP (points)</th><th></th><th class="n">-</th><th class="n">+3.3</th><th class="n">+7.4</th><th class="n">-</th><th class="n">+7.3</th><th class="n">+2.9</th><th class="n">+10.0 [+6.5, +13.8]</th></tr>
+</table></div>
+<p class="note">QuIP# 10 sweeps: 4 of 7 tasks are complete (308 of 480; QuIP# 0 sweeps gets 324 and FP 268 on the same 4 tasks). The other 3 tasks are running or waiting. NVIDIA's published values come from one run of 100 episodes with their own command. They are not on the same layout list as our protocol (see branch A1).</p>
+
+<h3>2.3 GR00T N1.7 on SimplerEnv-Fractal (Google Robot, 100 episodes per family, 600 per row)</h3>
+<div class="scroll"><table>
+<tr><th>Row</th><th class="n">pick_coke_can</th><th class="n">pick_object</th><th class="n">move_near</th><th class="n">open_drawer</th><th class="n">close_drawer</th><th class="n">place_in_closed_drawer</th><th class="n">All of 600</th><th>Difference to FP [95%]</th></tr>
+<tr><td><b>FP, ours</b></td><td class="n">98</td><td class="n">90</td><td class="n">99</td><td class="n">48</td><td class="n">63</td><td class="n">11</td><td class="n">409 (68.2%)</td><td>-</td></tr>
+<tr><td>NVIDIA model card</td><td class="n" colspan="6">average 72.5%; open_drawer 65%</td><td class="n">72.5%</td><td></td></tr>
+<tr><td>QTIP</td><td class="n">98</td><td class="n">86</td><td class="n">97</td><td class="n">64</td><td class="n">65</td><td class="n">13</td><td class="n">423 (70.5%)</td><td>+2.3 [-1.6, +6.2]</td></tr>
+<tr><td>QuIP#, 10 sweeps</td><td class="n">98</td><td class="n">71</td><td class="n">79</td><td class="n">60</td><td class="n">63</td><td class="n">6</td><td class="n">377 (62.8%)</td><td>-5.3 [-9.5, -1.2]</td></tr>
+<tr><td>QuIP#, 0 sweeps</td><td class="n">100</td><td class="n">72</td><td class="n">94</td><td class="n">53</td><td class="n">57</td><td class="n">17</td><td class="n">393 (65.5%)</td><td>-2.7 [-6.8, +1.5]</td></tr>
+<tr><td>VPTQ</td><td class="n">97</td><td class="n">54</td><td class="n">79</td><td class="n">69</td><td class="n">72</td><td class="n">5</td><td class="n">376 (62.7%)</td><td>-5.5 [-9.9, -1.1]</td></tr>
+<tr><td>AQLM</td><td class="n">98</td><td class="n">70</td><td class="n">82</td><td class="n">60</td><td class="n">65</td><td class="n">21</td><td class="n">396 (66.0%)</td><td>-2.2 [-6.6, +2.3]</td></tr>
+<tr><td>GPTQ, best</td><td class="n">99</td><td class="n">66</td><td class="n">82</td><td class="n">38</td><td class="n">61</td><td class="n">7</td><td class="n">353 (58.8%)</td><td>-9.3 [-13.4, -5.3]</td></tr>
+</table></div>
+<p class="note">Intervals are unpaired and stratified by family (5 async envs do not allow pairing; audit A11). Plain GPTQ and AWQ collapse (33 and 35 of 600). pi0.5 in short: standard LIBERO is reproduced (96.4% against 96.85% published). The LIBERO-Plus FP value 765 of 1000 is the mentor's published row, not our run. Our own re-run is branch E (A13).</p>
+
+<h2 id="map">3. Map of the investigation</h2>
+<p>The main results raised these questions. Each branch below has the same form: question, how we tested it, result, status, next step.</p>
+<ul class="tree">
+  <li><b>Main results (section 2)</b>
+    <ul>
+      <li><a href="#A"><b>A. Does our FP match NVIDIA's FP?</b></a>
+        <ul>
+          <li>A1. Bridge stack_cube: 30% against 48% &nbsp;<span class="badge ok">ANSWERED</span></li>
+          <li>A2. Fractal open_drawer: about 50 against 65 &nbsp;<span class="badge open">OPEN: MENTOR</span></li>
+        </ul></li>
+      <li><a href="#B"><b>B. Why are the 2-bit rows above FP on Bridge?</b></a>
+        <ul>
+          <li>B1. Is it random noise? &nbsp;<span class="badge ok">ANSWERED: no</span></li>
+          <li>B2. Does a plain weight shrink give it? &nbsp;<span class="badge ok">ANSWERED: yes</span></li>
+          <li>B3. Why does a shrink help? &nbsp;<span class="badge part">PARTLY</span></li>
+          <li>B4. Do the 2-bit rows work through a shrink? &nbsp;<span class="badge open">OPEN</span></li>
+        </ul></li>
+      <li><a href="#C"><b>C. Does the shrink help outside Bridge?</b></a> &nbsp;<span class="badge ok">ANSWERED: no</span></li>
+      <li><a href="#D"><b>D. Why is AQLM different on Bridge?</b></a> &nbsp;<span class="badge part">PARTLY</span></li>
+      <li><a href="#E"><b>E. Are our measurements stable and fair?</b></a> &nbsp;<span class="badge ok">MOSTLY ANSWERED</span> <span class="badge run">3 tests RUNNING</span></li>
+      <li><a href="#F"><b>F. Method choices that need the mentor</b></a> &nbsp;<span class="badge open">OPEN: MENTOR</span></li>
+    </ul></li>
+</ul>
+
+<h2 id="A">4. Branches</h2>
+
+<div class="branch" id="A-branch">
+<h3>A. Does our FP match NVIDIA's FP?</h3>
+
+<div class="item" id="A1">
+<h3>A1. Bridge stack_cube: ours 30%, NVIDIA 48% &nbsp;<span class="badge ok">ANSWERED</span></h3>
+<dl>
+<dt>Question</dt><dd>Under the mentor's seeded protocol, our FP gets 30% on stack_cube. NVIDIA reports 48%. Why?</dd>
+<dt>How</dt><dd><ol>
+<li>We ran NVIDIA's own command on our stack (5 envs, 100 episodes, no seed). Mean of 7 tasks: 61.5% against 62.3% (H6). Every task is within 4 points.</li>
+<li>We changed one factor at a time: attention kernel, seed, number of envs, server batch size, episodes dropped at the end of a run (X19, X20). We made 12 repeats of NVIDIA's command and 10 seeded runs.</li>
+<li>We read the env code and classified the layout of all 1200 official episodes from the first video frame (X22). The classifier is exact on 120 of 120 known frames.</li>
+<li>We pre-registered H9 before the runs: NVIDIA's command with a different seed for each run (6 × 100 episodes). Prediction: about 33 to 41%, not 47%.</li></ol></dd>
+<dt>Result</dt><dd>
+<div class="scroll"><table>
+<tr><th>Arm (stack_cube)</th><th class="n">Successes</th><th class="n">%</th></tr>
+<tr><td>NVIDIA's command, 5 envs, default seed (6 runs)</td><td class="n">282 of 600</td><td class="n">47.0</td></tr>
+<tr><td>NVIDIA's command, 1 env, default seed (6 runs)</td><td class="n">235 of 600</td><td class="n">39.2</td></tr>
+<tr><td>Mentor's seeded protocol, flash-attn (5 runs)</td><td class="n">221 of 600</td><td class="n">36.8</td></tr>
+<tr><td>Mentor's seeded protocol, SDPA (5 runs)</td><td class="n">200 of 600</td><td class="n">33.3</td></tr>
+<tr><td><b>NVIDIA's command, 5 envs, a seed for each run (H9, 6 runs)</b></td><td class="n"><b>203 of 600</b></td><td class="n"><b>33.8</b></td></tr>
+</table></div>
+H9 difference to the default-seed arm: -13.2 points [-18.7, -7.7]. This confirms the prediction.
+<ul>
+<li><b>Cause:</b> every env starts from the fixed seed 2022 (<code>sapien_env.py:185-188</code>). A reset with no seed never draws a new one (<code>:492-497</code>). So every run walks the same layout list.</li>
+<li>With 5 envs, only 14 of the 24 layouts appear. Easy layout 1 is 23% of all episodes (135 successes in 138).</li>
+<li>With every layout weighted equally, both NVIDIA arms give 33.4%. This equals our seeded protocol.</li>
+<li><b>Not causes:</b> server batch of 5 (121 of 360 against 119 of 360 without), and the episodes dropped at the end of a 5-env run (+0.8 points by simulation).</li>
+</ul></dd>
+<dt>Code and evidence</dt><dd>Protocol and seeds: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/eval_simpler_bridge.py#L42"><code>eval_simpler_bridge.py:42</code></a> (<code>episode_seed</code>), <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/eval_simpler_bridge.py#L37"><code>LAYOUTS</code></a>. NVIDIA-command runs: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/s5.sh#L199"><code>s5.sh <code>of)</code> step</code></a>. Server batch test: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/simpler_server.py#L27"><code><code>--dup-batch</code></code></a>. Run list: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/gsched.py#L307"><code>gsched.py (H9 rows)</code></a>. Tests H6, H7, H9: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RIGOUR_2026-11-06.md"><code>RIGOUR_2026-11-06.md</code></a>; runs X19 to X22: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a>. Reports: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/g3/LADDER.md"><code>explore_reports/g3/LADDER.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x22/LAYOUTS.md"><code>explore_reports/x22/LAYOUTS.md</code></a> (scripts <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x22/classify.py"><code>explore_reports/x22/classify.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x22/analyze.py"><code>explore_reports/x22/analyze.py</code></a>). Statistics: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/b5_stats.py"><code>simpler/b5_stats.py</code></a>.</dd>
+<dt>Status</dt><dd>Answered and confirmed by a pre-registered test. NVIDIA's 45 to 48% is the score on a fixed easy subset of layouts. The policy is the same. Audit A19 is closed.</dd>
+<dt>Next</dt><dd>None for us. RESULTS.md now says this. The mentor's seeded protocol is the fairer one.</dd>
+</dl>
+</div>
+
+<div class="item" id="A2">
+<h3>A2. Fractal open_drawer: ours 47 to 58, NVIDIA 65 &nbsp;<span class="badge open">OPEN: MENTOR</span></h3>
+<dl>
+<dt>Question</dt><dd>The other five Fractal families match the model card (all families 68.2% against 72.5%). open_drawer does not.</dd>
+<dt>How</dt><dd>We ruled out one factor at a time. Each row is open_drawer successes of 100, unless stated:
+<ul>
+<li>NVIDIA's exact command (5 envs, no seed, flash-attn): 47, 52, 50.</li>
+<li>Seed, SDPA against flash-attn: 48, 58, 55, 51, 50.</li>
+<li>Pre-fix checkpoint (b86e19b, before "Fix normalization"): no change. The other HF revisions have identical weights (G1b).</li>
+<li>Pinned client libraries as NVIDIA's install script (gymnasium 0.29.1, headless OpenCV, numpy 1.26.4): 48, 56, 49.</li>
+<li>1 env: 58, 54. A seeded run of 500 episodes: 54.2%.</li>
+<li>Config chain (X23): open_drawer has 108 configurations (3 drawers × 9 backgrounds × 4 robot variants). They come from the same fixed seed-2022 list. We matched the simulated list to our runs on 200 of 200 episodes.</li></ul></dd>
+<dt>Result</dt><dd>The fixed list does not explain the gap. The official 5-env run uses only about 22 list items (17 to 19 configurations). These items are harder than average. The list predicts 51.3%. We measure 49.7 to 51.0%. A uniform mix gives 55.9%. To reach 65, a list must be lucky (14% of random lists give 65 or more) or the code must differ.</dd>
+<dt>Code and evidence</dt><dd>Reports: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/g1/NVIDIA_OPEN_DRAWER.md"><code>explore_reports/g1/NVIDIA_OPEN_DRAWER.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/g1/STACK_DIFF.md"><code>explore_reports/g1/STACK_DIFF.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x23/FRACTAL_CONFIGS.md"><code>explore_reports/x23/FRACTAL_CONFIGS.md</code></a> (scripts <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x23/chain.py"><code>explore_reports/x23/chain.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x23/decode.py"><code>explore_reports/x23/decode.py</code></a>). Fractal steps (NVIDIA command, pinned venv): <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/s5.sh#L130"><code>s5.sh <code>fpgv*</code></code></a>. Runs X7, X9, X17, X18, X23: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a>. Open question: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/MENTOR_PENDING_2026-10-31.md"><code>MENTOR_PENDING_2026-10-31.md</code></a> (A20).</dd>
+<dt>Status</dt><dd><span class="badge open">OPEN: MENTOR</span> No further run on our side can close it.</dd>
+<dt>Next</dt><dd><b>Question to the mentor or NVIDIA:</b> which SimplerEnv and Isaac-GR00T commit and which table protocol gave 65? If a commit is named, we run it once (about 1 GPU-hour).</dd>
+</dl>
+</div>
+</div>
+
+<div class="branch" id="B">
+<h3>B. Why are the 2-bit rows above FP on Bridge?</h3>
+
+<div class="item" id="B1">
+<h3>B1. Is it random noise? &nbsp;<span class="badge ok">ANSWERED: no</span></h3>
+<dl>
+<dt>Question</dt><dd>Does any small random change to the weights raise carrot and stack_cube?</dd>
+<dt>How</dt><dd>H4 and H5: Gaussian noise (2% and 6% of each weight's rms, about the size of the 2-bit error at the layer output) on the same 432 weights. 6 draws at 6%. FP is exactly reproducible (H3), so a change is an effect of the weights.</dd>
+<dt>Result</dt><dd>One draw moves a task by up to 16 episodes, in either direction. No draw raised both tasks by 10 or more. Every 2-bit row's stack_cube gain (+26 to +45) is above every draw. This is a weak test: 6 draws give about 1 chance in 7 per row.</dd>
+<dt>Code and evidence</dt><dd>Noise builder: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/perturb.py"><code>groot/perturb.py</code></a>. Tests H3 to H5 and readings: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RIGOUR_2026-11-06.md"><code>RIGOUR_2026-11-06.md</code></a>.</dd>
+<dt>Status</dt><dd>Random noise does not copy the gain. H4 closed as "mixed". Later tests (B2, B4) are stronger.</dd>
+</dl>
+</div>
+
+<div class="item" id="B2">
+<h3>B2. Does a plain weight shrink give the gain? &nbsp;<span class="badge ok">ANSWERED: yes</span></h3>
+<dl>
+<dt>Question</dt><dd>We measured that the 2-bit error shrinks each of the 432 weights along itself by 4 to 7% (c = -0.05; QuIP#, QTIP). Does this shrink alone give the gain?</dd>
+<dt>How</dt><dd>H8, pre-registered with fixed readings: FP weights × 0.95 on exactly the 432 quantized weights (<code>sh95</code>), all 7 tasks. Control: × 1.05 (<code>gr105</code>). Then a dose curve (X13).</dd>
+<dt>Result</dt><dd>
+<div class="scroll"><table>
+<tr><th>Weights ×</th><th class="n">1.05</th><th class="n">1.00 (FP)</th><th class="n">0.99</th><th class="n">0.97</th><th class="n">0.95</th><th class="n">0.92</th><th class="n">0.90</th><th class="n">0.85</th></tr>
+<tr><td>carrot_on_plate (of 120)</td><td class="n">53</td><td class="n">75</td><td class="n">82</td><td class="n">93</td><td class="n">102</td><td class="n">105</td><td class="n">104</td><td class="n">80</td></tr>
+<tr><td>stack_cube (of 120)</td><td class="n">18</td><td class="n">36</td><td class="n">53</td><td class="n">60</td><td class="n">69</td><td class="n">68</td><td class="n">66</td><td class="n">21</td></tr>
+</table></div>
+<ul>
+<li>× 0.95: +25.0 points [+15.4, +35.4] on carrot and stack_cube. × 1.05: -16.7 [-25.4, -8.3]. So a shrink helps and a growth hurts.</li>
+<li>On all 7 tasks, × 0.95 is the best Bridge row: +10.0 [+6.5, +13.8]. It is not separated from QuIP# (+2.6) or VPTQ (+2.7). It is above QTIP (+6.7) and AQLM (+7.1). Unlike the 2-bit rows, it does not lose on basket (78 against 56).</li>
+<li>The best range is 0.90 to 0.95. A 1% shrink already helps. At 0.85 the score falls. This checkpoint acts as if its weights are 5 to 10% too large for this benchmark.</li>
+<li>× 0.92 on the other 5 tasks: +1.3 [-2.8, +5.7] over FP. It costs 10 on open_drawer. So 0.95 is the better uniform value.</li></ul></dd>
+<dt>Code and evidence</dt><dd>Weight scaling: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/mix.py#L21"><code>mix.py <code>--scale</code></code></a>. Rows <code>sh95</code>, <code>gr105</code>, <code>mxs*</code>: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/groot.pbs#L384"><code>groot.pbs <code>mix)</code> case</code></a>. H8 with fixed readings: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RIGOUR_2026-11-06.md"><code>RIGOUR_2026-11-06.md</code></a>. Dose curve X13: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a>. Statistics: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/b5_stats.py"><code>simpler/b5_stats.py</code></a>.</dd>
+<dt>Status</dt><dd>A plain shrink with no quantizer gives the Bridge gain. <b>We corrected an earlier sentence:</b> "the 2-bit gain is a side effect of a shrink" was too strong (see B4). RESULTS.md and the mentor note A21 are corrected.</dd>
+</dl>
+</div>
+
+<div class="item" id="B3">
+<h3>B3. Why does a shrink help? &nbsp;<span class="badge part">PARTLY</span></h3>
+<dl>
+<dt>Question</dt><dd>Which part of the model, and which mechanism?</dd>
+<dt>How</dt><dd>Four sets of tests, all on carrot and stack_cube with FP weights unless stated:
+<ol>
+<li><b>Where (X14):</b> shrink × 0.95 on one layer group only.</li>
+<li><b>Same effect without changing weights (X16, X21):</b> smaller output actions, softer attention, other denoising steps, other start noise.</li>
+<li><b>What changes inside (W5):</b> layer outputs, norms, attention entropy and velocity size, for 128 stored observations at scale 1.0 against 0.95.</li>
+<li><b>Mechanism test (X24):</b> scale the backbone input up instead of the layer outputs down.</li></ol>
+<table>
+<tr><th>Test</th><th class="n">carrot (FP 75)</th><th class="n">stack_cube (FP 36)</th><th>Difference to FP on the two tasks [95%]</th></tr>
+<tr><td>All 432 weights × 0.95</td><td class="n">102</td><td class="n">69</td><td>+25.0 [+15.4, +35.4]</td></tr>
+<tr><td>Only q/k projections</td><td class="n">77</td><td class="n">37</td><td>+1.3 [-5.4, +7.9]</td></tr>
+<tr><td>Only v/o projections</td><td class="n">80</td><td class="n">65</td><td><b>+14.2 [+5.8, +23.3]</b></td></tr>
+<tr><td>Only MLPs</td><td class="n">93</td><td class="n">32</td><td>+5.8 [-3.3, +15.0]</td></tr>
+<tr><td>Only action head</td><td class="n">91</td><td class="n">45</td><td><b>+10.4 [+2.5, +19.2]</b></td></tr>
+<tr><td>Only backbone</td><td class="n">90</td><td class="n">70</td><td>-</td></tr>
+<tr><td>Output actions × 0.95 (xyz / all six)</td><td class="n">60 / 63</td><td class="n">42 / 45</td><td>-3.8 / -1.3 (no gain)</td></tr>
+<tr><td>Attention logits / 1.108 (action head / backbone)</td><td class="n">69 / 73</td><td class="n">44 / 34</td><td>no gain</td></tr>
+<tr><td>Denoising steps 2 / 8 (default 4)</td><td class="n">62 / 81</td><td class="n">36 / 43</td><td>-5.4 [-11.7, +0.4] / +5.4 [-1.7, +12.9]</td></tr>
+<tr><td>Start noise × 1.1 / 1.3 / 1.6 / 2.0</td><td class="n">83 / 81 / 84 / 92</td><td class="n">50 / 52 / 49 / 30</td><td>× 1.3: <b>+9.2 [+2.1, +16.3]</b></td></tr>
+<tr><td>Backbone input × 1.136 and vision × 1.108</td><td class="n">69</td><td class="n">54</td><td>+5.0 [-2.9, +12.9]</td></tr>
+<tr><td>Language-model input × 1.136 only</td><td class="n">83</td><td class="n">39</td><td>small</td></tr>
+</table></dd>
+<dt>Result</dt><dd>
+<ul>
+<li>The gain comes from the weights that write into the residual stream: v/o (stack_cube), MLPs and the action head (carrot). Not from q/k. So it is not an attention-temperature effect.</li>
+<li>Smaller actions, softer attention and other denoising steps do not give the gain. A larger start noise gives about one third.</li>
+<li>W5: the shrink makes each layer output 8 to 15% smaller. The norms bring the size back, but the direction of the backbone output changes by 27%. Reason: the residual stream is the sum of the embeddings (not shrunk) and the layer outputs (shrunk). Attention entropy changes by 3 to 4%.</li>
+<li>X24: a larger input gives part of the stack_cube gain (54) and none of the carrot gain (69). So the change of mix explains only part of the effect.</li></ul></dd>
+<dt>Code and evidence</dt><dd>Layer groups: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/mix.py#L24"><code>mix.py <code>--match</code></code></a>. Probes: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/simpler_server.py#L21"><code><code>--action-scale</code></code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/simpler_server.py#L23"><code><code>--init-noise-scale</code></code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/simpler_server.py#L25"><code><code>--attn-temp</code></code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/simpler_server.py#L28"><code><code>--resid-in-scale</code></code></a>; rows in <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/s5.sh#L176"><code>s5.sh</code></a>. Activations: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/w5_activations.py#L243"><code>w5_activations.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/w5.pbs"><code>groot/jobs/w5.pbs</code></a>, results <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/w5/w5_summary.json"><code>explore_reports/w5/w5_summary.json</code></a>. Runs X13, X14, X16, X21, X24: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a>. Literature: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/w8/LIT_MMSE.md"><code>explore_reports/w8/LIT_MMSE.md</code></a>.</dd>
+<dt>Status</dt><dd><span class="badge part">PARTLY</span> We know where the gain comes from. We do not have the full mechanism.</dd>
+<dt>Next</dt><dd>WiSE-FT test: interpolate the Bridge checkpoint toward the pretrained N1.7 base (W8 literature: this is the standard fix when a fine-tune moves weights too far). <b>The base model is not on our disk.</b> We need its exact name and a download. Also: weight decay as an alternative reading.</dd>
+</dl>
+</div>
+
+<div class="item" id="B4">
+<h3>B4. Do the 2-bit rows work through the shrink? &nbsp;<span class="badge open">OPEN</span></h3>
+<dl>
+<dt>Question</dt><dd>If a shrink gives the gain, and the 2-bit error contains a shrink, is that shrink the reason for the 2-bit gain?</dd>
+<dt>How</dt><dd><ol>
+<li>X25 (CPU): we measured the shrink in activation space with the stored Hessians (calibration and held-out). It uses tr(E H Wᵀ) / tr(W H Wᵀ) for each of the 432 tensors.</li>
+<li>X15 <code>orth</code>: FP + (QuIP# error minus its weight-space shrink), 7 tasks.</li>
+<li>X26 <code>mxorq</code>: 0.95 × orth. This also removes the +5% output gain that orth has.</li></ol></dd>
+<dt>Result</dt><dd>
+<ul>
+<li>In weight space, the shrink is -0.05. On real inputs, the QuIP# error shrinks the layer outputs by only 0.2 to 0.9%. The shrink is mostly in directions that the inputs seldom use. Calibration and held-out Hessians agree (within 0.004).</li>
+<li>The orth row makes the outputs about 5% larger.</li>
+</ul>
+<table>
+<tr><th>Row</th><th class="n">spoon</th><th class="n">carrot</th><th class="n">stack</th><th class="n">basket</th><th class="n">sink</th><th class="n">open</th><th class="n">close</th><th class="n">Total of 840</th></tr>
+<tr><td>FP</td><td class="n">101</td><td class="n">75</td><td class="n">36</td><td class="n">56</td><td class="n">0</td><td class="n">120</td><td class="n">115</td><td class="n">503</td></tr>
+<tr><td>QuIP# 0 sweeps</td><td class="n">107</td><td class="n">107</td><td class="n">69</td><td class="n">41</td><td class="n">6</td><td class="n">117</td><td class="n">118</td><td class="n">565</td></tr>
+<tr><td>orth (error without its weight shrink)</td><td class="n">103</td><td class="n">109</td><td class="n">59</td><td class="n">26</td><td class="n">2</td><td class="n">119</td><td class="n">120</td><td class="n">538 (+4.2 [+0.2, +8.1])</td></tr>
+<tr><td>0.95 × orth (<code>mxorq</code>, 2 tasks)</td><td class="n">-</td><td class="n">106</td><td class="n">78</td><td class="n">-</td><td class="n">-</td><td class="n">-</td><td class="n">-</td><td class="n">-</td></tr>
+<tr><td>0.95 × QuIP# (<code>mxsq</code>, 2 tasks)</td><td class="n">-</td><td class="n">105</td><td class="n">68</td><td class="n">-</td><td class="n">-</td><td class="n">-</td><td class="n">-</td><td class="n">-</td></tr>
+</table>
+<ul>
+<li>The orthogonal part of the error alone gives the carrot and stack_cube gain. A further shrink on QuIP# adds nothing (already in the best range).</li>
+<li>Two different routes give the gain: (1) a uniform shrink of the weights; (2) the non-shrink part of the 2-bit error. Basket separates them: the shrink does not hurt it (78), the 2-bit error does (26 to 41).</li></ul></dd>
+<dt>Code and evidence</dt><dd>Orthogonal error: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/mix.py#L22"><code>mix.py <code>--orth</code>, <code>--post-scale</code></code></a>. Activation-space shrink: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x25/X25.md"><code>explore_reports/x25/X25.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x25/x25.py"><code>explore_reports/x25/x25.py</code></a>. Weight-space data: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/x10/quip_shrink.json"><code>explore_reports/x10/quip_shrink.json</code></a>. Runs X15, X25, X26: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a>.</dd>
+<dt>Status</dt><dd><span class="badge open">OPEN</span> We do not know why route 2 helps. Random noise of matched size does not (B1).</dd>
+<dt>Next</dt><dd>Split the orth error by group (backbone only, action head only). Compare the structure of the QuIP# error with noise of the same output size. The quantizer-seed rows (E5) show whether the gain is stable across quantizer draws. <b>The mentor may know of similar findings for E8 lattice quantizers.</b></dd>
+</dl>
+</div>
+</div>
+
+<div class="branch" id="C">
+<h3>C. Does the shrink help outside Bridge? &nbsp;<span class="badge ok">ANSWERED: no</span></h3>
+<dl>
+<dt>Question</dt><dd>Is the shrink gain a general property of this model, or only of Bridge?</dd>
+<dt>How</dt><dd>W6: FP × 0.95 on the same 432 weights, on other benchmarks and under NVIDIA's own Bridge command.</dd>
+<dt>Result</dt><dd>
+<table>
+<tr><th>Benchmark</th><th class="n">FP</th><th class="n">× 0.95</th><th>Difference [95%]</th></tr>
+<tr><td>Fractal, all 6 families (of 600)</td><td class="n">409</td><td class="n">417</td><td>+1.3 [-2.6, +5.2] (noise)</td></tr>
+<tr><td>Fractal open_drawer, 500 seeded episodes</td><td class="n">54.2%</td><td class="n">50.6%</td><td>-3.6 (noise; the +9 at 100 episodes was noise)</td></tr>
+<tr><td>LIBERO-Plus, 200-unit slice (of 200)</td><td class="n">127</td><td class="n">120</td><td>-3.5 [-13.4, +3.1] (noise)</td></tr>
+<tr><td>Bridge carrot, NVIDIA's command, a seed per run (3 × 100)</td><td class="n">68.7%</td><td class="n">84.4%</td><td>+15.7</td></tr>
+<tr><td>Bridge stack_cube, same (FP 6 runs, × 0.95 3 runs)</td><td class="n">33.8%</td><td class="n">55.7%</td><td>+21.9</td></tr>
+</table>
+The gain holds under NVIDIA's own command with fair layouts. It is not an artefact of the mentor's protocol.</dd>
+<dt>Code and evidence</dt><dd>Fractal steps: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/s5.sh#L97"><code>s5.sh <code>sh95mk</code></code></a>. LIBERO-Plus task: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/groot.pbs#L232"><code>groot.pbs <code>t_lp</code></code></a>. Task list: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/gsched.py#L154"><code>gsched.py</code></a>. Runs: W6 entries in <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a>.</dd>
+<dt>Status</dt><dd>The shrink gain is specific to Bridge (mainly carrot and stack_cube). On LIBERO-Plus the sign matches the 2-bit rows (below FP).</dd>
+<dt>Next</dt><dd>None. Bridge-specific behaviour is consistent with a checkpoint that is over-fitted to its fine-tune data (B3 test).</dd>
+</dl>
+</div>
+
+<div class="branch" id="D">
+<h3>D. Why is AQLM different on Bridge? &nbsp;<span class="badge part">PARTLY</span></h3>
+<dl>
+<dt>Question</dt><dd>AQLM loses spoon_on_towel (55 against 101) but gains basket (81 against 56). Is its shrink different? (S6)</dd>
+<dt>How</dt><dd>CPU: shrink factor c per tensor from the stored weights. GPU: FP with a backbone-only shrink of AQLM's size (× 0.84), 4 tasks.</dd>
+<dt>Result</dt><dd>
+<table>
+<tr><th>Method</th><th class="n">Backbone c (mean)</th><th class="n">Relative error</th><th class="n">Part not along W</th></tr>
+<tr><td>AQLM</td><td class="n">-0.156 (-0.252 to -0.068)</td><td class="n">0.51</td><td class="n">0.48</td></tr>
+<tr><td>QTIP</td><td class="n">-0.061</td><td class="n">0.34</td><td class="n">0.33</td></tr>
+<tr><td>QuIP#</td><td class="n">-0.054</td><td class="n">0.40</td><td class="n">0.39</td></tr>
+</table>
+<table>
+<tr><th>Row</th><th class="n">spoon</th><th class="n">carrot</th><th class="n">stack</th><th class="n">basket</th></tr>
+<tr><td>FP</td><td class="n">101</td><td class="n">75</td><td class="n">36</td><td class="n">56</td></tr>
+<tr><td>AQLM</td><td class="n">55</td><td class="n">87</td><td class="n">62</td><td class="n">81</td></tr>
+<tr><td>FP, backbone × 0.84</td><td class="n">27</td><td class="n">92</td><td class="n">26</td><td class="n">1</td></tr>
+</table>
+AQLM shrinks the backbone about 3 times more than the others. This shrink is past the best range (B2). A shrink of that size alone reproduces AQLM's spoon loss and carrot gain. It does not reproduce AQLM's stack_cube and basket gains (it does the opposite).</dd>
+<dt>Code and evidence</dt><dd>Report: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/s6/S6.md"><code>explore_reports/s6/S6.md</code></a>, script <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/s6/s6.py"><code>explore_reports/s6/s6.py</code></a>. Backbone-shrink row: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/groot.pbs#L385"><code>groot.pbs <code>s6bb84</code></code></a>. Runs: S6 entries in <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a>.</dd>
+<dt>Status</dt><dd><span class="badge part">PARTLY</span> The shrink explains the spoon loss. The stack_cube and basket gains come from the rest of the AQLM error (as in B4). The AQLM action-head shrink cannot be measured: the Bridge head weights were deleted. VPTQ's Bridge weights are also deleted.</dd>
+<dt>Next</dt><dd>An AQLM row without its shrink part (like orth) needs a re-quantization of AQLM (several GPU-hours). Planned after B4.</dd>
+</dl>
+</div>
+
+<div class="branch" id="E">
+<h3>E. Are our measurements stable and fair?</h3>
+
+<div class="item" id="E1">
+<h3>E1. Why were repeated runs not identical (A12, X3)? &nbsp;<span class="badge ok">ANSWERED</span></h3>
+<dl>
+<dt>Question</dt><dd>FP run twice with the same seed gave the same result on 809 of 840 episodes. Basket and the drawers flipped (24 episodes). Runs with <code>--no-env-termination</code> differed before the first success. Why?</dd>
+<dt>How</dt><dd>The step logs showed that episodes 0 and 1 never differ, and that a difference depends on how the previous episode ended (Fisher p = 0.006 carrot, 0.003 stack). Test: <code>--fresh-env</code> (a new env for every episode); two FP runs and one run with <code>--no-env-termination</code>, on carrot and basket.</dd>
+<dt>Result</dt><dd>With a fresh env, two runs are bit-identical: all 120 step logs on carrot and on basket. The no-termination run equals them on every step before the first success (0 of 120 episodes differ). Against the old protocol, 71 of 120 carrot episodes differ (34 flips), but the totals are the same (75 and 75; basket 58 and 56).</dd>
+<dt>Code and evidence</dt><dd>New-env option: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/eval_simpler_bridge.py#L199"><code><code>--fresh-env</code></code></a> (used at <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/eval_simpler_bridge.py#L146"><code>line 146</code></a>). Rows <code>fe1</code>, <code>fe2</code>, <code>fent1</code>: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/s5.sh#L173"><code>s5.sh</code></a>. Divergence analysis: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/l2/x3_diverge.py"><code>explore_reports/l2/x3_diverge.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/l1/S7_A11_A12.md"><code>explore_reports/l1/S7_A11_A12.md</code></a>. Runs X3, A12: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a>.</dd>
+<dt>Status</dt><dd>The cause is state that carries over between episodes (PhysX or renderer; the reset does not clear it). A12 and the X3 caveat are closed.</dd>
+<dt>Next</dt><dd><b>Decision for the mentor:</b> keep the old protocol (as in the tables) or re-run key rows with <code>--fresh-env</code>? Totals did not move on the 2 tasks tested.</dd>
+</dl>
+</div>
+
+<div class="item" id="E2">
+<h3>E2. How large is the evaluation noise? &nbsp;<span class="badge ok">ANSWERED</span></h3>
+<dl>
+<dt>Result</dt><dd><ul>
+<li>A change of seed or attention kernel flips 21.7 of 100 Bridge episodes (kernel swaps on LIBERO-Plus: 12.8 of 100). A run of 120 episodes has a standard error of 4 to 5 points.</li>
+<li>Bridge FP with seed 7 is a low draw on stack_cube (5.7 episodes below the mean of 13 draws). The Bridge 2-bit gains are about 0.7 points too large on the 7-task mean (QuIP#: +7.4 becomes about +6.7).</li></ul></dd>
+<dt>Code and evidence</dt><dd>Analysis: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/l2/PART_I.md"><code>explore_reports/l2/PART_I.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/l2/a14_a5.py"><code>explore_reports/l2/a14_a5.py</code></a>. Text: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RESULTS.md"><code>RESULTS.md</code></a>.</dd>
+</dl>
+</div>
+
+<div class="item" id="E3">
+<h3>E3. Selection bias and configuration (A14, A15) &nbsp;<span class="badge ok">ANSWERED</span> <span class="badge run">A15 RUNNING</span></h3>
+<dl>
+<dt>Result</dt><dd><ul>
+<li><b>A14:</b> only VPTQ was chosen by score (best of 6 variants on LIBERO-Plus). Expected bias 1.2 points (at most 2.3). No ranking changes. RESULTS.md has the sentence.</li>
+<li><b>A15:</b> the Bridge QuIP# row is the 0-sweeps row, not the official 10 sweeps. The official row is running (4 of 7 tasks complete: 93, 98, 66, 51; 0 sweeps: 107, 107, 69, 41). On LIBERO-Plus, official 10 sweeps is 2.3 points below 0 sweeps.</li></ul></dd>
+<dt>Code and evidence</dt><dd>Analysis: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/l2/PART_I.md"><code>explore_reports/l2/PART_I.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/l2/a14_a5.py"><code>explore_reports/l2/a14_a5.py</code></a>. Text: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RESULTS.md"><code>RESULTS.md</code></a>.</dd>
+</dl>
+</div>
+
+<div class="item" id="E4">
+<h3>E4. VPTQ: lower layer error, fewer successes (S5) &nbsp;<span class="badge ok">ANSWERED</span></h3>
+<dl>
+<dt>Result</dt><dd>The three VPTQ rows of the same structure (495, 493, 487) are inside the evaluation floor. The rows with larger codebooks are 1.8 to 5.2 standard deviations lower. So the loss with larger codebooks is real, not noise. Unit flips between VPTQ rows (17 to 21 per 100) equal a pure change of seed (17 to 19 per 100).</dd>
+<dt>Code and evidence</dt><dd>Tables: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RESULTS.md"><code>RESULTS.md</code></a>; analysis: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/l2/PART_I.md"><code>explore_reports/l2/PART_I.md</code></a>.</dd>
+</dl>
+</div>
+
+<div class="item" id="E5">
+<h3>E5. Quantizer-seed floor (A5) and pi0.5 FP re-run (A13) &nbsp;<span class="badge run">RUNNING</span></h3>
+<dl>
+<dt>Question</dt><dd>(A5) How much does one quantization draw move the Bridge result? (A13) Is the pi0.5 FP value 765 reproducible on our stack?</dd>
+<dt>How</dt><dd>A5: QuIP# 0 sweeps re-quantized with seeds 1 and 2 (all quantizers used seed 0 before). Carrot and stack_cube. A13: pi0.5 FP on the 1000 units in 4 shards, compared unit by unit with the 765 reference.</dd>
+<dt>Code and evidence</dt><dd>Quantizer seed: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/quantize_quip.py#L60"><code>quantize_quip.py <code>QUANT_SEED</code></code></a>, rows <code>quip_w2s1</code>, <code>quip_w2s2</code> in <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/groot.pbs#L108"><code>groot.pbs</code></a>. pi0.5 re-run script: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/jobs/a13_pi05_fp_plus1000.pbs"><code>jobs/a13_pi05_fp_plus1000.pbs</code></a>.</dd>
+<dt>Status</dt><dd>A5: quantization is done, evaluation is queued. A13: the first attempt failed after 2 minutes (our script used a simulator path that no longer exists). We fixed the path and resubmitted at 22:44. The four jobs wait in the queue.</dd>
+<dt>Next</dt><dd>Read both when they finish. Expected: the A13 total inside about ±1.5 points of 765.</dd>
+</dl>
+</div>
+
+<div class="item" id="E6">
+<h3>E6. Smaller items closed &nbsp;<span class="badge ok">ANSWERED</span></h3>
+<p class="note">Evidence: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/l1/S7_A11_A12.md"><code>explore_reports/l1/S7_A11_A12.md</code></a>; text in <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RESULTS.md"><code>RESULTS.md</code></a>.</p>
+<ul>
+<li><b>S7:</b> the 1000 LIBERO-Plus units are one fixed draw, committed on 13 Oct. The selection does not favour a row.</li>
+<li><b>A11 (ours):</b> Fractal intervals are labelled unpaired and stratified. No verdict changes. RESULTS.md now also states the open_drawer gains of VPTQ (+21) and QTIP (+16).</li>
+</ul>
+</div>
+</div>
+
+<div class="branch" id="F">
+<h3>F. Decisions and questions that need the mentor &nbsp;<span class="badge open">OPEN: MENTOR</span></h3>
+<p class="note">Full text of each question: <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/MENTOR_PENDING_2026-10-31.md"><code>MENTOR_PENDING_2026-10-31.md</code></a>. Decisions 2, 3 and 12 are new in this report.</p>
+<table>
+<tr><th>#</th><th>Question</th><th>Our recommendation</th></tr>
+<tr><td>1</td><td><b>A20:</b> which SimplerEnv and Isaac-GR00T commit, and which table protocol, gave open_drawer 65%?</td><td>Name the commit. We run it once.</td></tr>
+<tr><td>2</td><td><b>Protocol (new):</b> NVIDIA's command always uses one fixed layout list (A1), so we report Bridge with the mentor's seeded protocol. Should key rows also re-run with <code>--fresh-env</code> (E1)?</td><td>Keep the seeded protocol. Re-run only if you want bit-identical rows.</td></tr>
+<tr><td>3</td><td><b>Control row (new):</b> a plain × 0.95 shrink matches or beats the 2-bit rows on Bridge. Should the Bridge table include it?</td><td>Yes. Without it, the Bridge gains read as a benefit of quantization.</td></tr>
+<tr><td>4</td><td><b>A11:</b> which GPU and attention kernel did your FP 618 and 2-bit 486 runs use?</td><td>We pin one kernel if you name it.</td></tr>
+<tr><td>5</td><td><b>A12:</b> official settings only, or an official row plus one tuned row per method?</td><td>Official plus one tuned row (chosen by calibration error, never by Plus 1000).</td></tr>
+<tr><td>6</td><td><b>A13:</b> VPTQ main row: v4 k256 (2.003 bpw, 495) or v8 k12288 (1.988 bpw, 426)?</td><td>v4 k256 as main; v8 k12288 as closest to official.</td></tr>
+<tr><td>7</td><td><b>A14:</b> count the QuIP# lattice tables once per model (2.023 bpw) or per checkpoint group (2.031)?</td><td>Once per model.</td></tr>
+<tr><td>8</td><td><b>A15:</b> is the strict reading of "better" (Holm, clustered by task, E0 noise, more than 2 points) the one you want?</td><td>Yes. Under it QTIP is not separated from FP on LIBERO-Plus.</td></tr>
+<tr><td>9</td><td><b>A16 and storage:</b> raise the scratch quota, or allow deletion of 52 GB of orphan checkpoints.</td><td>Raise the quota. Delete only the 52 GB of orphan checkpoints.</td></tr>
+<tr><td>10</td><td><b>A17:</b> 840 or 700 Bridge episodes per policy (README sections 3 and 6 differ)?</td><td>840.</td></tr>
+<tr><td>11</td><td>Scope: stop GPTQ, AWQ and RTN runs (already no new runs). What does the final report include for pi0.5?</td><td>Confirm the scope.</td></tr>
+<tr><td>12</td><td><b>B3/B4 (research):</b> do you know of work on why a weight shrink helps a fine-tuned policy, or on why E8-lattice errors give a gain on one task family?</td><td>A pointer helps us choose between WiSE-FT and an error-structure test.</td></tr>
+</table>
+<p class="note">Items A9 and A10 in MENTOR_PENDING are unchanged.</p>
+</div>
+
+<h2 id="next">5. What runs now, and what comes next</h2>
+<div class="box">
+<b>Running or queued (about 10 jobs):</b>
+<ul>
+<li>Official QuIP# 10 sweeps on Bridge: sink, open_drawer, close_drawer (A15).</li>
+<li>QuIP# with quantizer seeds 1 and 2, carrot and stack_cube (A5).</li>
+<li>pi0.5 FP re-run, 4 shards of 250 units (A13).</li>
+</ul>
+<b>Next, in this order:</b>
+<ol>
+<li>WiSE-FT test: needs the pretrained N1.7 base model. We look up its name and download it (B3).</li>
+<li>Split the orth error by group, then a matched-structure noise test (B4).</li>
+<li>AQLM without its shrink part (D).</li>
+<li>Optional: matched-noise test for audit A7, and a seeded 1-env Fractal runner for per-episode pairing (A11).</li>
+<li>Fill the QuIP# 10-sweeps column and the paired statistics.</li>
+</ol>
+</div>
+
+<h2 id="where">6. Where the code and evidence are</h2>
+<p>All paths are in the pull request, under <code>baselines/</code>. Links point to the branch <code>baselines-nov9-shrink-fp-repro</code> of the fork <code>thongthornpatch/yanlongvla</code>.</p>
+<table>
+<tr><th>Item</th><th>Files</th></tr>
+<tr><td>Tables and explanations</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RESULTS.md"><code>RESULTS.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLANATIONS.md"><code>EXPLANATIONS.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/FP_REPRO_2026-11-08.md"><code>FP_REPRO_2026-11-08.md</code></a></td></tr>
+<tr><td>Pre-registered tests H3 to H9, with fixed readings</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/RIGOUR_2026-11-06.md"><code>RIGOUR_2026-11-06.md</code></a></td></tr>
+<tr><td>Exploratory runs X1 to X26</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/EXPLORE_2026-11-08.md"><code>EXPLORE_2026-11-08.md</code></a></td></tr>
+<tr><td>Open questions for the mentor (A9 to A21)</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/MENTOR_PENDING_2026-10-31.md"><code>MENTOR_PENDING_2026-10-31.md</code></a></td></tr>
+<tr><td>Rigour checks C1 to C5</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/experiments/rigour_v5/c2_groot_main.md"><code>experiments/rigour_v5/c2_groot_main.md</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/experiments/rigour_v5/c3_bits.md"><code>experiments/rigour_v5/c3_bits.md</code></a></td></tr>
+<tr><td>Bridge evaluation, seeds, layouts, <code>--fresh-env</code></td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/eval_simpler_bridge.py"><code>groot/simpler/eval_simpler_bridge.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/simpler_server.py"><code>groot/simpler/simpler_server.py</code></a></td></tr>
+<tr><td>Job scheduler and job script</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/gsched.py"><code>groot/jobs/gsched.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/groot.pbs"><code>groot/jobs/groot.pbs</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/s5.sh"><code>simpler/s5.sh</code></a></td></tr>
+<tr><td>Weight shrink and error split</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/mix.py"><code>groot/mix.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/perturb.py"><code>groot/perturb.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/weight_error.py"><code>groot/weight_error.py</code></a></td></tr>
+<tr><td>Activation measurement</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/simpler/w5_activations.py"><code>groot/simpler/w5_activations.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/groot/jobs/w5.pbs"><code>groot/jobs/w5.pbs</code></a></td></tr>
+<tr><td>Statistics</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/simpler/b5_stats.py"><code>simpler/b5_stats.py</code></a>, <a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/paired_stats.py"><code>paired_stats.py</code></a></td></tr>
+<tr><td>Analysis reports and scripts</td><td><a href="https://github.com/thongthornpatch/yanlongvla/blob/baselines-nov9-shrink-fp-repro/baselines/explore_reports/README.md"><code>explore_reports/ (index)</code></a></td></tr>
+</table>
+
+</main>
+</body>
+</html>

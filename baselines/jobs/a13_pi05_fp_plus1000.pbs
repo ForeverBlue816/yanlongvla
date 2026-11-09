@@ -1,0 +1,54 @@
+#!/bin/bash
+#PBS -N a13_fp
+#PBS -q gpu_bwp6000
+#PBS -P gs_ccds_taisp
+#PBS -l select=1:ncpus=8:ngpus=1:mem=75gb
+#PBS -l walltime=04:00:00
+#PBS -j oe
+# Audit A13: pi0.5 FP (fp_w16 = official pi05_libero PyTorch port, sha256 1869ec96...) on the Plus 1000 units, our stack.
+# One shard (250 units) per job. Same commands as jobs/evaluate.pbs (kind plus). Use: qsub -v SHARD=p1000_0 jobs/a13_pi05_fp_plus1000.pbs  (p1000_0..3)
+# Output: $OUT/plus_parts/$SHARD.jsonl (resumable). Does not touch $RUN/evaluation.
+set -uo pipefail
+: "${SHARD:?set SHARD=p1000_0..3}"
+RUN=/home/d250009/projects/pi05-handover/runs/readme_baselines
+SRC=$RUN/source_20261101_235440      # frozen source of the latest 2-bit rows; shards identical in every snapshot (md5 checked)
+OUT=/scratch/d250009/pi05-handover/runs/groot_baselines/explore/a13/fp_rerun
+OPENPI_ROOT=/home/d250009/projects/openpi
+HANDOVER=/home/d250009/projects/pi05-handover
+CKPT=$RUN/checkpoints/fp_w16
+PY="$OPENPI_ROOT/.venv/bin/python"
+SIM_SITE=/scratch/d250009/pi05-handover/runs/envs/sim-site   # robosuite 1.4.0 and simulator packages (the old openvla venv path was removed; see groot/jobs/plus_python.sh)
+PLUS_SITE="$HANDOVER/runs/envs/libero-plus/site-packages"
+MAGICK="$HANDOVER/runs/envs/libero-plus/imagemagick"
+mkdir -p "$OUT/plus_parts" "$OUT/logs"
+source "$OPENPI_ROOT/.venv/bin/activate"
+export JAX_PLATFORMS=cpu OMP_NUM_THREADS=8 PYTHONUNBUFFERED=1 TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
+export HF_HOME="$HANDOVER/runs/cache/huggingface" HF_HUB_DISABLE_TELEMETRY=1
+export MUJOCO_GL=egl MAGICK_HOME="$MAGICK" LD_LIBRARY_PATH="$MAGICK/lib:${LD_LIBRARY_PATH:-}"
+MUJOCO_EGL_DEVICE_ID=$(nvidia-smi -i "${CUDA_VISIBLE_DEVICES:?}" --query-gpu=index --format=csv,noheader | tr -d '[:space:]')
+export MUJOCO_EGL_DEVICE_ID
+echo "a13 $SHARD on $(hostname) $(nvidia-smi --query-gpu=name,driver_version --format=csv,noheader) $(date -Is)"
+cd "$SRC"
+export PYTHONPATH="$SRC:$OPENPI_ROOT"
+"$PY" jobs/provenance.py "$SRC" || true
+port=$("$PY" -c 'import socket; s=socket.socket(); s.bind(("127.0.0.1",0)); print(s.getsockname()[1])')
+"$PY" serve.py --checkpoint "$CKPT" --port "$port" > "$OUT/logs/serve_$SHARD.${PBS_JOBID:-local}.log" 2>&1 &
+server=$!
+trap 'kill $server 2>/dev/null || true' EXIT
+"$PY" - "$port" "$server" <<'PY'
+import os, sys, time, urllib.request
+port, pid = map(int, sys.argv[1:])
+opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+for _ in range(300):
+    os.kill(pid, 0)
+    try:
+        if opener.open(f'http://127.0.0.1:{port}/healthz', timeout=1).status == 200: break
+    except OSError: time.sleep(1)
+else: raise RuntimeError('policy server not ready')
+PY
+sim="$HANDOVER/runs/toolkits/LIBERO-plus"
+pp="$PLUS_SITE:$SRC:$sim:$OPENPI_ROOT/packages/openpi-client/src:$OPENPI_ROOT/.venv/lib64/python3.11/site-packages:$SIM_SITE"
+export LIBERO_CONFIG_PATH="$HANDOVER/runs/config/libero-smoke/plus"
+PYTHONPATH="$pp" "$PY" jobs/provenance.py "$SRC" --simulator "$sim" || true
+PYTHONPATH="$pp" "$PY" eval_libero_plus.py --units "$SRC/data/shards/$SHARD.json" --out "$OUT/plus_parts/$SHARD.jsonl" --port "$port"
+echo "a13 $SHARD done $(date -Is)"

@@ -46,7 +46,7 @@ note() { echo -e "$1\t$2\t$(date -Is)" >> "$PROGRESS"; }
 source "$SRC/simpler/s5.sh"   # Task 5 (SimplerEnv Fractal) steps
 
 method_of() { local m=${1%%_*}; [[ $m == quip10 ]] && m=quip; echo "$m"; }   # gptq_actorder_w2 -> gptq, vptq_iter500_w2 -> vptq
-suite_of() { [[ ${GROOT_PROFILE:-} == fractal ]] && { echo fractal; return; }; [[ $1 == backbone ]] && echo libero_spatial || echo "${1#head_}"; }
+suite_of() { [[ ${GROOT_PROFILE:-} == fractal || ${GROOT_PROFILE:-} == bridge ]] && { echo "$GROOT_PROFILE"; return; }; [[ $1 == backbone ]] && echo libero_spatial || echo "${1#head_}"; }
 ckpt_of() { [[ $1 == fp ]] && echo "$G/checkpoints" || echo "$G/ckpt/$1"; }
 
 t_prepare() { cd "$SRC/groot" && "$PY_G" prepare_checkpoints.py --out "$G/checkpoints" --hf-cache "$G/hf"; }
@@ -105,6 +105,7 @@ t_qk() {   # t_qk <row> <key>
       local repo=$QUIP_REPO commit=1d8f873e9a2a8b86b12bb1064c312c5689b77d98 extra=()
       [[ $m == qtip ]] && repo=$QTIP_REPO commit=e90c6688c8dfae326a3a81b5eb032db7c6680ec0
       [[ $row == quip_w2 ]] && extra=(--tune-iters 0)     # main row: without tuning sweeps; quip10_w2 is the official 10-sweep row
+      [[ $row =~ ^quip_w2s([0-9]+)$ ]] && { extra=(--tune-iters 0); export QUANT_SEED=${BASH_REMATCH[1]}; }   # A5 (9 Nov): QuIP# 0 sweeps with quantizer seed K (Bridge)
       [[ "$(git -C "$repo" rev-parse HEAD)" == "$commit" ]] || { echo "$m commit changed" >&2; return 3; }
       LD_LIBRARY_PATH="/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
       PYTHONPATH="$SRC:$repo:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
@@ -114,10 +115,10 @@ t_qk() {   # t_qk <row> <key>
   [[ -s "$out/accounting.json" ]]
 }
 
-t_imp() {   # t_imp <row>
-  local row=$1
-  cd "$SRC/groot" && "$PY_G" import_external.py --checkpoints "$G/checkpoints" --quantized "$G/q/$row" --out "$G/ckpt/$row" || return 1
-  "$PY_G" - "$G/ckpt/$row" "$SRC" "$row" <<'PY'
+t_imp() {   # t_imp <row> [<out dir>, default ckpt/<row>]
+  local row=$1 dst=${2:-$G/ckpt/$1}
+  cd "$SRC/groot" && "$PY_G" import_external.py --checkpoints "$G/checkpoints" --quantized "$G/q/$row" --out "$dst" || return 1
+  "$PY_G" - "$dst" "$SRC" "$row" <<'PY'
 import json, sys
 from pathlib import Path
 out, src, row = sys.argv[1:]
@@ -228,32 +229,46 @@ t_kn() {   # t_kn <math|efficient|default>: FP on the 200 units with one SDPA ke
   "$PY_G" paired_stats.py plus --candidate "$ev.plus_200.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$ev.vs_our_fp.json"
 }
 
+t_lp() {   # t_lp <sh95|sh90>: W6 (9 Nov): FP x 0.<NN> on the 432 linear weights of all 4 LIBERO suites, LIBERO-Plus sanity200, paired with our FP (like t_kn)
+  local row=$1 s=0.${1#sh} ck="$G/ckpt/${1}lp" su
+  [[ -s "$G/sanity200.json" ]] || { echo "sanity200.json missing" >&2; return 1; }
+  ckpt_slot || return 1
+  for su in libero_spatial libero_object libero_goal libero_10; do
+    "$PY_G" "$SRC/groot/mix.py" --source "$G/checkpoints/$su" --other "$G/checkpoints/$su" --error-json "$G/s5bq/perturb/aqlm_w2_error.json" --scale "$s" --out "$ck/$su" || return 1
+  done
+  cp "$G/checkpoints/prepared.json" "$ck/"
+  mkdir -p "$G/kernel"
+  run_plus "$ck" "$G/sanity200.json" "$G/kernel/${row}lp.plus_200.jsonl" || return 1
+  cd "$SRC" || return 1
+  "$PY_G" paired_stats.py plus --candidate "$G/kernel/${row}lp.plus_200.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$G/kernel/${row}lp.vs_our_fp.json" && rm -rf "$ck"
+}
+
 t_rr() {   # t_rr <row>: noise floor (GOAL 1 Nov item 0): evaluate the row a second time, same units and seeds, and compare unit by unit with the first run
   local row=$1 ck out="$G/eval/${1}_rerun"; mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
-  if [[ $row == fp ]]; then ck="$G/checkpoints"; else t_imp "$row" || return 1; ck="$G/ckpt/$row"; fi
+  if [[ $row == fp ]]; then ck="$G/checkpoints"; else ck="$G/ckpt/$row.rr"; t_imp "$row" "$ck" || return 1; fi   # own copy per task kind: sd and dj of one row ran at once on 7 Nov and broke each other's checkpoint
   run_plus "$ck" - "$out/plus_1000.jsonl" || return 1
   cd "$SRC" || return 1
   "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$G/eval/$row/plus_1000.jsonl" > "$G/paired/${row}_rerun_vs_first.json"
   "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$SRC/groot/data/reference/groot_fp.plus_1000.jsonl" > "$G/paired/${row}_rerun_vs_fp_reference.json"
-  [[ $row != fp ]] && rm -rf "$G/ckpt/$row"
+  [[ $row != fp ]] && rm -rf "$ck"
   return 0
 }
 
 t_sd() {   # t_sd <row>: rigour R3, evaluation-seed sensitivity: the row on the same 1000 units with evaluation seed 8 (env seed and policy noise seeds; protocol seed is 7), paired against the seed-7 run
   local row=$1 ck out="$G/eval/${1}_seed8"; mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
-  if [[ $row == fp ]]; then ck="$G/checkpoints"; else t_imp "$row" || return 1; ck="$G/ckpt/$row"; fi
+  if [[ $row == fp ]]; then ck="$G/checkpoints"; else ck="$G/ckpt/$row.sd"; t_imp "$row" "$ck" || return 1; fi   # own copy per task kind: sd and dj of one row ran at once on 7 Nov and broke each other's checkpoint
   EVAL_SEED=8 run_plus "$ck" - "$out/plus_1000.jsonl" || return 1
   cd "$SRC" || return 1
-  "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$G/eval/$row/plus_1000.jsonl" > "$G/paired/${row}_seed8_vs_seed7.json"
-  [[ $row != fp ]] && rm -rf "$G/ckpt/$row"
+  "$PY_G" paired_stats.py plus --other-seeds --candidate "$out/plus_1000.jsonl" --reference "$G/eval/$row/plus_1000.jsonl" > "$G/paired/${row}_seed8_vs_seed7.json" || return 1
+  [[ $row != fp ]] && rm -rf "$ck"
   return 0
 }
 
 t_dj() {   # t_dj <row>: rigour R7, disjoint-units replication: the row on 500 units outside the Plus 1000 selection (data/plus_units_disjoint_500.json)
   local row=$1 ck out="$G/eval/${1}_disjoint500"; mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
-  if [[ $row == fp ]]; then ck="$G/checkpoints"; else t_imp "$row" || return 1; ck="$G/ckpt/$row"; fi
+  if [[ $row == fp ]]; then ck="$G/checkpoints"; else ck="$G/ckpt/$row.dj"; t_imp "$row" "$ck" || return 1; fi   # own copy per task kind: sd and dj of one row ran at once on 7 Nov and broke each other's checkpoint
   run_plus "$ck" "$SRC/data/plus_units_disjoint_500.json" "$out/plus_500.jsonl" || return 1
-  [[ $row != fp ]] && rm -rf "$G/ckpt/$row"
+  [[ $row != fp ]] && rm -rf "$ck"
   return 0
 }
 
@@ -342,7 +357,39 @@ t_f5() {   # t_f5 <task>
   esac
 }
 
-ckpt_slot() {   # at most 2 tasks that write a 26 GB fake-quant checkpoint run at once over all jobs (flock on two slot files): jobs start together, the feeder cannot see that
+t_bq() {   # t_bq <task>: GOAL v6 2c, 2-bit rows on SimplerEnv-Bridge (as t_f5; evaluation is b5__ev__<row>__<task>)
+  local t=${1#bq__} step row key="" r
+  step=${t%%__*}; r=${t#*__}; row=${r%%__*}; [[ $r == *__* ]] && key=${r#*__}
+  local G0=$GRUN G=$GRUN/s5bq; export GROOT_PROFILE=bridge
+  mkdir -p "$G"/{q,ckpt,paired,logs}
+  [[ -e "$G0/stopped/b5_$row" && $step != prep && $step != cal ]] && { echo "row b5_$row stopped"; return 0; }
+  case "$step" in
+    prep) cd "$SRC/groot" && "$PY_G" prepare_fractal.py --name bridge --source "$GRUN/s5b/checkpoints/bridge" --out "$G/checkpoints" ;;
+    cal)   # the 256 calibration observations (and the 256 held-out ones) of groot/simpler/data/bridge-*; layer export
+      cd "$SRC/groot" || return 1
+      "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --out "$G/calibration" || return 1
+      "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --manifest "$SRC/groot/simpler/data/bridge-heldout/observation_manifest.json" --noise-seed 1 --out "$G/calibration_heldout" || return 1
+      "$PY_G" export_layers.py --checkpoints "$G/checkpoints" --calibration "$G/calibration" --out "$G/layers" ;;
+    qk) t_qk "$row" "$key" ;;
+    imp) t_imp "$row" && rm -rf "$G/q/$row" ;;   # quantizer outputs are not needed once the checkpoint and its quant.json exist (GOAL v6 2c disk budget)
+    fin) local tk=(); [[ $row == nz* ]] && tk=(--tasks widowx_spoon_on_towel,widowx_carrot_on_plate,widowx_stack_cube)   # H4 levels run 3 tasks
+      [[ $row == mx* || $row == gr105 || $row == quip_w2s* ]] && tk=(--tasks widowx_carrot_on_plate,widowx_stack_cube)   # X5 / X6 mixed rows and A5 seed rows run 2 tasks
+      [[ $row == s6bb84 ]] && tk=(--tasks widowx_spoon_on_towel,widowx_carrot_on_plate,widowx_stack_cube,widowx_put_eggplant_in_basket)   # S6: AQLM-sized backbone shrink
+      [[ $row == w7s92 ]] && tk=(--tasks widowx_spoon_on_towel,widowx_put_eggplant_in_basket,widowx_put_eggplant_in_sink,widowx_open_drawer,widowx_close_drawer)   # W7: carrot / stack_cube of 0.92 W are mxs92
+      [[ $row == w6s95 ]] && { rm -rf "$G/ckpt/$row"; return 0; }   # W6: official-command runs only, no seeded pairing
+      "$PY_G" "$SRC/simpler/b5_stats.py" --fp "$G0/s5b/eval/fp" --row "$G0/s5b/eval/$row" "${tk[@]}" --out "$G/paired/$row.json" && rm -rf "$G/ckpt/$row" ;;
+    nz)   # H4: FP + Gaussian noise of relative rms 0.<NN> on the 432 quantized linear weights (row nzNN, seed 0; row nzNNs<K>, seed K)
+      local lvl=${row#nz} sd=0; [[ $lvl == *s* ]] && { sd=${lvl#*s}; lvl=${lvl%%s*}; }
+      "$PY_G" "$SRC/groot/perturb.py" --source "$G/checkpoints/bridge" --error-json "$G/perturb/aqlm_w2_error.json" --rel "0.$lvl" --seed "$sd" --out "$G/ckpt/$row/bridge" ;;
+    mix)   # X5 / X6 (GOAL v7 Q3 / Q4): FP + alpha (QuIP# 0 sweeps - FP) on part of the 432 quantized weights; mxbb backbone only, mxhd action head only, mxh50 everything at alpha 0.5; X10-X12: mxq25 alpha 0.25, mxneg alpha -1 (error sign flipped), mxpar only the part along W
+      local mx=(); case $row in mxbb) mx=(--prefix backbone.) ;; mxhd) mx=(--prefix action_head.) ;; mxh50) mx=(--alpha 0.5) ;; mxq25) mx=(--alpha 0.25) ;; mxneg) mx=(--alpha -1) ;; mxpar) mx=(--parallel) ;; sh95|w6s95) mx=(--scale 0.95) ;; w7s92) mx=(--scale 0.92) ;; s6bb84) mx=(--scale 0.84 --prefix backbone.) ;; mxorq) mx=(--orth --post-scale 0.95) ;;   # X26: orth with its +5% output gain removed (c_a about 0)
+      gr105) mx=(--scale 1.05) ;; mxs[0-9][0-9]) mx=(--scale 0.${row#mxs}) ;; mxsbb) mx=(--scale 0.95 --prefix backbone.) ;; mxshd) mx=(--scale 0.95 --prefix action_head.) ;; mxsqk) mx=(--scale 0.95 --match '(to_q|to_k|q_proj|k_proj)\.weight$') ;; mxsvo) mx=(--scale 0.95 --match '(to_v|to_out\.0|v_proj|o_proj|attn\.proj)\.weight$') ;; mxsmlp) mx=(--scale 0.95 --match '(ff\.net|mlp\.|merger)') ;; orth) mx=(--orth) ;; mxsq) mx=(--post-scale 0.95) ;; *) echo "unknown mix row $row" >&2; return 2 ;; esac
+      "$PY_G" "$SRC/groot/mix.py" --source "$G/checkpoints/bridge" --other "$G/ckpt/quip_w2/bridge" --error-json "$G/perturb/aqlm_w2_error.json" "${mx[@]}" --out "$G/ckpt/$row/bridge" ;;
+    *) echo "unknown bq step $step" >&2; return 2 ;;
+  esac
+}
+
+ckpt_slot() {   # at most 2 tasks (1 from 6 Nov 18:11 to 22:50, after the quota hit) that write a 26 GB fake-quant checkpoint run at once over all jobs (flock on two slot files): jobs start together, the feeder cannot see that
   local waited=0 i
   while :; do
     for i in 0 1; do
@@ -363,7 +410,7 @@ for task in ${TASKS//+/ }; do
   if [[ -e "$G/tasks/$task.done" ]]; then note "$task" "already done"; continue; fi
   if ! python3 "$SRC/groot/jobs/gsched.py" ready "$task"; then note "$task" "skipped: prerequisites not done"; continue; fi
   SLOTFD=""
-  if [[ $kind == mx || $kind == imp || $kind == q || ( ( $kind == rr || $kind == sd || $kind == dj ) && $row != fp ) || $task == f5__imp__* || $task == f5__q__* ]]; then
+  if [[ $kind == mx || $kind == imp || $kind == q || ( ( $kind == rr || $kind == sd || $kind == dj ) && $row != fp ) || $task == f5__imp__* || $task == f5__q__* || $task == bq__imp__* ]]; then
     ckpt_slot || { note "$task" "failed rc=75 (no checkpoint slot)"; continue; }
   fi
   note "$task" start
@@ -371,8 +418,10 @@ for task in ${TASKS//+/ }; do
   case "$kind" in
     s5) ( t_s5 "$row" ) ;;
     f5) ( t_f5 "$task" ) ;;
+    b5) ( t_b5 "$task" ) ;;
+    bq) ( t_bq "$task" ) ;;
     prepare) t_prepare ;; calibrate) t_calibrate ;; q) t_q "$row" ;; qk) t_qk "$row" "$key" ;; imp) t_imp "$row" ;;
-    sn) t_sn "$row" ;; ev) t_ev "$row" ;; rr) t_rr "$row" ;; sd) t_sd "$row" ;; dj) t_dj "$row" ;; kn) ( t_kn "$row" ) ;; cal) t_cal "$row" ;; mx) t_mx "$row" "$key" ;; xp) ( t_xp "$row" ) ;; *) echo "unknown task $task" >&2; false ;;
+    sn) t_sn "$row" ;; ev) t_ev "$row" ;; rr) t_rr "$row" ;; sd) t_sd "$row" ;; dj) t_dj "$row" ;; kn) ( t_kn "$row" ) ;; lp) ( t_lp "$row" ) ;; cal) t_cal "$row" ;; mx) t_mx "$row" "$key" ;; xp) ( t_xp "$row" ) ;; *) echo "unknown task $task" >&2; false ;;
   esac
   rc=$?
   [[ -n $SLOTFD ]] && exec {SLOTFD}>&-

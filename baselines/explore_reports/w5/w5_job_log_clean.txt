@@ -1,0 +1,59 @@
+job 4121100.hpc-pbs-sched1 on hpc-ccds-tasip1, GPU: NVIDIA RTX PRO 6000 Blackwell Server Edition, 2026-11-09T06:16:34+08:00, N=128 NOISE=none
+observations: 128 of 256 from /home/d250009/yanlongvla-clean/baselines/groot/simpler/data/bridge-calibration
+flash_attn is not installed. Falling back to sdpa attention. Install flash-attn for better performance: pip install flash-attn
+  embedding_dim=self.inner_dim, compute_dtype=self.compute_dtype
+  self.proj_out_2 = nn.Linear(self.inner_dim, self.output_dim)
+Total number of DiT parameters:  1091722240
+Total number of SelfAttentionTransformer parameters:  201433088
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.61it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.49it/s]
+scaled set == keys of /scratch/d250009/pi05-handover/runs/groot_baselines/s5bq/perturb/aqlm_w2_error.json
+1/128 observations, 1 s
+8/128 observations, 3 s
+16/128 observations, 6 s
+24/128 observations, 9 s
+32/128 observations, 12 s
+40/128 observations, 14 s
+48/128 observations, 17 s
+56/128 observations, 20 s
+64/128 observations, 23 s
+72/128 observations, 25 s
+80/128 observations, 28 s
+88/128 observations, 31 s
+96/128 observations, 34 s
+104/128 observations, 36 s
+112/128 observations, 39 s
+120/128 observations, 42 s
+128/128 observations, 45 s
+wrote /scratch/d250009/pi05-handover/runs/groot_baselines/explore/w5/w5.json
+
+=== ratio 0.95 / 1.0 (ratio of means over observations) ===
+backbone layer | resid  ln_in  ln_post attn_out mlp_out | resid rel.change | attn entropy ref -> new
+   0           | 0.9027 1.0044 0.9823 0.9026 0.8356 | 0.3663           | 1.5855 -> 1.5338
+   1           | 0.8932 1.0131 1.0081 0.9202 0.8872 | 0.2749           | 1.6755 -> 1.6200
+   2           | 0.8536 1.0099 1.0104 0.8875 0.8531 | 0.1468           | 1.9368 -> 1.8564
+   3           | 0.8536 1.0145 1.0161 0.9081 0.9173 | 0.1468           | 0.7321 -> 0.7114
+   4           | 0.8536 1.0108 1.0134 0.8831 0.9184 | 0.1468           | 1.1613 -> 1.1172
+   5           | 0.8536 1.0134 1.0095 0.8936 0.8809 | 0.1468           | 0.9088 -> 0.8761
+   6           | 0.8536 1.0135 1.0110 0.9206 0.8781 | 0.1468           | 1.0501 -> 1.0199
+   7           | 0.8536 1.0093 1.0077 0.8545 0.8831 | 0.1468           | 1.2832 -> 1.2512
+   8           | 0.8536 1.0112 1.0066 0.9042 0.8643 | 0.1467           | 1.2731 -> 1.2715
+   9           | 0.8536 1.0073 1.0049 0.8867 0.8654 | 0.1468           | 1.3956 -> 1.4043
+  10           | 0.8537 1.0045 0.9994 0.8799 0.8803 | 0.1469           | 1.6486 -> 1.6475
+  11           | 0.8537 1.0029 0.9964 0.8640 0.8611 | 0.1472           | 1.5545 -> 1.5574
+  12           | 0.8537 1.0033 0.9946 0.9069 0.8637 | 0.1473           | 1.6563 -> 1.6844
+  13           | 0.8537 1.0042 0.9928 0.9078 0.8644 | 0.1475           | 1.7001 -> 1.7257
+  14           | 0.8538 1.0014 0.9960 0.8895 0.8516 | 0.1473           | 1.4341 -> 1.4481
+  15           | 0.8539 1.0049 0.9964 0.8949 0.8553 | 0.1474           | 1.4081 -> 1.4175
+  final norm rms ratio 0.9928  (rel change 0.2667); vlln 0.9996; vl_self_attention out 0.9101
+flow step | velocity rms (real) ref  new  ratio | velocity rel.change | sample rms ratio
+  0       | 1.0967  1.1237  1.0246 | 0.0697 | 1.0000
+  1       | 1.0780  1.0918  1.0128 | 0.0666 | 0.9898
+  2       | 1.0434  1.0366  0.9934 | 0.0854 | 0.9788
+  3       | 0.9693  0.9354  0.9650 | 0.1568 | 0.9789
+final: gripper.rms 1.0032  pitch.rms 0.9383  roll.rms 0.9469  x.rms 0.9649  y.rms 0.9979  yaw.rms 0.9495  z.rms 0.9894
+  final.dist_from_noise_rms_real: ref 1.0385  new 1.0381  ratio 0.9996
+  final.dist_from_noise_rms_full: ref 0.2916  new 0.2941  ratio 1.0085
+  final.normalised_rms_real: ref 0.4678  new 0.4611  ratio 0.9857
+  flow.noise_rms_real: ref 0.9753  new 0.9753  ratio 1.0000
+DiT attention entropy ratio: mean 1.0440 over 128 (module, step) pairs; range 1.0050 .. 1.1079
+done rc=0 2026-11-09T06:17:50+08:00
