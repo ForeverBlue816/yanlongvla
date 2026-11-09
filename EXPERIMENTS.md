@@ -2074,3 +2074,8 @@ in `Priority` with the cluster 100 % allocated. Replaced by `slurm/pool_fit.sbat
 A40, L40S, A6000, RTX 5090; killable: 6000 Ada, A40, pro6000); a copy that starts claims the next unfinished fit task under a per-task flock
 (released if the job dies), runs it (resumable per layer; same `groot_tcq.py --metric mix --dround 1`, damping pinned to A), then the next.
 `shift/d1.hold` keeps `fit_chain_metric.py d1` out; `d_chain.sh` continues to assembly / Plus once all D₁ fit keys are complete.
+
+### E210 — Arm D₁ Plus 1000 = 575: +1.6 [−2.3, +5.1] vs A, not adopted; C's robot-init regression removed (2026-11-09 04:00 UTC)
+280076 (6000 Ada). vs A 559 +1.6 (90 / 74); vs C 553 +2.2; vs QTIP 573 +0.2 [−3.6, +4.0]; vs V0' 604 −2.9; vs FP 618 −4.3 [−8.2, −0.4].
+Halves vs A: camera +3.4 [−0.4, +7.4], robot-init −0.2 [−3.4, +3.0]; vs C robot-init +4.6 [+1.0, +8.2]. Gate (lb > 0 vs A) not met → no
+round 2, no D fine-tune. Item 4 (V0' recipe on C, tcq_raqft_c_s) running: 280075 since 01:42 UTC (~125 s/update incl. evals).
