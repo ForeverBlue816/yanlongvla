@@ -2083,3 +2083,7 @@ round 2, no D fine-tune. Item 4 (V0' recipe on C, tcq_raqft_c_s) running: 280075
 ### E211 — Decision 2026-11-09: V0' recipe on D₁ (tcq_raqft_d1_s) replaces the C fine-tune; round 2 dropped (2026-11-09 04:05 UTC; race 280619–280621)
 280075 cancelled. Pre-registration in SHIFT doc: same recipe as V0' on D₁'s fits; offline check vs D₁ (held-out MSE and readout not worse,
 6000 Ada); Plus 1000 on 6000 Ada paired vs V0' 604 / D₁ 575 / A 559 / FP 618; main row iff lb > 0 vs V0'. Automated by `shift/d_chain.sh`.
+
+### E211a — tcq_raqft_d1_s Plus on any GPU (6000 Ada preferred), matched re-run only within ±2 pp of the gate; fine-tune started (2026-11-09 04:20 UTC)
+Plus stage gained a one-GPU-per-file guard (`gpu.txt`; partial file archived if resumed on another model) and `--plus-subdir`. Fine-tune 280619
+running on RTX 6000 Ada since 04:05 UTC (≈ 19 h at V0''s rate).
