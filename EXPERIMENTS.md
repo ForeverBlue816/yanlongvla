@@ -2091,3 +2091,7 @@ running on RTX 6000 Ada since 04:05 UTC (≈ 19 h at V0''s rate).
 ### E211b — tcq_raqft_d1_s offline check is no longer a gate (2026-11-09 05:23 UTC)
 User: the fine-tuned row need not beat D₁ offline; Plus decides. The offline comparison vs D₁ (held-out MSE vs FP, readout, 40-obs held-out)
 still runs on 6000 Ada alongside Plus and is reported, but Plus 1000 is run whatever it shows. Reading vs V0' 604 unchanged.
+
+### E211c — main-row rule for tcq_raqft_d1_s: level with or better than V0' (2026-11-09 12:01 UTC)
+User: tcq_raqft_d1_s becomes the GR00T main row if level with or better than V0' 604 (CI upper bound vs V0' ≥ 0); its D₁ base already
+equals QTIP (575 vs 573) without fine-tuning. Verdict written to `shift/tcq_raqft_d1_s_reading.json`; matched re-run window follows the gate.
