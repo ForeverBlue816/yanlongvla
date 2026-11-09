@@ -2080,6 +2080,6 @@ A40, L40S, A6000, RTX 5090; killable: 6000 Ada, A40, pro6000); a copy that start
 Halves vs A: camera +3.4 [−0.4, +7.4], robot-init −0.2 [−3.4, +3.0]; vs C robot-init +4.6 [+1.0, +8.2]. Gate (lb > 0 vs A) not met → no
 round 2, no D fine-tune. Item 4 (V0' recipe on C, tcq_raqft_c_s) running: 280075 since 01:42 UTC (~125 s/update incl. evals).
 
-### E211 — Decision 2026-11-09: V0' recipe on D₁ (tcq_raqft_d1_s) replaces the C fine-tune; round 2 dropped (2026-11-09 04:30 UTC)
+### E211 — Decision 2026-11-09: V0' recipe on D₁ (tcq_raqft_d1_s) replaces the C fine-tune; round 2 dropped (2026-11-09 04:05 UTC; race 280619–280621)
 280075 cancelled. Pre-registration in SHIFT doc: same recipe as V0' on D₁'s fits; offline check vs D₁ (held-out MSE and readout not worse,
 6000 Ada); Plus 1000 on 6000 Ada paired vs V0' 604 / D₁ 575 / A 559 / FP 618; main row iff lb > 0 vs V0'. Automated by `shift/d_chain.sh`.
