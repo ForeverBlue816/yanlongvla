@@ -2115,3 +2115,7 @@ tcq_raqft_d1_s vs V0' when both complete. Plus stage gained --plus-units selecti
 1732591 (2 h 36 min): 581/1000 (camera 300, robot-init 281). vs V0' 604 −2.3 [−5.75, +1.26]; vs D₁ +0.6 [−3.00, +4.20]; vs QTIP +0.8
 [−2.73, +4.55]; vs A +2.2 [−2.02, +6.38]; vs FP −3.7 [−7.12, −0.20]. Decisive file; rule (level or better vs V0') → level → main row.
 A40 run 594 kept as reference. Added-1000 runs (E212b) pending.
+
+### E212d — GR00T added 1000: V0' 579, tcq_raqft_d1_s 582; expanded 2000 level (2026-11-10 11:40 UTC)
+Added 1000 (RTX 6000 Ada): tcq_raqft_d1_s 582 vs V0' 579, +0.3 [−4.09, +4.65] (97 / 94). Expanded 2000: 1163 vs 1183, −1.0 [−3.89, +1.73].
+Level → main row unchanged (tcq_raqft_d1_s). Per-unit files exported (…plus_added_1000.jsonl).
