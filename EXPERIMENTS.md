@@ -2110,3 +2110,8 @@ killable) into plus_6000ada; decisive file for the main-row reading once complet
 ### E212b — GR00T added-1000 Plus for V0' and tcq_raqft_d1_s (2026-11-10 05:55 UTC)
 pi0.5 expanded-Plus added 1000 (never used for selection) for V0' and tcq_raqft_d1_s, RTX 6000 Ada only; jobs 1732847-1732850; paired
 tcq_raqft_d1_s vs V0' when both complete. Plus stage gained --plus-units selection|added.
+
+### E212c — tcq_raqft_d1_s Plus on RTX 6000 Ada = 581 (2026-11-10 06:15 UTC)
+1732591 (2 h 36 min): 581/1000 (camera 300, robot-init 281). vs V0' 604 −2.3 [−5.75, +1.26]; vs D₁ +0.6 [−3.00, +4.20]; vs QTIP +0.8
+[−2.73, +4.55]; vs A +2.2 [−2.02, +6.38]; vs FP −3.7 [−7.12, −0.20]. Decisive file; rule (level or better vs V0') → level → main row.
+A40 run 594 kept as reference. Added-1000 runs (E212b) pending.
