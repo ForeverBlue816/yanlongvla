@@ -2095,3 +2095,10 @@ still runs on 6000 Ada alongside Plus and is reported, but Plus 1000 is run what
 ### E211c — main-row rule for tcq_raqft_d1_s: level with or better than V0' (2026-11-09 12:01 UTC)
 User: tcq_raqft_d1_s becomes the GR00T main row if level with or better than V0' 604 (CI upper bound vs V0' ≥ 0); its D₁ base already
 equals QTIP (575 vs 573) without fine-tuning. Verdict written to `shift/tcq_raqft_d1_s_reading.json`; matched re-run window follows the gate.
+
+### E212 — tcq_raqft_d1_s Plus = 594 (A40); level with V0' → GR00T main row (2026-11-10 03:10 UTC)
+Fine-tune 280619 (6000 Ada, 18.7 h, exported update 768, held-out L_readout 10281 → 8523). Offline (6000 Ada, informational): MSE vs FP
+0.005146 → 0.004586, readout 7998 → 7233 vs D₁. Plus 1732335 (A40) 594/1000 (camera 304, robot-init 290; spatial 174, object 133, goal 169,
+libero_10 118). Paired: vs V0' 604 −1.0 [−4.67, +2.41]; vs D₁ 575 +1.9 [−1.92, +5.77]; vs QTIP 573 +2.1 [−1.72, +5.87]; vs A 559 +3.5
+[−0.96, +7.73]; vs FP 618 −2.4 [−6.26, +1.44]. Rule (E211c): upper bound vs V0' ≥ 0 → level → main row. Matched re-run not queued (upper
+bound 2.41 outside ±2). Per-unit file exported: baselines/groot/results/groot_2bit_ours_tcq_raqft_d1_s.plus_1000.jsonl.
