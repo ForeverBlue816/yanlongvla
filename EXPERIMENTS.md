@@ -2106,3 +2106,7 @@ bound 2.41 outside ±2). Per-unit file exported: baselines/groot/results/groot_2
 ### E212a — tcq_raqft_d1_s Plus re-run on RTX 6000 Ada (2026-11-10 03:30 UTC)
 User: A40 result to be repeated on the references' GPU (RTX 6000 Ada). Forced matched re-evaluation 1732591 / 1732592 (6000 Ada, rose +
 killable) into plus_6000ada; decisive file for the main-row reading once complete.
+
+### E212b — GR00T added-1000 Plus for V0' and tcq_raqft_d1_s (2026-11-10 05:55 UTC)
+pi0.5 expanded-Plus added 1000 (never used for selection) for V0' and tcq_raqft_d1_s, RTX 6000 Ada only; jobs 1732847-1732850; paired
+tcq_raqft_d1_s vs V0' when both complete. Plus stage gained --plus-units selection|added.
