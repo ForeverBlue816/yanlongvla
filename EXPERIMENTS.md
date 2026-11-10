@@ -2102,3 +2102,7 @@ Fine-tune 280619 (6000 Ada, 18.7 h, exported update 768, held-out L_readout 1028
 libero_10 118). Paired: vs V0' 604 −1.0 [−4.67, +2.41]; vs D₁ 575 +1.9 [−1.92, +5.77]; vs QTIP 573 +2.1 [−1.72, +5.87]; vs A 559 +3.5
 [−0.96, +7.73]; vs FP 618 −2.4 [−6.26, +1.44]. Rule (E211c): upper bound vs V0' ≥ 0 → level → main row. Matched re-run not queued (upper
 bound 2.41 outside ±2). Per-unit file exported: baselines/groot/results/groot_2bit_ours_tcq_raqft_d1_s.plus_1000.jsonl.
+
+### E212a — tcq_raqft_d1_s Plus re-run on RTX 6000 Ada (2026-11-10 03:30 UTC)
+User: A40 result to be repeated on the references' GPU (RTX 6000 Ada). Forced matched re-evaluation 1732591 / 1732592 (6000 Ada, rose +
+killable) into plus_6000ada; decisive file for the main-row reading once complete.
