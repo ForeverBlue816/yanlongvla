@@ -2119,3 +2119,10 @@ A40 run 594 kept as reference. Added-1000 runs (E212b) pending.
 ### E212d — GR00T added 1000: V0' 579, tcq_raqft_d1_s 582; expanded 2000 level (2026-11-10 11:40 UTC)
 Added 1000 (RTX 6000 Ada): tcq_raqft_d1_s 582 vs V0' 579, +0.3 [−4.09, +4.65] (97 / 94). Expanded 2000: 1163 vs 1183, −1.0 [−3.89, +1.73].
 Level → main row unchanged (tcq_raqft_d1_s). Per-unit files exported (…plus_added_1000.jsonl).
+
+### E213 — π₀.₅ with the GR00T main-row recipe: set up and queued (2026-11-10 14:00 UTC)
+User: make π₀.₅ the main row too (fine-tune + Plus). Plan and differences in PI05_TCQ_2026-11-10.md: TCQ 2-bit on all 414 layers, fitted on
+H_D (clean + photometric + geometric + on-policy, trace-balanced; on-policy states from the accepted 2-bit row 704), V0' stabilised
+fine-tune with π₀.₅'s raqft_studentq loss / trainable set, Plus selection 1000 for tcq_d1 and tcq_raqft_d1 vs FP 765 / 704 / 749 / 741.
+Chain p_chain.sh under the drivers job. The rose QoS is shared with the user's other project (5-job submit limit), so jobs go mainly to
+the killable QoS.
