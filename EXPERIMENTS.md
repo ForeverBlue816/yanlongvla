@@ -2126,3 +2126,11 @@ H_D (clean + photometric + geometric + on-policy, trace-balanced; on-policy stat
 fine-tune with π₀.₅'s raqft_studentq loss / trainable set, Plus selection 1000 for tcq_d1 and tcq_raqft_d1 vs FP 765 / 704 / 749 / 741.
 Chain p_chain.sh under the drivers job. The rose QoS is shared with the user's other project (5-job submit limit), so jobs go mainly to
 the killable QoS.
+
+### E214 — 1-bit whole-model rows prepared for an external 2 × H100 machine (2026-11-11 04:35 UTC)
+User: 1-bit TCQ on every quantized Linear of π₀.₅ and GR00T N1.7, recipe otherwise the 2-bit main row's (H_D base, stabilised readout
+fine-tune, Plus selection 1000; PTQ row + fine-tuned row per model), run on Lambda from the public checkpoints. Rate is TCQ_BITS (trellis
+K; default 2, separate trees for other rates). Accounting: π₀.₅ linear 1.0162 bpw / whole-model 2.1130; GR00T 1.0177 / 4.8471.
+K = 1 verified in the trellis engine on a small layer (CPU round trip); π₀.₅ trimmed checkpoint derivation verified 811 / 811 tensors.
+Code, runbook (LAMBDA_RUNBOOK.md), environment rebuild, runner and small files pushed to the private repository (commit 39e8856).
+The NTU 2-bit π₀.₅ chain continues unchanged.
