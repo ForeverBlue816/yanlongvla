@@ -2135,10 +2135,8 @@ K = 1 verified in the trellis engine on a small layer (CPU round trip); π₀.�
 Code, runbook (LAMBDA_RUNBOOK.md), environment rebuild, runner and small files pushed to the private repository (commit 39e8856).
 The NTU 2-bit π₀.₅ chain continues unchanged.
 
-### E215 — 1-bit whole-model rows on Lambda (2 × H100) + SimplerEnv-Bridge 2-bit main row started (2026-11-12 02:10 UTC)
-Run from LAMBDA_RUNBOOK.md on a clean machine (GPU: NVIDIA H100 80GB HBM3). Doc: LAMBDA_1BIT_2026-11-12.md; files results/lambda_1bit_20261112/.
-π₀.₅ 1 bit (1.0162 / 2.1130 bpw): PTQ tcq_d1 **450 / 1000** (vs FP 765: −31.5 [−39.3, −23.3]; vs 2-bit PTQ 704: −25.4 [−32.1, −18.8]);
-fine-tuned tcq_raqft_d1 **498** (vs FP −26.7 [−34.6, −18.4]; vs 2-bit PTQ −20.6 [−26.9, −14.3]; vs 1-bit PTQ +4.8 [+2.2, +7.4]).
-GR00T 1 bit (1.0177 / 4.8471 bpw): PTQ tcq_w2_rht_d1 **81 / 1000** (vs FP 618: −53.7 [−60.4, −46.3]); fine-tuned tcq_raqft_d1_s: Plus running
-(201 / 553). FP smoke vs shipped references: π₀.₅ 49 / 50, GR00T 47 / 50 same outcome. Bridge FP (840 episodes, H100) 62.1 % (Chamadol 59.9);
-Bridge 2-bit main row in fine-tune. Fixes: env.sh exit status, NVIDIA EGL / Vulkan system packages, per-model runner status.
+### E215 — π₀.₅ tcq_d1 (TCQ on H_D, no fine-tune) Plus = 734 (2026-11-12 05:02 UTC)
+Fit: 414 layers, 2.0162 bpw linear, damping 0.01 everywhere, 3.9 GPU-h. Held-out action MSE vs FP 0.0195 (accepted 2-bit base 0.0372).
+Plus selection 1000 (RTX 6000 Ada): 734 (camera 351, robot-init 383). vs 2-bit base 704 +3.0 [−0.68, +6.91]; vs raqft_studentq 749 −1.5
+[−4.91, +1.99]; vs W2A8 741 −0.7 [−4.44, +3.13]; vs FP 765 −3.1 [−6.46, +0.02]. Fine-tune running (held-out readout 279 → 216 at 576 / 768).
+Two code fixes on the way: replaced layers keep a .weight for dtype reads (Plus server / fine-tune crashed in the SigLIP forward).
