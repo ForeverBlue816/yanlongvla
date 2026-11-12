@@ -1,0 +1,71 @@
+{
+ "stable": {
+  "row": "tcq_raqft_d1_s",
+  "selected_update": 768,
+  "heldout_readout_loss": 8522.550392150879,
+  "rule": "lowest held-out readout loss of the EMA weights among the 13 evaluation points",
+  "weights": "EMA 0.99, gauge-fixed",
+  "heldout_curve": [
+   [
+    0,
+    10280.95749206543
+   ],
+   [
+    64,
+    10174.353594970704
+   ],
+   [
+    128,
+    9484.874780273438
+   ],
+   [
+    192,
+    9121.101651000976
+   ],
+   [
+    256,
+    8811.881607055664
+   ],
+   [
+    320,
+    8723.003363037109
+   ],
+   [
+    384,
+    8596.938746643067
+   ],
+   [
+    448,
+    8588.17501373291
+   ],
+   [
+    512,
+    8673.532119750977
+   ],
+   [
+    576,
+    8633.182553100585
+   ],
+   [
+    640,
+    8539.47802581787
+   ],
+   [
+    704,
+    8552.683987426757
+   ],
+   [
+    768,
+    8522.550392150879
+   ]
+  ]
+ },
+ "naive": {
+  "row": "tcq_raqft_rht",
+  "selected_update": 768,
+  "rule": "final iterate (no held-out selection)",
+  "heldout_readout_loss_before": 10091.758349609376,
+  "heldout_readout_loss_final": 24870.02799682617
+ },
+ "note": "for comparison on the naive run's base: the stabilised recipe on tcq_w2_rht (row tcq_raqft_rht_s, V0') reaches held-out readout loss 8946.9"
+}

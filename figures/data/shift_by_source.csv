@@ -1,0 +1,11 @@
+# GR00T N1.7, trace shares of the shift second moment Sigma_shift by perturbation source, in percent (rows sum to 100).
+# Per quantized Linear: share_s = tr(Sigma_s) weighted by its (token, copy) count / tr(Sigma_shift); sources: 2 photometric copies, 1 geometric copy, 1 on-policy state per calibration observation (256 observations).
+# Each row is the mean over the layers of the group (per-layer shares averaged; action-head layers of the four suite checkpoints all included); min / max are over those layers.
+# Groups: LLM = language-model layers 0-15 (112 Linear); Vision encoder = visual tower (104); Action head: self-attention = vl_self_attention blocks (24 x 4 suites);
+#   Action head: cross-attention inputs = to_k / to_v of the DiT cross-attention blocks, whose input is the backbone token stream (32 x 4 suites).
+# Not a row: the remaining DiT layers (to_q, to_out, feed-forward, self-attention blocks; 640 layers): photometric 8.29, geometric 8.29, on_policy 83.42.
+module_group,layers,photometric,geometric,on_policy,photometric_min,photometric_max,geometric_min,geometric_max,on_policy_min,on_policy_max
+"LLM",112,29.43,25.83,44.74,26.19,36.32,24.11,27.19,37.24,48.33
+"Vision encoder",104,18.63,30.12,51.26,8.87,30.80,24.11,44.81,39.88,61.30
+"Action head: self-attention",96,27.98,23.94,48.08,19.26,34.87,17.75,27.04,38.09,61.99
+"Action head: cross-attention inputs",128,22.28,20.70,57.02,21.72,22.72,19.78,22.31,55.29,57.95
