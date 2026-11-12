@@ -2152,3 +2152,9 @@ So "2-bit above FP" on Bridge is reproduced with our code, and neither H_D nor t
 not a lost shrink; cause open. QTIP rebuilt: put_eggplant_in_basket 86 against 27 in Chamadol's table, cause open (QTIP's CUDA
 extensions replaced by pure-PyTorch stand-ins here). Running: π₀.₅ 1-bit standard LIBERO (both rows), FP repeat on Bridge.
 Details: LAMBDA_1BIT_2026-11-12.md; files results/lambda_1bit_20261112/.
+
+### E216a — π₀.₅ 1 bit on standard LIBERO (H100): fine-tuned 1600 / 2000, PTQ 1477 / 2000; FP 1928 (2026-11-12 10:15 UTC)
+4 suites × 10 tasks × 50 episodes, seed 7. Fine-tuned `tcq_raqft_d1`: Spatial 476, Object 495, Goal 347, LIBERO-10 282 (FP 491 / 494 /
+484 / 459). PTQ `tcq_d1`: 475 / 493 / 291 / 218. Fine-tuned vs PTQ, paired: +6.2 [+3.1, +9.6] pp. Spatial and Object stay near FP at
+1 bit; Goal and LIBERO-10 carry the loss. No pairing with FP (per-episode FP files not on the Lambda machine).
+Files: results/lambda_1bit_20261112/pi05_1bit_*.libero_full.json(l).

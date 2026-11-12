@@ -1,0 +1,185 @@
+{
+  "reference": "ptq",
+  "protocol": {
+    "suites": [
+      "libero_spatial",
+      "libero_object",
+      "libero_goal",
+      "libero_10"
+    ],
+    "tasks_per_suite": 10,
+    "episodes_per_task": 50,
+    "evaluation_seed": 7
+  },
+  "interval_method": "Paired suite-stratified hierarchical bootstrap of task and episode units; identical resampled units for all policies",
+  "interval_scope": "Conditional on ONE evaluation seed and the benchmark task/initial-state sampling model; not across-seed variability or proof of generalization",
+  "resamples": 2000,
+  "resampling_rng_seed": 20260930,
+  "resampling_note": "Analysis only; no extra rollout, policy-noise or experiment seed",
+  "policies": {
+    "ptq": {
+      "successes": 1477,
+      "episodes": 2000,
+      "success_percent": 73.85000000000001,
+      "success_ci95_percent": [
+        65.94875,
+        81.90124999999999
+      ],
+      "difference_from_reference_pp": 0.0,
+      "paired_difference_ci95_pp": [
+        0.0,
+        0.0
+      ],
+      "paired_improvements": 0,
+      "paired_regressions": 0,
+      "suites": {
+        "libero_spatial": {
+          "successes": 475,
+          "episodes": 500,
+          "success_percent": 95.0,
+          "success_ci95_percent": [
+            90.4,
+            98.8
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0
+        },
+        "libero_object": {
+          "successes": 493,
+          "episodes": 500,
+          "success_percent": 98.6,
+          "success_ci95_percent": [
+            96.8,
+            100.0
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0
+        },
+        "libero_goal": {
+          "successes": 291,
+          "episodes": 500,
+          "success_percent": 58.199999999999996,
+          "success_ci95_percent": [
+            32.2,
+            82.60499999999996
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0
+        },
+        "libero_10": {
+          "successes": 218,
+          "episodes": 500,
+          "success_percent": 43.6,
+          "success_ci95_percent": [
+            23.799999999999997,
+            63.800000000000004
+          ],
+          "difference_from_reference_pp": 0.0,
+          "paired_difference_ci95_pp": [
+            0.0,
+            0.0
+          ],
+          "paired_improvements": 0,
+          "paired_regressions": 0
+        }
+      }
+    },
+    "ft": {
+      "successes": 1600,
+      "episodes": 2000,
+      "success_percent": 80.0,
+      "success_ci95_percent": [
+        72.3,
+        87.75
+      ],
+      "difference_from_reference_pp": 6.15,
+      "paired_difference_ci95_pp": [
+        3.1000000000000085,
+        9.599999999999994
+      ],
+      "paired_improvements": 173,
+      "paired_regressions": 50,
+      "suites": {
+        "libero_spatial": {
+          "successes": 476,
+          "episodes": 500,
+          "success_percent": 95.19999999999999,
+          "success_ci95_percent": [
+            91.0,
+            98.6
+          ],
+          "difference_from_reference_pp": 0.2,
+          "paired_difference_ci95_pp": [
+            -2.6000000000000085,
+            3.200000000000003
+          ],
+          "paired_improvements": 15,
+          "paired_regressions": 14
+        },
+        "libero_object": {
+          "successes": 495,
+          "episodes": 500,
+          "success_percent": 99.0,
+          "success_ci95_percent": [
+            97.6,
+            100.0
+          ],
+          "difference_from_reference_pp": 0.4,
+          "paired_difference_ci95_pp": [
+            -0.5999999999999943,
+            1.6049999999999809
+          ],
+          "paired_improvements": 4,
+          "paired_regressions": 2
+        },
+        "libero_goal": {
+          "successes": 347,
+          "episodes": 500,
+          "success_percent": 69.39999999999999,
+          "success_ci95_percent": [
+            45.800000000000004,
+            90.0
+          ],
+          "difference_from_reference_pp": 11.200000000000001,
+          "paired_difference_ci95_pp": [
+            2.799999999999997,
+            22.4
+          ],
+          "paired_improvements": 69,
+          "paired_regressions": 13
+        },
+        "libero_10": {
+          "successes": 282,
+          "episodes": 500,
+          "success_percent": 56.39999999999999,
+          "success_ci95_percent": [
+            35.199999999999996,
+            75.6
+          ],
+          "difference_from_reference_pp": 12.8,
+          "paired_difference_ci95_pp": [
+            5.600000000000001,
+            20.599999999999994
+          ],
+          "paired_improvements": 85,
+          "paired_regressions": 21
+        }
+      }
+    }
+  }
+}
