@@ -1,0 +1,37 @@
+{
+ "blocks": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17
+ ],
+ "axes": "two leading directions of the pooled errors of both models on this episode (uncentred SVD of the 38 error vectors)",
+ "full_space_ratio": 0.505030293188648,
+ "onscreen_ratio": 0.4938382678857114,
+ "share_of_squared_error_shown": {
+  "base": 0.9625834291770599,
+  "loopq": 0.920511828308892
+ },
+ "mean_distance_onscreen": {
+  "base": 215.0949335140673,
+  "loopq": 106.22210939757925
+ },
+ "mean_distance_full": {
+  "base": 219.24304669090705,
+  "loopq": 110.72438014988123
+ }
+}
