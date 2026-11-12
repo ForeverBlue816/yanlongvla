@@ -1,0 +1,49 @@
+{
+ "unit": "libero_goal_303",
+ "resolution": 768,
+ "image": "agentview, upright (rendered rows reversed), u = column, v = row",
+ "site": "robot0 grip site (robot0_eef_pos)",
+ "steps": {
+  "fp": 162,
+  "tcq_w2_rht": 311,
+  "tcq_raqft_d1_s": 185
+ },
+ "replay_site_vs_rollout_eef_max_abs_m": {
+  "fp": 0.001861501874882876,
+  "tcq_w2_rht": 0.001861501874882876,
+  "tcq_raqft_d1_s": 0.001861501874882876
+ },
+ "inside_image": {
+  "fp": 1.0,
+  "tcq_w2_rht": 1.0,
+  "tcq_raqft_d1_s": 1.0
+ },
+ "final_uv": {
+  "fp": [
+   384.3,
+   461.4
+  ],
+  "tcq_w2_rht": [
+   248.5,
+   419.7
+  ],
+  "tcq_raqft_d1_s": [
+   384.0,
+   465.1
+  ]
+ },
+ "start_uv": {
+  "fp": [
+   396.5,
+   181.2
+  ],
+  "tcq_w2_rht": [
+   396.5,
+   181.2
+  ],
+  "tcq_raqft_d1_s": [
+   396.5,
+   181.2
+  ]
+ }
+}
