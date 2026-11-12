@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_10",
+ "task": 688,
+ "unit_id": 688,
+ "name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_1_15_100_0_0_initstate_0",
+ "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+ "category": "Camera Viewpoints",
+ "model_row": "tcq_raqft_d1_s",
+ "model_label": "ours (tcq_raqft_d1_s)",
+ "noise_seed": 1657564835,
+ "episode_success": true,
+ "episode_policy_calls": 32,
+ "episode_env_steps": 261,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 32,
+ "frame": "call025pct",
+ "policy_call": 8,
+ "env_step": 74,
+ "replay_eef_max_abs_error_m": 0.0009025056976328383,
+ "files": {
+  "agentview": "tcq_raqft_d1_s_call025pct_agentview.png",
+  "agentview_upright": "tcq_raqft_d1_s_call025pct_agentview_upright.png",
+  "wrist": "tcq_raqft_d1_s_call025pct_wrist.png",
+  "wrist_upright": "tcq_raqft_d1_s_call025pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.07539680756876921,
+  -0.16136677639743838,
+  0.5641287477251531
+ ]
+}

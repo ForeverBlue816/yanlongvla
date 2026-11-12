@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_10",
+ "task": 363,
+ "unit_id": 363,
+ "name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_482",
+ "base_task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+ "category": "Robot Initial States",
+ "model_row": "fp",
+ "model_label": "FP",
+ "noise_seed": 498375094,
+ "episode_success": true,
+ "episode_policy_calls": 39,
+ "episode_env_steps": 316,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 39,
+ "frame": "call025pct",
+ "policy_call": 10,
+ "env_step": 90,
+ "replay_eef_max_abs_error_m": 0.0009423735669137345,
+ "files": {
+  "agentview": "fp_call025pct_agentview.png",
+  "agentview_upright": "fp_call025pct_agentview_upright.png",
+  "wrist": "fp_call025pct_wrist.png",
+  "wrist_upright": "fp_call025pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  0.12747574831032057,
+  -0.20370391778220187,
+  0.5442117181659472
+ ]
+}

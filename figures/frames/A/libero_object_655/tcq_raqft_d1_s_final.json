@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_object",
+ "task": 655,
+ "unit_id": 655,
+ "name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_4_15_100_0_0_initstate_0",
+ "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+ "category": "Camera Viewpoints",
+ "model_row": "tcq_raqft_d1_s",
+ "model_label": "ours (tcq_raqft_d1_s)",
+ "noise_seed": 4070272344,
+ "episode_success": false,
+ "episode_policy_calls": 35,
+ "episode_env_steps": 290,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 20,
+ "frame": "final",
+ "policy_call": 34,
+ "env_step": 290,
+ "replay_eef_max_abs_error_m": 0.00010343223180234173,
+ "files": {
+  "agentview": "tcq_raqft_d1_s_final_agentview.png",
+  "agentview_upright": "tcq_raqft_d1_s_final_agentview_upright.png",
+  "wrist": "tcq_raqft_d1_s_final_wrist.png",
+  "wrist_upright": "tcq_raqft_d1_s_final_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  0.006658321975194953,
+  0.2657415568348664,
+  0.16869106826384775
+ ]
+}

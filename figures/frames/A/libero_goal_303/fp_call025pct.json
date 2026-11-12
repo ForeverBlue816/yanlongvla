@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_goal",
+ "task": 303,
+ "unit_id": 303,
+ "name": "open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_291",
+ "base_task": "open_the_middle_drawer_of_the_cabinet",
+ "category": "Robot Initial States",
+ "model_row": "fp",
+ "model_label": "FP",
+ "noise_seed": 3438583167,
+ "episode_success": true,
+ "episode_policy_calls": 19,
+ "episode_env_steps": 161,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 19,
+ "frame": "call025pct",
+ "policy_call": 5,
+ "env_step": 50,
+ "replay_eef_max_abs_error_m": 0.00023554095807631903,
+ "files": {
+  "agentview": "fp_call025pct_agentview.png",
+  "agentview_upright": "fp_call025pct_agentview_upright.png",
+  "wrist": "fp_call025pct_wrist.png",
+  "wrist_upright": "fp_call025pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  0.013859318303186804,
+  -0.0021199368397013165,
+  1.1094682944834604
+ ]
+}

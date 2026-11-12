@@ -1,0 +1,183 @@
+{
+ "fp": {
+  "suite": "libero_goal",
+  "task": 303,
+  "name": "open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_291",
+  "base_task": "open_the_middle_drawer_of_the_cabinet",
+  "category": "Robot Initial States",
+  "difficulty_level": 4,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 19
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 38
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 22
+   }
+  },
+  "row": "fp",
+  "noise_seed": 3438583167,
+  "success": true,
+  "policy_calls": 19,
+  "n_action_steps": 8,
+  "steps_including_settle": 161,
+  "prompt": "open the middle drawer of the cabinet view 0 0 100 0 0 initstate 291",
+  "seconds": 4.449789590202272,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154
+  ]
+ },
+ "tcq_w2_rht": {
+  "suite": "libero_goal",
+  "task": 303,
+  "name": "open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_291",
+  "base_task": "open_the_middle_drawer_of_the_cabinet",
+  "category": "Robot Initial States",
+  "difficulty_level": 4,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 19
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 38
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 22
+   }
+  },
+  "row": "tcq_w2_rht",
+  "noise_seed": 3438583167,
+  "success": false,
+  "policy_calls": 38,
+  "n_action_steps": 8,
+  "steps_including_settle": 310,
+  "prompt": "open the middle drawer of the cabinet view 0 0 100 0 0 initstate 291",
+  "seconds": 9.609956750180572,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178,
+   186,
+   194,
+   202,
+   210,
+   218,
+   226,
+   234,
+   242,
+   250,
+   258,
+   266,
+   274,
+   282,
+   290,
+   298,
+   306
+  ]
+ },
+ "tcq_raqft_d1_s": {
+  "suite": "libero_goal",
+  "task": 303,
+  "name": "open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_291",
+  "base_task": "open_the_middle_drawer_of_the_cabinet",
+  "category": "Robot Initial States",
+  "difficulty_level": 4,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 19
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 38
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 22
+   }
+  },
+  "row": "tcq_raqft_d1_s",
+  "noise_seed": 3438583167,
+  "success": true,
+  "policy_calls": 22,
+  "n_action_steps": 8,
+  "steps_including_settle": 184,
+  "prompt": "open the middle drawer of the cabinet view 0 0 100 0 0 initstate 291",
+  "seconds": 5.109340172261,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178
+  ]
+ }
+}

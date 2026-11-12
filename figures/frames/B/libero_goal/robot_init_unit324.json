@@ -1,0 +1,31 @@
+{
+ "group": "B",
+ "suite": "libero_goal",
+ "base_task": "put_the_bowl_on_the_stove",
+ "model_row": null,
+ "noise_seed": null,
+ "episode_success": null,
+ "kind": "Robot Initial States",
+ "unit_id": 324,
+ "task": 324,
+ "name": "put_the_bowl_on_the_stove_view_0_0_100_0_0_initstate_2",
+ "category": "Robot Initial States",
+ "units_of_this_kind_in_selection": 13,
+ "prompt": "put the bowl on the stove view 0 0 100 0 0 initstate 2",
+ "env_step": 10,
+ "policy_call": 0,
+ "init_state": 0,
+ "standard_task_index": null,
+ "files": {
+  "agentview": "robot_init_unit324_agentview.png",
+  "agentview_upright": "robot_init_unit324_agentview_upright.png",
+  "wrist": "robot_init_unit324_wrist.png",
+  "wrist_upright": "robot_init_unit324_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.21788476342159463,
+  -0.006888173635756515,
+  1.161351431092083
+ ]
+}

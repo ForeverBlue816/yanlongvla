@@ -1,0 +1,27 @@
+{
+ "group": "B",
+ "suite": "libero_10",
+ "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+ "model_row": null,
+ "noise_seed": null,
+ "episode_success": null,
+ "kind": "unperturbed LIBERO",
+ "unit_id": null,
+ "prompt": "put both the alphabet soup and the tomato sauce in the basket",
+ "env_step": 10,
+ "policy_call": 0,
+ "init_state": 0,
+ "standard_task_index": 0,
+ "files": {
+  "agentview": "unperturbed_agentview.png",
+  "agentview_upright": "unperturbed_agentview_upright.png",
+  "wrist": "unperturbed_wrist.png",
+  "wrist_upright": "unperturbed_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.04614927221902496,
+  -0.003567891045391681,
+  0.702046295162181
+ ]
+}

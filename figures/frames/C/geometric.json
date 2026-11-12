@@ -1,0 +1,24 @@
+{
+ "group": "C",
+ "suite": "libero_spatial",
+ "calibration_observation_index": 182,
+ "episode_index": 1271,
+ "frame_index": 29,
+ "prompt": "pick up the black bowl on the ramekin and place it on the plate",
+ "model_row": null,
+ "files": {
+  "agentview": "geometric_agentview.png",
+  "agentview_upright": "geometric_agentview_upright.png",
+  "wrist": "geometric_wrist.png",
+  "wrist_upright": "geometric_wrist_upright.png"
+ },
+ "resolution": 256,
+ "note": "stored 256 x 256 observation as used in arm D (no simulator state to re-render)",
+ "source": "geometric copy, shift_perturb stream 0, j = 3 (arm D)",
+ "params": {
+  "area": 0.9153985352747916,
+  "side": 245,
+  "top": 6,
+  "left": 0
+ }
+}

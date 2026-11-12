@@ -1,0 +1,175 @@
+{
+ "fp": {
+  "suite": "libero_object",
+  "task": 292,
+  "name": "pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_62",
+  "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+  "category": "Robot Initial States",
+  "difficulty_level": 3,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 20
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 35
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 15
+   }
+  },
+  "row": "fp",
+  "noise_seed": 110576128,
+  "success": true,
+  "policy_calls": 20,
+  "n_action_steps": 8,
+  "steps_including_settle": 163,
+  "prompt": "pick up the cream cheese and place it in the basket view 0 0 100 0 0 initstate 62",
+  "seconds": 4.7351311831735075,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162
+  ]
+ },
+ "tcq_w2_rht": {
+  "suite": "libero_object",
+  "task": 292,
+  "name": "pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_62",
+  "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+  "category": "Robot Initial States",
+  "difficulty_level": 3,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 20
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 35
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 15
+   }
+  },
+  "row": "tcq_w2_rht",
+  "noise_seed": 110576128,
+  "success": false,
+  "policy_calls": 35,
+  "n_action_steps": 8,
+  "steps_including_settle": 290,
+  "prompt": "pick up the cream cheese and place it in the basket view 0 0 100 0 0 initstate 62",
+  "seconds": 8.194170597940683,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178,
+   186,
+   194,
+   202,
+   210,
+   218,
+   226,
+   234,
+   242,
+   250,
+   258,
+   266,
+   274,
+   282
+  ]
+ },
+ "tcq_raqft_d1_s": {
+  "suite": "libero_object",
+  "task": 292,
+  "name": "pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_62",
+  "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+  "category": "Robot Initial States",
+  "difficulty_level": 3,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 20
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 35
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 15
+   }
+  },
+  "row": "tcq_raqft_d1_s",
+  "noise_seed": 110576128,
+  "success": true,
+  "policy_calls": 16,
+  "n_action_steps": 8,
+  "steps_including_settle": 131,
+  "prompt": "pick up the cream cheese and place it in the basket view 0 0 100 0 0 initstate 62",
+  "seconds": 4.509728141129017,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130
+  ]
+ }
+}

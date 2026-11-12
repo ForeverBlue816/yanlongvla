@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_goal",
+ "task": 739,
+ "unit_id": 739,
+ "name": "put_the_bowl_on_the_stove_view_29_0_100_0_0_initstate_0",
+ "base_task": "put_the_bowl_on_the_stove",
+ "category": "Camera Viewpoints",
+ "model_row": "tcq_raqft_d1_s",
+ "model_label": "ours (tcq_raqft_d1_s)",
+ "noise_seed": 3090413492,
+ "episode_success": true,
+ "episode_policy_calls": 11,
+ "episode_env_steps": 97,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 12,
+ "frame": "call050pct",
+ "policy_call": 6,
+ "env_step": 58,
+ "replay_eef_max_abs_error_m": 0.00031852534172038816,
+ "files": {
+  "agentview": "tcq_raqft_d1_s_call050pct_agentview.png",
+  "agentview_upright": "tcq_raqft_d1_s_call050pct_agentview_upright.png",
+  "wrist": "tcq_raqft_d1_s_call050pct_wrist.png",
+  "wrist_upright": "tcq_raqft_d1_s_call050pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.1126081643922705,
+  0.038958694523707815,
+  0.9256363687903251
+ ]
+}

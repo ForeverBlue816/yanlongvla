@@ -1,0 +1,36 @@
+{
+ "group": "C",
+ "suite": "libero_spatial",
+ "calibration_observation_index": 182,
+ "episode_index": 1271,
+ "frame_index": 29,
+ "prompt": "pick up the black bowl on the ramekin and place it on the plate",
+ "model_row": "tcq_w2_rht",
+ "files": {
+  "agentview": "onpolicy_agentview.png",
+  "agentview_upright": "onpolicy_agentview_upright.png",
+  "wrist": "onpolicy_wrist.png",
+  "wrist_upright": "onpolicy_wrist_upright.png"
+ },
+ "resolution": 256,
+ "note": "stored 256 x 256 observation as used in arm D (no simulator state to re-render)",
+ "source": "on-policy state of the 2-bit policy tcq_w2_rht, D1 capture set (official init state by rollout seed)",
+ "capture": {
+  "observation_index": 182,
+  "suite": "libero_spatial",
+  "task": 5,
+  "prompt": "pick up the black bowl on the ramekin and place it on the plate",
+  "init_state": 17,
+  "init_state_draw": "official LIBERO init file, index by rollout seed",
+  "rollout_seed": 4252295052,
+  "call": 3,
+  "calls": 13,
+  "first_40pct_calls": 6,
+  "steps_before_call": 24,
+  "steps": 98,
+  "phase": 0.24489795918367346,
+  "success": true,
+  "noise_seed": 3424700954,
+  "seconds": 4.649281511083245
+ }
+}

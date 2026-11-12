@@ -1,0 +1,35 @@
+{
+ "group": "D",
+ "suite": "libero_spatial",
+ "task": 694,
+ "unit_id": 694,
+ "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_139_0_0_initstate_0",
+ "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+ "category": "Camera Viewpoints",
+ "model_row": "fp",
+ "model_label": "FP",
+ "noise_seed": 291047450,
+ "episode_success": true,
+ "episode_policy_calls": 15,
+ "episode_env_steps": 129,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 15,
+ "frame": "first env step with |eef_base - eef_FP| > 3 cm",
+ "env_step": 91,
+ "policy_call": 10,
+ "base_fp_distance_m": 0.031850207978400706,
+ "this_row_fp_distance_m": 0.0,
+ "replay_eef_max_abs_error_m": 0.0007026374238647826,
+ "files": {
+  "agentview": "fp_step091_agentview.png",
+  "agentview_upright": "fp_step091_agentview_upright.png",
+  "wrist": "fp_step091_wrist.png",
+  "wrist_upright": "fp_step091_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  0.08444575321417287,
+  0.24680624846511567,
+  1.0681922824555534
+ ]
+}

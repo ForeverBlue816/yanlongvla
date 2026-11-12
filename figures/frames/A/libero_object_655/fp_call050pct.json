@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_object",
+ "task": 655,
+ "unit_id": 655,
+ "name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_4_15_100_0_0_initstate_0",
+ "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+ "category": "Camera Viewpoints",
+ "model_row": "fp",
+ "model_label": "FP",
+ "noise_seed": 4070272344,
+ "episode_success": true,
+ "episode_policy_calls": 20,
+ "episode_env_steps": 168,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 20,
+ "frame": "call050pct",
+ "policy_call": 10,
+ "env_step": 90,
+ "replay_eef_max_abs_error_m": 0.0008058775403795848,
+ "files": {
+  "agentview": "fp_call050pct_agentview.png",
+  "agentview_upright": "fp_call050pct_agentview_upright.png",
+  "wrist": "fp_call050pct_wrist.png",
+  "wrist_upright": "fp_call050pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.09851413695030846,
+  -0.24112693134555646,
+  0.08571263903785364
+ ]
+}

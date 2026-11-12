@@ -1,0 +1,27 @@
+{
+ "group": "B",
+ "suite": "libero_object",
+ "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+ "model_row": null,
+ "noise_seed": null,
+ "episode_success": null,
+ "kind": "unperturbed LIBERO",
+ "unit_id": null,
+ "prompt": "pick up the cream cheese and place it in the basket",
+ "env_step": 10,
+ "policy_call": 0,
+ "init_state": 0,
+ "standard_task_index": 1,
+ "files": {
+  "agentview": "unperturbed_agentview.png",
+  "agentview_upright": "unperturbed_agentview_upright.png",
+  "wrist": "unperturbed_wrist.png",
+  "wrist_upright": "unperturbed_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.13927346132878476,
+  0.00039495263579474645,
+  0.2708434541366528
+ ]
+}

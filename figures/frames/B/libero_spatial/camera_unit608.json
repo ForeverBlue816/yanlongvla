@@ -1,0 +1,31 @@
+{
+ "group": "B",
+ "suite": "libero_spatial",
+ "base_task": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+ "model_row": null,
+ "noise_seed": null,
+ "episode_success": null,
+ "kind": "Camera Viewpoints",
+ "unit_id": 608,
+ "task": 608,
+ "name": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate_view_0_0_100_2_352_initstate_0",
+ "category": "Camera Viewpoints",
+ "units_of_this_kind_in_selection": 6,
+ "prompt": "pick up the black bowl between the plate and the ramekin and place it on the plate view 0 0 100 2 352 initstate 0",
+ "env_step": 10,
+ "policy_call": 0,
+ "init_state": 0,
+ "standard_task_index": null,
+ "files": {
+  "agentview": "camera_unit608_agentview.png",
+  "agentview_upright": "camera_unit608_agentview_upright.png",
+  "wrist": "camera_unit608_wrist.png",
+  "wrist_upright": "camera_unit608_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.21124162683394807,
+  -0.011090601889321502,
+  1.1742495176982402
+ ]
+}

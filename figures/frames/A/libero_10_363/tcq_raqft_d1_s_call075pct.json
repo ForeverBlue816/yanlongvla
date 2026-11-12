@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_10",
+ "task": 363,
+ "unit_id": 363,
+ "name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_482",
+ "base_task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+ "category": "Robot Initial States",
+ "model_row": "tcq_raqft_d1_s",
+ "model_label": "ours (tcq_raqft_d1_s)",
+ "noise_seed": 498375094,
+ "episode_success": true,
+ "episode_policy_calls": 31,
+ "episode_env_steps": 256,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 39,
+ "frame": "call075pct",
+ "policy_call": 29,
+ "env_step": 242,
+ "replay_eef_max_abs_error_m": 0.0005371243380395407,
+ "files": {
+  "agentview": "tcq_raqft_d1_s_call075pct_agentview.png",
+  "agentview_upright": "tcq_raqft_d1_s_call075pct_agentview_upright.png",
+  "wrist": "tcq_raqft_d1_s_call075pct_wrist.png",
+  "wrist_upright": "tcq_raqft_d1_s_call075pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.02826887936610866,
+  0.2540589834566429,
+  0.6237615321039589
+ ]
+}

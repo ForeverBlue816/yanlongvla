@@ -1,0 +1,211 @@
+{
+ "rule": "FP success, tcq_w2_rht failure, tcq_raqft_d1_s (A40 file, 594) success; per category the first unit by id in each suite (up to 8)",
+ "qualifying": {
+  "Camera Viewpoints": {
+   "libero_spatial": 8,
+   "libero_object": 14,
+   "libero_goal": 14,
+   "libero_10": 15
+  },
+  "Robot Initial States": {
+   "libero_spatial": 5,
+   "libero_object": 5,
+   "libero_goal": 10,
+   "libero_10": 7
+  }
+ },
+ "units": [
+  {
+   "suite": "libero_spatial",
+   "task": 694,
+   "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_139_0_0_initstate_0",
+   "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+   "category": "Camera Viewpoints",
+   "difficulty_level": 2,
+   "episode": 0,
+   "seed": 7,
+   "recorded": {
+    "fp": {
+     "success": true,
+     "policy_calls": 15
+    },
+    "tcq_w2_rht": {
+     "success": false,
+     "policy_calls": 28
+    },
+    "tcq_raqft_d1_s": {
+     "success": true,
+     "policy_calls": 12
+    }
+   }
+  },
+  {
+   "suite": "libero_object",
+   "task": 655,
+   "name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_4_15_100_0_0_initstate_0",
+   "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+   "category": "Camera Viewpoints",
+   "difficulty_level": 2,
+   "episode": 0,
+   "seed": 7,
+   "recorded": {
+    "fp": {
+     "success": true,
+     "policy_calls": 20
+    },
+    "tcq_w2_rht": {
+     "success": false,
+     "policy_calls": 35
+    },
+    "tcq_raqft_d1_s": {
+     "success": true,
+     "policy_calls": 17
+    }
+   }
+  },
+  {
+   "suite": "libero_goal",
+   "task": 739,
+   "name": "put_the_bowl_on_the_stove_view_29_0_100_0_0_initstate_0",
+   "base_task": "put_the_bowl_on_the_stove",
+   "category": "Camera Viewpoints",
+   "difficulty_level": 1,
+   "episode": 0,
+   "seed": 7,
+   "recorded": {
+    "fp": {
+     "success": true,
+     "policy_calls": 12
+    },
+    "tcq_w2_rht": {
+     "success": false,
+     "policy_calls": 38
+    },
+    "tcq_raqft_d1_s": {
+     "success": true,
+     "policy_calls": 11
+    }
+   }
+  },
+  {
+   "suite": "libero_10",
+   "task": 688,
+   "name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_1_15_100_0_0_initstate_0",
+   "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+   "category": "Camera Viewpoints",
+   "difficulty_level": 1,
+   "episode": 0,
+   "seed": 7,
+   "recorded": {
+    "fp": {
+     "success": true,
+     "policy_calls": 32
+    },
+    "tcq_w2_rht": {
+     "success": false,
+     "policy_calls": 65
+    },
+    "tcq_raqft_d1_s": {
+     "success": true,
+     "policy_calls": 33
+    }
+   }
+  },
+  {
+   "suite": "libero_spatial",
+   "task": 316,
+   "name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_372",
+   "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+   "category": "Robot Initial States",
+   "difficulty_level": 5,
+   "episode": 0,
+   "seed": 7,
+   "recorded": {
+    "fp": {
+     "success": true,
+     "policy_calls": 17
+    },
+    "tcq_w2_rht": {
+     "success": false,
+     "policy_calls": 28
+    },
+    "tcq_raqft_d1_s": {
+     "success": true,
+     "policy_calls": 17
+    }
+   }
+  },
+  {
+   "suite": "libero_object",
+   "task": 292,
+   "name": "pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_62",
+   "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+   "category": "Robot Initial States",
+   "difficulty_level": 3,
+   "episode": 0,
+   "seed": 7,
+   "recorded": {
+    "fp": {
+     "success": true,
+     "policy_calls": 20
+    },
+    "tcq_w2_rht": {
+     "success": false,
+     "policy_calls": 35
+    },
+    "tcq_raqft_d1_s": {
+     "success": true,
+     "policy_calls": 15
+    }
+   }
+  },
+  {
+   "suite": "libero_goal",
+   "task": 303,
+   "name": "open_the_middle_drawer_of_the_cabinet_view_0_0_100_0_0_initstate_291",
+   "base_task": "open_the_middle_drawer_of_the_cabinet",
+   "category": "Robot Initial States",
+   "difficulty_level": 4,
+   "episode": 0,
+   "seed": 7,
+   "recorded": {
+    "fp": {
+     "success": true,
+     "policy_calls": 19
+    },
+    "tcq_w2_rht": {
+     "success": false,
+     "policy_calls": 38
+    },
+    "tcq_raqft_d1_s": {
+     "success": true,
+     "policy_calls": 22
+    }
+   }
+  },
+  {
+   "suite": "libero_10",
+   "task": 363,
+   "name": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket_view_0_0_100_0_0_initstate_482",
+   "base_task": "LIVING_ROOM_SCENE2_put_both_the_cream_cheese_box_and_the_butter_in_the_basket",
+   "category": "Robot Initial States",
+   "difficulty_level": 1,
+   "episode": 0,
+   "seed": 7,
+   "recorded": {
+    "fp": {
+     "success": true,
+     "policy_calls": 39
+    },
+    "tcq_w2_rht": {
+     "success": false,
+     "policy_calls": 65
+    },
+    "tcq_raqft_d1_s": {
+     "success": true,
+     "policy_calls": 31
+    }
+   }
+  }
+ ]
+}

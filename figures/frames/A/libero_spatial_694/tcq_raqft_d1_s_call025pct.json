@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_spatial",
+ "task": 694,
+ "unit_id": 694,
+ "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_139_0_0_initstate_0",
+ "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+ "category": "Camera Viewpoints",
+ "model_row": "tcq_raqft_d1_s",
+ "model_label": "ours (tcq_raqft_d1_s)",
+ "noise_seed": 291047450,
+ "episode_success": true,
+ "episode_policy_calls": 12,
+ "episode_env_steps": 102,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 15,
+ "frame": "call025pct",
+ "policy_call": 4,
+ "env_step": 42,
+ "replay_eef_max_abs_error_m": 0.0007933437948695055,
+ "files": {
+  "agentview": "tcq_raqft_d1_s_call025pct_agentview.png",
+  "agentview_upright": "tcq_raqft_d1_s_call025pct_agentview_upright.png",
+  "wrist": "tcq_raqft_d1_s_call025pct_wrist.png",
+  "wrist_upright": "tcq_raqft_d1_s_call025pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  0.09939266132938741,
+  0.06327303346049923,
+  1.0745888702868183
+ ]
+}

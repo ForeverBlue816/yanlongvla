@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_spatial",
+ "task": 316,
+ "unit_id": 316,
+ "name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_372",
+ "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+ "category": "Robot Initial States",
+ "model_row": "fp",
+ "model_label": "FP",
+ "noise_seed": 222116177,
+ "episode_success": true,
+ "episode_policy_calls": 17,
+ "episode_env_steps": 139,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 17,
+ "frame": "call050pct",
+ "policy_call": 8,
+ "env_step": 74,
+ "replay_eef_max_abs_error_m": 0.00021815832917593259,
+ "files": {
+  "agentview": "fp_call050pct_agentview.png",
+  "agentview_upright": "fp_call050pct_agentview_upright.png",
+  "wrist": "fp_call050pct_wrist.png",
+  "wrist_upright": "fp_call050pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.17873657024637432,
+  0.255389147643741,
+  0.9277862065810073
+ ]
+}

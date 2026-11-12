@@ -1,0 +1,27 @@
+{
+ "group": "B",
+ "suite": "libero_goal",
+ "base_task": "put_the_bowl_on_the_stove",
+ "model_row": null,
+ "noise_seed": null,
+ "episode_success": null,
+ "kind": "unperturbed LIBERO",
+ "unit_id": null,
+ "prompt": "put the bowl on the stove",
+ "env_step": 10,
+ "policy_call": 0,
+ "init_state": 0,
+ "standard_task_index": 1,
+ "files": {
+  "agentview": "unperturbed_agentview.png",
+  "agentview_upright": "unperturbed_agentview_upright.png",
+  "wrist": "unperturbed_wrist.png",
+  "wrist_upright": "unperturbed_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.21711399099660036,
+  -0.013456530511010582,
+  1.1605809769447142
+ ]
+}

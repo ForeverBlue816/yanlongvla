@@ -1,0 +1,35 @@
+{
+ "group": "D",
+ "suite": "libero_spatial",
+ "task": 694,
+ "unit_id": 694,
+ "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_139_0_0_initstate_0",
+ "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+ "category": "Camera Viewpoints",
+ "model_row": "tcq_raqft_d1_s",
+ "model_label": "ours (tcq_raqft_d1_s)",
+ "noise_seed": 291047450,
+ "episode_success": true,
+ "episode_policy_calls": 12,
+ "episode_env_steps": 102,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 15,
+ "frame": "first env step with |eef_base - eef_FP| > 3 cm",
+ "env_step": 91,
+ "policy_call": 10,
+ "base_fp_distance_m": 0.031850207978400706,
+ "this_row_fp_distance_m": 0.06353409679177742,
+ "replay_eef_max_abs_error_m": 0.0008369141501134436,
+ "files": {
+  "agentview": "tcq_raqft_d1_s_step091_agentview.png",
+  "agentview_upright": "tcq_raqft_d1_s_step091_agentview_upright.png",
+  "wrist": "tcq_raqft_d1_s_step091_wrist.png",
+  "wrist_upright": "tcq_raqft_d1_s_step091_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  0.06678173561834463,
+  0.2517559701441489,
+  1.006993272898016
+ ]
+}

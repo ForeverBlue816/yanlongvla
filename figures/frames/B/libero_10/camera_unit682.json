@@ -1,0 +1,31 @@
+{
+ "group": "B",
+ "suite": "libero_10",
+ "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+ "model_row": null,
+ "noise_seed": null,
+ "episode_success": null,
+ "kind": "Camera Viewpoints",
+ "unit_id": 682,
+ "task": 682,
+ "name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_2_6_initstate_0",
+ "category": "Camera Viewpoints",
+ "units_of_this_kind_in_selection": 13,
+ "prompt": "put both the alphabet soup and the tomato sauce in the basket view 0 0 100 2 6 initstate 0",
+ "env_step": 10,
+ "policy_call": 0,
+ "init_state": 0,
+ "standard_task_index": null,
+ "files": {
+  "agentview": "camera_unit682_agentview.png",
+  "agentview_upright": "camera_unit682_agentview_upright.png",
+  "wrist": "camera_unit682_wrist.png",
+  "wrist_upright": "camera_unit682_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.04614927221902496,
+  -0.003567891045391681,
+  0.702046295162181
+ ]
+}

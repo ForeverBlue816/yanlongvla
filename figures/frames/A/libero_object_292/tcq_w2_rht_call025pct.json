@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_object",
+ "task": 292,
+ "unit_id": 292,
+ "name": "pick_up_the_cream_cheese_and_place_it_in_the_basket_view_0_0_100_0_0_initstate_62",
+ "base_task": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+ "category": "Robot Initial States",
+ "model_row": "tcq_w2_rht",
+ "model_label": "2-bit base (tcq_w2_rht)",
+ "noise_seed": 110576128,
+ "episode_success": false,
+ "episode_policy_calls": 35,
+ "episode_env_steps": 290,
+ "recorded_plus_success": false,
+ "fp_policy_calls": 20,
+ "frame": "call025pct",
+ "policy_call": 5,
+ "env_step": 50,
+ "replay_eef_max_abs_error_m": 4.399095440939249e-05,
+ "files": {
+  "agentview": "tcq_w2_rht_call025pct_agentview.png",
+  "agentview_upright": "tcq_w2_rht_call025pct_agentview_upright.png",
+  "wrist": "tcq_w2_rht_call025pct_wrist.png",
+  "wrist_upright": "tcq_w2_rht_call025pct_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.01073422409149236,
+  -0.12902379824869,
+  0.009131863678747354
+ ]
+}

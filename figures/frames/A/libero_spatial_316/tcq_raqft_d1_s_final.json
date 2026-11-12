@@ -1,0 +1,33 @@
+{
+ "group": "A",
+ "suite": "libero_spatial",
+ "task": 316,
+ "unit_id": 316,
+ "name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_372",
+ "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+ "category": "Robot Initial States",
+ "model_row": "tcq_raqft_d1_s",
+ "model_label": "ours (tcq_raqft_d1_s)",
+ "noise_seed": 222116177,
+ "episode_success": true,
+ "episode_policy_calls": 23,
+ "episode_env_steps": 191,
+ "recorded_plus_success": true,
+ "fp_policy_calls": 17,
+ "frame": "final",
+ "policy_call": 22,
+ "env_step": 191,
+ "replay_eef_max_abs_error_m": 0.0005006275317404052,
+ "files": {
+  "agentview": "tcq_raqft_d1_s_final_agentview.png",
+  "agentview_upright": "tcq_raqft_d1_s_final_agentview_upright.png",
+  "wrist": "tcq_raqft_d1_s_final_wrist.png",
+  "wrist_upright": "tcq_raqft_d1_s_final_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  0.07258202471970303,
+  0.13494669490596056,
+  0.9420321789309324
+ ]
+}

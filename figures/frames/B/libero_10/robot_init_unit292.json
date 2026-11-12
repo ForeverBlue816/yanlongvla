@@ -1,0 +1,31 @@
+{
+ "group": "B",
+ "suite": "libero_10",
+ "base_task": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket",
+ "model_row": null,
+ "noise_seed": null,
+ "episode_success": null,
+ "kind": "Robot Initial States",
+ "unit_id": 292,
+ "task": 292,
+ "name": "LIVING_ROOM_SCENE2_put_both_the_alphabet_soup_and_the_tomato_sauce_in_the_basket_view_0_0_100_0_0_initstate_71",
+ "category": "Robot Initial States",
+ "units_of_this_kind_in_selection": 13,
+ "prompt": "put both the alphabet soup and the tomato sauce in the basket view 0 0 100 0 0 initstate 71",
+ "env_step": 10,
+ "policy_call": 0,
+ "init_state": 0,
+ "standard_task_index": null,
+ "files": {
+  "agentview": "robot_init_unit292_agentview.png",
+  "agentview_upright": "robot_init_unit292_agentview_upright.png",
+  "wrist": "robot_init_unit292_wrist.png",
+  "wrist_upright": "robot_init_unit292_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  -0.05323330254670486,
+  -0.0014662391619715788,
+  0.6896159067969475
+ ]
+}

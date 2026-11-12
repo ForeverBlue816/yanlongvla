@@ -1,0 +1,159 @@
+{
+ "fp": {
+  "suite": "libero_spatial",
+  "task": 694,
+  "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_139_0_0_initstate_0",
+  "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 2,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 15
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 28
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 12
+   }
+  },
+  "row": "fp",
+  "noise_seed": 291047450,
+  "success": true,
+  "policy_calls": 15,
+  "n_action_steps": 8,
+  "steps_including_settle": 129,
+  "prompt": "pick up the black bowl on the cookie box and place it on the plate view 0 0 139 0 0 initstate 0",
+  "seconds": 5.011688997037709,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122
+  ]
+ },
+ "tcq_w2_rht": {
+  "suite": "libero_spatial",
+  "task": 694,
+  "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_139_0_0_initstate_0",
+  "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 2,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 15
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 28
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 12
+   }
+  },
+  "row": "tcq_w2_rht",
+  "noise_seed": 291047450,
+  "success": false,
+  "policy_calls": 28,
+  "n_action_steps": 8,
+  "steps_including_settle": 230,
+  "prompt": "pick up the black bowl on the cookie box and place it on the plate view 0 0 139 0 0 initstate 0",
+  "seconds": 7.443642356898636,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178,
+   186,
+   194,
+   202,
+   210,
+   218,
+   226
+  ]
+ },
+ "tcq_raqft_d1_s": {
+  "suite": "libero_spatial",
+  "task": 694,
+  "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate_view_0_0_139_0_0_initstate_0",
+  "base_task": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 2,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 15
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 28
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 12
+   }
+  },
+  "row": "tcq_raqft_d1_s",
+  "noise_seed": 291047450,
+  "success": true,
+  "policy_calls": 12,
+  "n_action_steps": 8,
+  "steps_including_settle": 102,
+  "prompt": "pick up the black bowl on the cookie box and place it on the plate view 0 0 139 0 0 initstate 0",
+  "seconds": 3.5613472941331565,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98
+  ]
+ }
+}

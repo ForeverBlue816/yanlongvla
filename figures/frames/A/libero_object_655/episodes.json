@@ -1,0 +1,194 @@
+{
+ "fp": {
+  "suite": "libero_object",
+  "task": 655,
+  "name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_4_15_100_0_0_initstate_0",
+  "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 2,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 20
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 35
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 17
+   }
+  },
+  "row": "fp",
+  "noise_seed": 4070272344,
+  "success": true,
+  "policy_calls": 20,
+  "n_action_steps": 8,
+  "steps_including_settle": 168,
+  "prompt": "pick up the alphabet soup and place it in the basket view 4 15 100 0 0 initstate 0",
+  "seconds": 4.988973408006132,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162
+  ]
+ },
+ "tcq_w2_rht": {
+  "suite": "libero_object",
+  "task": 655,
+  "name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_4_15_100_0_0_initstate_0",
+  "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 2,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 20
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 35
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 17
+   }
+  },
+  "row": "tcq_w2_rht",
+  "noise_seed": 4070272344,
+  "success": false,
+  "policy_calls": 35,
+  "n_action_steps": 8,
+  "steps_including_settle": 290,
+  "prompt": "pick up the alphabet soup and place it in the basket view 4 15 100 0 0 initstate 0",
+  "seconds": 8.977566034067422,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178,
+   186,
+   194,
+   202,
+   210,
+   218,
+   226,
+   234,
+   242,
+   250,
+   258,
+   266,
+   274,
+   282
+  ]
+ },
+ "tcq_raqft_d1_s": {
+  "suite": "libero_object",
+  "task": 655,
+  "name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket_view_4_15_100_0_0_initstate_0",
+  "base_task": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 2,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 20
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 35
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 17
+   }
+  },
+  "row": "tcq_raqft_d1_s",
+  "noise_seed": 4070272344,
+  "success": false,
+  "policy_calls": 35,
+  "n_action_steps": 8,
+  "steps_including_settle": 290,
+  "prompt": "pick up the alphabet soup and place it in the basket view 4 15 100 0 0 initstate 0",
+  "seconds": 8.846899213269353,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178,
+   186,
+   194,
+   202,
+   210,
+   218,
+   226,
+   234,
+   242,
+   250,
+   258,
+   266,
+   274,
+   282
+  ]
+ }
+}

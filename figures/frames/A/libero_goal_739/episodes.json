@@ -1,0 +1,165 @@
+{
+ "fp": {
+  "suite": "libero_goal",
+  "task": 739,
+  "name": "put_the_bowl_on_the_stove_view_29_0_100_0_0_initstate_0",
+  "base_task": "put_the_bowl_on_the_stove",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 1,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 12
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 38
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 11
+   }
+  },
+  "row": "fp",
+  "noise_seed": 3090413492,
+  "success": true,
+  "policy_calls": 12,
+  "n_action_steps": 8,
+  "steps_including_settle": 99,
+  "prompt": "put the bowl on the stove view 29 0 100 0 0 initstate 0",
+  "seconds": 2.9965109741315246,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98
+  ]
+ },
+ "tcq_w2_rht": {
+  "suite": "libero_goal",
+  "task": 739,
+  "name": "put_the_bowl_on_the_stove_view_29_0_100_0_0_initstate_0",
+  "base_task": "put_the_bowl_on_the_stove",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 1,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 12
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 38
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 11
+   }
+  },
+  "row": "tcq_w2_rht",
+  "noise_seed": 3090413492,
+  "success": false,
+  "policy_calls": 38,
+  "n_action_steps": 8,
+  "steps_including_settle": 310,
+  "prompt": "put the bowl on the stove view 29 0 100 0 0 initstate 0",
+  "seconds": 8.559016956947744,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178,
+   186,
+   194,
+   202,
+   210,
+   218,
+   226,
+   234,
+   242,
+   250,
+   258,
+   266,
+   274,
+   282,
+   290,
+   298,
+   306
+  ]
+ },
+ "tcq_raqft_d1_s": {
+  "suite": "libero_goal",
+  "task": 739,
+  "name": "put_the_bowl_on_the_stove_view_29_0_100_0_0_initstate_0",
+  "base_task": "put_the_bowl_on_the_stove",
+  "category": "Camera Viewpoints",
+  "difficulty_level": 1,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 12
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 38
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 11
+   }
+  },
+  "row": "tcq_raqft_d1_s",
+  "noise_seed": 3090413492,
+  "success": true,
+  "policy_calls": 11,
+  "n_action_steps": 8,
+  "steps_including_settle": 97,
+  "prompt": "put the bowl on the stove view 29 0 100 0 0 initstate 0",
+  "seconds": 3.211713083088398,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90
+  ]
+ }
+}

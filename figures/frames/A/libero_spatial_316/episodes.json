@@ -1,0 +1,172 @@
+{
+ "fp": {
+  "suite": "libero_spatial",
+  "task": 316,
+  "name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_372",
+  "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+  "category": "Robot Initial States",
+  "difficulty_level": 5,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 17
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 28
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 17
+   }
+  },
+  "row": "fp",
+  "noise_seed": 222116177,
+  "success": true,
+  "policy_calls": 17,
+  "n_action_steps": 8,
+  "steps_including_settle": 139,
+  "prompt": "pick up the black bowl next to the ramekin and place it on the plate view 0 0 100 0 0 initstate 372",
+  "seconds": 4.669762036763132,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138
+  ]
+ },
+ "tcq_w2_rht": {
+  "suite": "libero_spatial",
+  "task": 316,
+  "name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_372",
+  "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+  "category": "Robot Initial States",
+  "difficulty_level": 5,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 17
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 28
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 17
+   }
+  },
+  "row": "tcq_w2_rht",
+  "noise_seed": 222116177,
+  "success": false,
+  "policy_calls": 28,
+  "n_action_steps": 8,
+  "steps_including_settle": 230,
+  "prompt": "pick up the black bowl next to the ramekin and place it on the plate view 0 0 100 0 0 initstate 372",
+  "seconds": 8.152690283022821,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178,
+   186,
+   194,
+   202,
+   210,
+   218,
+   226
+  ]
+ },
+ "tcq_raqft_d1_s": {
+  "suite": "libero_spatial",
+  "task": 316,
+  "name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate_view_0_0_100_0_0_initstate_372",
+  "base_task": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+  "category": "Robot Initial States",
+  "difficulty_level": 5,
+  "episode": 0,
+  "seed": 7,
+  "recorded": {
+   "fp": {
+    "success": true,
+    "policy_calls": 17
+   },
+   "tcq_w2_rht": {
+    "success": false,
+    "policy_calls": 28
+   },
+   "tcq_raqft_d1_s": {
+    "success": true,
+    "policy_calls": 17
+   }
+  },
+  "row": "tcq_raqft_d1_s",
+  "noise_seed": 222116177,
+  "success": true,
+  "policy_calls": 23,
+  "n_action_steps": 8,
+  "steps_including_settle": 191,
+  "prompt": "pick up the black bowl next to the ramekin and place it on the plate view 0 0 100 0 0 initstate 372",
+  "seconds": 6.288502013776451,
+  "call_env_steps": [
+   10,
+   18,
+   26,
+   34,
+   42,
+   50,
+   58,
+   66,
+   74,
+   82,
+   90,
+   98,
+   106,
+   114,
+   122,
+   130,
+   138,
+   146,
+   154,
+   162,
+   170,
+   178,
+   186
+  ]
+ }
+}
