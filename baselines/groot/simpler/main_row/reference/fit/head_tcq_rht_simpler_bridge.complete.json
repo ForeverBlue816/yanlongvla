@@ -1,0 +1,30 @@
+{
+ "status": "complete",
+ "key": "head_tcq_rht_simpler_bridge",
+ "source_key": "head_simpler_bridge",
+ "setting": "simpler_bridge",
+ "checkpoint": "nvidia/GR00T-N1.7-SimplerEnv-Bridge@940134b3c2948ccfdf8e7393f2d2ca869dc42833",
+ "layers": 216,
+ "payload_bytes": 285638656,
+ "parameters": 1132462080,
+ "relative_weight_mse_mean": 0.12122010563810666,
+ "hessian_relative_error_mean": 0.0035066873263244983,
+ "dampings": {
+  "0.01": 216
+ },
+ "seconds": 2876.8428189754486,
+ "format": {
+  "L": 16,
+  "K": 2,
+  "V": 2,
+  "tlut_bits": 9,
+  "td": 16,
+  "decode_mode": "quantlut_sym",
+  "scale_override": 0.9,
+  "rotation": "two"
+ },
+ "engine": {
+  "qtip_commit": "e90c668",
+  "compiled": true
+ }
+}

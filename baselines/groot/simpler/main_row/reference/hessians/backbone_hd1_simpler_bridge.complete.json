@@ -1,0 +1,20 @@
+{
+ "status": "complete",
+ "key": "backbone_hd1_simpler_bridge",
+ "setting": "simpler_bridge",
+ "part": "backbone",
+ "round": 1,
+ "layers": 216,
+ "sources": [
+  "photometric",
+  "geometric",
+  "onpolicy"
+ ],
+ "mean_weights": {
+  "photometric": 0.33697249012515834,
+  "geometric": 0.3348736581403291,
+  "onpolicy": 0.3340960135766548
+ },
+ "recipe": "H_D = H_clean + sum_s w_s H_s, w_s = tr(H_clean) / (3 tr(H_s)); added trace = tr(H_clean)",
+ "seconds": 41.97013258934021
+}

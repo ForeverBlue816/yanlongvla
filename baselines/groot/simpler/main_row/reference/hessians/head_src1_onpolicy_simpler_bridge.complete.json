@@ -1,0 +1,13 @@
+{
+ "status": "complete",
+ "key": "head_src1_onpolicy_simpler_bridge",
+ "setting": "simpler_bridge",
+ "part": "head",
+ "source": "onpolicy",
+ "round": 1,
+ "observations": 256,
+ "layers": 216,
+ "onpolicy_row": "tcq_w2_rht (SimplerEnv rollouts)",
+ "seconds": 77.24837136268616,
+ "device": "NVIDIA H100 80GB HBM3"
+}

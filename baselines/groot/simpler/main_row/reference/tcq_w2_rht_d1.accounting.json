@@ -1,0 +1,18 @@
+{
+ "row": "tcq_w2_rht_d1",
+ "suite": "simpler_bridge",
+ "checkpoint": "nvidia/GR00T-N1.7-SimplerEnv-Bridge@940134b3c2948ccfdf8e7393f2d2ca869dc42833",
+ "parts": [
+  "backbone_tcq_rht_d1_simpler_bridge",
+  "head_tcq_rht_d1_simpler_bridge"
+ ],
+ "quantized_layers": 432,
+ "quantized_parameters": 2340421632,
+ "linear_payload_bytes": 590290944,
+ "quantized_linear_bpw": 2.017725134408602,
+ "retained_bytes": 1607188736,
+ "active_parameters": 3144016000,
+ "whole_model_bpw": 5.591522893013267,
+ "norm_weights_replaced": 0,
+ "note": "retained = all other inference tensors at stored BF16 (lm_head excluded) - conservative, as the LIBERO rows"
+}

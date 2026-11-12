@@ -1,0 +1,16 @@
+{
+ "status": "complete",
+ "setting": "simpler_bridge",
+ "checkpoint": "nvidia/GR00T-N1.7-SimplerEnv-Bridge@940134b3c2948ccfdf8e7393f2d2ca869dc42833",
+ "part": "backbone",
+ "layers": 216,
+ "observations": 256,
+ "calibration": "/projects/yanlongvla/datasets/bridge-calibration",
+ "seconds": 105.83834099769592,
+ "device": "NVIDIA H100 80GB HBM3",
+ "tokens_example": {
+  "backbone.model.model.visual.blocks.0.attn.qkv": 65536,
+  "backbone.model.model.visual.blocks.0.attn.proj": 65536,
+  "backbone.model.model.visual.blocks.0.mlp.linear_fc1": 65536
+ }
+}

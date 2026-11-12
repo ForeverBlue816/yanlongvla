@@ -1,0 +1,13 @@
+{
+ "status": "complete",
+ "key": "backbone_src1_onpolicy_simpler_bridge",
+ "setting": "simpler_bridge",
+ "part": "backbone",
+ "source": "onpolicy",
+ "round": 1,
+ "observations": 256,
+ "layers": 216,
+ "onpolicy_row": "tcq_w2_rht (SimplerEnv rollouts)",
+ "seconds": 65.18801403045654,
+ "device": "NVIDIA H100 80GB HBM3"
+}

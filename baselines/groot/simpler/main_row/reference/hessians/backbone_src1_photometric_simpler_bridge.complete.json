@@ -1,0 +1,13 @@
+{
+ "status": "complete",
+ "key": "backbone_src1_photometric_simpler_bridge",
+ "setting": "simpler_bridge",
+ "part": "backbone",
+ "source": "photometric",
+ "round": 1,
+ "observations": 512,
+ "layers": 216,
+ "onpolicy_row": null,
+ "seconds": 461.176292181015,
+ "device": "NVIDIA H100 80GB HBM3"
+}

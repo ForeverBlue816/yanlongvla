@@ -1,0 +1,20 @@
+{
+ "status": "complete",
+ "key": "head_hd1_simpler_bridge",
+ "setting": "simpler_bridge",
+ "part": "head",
+ "round": 1,
+ "layers": 216,
+ "sources": [
+  "photometric",
+  "geometric",
+  "onpolicy"
+ ],
+ "mean_weights": {
+  "photometric": 0.3335362161383027,
+  "geometric": 0.33285697171511025,
+  "onpolicy": 0.3581998621078086
+ },
+ "recipe": "H_D = H_clean + sum_s w_s H_s, w_s = tr(H_clean) / (3 tr(H_s)); added trace = tr(H_clean)",
+ "seconds": 46.710848331451416
+}
