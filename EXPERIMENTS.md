@@ -2158,3 +2158,8 @@ Details: LAMBDA_1BIT_2026-11-12.md; files results/lambda_1bit_20261112/.
 484 / 459). PTQ `tcq_d1`: 475 / 493 / 291 / 218. Fine-tuned vs PTQ, paired: +6.2 [+3.1, +9.6] pp. Spatial and Object stay near FP at
 1 bit; Goal and LIBERO-10 carry the loss. No pairing with FP (per-episode FP files not on the Lambda machine).
 Files: results/lambda_1bit_20261112/pi05_1bit_*.libero_full.json(l).
+
+### E217 — π₀.₅ 2-bit tcq_raqft_d1 (NTU) (H_D TCQ + stabilised fine-tune) Plus = 733 (2026-11-12 09:33 UTC)
+Fine-tune 768 updates (held-out readout 279.2 → 212.8; held-out action MSE 0.0195 → 0.0142). Plus selection 1000 (RTX 6000 Ada): 733
+(camera 364, robot-init 369). vs tcq_d1 734 −0.1 [−2.60, +2.39]; vs 2-bit base 704 +2.9 [−1.00, +6.91]; vs raqft_studentq 749 −1.6
+[−5.38, +2.26]; vs W2A8 741 −0.8 [−4.74, +3.10]; vs FP 765 −3.2 [−6.77, −0.03]. The fine-tune gives no closed-loop gain over its PTQ base.
