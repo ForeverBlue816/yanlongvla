@@ -1,16 +1,44 @@
-# GR00T N1.7 SimplerEnv-Bridge: our 2-bit main row, for evaluation on your side
+# GR00T N1.7 SimplerEnv-Bridge: the baselines on our Hessians `H_D`, and the code of our 2-bit main row
 
-Written for Chamadol (2026-11-12). Your four Bridge baselines (QTIP, QuIP#, VPTQ, AQLM, 2-bit) and your FP run are on your GPU; our
-2-bit main row `tcq_raqft_d1_s` was built and is being evaluated on a different machine (2 × H100), and episode outcomes differ between
-GPU models. Please evaluate our row on your GPU with the harness you used for the baselines, so that all rows are paired episode by
-episode. This folder has everything for that.
+Written for Chamadol (2026-11-12).
 
-There are two routes. **Route A is the one we need**; route B is there if you want to rebuild the row yourself.
+## What we ask
 
-| Route | What you run | GPU time |
+Please rerun your Bridge 2-bit baselines (QTIP, QuIP#, VPTQ, AQLM) **on the Hessians our main row is quantized on**, and evaluate
+them as before. Nothing else changes: same checkpoint, same method configurations and damping, same evaluation (seed 7, 120 episodes
+per task, your `eval_simpler_bridge.py` flags).
+
+Why: your baseline rows were calibrated on the clean Hessians of the 256 Bridge calibration observations. Our main row is calibrated
+on a source-balanced Hessian `H_D` that adds three more sources to the clean one (photometric copies, geometric copies, on-policy
+states). To compare the quantizers and not the calibration data, the baselines need the same `H_D`.
+
+| Step | Command | Cost |
 |---|---|---|
-| A. Evaluate our checkpoint | one evaluation of a model directory, 840 episodes | as one of your baseline rows |
-| B. Rebuild the row from the official checkpoint | `run_main_row.sh` (Hessians, two fits, on-policy capture, fine-tune, evaluation) | about 22 h on one H100 |
+| 1 Settings | edit the first block of `config.sh` (section "Setup" below; the QTIP checkout and the SimplerEnv venv are **not** needed for steps 1 to 3) | |
+| 2 Build `H_D` on your GPU | `bash build_hd.sh 0` | 10 min, 33 GB GPU memory, 70 GB disk |
+| 3 Convert to your calibration format | `python hd_for_baselines.py --hd $VLA_ROOT/runs/plustrain_20261008/groot/ptq/hessians --like <your clean Bridge calibration> --out <calibration_hd>` | 5 min |
+| 4 Quantize | your Bridge commands with `--calibration <calibration_hd>` in place of the clean calibration: `export_layers.py`, then each `quantize_*.py` on `<calibration_hd>/backbone` and `<calibration_hd>/head_bridge`, then `import_external.py` | as your clean rows |
+| 5 Evaluate | as your clean rows; name the rows `<method>_hd` | as your clean rows |
+| 6 Pair | `simpler/b5_stats.py` of each `<method>_hd` row against FP and against the same method's clean row | |
+
+Notes on the steps:
+
+- **Step 2** runs the FP model on the 256 calibration observations (clean moments), on their 768 perturbed copies and on our 256
+  on-policy states (`data/onpolicy_rinit.tar`, unpacked by the script), and mixes the four moments. It uses our states, so your `H_D`
+  has the same inputs as ours; the activations are computed on your GPU.
+- **Step 3** keeps the layer list, shapes and checkpoint hash of your clean calibration (`--like`) and replaces only the Hessians, so
+  the hash check of the external quantizers passes. `tr(H_D) = 2 tr(H_clean)` by construction; the script writes the ratio to your
+  clean trace per layer into `<calibration_hd>/summary.json` and stops if a layer is outside 1.6 to 2.4.
+  We tested steps 3 and 4a on our machine against a clean calibration made with your `calibrate.py` (`GROOT_PROFILE=bridge`): the ratio is
+  2.000000 on all 432 layers, and `export_layers.py` reads the converted directory. No baseline quantizer was run on it here.
+- **Step 4**: GPTQ and AWQ (`quantize.py --calibration <calibration_hd>`) can be added in the same way if you have the time.
+- **What the baselines do not get:** the fine-tune of our main row (step 4 of "The row" below). It trains our tables and row scales
+  and has no counterpart for the other formats. So the `_hd` rows are to be compared with our base `tcq_w2_rht_d1` like for like, and
+  with the main row as "PTQ against PTQ + fine-tune".
+
+Please send back, for each `<method>_hd` row: the per-episode files, the paired JSON files, `quant.json` with the bits per weight, the
+GPU model and the toolkit commit. If you can, also send the per-episode files of your FP and of your four clean rows, so that we can
+recompute every pair here.
 
 ## The row
 
@@ -28,24 +56,14 @@ All 432 Linear layers are quantized (216 backbone, 216 action head), the same se
 Bits per weight: **2.0177 linear, 5.5915 whole model** (payload 590,290,944 B; `reference/tcq_w2_rht_d1.accounting.json`; the fine-tune
 does not change the payload).
 
-One thing to keep in mind when you read the result: the on-policy states of step 2 were captured in SimplerEnv, on the same finite set
+One thing to keep in mind when you read the results: the on-policy states of step 2 were captured in SimplerEnv, on the same finite set
 of layouts that the evaluation runs (the evaluation is exhaustive over them). The policy-noise seeds differ from the evaluation seeds,
-and only one policy input per rollout enters a Hessian, but the scenes overlap. Your baselines saw only the 256 dataset observations.
+and only one policy input per rollout enters a Hessian, but the scenes overlap. Your clean baseline rows saw only the 256 dataset observations; the `_hd` rows see what our row sees.
 
-## Route A: evaluate our checkpoint
+## Optional: rebuild our row on your GPU
 
-1. Get the model directory `tcq_raqft_d1_s/simpler_bridge` (6.5 GB: `model.safetensors` with the decoded weights plus the official
-   config files; it loads like the FP snapshot). **Location: to be added here when the fine-tune finishes (it is past update 672 of 768
-   as this is written, 2026-11-12 04:30 UTC).** The base `tcq_w2_rht_d1` will be placed next to it.
-2. Evaluate it exactly as you evaluated the baseline rows: same server, same `eval_simpler_bridge.py` flags, same seed 7, 120 episodes
-   per task, one GPU model for the whole row. With your feeder that is a new row whose `MODEL` is the directory above.
-3. Pair it with your FP and with each baseline: `python simpler/b5_stats.py --fp <eval>/fp --row <eval>/tcq_raqft_d1_s --out ...`, and
-   the same with `--fp` set to each baseline directory.
-
-Please send back: the per-episode files of the row (one JSON per task), the paired JSON files, the GPU model, and, if you can, the
-per-episode files of your FP and of the four baselines, so that we can recompute the pairs here.
-
-## Route B: rebuild the row
+Not part of the request above. `run_main_row.sh` builds the whole row from the official checkpoint (about 22 h on one H100); a row built
+on your GPU could be paired with your baselines episode by episode, which our H100 results cannot.
 
 ### Setup
 
@@ -85,8 +103,7 @@ other jobs) and the numbers to compare with:
 (SHA-256 `bbc02a04de5f19827f204403af1b31d695b9e5642ddd93194c53ce90268eb793`); step 3 is then skipped. A capture on your GPU gives
 different states, because the rollouts of the clean row differ between GPU models. Say which one you used.
 
-A rebuilt row will not be bit-identical to ours (the fits and the fine-tune depend on the GPU), so for the paired table route A is the
-reference; route B tells us how much the result moves when the row is rebuilt.
+A rebuilt row will not be bit-identical to ours (the fits and the fine-tune depend on the GPU).
 
 ### Evaluation of any model directory
 
@@ -102,6 +119,8 @@ records are the same. The output is one JSON list per call; split it per task fo
 | Path | Content |
 |---|---|
 | `config.sh` | site settings (paths, interpreters) |
+| `build_hd.sh` | `H_D` from the FP checkpoint and our on-policy states (steps 1, 4 of the row without the clean fit) |
+| `hd_for_baselines.py` | `H_D` in the calibration format of the baseline harness |
 | `run_main_row.sh` | the whole row, steps 1 to 7 |
 | `onpolicy.sh`, `eval_row.sh` | server + SimplerEnv client for the capture and for an evaluation |
 | `scripts/` | 23 Python files: `groot_simpler.py` (clean row), `groot_simpler_main.py` (`H_D`, base, fine-tune port), `groot_tcq.py` (TCQ fit), `groot_tcq_raqft.py` and `groot_tcq_raqft_s.py` (fine-tune), `simpler_onpolicy_client.py`, `simpler_eval.py`, `simpler_server.py`, and the modules they import |
