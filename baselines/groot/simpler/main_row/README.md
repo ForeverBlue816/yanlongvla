@@ -1,16 +1,10 @@
-# GR00T N1.7 SimplerEnv-Bridge: our 2-bit main row, for evaluation on your side
+# GR00T N1.7 SimplerEnv-Bridge: our 2-bit main row (code and records)
 
-Written for Chamadol (2026-11-12). Your four Bridge baselines (QTIP, QuIP#, VPTQ, AQLM, 2-bit) and your FP run are on your GPU; our
-2-bit main row `tcq_raqft_d1_s` was built and is being evaluated on a different machine (2 × H100), and episode outcomes differ between
-GPU models. Please evaluate our row on your GPU with the harness you used for the baselines, so that all rows are paired episode by
-episode. This folder has everything for that.
-
-There are two routes. **Route A is the one we need**; route B is there if you want to rebuild the row yourself.
-
-| Route | What you run | GPU time |
-|---|---|---|
-| A. Evaluate our checkpoint | one evaluation of a model directory, 840 episodes | as one of your baseline rows |
-| B. Rebuild the row from the official checkpoint | `run_main_row.sh` (Hessians, two fits, on-policy capture, fine-tune, evaluation) | about 22 h on one H100 |
+Reference only; nothing here needs to be run. The Bridge comparison is our main row `tcq_raqft_d1_s` (calibrated on the
+source-balanced Hessian `H_D`) against the 2-bit baselines as already run with their standard calibration (the 256 Bridge
+calibration observations; `../../../RESULTS.md`, SimplerEnv-Bridge table). Our row is evaluated on 2 × H100 with the same protocol and
+seeds (7 tasks × 120 episodes, seed 7); since the baselines ran on another GPU model, the comparison is per task and on the 7-task mean,
+not episode by episode. This folder documents how the row is built, so that it can be reproduced.
 
 ## The row
 
@@ -30,22 +24,9 @@ does not change the payload).
 
 One thing to keep in mind when you read the result: the on-policy states of step 2 were captured in SimplerEnv, on the same finite set
 of layouts that the evaluation runs (the evaluation is exhaustive over them). The policy-noise seeds differ from the evaluation seeds,
-and only one policy input per rollout enters a Hessian, but the scenes overlap. Your baselines saw only the 256 dataset observations.
+and only one policy input per rollout enters a Hessian, but the scenes overlap. The baselines saw only the 256 dataset observations.
 
-## Route A: evaluate our checkpoint
-
-1. Get the model directory `tcq_raqft_d1_s/simpler_bridge` (6.5 GB: `model.safetensors` with the decoded weights plus the official
-   config files; it loads like the FP snapshot). **Location: to be added here when the fine-tune finishes (it is past update 672 of 768
-   as this is written, 2026-11-12 04:30 UTC).** The base `tcq_w2_rht_d1` will be placed next to it.
-2. Evaluate it exactly as you evaluated the baseline rows: same server, same `eval_simpler_bridge.py` flags, same seed 7, 120 episodes
-   per task, one GPU model for the whole row. With your feeder that is a new row whose `MODEL` is the directory above.
-3. Pair it with your FP and with each baseline: `python simpler/b5_stats.py --fp <eval>/fp --row <eval>/tcq_raqft_d1_s --out ...`, and
-   the same with `--fp` set to each baseline directory.
-
-Please send back: the per-episode files of the row (one JSON per task), the paired JSON files, the GPU model, and, if you can, the
-per-episode files of your FP and of the four baselines, so that we can recompute the pairs here.
-
-## Route B: rebuild the row
+## Rebuilding the row
 
 ### Setup
 
@@ -85,8 +66,7 @@ other jobs) and the numbers to compare with:
 (SHA-256 `bbc02a04de5f19827f204403af1b31d695b9e5642ddd93194c53ce90268eb793`); step 3 is then skipped. A capture on your GPU gives
 different states, because the rollouts of the clean row differ between GPU models. Say which one you used.
 
-A rebuilt row will not be bit-identical to ours (the fits and the fine-tune depend on the GPU), so for the paired table route A is the
-reference; route B tells us how much the result moves when the row is rebuilt.
+A rebuilt row will not be bit-identical to ours (the fits and the fine-tune depend on the GPU).
 
 ### Evaluation of any model directory
 
