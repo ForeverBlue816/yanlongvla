@@ -14,6 +14,7 @@ FP_FILL = '#FFFFFF'       # FP ribbon
 FP_EDGE = '#59626E'       # FP outline
 GRID = '#DADDE3'
 CMAP_DIV = LinearSegmentedColormap.from_list('loopq_div', [NAVY, '#8FA3C8', '#F7F7F7', '#F0A593', CORAL_DARK])
+CMAP_SEQ = LinearSegmentedColormap.from_list('loopq_seq', ['#10203F', NAVY, '#5C7FB8', '#F2D7A0', '#F0A070', CORAL_DARK])      # low -> high (placeholder; added for the attention overlays)
 
 
 def apply(size=7.0):

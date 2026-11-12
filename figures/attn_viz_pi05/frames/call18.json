@@ -1,0 +1,24 @@
+{
+ "group": "attn",
+ "suite": "libero_goal",
+ "task": 303,
+ "unit_id": 303,
+ "model_row": "fp",
+ "policy_call": 18,
+ "env_step": 154,
+ "noise_seed": 3438583167,
+ "episode_success": true,
+ "replay_eef_max_abs_error_m": 0.0006393570886454869,
+ "files": {
+  "agentview": "call18_agentview.png",
+  "agentview_upright": "call18_agentview_upright.png",
+  "wrist": "call18_wrist.png",
+  "wrist_upright": "call18_wrist_upright.png"
+ },
+ "resolution": 768,
+ "eef_xyz": [
+  0.04751529222858507,
+  -0.054551462759468275,
+  1.0280415271681989
+ ]
+}
