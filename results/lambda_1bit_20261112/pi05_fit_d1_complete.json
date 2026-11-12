@@ -1,0 +1,31 @@
+{
+  "status": "complete",
+  "key": "d1",
+  "hessian_key": "hd1",
+  "layers": 414,
+  "payload_bytes": 343512000,
+  "parameters": 2704306176,
+  "linear_bpw": 1.0161926280347333,
+  "relative_weight_mse_mean": 0.442730245526862,
+  "hessian_relative_error_mean": 0.02474959585032448,
+  "dampings": {
+    "0.01": 414
+  },
+  "encode_seconds": 2516.1365411281586,
+  "seconds": 2892.299182653427,
+  "format": {
+    "L": 16,
+    "K": 1,
+    "V": 2,
+    "tlut_bits": 9,
+    "td": 16,
+    "decode_mode": "quantlut_sym",
+    "scale_override": 0.9,
+    "rotation": "two",
+    "rounds": 1
+  },
+  "engine": {
+    "qtip_commit": "e90c668",
+    "compiled": true
+  }
+}

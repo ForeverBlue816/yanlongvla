@@ -1,0 +1,17 @@
+{
+ "row": "tcq_w2_rht_d1",
+ "suite": "libero_10",
+ "parts": [
+  "backbone_tcq_rht_d1",
+  "head_tcq_rht_d1"
+ ],
+ "quantized_layers": 432,
+ "norm_weights_replaced": 0,
+ "quantized_parameters": 2340421632,
+ "linear_payload_bytes": 297738240,
+ "quantized_linear_bpw": 1.0177251344086022,
+ "retained_bytes": 1607188736,
+ "active_parameters": 3144016000,
+ "whole_model_bpw": 4.847117765303993,
+ "note": "retained = all other inference tensors at stored BF16 (embedding not int8 here; AdaLN linears not replaced by tables) - conservative"
+}

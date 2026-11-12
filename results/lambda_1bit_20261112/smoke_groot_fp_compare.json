@@ -1,0 +1,92 @@
+{
+ "model": "groot",
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "comparisons": [
+  {
+   "reference": "/lambda/nfs/ICLR/yanlongvla/research/lambda/data/references/groot/groot_fp.plus_1000.jsonl",
+   "episodes": 50,
+   "successes": 37,
+   "reference_successes": 38,
+   "same_outcome": 47,
+   "same_outcome_and_policy_calls": 25,
+   "disagreements": [
+    {
+     "suite": "libero_spatial",
+     "task": 770,
+     "here": false,
+     "reference": true
+    },
+    {
+     "suite": "libero_object",
+     "task": 941,
+     "here": false,
+     "reference": true
+    },
+    {
+     "suite": "libero_goal",
+     "task": 684,
+     "here": true,
+     "reference": false
+    }
+   ]
+  },
+  {
+   "reference": "/lambda/nfs/ICLR/yanlongvla/research/lambda/data/references/groot/groot_fp_ourgpu.plus_1000.jsonl",
+   "episodes": 50,
+   "successes": 37,
+   "reference_successes": 37,
+   "same_outcome": 42,
+   "same_outcome_and_policy_calls": 21,
+   "disagreements": [
+    {
+     "suite": "libero_spatial",
+     "task": 623,
+     "here": true,
+     "reference": false
+    },
+    {
+     "suite": "libero_goal",
+     "task": 684,
+     "here": true,
+     "reference": false
+    },
+    {
+     "suite": "libero_goal",
+     "task": 689,
+     "here": true,
+     "reference": false
+    },
+    {
+     "suite": "libero_10",
+     "task": 685,
+     "here": false,
+     "reference": true
+    },
+    {
+     "suite": "libero_10",
+     "task": 324,
+     "here": false,
+     "reference": true
+    },
+    {
+     "suite": "libero_10",
+     "task": 300,
+     "here": false,
+     "reference": true
+    },
+    {
+     "suite": "libero_10",
+     "task": 325,
+     "here": true,
+     "reference": false
+    },
+    {
+     "suite": "libero_10",
+     "task": 322,
+     "here": false,
+     "reference": true
+    }
+   ]
+  }
+ ]
+}

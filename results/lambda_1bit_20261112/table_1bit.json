@@ -1,0 +1,191 @@
+[
+ [
+  "pi05_tcq_d1 (1-bit)",
+  "original_fp",
+  450,
+  765,
+  -31.5,
+  [
+   -39.28,
+   -23.26
+  ],
+  {
+   "Camera Viewpoints": [
+    211,
+    372
+   ],
+   "Robot Initial States": [
+    239,
+    393
+   ]
+  }
+ ],
+ [
+  "pi05_tcq_d1 (1-bit)",
+  "bb_M2_ae_M2_fp32",
+  450,
+  704,
+  -25.4,
+  [
+   -32.08,
+   -18.76
+  ],
+  {
+   "Camera Viewpoints": [
+    211,
+    346
+   ],
+   "Robot Initial States": [
+    239,
+    358
+   ]
+  }
+ ],
+ [
+  "pi05_tcq_d1 (1-bit)",
+  "raqft_studentq",
+  450,
+  749,
+  -29.9,
+  [
+   -37.05,
+   -22.49
+  ],
+  {
+   "Camera Viewpoints": [
+    211,
+    364
+   ],
+   "Robot Initial States": [
+    239,
+    385
+   ]
+  }
+ ],
+ [
+  "pi05_tcq_d1 (1-bit)",
+  "a8_studentq",
+  450,
+  741,
+  -29.1,
+  [
+   -36.08,
+   -21.49
+  ],
+  {
+   "Camera Viewpoints": [
+    211,
+    356
+   ],
+   "Robot Initial States": [
+    239,
+    385
+   ]
+  }
+ ],
+ [
+  "pi05_tcq_raqft_d1 (1-bit)",
+  "original_fp",
+  498,
+  765,
+  -26.7,
+  [
+   -34.56,
+   -18.42
+  ],
+  {
+   "Camera Viewpoints": [
+    237,
+    372
+   ],
+   "Robot Initial States": [
+    261,
+    393
+   ]
+  }
+ ],
+ [
+  "pi05_tcq_raqft_d1 (1-bit)",
+  "bb_M2_ae_M2_fp32",
+  498,
+  704,
+  -20.6,
+  [
+   -26.86,
+   -14.3
+  ],
+  {
+   "Camera Viewpoints": [
+    237,
+    346
+   ],
+   "Robot Initial States": [
+    261,
+    358
+   ]
+  }
+ ],
+ [
+  "pi05_tcq_raqft_d1 (1-bit)",
+  "raqft_studentq",
+  498,
+  749,
+  -25.1,
+  [
+   -31.95,
+   -17.85
+  ],
+  {
+   "Camera Viewpoints": [
+    237,
+    364
+   ],
+   "Robot Initial States": [
+    261,
+    385
+   ]
+  }
+ ],
+ [
+  "pi05_tcq_raqft_d1 (1-bit)",
+  "a8_studentq",
+  498,
+  741,
+  -24.3,
+  [
+   -31.38,
+   -17.0
+  ],
+  {
+   "Camera Viewpoints": [
+    237,
+    356
+   ],
+   "Robot Initial States": [
+    261,
+    385
+   ]
+  }
+ ],
+ [
+  "pi05_tcq_raqft_d1 (1-bit)",
+  "tcq_d1_same_rate",
+  498,
+  450,
+  4.8,
+  [
+   2.22,
+   7.44
+  ],
+  {
+   "Camera Viewpoints": [
+    237,
+    211
+   ],
+   "Robot Initial States": [
+    261,
+    239
+   ]
+  }
+ ]
+]

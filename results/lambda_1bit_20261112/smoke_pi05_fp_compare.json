@@ -1,0 +1,22 @@
+{
+ "model": "pi05",
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "comparisons": [
+  {
+   "reference": "/projects/yanlongvla/runs/plustrain_20261008/selection/original_fp/episodes.jsonl",
+   "episodes": 50,
+   "successes": 40,
+   "reference_successes": 39,
+   "same_outcome": 49,
+   "same_outcome_and_policy_calls": 23,
+   "disagreements": [
+    {
+     "suite": "libero_goal",
+     "task": 1068,
+     "here": true,
+     "reference": false
+    }
+   ]
+  }
+ ]
+}
