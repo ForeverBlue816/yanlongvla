@@ -125,7 +125,7 @@ activations are not. The held-out split is for offline checks only (action MSE o
 1. FP baseline with the commands above (700 episodes); send `episodes.json`.
 2. Our 2-bit rows (`tcq_w2_rht`, `tcq_w2_rht_bbl`): we will share the assembled checkpoint directories when the fits finish; evaluate them
    with the same server, script and seeds.
-   **Update 2026-11-12:** the request is now to rerun the 2-bit baselines on the Hessians `H_D` of our main row `tcq_raqft_d1_s`;
-   the steps, the code of the row and its records are in [`main_row/`](main_row/README.md).
+   **Update 2026-11-12:** the row to evaluate is the 2-bit main row `tcq_raqft_d1_s`; its code, records and instructions are in
+   [`main_row/`](main_row/README.md).
 3. The six PTQ baselines (GPTQ, AWQ, VPTQ, AQLM, QuIP#, QTIP; 2-bit, same configurations as the LIBERO rows) calibrated on
    `data/bridge-calibration`, evaluated with the same script and seeds; one `episodes.json` per method plus the accounting file.
