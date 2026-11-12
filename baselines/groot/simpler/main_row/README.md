@@ -4,7 +4,7 @@ Reference only; nothing here needs to be run. The Bridge comparison is our main 
 source-balanced Hessian `H_D`) against the 2-bit baselines as already run with their standard calibration (the 256 Bridge
 calibration observations; `../../../RESULTS.md`, SimplerEnv-Bridge table). Our row is evaluated on 2 × H100 with the same protocol and
 seeds (7 tasks × 120 episodes, seed 7); since the baselines ran on another GPU model, the comparison is per task and on the 7-task mean,
-not episode by episode. This folder documents how the row is built, so that it can be reproduced.
+not episode by episode. This folder documents how the row is built, so that it can be reproduced. Result (section "Reference numbers"): 63.0 %, level with FP.
 
 ## The row
 
@@ -93,25 +93,34 @@ root comes from `VLA_ROOT`: `groot_ptq.py` (1 line), `groot_simpler.py` (1 line)
 `OPENPI_CLIENT_MSGPACK`). We ran `prepare` and `smoke` from this copy in an empty work directory; the smoke output equals
 `reference/smoke_H100.json`. The other steps were run from the working copy.
 
-## Reference numbers (H100, seed 7, 120 episodes per task)
+## Reference numbers (H100, seed 7, 120 episodes per task; finished 2026-11-12)
 
-| Task | FP, H100 | FP, yours | main row `tcq_raqft_d1_s`, H100 |
-|---|---|---|---|
-| spoon_on_towel | 101 | 101 | pending |
-| carrot_on_plate | 78 | 75 | pending |
-| stack_cube | 42 | 36 | pending |
-| put_eggplant_in_basket | 62 | 56 | pending |
-| put_eggplant_in_sink | 2 | 0 | pending |
-| open_drawer | 120 | 120 | pending |
-| close_drawer | 117 | 115 | pending |
-| mean (%) | 62.1 | 59.9 | pending |
+| Task | FP, yours | FP, H100 | clean row `tcq_w2_rht` | base `tcq_w2_rht_d1` | main row `tcq_raqft_d1_s` | your QTIP 2-bit, rebuilt on H100 |
+|---|---|---|---|---|---|---|
+| spoon_on_towel | 101 | 101 | 106 | 100 | 87 | 110 |
+| carrot_on_plate | 75 | 78 | 93 | 82 | 68 | 93 |
+| stack_cube | 36 | 42 | 68 | 72 | 60 | 72 |
+| put_eggplant_in_basket | 56 | 62 | 89 | 68 | 77 | 86 |
+| put_eggplant_in_sink | 0 | 2 | 1 | 0 | 2 | 1 |
+| open_drawer | 120 | 120 | 120 | 120 | 120 | 119 |
+| close_drawer | 115 | 117 | 120 | 118 | 115 | 118 |
+| mean (%) | 59.9 | 62.1 | 71.1 | 66.7 | 63.0 | 71.3 |
+| vs FP H100, pp [95 %] | | | +8.9 [+4.4, +13.3] | +4.5 [+1.4, +7.7] | +0.8 [−2.9, +4.4] | +9.2 [+5.5, +12.9] |
 
-Our FP per-episode files are `results/lambda_1bit_20261112/bridge_fp.episodes_{a,b}.json` at the repository root. The main-row column,
-its per-episode files, the fine-tune curve and the held-out action MSE will be added here when the run finishes.
+The H100 columns are paired episode by episode (`../../../simpler/b5_stats.py`). **On Bridge the main row is level with FP and below the
+plain 2-bit rows**: main row − base −3.7 [−6.0, −1.3], base − clean row −4.4 [−8.8, +0.1], main row − QTIP rebuilt −8.3 [−12.4, −4.2].
+Your finding that 2-bit rows are above FP on Bridge is reproduced with our code (clean row +8.9). Held-out action MSE vs FP (normalised):
+clean 0.116, base 0.140, main row 0.152. The fine-tune's held-out readout loss went from 10,347 to 10,196 at the exported update 384.
+Full account: `LAMBDA_1BIT_2026-11-12.md` at the repository root; per-episode files `results/lambda_1bit_20261112/bridge_<row>.episodes_{a,b}.json`,
+paired statistics `bridge_paired_*.json`, weight shrink per row `bridge_weight_shrink.json`.
+
+The QTIP column is your scripts (`GROOT_PROFILE=bridge`) run on H100 with QTIP's two CUDA extensions replaced by pure-PyTorch stand-ins
+(`results/lambda_1bit_20261112/code/run_with_stubs.py`, `qtip_chain.sh`). It differs from your QTIP row on put_eggplant_in_basket
+(86 here, 27 in `RESULTS.md`); the cause is open.
 
 Two notes on our run, so that nothing surprises you in the records:
 
-- **Fine-tune events.** The fine-tune log shows 20 non-finite steps up to update 672; the stabilised variant skips such a step and
+- **Fine-tune events.** The fine-tune log shows 22 non-finite steps in 768 updates; the stabilised variant skips such a step and
   continues, as on LIBERO, and stops only above its fixed limit of 38 such events.
 - **Clean row on our disk.** A second fit worker was started by mistake on the clean backbone fit and rewrote 6 of the 432 layers after
   the clean row had been assembled. The assembled clean row (the policy of the on-policy capture) holds the earlier fits of those 6

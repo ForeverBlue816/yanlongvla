@@ -2140,3 +2140,15 @@ Fit: 414 layers, 2.0162 bpw linear, damping 0.01 everywhere, 3.9 GPU-h. Held-out
 Plus selection 1000 (RTX 6000 Ada): 734 (camera 351, robot-init 383). vs 2-bit base 704 +3.0 [−0.68, +6.91]; vs raqft_studentq 749 −1.5
 [−4.91, +1.99]; vs W2A8 741 −0.7 [−4.44, +3.13]; vs FP 765 −3.1 [−6.46, +0.02]. Fine-tune running (held-out readout 279 → 216 at 576 / 768).
 Two code fixes on the way: replaced layers keep a .weight for dtype reads (Plus server / fine-tune crashed in the SigLIP forward).
+
+### E216 — Lambda (2 × H100): 1-bit whole-model rows done; Bridge 2-bit main row = 63.0 %, level with FP, below plain 2-bit (2026-11-12 09:30 UTC)
+1-bit TCQ, Plus selection 1000 (H100): π₀.₅ PTQ `tcq_d1` 450, fine-tuned `tcq_raqft_d1` 498 (+4.8 [+2.2, +7.4]; FP 765); GR00T PTQ 81,
+fine-tuned 292 (+21.1 [+15.2, +27.2]; FP 618). bpw: π₀.₅ 1.0162 linear / 2.1130 whole model; GR00T 1.0177 / 4.8471.
+SimplerEnv-Bridge, 7 × 120, seed 7, all rows on H100 and paired with FP 62.1 %: clean TCQ `tcq_w2_rht` 71.1 % (+8.9 [+4.4, +13.3]),
+H_D base `tcq_w2_rht_d1` 66.7 % (+4.5 [+1.4, +7.7]), main row `tcq_raqft_d1_s` 63.0 % (+0.8 [−2.9, +4.4]), Chamadol's QTIP 2-bit rebuilt
+here 71.3 % (+9.2 [+5.5, +12.9]). Main row − base −3.7 [−6.0, −1.3]; base − clean −4.4 [−8.8, +0.1]; main row − QTIP −8.3 [−12.4, −4.2].
+So "2-bit above FP" on Bridge is reproduced with our code, and neither H_D nor the fine-tune helps there (held-out readout loss
+10,347 → 10,196; 22 skipped steps). Weight shrink is the same in all four rows (−0.060 to −0.062), so the main row's lower result is
+not a lost shrink; cause open. QTIP rebuilt: put_eggplant_in_basket 86 against 27 in Chamadol's table, cause open (QTIP's CUDA
+extensions replaced by pure-PyTorch stand-ins here). Running: π₀.₅ 1-bit standard LIBERO (both rows), FP repeat on Bridge.
+Details: LAMBDA_1BIT_2026-11-12.md; files results/lambda_1bit_20261112/.

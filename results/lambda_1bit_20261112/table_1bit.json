@@ -187,5 +187,236 @@
     239
    ]
   }
+ ],
+ [
+  "groot_tcq_w2_rht_d1 (1-bit)",
+  "fp",
+  81,
+  618,
+  -53.7,
+  [
+   -60.44,
+   -46.28
+  ],
+  {
+   "Camera Viewpoints": [
+    35,
+    326
+   ],
+   "Robot Initial States": [
+    46,
+    292
+   ]
+  }
+ ],
+ [
+  "groot_tcq_w2_rht_d1 (1-bit)",
+  "main_2bit_tcq_raqft_d1_s",
+  81,
+  581,
+  -50.0,
+  [
+   -56.58,
+   -43.37
+  ],
+  {
+   "Camera Viewpoints": [
+    35,
+    300
+   ],
+   "Robot Initial States": [
+    46,
+    281
+   ]
+  }
+ ],
+ [
+  "groot_tcq_w2_rht_d1 (1-bit)",
+  "ptq_2bit_tcq_w2_rht_d1",
+  81,
+  575,
+  -49.4,
+  [
+   -56.48,
+   -42.2
+  ],
+  {
+   "Camera Viewpoints": [
+    35,
+    289
+   ],
+   "Robot Initial States": [
+    46,
+    286
+   ]
+  }
+ ],
+ [
+  "groot_tcq_w2_rht_d1 (1-bit)",
+  "v0prime_2bit",
+  81,
+  604,
+  -52.3,
+  [
+   -58.96,
+   -44.91
+  ],
+  {
+   "Camera Viewpoints": [
+    35,
+    311
+   ],
+   "Robot Initial States": [
+    46,
+    293
+   ]
+  }
+ ],
+ [
+  "groot_tcq_w2_rht_d1 (1-bit)",
+  "qtip_2bit",
+  81,
+  573,
+  -49.2,
+  [
+   -56.46,
+   -41.55
+  ],
+  {
+   "Camera Viewpoints": [
+    35,
+    294
+   ],
+   "Robot Initial States": [
+    46,
+    279
+   ]
+  }
+ ],
+ [
+  "groot_tcq_raqft_d1_s (1-bit)",
+  "fp",
+  292,
+  618,
+  -32.6,
+  [
+   -39.72,
+   -25.47
+  ],
+  {
+   "Camera Viewpoints": [
+    148,
+    326
+   ],
+   "Robot Initial States": [
+    144,
+    292
+   ]
+  }
+ ],
+ [
+  "groot_tcq_raqft_d1_s (1-bit)",
+  "main_2bit_tcq_raqft_d1_s",
+  292,
+  581,
+  -28.9,
+  [
+   -35.3,
+   -22.77
+  ],
+  {
+   "Camera Viewpoints": [
+    148,
+    300
+   ],
+   "Robot Initial States": [
+    144,
+    281
+   ]
+  }
+ ],
+ [
+  "groot_tcq_raqft_d1_s (1-bit)",
+  "ptq_2bit_tcq_w2_rht_d1",
+  292,
+  575,
+  -28.3,
+  [
+   -34.84,
+   -21.95
+  ],
+  {
+   "Camera Viewpoints": [
+    148,
+    289
+   ],
+   "Robot Initial States": [
+    144,
+    286
+   ]
+  }
+ ],
+ [
+  "groot_tcq_raqft_d1_s (1-bit)",
+  "v0prime_2bit",
+  292,
+  604,
+  -31.2,
+  [
+   -38.31,
+   -24.36
+  ],
+  {
+   "Camera Viewpoints": [
+    148,
+    311
+   ],
+   "Robot Initial States": [
+    144,
+    293
+   ]
+  }
+ ],
+ [
+  "groot_tcq_raqft_d1_s (1-bit)",
+  "qtip_2bit",
+  292,
+  573,
+  -28.1,
+  [
+   -35.05,
+   -21.32
+  ],
+  {
+   "Camera Viewpoints": [
+    148,
+    294
+   ],
+   "Robot Initial States": [
+    144,
+    279
+   ]
+  }
+ ],
+ [
+  "groot_tcq_raqft_d1_s (1-bit)",
+  "tcq_d1_same_rate",
+  292,
+  81,
+  21.1,
+  [
+   15.17,
+   27.19
+  ],
+  {
+   "Camera Viewpoints": [
+    148,
+    35
+   ],
+   "Robot Initial States": [
+    144,
+    46
+   ]
+  }
  ]
 ]
