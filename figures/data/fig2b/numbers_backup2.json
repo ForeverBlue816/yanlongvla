@@ -1,0 +1,81 @@
+{
+ "layer": "action_head.model.transformer_blocks.26.ff.net.2",
+ "key": "head_libero_object",
+ "rank": 2,
+ "shape": [
+  1536,
+  6144
+ ],
+ "models": {
+  "A": "tcq_w2_rht (demonstration H)",
+  "D": "tcq_w2_rht_d1 (closed-loop H_D)"
+ },
+ "relative_weight_error": {
+  "A": 0.12556090379507345,
+  "D": 0.12184091439285909
+ },
+ "error_under_H_demo": {
+  "A": 0.0002922348258906159,
+  "D": 0.00032650374961718616
+ },
+ "error_under_H_policy": {
+  "A": 0.001089697764379495,
+  "D": 0.0004945367036973912
+ },
+ "share_of_error_in_top20pct_ratio_directions": {
+  "A": 0.39660298238502495,
+  "D": 0.36917552305556006
+ },
+ "error_energy_in_top20pct_ratio_directions": {
+  "A": 140.00145086054624,
+  "D": 126.45854367240943,
+  "D_over_A": 0.9032659511391298
+ },
+ "error_energy_all_directions": {
+  "A": 353.0015080033661,
+  "D": 342.5431421502387,
+  "D_over_A": 0.9703730278312928
+ },
+ "share_of_error_in_low_lambda_half": {
+  "A": 0.789044735506654,
+  "D": 0.7585447883322619
+ },
+ "share_of_demo_energy_in_low_lambda_half": 0.005857283495556109,
+ "share_of_policy_energy_in_top20pct_ratio_directions": 0.023362024019551297,
+ "share_of_demo_energy_in_top20pct_ratio_directions": 0.0008403702155484301,
+ "spearman_log_error_vs_log_lambda": {
+  "A": -0.9984197956608678,
+  "D": -0.9978045387543285
+ },
+ "eigenvalues": {
+  "max": 126.64086267727744,
+  "min": 3.823684210435017e-05,
+  "below_1e_minus_9_of_max": 0,
+  "n": 6144
+ },
+ "map_correlation_A_vs_D": {
+  "eigenbasis": 0.9932637870659903,
+  "channel_basis": 0.9642177644514448
+ },
+ "per_direction_D_over_A": {
+  "median": 1.0398732155359198,
+  "in_top20pct_median": 0.8986027080827983,
+  "outside_median": 1.080534495772274
+ },
+ "pooling": "|dW U| average-pooled to 64 x 128 (rows = output channels, columns = directions sorted by lambda, largest first)",
+ "ratio_rule": "top 20 % of directions by p_k / lambda_k (lambda floored at 1e-12 of its maximum)",
+ "maps": {
+  "_eigen": {
+   "shared_colour_max": 0.00799147505313158,
+   "mean_A": 0.004529261961579323,
+   "mean_D": 0.004518888890743256,
+   "D_over_A_mean": 0.9977097511291504
+  },
+  "_channels": {
+   "shared_colour_max": 0.005770327523350716,
+   "mean_A": 0.004780908580869436,
+   "mean_D": 0.004701902624219656,
+   "D_over_A_mean": 0.9834746718406677
+  }
+ }
+}
