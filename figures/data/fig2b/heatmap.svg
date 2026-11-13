@@ -1,0 +1,546 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="377.0pt" height="225.0pt" viewBox="0 0 377.0 225.0" font-family="'Times New Roman', 'TeX Gyre Termes', Times, serif" fill="#1F2430">
+<g id="cells" stroke="#FFFFFF" stroke-width="0.5">
+<rect x="44.00" y="14.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.0.attn.qkv: 1.4 %</title></rect>
+<rect x="44.00" y="22.00" width="8.00" height="8.00" fill="#fcfdfe"><title>backbone.model.model.visual.blocks.0.attn.proj: 0.7 %</title></rect>
+<rect x="44.00" y="30.00" width="8.00" height="8.00" fill="#fcfcfd"><title>backbone.model.model.visual.blocks.0.mlp.linear_fc1: 0.8 %</title></rect>
+<rect x="44.00" y="38.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.0.mlp.linear_fc2: 2.3 %</title></rect>
+<rect x="52.00" y="14.00" width="8.00" height="8.00" fill="#F4B8A8"><title>backbone.model.model.visual.blocks.1.attn.qkv: -0.0 %</title></rect>
+<rect x="52.00" y="22.00" width="8.00" height="8.00" fill="#F4B8A8"><title>backbone.model.model.visual.blocks.1.attn.proj: -0.1 %</title></rect>
+<rect x="52.00" y="30.00" width="8.00" height="8.00" fill="#fcfcfd"><title>backbone.model.model.visual.blocks.1.mlp.linear_fc1: 0.8 %</title></rect>
+<rect x="52.00" y="38.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.1.mlp.linear_fc2: 2.3 %</title></rect>
+<rect x="60.00" y="14.00" width="8.00" height="8.00" fill="#F4B8A8"><title>backbone.model.model.visual.blocks.2.attn.qkv: -0.1 %</title></rect>
+<rect x="60.00" y="22.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.2.attn.proj: 1.5 %</title></rect>
+<rect x="60.00" y="30.00" width="8.00" height="8.00" fill="#fdfefe"><title>backbone.model.model.visual.blocks.2.mlp.linear_fc1: 0.5 %</title></rect>
+<rect x="60.00" y="38.00" width="8.00" height="8.00" fill="#f8f9fc"><title>backbone.model.model.visual.blocks.2.mlp.linear_fc2: 1.5 %</title></rect>
+<rect x="68.00" y="14.00" width="8.00" height="8.00" fill="#fefeff"><title>backbone.model.model.visual.blocks.3.attn.qkv: 0.3 %</title></rect>
+<rect x="68.00" y="22.00" width="8.00" height="8.00" fill="#e6ebf4"><title>backbone.model.model.visual.blocks.3.attn.proj: 5.6 %</title></rect>
+<rect x="68.00" y="30.00" width="8.00" height="8.00" fill="#f7f9fb"><title>backbone.model.model.visual.blocks.3.mlp.linear_fc1: 1.8 %</title></rect>
+<rect x="68.00" y="38.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.visual.blocks.3.mlp.linear_fc2: 2.0 %</title></rect>
+<rect x="76.00" y="14.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.4.attn.qkv: 1.4 %</title></rect>
+<rect x="76.00" y="22.00" width="8.00" height="8.00" fill="#edf1f7"><title>backbone.model.model.visual.blocks.4.attn.proj: 4.2 %</title></rect>
+<rect x="76.00" y="30.00" width="8.00" height="8.00" fill="#f7f9fb"><title>backbone.model.model.visual.blocks.4.mlp.linear_fc1: 1.8 %</title></rect>
+<rect x="76.00" y="38.00" width="8.00" height="8.00" fill="#f8f9fc"><title>backbone.model.model.visual.blocks.4.mlp.linear_fc2: 1.7 %</title></rect>
+<rect x="84.00" y="14.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.5.attn.qkv: 1.4 %</title></rect>
+<rect x="84.00" y="22.00" width="8.00" height="8.00" fill="#ebeef6"><title>backbone.model.model.visual.blocks.5.attn.proj: 4.7 %</title></rect>
+<rect x="84.00" y="30.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.visual.blocks.5.mlp.linear_fc1: 2.0 %</title></rect>
+<rect x="84.00" y="38.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.visual.blocks.5.mlp.linear_fc2: 2.0 %</title></rect>
+<rect x="92.00" y="14.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.6.attn.qkv: 1.4 %</title></rect>
+<rect x="92.00" y="22.00" width="8.00" height="8.00" fill="#eaeef5"><title>backbone.model.model.visual.blocks.6.attn.proj: 4.8 %</title></rect>
+<rect x="92.00" y="30.00" width="8.00" height="8.00" fill="#f8f9fc"><title>backbone.model.model.visual.blocks.6.mlp.linear_fc1: 1.6 %</title></rect>
+<rect x="92.00" y="38.00" width="8.00" height="8.00" fill="#f8f9fc"><title>backbone.model.model.visual.blocks.6.mlp.linear_fc2: 1.7 %</title></rect>
+<rect x="100.00" y="14.00" width="8.00" height="8.00" fill="#fafbfd"><title>backbone.model.model.visual.blocks.7.attn.qkv: 1.3 %</title></rect>
+<rect x="100.00" y="22.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.7.attn.proj: 2.6 %</title></rect>
+<rect x="100.00" y="30.00" width="8.00" height="8.00" fill="#f8f9fc"><title>backbone.model.model.visual.blocks.7.mlp.linear_fc1: 1.6 %</title></rect>
+<rect x="100.00" y="38.00" width="8.00" height="8.00" fill="#f6f7fb"><title>backbone.model.model.visual.blocks.7.mlp.linear_fc2: 2.2 %</title></rect>
+<rect x="108.00" y="14.00" width="8.00" height="8.00" fill="#fafbfd"><title>backbone.model.model.visual.blocks.8.attn.qkv: 1.2 %</title></rect>
+<rect x="108.00" y="22.00" width="8.00" height="8.00" fill="#ebeef6"><title>backbone.model.model.visual.blocks.8.attn.proj: 4.8 %</title></rect>
+<rect x="108.00" y="30.00" width="8.00" height="8.00" fill="#f7f9fb"><title>backbone.model.model.visual.blocks.8.mlp.linear_fc1: 1.7 %</title></rect>
+<rect x="108.00" y="38.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.8.mlp.linear_fc2: 2.3 %</title></rect>
+<rect x="116.00" y="14.00" width="8.00" height="8.00" fill="#fafbfd"><title>backbone.model.model.visual.blocks.9.attn.qkv: 1.3 %</title></rect>
+<rect x="116.00" y="22.00" width="8.00" height="8.00" fill="#f1f4f9"><title>backbone.model.model.visual.blocks.9.attn.proj: 3.1 %</title></rect>
+<rect x="116.00" y="30.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.9.mlp.linear_fc1: 1.5 %</title></rect>
+<rect x="116.00" y="38.00" width="8.00" height="8.00" fill="#f6f7fb"><title>backbone.model.model.visual.blocks.9.mlp.linear_fc2: 2.3 %</title></rect>
+<rect x="124.00" y="14.00" width="8.00" height="8.00" fill="#fcfcfd"><title>backbone.model.model.visual.blocks.10.attn.qkv: 0.9 %</title></rect>
+<rect x="124.00" y="22.00" width="8.00" height="8.00" fill="#f1f3f8"><title>backbone.model.model.visual.blocks.10.attn.proj: 3.4 %</title></rect>
+<rect x="124.00" y="30.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.10.mlp.linear_fc1: 1.3 %</title></rect>
+<rect x="124.00" y="38.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.10.mlp.linear_fc2: 2.4 %</title></rect>
+<rect x="132.00" y="14.00" width="8.00" height="8.00" fill="#fafbfd"><title>backbone.model.model.visual.blocks.11.attn.qkv: 1.2 %</title></rect>
+<rect x="132.00" y="22.00" width="8.00" height="8.00" fill="#eef1f7"><title>backbone.model.model.visual.blocks.11.attn.proj: 3.9 %</title></rect>
+<rect x="132.00" y="30.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.11.mlp.linear_fc1: 1.5 %</title></rect>
+<rect x="132.00" y="38.00" width="8.00" height="8.00" fill="#f1f4f9"><title>backbone.model.model.visual.blocks.11.mlp.linear_fc2: 3.2 %</title></rect>
+<rect x="140.00" y="14.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.visual.blocks.12.attn.qkv: 1.4 %</title></rect>
+<rect x="140.00" y="22.00" width="8.00" height="8.00" fill="#e6ebf4"><title>backbone.model.model.visual.blocks.12.attn.proj: 5.6 %</title></rect>
+<rect x="140.00" y="30.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.visual.blocks.12.mlp.linear_fc1: 2.1 %</title></rect>
+<rect x="140.00" y="38.00" width="8.00" height="8.00" fill="#ebeef6"><title>backbone.model.model.visual.blocks.12.mlp.linear_fc2: 4.7 %</title></rect>
+<rect x="148.00" y="14.00" width="8.00" height="8.00" fill="#f7f9fb"><title>backbone.model.model.visual.blocks.13.attn.qkv: 1.9 %</title></rect>
+<rect x="148.00" y="22.00" width="8.00" height="8.00" fill="#eaeef5"><title>backbone.model.model.visual.blocks.13.attn.proj: 4.9 %</title></rect>
+<rect x="148.00" y="30.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.13.mlp.linear_fc1: 2.3 %</title></rect>
+<rect x="148.00" y="38.00" width="8.00" height="8.00" fill="#e7ecf4"><title>backbone.model.model.visual.blocks.13.mlp.linear_fc2: 5.5 %</title></rect>
+<rect x="156.00" y="14.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.visual.blocks.14.attn.qkv: 2.1 %</title></rect>
+<rect x="156.00" y="22.00" width="8.00" height="8.00" fill="#ebeef6"><title>backbone.model.model.visual.blocks.14.attn.proj: 4.7 %</title></rect>
+<rect x="156.00" y="30.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.14.mlp.linear_fc1: 2.6 %</title></rect>
+<rect x="156.00" y="38.00" width="8.00" height="8.00" fill="#d5ddec"><title>backbone.model.model.visual.blocks.14.mlp.linear_fc2: 9.5 %</title></rect>
+<rect x="164.00" y="14.00" width="8.00" height="8.00" fill="#f6f7fb"><title>backbone.model.model.visual.blocks.15.attn.qkv: 2.2 %</title></rect>
+<rect x="164.00" y="22.00" width="8.00" height="8.00" fill="#dbe1ee"><title>backbone.model.model.visual.blocks.15.attn.proj: 8.3 %</title></rect>
+<rect x="164.00" y="30.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.visual.blocks.15.mlp.linear_fc1: 2.7 %</title></rect>
+<rect x="164.00" y="38.00" width="8.00" height="8.00" fill="#e3e8f2"><title>backbone.model.model.visual.blocks.15.mlp.linear_fc2: 6.3 %</title></rect>
+<rect x="172.00" y="14.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.16.attn.qkv: 2.4 %</title></rect>
+<rect x="172.00" y="22.00" width="8.00" height="8.00" fill="#e5eaf3"><title>backbone.model.model.visual.blocks.16.attn.proj: 6.0 %</title></rect>
+<rect x="172.00" y="30.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.16.mlp.linear_fc1: 2.4 %</title></rect>
+<rect x="172.00" y="38.00" width="8.00" height="8.00" fill="#dae1ee"><title>backbone.model.model.visual.blocks.16.mlp.linear_fc2: 8.4 %</title></rect>
+<rect x="180.00" y="14.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.17.attn.qkv: 2.4 %</title></rect>
+<rect x="180.00" y="22.00" width="8.00" height="8.00" fill="#cad4e6"><title>backbone.model.model.visual.blocks.17.attn.proj: 12.1 %</title></rect>
+<rect x="180.00" y="30.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.17.mlp.linear_fc1: 2.7 %</title></rect>
+<rect x="180.00" y="38.00" width="8.00" height="8.00" fill="#e8ecf4"><title>backbone.model.model.visual.blocks.17.mlp.linear_fc2: 5.2 %</title></rect>
+<rect x="188.00" y="14.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.18.attn.qkv: 2.5 %</title></rect>
+<rect x="188.00" y="22.00" width="8.00" height="8.00" fill="#dbe2ef"><title>backbone.model.model.visual.blocks.18.attn.proj: 8.2 %</title></rect>
+<rect x="188.00" y="30.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.18.mlp.linear_fc1: 2.6 %</title></rect>
+<rect x="188.00" y="38.00" width="8.00" height="8.00" fill="#e3e8f2"><title>backbone.model.model.visual.blocks.18.mlp.linear_fc2: 6.4 %</title></rect>
+<rect x="196.00" y="14.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.visual.blocks.19.attn.qkv: 2.8 %</title></rect>
+<rect x="196.00" y="22.00" width="8.00" height="8.00" fill="#c1cde2"><title>backbone.model.model.visual.blocks.19.attn.proj: 13.8 %</title></rect>
+<rect x="196.00" y="30.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.visual.blocks.19.mlp.linear_fc1: 2.8 %</title></rect>
+<rect x="196.00" y="38.00" width="8.00" height="8.00" fill="#e4e9f2"><title>backbone.model.model.visual.blocks.19.mlp.linear_fc2: 6.3 %</title></rect>
+<rect x="204.00" y="14.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.20.attn.qkv: 2.5 %</title></rect>
+<rect x="204.00" y="22.00" width="8.00" height="8.00" fill="#dfe5f0"><title>backbone.model.model.visual.blocks.20.attn.proj: 7.3 %</title></rect>
+<rect x="204.00" y="30.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.20.mlp.linear_fc1: 2.6 %</title></rect>
+<rect x="204.00" y="38.00" width="8.00" height="8.00" fill="#eaeef5"><title>backbone.model.model.visual.blocks.20.mlp.linear_fc2: 4.9 %</title></rect>
+<rect x="212.00" y="14.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.21.attn.qkv: 2.6 %</title></rect>
+<rect x="212.00" y="22.00" width="8.00" height="8.00" fill="#d5dceb"><title>backbone.model.model.visual.blocks.21.attn.proj: 9.6 %</title></rect>
+<rect x="212.00" y="30.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.visual.blocks.21.mlp.linear_fc1: 3.1 %</title></rect>
+<rect x="212.00" y="38.00" width="8.00" height="8.00" fill="#eef1f7"><title>backbone.model.model.visual.blocks.21.mlp.linear_fc2: 3.8 %</title></rect>
+<rect x="220.00" y="14.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.visual.blocks.22.attn.qkv: 2.4 %</title></rect>
+<rect x="220.00" y="22.00" width="8.00" height="8.00" fill="#cfd8e9"><title>backbone.model.model.visual.blocks.22.attn.proj: 11.0 %</title></rect>
+<rect x="220.00" y="30.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.visual.blocks.22.mlp.linear_fc1: 2.8 %</title></rect>
+<rect x="220.00" y="38.00" width="8.00" height="8.00" fill="#f0f3f8"><title>backbone.model.model.visual.blocks.22.mlp.linear_fc2: 3.5 %</title></rect>
+<rect x="228.00" y="14.00" width="8.00" height="8.00" fill="#f6f7fb"><title>backbone.model.model.visual.blocks.23.attn.qkv: 2.2 %</title></rect>
+<rect x="228.00" y="22.00" width="8.00" height="8.00" fill="#d0d9e9"><title>backbone.model.model.visual.blocks.23.attn.proj: 10.5 %</title></rect>
+<rect x="228.00" y="30.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.visual.blocks.23.mlp.linear_fc1: 2.6 %</title></rect>
+<rect x="228.00" y="38.00" width="8.00" height="8.00" fill="#eef1f7"><title>backbone.model.model.visual.blocks.23.mlp.linear_fc2: 3.9 %</title></rect>
+<rect x="241.00" y="30.00" width="8.00" height="8.00" fill="#e1e6f1"><title>backbone.model.model.visual.deepstack_merger_list.0.linear_fc1: 6.9 %</title></rect>
+<rect x="241.00" y="38.00" width="8.00" height="8.00" fill="#e6ebf4"><title>backbone.model.model.visual.deepstack_merger_list.0.linear_fc2: 5.7 %</title></rect>
+<rect x="249.00" y="30.00" width="8.00" height="8.00" fill="#e5eaf3"><title>backbone.model.model.visual.deepstack_merger_list.1.linear_fc1: 6.1 %</title></rect>
+<rect x="249.00" y="38.00" width="8.00" height="8.00" fill="#e4e9f2"><title>backbone.model.model.visual.deepstack_merger_list.1.linear_fc2: 6.1 %</title></rect>
+<rect x="257.00" y="30.00" width="8.00" height="8.00" fill="#dde3ef"><title>backbone.model.model.visual.deepstack_merger_list.2.linear_fc1: 7.7 %</title></rect>
+<rect x="257.00" y="38.00" width="8.00" height="8.00" fill="#e1e7f1"><title>backbone.model.model.visual.deepstack_merger_list.2.linear_fc2: 6.9 %</title></rect>
+<rect x="265.00" y="30.00" width="8.00" height="8.00" fill="#c6d1e4"><title>backbone.model.model.visual.merger.linear_fc1: 12.8 %</title></rect>
+<rect x="265.00" y="38.00" width="8.00" height="8.00" fill="#ccd6e7"><title>backbone.model.model.visual.merger.linear_fc2: 11.7 %</title></rect>
+<rect x="44.00" y="74.00" width="8.00" height="8.00" fill="#f7f9fb"><title>backbone.model.model.language_model.layers.0.self_attn.q_proj: 1.9 %</title></rect>
+<rect x="44.00" y="82.00" width="8.00" height="8.00" fill="#f1f3f8"><title>backbone.model.model.language_model.layers.0.self_attn.k_proj: 3.4 %</title></rect>
+<rect x="44.00" y="90.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.language_model.layers.0.self_attn.v_proj: 1.9 %</title></rect>
+<rect x="44.00" y="98.00" width="8.00" height="8.00" fill="#edf1f7"><title>backbone.model.model.language_model.layers.0.self_attn.o_proj: 4.2 %</title></rect>
+<rect x="44.00" y="106.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.0.mlp.gate_proj: 2.7 %</title></rect>
+<rect x="44.00" y="114.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.0.mlp.up_proj: 2.8 %</title></rect>
+<rect x="44.00" y="122.00" width="8.00" height="8.00" fill="#e8ecf4"><title>backbone.model.model.language_model.layers.0.mlp.down_proj: 5.2 %</title></rect>
+<rect x="52.00" y="74.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.1.self_attn.q_proj: 2.5 %</title></rect>
+<rect x="52.00" y="82.00" width="8.00" height="8.00" fill="#f1f4f9"><title>backbone.model.model.language_model.layers.1.self_attn.k_proj: 3.2 %</title></rect>
+<rect x="52.00" y="90.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.1.self_attn.v_proj: 2.4 %</title></rect>
+<rect x="52.00" y="98.00" width="8.00" height="8.00" fill="#d5ddec"><title>backbone.model.model.language_model.layers.1.self_attn.o_proj: 9.5 %</title></rect>
+<rect x="52.00" y="106.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.1.mlp.gate_proj: 2.6 %</title></rect>
+<rect x="52.00" y="114.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.language_model.layers.1.mlp.up_proj: 2.1 %</title></rect>
+<rect x="52.00" y="122.00" width="8.00" height="8.00" fill="#e6eaf3"><title>backbone.model.model.language_model.layers.1.mlp.down_proj: 5.8 %</title></rect>
+<rect x="60.00" y="74.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.2.self_attn.q_proj: 2.7 %</title></rect>
+<rect x="60.00" y="82.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.2.self_attn.k_proj: 2.5 %</title></rect>
+<rect x="60.00" y="90.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.2.self_attn.v_proj: 3.0 %</title></rect>
+<rect x="60.00" y="98.00" width="8.00" height="8.00" fill="#ecf0f6"><title>backbone.model.model.language_model.layers.2.self_attn.o_proj: 4.3 %</title></rect>
+<rect x="60.00" y="106.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.2.mlp.gate_proj: 2.6 %</title></rect>
+<rect x="60.00" y="114.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.2.mlp.up_proj: 2.6 %</title></rect>
+<rect x="60.00" y="122.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.2.mlp.down_proj: 2.8 %</title></rect>
+<rect x="68.00" y="74.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.3.self_attn.q_proj: 3.0 %</title></rect>
+<rect x="68.00" y="82.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.3.self_attn.k_proj: 2.9 %</title></rect>
+<rect x="68.00" y="90.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.3.self_attn.v_proj: 2.9 %</title></rect>
+<rect x="68.00" y="98.00" width="8.00" height="8.00" fill="#e9edf5"><title>backbone.model.model.language_model.layers.3.self_attn.o_proj: 5.0 %</title></rect>
+<rect x="68.00" y="106.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.3.mlp.gate_proj: 2.8 %</title></rect>
+<rect x="68.00" y="114.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.3.mlp.up_proj: 2.7 %</title></rect>
+<rect x="68.00" y="122.00" width="8.00" height="8.00" fill="#e2e8f2"><title>backbone.model.model.language_model.layers.3.mlp.down_proj: 6.7 %</title></rect>
+<rect x="76.00" y="74.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.4.self_attn.q_proj: 2.9 %</title></rect>
+<rect x="76.00" y="82.00" width="8.00" height="8.00" fill="#f1f4f9"><title>backbone.model.model.language_model.layers.4.self_attn.k_proj: 3.1 %</title></rect>
+<rect x="76.00" y="90.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.4.self_attn.v_proj: 2.9 %</title></rect>
+<rect x="76.00" y="98.00" width="8.00" height="8.00" fill="#e6ebf4"><title>backbone.model.model.language_model.layers.4.self_attn.o_proj: 5.6 %</title></rect>
+<rect x="76.00" y="106.00" width="8.00" height="8.00" fill="#f1f4f9"><title>backbone.model.model.language_model.layers.4.mlp.gate_proj: 3.1 %</title></rect>
+<rect x="76.00" y="114.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.4.mlp.up_proj: 2.8 %</title></rect>
+<rect x="76.00" y="122.00" width="8.00" height="8.00" fill="#e2e8f2"><title>backbone.model.model.language_model.layers.4.mlp.down_proj: 6.6 %</title></rect>
+<rect x="84.00" y="74.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.5.self_attn.q_proj: 2.5 %</title></rect>
+<rect x="84.00" y="82.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.5.self_attn.k_proj: 2.8 %</title></rect>
+<rect x="84.00" y="90.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.5.self_attn.v_proj: 2.7 %</title></rect>
+<rect x="84.00" y="98.00" width="8.00" height="8.00" fill="#eceff6"><title>backbone.model.model.language_model.layers.5.self_attn.o_proj: 4.5 %</title></rect>
+<rect x="84.00" y="106.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.5.mlp.gate_proj: 3.0 %</title></rect>
+<rect x="84.00" y="114.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.5.mlp.up_proj: 2.9 %</title></rect>
+<rect x="84.00" y="122.00" width="8.00" height="8.00" fill="#e0e5f0"><title>backbone.model.model.language_model.layers.5.mlp.down_proj: 7.2 %</title></rect>
+<rect x="92.00" y="74.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.6.self_attn.q_proj: 2.6 %</title></rect>
+<rect x="92.00" y="82.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.6.self_attn.k_proj: 2.8 %</title></rect>
+<rect x="92.00" y="90.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.6.self_attn.v_proj: 2.6 %</title></rect>
+<rect x="92.00" y="98.00" width="8.00" height="8.00" fill="#ecf0f6"><title>backbone.model.model.language_model.layers.6.self_attn.o_proj: 4.3 %</title></rect>
+<rect x="92.00" y="106.00" width="8.00" height="8.00" fill="#f1f4f9"><title>backbone.model.model.language_model.layers.6.mlp.gate_proj: 3.1 %</title></rect>
+<rect x="92.00" y="114.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.6.mlp.up_proj: 3.0 %</title></rect>
+<rect x="92.00" y="122.00" width="8.00" height="8.00" fill="#e1e7f1"><title>backbone.model.model.language_model.layers.6.mlp.down_proj: 6.8 %</title></rect>
+<rect x="100.00" y="74.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.7.self_attn.q_proj: 2.6 %</title></rect>
+<rect x="100.00" y="82.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.7.self_attn.k_proj: 2.5 %</title></rect>
+<rect x="100.00" y="90.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.7.self_attn.v_proj: 2.4 %</title></rect>
+<rect x="100.00" y="98.00" width="8.00" height="8.00" fill="#e6ebf4"><title>backbone.model.model.language_model.layers.7.self_attn.o_proj: 5.6 %</title></rect>
+<rect x="100.00" y="106.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.7.mlp.gate_proj: 3.1 %</title></rect>
+<rect x="100.00" y="114.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.7.mlp.up_proj: 3.0 %</title></rect>
+<rect x="100.00" y="122.00" width="8.00" height="8.00" fill="#e5eaf3"><title>backbone.model.model.language_model.layers.7.mlp.down_proj: 6.0 %</title></rect>
+<rect x="108.00" y="74.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.8.self_attn.q_proj: 2.5 %</title></rect>
+<rect x="108.00" y="82.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.8.self_attn.k_proj: 2.8 %</title></rect>
+<rect x="108.00" y="90.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.8.self_attn.v_proj: 2.3 %</title></rect>
+<rect x="108.00" y="98.00" width="8.00" height="8.00" fill="#e8ecf4"><title>backbone.model.model.language_model.layers.8.self_attn.o_proj: 5.3 %</title></rect>
+<rect x="108.00" y="106.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.8.mlp.gate_proj: 2.9 %</title></rect>
+<rect x="108.00" y="114.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.8.mlp.up_proj: 2.8 %</title></rect>
+<rect x="108.00" y="122.00" width="8.00" height="8.00" fill="#e3e8f2"><title>backbone.model.model.language_model.layers.8.mlp.down_proj: 6.5 %</title></rect>
+<rect x="116.00" y="74.00" width="8.00" height="8.00" fill="#f6f7fb"><title>backbone.model.model.language_model.layers.9.self_attn.q_proj: 2.2 %</title></rect>
+<rect x="116.00" y="82.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.9.self_attn.k_proj: 3.0 %</title></rect>
+<rect x="116.00" y="90.00" width="8.00" height="8.00" fill="#f8f9fc"><title>backbone.model.model.language_model.layers.9.self_attn.v_proj: 1.6 %</title></rect>
+<rect x="116.00" y="98.00" width="8.00" height="8.00" fill="#eef1f7"><title>backbone.model.model.language_model.layers.9.self_attn.o_proj: 3.9 %</title></rect>
+<rect x="116.00" y="106.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.9.mlp.gate_proj: 2.8 %</title></rect>
+<rect x="116.00" y="114.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.9.mlp.up_proj: 2.8 %</title></rect>
+<rect x="116.00" y="122.00" width="8.00" height="8.00" fill="#e6ebf4"><title>backbone.model.model.language_model.layers.9.mlp.down_proj: 5.7 %</title></rect>
+<rect x="124.00" y="74.00" width="8.00" height="8.00" fill="#f8f9fc"><title>backbone.model.model.language_model.layers.10.self_attn.q_proj: 1.7 %</title></rect>
+<rect x="124.00" y="82.00" width="8.00" height="8.00" fill="#f6f7fb"><title>backbone.model.model.language_model.layers.10.self_attn.k_proj: 2.1 %</title></rect>
+<rect x="124.00" y="90.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.10.self_attn.v_proj: 2.7 %</title></rect>
+<rect x="124.00" y="98.00" width="8.00" height="8.00" fill="#eff2f8"><title>backbone.model.model.language_model.layers.10.self_attn.o_proj: 3.8 %</title></rect>
+<rect x="124.00" y="106.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.10.mlp.gate_proj: 2.8 %</title></rect>
+<rect x="124.00" y="114.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.10.mlp.up_proj: 2.9 %</title></rect>
+<rect x="124.00" y="122.00" width="8.00" height="8.00" fill="#e7ecf4"><title>backbone.model.model.language_model.layers.10.mlp.down_proj: 5.4 %</title></rect>
+<rect x="132.00" y="74.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.language_model.layers.11.self_attn.q_proj: 1.4 %</title></rect>
+<rect x="132.00" y="82.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.language_model.layers.11.self_attn.k_proj: 1.5 %</title></rect>
+<rect x="132.00" y="90.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.language_model.layers.11.self_attn.v_proj: 2.1 %</title></rect>
+<rect x="132.00" y="98.00" width="8.00" height="8.00" fill="#f1f4f9"><title>backbone.model.model.language_model.layers.11.self_attn.o_proj: 3.1 %</title></rect>
+<rect x="132.00" y="106.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.11.mlp.gate_proj: 2.7 %</title></rect>
+<rect x="132.00" y="114.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.11.mlp.up_proj: 2.5 %</title></rect>
+<rect x="132.00" y="122.00" width="8.00" height="8.00" fill="#e6ebf4"><title>backbone.model.model.language_model.layers.11.mlp.down_proj: 5.7 %</title></rect>
+<rect x="140.00" y="74.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.12.self_attn.q_proj: 2.3 %</title></rect>
+<rect x="140.00" y="82.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.12.self_attn.k_proj: 2.9 %</title></rect>
+<rect x="140.00" y="90.00" width="8.00" height="8.00" fill="#f6f7fb"><title>backbone.model.model.language_model.layers.12.self_attn.v_proj: 2.2 %</title></rect>
+<rect x="140.00" y="98.00" width="8.00" height="8.00" fill="#eceff6"><title>backbone.model.model.language_model.layers.12.self_attn.o_proj: 4.5 %</title></rect>
+<rect x="140.00" y="106.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.12.mlp.gate_proj: 2.9 %</title></rect>
+<rect x="140.00" y="114.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.12.mlp.up_proj: 2.9 %</title></rect>
+<rect x="140.00" y="122.00" width="8.00" height="8.00" fill="#e6ebf4"><title>backbone.model.model.language_model.layers.12.mlp.down_proj: 5.6 %</title></rect>
+<rect x="148.00" y="74.00" width="8.00" height="8.00" fill="#f8f9fc"><title>backbone.model.model.language_model.layers.13.self_attn.q_proj: 1.7 %</title></rect>
+<rect x="148.00" y="82.00" width="8.00" height="8.00" fill="#f7f9fb"><title>backbone.model.model.language_model.layers.13.self_attn.k_proj: 1.7 %</title></rect>
+<rect x="148.00" y="90.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.language_model.layers.13.self_attn.v_proj: 1.5 %</title></rect>
+<rect x="148.00" y="98.00" width="8.00" height="8.00" fill="#f1f3f8"><title>backbone.model.model.language_model.layers.13.self_attn.o_proj: 3.3 %</title></rect>
+<rect x="148.00" y="106.00" width="8.00" height="8.00" fill="#f5f7fa"><title>backbone.model.model.language_model.layers.13.mlp.gate_proj: 2.4 %</title></rect>
+<rect x="148.00" y="114.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.13.mlp.up_proj: 2.7 %</title></rect>
+<rect x="148.00" y="122.00" width="8.00" height="8.00" fill="#e4e9f2"><title>backbone.model.model.language_model.layers.13.mlp.down_proj: 6.1 %</title></rect>
+<rect x="156.00" y="74.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.language_model.layers.14.self_attn.q_proj: 1.9 %</title></rect>
+<rect x="156.00" y="82.00" width="8.00" height="8.00" fill="#f6f7fb"><title>backbone.model.model.language_model.layers.14.self_attn.k_proj: 2.2 %</title></rect>
+<rect x="156.00" y="90.00" width="8.00" height="8.00" fill="#f9fafc"><title>backbone.model.model.language_model.layers.14.self_attn.v_proj: 1.4 %</title></rect>
+<rect x="156.00" y="98.00" width="8.00" height="8.00" fill="#f0f3f8"><title>backbone.model.model.language_model.layers.14.self_attn.o_proj: 3.6 %</title></rect>
+<rect x="156.00" y="106.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.14.mlp.gate_proj: 2.8 %</title></rect>
+<rect x="156.00" y="114.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.14.mlp.up_proj: 2.7 %</title></rect>
+<rect x="156.00" y="122.00" width="8.00" height="8.00" fill="#e3e8f2"><title>backbone.model.model.language_model.layers.14.mlp.down_proj: 6.4 %</title></rect>
+<rect x="164.00" y="74.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.15.self_attn.q_proj: 2.6 %</title></rect>
+<rect x="164.00" y="82.00" width="8.00" height="8.00" fill="#f7f8fb"><title>backbone.model.model.language_model.layers.15.self_attn.k_proj: 2.0 %</title></rect>
+<rect x="164.00" y="90.00" width="8.00" height="8.00" fill="#f2f5f9"><title>backbone.model.model.language_model.layers.15.self_attn.v_proj: 2.9 %</title></rect>
+<rect x="164.00" y="98.00" width="8.00" height="8.00" fill="#eceff6"><title>backbone.model.model.language_model.layers.15.self_attn.o_proj: 4.5 %</title></rect>
+<rect x="164.00" y="106.00" width="8.00" height="8.00" fill="#f3f5fa"><title>backbone.model.model.language_model.layers.15.mlp.gate_proj: 2.8 %</title></rect>
+<rect x="164.00" y="114.00" width="8.00" height="8.00" fill="#f4f6fa"><title>backbone.model.model.language_model.layers.15.mlp.up_proj: 2.5 %</title></rect>
+<rect x="164.00" y="122.00" width="8.00" height="8.00" fill="#e6eaf3"><title>backbone.model.model.language_model.layers.15.mlp.down_proj: 5.9 %</title></rect>
+<rect x="44.00" y="158.00" width="8.00" height="8.00" fill="#f5f7fa"><title>action_head.vl_self_attention.transformer_blocks.0.attn1.to_q: 2.5 %</title></rect>
+<rect x="44.00" y="166.00" width="8.00" height="8.00" fill="#f5f7fa"><title>action_head.vl_self_attention.transformer_blocks.0.attn1.to_k: 2.3 %</title></rect>
+<rect x="44.00" y="174.00" width="8.00" height="8.00" fill="#f5f7fa"><title>action_head.vl_self_attention.transformer_blocks.0.attn1.to_v: 2.4 %</title></rect>
+<rect x="44.00" y="182.00" width="8.00" height="8.00" fill="#dde3ef"><title>action_head.vl_self_attention.transformer_blocks.0.attn1.to_out.0: 7.8 %</title></rect>
+<rect x="44.00" y="190.00" width="8.00" height="8.00" fill="#f4f6fa"><title>action_head.vl_self_attention.transformer_blocks.0.ff.net.0.proj: 2.7 %</title></rect>
+<rect x="44.00" y="198.00" width="8.00" height="8.00" fill="#d0d9e9"><title>action_head.vl_self_attention.transformer_blocks.0.ff.net.2: 10.6 %</title></rect>
+<rect x="52.00" y="158.00" width="8.00" height="8.00" fill="#f4f6fa"><title>action_head.vl_self_attention.transformer_blocks.1.attn1.to_q: 2.6 %</title></rect>
+<rect x="52.00" y="166.00" width="8.00" height="8.00" fill="#f3f5fa"><title>action_head.vl_self_attention.transformer_blocks.1.attn1.to_k: 2.7 %</title></rect>
+<rect x="52.00" y="174.00" width="8.00" height="8.00" fill="#f4f6fa"><title>action_head.vl_self_attention.transformer_blocks.1.attn1.to_v: 2.6 %</title></rect>
+<rect x="52.00" y="182.00" width="8.00" height="8.00" fill="#c4cfe4"><title>action_head.vl_self_attention.transformer_blocks.1.attn1.to_out.0: 13.3 %</title></rect>
+<rect x="52.00" y="190.00" width="8.00" height="8.00" fill="#eef1f7"><title>action_head.vl_self_attention.transformer_blocks.1.ff.net.0.proj: 3.8 %</title></rect>
+<rect x="52.00" y="198.00" width="8.00" height="8.00" fill="#b0bed9"><title>action_head.vl_self_attention.transformer_blocks.1.ff.net.2: 17.5 %</title></rect>
+<rect x="60.00" y="158.00" width="8.00" height="8.00" fill="#ecf0f6"><title>action_head.vl_self_attention.transformer_blocks.2.attn1.to_q: 4.3 %</title></rect>
+<rect x="60.00" y="166.00" width="8.00" height="8.00" fill="#ecf0f6"><title>action_head.vl_self_attention.transformer_blocks.2.attn1.to_k: 4.3 %</title></rect>
+<rect x="60.00" y="174.00" width="8.00" height="8.00" fill="#edf1f7"><title>action_head.vl_self_attention.transformer_blocks.2.attn1.to_v: 4.2 %</title></rect>
+<rect x="60.00" y="182.00" width="8.00" height="8.00" fill="#98aacc"><title>action_head.vl_self_attention.transformer_blocks.2.attn1.to_out.0: 22.6 %</title></rect>
+<rect x="60.00" y="190.00" width="8.00" height="8.00" fill="#e0e5f0"><title>action_head.vl_self_attention.transformer_blocks.2.ff.net.0.proj: 7.1 %</title></rect>
+<rect x="60.00" y="198.00" width="8.00" height="8.00" fill="#708ab9"><title>action_head.vl_self_attention.transformer_blocks.2.ff.net.2: 30.4 %</title></rect>
+<rect x="68.00" y="158.00" width="8.00" height="8.00" fill="#dbe2ef"><title>action_head.vl_self_attention.transformer_blocks.3.attn1.to_q: 8.1 %</title></rect>
+<rect x="68.00" y="166.00" width="8.00" height="8.00" fill="#dbe2ef"><title>action_head.vl_self_attention.transformer_blocks.3.attn1.to_k: 8.0 %</title></rect>
+<rect x="68.00" y="174.00" width="8.00" height="8.00" fill="#dbe2ef"><title>action_head.vl_self_attention.transformer_blocks.3.attn1.to_v: 8.1 %</title></rect>
+<rect x="68.00" y="182.00" width="8.00" height="8.00" fill="#758ebb"><title>action_head.vl_self_attention.transformer_blocks.3.attn1.to_out.0: 29.4 %</title></rect>
+<rect x="68.00" y="190.00" width="8.00" height="8.00" fill="#cfd8e9"><title>action_head.vl_self_attention.transformer_blocks.3.ff.net.0.proj: 10.9 %</title></rect>
+<rect x="68.00" y="198.00" width="8.00" height="8.00" fill="#5877ad"><title>action_head.vl_self_attention.transformer_blocks.3.ff.net.2: 35.0 %</title></rect>
+<rect x="81.00" y="158.00" width="8.00" height="8.00" fill="#fafbfd"><title>action_head.model.transformer_blocks.0.attn1.to_q: 1.3 %</title></rect>
+<rect x="81.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.0.attn1.to_k: 14.5 %</title></rect>
+<rect x="81.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.0.attn1.to_v: 14.4 %</title></rect>
+<rect x="81.00" y="182.00" width="8.00" height="8.00" fill="#acbbd7"><title>action_head.model.transformer_blocks.0.attn1.to_out.0: 18.5 %</title></rect>
+<rect x="81.00" y="190.00" width="8.00" height="8.00" fill="#fafbfd"><title>action_head.model.transformer_blocks.0.ff.net.0.proj: 1.3 %</title></rect>
+<rect x="81.00" y="198.00" width="8.00" height="8.00" fill="#b8c5dd"><title>action_head.model.transformer_blocks.0.ff.net.2: 15.9 %</title></rect>
+<rect x="89.00" y="158.00" width="8.00" height="8.00" fill="#fdfefe"><title>action_head.model.transformer_blocks.1.attn1.to_q: 0.4 %</title></rect>
+<rect x="89.00" y="166.00" width="8.00" height="8.00" fill="#f7f9fb"><title>action_head.model.transformer_blocks.1.attn1.to_k: 1.8 %</title></rect>
+<rect x="89.00" y="174.00" width="8.00" height="8.00" fill="#f8f9fc"><title>action_head.model.transformer_blocks.1.attn1.to_v: 1.7 %</title></rect>
+<rect x="89.00" y="182.00" width="8.00" height="8.00" fill="#f3f5fa"><title>action_head.model.transformer_blocks.1.attn1.to_out.0: 2.8 %</title></rect>
+<rect x="89.00" y="190.00" width="8.00" height="8.00" fill="#fbfcfd"><title>action_head.model.transformer_blocks.1.ff.net.0.proj: 1.0 %</title></rect>
+<rect x="89.00" y="198.00" width="8.00" height="8.00" fill="#f5f7fa"><title>action_head.model.transformer_blocks.1.ff.net.2: 2.3 %</title></rect>
+<rect x="97.00" y="158.00" width="8.00" height="8.00" fill="#f6f7fb"><title>action_head.model.transformer_blocks.2.attn1.to_q: 2.2 %</title></rect>
+<rect x="97.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.2.attn1.to_k: 14.5 %</title></rect>
+<rect x="97.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.2.attn1.to_v: 14.4 %</title></rect>
+<rect x="97.00" y="182.00" width="8.00" height="8.00" fill="#738dba"><title>action_head.model.transformer_blocks.2.attn1.to_out.0: 29.7 %</title></rect>
+<rect x="97.00" y="190.00" width="8.00" height="8.00" fill="#fafbfd"><title>action_head.model.transformer_blocks.2.ff.net.0.proj: 1.2 %</title></rect>
+<rect x="97.00" y="198.00" width="8.00" height="8.00" fill="#f2f5f9"><title>action_head.model.transformer_blocks.2.ff.net.2: 2.9 %</title></rect>
+<rect x="105.00" y="158.00" width="8.00" height="8.00" fill="#f7f9fb"><title>action_head.model.transformer_blocks.3.attn1.to_q: 1.8 %</title></rect>
+<rect x="105.00" y="166.00" width="8.00" height="8.00" fill="#f4f6fa"><title>action_head.model.transformer_blocks.3.attn1.to_k: 2.5 %</title></rect>
+<rect x="105.00" y="174.00" width="8.00" height="8.00" fill="#fafbfd"><title>action_head.model.transformer_blocks.3.attn1.to_v: 1.2 %</title></rect>
+<rect x="105.00" y="182.00" width="8.00" height="8.00" fill="#eef1f7"><title>action_head.model.transformer_blocks.3.attn1.to_out.0: 3.8 %</title></rect>
+<rect x="105.00" y="190.00" width="8.00" height="8.00" fill="#F4B8A8"><title>action_head.model.transformer_blocks.3.ff.net.0.proj: -0.1 %</title></rect>
+<rect x="105.00" y="198.00" width="8.00" height="8.00" fill="#f7f8fb"><title>action_head.model.transformer_blocks.3.ff.net.2: 2.0 %</title></rect>
+<rect x="113.00" y="158.00" width="8.00" height="8.00" fill="#f7f8fb"><title>action_head.model.transformer_blocks.4.attn1.to_q: 2.0 %</title></rect>
+<rect x="113.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.4.attn1.to_k: 14.5 %</title></rect>
+<rect x="113.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.4.attn1.to_v: 14.5 %</title></rect>
+<rect x="113.00" y="182.00" width="8.00" height="8.00" fill="#a1b2d1"><title>action_head.model.transformer_blocks.4.attn1.to_out.0: 20.8 %</title></rect>
+<rect x="113.00" y="190.00" width="8.00" height="8.00" fill="#fdfefe"><title>action_head.model.transformer_blocks.4.ff.net.0.proj: 0.4 %</title></rect>
+<rect x="113.00" y="198.00" width="8.00" height="8.00" fill="#f6f7fb"><title>action_head.model.transformer_blocks.4.ff.net.2: 2.1 %</title></rect>
+<rect x="121.00" y="158.00" width="8.00" height="8.00" fill="#f6f7fb"><title>action_head.model.transformer_blocks.5.attn1.to_q: 2.1 %</title></rect>
+<rect x="121.00" y="166.00" width="8.00" height="8.00" fill="#F4B8A8"><title>action_head.model.transformer_blocks.5.attn1.to_k: -0.3 %</title></rect>
+<rect x="121.00" y="174.00" width="8.00" height="8.00" fill="#fbfcfd"><title>action_head.model.transformer_blocks.5.attn1.to_v: 1.1 %</title></rect>
+<rect x="121.00" y="182.00" width="8.00" height="8.00" fill="#eef1f7"><title>action_head.model.transformer_blocks.5.attn1.to_out.0: 3.9 %</title></rect>
+<rect x="121.00" y="190.00" width="8.00" height="8.00" fill="#fcfdfe"><title>action_head.model.transformer_blocks.5.ff.net.0.proj: 0.6 %</title></rect>
+<rect x="121.00" y="198.00" width="8.00" height="8.00" fill="#f5f7fa"><title>action_head.model.transformer_blocks.5.ff.net.2: 2.4 %</title></rect>
+<rect x="129.00" y="158.00" width="8.00" height="8.00" fill="#f8f9fc"><title>action_head.model.transformer_blocks.6.attn1.to_q: 1.7 %</title></rect>
+<rect x="129.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.6.attn1.to_k: 14.5 %</title></rect>
+<rect x="129.00" y="174.00" width="8.00" height="8.00" fill="#becae0"><title>action_head.model.transformer_blocks.6.attn1.to_v: 14.6 %</title></rect>
+<rect x="129.00" y="182.00" width="8.00" height="8.00" fill="#1f3a6e"><title>action_head.model.transformer_blocks.6.attn1.to_out.0: 48.9 %</title></rect>
+<rect x="129.00" y="190.00" width="8.00" height="8.00" fill="#fcfdfe"><title>action_head.model.transformer_blocks.6.ff.net.0.proj: 0.7 %</title></rect>
+<rect x="129.00" y="198.00" width="8.00" height="8.00" fill="#e0e5f0"><title>action_head.model.transformer_blocks.6.ff.net.2: 7.3 %</title></rect>
+<rect x="137.00" y="158.00" width="8.00" height="8.00" fill="#fdfefe"><title>action_head.model.transformer_blocks.7.attn1.to_q: 0.6 %</title></rect>
+<rect x="137.00" y="166.00" width="8.00" height="8.00" fill="#f4f6fa"><title>action_head.model.transformer_blocks.7.attn1.to_k: 2.6 %</title></rect>
+<rect x="137.00" y="174.00" width="8.00" height="8.00" fill="#f6f7fb"><title>action_head.model.transformer_blocks.7.attn1.to_v: 2.1 %</title></rect>
+<rect x="137.00" y="182.00" width="8.00" height="8.00" fill="#dbe1ee"><title>action_head.model.transformer_blocks.7.attn1.to_out.0: 8.3 %</title></rect>
+<rect x="137.00" y="190.00" width="8.00" height="8.00" fill="#fafbfd"><title>action_head.model.transformer_blocks.7.ff.net.0.proj: 1.3 %</title></rect>
+<rect x="137.00" y="198.00" width="8.00" height="8.00" fill="#e1e6f1"><title>action_head.model.transformer_blocks.7.ff.net.2: 7.0 %</title></rect>
+<rect x="145.00" y="158.00" width="8.00" height="8.00" fill="#f0f3f8"><title>action_head.model.transformer_blocks.8.attn1.to_q: 3.5 %</title></rect>
+<rect x="145.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.8.attn1.to_k: 14.5 %</title></rect>
+<rect x="145.00" y="174.00" width="8.00" height="8.00" fill="#becae0"><title>action_head.model.transformer_blocks.8.attn1.to_v: 14.6 %</title></rect>
+<rect x="145.00" y="182.00" width="8.00" height="8.00" fill="#8fa3c8"><title>action_head.model.transformer_blocks.8.attn1.to_out.0: 24.4 %</title></rect>
+<rect x="145.00" y="190.00" width="8.00" height="8.00" fill="#f8f9fc"><title>action_head.model.transformer_blocks.8.ff.net.0.proj: 1.5 %</title></rect>
+<rect x="145.00" y="198.00" width="8.00" height="8.00" fill="#e3e8f2"><title>action_head.model.transformer_blocks.8.ff.net.2: 6.4 %</title></rect>
+<rect x="153.00" y="158.00" width="8.00" height="8.00" fill="#e6ebf4"><title>action_head.model.transformer_blocks.9.attn1.to_q: 5.6 %</title></rect>
+<rect x="153.00" y="166.00" width="8.00" height="8.00" fill="#ebeef6"><title>action_head.model.transformer_blocks.9.attn1.to_k: 4.6 %</title></rect>
+<rect x="153.00" y="174.00" width="8.00" height="8.00" fill="#eceff6"><title>action_head.model.transformer_blocks.9.attn1.to_v: 4.4 %</title></rect>
+<rect x="153.00" y="182.00" width="8.00" height="8.00" fill="#d0d9e9"><title>action_head.model.transformer_blocks.9.attn1.to_out.0: 10.7 %</title></rect>
+<rect x="153.00" y="190.00" width="8.00" height="8.00" fill="#fcfdfe"><title>action_head.model.transformer_blocks.9.ff.net.0.proj: 0.6 %</title></rect>
+<rect x="153.00" y="198.00" width="8.00" height="8.00" fill="#e5eaf3"><title>action_head.model.transformer_blocks.9.ff.net.2: 5.9 %</title></rect>
+<rect x="161.00" y="158.00" width="8.00" height="8.00" fill="#eceff6"><title>action_head.model.transformer_blocks.10.attn1.to_q: 4.5 %</title></rect>
+<rect x="161.00" y="166.00" width="8.00" height="8.00" fill="#becae0"><title>action_head.model.transformer_blocks.10.attn1.to_k: 14.5 %</title></rect>
+<rect x="161.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.10.attn1.to_v: 14.5 %</title></rect>
+<rect x="161.00" y="182.00" width="8.00" height="8.00" fill="#2b477d"><title>action_head.model.transformer_blocks.10.attn1.to_out.0: 45.8 %</title></rect>
+<rect x="161.00" y="190.00" width="8.00" height="8.00" fill="#edf1f7"><title>action_head.model.transformer_blocks.10.ff.net.0.proj: 4.1 %</title></rect>
+<rect x="161.00" y="198.00" width="8.00" height="8.00" fill="#c8d2e5"><title>action_head.model.transformer_blocks.10.ff.net.2: 12.5 %</title></rect>
+<rect x="169.00" y="158.00" width="8.00" height="8.00" fill="#d4dceb"><title>action_head.model.transformer_blocks.11.attn1.to_q: 9.8 %</title></rect>
+<rect x="169.00" y="166.00" width="8.00" height="8.00" fill="#d5ddec"><title>action_head.model.transformer_blocks.11.attn1.to_k: 9.5 %</title></rect>
+<rect x="169.00" y="174.00" width="8.00" height="8.00" fill="#d5ddec"><title>action_head.model.transformer_blocks.11.attn1.to_v: 9.5 %</title></rect>
+<rect x="169.00" y="182.00" width="8.00" height="8.00" fill="#bac7de"><title>action_head.model.transformer_blocks.11.attn1.to_out.0: 15.5 %</title></rect>
+<rect x="169.00" y="190.00" width="8.00" height="8.00" fill="#eceff6"><title>action_head.model.transformer_blocks.11.ff.net.0.proj: 4.5 %</title></rect>
+<rect x="169.00" y="198.00" width="8.00" height="8.00" fill="#cad4e7"><title>action_head.model.transformer_blocks.11.ff.net.2: 12.0 %</title></rect>
+<rect x="177.00" y="158.00" width="8.00" height="8.00" fill="#d8dfed"><title>action_head.model.transformer_blocks.12.attn1.to_q: 8.9 %</title></rect>
+<rect x="177.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.12.attn1.to_k: 14.4 %</title></rect>
+<rect x="177.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.12.attn1.to_v: 14.4 %</title></rect>
+<rect x="177.00" y="182.00" width="8.00" height="8.00" fill="#6783b4"><title>action_head.model.transformer_blocks.12.attn1.to_out.0: 32.1 %</title></rect>
+<rect x="177.00" y="190.00" width="8.00" height="8.00" fill="#edf1f7"><title>action_head.model.transformer_blocks.12.ff.net.0.proj: 4.1 %</title></rect>
+<rect x="177.00" y="198.00" width="8.00" height="8.00" fill="#c9d3e6"><title>action_head.model.transformer_blocks.12.ff.net.2: 12.3 %</title></rect>
+<rect x="185.00" y="158.00" width="8.00" height="8.00" fill="#d0d9e9"><title>action_head.model.transformer_blocks.13.attn1.to_q: 10.6 %</title></rect>
+<rect x="185.00" y="166.00" width="8.00" height="8.00" fill="#d5ddec"><title>action_head.model.transformer_blocks.13.attn1.to_k: 9.5 %</title></rect>
+<rect x="185.00" y="174.00" width="8.00" height="8.00" fill="#d1daea"><title>action_head.model.transformer_blocks.13.attn1.to_v: 10.4 %</title></rect>
+<rect x="185.00" y="182.00" width="8.00" height="8.00" fill="#c0cbe1"><title>action_head.model.transformer_blocks.13.attn1.to_out.0: 14.3 %</title></rect>
+<rect x="185.00" y="190.00" width="8.00" height="8.00" fill="#ecf0f6"><title>action_head.model.transformer_blocks.13.ff.net.0.proj: 4.4 %</title></rect>
+<rect x="185.00" y="198.00" width="8.00" height="8.00" fill="#cad4e7"><title>action_head.model.transformer_blocks.13.ff.net.2: 11.9 %</title></rect>
+<rect x="193.00" y="158.00" width="8.00" height="8.00" fill="#d7dfed"><title>action_head.model.transformer_blocks.14.attn1.to_q: 9.1 %</title></rect>
+<rect x="193.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.14.attn1.to_k: 14.5 %</title></rect>
+<rect x="193.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.14.attn1.to_v: 14.5 %</title></rect>
+<rect x="193.00" y="182.00" width="8.00" height="8.00" fill="#2a467c"><title>action_head.model.transformer_blocks.14.attn1.to_out.0: 46.1 %</title></rect>
+<rect x="193.00" y="190.00" width="8.00" height="8.00" fill="#dce3ef"><title>action_head.model.transformer_blocks.14.ff.net.0.proj: 7.9 %</title></rect>
+<rect x="193.00" y="198.00" width="8.00" height="8.00" fill="#afbed9"><title>action_head.model.transformer_blocks.14.ff.net.2: 17.7 %</title></rect>
+<rect x="201.00" y="158.00" width="8.00" height="8.00" fill="#c8d2e5"><title>action_head.model.transformer_blocks.15.attn1.to_q: 12.6 %</title></rect>
+<rect x="201.00" y="166.00" width="8.00" height="8.00" fill="#c7d1e5"><title>action_head.model.transformer_blocks.15.attn1.to_k: 12.7 %</title></rect>
+<rect x="201.00" y="174.00" width="8.00" height="8.00" fill="#c7d1e5"><title>action_head.model.transformer_blocks.15.attn1.to_v: 12.6 %</title></rect>
+<rect x="201.00" y="182.00" width="8.00" height="8.00" fill="#aebdd8"><title>action_head.model.transformer_blocks.15.attn1.to_out.0: 18.0 %</title></rect>
+<rect x="201.00" y="190.00" width="8.00" height="8.00" fill="#dbe2ef"><title>action_head.model.transformer_blocks.15.ff.net.0.proj: 8.2 %</title></rect>
+<rect x="201.00" y="198.00" width="8.00" height="8.00" fill="#b0bed9"><title>action_head.model.transformer_blocks.15.ff.net.2: 17.6 %</title></rect>
+<rect x="209.00" y="158.00" width="8.00" height="8.00" fill="#c8d2e5"><title>action_head.model.transformer_blocks.16.attn1.to_q: 12.5 %</title></rect>
+<rect x="209.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.16.attn1.to_k: 14.4 %</title></rect>
+<rect x="209.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.16.attn1.to_v: 14.4 %</title></rect>
+<rect x="209.00" y="182.00" width="8.00" height="8.00" fill="#1f3a6e"><title>action_head.model.transformer_blocks.16.attn1.to_out.0: 50.3 %</title></rect>
+<rect x="209.00" y="190.00" width="8.00" height="8.00" fill="#d8dfed"><title>action_head.model.transformer_blocks.16.ff.net.0.proj: 9.0 %</title></rect>
+<rect x="209.00" y="198.00" width="8.00" height="8.00" fill="#a8b8d5"><title>action_head.model.transformer_blocks.16.ff.net.2: 19.3 %</title></rect>
+<rect x="217.00" y="158.00" width="8.00" height="8.00" fill="#c3cee3"><title>action_head.model.transformer_blocks.17.attn1.to_q: 13.5 %</title></rect>
+<rect x="217.00" y="166.00" width="8.00" height="8.00" fill="#c4cfe4"><title>action_head.model.transformer_blocks.17.attn1.to_k: 13.3 %</title></rect>
+<rect x="217.00" y="174.00" width="8.00" height="8.00" fill="#c6d1e4"><title>action_head.model.transformer_blocks.17.attn1.to_v: 13.0 %</title></rect>
+<rect x="217.00" y="182.00" width="8.00" height="8.00" fill="#b4c1db"><title>action_head.model.transformer_blocks.17.attn1.to_out.0: 16.8 %</title></rect>
+<rect x="217.00" y="190.00" width="8.00" height="8.00" fill="#d8dfed"><title>action_head.model.transformer_blocks.17.ff.net.0.proj: 8.8 %</title></rect>
+<rect x="217.00" y="198.00" width="8.00" height="8.00" fill="#a4b5d3"><title>action_head.model.transformer_blocks.17.ff.net.2: 20.1 %</title></rect>
+<rect x="225.00" y="158.00" width="8.00" height="8.00" fill="#c1cde2"><title>action_head.model.transformer_blocks.18.attn1.to_q: 13.9 %</title></rect>
+<rect x="225.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.18.attn1.to_k: 14.5 %</title></rect>
+<rect x="225.00" y="174.00" width="8.00" height="8.00" fill="#becae0"><title>action_head.model.transformer_blocks.18.attn1.to_v: 14.6 %</title></rect>
+<rect x="225.00" y="182.00" width="8.00" height="8.00" fill="#203b6f"><title>action_head.model.transformer_blocks.18.attn1.to_out.0: 48.7 %</title></rect>
+<rect x="225.00" y="190.00" width="8.00" height="8.00" fill="#c6d1e4"><title>action_head.model.transformer_blocks.18.ff.net.0.proj: 12.9 %</title></rect>
+<rect x="225.00" y="198.00" width="8.00" height="8.00" fill="#7991bd"><title>action_head.model.transformer_blocks.18.ff.net.2: 28.7 %</title></rect>
+<rect x="233.00" y="158.00" width="8.00" height="8.00" fill="#abbad6"><title>action_head.model.transformer_blocks.19.attn1.to_q: 18.7 %</title></rect>
+<rect x="233.00" y="166.00" width="8.00" height="8.00" fill="#acbbd7"><title>action_head.model.transformer_blocks.19.attn1.to_k: 18.5 %</title></rect>
+<rect x="233.00" y="174.00" width="8.00" height="8.00" fill="#acbbd7"><title>action_head.model.transformer_blocks.19.attn1.to_v: 18.5 %</title></rect>
+<rect x="233.00" y="182.00" width="8.00" height="8.00" fill="#758ebb"><title>action_head.model.transformer_blocks.19.attn1.to_out.0: 29.4 %</title></rect>
+<rect x="233.00" y="190.00" width="8.00" height="8.00" fill="#c2cee3"><title>action_head.model.transformer_blocks.19.ff.net.0.proj: 13.7 %</title></rect>
+<rect x="233.00" y="198.00" width="8.00" height="8.00" fill="#768fbc"><title>action_head.model.transformer_blocks.19.ff.net.2: 29.1 %</title></rect>
+<rect x="241.00" y="158.00" width="8.00" height="8.00" fill="#a6b6d4"><title>action_head.model.transformer_blocks.20.attn1.to_q: 19.6 %</title></rect>
+<rect x="241.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.20.attn1.to_k: 14.5 %</title></rect>
+<rect x="241.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.20.attn1.to_v: 14.4 %</title></rect>
+<rect x="241.00" y="182.00" width="8.00" height="8.00" fill="#1f3a6e"><title>action_head.model.transformer_blocks.20.attn1.to_out.0: 49.7 %</title></rect>
+<rect x="241.00" y="190.00" width="8.00" height="8.00" fill="#bcc8df"><title>action_head.model.transformer_blocks.20.ff.net.0.proj: 15.1 %</title></rect>
+<rect x="241.00" y="198.00" width="8.00" height="8.00" fill="#6480b3"><title>action_head.model.transformer_blocks.20.ff.net.2: 32.7 %</title></rect>
+<rect x="249.00" y="158.00" width="8.00" height="8.00" fill="#a3b4d3"><title>action_head.model.transformer_blocks.21.attn1.to_q: 20.3 %</title></rect>
+<rect x="249.00" y="166.00" width="8.00" height="8.00" fill="#a3b3d2"><title>action_head.model.transformer_blocks.21.attn1.to_k: 20.3 %</title></rect>
+<rect x="249.00" y="174.00" width="8.00" height="8.00" fill="#a4b5d3"><title>action_head.model.transformer_blocks.21.attn1.to_v: 20.0 %</title></rect>
+<rect x="249.00" y="182.00" width="8.00" height="8.00" fill="#7a92be"><title>action_head.model.transformer_blocks.21.attn1.to_out.0: 28.3 %</title></rect>
+<rect x="249.00" y="190.00" width="8.00" height="8.00" fill="#bac7de"><title>action_head.model.transformer_blocks.21.ff.net.0.proj: 15.3 %</title></rect>
+<rect x="249.00" y="198.00" width="8.00" height="8.00" fill="#5e7bb0"><title>action_head.model.transformer_blocks.21.ff.net.2: 33.8 %</title></rect>
+<rect x="257.00" y="158.00" width="8.00" height="8.00" fill="#a0b1d1"><title>action_head.model.transformer_blocks.22.attn1.to_q: 20.9 %</title></rect>
+<rect x="257.00" y="166.00" width="8.00" height="8.00" fill="#c0cbe1"><title>action_head.model.transformer_blocks.22.attn1.to_k: 14.3 %</title></rect>
+<rect x="257.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.22.attn1.to_v: 14.5 %</title></rect>
+<rect x="257.00" y="182.00" width="8.00" height="8.00" fill="#1f3a6e"><title>action_head.model.transformer_blocks.22.attn1.to_out.0: 49.4 %</title></rect>
+<rect x="257.00" y="190.00" width="8.00" height="8.00" fill="#acbbd7"><title>action_head.model.transformer_blocks.22.ff.net.0.proj: 18.5 %</title></rect>
+<rect x="257.00" y="198.00" width="8.00" height="8.00" fill="#3a588f"><title>action_head.model.transformer_blocks.22.ff.net.2: 41.9 %</title></rect>
+<rect x="265.00" y="158.00" width="8.00" height="8.00" fill="#96a9cc"><title>action_head.model.transformer_blocks.23.attn1.to_q: 23.1 %</title></rect>
+<rect x="265.00" y="166.00" width="8.00" height="8.00" fill="#97a9cc"><title>action_head.model.transformer_blocks.23.attn1.to_k: 22.9 %</title></rect>
+<rect x="265.00" y="174.00" width="8.00" height="8.00" fill="#97a9cc"><title>action_head.model.transformer_blocks.23.attn1.to_v: 22.8 %</title></rect>
+<rect x="265.00" y="182.00" width="8.00" height="8.00" fill="#6d88b7"><title>action_head.model.transformer_blocks.23.attn1.to_out.0: 30.8 %</title></rect>
+<rect x="265.00" y="190.00" width="8.00" height="8.00" fill="#aab9d6"><title>action_head.model.transformer_blocks.23.ff.net.0.proj: 18.7 %</title></rect>
+<rect x="265.00" y="198.00" width="8.00" height="8.00" fill="#345187"><title>action_head.model.transformer_blocks.23.ff.net.2: 43.5 %</title></rect>
+<rect x="273.00" y="158.00" width="8.00" height="8.00" fill="#90a4c9"><title>action_head.model.transformer_blocks.24.attn1.to_q: 24.2 %</title></rect>
+<rect x="273.00" y="166.00" width="8.00" height="8.00" fill="#becae0"><title>action_head.model.transformer_blocks.24.attn1.to_k: 14.5 %</title></rect>
+<rect x="273.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.24.attn1.to_v: 14.4 %</title></rect>
+<rect x="273.00" y="182.00" width="8.00" height="8.00" fill="#2c487d"><title>action_head.model.transformer_blocks.24.attn1.to_out.0: 45.6 %</title></rect>
+<rect x="273.00" y="190.00" width="8.00" height="8.00" fill="#a5b5d4"><title>action_head.model.transformer_blocks.24.ff.net.0.proj: 19.8 %</title></rect>
+<rect x="273.00" y="198.00" width="8.00" height="8.00" fill="#2f4b81"><title>action_head.model.transformer_blocks.24.ff.net.2: 44.9 %</title></rect>
+<rect x="281.00" y="158.00" width="8.00" height="8.00" fill="#8a9fc6"><title>action_head.model.transformer_blocks.25.attn1.to_q: 25.3 %</title></rect>
+<rect x="281.00" y="166.00" width="8.00" height="8.00" fill="#8a9fc6"><title>action_head.model.transformer_blocks.25.attn1.to_k: 25.3 %</title></rect>
+<rect x="281.00" y="174.00" width="8.00" height="8.00" fill="#8a9fc6"><title>action_head.model.transformer_blocks.25.attn1.to_v: 25.3 %</title></rect>
+<rect x="281.00" y="182.00" width="8.00" height="8.00" fill="#607db1"><title>action_head.model.transformer_blocks.25.attn1.to_out.0: 33.5 %</title></rect>
+<rect x="281.00" y="190.00" width="8.00" height="8.00" fill="#a3b3d2"><title>action_head.model.transformer_blocks.25.ff.net.0.proj: 20.3 %</title></rect>
+<rect x="281.00" y="198.00" width="8.00" height="8.00" fill="#2e4b80"><title>action_head.model.transformer_blocks.25.ff.net.2: 45.1 %</title></rect>
+<rect x="289.00" y="158.00" width="8.00" height="8.00" fill="#889ec5"><title>action_head.model.transformer_blocks.26.attn1.to_q: 25.8 %</title></rect>
+<rect x="289.00" y="166.00" width="8.00" height="8.00" fill="#becae0"><title>action_head.model.transformer_blocks.26.attn1.to_k: 14.6 %</title></rect>
+<rect x="289.00" y="174.00" width="8.00" height="8.00" fill="#becae0"><title>action_head.model.transformer_blocks.26.attn1.to_v: 14.6 %</title></rect>
+<rect x="289.00" y="182.00" width="8.00" height="8.00" fill="#1f3a6e"><title>action_head.model.transformer_blocks.26.attn1.to_out.0: 49.6 %</title></rect>
+<rect x="289.00" y="190.00" width="8.00" height="8.00" fill="#9dafcf"><title>action_head.model.transformer_blocks.26.ff.net.0.proj: 21.6 %</title></rect>
+<rect x="289.00" y="198.00" width="8.00" height="8.00" fill="#1f3a6e"><title>action_head.model.transformer_blocks.26.ff.net.2: 49.0 %</title></rect>
+<rect x="297.00" y="158.00" width="8.00" height="8.00" fill="#839ac2"><title>action_head.model.transformer_blocks.27.attn1.to_q: 26.7 %</title></rect>
+<rect x="297.00" y="166.00" width="8.00" height="8.00" fill="#839ac2"><title>action_head.model.transformer_blocks.27.attn1.to_k: 26.7 %</title></rect>
+<rect x="297.00" y="174.00" width="8.00" height="8.00" fill="#849ac3"><title>action_head.model.transformer_blocks.27.attn1.to_v: 26.4 %</title></rect>
+<rect x="297.00" y="182.00" width="8.00" height="8.00" fill="#7790bc"><title>action_head.model.transformer_blocks.27.attn1.to_out.0: 29.0 %</title></rect>
+<rect x="297.00" y="190.00" width="8.00" height="8.00" fill="#9dafcf"><title>action_head.model.transformer_blocks.27.ff.net.0.proj: 21.5 %</title></rect>
+<rect x="297.00" y="198.00" width="8.00" height="8.00" fill="#243f73"><title>action_head.model.transformer_blocks.27.ff.net.2: 47.7 %</title></rect>
+<rect x="305.00" y="158.00" width="8.00" height="8.00" fill="#8097c1"><title>action_head.model.transformer_blocks.28.attn1.to_q: 27.3 %</title></rect>
+<rect x="305.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.28.attn1.to_k: 14.4 %</title></rect>
+<rect x="305.00" y="174.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.28.attn1.to_v: 14.5 %</title></rect>
+<rect x="305.00" y="182.00" width="8.00" height="8.00" fill="#415f97"><title>action_head.model.transformer_blocks.28.attn1.to_out.0: 40.3 %</title></rect>
+<rect x="305.00" y="190.00" width="8.00" height="8.00" fill="#9caecf"><title>action_head.model.transformer_blocks.28.ff.net.0.proj: 21.6 %</title></rect>
+<rect x="305.00" y="198.00" width="8.00" height="8.00" fill="#29457a"><title>action_head.model.transformer_blocks.28.ff.net.2: 46.5 %</title></rect>
+<rect x="313.00" y="158.00" width="8.00" height="8.00" fill="#839ac2"><title>action_head.model.transformer_blocks.29.attn1.to_q: 26.8 %</title></rect>
+<rect x="313.00" y="166.00" width="8.00" height="8.00" fill="#8299c2"><title>action_head.model.transformer_blocks.29.attn1.to_k: 26.9 %</title></rect>
+<rect x="313.00" y="174.00" width="8.00" height="8.00" fill="#8299c2"><title>action_head.model.transformer_blocks.29.attn1.to_v: 26.8 %</title></rect>
+<rect x="313.00" y="182.00" width="8.00" height="8.00" fill="#748dbb"><title>action_head.model.transformer_blocks.29.attn1.to_out.0: 29.5 %</title></rect>
+<rect x="313.00" y="190.00" width="8.00" height="8.00" fill="#9fb0d0"><title>action_head.model.transformer_blocks.29.ff.net.0.proj: 21.1 %</title></rect>
+<rect x="313.00" y="198.00" width="8.00" height="8.00" fill="#36548a"><title>action_head.model.transformer_blocks.29.ff.net.2: 42.9 %</title></rect>
+<rect x="321.00" y="158.00" width="8.00" height="8.00" fill="#839ac2"><title>action_head.model.transformer_blocks.30.attn1.to_q: 26.6 %</title></rect>
+<rect x="321.00" y="166.00" width="8.00" height="8.00" fill="#bfcbe1"><title>action_head.model.transformer_blocks.30.attn1.to_k: 14.4 %</title></rect>
+<rect x="321.00" y="174.00" width="8.00" height="8.00" fill="#becae0"><title>action_head.model.transformer_blocks.30.attn1.to_v: 14.6 %</title></rect>
+<rect x="321.00" y="182.00" width="8.00" height="8.00" fill="#2c487d"><title>action_head.model.transformer_blocks.30.attn1.to_out.0: 45.6 %</title></rect>
+<rect x="321.00" y="190.00" width="8.00" height="8.00" fill="#a3b3d2"><title>action_head.model.transformer_blocks.30.ff.net.0.proj: 20.4 %</title></rect>
+<rect x="321.00" y="198.00" width="8.00" height="8.00" fill="#405f96"><title>action_head.model.transformer_blocks.30.ff.net.2: 40.4 %</title></rect>
+<rect x="329.00" y="158.00" width="8.00" height="8.00" fill="#8ba0c6"><title>action_head.model.transformer_blocks.31.attn1.to_q: 25.1 %</title></rect>
+<rect x="329.00" y="166.00" width="8.00" height="8.00" fill="#899fc5"><title>action_head.model.transformer_blocks.31.attn1.to_k: 25.5 %</title></rect>
+<rect x="329.00" y="174.00" width="8.00" height="8.00" fill="#8ba0c6"><title>action_head.model.transformer_blocks.31.attn1.to_v: 25.1 %</title></rect>
+<rect x="329.00" y="182.00" width="8.00" height="8.00" fill="#94a7cb"><title>action_head.model.transformer_blocks.31.attn1.to_out.0: 23.4 %</title></rect>
+<rect x="329.00" y="190.00" width="8.00" height="8.00" fill="#a5b5d4"><title>action_head.model.transformer_blocks.31.ff.net.0.proj: 19.7 %</title></rect>
+<rect x="329.00" y="198.00" width="8.00" height="8.00" fill="#889ec5"><title>action_head.model.transformer_blocks.31.ff.net.2: 25.7 %</title></rect>
+</g><g id="colourbar">
+<rect x="347.00" y="202.80" width="6.00" height="3.25" fill="#fdfefe"/>
+<rect x="347.00" y="199.60" width="6.00" height="3.25" fill="#fafbfd"/>
+<rect x="347.00" y="196.40" width="6.00" height="3.25" fill="#f7f8fb"/>
+<rect x="347.00" y="193.20" width="6.00" height="3.25" fill="#f3f5fa"/>
+<rect x="347.00" y="190.00" width="6.00" height="3.25" fill="#eff2f8"/>
+<rect x="347.00" y="186.80" width="6.00" height="3.25" fill="#eceff6"/>
+<rect x="347.00" y="183.60" width="6.00" height="3.25" fill="#e8ecf4"/>
+<rect x="347.00" y="180.40" width="6.00" height="3.25" fill="#e4e9f2"/>
+<rect x="347.00" y="177.20" width="6.00" height="3.25" fill="#e1e6f1"/>
+<rect x="347.00" y="174.00" width="6.00" height="3.25" fill="#dde3ef"/>
+<rect x="347.00" y="170.80" width="6.00" height="3.25" fill="#dae1ee"/>
+<rect x="347.00" y="167.60" width="6.00" height="3.25" fill="#d5ddec"/>
+<rect x="347.00" y="164.40" width="6.00" height="3.25" fill="#d2daea"/>
+<rect x="347.00" y="161.20" width="6.00" height="3.25" fill="#cfd8e9"/>
+<rect x="347.00" y="158.00" width="6.00" height="3.25" fill="#cbd5e7"/>
+<rect x="347.00" y="154.80" width="6.00" height="3.25" fill="#c7d1e5"/>
+<rect x="347.00" y="151.60" width="6.00" height="3.25" fill="#c3cee3"/>
+<rect x="347.00" y="148.40" width="6.00" height="3.25" fill="#c0cbe1"/>
+<rect x="347.00" y="145.20" width="6.00" height="3.25" fill="#bcc8df"/>
+<rect x="347.00" y="142.00" width="6.00" height="3.25" fill="#b7c5dd"/>
+<rect x="347.00" y="138.80" width="6.00" height="3.25" fill="#b4c1db"/>
+<rect x="347.00" y="135.60" width="6.00" height="3.25" fill="#b0bed9"/>
+<rect x="347.00" y="132.40" width="6.00" height="3.25" fill="#acbbd7"/>
+<rect x="347.00" y="129.20" width="6.00" height="3.25" fill="#a8b8d5"/>
+<rect x="347.00" y="126.00" width="6.00" height="3.25" fill="#a4b5d3"/>
+<rect x="347.00" y="122.80" width="6.00" height="3.25" fill="#a1b2d1"/>
+<rect x="347.00" y="119.60" width="6.00" height="3.25" fill="#9caecf"/>
+<rect x="347.00" y="116.40" width="6.00" height="3.25" fill="#99abcd"/>
+<rect x="347.00" y="113.20" width="6.00" height="3.25" fill="#95a8cb"/>
+<rect x="347.00" y="110.00" width="6.00" height="3.25" fill="#91a5c9"/>
+<rect x="347.00" y="106.80" width="6.00" height="3.25" fill="#8ca1c7"/>
+<rect x="347.00" y="103.60" width="6.00" height="3.25" fill="#889ec5"/>
+<rect x="347.00" y="100.40" width="6.00" height="3.25" fill="#849ac3"/>
+<rect x="347.00" y="97.20" width="6.00" height="3.25" fill="#8097c1"/>
+<rect x="347.00" y="94.00" width="6.00" height="3.25" fill="#7b93be"/>
+<rect x="347.00" y="90.80" width="6.00" height="3.25" fill="#7790bc"/>
+<rect x="347.00" y="87.60" width="6.00" height="3.25" fill="#738dba"/>
+<rect x="347.00" y="84.40" width="6.00" height="3.25" fill="#6e88b8"/>
+<rect x="347.00" y="81.20" width="6.00" height="3.25" fill="#6a85b6"/>
+<rect x="347.00" y="78.00" width="6.00" height="3.25" fill="#6682b4"/>
+<rect x="347.00" y="74.80" width="6.00" height="3.25" fill="#627fb2"/>
+<rect x="347.00" y="71.60" width="6.00" height="3.25" fill="#5d7baf"/>
+<rect x="347.00" y="68.40" width="6.00" height="3.25" fill="#5977ad"/>
+<rect x="347.00" y="65.20" width="6.00" height="3.25" fill="#5574ab"/>
+<rect x="347.00" y="62.00" width="6.00" height="3.25" fill="#5171a9"/>
+<rect x="347.00" y="58.80" width="6.00" height="3.25" fill="#4d6da5"/>
+<rect x="347.00" y="55.60" width="6.00" height="3.25" fill="#4a69a2"/>
+<rect x="347.00" y="52.40" width="6.00" height="3.25" fill="#47669e"/>
+<rect x="347.00" y="49.20" width="6.00" height="3.25" fill="#44639b"/>
+<rect x="347.00" y="46.00" width="6.00" height="3.25" fill="#405f96"/>
+<rect x="347.00" y="42.80" width="6.00" height="3.25" fill="#3d5b92"/>
+<rect x="347.00" y="39.60" width="6.00" height="3.25" fill="#3a588f"/>
+<rect x="347.00" y="36.40" width="6.00" height="3.25" fill="#36548a"/>
+<rect x="347.00" y="33.20" width="6.00" height="3.25" fill="#335087"/>
+<rect x="347.00" y="30.00" width="6.00" height="3.25" fill="#304d83"/>
+<rect x="347.00" y="26.80" width="6.00" height="3.25" fill="#2d4a7f"/>
+<rect x="347.00" y="23.60" width="6.00" height="3.25" fill="#2a467b"/>
+<rect x="347.00" y="20.40" width="6.00" height="3.25" fill="#274277"/>
+<rect x="347.00" y="17.20" width="6.00" height="3.25" fill="#243f73"/>
+<rect x="347.00" y="14.00" width="6.00" height="3.25" fill="#213c70"/>
+<rect x="347.00" y="14.00" width="6.00" height="192.00" fill="none" stroke="#1F2430" stroke-width="0.3"/>
+<rect x="347.00" y="210.00" width="6.00" height="6.00" fill="#F4B8A8"/><text x="356.00" y="214.90" font-size="5.5">&lt; 0</text>
+</g><g id="labels">
+<text x="44.00" y="11.00" font-size="6.5" text-anchor="start">Vision encoder</text>
+<text x="48.00" y="52.50" font-size="5.5" text-anchor="middle">0</text>
+<text x="80.00" y="52.50" font-size="5.5" text-anchor="middle">4</text>
+<text x="112.00" y="52.50" font-size="5.5" text-anchor="middle">8</text>
+<text x="144.00" y="52.50" font-size="5.5" text-anchor="middle">12</text>
+<text x="176.00" y="52.50" font-size="5.5" text-anchor="middle">16</text>
+<text x="208.00" y="52.50" font-size="5.5" text-anchor="middle">20</text>
+<text x="257.00" y="52.50" font-size="5.5" text-anchor="middle">mergers</text>
+<text x="41.00" y="19.90" font-size="5.5" text-anchor="end">qkv</text>
+<text x="41.00" y="27.90" font-size="5.5" text-anchor="end">out</text>
+<text x="41.00" y="35.90" font-size="5.5" text-anchor="end">mlp-up</text>
+<text x="41.00" y="43.90" font-size="5.5" text-anchor="end">mlp-down</text>
+<text x="44.00" y="71.00" font-size="6.5" text-anchor="start">LLM</text>
+<text x="48.00" y="136.50" font-size="5.5" text-anchor="middle">0</text>
+<text x="80.00" y="136.50" font-size="5.5" text-anchor="middle">4</text>
+<text x="112.00" y="136.50" font-size="5.5" text-anchor="middle">8</text>
+<text x="144.00" y="136.50" font-size="5.5" text-anchor="middle">12</text>
+<text x="41.00" y="79.90" font-size="5.5" text-anchor="end">q</text>
+<text x="41.00" y="87.90" font-size="5.5" text-anchor="end">k</text>
+<text x="41.00" y="95.90" font-size="5.5" text-anchor="end">v</text>
+<text x="41.00" y="103.90" font-size="5.5" text-anchor="end">out</text>
+<text x="41.00" y="111.90" font-size="5.5" text-anchor="end">mlp-gate</text>
+<text x="41.00" y="119.90" font-size="5.5" text-anchor="end">mlp-up</text>
+<text x="41.00" y="127.90" font-size="5.5" text-anchor="end">mlp-down</text>
+<text x="44.00" y="155.00" font-size="6.5" text-anchor="start">Action head</text>
+<text x="60.00" y="212.50" font-size="5.5" text-anchor="middle">VL attn</text>
+<text x="85.00" y="212.50" font-size="5.5" text-anchor="middle">0</text>
+<text x="117.00" y="212.50" font-size="5.5" text-anchor="middle">4</text>
+<text x="149.00" y="212.50" font-size="5.5" text-anchor="middle">8</text>
+<text x="181.00" y="212.50" font-size="5.5" text-anchor="middle">12</text>
+<text x="213.00" y="212.50" font-size="5.5" text-anchor="middle">16</text>
+<text x="245.00" y="212.50" font-size="5.5" text-anchor="middle">20</text>
+<text x="277.00" y="212.50" font-size="5.5" text-anchor="middle">24</text>
+<text x="309.00" y="212.50" font-size="5.5" text-anchor="middle">28</text>
+<text x="41.00" y="163.90" font-size="5.5" text-anchor="end">q</text>
+<text x="41.00" y="171.90" font-size="5.5" text-anchor="end">k</text>
+<text x="41.00" y="179.90" font-size="5.5" text-anchor="end">v</text>
+<text x="41.00" y="187.90" font-size="5.5" text-anchor="end">out</text>
+<text x="41.00" y="195.90" font-size="5.5" text-anchor="end">ff-up</text>
+<text x="41.00" y="203.90" font-size="5.5" text-anchor="end">ff-down</text>
+<text x="190.50" y="221.50" font-size="6" text-anchor="middle">block</text>
+<text x="356.00" y="207.90" font-size="5.5" text-anchor="start">0</text>
+<text x="356.00" y="168.70" font-size="5.5" text-anchor="start">10</text>
+<text x="356.00" y="129.49" font-size="5.5" text-anchor="start">20</text>
+<text x="356.00" y="90.29" font-size="5.5" text-anchor="start">30</text>
+<text x="356.00" y="51.08" font-size="5.5" text-anchor="start">40</text>
+<text x="370.00" y="110.00" font-size="6" text-anchor="middle" transform="rotate(-90 370.00 110.00)">reduction of on-policy error (%)</text>
+</g></svg>

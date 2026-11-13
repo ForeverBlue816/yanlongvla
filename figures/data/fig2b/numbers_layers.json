@@ -1,0 +1,366 @@
+{
+ "models": {
+  "A": "tcq_w2_rht",
+  "D": "tcq_w2_rht_d1"
+ },
+ "per_module": {
+  "vision": {
+   "layers": 104,
+   "parameters": 402653184,
+   "ratio_demo": {
+    "median": 1.0080047658737237,
+    "p10": 1.0043552491977494,
+    "p90": 1.0189837226062606,
+    "min": 0.9858470625675986,
+    "max": 1.0358523971428355
+   },
+   "ratio_policy": {
+    "median": 0.9742369569612522,
+    "p10": 0.9194832802869202,
+    "p90": 0.9873977547574974,
+    "min": 0.861522752322187,
+    "max": 1.0014597366763185
+   },
+   "layers_with_ratio_policy_below_1": 101,
+   "layers_with_ratio_demo_below_1": 3,
+   "parameter_weighted_mean": {
+    "ratio_demo": 1.0117220428744644,
+    "ratio_policy": 0.9580601922638173
+   },
+   "worse_on_both": 3,
+   "better_on_both": 3,
+   "better_policy_worse_demo": 98,
+   "worse_policy_better_demo": 0
+  },
+  "LLM": {
+   "layers": 112,
+   "parameters": 805306368,
+   "ratio_demo": {
+    "median": 1.0095905655646953,
+    "p10": 1.0048244593847586,
+    "p90": 1.0196431968581943,
+    "min": 0.9729570822496295,
+    "max": 1.0233074313417854
+   },
+   "ratio_policy": {
+    "median": 0.971760523519501,
+    "p10": 0.9427565241010465,
+    "p90": 0.9799613771323167,
+    "min": 0.9047738025357012,
+    "max": 0.9862139009748797
+   },
+   "layers_with_ratio_policy_below_1": 112,
+   "layers_with_ratio_demo_below_1": 2,
+   "parameter_weighted_mean": {
+    "ratio_demo": 1.0114806847661681,
+    "ratio_policy": 0.9634856189404485
+   },
+   "worse_on_both": 0,
+   "better_on_both": 2,
+   "better_policy_worse_demo": 110,
+   "worse_policy_better_demo": 0
+  },
+  "action_head": {
+   "layers": 216,
+   "parameters": 1132462080,
+   "ratio_demo": {
+    "median": 1.0232111834302036,
+    "p10": 1.0014019579191462,
+    "p90": 1.0611268366934632,
+    "min": 0.9843073646813507,
+    "max": 1.1211339317262077
+   },
+   "ratio_policy": {
+    "median": 0.8554076003240658,
+    "p10": 0.6638458702401804,
+    "p90": 0.9794656043831624,
+    "min": 0.4970454133089212,
+    "max": 1.0027948159521842
+   },
+   "layers_with_ratio_policy_below_1": 214,
+   "layers_with_ratio_demo_below_1": 20,
+   "parameter_weighted_mean": {
+    "ratio_demo": 1.0258437705154493,
+    "ratio_policy": 0.8397804204254427
+   },
+   "worse_on_both": 2,
+   "better_on_both": 20,
+   "better_policy_worse_demo": 194,
+   "worse_policy_better_demo": 0
+  }
+ },
+ "backbone": {
+  "layers": 216,
+  "parameters": 1207959552,
+  "ratio_demo": {
+   "median": 1.0091510486090338,
+   "p10": 1.0043803022471276,
+   "p90": 1.0192878897661615,
+   "min": 0.9729570822496295,
+   "max": 1.0358523971428355
+  },
+  "ratio_policy": {
+   "median": 0.9723244316532702,
+   "p10": 0.9364238128437482,
+   "p90": 0.9853103106095635,
+   "min": 0.861522752322187,
+   "max": 1.0014597366763185
+  },
+  "layers_with_ratio_policy_below_1": 213,
+  "layers_with_ratio_demo_below_1": 5,
+  "parameter_weighted_mean": {
+   "ratio_demo": 1.0115611374689335,
+   "ratio_policy": 0.9616771433815714
+  },
+  "worse_on_both": 3,
+  "better_on_both": 5,
+  "better_policy_worse_demo": 208,
+  "worse_policy_better_demo": 0
+ },
+ "all_layers": {
+  "layers": 432,
+  "parameters": 2340421632,
+  "ratio_demo": {
+   "median": 1.0111559785854682,
+   "p10": 1.0041785226112387,
+   "p90": 1.0368044403701104,
+   "min": 0.9729570822496295,
+   "max": 1.1211339317262077
+  },
+  "ratio_policy": {
+   "median": 0.953747888746137,
+   "p10": 0.7419216764882146,
+   "p90": 0.9843260095113658,
+   "min": 0.4970454133089212,
+   "max": 1.0027948159521842
+  },
+  "layers_with_ratio_policy_below_1": 427,
+  "layers_with_ratio_demo_below_1": 25,
+  "parameter_weighted_mean": {
+   "ratio_demo": 1.018472088943054,
+   "ratio_policy": 0.9026948580802188
+  },
+  "worse_on_both": 5,
+  "better_on_both": 25,
+  "better_policy_worse_demo": 402,
+  "worse_policy_better_demo": 0
+ },
+ "by_layer_type": {
+  "vision / vision blocks / qkv": {
+   "layers": 24,
+   "median_ratio_policy": 0.9856096575497598,
+   "median_ratio_demo": 1.005293249754173
+  },
+  "vision / vision blocks / out": {
+   "layers": 24,
+   "median_ratio_policy": 0.9512069953140831,
+   "median_ratio_demo": 1.0123295163751487
+  },
+  "vision / vision blocks / mlp-up": {
+   "layers": 24,
+   "median_ratio_policy": 0.9794509904970163,
+   "median_ratio_demo": 1.0058478261144137
+  },
+  "vision / vision blocks / mlp-down": {
+   "layers": 24,
+   "median_ratio_policy": 0.966613975019476,
+   "median_ratio_demo": 1.0098268973773807
+  },
+  "vision / patch mergers / mlp-up": {
+   "layers": 4,
+   "median_ratio_policy": 0.9265395987744178,
+   "median_ratio_demo": 1.023943935922933
+  },
+  "vision / patch mergers / mlp-down": {
+   "layers": 4,
+   "median_ratio_policy": 0.9349564924322934,
+   "median_ratio_demo": 1.020487924653084
+  },
+  "LLM / language model / q": {
+   "layers": 16,
+   "median_ratio_policy": 0.9753627523143252,
+   "median_ratio_demo": 1.009819143603961
+  },
+  "LLM / language model / k": {
+   "layers": 16,
+   "median_ratio_policy": 0.9723244316532702,
+   "median_ratio_demo": 1.007553483093304
+  },
+  "LLM / language model / v": {
+   "layers": 16,
+   "median_ratio_policy": 0.975530366764531,
+   "median_ratio_demo": 1.00782670334016
+  },
+  "LLM / language model / out": {
+   "layers": 16,
+   "median_ratio_policy": 0.9561504843045825,
+   "median_ratio_demo": 1.012576316473951
+  },
+  "LLM / language model / mlp-gate": {
+   "layers": 16,
+   "median_ratio_policy": 0.9719962780846498,
+   "median_ratio_demo": 1.009205699196817
+  },
+  "LLM / language model / mlp-up": {
+   "layers": 16,
+   "median_ratio_policy": 0.9723535627608907,
+   "median_ratio_demo": 1.0090283142655792
+  },
+  "LLM / language model / mlp-down": {
+   "layers": 16,
+   "median_ratio_policy": 0.9405722497452167,
+   "median_ratio_demo": 1.0212716816223812
+  },
+  "action_head / vl self-attention / q": {
+   "layers": 4,
+   "median_ratio_policy": 0.9657782907602506,
+   "median_ratio_demo": 1.0094030652328985
+  },
+  "action_head / vl self-attention / k": {
+   "layers": 4,
+   "median_ratio_policy": 0.9647351438358621,
+   "median_ratio_demo": 1.0087034150904879
+  },
+  "action_head / vl self-attention / v": {
+   "layers": 4,
+   "median_ratio_policy": 0.9662036550643023,
+   "median_ratio_demo": 1.0092655488517488
+  },
+  "action_head / vl self-attention / out": {
+   "layers": 4,
+   "median_ratio_policy": 0.8201718681374579,
+   "median_ratio_demo": 1.0345970593321052
+  },
+  "action_head / vl self-attention / ff-up": {
+   "layers": 4,
+   "median_ratio_policy": 0.9450805180399713,
+   "median_ratio_demo": 1.010894840653939
+  },
+  "action_head / vl self-attention / ff-down": {
+   "layers": 4,
+   "median_ratio_policy": 0.7602587826293664,
+   "median_ratio_demo": 1.0531410071110985
+  },
+  "action_head / DiT / cross-attn q": {
+   "layers": 16,
+   "median_ratio_policy": 0.8922340113007938,
+   "median_ratio_demo": 1.0176429225920143
+  },
+  "action_head / DiT / cross-attn k": {
+   "layers": 16,
+   "median_ratio_policy": 0.8551740112613676,
+   "median_ratio_demo": 1.0236955049547674
+  },
+  "action_head / DiT / cross-attn v": {
+   "layers": 16,
+   "median_ratio_policy": 0.8553973443800909,
+   "median_ratio_demo": 1.023697709421795
+  },
+  "action_head / DiT / cross-attn out": {
+   "layers": 16,
+   "median_ratio_policy": 0.5428864653345722,
+   "median_ratio_demo": 1.0978704109164383
+  },
+  "action_head / DiT / ff-up": {
+   "layers": 32,
+   "median_ratio_policy": 0.9147052892778207,
+   "median_ratio_demo": 1.0108739981403814
+  },
+  "action_head / DiT / ff-down": {
+   "layers": 32,
+   "median_ratio_policy": 0.8152688524334699,
+   "median_ratio_demo": 1.0242040078709018
+  },
+  "action_head / DiT / self-attn q": {
+   "layers": 16,
+   "median_ratio_policy": 0.8697642018080562,
+   "median_ratio_demo": 1.0174142812231717
+  },
+  "action_head / DiT / self-attn k": {
+   "layers": 16,
+   "median_ratio_policy": 0.870066699862839,
+   "median_ratio_demo": 1.0183132323240538
+  },
+  "action_head / DiT / self-attn v": {
+   "layers": 16,
+   "median_ratio_policy": 0.8718764761893656,
+   "median_ratio_demo": 1.0121677743857587
+  },
+  "action_head / DiT / self-attn out": {
+   "layers": 16,
+   "median_ratio_policy": 0.8262525436297876,
+   "median_ratio_demo": 1.022642529903979
+  }
+ },
+ "layers_worse_on_both": [
+  {
+   "layer": "action_head.model.transformer_blocks.5.attn1.to_k",
+   "ratio_demo": 1.0076666620417718,
+   "ratio_policy": 1.0027948159521842
+  },
+  {
+   "layer": "backbone.model.model.visual.blocks.2.attn.qkv",
+   "ratio_demo": 1.0087803368678498,
+   "ratio_policy": 1.0014597366763185
+  },
+  {
+   "layer": "backbone.model.model.visual.blocks.1.attn.proj",
+   "ratio_demo": 1.0110346272581416,
+   "ratio_policy": 1.0008723117330003
+  },
+  {
+   "layer": "action_head.model.transformer_blocks.3.ff.net.0.proj",
+   "ratio_demo": 1.0071901778862549,
+   "ratio_policy": 1.0006651566173632
+  },
+  {
+   "layer": "backbone.model.model.visual.blocks.1.attn.qkv",
+   "ratio_demo": 1.0044994985065903,
+   "ratio_policy": 1.0002373240489426
+  }
+ ],
+ "layers_with_ratio_policy_above_1": [
+  {
+   "layer": "action_head.model.transformer_blocks.5.attn1.to_k",
+   "ratio_demo": 1.0076666620417718,
+   "ratio_policy": 1.0027948159521842
+  },
+  {
+   "layer": "backbone.model.model.visual.blocks.2.attn.qkv",
+   "ratio_demo": 1.0087803368678498,
+   "ratio_policy": 1.0014597366763185
+  },
+  {
+   "layer": "backbone.model.model.visual.blocks.1.attn.proj",
+   "ratio_demo": 1.0110346272581416,
+   "ratio_policy": 1.0008723117330003
+  },
+  {
+   "layer": "action_head.model.transformer_blocks.3.ff.net.0.proj",
+   "ratio_demo": 1.0071901778862549,
+   "ratio_policy": 1.0006651566173632
+  },
+  {
+   "layer": "backbone.model.model.visual.blocks.1.attn.qkv",
+   "ratio_demo": 1.0044994985065903,
+   "ratio_policy": 1.0002373240489426
+  }
+ ],
+ "heatmap": {
+  "quantity": "reduction of on-policy error, 100 * (1 - ratio_policy), percent",
+  "colour_scale": [
+   0.0,
+   48.973451067465675
+  ],
+  "scale_rule": "0 to the 99th percentile over all 432 layers",
+  "negative_cells": 5,
+  "columns": "vision: blocks 0-23, then deep-stack mergers ds0-ds2 and the final merger (mlp rows only); LLM: layers 0-15; action head: vl self-attention sa0-sa3, then DiT blocks 0-31 (even = cross-attention to the backbone tokens)"
+ },
+ "tradeoff": {
+  "slope_action_head": -4.569678681429908,
+  "slope_backbone": -2.204967674349725,
+  "correlation_action_head": -0.9462896991640216,
+  "correlation_backbone": -0.6196859323820264,
+  "note": "least-squares slope of y (change on-policy, %) against x (change on demonstrations, %) over the layers of the module"
+ }
+}

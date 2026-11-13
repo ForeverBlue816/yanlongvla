@@ -1,0 +1,433 @@
+module,submodule,block,layer_type,row,column,layer,ratio_policy,reduction_percent,negative,fill,x_pt,y_pt
+vision,vision blocks,0,qkv,0,0,backbone.model.model.visual.blocks.0.attn.qkv,0.9860422668751079,1.3957733124892124,0,#f9fafc,44.0,14.0
+vision,vision blocks,0,out,1,0,backbone.model.model.visual.blocks.0.attn.proj,0.9934206775719099,0.6579322428090117,0,#fcfdfe,44.0,22.0
+vision,vision blocks,0,mlp-up,2,0,backbone.model.model.visual.blocks.0.mlp.linear_fc1,0.9915401380606933,0.8459861939306701,0,#fcfcfd,44.0,30.0
+vision,vision blocks,0,mlp-down,3,0,backbone.model.model.visual.blocks.0.mlp.linear_fc2,0.9768914792988446,2.3108520701155433,0,#f5f7fa,44.0,38.0
+vision,vision blocks,1,qkv,0,1,backbone.model.model.visual.blocks.1.attn.qkv,1.0002373240489426,-0.023732404894261094,1,#F4B8A8,52.0,14.0
+vision,vision blocks,1,out,1,1,backbone.model.model.visual.blocks.1.attn.proj,1.0008723117330003,-0.08723117330002861,1,#F4B8A8,52.0,22.0
+vision,vision blocks,1,mlp-up,2,1,backbone.model.model.visual.blocks.1.mlp.linear_fc1,0.992114099283812,0.7885900716187999,0,#fcfcfd,52.0,30.0
+vision,vision blocks,1,mlp-down,3,1,backbone.model.model.visual.blocks.1.mlp.linear_fc2,0.9768116591903342,2.318834080966581,0,#f5f7fa,52.0,38.0
+vision,vision blocks,2,qkv,0,2,backbone.model.model.visual.blocks.2.attn.qkv,1.0014597366763185,-0.14597366763184905,1,#F4B8A8,60.0,14.0
+vision,vision blocks,2,out,1,2,backbone.model.model.visual.blocks.2.attn.proj,0.9850436069698475,1.4956393030152504,0,#f9fafc,60.0,22.0
+vision,vision blocks,2,mlp-up,2,2,backbone.model.model.visual.blocks.2.mlp.linear_fc1,0.9951571840410364,0.4842815958963631,0,#fdfefe,60.0,30.0
+vision,vision blocks,2,mlp-down,3,2,backbone.model.model.visual.blocks.2.mlp.linear_fc2,0.9846008460281014,1.5399153971898616,0,#f8f9fc,60.0,38.0
+vision,vision blocks,3,qkv,0,3,backbone.model.model.visual.blocks.3.attn.qkv,0.997434453138436,0.2565546861563961,0,#fefeff,68.0,14.0
+vision,vision blocks,3,out,1,3,backbone.model.model.visual.blocks.3.attn.proj,0.9442644847801036,5.573551521989639,0,#e6ebf4,68.0,22.0
+vision,vision blocks,3,mlp-up,2,3,backbone.model.model.visual.blocks.3.mlp.linear_fc1,0.9819053199900767,1.8094680009923314,0,#f7f9fb,68.0,30.0
+vision,vision blocks,3,mlp-down,3,3,backbone.model.model.visual.blocks.3.mlp.linear_fc2,0.9802846413489629,1.971535865103713,0,#f7f8fb,68.0,38.0
+vision,vision blocks,4,qkv,0,4,backbone.model.model.visual.blocks.4.attn.qkv,0.9856653272683977,1.4334672731602272,0,#f9fafc,76.0,14.0
+vision,vision blocks,4,out,1,4,backbone.model.model.visual.blocks.4.attn.proj,0.9580634118089549,4.193658819104506,0,#edf1f7,76.0,22.0
+vision,vision blocks,4,mlp-up,2,4,backbone.model.model.visual.blocks.4.mlp.linear_fc1,0.9816072962229728,1.8392703777027175,0,#f7f9fb,76.0,30.0
+vision,vision blocks,4,mlp-down,3,4,backbone.model.model.visual.blocks.4.mlp.linear_fc2,0.98298616816013,1.7013831839870042,0,#f8f9fc,76.0,38.0
+vision,vision blocks,5,qkv,0,5,backbone.model.model.visual.blocks.5.attn.qkv,0.9860825434808116,1.391745651918841,0,#f9fafc,84.0,14.0
+vision,vision blocks,5,out,1,5,backbone.model.model.visual.blocks.5.attn.proj,0.952794193266223,4.720580673377695,0,#ebeef6,84.0,22.0
+vision,vision blocks,5,mlp-up,2,5,backbone.model.model.visual.blocks.5.mlp.linear_fc1,0.9796094828167813,2.0390517183218715,0,#f7f8fb,84.0,30.0
+vision,vision blocks,5,mlp-down,3,5,backbone.model.model.visual.blocks.5.mlp.linear_fc2,0.9800773469298167,1.992265307018326,0,#f7f8fb,84.0,38.0
+vision,vision blocks,6,qkv,0,6,backbone.model.model.visual.blocks.6.attn.qkv,0.9862545837435214,1.3745416256478626,0,#f9fafc,92.0,14.0
+vision,vision blocks,6,out,1,6,backbone.model.model.visual.blocks.6.attn.proj,0.9515613164419563,4.8438683558043705,0,#eaeef5,92.0,22.0
+vision,vision blocks,6,mlp-up,2,6,backbone.model.model.visual.blocks.6.mlp.linear_fc1,0.9838615866993323,1.6138413300667676,0,#f8f9fc,92.0,30.0
+vision,vision blocks,6,mlp-down,3,6,backbone.model.model.visual.blocks.6.mlp.linear_fc2,0.9833389635546337,1.6661036445366317,0,#f8f9fc,92.0,38.0
+vision,vision blocks,7,qkv,0,7,backbone.model.model.visual.blocks.7.attn.qkv,0.9867444783908342,1.3255521609165766,0,#fafbfd,100.0,14.0
+vision,vision blocks,7,out,1,7,backbone.model.model.visual.blocks.7.attn.proj,0.9742441073383695,2.5755892661630475,0,#f4f6fa,100.0,22.0
+vision,vision blocks,7,mlp-up,2,7,backbone.model.model.visual.blocks.7.mlp.linear_fc1,0.9843705243154915,1.5629475684508454,0,#f8f9fc,100.0,30.0
+vision,vision blocks,7,mlp-down,3,7,backbone.model.model.visual.blocks.7.mlp.linear_fc2,0.9783294160742716,2.1670583925728404,0,#f6f7fb,100.0,38.0
+vision,vision blocks,8,qkv,0,8,backbone.model.model.visual.blocks.8.attn.qkv,0.9877875800390485,1.221241996095146,0,#fafbfd,108.0,14.0
+vision,vision blocks,8,out,1,8,backbone.model.model.visual.blocks.8.attn.proj,0.952431689526604,4.756831047339604,0,#ebeef6,108.0,22.0
+vision,vision blocks,8,mlp-up,2,8,backbone.model.model.visual.blocks.8.mlp.linear_fc1,0.9826350886231886,1.7364911376811398,0,#f7f9fb,108.0,30.0
+vision,vision blocks,8,mlp-down,3,8,backbone.model.model.visual.blocks.8.mlp.linear_fc2,0.9770369203984854,2.2963079601514558,0,#f5f7fa,108.0,38.0
+vision,vision blocks,9,qkv,0,9,backbone.model.model.visual.blocks.9.attn.qkv,0.9868268094209793,1.3173190579020666,0,#fafbfd,116.0,14.0
+vision,vision blocks,9,out,1,9,backbone.model.model.visual.blocks.9.attn.proj,0.9687796391453415,3.1220360854658513,0,#f1f4f9,116.0,22.0
+vision,vision blocks,9,mlp-up,2,9,backbone.model.model.visual.blocks.9.mlp.linear_fc1,0.9848730747513292,1.5126925248670764,0,#f9fafc,116.0,30.0
+vision,vision blocks,9,mlp-down,3,9,backbone.model.model.visual.blocks.9.mlp.linear_fc2,0.9774975949764176,2.250240502358236,0,#f6f7fb,116.0,38.0
+vision,vision blocks,10,qkv,0,10,backbone.model.model.visual.blocks.10.attn.qkv,0.9911120666597854,0.8887933340214649,0,#fcfcfd,124.0,14.0
+vision,vision blocks,10,out,1,10,backbone.model.model.visual.blocks.10.attn.proj,0.9659384758128126,3.406152418718744,0,#f1f3f8,124.0,22.0
+vision,vision blocks,10,mlp-up,2,10,backbone.model.model.visual.blocks.10.mlp.linear_fc1,0.9865730667798381,1.3426933220161863,0,#f9fafc,124.0,30.0
+vision,vision blocks,10,mlp-down,3,10,backbone.model.model.visual.blocks.10.mlp.linear_fc2,0.9758749273458722,2.4125072654127777,0,#f5f7fa,124.0,38.0
+vision,vision blocks,11,qkv,0,11,backbone.model.model.visual.blocks.11.attn.qkv,0.9876424456160051,1.2357554383994884,0,#fafbfd,132.0,14.0
+vision,vision blocks,11,out,1,11,backbone.model.model.visual.blocks.11.attn.proj,0.9610872313430576,3.8912768656942376,0,#eef1f7,132.0,22.0
+vision,vision blocks,11,mlp-up,2,11,backbone.model.model.visual.blocks.11.mlp.linear_fc1,0.9853197656162546,1.4680234383745439,0,#f9fafc,132.0,30.0
+vision,vision blocks,11,mlp-down,3,11,backbone.model.model.visual.blocks.11.mlp.linear_fc2,0.9679460612979286,3.2053938702071405,0,#f1f4f9,132.0,38.0
+vision,vision blocks,12,qkv,0,12,backbone.model.model.visual.blocks.12.attn.qkv,0.9855539878311219,1.4446012168878086,0,#f9fafc,140.0,14.0
+vision,vision blocks,12,out,1,12,backbone.model.model.visual.blocks.12.attn.proj,0.9439571190819424,5.604288091805765,0,#e6ebf4,140.0,22.0
+vision,vision blocks,12,mlp-up,2,12,backbone.model.model.visual.blocks.12.mlp.linear_fc1,0.9792924981772513,2.070750182274872,0,#f7f8fb,140.0,30.0
+vision,vision blocks,12,mlp-down,3,12,backbone.model.model.visual.blocks.12.mlp.linear_fc2,0.9530524544737793,4.694754552622071,0,#ebeef6,140.0,38.0
+vision,vision blocks,13,qkv,0,13,backbone.model.model.visual.blocks.13.attn.qkv,0.9811738953446288,1.8826104655371156,0,#f7f9fb,148.0,14.0
+vision,vision blocks,13,out,1,13,backbone.model.model.visual.blocks.13.attn.proj,0.9508526741862101,4.914732581378988,0,#eaeef5,148.0,22.0
+vision,vision blocks,13,mlp-up,2,13,backbone.model.model.visual.blocks.13.mlp.linear_fc1,0.9767631257775253,2.323687422247467,0,#f5f7fa,148.0,30.0
+vision,vision blocks,13,mlp-down,3,13,backbone.model.model.visual.blocks.13.mlp.linear_fc2,0.9447210717977199,5.527892820228009,0,#e7ecf4,148.0,38.0
+vision,vision blocks,14,qkv,0,14,backbone.model.model.visual.blocks.14.attn.qkv,0.979450103318217,2.0549896681782975,0,#f7f8fb,156.0,14.0
+vision,vision blocks,14,out,1,14,backbone.model.model.visual.blocks.14.attn.proj,0.9534821477209839,4.651785227901605,0,#ebeef6,156.0,22.0
+vision,vision blocks,14,mlp-up,2,14,backbone.model.model.visual.blocks.14.mlp.linear_fc1,0.9736511957310774,2.634880426892261,0,#f4f6fa,156.0,30.0
+vision,vision blocks,14,mlp-down,3,14,backbone.model.model.visual.blocks.14.mlp.linear_fc2,0.9045667282516627,9.543327174833728,0,#d5ddec,156.0,38.0
+vision,vision blocks,15,qkv,0,15,backbone.model.model.visual.blocks.15.attn.qkv,0.9780049755509655,2.199502444903445,0,#f6f7fb,164.0,14.0
+vision,vision blocks,15,out,1,15,backbone.model.model.visual.blocks.15.attn.proj,0.9169655084493807,8.303449155061926,0,#dbe1ee,164.0,22.0
+vision,vision blocks,15,mlp-up,2,15,backbone.model.model.visual.blocks.15.mlp.linear_fc1,0.9731918341634926,2.680816583650736,0,#f3f5fa,164.0,30.0
+vision,vision blocks,15,mlp-down,3,15,backbone.model.model.visual.blocks.15.mlp.linear_fc2,0.9365392237995247,6.34607762004753,0,#e3e8f2,164.0,38.0
+vision,vision blocks,16,qkv,0,16,backbone.model.model.visual.blocks.16.attn.qkv,0.9757065374444905,2.429346255550946,0,#f5f7fa,172.0,14.0
+vision,vision blocks,16,out,1,16,backbone.model.model.visual.blocks.16.attn.proj,0.9401176079897627,5.988239201023726,0,#e5eaf3,172.0,22.0
+vision,vision blocks,16,mlp-up,2,16,backbone.model.model.visual.blocks.16.mlp.linear_fc1,0.9758209160151173,2.4179083984882666,0,#f5f7fa,172.0,30.0
+vision,vision blocks,16,mlp-down,3,16,backbone.model.model.visual.blocks.16.mlp.linear_fc2,0.9157959625039194,8.420403749608063,0,#dae1ee,172.0,38.0
+vision,vision blocks,17,qkv,0,17,backbone.model.model.visual.blocks.17.attn.qkv,0.9762315948883207,2.3768405111679325,0,#f5f7fa,180.0,14.0
+vision,vision blocks,17,out,1,17,backbone.model.model.visual.blocks.17.attn.proj,0.8788837542555994,12.11162457444006,0,#cad4e6,180.0,22.0
+vision,vision blocks,17,mlp-up,2,17,backbone.model.model.visual.blocks.17.mlp.linear_fc1,0.9733380821912656,2.666191780873439,0,#f4f6fa,180.0,30.0
+vision,vision blocks,17,mlp-down,3,17,backbone.model.model.visual.blocks.17.mlp.linear_fc2,0.9476419549618945,5.235804503810549,0,#e8ecf4,180.0,38.0
+vision,vision blocks,18,qkv,0,18,backbone.model.model.visual.blocks.18.attn.qkv,0.9747774681565994,2.522253184340062,0,#f4f6fa,188.0,14.0
+vision,vision blocks,18,out,1,18,backbone.model.model.visual.blocks.18.attn.proj,0.9181708247902046,8.182917520979538,0,#dbe2ef,188.0,22.0
+vision,vision blocks,18,mlp-up,2,18,backbone.model.model.visual.blocks.18.mlp.linear_fc1,0.9738954700510923,2.610452994890766,0,#f4f6fa,188.0,30.0
+vision,vision blocks,18,mlp-down,3,18,backbone.model.model.visual.blocks.18.mlp.linear_fc2,0.9364759126479109,6.352408735208915,0,#e3e8f2,188.0,38.0
+vision,vision blocks,19,qkv,0,19,backbone.model.model.visual.blocks.19.attn.qkv,0.9718277699627966,2.817223003720337,0,#f3f5fa,196.0,14.0
+vision,vision blocks,19,out,1,19,backbone.model.model.visual.blocks.19.attn.proj,0.861522752322187,13.8477247677813,0,#c1cde2,196.0,22.0
+vision,vision blocks,19,mlp-up,2,19,backbone.model.model.visual.blocks.19.mlp.linear_fc1,0.9721484848505435,2.7851515149456496,0,#f3f5fa,196.0,30.0
+vision,vision blocks,19,mlp-down,3,19,backbone.model.model.visual.blocks.19.mlp.linear_fc2,0.9370164816850113,6.298351831498872,0,#e4e9f2,196.0,38.0
+vision,vision blocks,20,qkv,0,20,backbone.model.model.visual.blocks.20.attn.qkv,0.9745786986625371,2.54213013374629,0,#f4f6fa,204.0,14.0
+vision,vision blocks,20,out,1,20,backbone.model.model.visual.blocks.20.attn.proj,0.9265368468386262,7.346315316137375,0,#dfe5f0,204.0,22.0
+vision,vision blocks,20,mlp-up,2,20,backbone.model.model.visual.blocks.20.mlp.linear_fc1,0.9742298065841349,2.577019341586506,0,#f4f6fa,204.0,30.0
+vision,vision blocks,20,mlp-down,3,20,backbone.model.model.visual.blocks.20.mlp.linear_fc2,0.9510118503588174,4.898814964118259,0,#eaeef5,204.0,38.0
+vision,vision blocks,21,qkv,0,21,backbone.model.model.visual.blocks.21.attn.qkv,0.9740986531045608,2.5901346895439215,0,#f4f6fa,212.0,14.0
+vision,vision blocks,21,out,1,21,backbone.model.model.visual.blocks.21.attn.proj,0.9037869720664278,9.621302793357223,0,#d5dceb,212.0,22.0
+vision,vision blocks,21,mlp-up,2,21,backbone.model.model.visual.blocks.21.mlp.linear_fc1,0.9694529334576751,3.0547066542324863,0,#f2f5f9,212.0,30.0
+vision,vision blocks,21,mlp-down,3,21,backbone.model.model.visual.blocks.21.mlp.linear_fc2,0.9615931081648107,3.8406891835189305,0,#eef1f7,212.0,38.0
+vision,vision blocks,22,qkv,0,22,backbone.model.model.visual.blocks.22.attn.qkv,0.975619155357429,2.4380844642570954,0,#f5f7fa,220.0,14.0
+vision,vision blocks,22,out,1,22,backbone.model.model.visual.blocks.22.attn.proj,0.88980678762138,11.019321237862002,0,#cfd8e9,220.0,22.0
+vision,vision blocks,22,mlp-up,2,22,backbone.model.model.visual.blocks.22.mlp.linear_fc1,0.9724642211102247,2.753577888977532,0,#f3f5fa,220.0,30.0
+vision,vision blocks,22,mlp-down,3,22,backbone.model.model.visual.blocks.22.mlp.linear_fc2,0.9652818887410234,3.4718111258976614,0,#f0f3f8,220.0,38.0
+vision,vision blocks,23,qkv,0,23,backbone.model.model.visual.blocks.23.attn.qkv,0.9779623367051686,2.2037663294831367,0,#f6f7fb,228.0,14.0
+vision,vision blocks,23,out,1,23,backbone.model.model.visual.blocks.23.attn.proj,0.8945903549401869,10.540964505981309,0,#d0d9e9,228.0,22.0
+vision,vision blocks,23,mlp-up,2,23,backbone.model.model.visual.blocks.23.mlp.linear_fc1,0.9735286323456116,2.64713676543884,0,#f4f6fa,228.0,30.0
+vision,vision blocks,23,mlp-down,3,23,backbone.model.model.visual.blocks.23.mlp.linear_fc2,0.9610118354184666,3.8988164581533424,0,#eef1f7,228.0,38.0
+vision,patch mergers,ds0,mlp-up,2,24,backbone.model.model.visual.deepstack_merger_list.0.linear_fc1,0.9305335211029124,6.946647889708757,0,#e1e6f1,241.0,30.0
+vision,patch mergers,ds0,mlp-down,3,24,backbone.model.model.visual.deepstack_merger_list.0.linear_fc2,0.943083978528753,5.691602147124697,0,#e6ebf4,241.0,38.0
+vision,patch mergers,ds1,mlp-up,2,25,backbone.model.model.visual.deepstack_merger_list.1.linear_fc1,0.9389271607028672,6.107283929713281,0,#e5eaf3,249.0,30.0
+vision,patch mergers,ds1,mlp-down,3,25,backbone.model.model.visual.deepstack_merger_list.1.linear_fc2,0.9387014114531336,6.129858854686643,0,#e4e9f2,249.0,38.0
+vision,patch mergers,ds2,mlp-up,2,26,backbone.model.model.visual.deepstack_merger_list.2.linear_fc1,0.9225456764459232,7.745432355407678,0,#dde3ef,257.0,30.0
+vision,patch mergers,ds2,mlp-down,3,26,backbone.model.model.visual.deepstack_merger_list.2.linear_fc2,0.9312115734114532,6.878842658854678,0,#e1e7f1,257.0,38.0
+vision,patch mergers,mrg,mlp-up,2,27,backbone.model.model.visual.merger.linear_fc1,0.8715942375155625,12.840576248443746,0,#c6d1e4,265.0,30.0
+vision,patch mergers,mrg,mlp-down,3,27,backbone.model.model.visual.merger.linear_fc2,0.8833270523212705,11.66729476787295,0,#ccd6e7,265.0,38.0
+LLM,language model,0,q,0,0,backbone.model.model.language_model.layers.0.self_attn.q_proj,0.9809042052612937,1.9095794738706262,0,#f7f9fb,44.0,74.0
+LLM,language model,0,k,1,0,backbone.model.model.language_model.layers.0.self_attn.k_proj,0.9663670437345451,3.3632956265454927,0,#f1f3f8,44.0,82.0
+LLM,language model,0,v,2,0,backbone.model.model.language_model.layers.0.self_attn.v_proj,0.9807016756142218,1.9298324385778165,0,#f7f8fb,44.0,90.0
+LLM,language model,0,out,3,0,backbone.model.model.language_model.layers.0.self_attn.o_proj,0.9581613846663264,4.183861533367361,0,#edf1f7,44.0,98.0
+LLM,language model,0,mlp-gate,4,0,backbone.model.model.language_model.layers.0.mlp.gate_proj,0.973184113859528,2.6815886140472034,0,#f3f5fa,44.0,106.0
+LLM,language model,0,mlp-up,5,0,backbone.model.model.language_model.layers.0.mlp.up_proj,0.9724337709134916,2.756622908650841,0,#f3f5fa,44.0,114.0
+LLM,language model,0,mlp-down,6,0,backbone.model.model.language_model.layers.0.mlp.down_proj,0.9477107673884251,5.228923261157492,0,#e8ecf4,44.0,122.0
+LLM,language model,1,q,0,1,backbone.model.model.language_model.layers.1.self_attn.q_proj,0.9754522114642296,2.4547788535770443,0,#f5f7fa,52.0,74.0
+LLM,language model,1,k,1,1,backbone.model.model.language_model.layers.1.self_attn.k_proj,0.9680550322832732,3.1944967716726835,0,#f1f4f9,52.0,82.0
+LLM,language model,1,v,2,1,backbone.model.model.language_model.layers.1.self_attn.v_proj,0.9755278483363163,2.447215166368366,0,#f5f7fa,52.0,90.0
+LLM,language model,1,out,3,1,backbone.model.model.language_model.layers.1.self_attn.o_proj,0.9047738025357012,9.522619746429884,0,#d5ddec,52.0,98.0
+LLM,language model,1,mlp-gate,4,1,backbone.model.model.language_model.layers.1.mlp.gate_proj,0.9744927989121944,2.5507201087805575,0,#f4f6fa,52.0,106.0
+LLM,language model,1,mlp-up,5,1,backbone.model.model.language_model.layers.1.mlp.up_proj,0.9792100878400458,2.0789912159954183,0,#f7f8fb,52.0,114.0
+LLM,language model,1,mlp-down,6,1,backbone.model.model.language_model.layers.1.mlp.down_proj,0.9420840251308408,5.791597486915922,0,#e6eaf3,52.0,122.0
+LLM,language model,2,q,0,2,backbone.model.model.language_model.layers.2.self_attn.q_proj,0.9732475961750902,2.6752403824909843,0,#f4f6fa,60.0,74.0
+LLM,language model,2,k,1,2,backbone.model.model.language_model.layers.2.self_attn.k_proj,0.9754728101152791,2.4527189884720912,0,#f5f7fa,60.0,82.0
+LLM,language model,2,v,2,2,backbone.model.model.language_model.layers.2.self_attn.v_proj,0.9704234502455209,2.95765497544791,0,#f2f5f9,60.0,90.0
+LLM,language model,2,out,3,2,backbone.model.model.language_model.layers.2.self_attn.o_proj,0.9568325054920104,4.316749450798962,0,#ecf0f6,60.0,98.0
+LLM,language model,2,mlp-gate,4,2,backbone.model.model.language_model.layers.2.mlp.gate_proj,0.9736003423967126,2.639965760328744,0,#f4f6fa,60.0,106.0
+LLM,language model,2,mlp-up,5,2,backbone.model.model.language_model.layers.2.mlp.up_proj,0.9740994412649518,2.590055873504815,0,#f4f6fa,60.0,114.0
+LLM,language model,2,mlp-down,6,2,backbone.model.model.language_model.layers.2.mlp.down_proj,0.9716797861825146,2.8320213817485396,0,#f3f5fa,60.0,122.0
+LLM,language model,3,q,0,3,backbone.model.model.language_model.layers.3.self_attn.q_proj,0.9704872700526086,2.9512729947391403,0,#f2f5f9,68.0,74.0
+LLM,language model,3,k,1,3,backbone.model.model.language_model.layers.3.self_attn.k_proj,0.971307061906618,2.8692938093382025,0,#f3f5fa,68.0,82.0
+LLM,language model,3,v,2,3,backbone.model.model.language_model.layers.3.self_attn.v_proj,0.9708163912621065,2.9183608737893496,0,#f2f5f9,68.0,90.0
+LLM,language model,3,out,3,3,backbone.model.model.language_model.layers.3.self_attn.o_proj,0.950202923161209,4.979707683879098,0,#e9edf5,68.0,98.0
+LLM,language model,3,mlp-gate,4,3,backbone.model.model.language_model.layers.3.mlp.gate_proj,0.972158650895057,2.784134910494296,0,#f3f5fa,68.0,106.0
+LLM,language model,3,mlp-up,5,3,backbone.model.model.language_model.layers.3.mlp.up_proj,0.9726464253708028,2.7353574629197186,0,#f3f5fa,68.0,114.0
+LLM,language model,3,mlp-down,6,3,backbone.model.model.language_model.layers.3.mlp.down_proj,0.9334893927272336,6.651060727276636,0,#e2e8f2,68.0,122.0
+LLM,language model,4,q,0,4,backbone.model.model.language_model.layers.4.self_attn.q_proj,0.9712706585129106,2.872934148708939,0,#f2f5f9,76.0,74.0
+LLM,language model,4,k,1,4,backbone.model.model.language_model.layers.4.self_attn.k_proj,0.9693874063765756,3.061259362342439,0,#f1f4f9,76.0,82.0
+LLM,language model,4,v,2,4,backbone.model.model.language_model.layers.4.self_attn.v_proj,0.9706479835100879,2.9352016489912147,0,#f2f5f9,76.0,90.0
+LLM,language model,4,out,3,4,backbone.model.model.language_model.layers.4.self_attn.o_proj,0.9435199266213485,5.648007337865146,0,#e6ebf4,76.0,98.0
+LLM,language model,4,mlp-gate,4,4,backbone.model.model.language_model.layers.4.mlp.gate_proj,0.9693896175739031,3.0610382426096927,0,#f1f4f9,76.0,106.0
+LLM,language model,4,mlp-up,5,4,backbone.model.model.language_model.layers.4.mlp.up_proj,0.9719546337597157,2.804536624028431,0,#f3f5fa,76.0,114.0
+LLM,language model,4,mlp-down,6,4,backbone.model.model.language_model.layers.4.mlp.down_proj,0.9335395680947385,6.646043190526152,0,#e2e8f2,76.0,122.0
+LLM,language model,5,q,0,5,backbone.model.model.language_model.layers.5.self_attn.q_proj,0.9752732931644209,2.4726706835579093,0,#f5f7fa,84.0,74.0
+LLM,language model,5,k,1,5,backbone.model.model.language_model.layers.5.self_attn.k_proj,0.9718412608564875,2.8158739143512523,0,#f3f5fa,84.0,82.0
+LLM,language model,5,v,2,5,backbone.model.model.language_model.layers.5.self_attn.v_proj,0.9730713675293786,2.6928632470621383,0,#f3f5fa,84.0,90.0
+LLM,language model,5,out,3,5,backbone.model.model.language_model.layers.5.self_attn.o_proj,0.9554684631171546,4.453153688284539,0,#eceff6,84.0,98.0
+LLM,language model,5,mlp-gate,4,5,backbone.model.model.language_model.layers.5.mlp.gate_proj,0.9698709670064035,3.0129032993596483,0,#f2f5f9,84.0,106.0
+LLM,language model,5,mlp-up,5,5,backbone.model.model.language_model.layers.5.mlp.up_proj,0.970683914727432,2.9316085272568015,0,#f2f5f9,84.0,114.0
+LLM,language model,5,mlp-down,6,5,backbone.model.model.language_model.layers.5.mlp.down_proj,0.9280215407438134,7.197845925618662,0,#e0e5f0,84.0,122.0
+LLM,language model,6,q,0,6,backbone.model.model.language_model.layers.6.self_attn.q_proj,0.9744930696490209,2.5506930350979062,0,#f4f6fa,92.0,74.0
+LLM,language model,6,k,1,6,backbone.model.model.language_model.layers.6.self_attn.k_proj,0.9723230662048844,2.76769337951156,0,#f3f5fa,92.0,82.0
+LLM,language model,6,v,2,6,backbone.model.model.language_model.layers.6.self_attn.v_proj,0.9737794915321749,2.6220508467825088,0,#f4f6fa,92.0,90.0
+LLM,language model,6,out,3,6,backbone.model.model.language_model.layers.6.self_attn.o_proj,0.9569410425656814,4.305895743431865,0,#ecf0f6,92.0,98.0
+LLM,language model,6,mlp-gate,4,6,backbone.model.model.language_model.layers.6.mlp.gate_proj,0.9688267766023487,3.1173223397651273,0,#f1f4f9,92.0,106.0
+LLM,language model,6,mlp-up,5,6,backbone.model.model.language_model.layers.6.mlp.up_proj,0.9696889878239039,3.031101217609611,0,#f2f5f9,92.0,114.0
+LLM,language model,6,mlp-down,6,6,backbone.model.model.language_model.layers.6.mlp.down_proj,0.9324971408224243,6.75028591775757,0,#e1e7f1,92.0,122.0
+LLM,language model,7,q,0,7,backbone.model.model.language_model.layers.7.self_attn.q_proj,0.9735221470570004,2.6477852942999647,0,#f4f6fa,100.0,74.0
+LLM,language model,7,k,1,7,backbone.model.model.language_model.layers.7.self_attn.k_proj,0.9754384566919071,2.4561543308092904,0,#f5f7fa,100.0,82.0
+LLM,language model,7,v,2,7,backbone.model.model.language_model.layers.7.self_attn.v_proj,0.9755328851927455,2.4467114807254497,0,#f5f7fa,100.0,90.0
+LLM,language model,7,out,3,7,backbone.model.model.language_model.layers.7.self_attn.o_proj,0.9436386650409373,5.63613349590627,0,#e6ebf4,100.0,98.0
+LLM,language model,7,mlp-gate,4,7,backbone.model.model.language_model.layers.7.mlp.gate_proj,0.9694525883574233,3.0547411642576683,0,#f2f5f9,100.0,106.0
+LLM,language model,7,mlp-up,5,7,backbone.model.model.language_model.layers.7.mlp.up_proj,0.9695489667322876,3.045103326771237,0,#f2f5f9,100.0,114.0
+LLM,language model,7,mlp-down,6,7,backbone.model.model.language_model.layers.7.mlp.down_proj,0.9403265851878273,5.96734148121727,0,#e5eaf3,100.0,122.0
+LLM,language model,8,q,0,8,backbone.model.model.language_model.layers.8.self_attn.q_proj,0.9750723374116226,2.492766258837742,0,#f4f6fa,108.0,74.0
+LLM,language model,8,k,1,8,backbone.model.model.language_model.layers.8.self_attn.k_proj,0.9723257971016561,2.767420289834388,0,#f3f5fa,108.0,82.0
+LLM,language model,8,v,2,8,backbone.model.model.language_model.layers.8.self_attn.v_proj,0.9765111826118751,2.3488817388124916,0,#f5f7fa,108.0,90.0
+LLM,language model,8,out,3,8,backbone.model.model.language_model.layers.8.self_attn.o_proj,0.9468121308656063,5.318786913439366,0,#e8ecf4,108.0,98.0
+LLM,language model,8,mlp-gate,4,8,backbone.model.model.language_model.layers.8.mlp.gate_proj,0.9705633388667625,2.9436661133237507,0,#f2f5f9,108.0,106.0
+LLM,language model,8,mlp-up,5,8,backbone.model.model.language_model.layers.8.mlp.up_proj,0.9722733546082898,2.7726645391710214,0,#f3f5fa,108.0,114.0
+LLM,language model,8,mlp-down,6,8,backbone.model.model.language_model.layers.8.mlp.down_proj,0.9350107095512126,6.498929044878743,0,#e3e8f2,108.0,122.0
+LLM,language model,9,q,0,9,backbone.model.model.language_model.layers.9.self_attn.q_proj,0.9782598395247977,2.174016047520233,0,#f6f7fb,116.0,74.0
+LLM,language model,9,k,1,9,backbone.model.model.language_model.layers.9.self_attn.k_proj,0.969977801444392,3.002219855560795,0,#f2f5f9,116.0,82.0
+LLM,language model,9,v,2,9,backbone.model.model.language_model.layers.9.self_attn.v_proj,0.9839253762742339,1.6074623725766068,0,#f8f9fc,116.0,90.0
+LLM,language model,9,out,3,9,backbone.model.model.language_model.layers.9.self_attn.o_proj,0.9606481720368106,3.9351827963189367,0,#eef1f7,116.0,98.0
+LLM,language model,9,mlp-gate,4,9,backbone.model.model.language_model.layers.9.mlp.gate_proj,0.9724440427320425,2.7555957267957454,0,#f3f5fa,116.0,106.0
+LLM,language model,9,mlp-up,5,9,backbone.model.model.language_model.layers.9.mlp.up_proj,0.9715779400093175,2.842205999068248,0,#f3f5fa,116.0,114.0
+LLM,language model,9,mlp-down,6,9,backbone.model.model.language_model.layers.9.mlp.down_proj,0.9427314067923417,5.726859320765831,0,#e6ebf4,116.0,122.0
+LLM,language model,10,q,0,10,backbone.model.model.language_model.layers.10.self_attn.q_proj,0.9833652186314065,1.6634781368593532,0,#f8f9fc,124.0,74.0
+LLM,language model,10,k,1,10,backbone.model.model.language_model.layers.10.self_attn.k_proj,0.9789536617430658,2.104633825693425,0,#f6f7fb,124.0,82.0
+LLM,language model,10,v,2,10,backbone.model.model.language_model.layers.10.self_attn.v_proj,0.9725261388614157,2.74738611385843,0,#f3f5fa,124.0,90.0
+LLM,language model,10,out,3,10,backbone.model.model.language_model.layers.10.self_attn.o_proj,0.9620854593161032,3.791454068389677,0,#eff2f8,124.0,98.0
+LLM,language model,10,mlp-gate,4,10,backbone.model.model.language_model.layers.10.mlp.gate_proj,0.9718486494720789,2.815135052792106,0,#f3f5fa,124.0,106.0
+LLM,language model,10,mlp-up,5,10,backbone.model.model.language_model.layers.10.mlp.up_proj,0.9713344702671551,2.8665529732844863,0,#f3f5fa,124.0,114.0
+LLM,language model,10,mlp-down,6,10,backbone.model.model.language_model.layers.10.mlp.down_proj,0.9461554985529876,5.384450144701236,0,#e7ecf4,124.0,122.0
+LLM,language model,11,q,0,11,backbone.model.model.language_model.layers.11.self_attn.q_proj,0.9858842957321184,1.4115704267881557,0,#f9fafc,132.0,74.0
+LLM,language model,11,k,1,11,backbone.model.model.language_model.layers.11.self_attn.k_proj,0.9853008556028726,1.4699144397127384,0,#f9fafc,132.0,82.0
+LLM,language model,11,v,2,11,backbone.model.model.language_model.layers.11.self_attn.v_proj,0.9792871627218411,2.071283727815887,0,#f7f8fb,132.0,90.0
+LLM,language model,11,out,3,11,backbone.model.model.language_model.layers.11.self_attn.o_proj,0.9686187044952368,3.1381295504763207,0,#f1f4f9,132.0,98.0
+LLM,language model,11,mlp-gate,4,11,backbone.model.model.language_model.layers.11.mlp.gate_proj,0.9727184403845773,2.728155961542267,0,#f3f5fa,132.0,106.0
+LLM,language model,11,mlp-up,5,11,backbone.model.model.language_model.layers.11.mlp.up_proj,0.9747260114832647,2.5273988516735346,0,#f4f6fa,132.0,114.0
+LLM,language model,11,mlp-down,6,11,backbone.model.model.language_model.layers.11.mlp.down_proj,0.9429825798793896,5.70174201206104,0,#e6ebf4,132.0,122.0
+LLM,language model,12,q,0,12,backbone.model.model.language_model.layers.12.self_attn.q_proj,0.9767590893103673,2.3240910689632743,0,#f5f7fa,140.0,74.0
+LLM,language model,12,k,1,12,backbone.model.model.language_model.layers.12.self_attn.k_proj,0.9709098928267791,2.9090107173220914,0,#f2f5f9,140.0,82.0
+LLM,language model,12,v,2,12,backbone.model.model.language_model.layers.12.self_attn.v_proj,0.9775090560272479,2.2490943972752087,0,#f6f7fb,140.0,90.0
+LLM,language model,12,out,3,12,backbone.model.model.language_model.layers.12.self_attn.o_proj,0.9552066023029893,4.479339769701074,0,#eceff6,140.0,98.0
+LLM,language model,12,mlp-gate,4,12,backbone.model.model.language_model.layers.12.mlp.gate_proj,0.970646761496832,2.9353238503167955,0,#f2f5f9,140.0,106.0
+LLM,language model,12,mlp-up,5,12,backbone.model.model.language_model.layers.12.mlp.up_proj,0.9712246421439243,2.8775357856075656,0,#f2f5f9,140.0,114.0
+LLM,language model,12,mlp-down,6,12,backbone.model.model.language_model.layers.12.mlp.down_proj,0.944473035191913,5.552696480808706,0,#e6ebf4,140.0,122.0
+LLM,language model,13,q,0,13,backbone.model.model.language_model.layers.13.self_attn.q_proj,0.9829952226488773,1.7004777351122713,0,#f8f9fc,148.0,74.0
+LLM,language model,13,k,1,13,backbone.model.model.language_model.layers.13.self_attn.k_proj,0.9826074365832156,1.7392563416784412,0,#f7f9fb,148.0,82.0
+LLM,language model,13,v,2,13,backbone.model.model.language_model.layers.13.self_attn.v_proj,0.984696327377969,1.5303672622031028,0,#f9fafc,148.0,90.0
+LLM,language model,13,out,3,13,backbone.model.model.language_model.layers.13.self_attn.o_proj,0.9674659904176498,3.25340095823502,0,#f1f3f8,148.0,98.0
+LLM,language model,13,mlp-gate,4,13,backbone.model.model.language_model.layers.13.mlp.gate_proj,0.9756240943141111,2.4375905685888877,0,#f5f7fa,148.0,106.0
+LLM,language model,13,mlp-up,5,13,backbone.model.model.language_model.layers.13.mlp.up_proj,0.9732395888286085,2.6760411171391496,0,#f4f6fa,148.0,114.0
+LLM,language model,13,mlp-down,6,13,backbone.model.model.language_model.layers.13.mlp.down_proj,0.9387350456636328,6.126495433636725,0,#e4e9f2,148.0,122.0
+LLM,language model,14,q,0,14,backbone.model.model.language_model.layers.14.self_attn.q_proj,0.9806246694870739,1.937533051292606,0,#f7f8fb,156.0,74.0
+LLM,language model,14,k,1,14,backbone.model.model.language_model.layers.14.self_attn.k_proj,0.9784761095390475,2.152389046095249,0,#f6f7fb,156.0,82.0
+LLM,language model,14,v,2,14,backbone.model.model.language_model.layers.14.self_attn.v_proj,0.9862139009748797,1.378609902512029,0,#f9fafc,156.0,90.0
+LLM,language model,14,out,3,14,backbone.model.model.language_model.layers.14.self_attn.o_proj,0.9639908166346399,3.6009183365360076,0,#f0f3f8,156.0,98.0
+LLM,language model,14,mlp-gate,4,14,backbone.model.model.language_model.layers.14.mlp.gate_proj,0.9719800334356744,2.8019966564325594,0,#f3f5fa,156.0,106.0
+LLM,language model,14,mlp-up,5,14,backbone.model.model.language_model.layers.14.mlp.up_proj,0.9726743140996176,2.7325685900382424,0,#f3f5fa,156.0,114.0
+LLM,language model,14,mlp-down,6,14,backbone.model.model.language_model.layers.14.mlp.down_proj,0.9363717130395856,6.362828696041445,0,#e3e8f2,156.0,122.0
+LLM,language model,15,q,0,15,backbone.model.model.language_model.layers.15.self_attn.q_proj,0.9740147990171846,2.5985200982815426,0,#f4f6fa,164.0,74.0
+LLM,language model,15,k,1,15,backbone.model.model.language_model.layers.15.self_attn.k_proj,0.9800362898445917,1.996371015540832,0,#f7f8fb,164.0,82.0
+LLM,language model,15,v,2,15,backbone.model.model.language_model.layers.15.self_attn.v_proj,0.970504402195754,2.9495597804246043,0,#f2f5f9,164.0,90.0
+LLM,language model,15,out,3,15,backbone.model.model.language_model.layers.15.self_attn.o_proj,0.9552547221270447,4.474527787295535,0,#eceff6,164.0,98.0
+LLM,language model,15,mlp-gate,4,15,backbone.model.model.language_model.layers.15.mlp.gate_proj,0.9720125227336253,2.798747726637474,0,#f3f5fa,164.0,106.0
+LLM,language model,15,mlp-up,5,15,backbone.model.model.language_model.layers.15.mlp.up_proj,0.9748310986724773,2.5168901327522697,0,#f4f6fa,164.0,114.0
+LLM,language model,15,mlp-down,6,15,backbone.model.model.language_model.layers.15.mlp.down_proj,0.9408179143026061,5.918208569739392,0,#e6eaf3,164.0,122.0
+action_head,vl self-attention,sa0,q,0,0,action_head.vl_self_attention.transformer_blocks.0.attn1.to_q,0.975255632197083,2.4744367802917,0,#f5f7fa,44.0,158.0
+action_head,vl self-attention,sa0,k,1,0,action_head.vl_self_attention.transformer_blocks.0.attn1.to_k,0.9767675018899262,2.3232498110073774,0,#f5f7fa,44.0,166.0
+action_head,vl self-attention,sa0,v,2,0,action_head.vl_self_attention.transformer_blocks.0.attn1.to_v,0.9762544341145049,2.3745565885495146,0,#f5f7fa,44.0,174.0
+action_head,vl self-attention,sa0,out,3,0,action_head.vl_self_attention.transformer_blocks.0.attn1.to_out.0,0.9221836317355745,7.781636826442551,0,#dde3ef,44.0,182.0
+action_head,vl self-attention,sa0,ff-up,4,0,action_head.vl_self_attention.transformer_blocks.0.ff.net.0.proj,0.9734915983220455,2.650840167795454,0,#f4f6fa,44.0,190.0
+action_head,vl self-attention,sa0,ff-down,5,0,action_head.vl_self_attention.transformer_blocks.0.ff.net.2,0.893644571842483,10.635542815751698,0,#d0d9e9,44.0,198.0
+action_head,vl self-attention,sa1,q,0,1,action_head.vl_self_attention.transformer_blocks.1.attn1.to_q,0.9741828833510403,2.5817116648959693,0,#f4f6fa,52.0,158.0
+action_head,vl self-attention,sa1,k,1,1,action_head.vl_self_attention.transformer_blocks.1.attn1.to_k,0.9727292529964107,2.7270747003589335,0,#f3f5fa,52.0,166.0
+action_head,vl self-attention,sa1,v,2,1,action_head.vl_self_attention.transformer_blocks.1.attn1.to_v,0.9744330835398389,2.556691646016107,0,#f4f6fa,52.0,174.0
+action_head,vl self-attention,sa1,out,3,1,action_head.vl_self_attention.transformer_blocks.1.attn1.to_out.0,0.8668382246708335,13.316177532916651,0,#c4cfe4,52.0,182.0
+action_head,vl self-attention,sa1,ff-up,4,1,action_head.vl_self_attention.transformer_blocks.1.ff.net.0.proj,0.961553877030441,3.844612296955896,0,#eef1f7,52.0,190.0
+action_head,vl self-attention,sa1,ff-down,5,1,action_head.vl_self_attention.transformer_blocks.1.ff.net.2,0.8246240223720896,17.537597762791034,0,#b0bed9,52.0,198.0
+action_head,vl self-attention,sa2,q,0,2,action_head.vl_self_attention.transformer_blocks.2.attn1.to_q,0.9573736981694608,4.262630183053917,0,#ecf0f6,60.0,158.0
+action_head,vl self-attention,sa2,k,1,2,action_head.vl_self_attention.transformer_blocks.2.attn1.to_k,0.9567410346753136,4.325896532468643,0,#ecf0f6,60.0,166.0
+action_head,vl self-attention,sa2,v,2,2,action_head.vl_self_attention.transformer_blocks.2.attn1.to_v,0.9579742265887657,4.202577341123426,0,#edf1f7,60.0,174.0
+action_head,vl self-attention,sa2,out,3,2,action_head.vl_self_attention.transformer_blocks.2.attn1.to_out.0,0.7735055116040824,22.649448839591756,0,#98aacc,60.0,182.0
+action_head,vl self-attention,sa2,ff-up,4,2,action_head.vl_self_attention.transformer_blocks.2.ff.net.0.proj,0.9286071590495014,7.139284095049858,0,#e0e5f0,60.0,190.0
+action_head,vl self-attention,sa2,ff-down,5,2,action_head.vl_self_attention.transformer_blocks.2.ff.net.2,0.6958935428866432,30.410645711335683,0,#708ab9,60.0,198.0
+action_head,vl self-attention,sa3,q,0,3,action_head.vl_self_attention.transformer_blocks.3.attn1.to_q,0.9194996094078628,8.05003905921372,0,#dbe2ef,68.0,158.0
+action_head,vl self-attention,sa3,k,1,3,action_head.vl_self_attention.transformer_blocks.3.attn1.to_k,0.9196397650578922,8.036023494210776,0,#dbe2ef,68.0,166.0
+action_head,vl self-attention,sa3,v,2,3,action_head.vl_self_attention.transformer_blocks.3.attn1.to_v,0.9191682343981884,8.08317656018116,0,#dbe2ef,68.0,174.0
+action_head,vl self-attention,sa3,out,3,3,action_head.vl_self_attention.transformer_blocks.3.attn1.to_out.0,0.7063814213600175,29.361857863998253,0,#758ebb,68.0,182.0
+action_head,vl self-attention,sa3,ff-up,4,3,action_head.vl_self_attention.transformer_blocks.3.ff.net.0.proj,0.8909340266581405,10.906597334185953,0,#cfd8e9,68.0,190.0
+action_head,vl self-attention,sa3,ff-down,5,3,action_head.vl_self_attention.transformer_blocks.3.ff.net.2,0.6500932750530555,34.99067249469445,0,#5877ad,68.0,198.0
+action_head,DiT,0,cross-attn q,0,4,action_head.model.transformer_blocks.0.attn1.to_q,0.9871065019803282,1.2893498019671767,0,#fafbfd,81.0,158.0
+action_head,DiT,0,cross-attn k,1,4,action_head.model.transformer_blocks.0.attn1.to_k,0.8548654897653668,14.51345102346332,0,#bfcbe1,81.0,166.0
+action_head,DiT,0,cross-attn v,2,4,action_head.model.transformer_blocks.0.attn1.to_v,0.8558777213127238,14.412227868727623,0,#bfcbe1,81.0,174.0
+action_head,DiT,0,cross-attn out,3,4,action_head.model.transformer_blocks.0.attn1.to_out.0,0.8148307256671373,18.516927433286266,0,#acbbd7,81.0,182.0
+action_head,DiT,0,ff-up,4,4,action_head.model.transformer_blocks.0.ff.net.0.proj,0.9867849802568683,1.3215019743131662,0,#fafbfd,81.0,190.0
+action_head,DiT,0,ff-down,5,4,action_head.model.transformer_blocks.0.ff.net.2,0.8414154393707441,15.858456062925585,0,#b8c5dd,81.0,198.0
+action_head,DiT,1,self-attn q,0,5,action_head.model.transformer_blocks.1.attn1.to_q,0.9957783291417136,0.4221670858286397,0,#fdfefe,89.0,158.0
+action_head,DiT,1,self-attn k,1,5,action_head.model.transformer_blocks.1.attn1.to_k,0.981599774116678,1.840022588332202,0,#f7f9fb,89.0,166.0
+action_head,DiT,1,self-attn v,2,5,action_head.model.transformer_blocks.1.attn1.to_v,0.9830162674051519,1.6983732594848089,0,#f8f9fc,89.0,174.0
+action_head,DiT,1,self-attn out,3,5,action_head.model.transformer_blocks.1.attn1.to_out.0,0.9720446977699873,2.7955302230012746,0,#f3f5fa,89.0,182.0
+action_head,DiT,1,ff-up,4,5,action_head.model.transformer_blocks.1.ff.net.0.proj,0.9896798580337945,1.0320141966205454,0,#fbfcfd,89.0,190.0
+action_head,DiT,1,ff-down,5,5,action_head.model.transformer_blocks.1.ff.net.2,0.976745000127822,2.325499987217805,0,#f5f7fa,89.0,198.0
+action_head,DiT,2,cross-attn q,0,6,action_head.model.transformer_blocks.2.attn1.to_q,0.9777913235308201,2.22086764691799,0,#f6f7fb,97.0,158.0
+action_head,DiT,2,cross-attn k,1,6,action_head.model.transformer_blocks.2.attn1.to_k,0.8552532714452261,14.474672855477388,0,#bfcbe1,97.0,166.0
+action_head,DiT,2,cross-attn v,2,6,action_head.model.transformer_blocks.2.attn1.to_v,0.8559322664075907,14.406773359240931,0,#bfcbe1,97.0,174.0
+action_head,DiT,2,cross-attn out,3,6,action_head.model.transformer_blocks.2.attn1.to_out.0,0.7033679414020221,29.66320585979779,0,#738dba,97.0,182.0
+action_head,DiT,2,ff-up,4,6,action_head.model.transformer_blocks.2.ff.net.0.proj,0.9878947787274458,1.21052212725542,0,#fafbfd,97.0,190.0
+action_head,DiT,2,ff-down,5,6,action_head.model.transformer_blocks.2.ff.net.2,0.9709479424190106,2.9052057580989388,0,#f2f5f9,97.0,198.0
+action_head,DiT,3,self-attn q,0,7,action_head.model.transformer_blocks.3.attn1.to_q,0.9817197717821954,1.8280228217804617,0,#f7f9fb,105.0,158.0
+action_head,DiT,3,self-attn k,1,7,action_head.model.transformer_blocks.3.attn1.to_k,0.9749979085556534,2.500209144434662,0,#f4f6fa,105.0,166.0
+action_head,DiT,3,self-attn v,2,7,action_head.model.transformer_blocks.3.attn1.to_v,0.9877210409851834,1.227895901481657,0,#fafbfd,105.0,174.0
+action_head,DiT,3,self-attn out,3,7,action_head.model.transformer_blocks.3.attn1.to_out.0,0.9616850613016942,3.8314938698305823,0,#eef1f7,105.0,182.0
+action_head,DiT,3,ff-up,4,7,action_head.model.transformer_blocks.3.ff.net.0.proj,1.0006651566173632,-0.06651566173632162,1,#F4B8A8,105.0,190.0
+action_head,DiT,3,ff-down,5,7,action_head.model.transformer_blocks.3.ff.net.2,0.9801682488502004,1.9831751149799626,0,#f7f8fb,105.0,198.0
+action_head,DiT,4,cross-attn q,0,8,action_head.model.transformer_blocks.4.attn1.to_q,0.9800408645605474,1.9959135439452602,0,#f7f8fb,113.0,158.0
+action_head,DiT,4,cross-attn k,1,8,action_head.model.transformer_blocks.4.attn1.to_k,0.8551691187013996,14.483088129860045,0,#bfcbe1,113.0,166.0
+action_head,DiT,4,cross-attn v,2,8,action_head.model.transformer_blocks.4.attn1.to_v,0.8550304767967382,14.496952320326184,0,#bfcbe1,113.0,174.0
+action_head,DiT,4,cross-attn out,3,8,action_head.model.transformer_blocks.4.attn1.to_out.0,0.7919706274295576,20.802937257044242,0,#a1b2d1,113.0,182.0
+action_head,DiT,4,ff-up,4,8,action_head.model.transformer_blocks.4.ff.net.0.proj,0.995859867920915,0.4140132079085035,0,#fdfefe,113.0,190.0
+action_head,DiT,4,ff-down,5,8,action_head.model.transformer_blocks.4.ff.net.2,0.9787151118749193,2.128488812508067,0,#f6f7fb,113.0,198.0
+action_head,DiT,5,self-attn q,0,9,action_head.model.transformer_blocks.5.attn1.to_q,0.9785864519720864,2.141354802791362,0,#f6f7fb,121.0,158.0
+action_head,DiT,5,self-attn k,1,9,action_head.model.transformer_blocks.5.attn1.to_k,1.0027948159521842,-0.27948159521842264,1,#F4B8A8,121.0,166.0
+action_head,DiT,5,self-attn v,2,9,action_head.model.transformer_blocks.5.attn1.to_v,0.9891043650312764,1.0895634968723589,0,#fbfcfd,121.0,174.0
+action_head,DiT,5,self-attn out,3,9,action_head.model.transformer_blocks.5.attn1.to_out.0,0.9614664932924388,3.853350670756117,0,#eef1f7,121.0,182.0
+action_head,DiT,5,ff-up,4,9,action_head.model.transformer_blocks.5.ff.net.0.proj,0.9942180615272563,0.5781938472743664,0,#fcfdfe,121.0,190.0
+action_head,DiT,5,ff-down,5,9,action_head.model.transformer_blocks.5.ff.net.2,0.9764640919897294,2.353590801027061,0,#f5f7fa,121.0,198.0
+action_head,DiT,6,cross-attn q,0,10,action_head.model.transformer_blocks.6.attn1.to_q,0.9828457661023281,1.71542338976719,0,#f8f9fc,129.0,158.0
+action_head,DiT,6,cross-attn k,1,10,action_head.model.transformer_blocks.6.attn1.to_k,0.8550633898134964,14.49366101865036,0,#bfcbe1,129.0,166.0
+action_head,DiT,6,cross-attn v,2,10,action_head.model.transformer_blocks.6.attn1.to_v,0.8543985406341157,14.56014593658843,0,#becae0,129.0,174.0
+action_head,DiT,6,cross-attn out,3,10,action_head.model.transformer_blocks.6.attn1.to_out.0,0.5114411274202639,48.855887257973606,0,#1f3a6e,129.0,182.0
+action_head,DiT,6,ff-up,4,10,action_head.model.transformer_blocks.6.ff.net.0.proj,0.9929984448163894,0.7001555183610564,0,#fcfdfe,129.0,190.0
+action_head,DiT,6,ff-down,5,10,action_head.model.transformer_blocks.6.ff.net.2,0.9274947377385973,7.250526226140275,0,#e0e5f0,129.0,198.0
+action_head,DiT,7,self-attn q,0,11,action_head.model.transformer_blocks.7.attn1.to_q,0.994371914945566,0.5628085054434018,0,#fdfefe,137.0,158.0
+action_head,DiT,7,self-attn k,1,11,action_head.model.transformer_blocks.7.attn1.to_k,0.9744283781220534,2.5571621877946593,0,#f4f6fa,137.0,166.0
+action_head,DiT,7,self-attn v,2,11,action_head.model.transformer_blocks.7.attn1.to_v,0.9788903442057776,2.1109655794222415,0,#f6f7fb,137.0,174.0
+action_head,DiT,7,self-attn out,3,11,action_head.model.transformer_blocks.7.attn1.to_out.0,0.9173864746871467,8.261352531285326,0,#dbe1ee,137.0,182.0
+action_head,DiT,7,ff-up,4,11,action_head.model.transformer_blocks.7.ff.net.0.proj,0.9868933950123373,1.3106604987662696,0,#fafbfd,137.0,190.0
+action_head,DiT,7,ff-down,5,11,action_head.model.transformer_blocks.7.ff.net.2,0.9304363544019594,6.956364559804062,0,#e1e6f1,137.0,198.0
+action_head,DiT,8,cross-attn q,0,12,action_head.model.transformer_blocks.8.attn1.to_q,0.9652761981225222,3.472380187747781,0,#f0f3f8,145.0,158.0
+action_head,DiT,8,cross-attn k,1,12,action_head.model.transformer_blocks.8.attn1.to_k,0.8547737200596758,14.522627994032423,0,#bfcbe1,145.0,166.0
+action_head,DiT,8,cross-attn v,2,12,action_head.model.transformer_blocks.8.attn1.to_v,0.8544646992319068,14.553530076809318,0,#becae0,145.0,174.0
+action_head,DiT,8,cross-attn out,3,12,action_head.model.transformer_blocks.8.attn1.to_out.0,0.7560726388674454,24.392736113255463,0,#8fa3c8,145.0,182.0
+action_head,DiT,8,ff-up,4,12,action_head.model.transformer_blocks.8.ff.net.0.proj,0.9846894429053491,1.53105570946509,0,#f8f9fc,145.0,190.0
+action_head,DiT,8,ff-down,5,12,action_head.model.transformer_blocks.8.ff.net.2,0.9355878864115861,6.441211358841392,0,#e3e8f2,145.0,198.0
+action_head,DiT,9,self-attn q,0,13,action_head.model.transformer_blocks.9.attn1.to_q,0.9442838035169258,5.571619648307424,0,#e6ebf4,153.0,158.0
+action_head,DiT,9,self-attn k,1,13,action_head.model.transformer_blocks.9.attn1.to_k,0.9540136297712901,4.598637022870989,0,#ebeef6,153.0,166.0
+action_head,DiT,9,self-attn v,2,13,action_head.model.transformer_blocks.9.attn1.to_v,0.9555441376396546,4.445586236034538,0,#eceff6,153.0,174.0
+action_head,DiT,9,self-attn out,3,13,action_head.model.transformer_blocks.9.attn1.to_out.0,0.8933846343895079,10.661536561049212,0,#d0d9e9,153.0,182.0
+action_head,DiT,9,ff-up,4,13,action_head.model.transformer_blocks.9.ff.net.0.proj,0.9940749072979854,0.5925092702014578,0,#fcfdfe,153.0,190.0
+action_head,DiT,9,ff-down,5,13,action_head.model.transformer_blocks.9.ff.net.2,0.9405003622917792,5.949963770822075,0,#e5eaf3,153.0,198.0
+action_head,DiT,10,cross-attn q,0,14,action_head.model.transformer_blocks.10.attn1.to_q,0.9552019363325148,4.479806366748518,0,#eceff6,161.0,158.0
+action_head,DiT,10,cross-attn k,1,14,action_head.model.transformer_blocks.10.attn1.to_k,0.854516958405289,14.548304159471105,0,#becae0,161.0,166.0
+action_head,DiT,10,cross-attn v,2,14,action_head.model.transformer_blocks.10.attn1.to_v,0.8554731402264508,14.452685977354918,0,#bfcbe1,161.0,174.0
+action_head,DiT,10,cross-attn out,3,14,action_head.model.transformer_blocks.10.attn1.to_out.0,0.5417483762242425,45.825162377575744,0,#2b477d,161.0,182.0
+action_head,DiT,10,ff-up,4,14,action_head.model.transformer_blocks.10.ff.net.0.proj,0.9591345806645504,4.086541933544963,0,#edf1f7,161.0,190.0
+action_head,DiT,10,ff-down,5,14,action_head.model.transformer_blocks.10.ff.net.2,0.8748345614625773,12.516543853742268,0,#c8d2e5,161.0,198.0
+action_head,DiT,11,self-attn q,0,15,action_head.model.transformer_blocks.11.attn1.to_q,0.9023973963690822,9.760260363091778,0,#d4dceb,169.0,158.0
+action_head,DiT,11,self-attn k,1,15,action_head.model.transformer_blocks.11.attn1.to_k,0.9051669321399736,9.483306786002643,0,#d5ddec,169.0,166.0
+action_head,DiT,11,self-attn v,2,15,action_head.model.transformer_blocks.11.attn1.to_v,0.9052948293300774,9.470517066992256,0,#d5ddec,169.0,174.0
+action_head,DiT,11,self-attn out,3,15,action_head.model.transformer_blocks.11.attn1.to_out.0,0.8454558963260785,15.454410367392146,0,#bac7de,169.0,182.0
+action_head,DiT,11,ff-up,4,15,action_head.model.transformer_blocks.11.ff.net.0.proj,0.9554914185516921,4.450858144830794,0,#eceff6,169.0,190.0
+action_head,DiT,11,ff-down,5,15,action_head.model.transformer_blocks.11.ff.net.2,0.8795967755700139,12.040322442998608,0,#cad4e7,169.0,198.0
+action_head,DiT,12,cross-attn q,0,16,action_head.model.transformer_blocks.12.attn1.to_q,0.9114914963990801,8.85085036009199,0,#d8dfed,177.0,158.0
+action_head,DiT,12,cross-attn k,1,16,action_head.model.transformer_blocks.12.attn1.to_k,0.855520472409582,14.447952759041804,0,#bfcbe1,177.0,166.0
+action_head,DiT,12,cross-attn v,2,16,action_head.model.transformer_blocks.12.attn1.to_v,0.8555367078209,14.446329217910003,0,#bfcbe1,177.0,174.0
+action_head,DiT,12,cross-attn out,3,16,action_head.model.transformer_blocks.12.attn1.to_out.0,0.6786775101170807,32.132248988291934,0,#6783b4,177.0,182.0
+action_head,DiT,12,ff-up,4,16,action_head.model.transformer_blocks.12.ff.net.0.proj,0.9593251435299751,4.0674856470024885,0,#edf1f7,177.0,190.0
+action_head,DiT,12,ff-down,5,16,action_head.model.transformer_blocks.12.ff.net.2,0.8770463747852418,12.295362521475816,0,#c9d3e6,177.0,198.0
+action_head,DiT,13,self-attn q,0,17,action_head.model.transformer_blocks.13.attn1.to_q,0.8937180818675838,10.628191813241617,0,#d0d9e9,185.0,158.0
+action_head,DiT,13,self-attn k,1,17,action_head.model.transformer_blocks.13.attn1.to_k,0.9048052529099839,9.519474709001607,0,#d5ddec,185.0,166.0
+action_head,DiT,13,self-attn v,2,17,action_head.model.transformer_blocks.13.attn1.to_v,0.8955892967775488,10.441070322245116,0,#d1daea,185.0,174.0
+action_head,DiT,13,self-attn out,3,17,action_head.model.transformer_blocks.13.attn1.to_out.0,0.8571331859202106,14.286681407978941,0,#c0cbe1,185.0,182.0
+action_head,DiT,13,ff-up,4,17,action_head.model.transformer_blocks.13.ff.net.0.proj,0.9563955916890683,4.360440831093171,0,#ecf0f6,185.0,190.0
+action_head,DiT,13,ff-down,5,17,action_head.model.transformer_blocks.13.ff.net.2,0.8805411141660103,11.945888583398967,0,#cad4e7,185.0,198.0
+action_head,DiT,14,cross-attn q,0,18,action_head.model.transformer_blocks.14.attn1.to_q,0.9090439499397621,9.095605006023789,0,#d7dfed,193.0,158.0
+action_head,DiT,14,cross-attn k,1,18,action_head.model.transformer_blocks.14.attn1.to_k,0.8551789038213357,14.482109617866435,0,#bfcbe1,193.0,166.0
+action_head,DiT,14,cross-attn v,2,18,action_head.model.transformer_blocks.14.attn1.to_v,0.8553619792196083,14.463802078039167,0,#bfcbe1,193.0,174.0
+action_head,DiT,14,cross-attn out,3,18,action_head.model.transformer_blocks.14.attn1.to_out.0,0.5392611916374089,46.07388083625911,0,#2a467c,193.0,182.0
+action_head,DiT,14,ff-up,4,18,action_head.model.transformer_blocks.14.ff.net.0.proj,0.9209521964622117,7.904780353778829,0,#dce3ef,193.0,190.0
+action_head,DiT,14,ff-down,5,18,action_head.model.transformer_blocks.14.ff.net.2,0.8233757360751208,17.662426392487916,0,#afbed9,193.0,198.0
+action_head,DiT,15,self-attn q,0,19,action_head.model.transformer_blocks.15.attn1.to_q,0.8744294476270436,12.557055237295645,0,#c8d2e5,201.0,158.0
+action_head,DiT,15,self-attn k,1,19,action_head.model.transformer_blocks.15.attn1.to_k,0.8728974453712773,12.710255462872267,0,#c7d1e5,201.0,166.0
+action_head,DiT,15,self-attn v,2,19,action_head.model.transformer_blocks.15.attn1.to_v,0.8736030592099542,12.639694079004581,0,#c7d1e5,201.0,174.0
+action_head,DiT,15,self-attn out,3,19,action_head.model.transformer_blocks.15.attn1.to_out.0,0.8204008410607235,17.959915893927647,0,#aebdd8,201.0,182.0
+action_head,DiT,15,ff-up,4,19,action_head.model.transformer_blocks.15.ff.net.0.proj,0.9177793669196667,8.222063308033334,0,#dbe2ef,201.0,190.0
+action_head,DiT,15,ff-down,5,19,action_head.model.transformer_blocks.15.ff.net.2,0.8243657219679282,17.563427803207176,0,#b0bed9,201.0,198.0
+action_head,DiT,16,cross-attn q,0,20,action_head.model.transformer_blocks.16.attn1.to_q,0.8754240726618254,12.457592733817457,0,#c8d2e5,209.0,158.0
+action_head,DiT,16,cross-attn k,1,20,action_head.model.transformer_blocks.16.attn1.to_k,0.8562439006374696,14.375609936253042,0,#bfcbe1,209.0,166.0
+action_head,DiT,16,cross-attn v,2,20,action_head.model.transformer_blocks.16.attn1.to_v,0.8557330305745056,14.426696942549444,0,#bfcbe1,209.0,174.0
+action_head,DiT,16,cross-attn out,3,20,action_head.model.transformer_blocks.16.attn1.to_out.0,0.4970454133089212,50.29545866910787,0,#1f3a6e,209.0,182.0
+action_head,DiT,16,ff-up,4,20,action_head.model.transformer_blocks.16.ff.net.0.proj,0.9100916616454782,8.990833835452182,0,#d8dfed,209.0,190.0
+action_head,DiT,16,ff-down,5,20,action_head.model.transformer_blocks.16.ff.net.2,0.8071619687918189,19.28380312081811,0,#a8b8d5,209.0,198.0
+action_head,DiT,17,self-attn q,0,21,action_head.model.transformer_blocks.17.attn1.to_q,0.865098955989069,13.490104401093095,0,#c3cee3,217.0,158.0
+action_head,DiT,17,self-attn k,1,21,action_head.model.transformer_blocks.17.attn1.to_k,0.8672359543544008,13.276404564559918,0,#c4cfe4,217.0,166.0
+action_head,DiT,17,self-attn v,2,21,action_head.model.transformer_blocks.17.attn1.to_v,0.8701498931687771,12.985010683122288,0,#c6d1e4,217.0,174.0
+action_head,DiT,17,self-attn out,3,21,action_head.model.transformer_blocks.17.attn1.to_out.0,0.8321042461988518,16.78957538011482,0,#b4c1db,217.0,182.0
+action_head,DiT,17,ff-up,4,21,action_head.model.transformer_blocks.17.ff.net.0.proj,0.9116312116359746,8.83687883640254,0,#d8dfed,217.0,190.0
+action_head,DiT,17,ff-down,5,21,action_head.model.transformer_blocks.17.ff.net.2,0.7993992340997941,20.060076590020593,0,#a4b5d3,217.0,198.0
+action_head,DiT,18,cross-attn q,0,22,action_head.model.transformer_blocks.18.attn1.to_q,0.8609881758005918,13.901182419940817,0,#c1cde2,225.0,158.0
+action_head,DiT,18,cross-attn k,1,22,action_head.model.transformer_blocks.18.attn1.to_k,0.8549370320775803,14.506296792241969,0,#bfcbe1,225.0,166.0
+action_head,DiT,18,cross-attn v,2,22,action_head.model.transformer_blocks.18.attn1.to_v,0.8544522805946378,14.554771940536215,0,#becae0,225.0,174.0
+action_head,DiT,18,cross-attn out,3,22,action_head.model.transformer_blocks.18.attn1.to_out.0,0.5129240755767501,48.70759244232499,0,#203b6f,225.0,182.0
+action_head,DiT,18,ff-up,4,22,action_head.model.transformer_blocks.18.ff.net.0.proj,0.8714819273705426,12.851807262945735,0,#c6d1e4,225.0,190.0
+action_head,DiT,18,ff-down,5,22,action_head.model.transformer_blocks.18.ff.net.2,0.7134308491243055,28.656915087569445,0,#7991bd,225.0,198.0
+action_head,DiT,19,self-attn q,0,23,action_head.model.transformer_blocks.19.attn1.to_q,0.8130936618732645,18.690633812673553,0,#abbad6,233.0,158.0
+action_head,DiT,19,self-attn k,1,23,action_head.model.transformer_blocks.19.attn1.to_k,0.8146512996253429,18.534870037465712,0,#acbbd7,233.0,166.0
+action_head,DiT,19,self-attn v,2,23,action_head.model.transformer_blocks.19.attn1.to_v,0.8153657255770652,18.46342744229348,0,#acbbd7,233.0,174.0
+action_head,DiT,19,self-attn out,3,23,action_head.model.transformer_blocks.19.attn1.to_out.0,0.7057954004947703,29.42045995052297,0,#758ebb,233.0,182.0
+action_head,DiT,19,ff-up,4,23,action_head.model.transformer_blocks.19.ff.net.0.proj,0.8631971096183989,13.68028903816011,0,#c2cee3,233.0,190.0
+action_head,DiT,19,ff-down,5,23,action_head.model.transformer_blocks.19.ff.net.2,0.708973998795974,29.1026001204026,0,#768fbc,233.0,198.0
+action_head,DiT,20,cross-attn q,0,24,action_head.model.transformer_blocks.20.attn1.to_q,0.804459053689984,19.554094631001597,0,#a6b6d4,241.0,158.0
+action_head,DiT,20,cross-attn k,1,24,action_head.model.transformer_blocks.20.attn1.to_k,0.8553824911075583,14.461750889244174,0,#bfcbe1,241.0,166.0
+action_head,DiT,20,cross-attn v,2,24,action_head.model.transformer_blocks.20.attn1.to_v,0.8563888357958996,14.361116420410037,0,#bfcbe1,241.0,174.0
+action_head,DiT,20,cross-attn out,3,24,action_head.model.transformer_blocks.20.attn1.to_out.0,0.5026028100417496,49.739718995825044,0,#1f3a6e,241.0,182.0
+action_head,DiT,20,ff-up,4,24,action_head.model.transformer_blocks.20.ff.net.0.proj,0.849153233707223,15.084676629277705,0,#bcc8df,241.0,190.0
+action_head,DiT,20,ff-down,5,24,action_head.model.transformer_blocks.20.ff.net.2,0.6733729657781177,32.66270342218823,0,#6480b3,241.0,198.0
+action_head,DiT,21,self-attn q,0,25,action_head.model.transformer_blocks.21.attn1.to_q,0.7972372125226403,20.276278747735965,0,#a3b4d3,249.0,158.0
+action_head,DiT,21,self-attn k,1,25,action_head.model.transformer_blocks.21.attn1.to_k,0.7971509443386663,20.28490556613337,0,#a3b3d2,249.0,166.0
+action_head,DiT,21,self-attn v,2,25,action_head.model.transformer_blocks.21.attn1.to_v,0.7999179379983067,20.008206200169333,0,#a4b5d3,249.0,174.0
+action_head,DiT,21,self-attn out,3,25,action_head.model.transformer_blocks.21.attn1.to_out.0,0.7165945060464225,28.34054939535775,0,#7a92be,249.0,182.0
+action_head,DiT,21,ff-up,4,25,action_head.model.transformer_blocks.21.ff.net.0.proj,0.8468888395781969,15.311116042180306,0,#bac7de,249.0,190.0
+action_head,DiT,21,ff-down,5,25,action_head.model.transformer_blocks.21.ff.net.2,0.6622693626160512,33.77306373839488,0,#5e7bb0,249.0,198.0
+action_head,DiT,22,cross-attn q,0,26,action_head.model.transformer_blocks.22.attn1.to_q,0.7908000846808085,20.919991531919145,0,#a0b1d1,257.0,158.0
+action_head,DiT,22,cross-attn k,1,26,action_head.model.transformer_blocks.22.attn1.to_k,0.8565257085428685,14.347429145713154,0,#c0cbe1,257.0,166.0
+action_head,DiT,22,cross-attn v,2,26,action_head.model.transformer_blocks.22.attn1.to_v,0.8546895069009375,14.531049309906251,0,#bfcbe1,257.0,174.0
+action_head,DiT,22,cross-attn out,3,26,action_head.model.transformer_blocks.22.attn1.to_out.0,0.5064740139820588,49.35259860179412,0,#1f3a6e,257.0,182.0
+action_head,DiT,22,ff-up,4,26,action_head.model.transformer_blocks.22.ff.net.0.proj,0.8150274128938033,18.49725871061967,0,#acbbd7,257.0,190.0
+action_head,DiT,22,ff-down,5,26,action_head.model.transformer_blocks.22.ff.net.2,0.5807201052267184,41.92798947732817,0,#3a588f,257.0,198.0
+action_head,DiT,23,self-attn q,0,27,action_head.model.transformer_blocks.23.attn1.to_q,0.7690518185766673,23.094818142333274,0,#96a9cc,265.0,158.0
+action_head,DiT,23,self-attn k,1,27,action_head.model.transformer_blocks.23.attn1.to_k,0.77096588200886,22.903411799114004,0,#97a9cc,265.0,166.0
+action_head,DiT,23,self-attn v,2,27,action_head.model.transformer_blocks.23.attn1.to_v,0.7718721393485534,22.812786065144664,0,#97a9cc,265.0,174.0
+action_head,DiT,23,self-attn out,3,27,action_head.model.transformer_blocks.23.attn1.to_out.0,0.6918614414419278,30.813855855807216,0,#6d88b7,265.0,182.0
+action_head,DiT,23,ff-up,4,27,action_head.model.transformer_blocks.23.ff.net.0.proj,0.8125136053178216,18.748639468217842,0,#aab9d6,265.0,190.0
+action_head,DiT,23,ff-down,5,27,action_head.model.transformer_blocks.23.ff.net.2,0.5649718556844111,43.50281443155889,0,#345187,265.0,198.0
+action_head,DiT,24,cross-attn q,0,28,action_head.model.transformer_blocks.24.attn1.to_q,0.7575948839058234,24.24051160941766,0,#90a4c9,273.0,158.0
+action_head,DiT,24,cross-attn k,1,28,action_head.model.transformer_blocks.24.attn1.to_k,0.8545152512064149,14.548474879358508,0,#becae0,273.0,166.0
+action_head,DiT,24,cross-attn v,2,28,action_head.model.transformer_blocks.24.attn1.to_v,0.8560447189460074,14.395528105399258,0,#bfcbe1,273.0,174.0
+action_head,DiT,24,cross-attn out,3,28,action_head.model.transformer_blocks.24.attn1.to_out.0,0.5441843592744604,45.58156407255396,0,#2c487d,273.0,182.0
+action_head,DiT,24,ff-up,4,28,action_head.model.transformer_blocks.24.ff.net.0.proj,0.8016283467297333,19.837165327026675,0,#a5b5d4,273.0,190.0
+action_head,DiT,24,ff-down,5,28,action_head.model.transformer_blocks.24.ff.net.2,0.5512271805900506,44.87728194099494,0,#2f4b81,273.0,198.0
+action_head,DiT,25,self-attn q,0,29,action_head.model.transformer_blocks.25.attn1.to_q,0.7471481608619291,25.285183913807085,0,#8a9fc6,281.0,158.0
+action_head,DiT,25,self-attn k,1,29,action_head.model.transformer_blocks.25.attn1.to_k,0.7466604323084625,25.333956769153755,0,#8a9fc6,281.0,166.0
+action_head,DiT,25,self-attn v,2,29,action_head.model.transformer_blocks.25.attn1.to_v,0.7468048337413538,25.319516625864622,0,#8a9fc6,281.0,174.0
+action_head,DiT,25,self-attn out,3,29,action_head.model.transformer_blocks.25.attn1.to_out.0,0.6654223778643095,33.457762213569055,0,#607db1,281.0,182.0
+action_head,DiT,25,ff-up,4,29,action_head.model.transformer_blocks.25.ff.net.0.proj,0.7969191620145455,20.30808379854545,0,#a3b3d2,281.0,190.0
+action_head,DiT,25,ff-down,5,29,action_head.model.transformer_blocks.25.ff.net.2,0.5485693244451909,45.14306755548091,0,#2e4b80,281.0,198.0
+action_head,DiT,26,cross-attn q,0,30,action_head.model.transformer_blocks.26.attn1.to_q,0.7418063526834333,25.81936473165667,0,#889ec5,289.0,158.0
+action_head,DiT,26,cross-attn k,1,30,action_head.model.transformer_blocks.26.attn1.to_k,0.8542471461411004,14.575285385889957,0,#becae0,289.0,166.0
+action_head,DiT,26,cross-attn v,2,30,action_head.model.transformer_blocks.26.attn1.to_v,0.8543698939021782,14.563010609782179,0,#becae0,289.0,174.0
+action_head,DiT,26,cross-attn out,3,30,action_head.model.transformer_blocks.26.attn1.to_out.0,0.5039961643188761,49.60038356811239,0,#1f3a6e,289.0,182.0
+action_head,DiT,26,ff-up,4,30,action_head.model.transformer_blocks.26.ff.net.0.proj,0.7840733442980738,21.592665570192615,0,#9dafcf,289.0,190.0
+action_head,DiT,26,ff-down,5,30,action_head.model.transformer_blocks.26.ff.net.2,0.509737304094292,49.026269590570806,0,#1f3a6e,289.0,198.0
+action_head,DiT,27,self-attn q,0,31,action_head.model.transformer_blocks.27.attn1.to_q,0.7326758163515039,26.732418364849607,0,#839ac2,297.0,158.0
+action_head,DiT,27,self-attn k,1,31,action_head.model.transformer_blocks.27.attn1.to_k,0.7327061353439572,26.72938646560428,0,#839ac2,297.0,166.0
+action_head,DiT,27,self-attn v,2,31,action_head.model.transformer_blocks.27.attn1.to_v,0.7355997422415345,26.440025775846554,0,#849ac3,297.0,174.0
+action_head,DiT,27,self-attn out,3,31,action_head.model.transformer_blocks.27.attn1.to_out.0,0.7101405206959345,28.985947930406553,0,#7790bc,297.0,182.0
+action_head,DiT,27,ff-up,4,31,action_head.model.transformer_blocks.27.ff.net.0.proj,0.7850808695649294,21.49191304350706,0,#9dafcf,297.0,190.0
+action_head,DiT,27,ff-down,5,31,action_head.model.transformer_blocks.27.ff.net.2,0.52301738891871,47.698261108129,0,#243f73,297.0,198.0
+action_head,DiT,28,cross-attn q,0,32,action_head.model.transformer_blocks.28.attn1.to_q,0.7270806589474458,27.29193410525542,0,#8097c1,305.0,158.0
+action_head,DiT,28,cross-attn k,1,32,action_head.model.transformer_blocks.28.attn1.to_k,0.8559438832217742,14.405611677822582,0,#bfcbe1,305.0,166.0
+action_head,DiT,28,cross-attn v,2,32,action_head.model.transformer_blocks.28.attn1.to_v,0.8554327095405735,14.456729045942652,0,#bfcbe1,305.0,174.0
+action_head,DiT,28,cross-attn out,3,32,action_head.model.transformer_blocks.28.attn1.to_out.0,0.5967170624907706,40.32829375092294,0,#415f97,305.0,182.0
+action_head,DiT,28,ff-up,4,32,action_head.model.transformer_blocks.28.ff.net.0.proj,0.7835720010761678,21.642799892383223,0,#9caecf,305.0,190.0
+action_head,DiT,28,ff-down,5,32,action_head.model.transformer_blocks.28.ff.net.2,0.5352816923595471,46.471830764045286,0,#29457a,305.0,198.0
+action_head,DiT,29,self-attn q,0,33,action_head.model.transformer_blocks.29.attn1.to_q,0.7323545139340623,26.764548606593774,0,#839ac2,313.0,158.0
+action_head,DiT,29,self-attn k,1,33,action_head.model.transformer_blocks.29.attn1.to_k,0.7312645601706403,26.873543982935967,0,#8299c2,313.0,166.0
+action_head,DiT,29,self-attn v,2,33,action_head.model.transformer_blocks.29.attn1.to_v,0.731916646366914,26.8083353633086,0,#8299c2,313.0,174.0
+action_head,DiT,29,self-attn out,3,33,action_head.model.transformer_blocks.29.attn1.to_out.0,0.70484607809085,29.515392190915,0,#748dbb,313.0,182.0
+action_head,DiT,29,ff-up,4,33,action_head.model.transformer_blocks.29.ff.net.0.proj,0.7888048770007527,21.119512299924725,0,#9fb0d0,313.0,190.0
+action_head,DiT,29,ff-down,5,33,action_head.model.transformer_blocks.29.ff.net.2,0.5710886120325642,42.891138796743576,0,#36548a,313.0,198.0
+action_head,DiT,30,cross-attn q,0,34,action_head.model.transformer_blocks.30.attn1.to_q,0.7338740701803947,26.612592981960525,0,#839ac2,321.0,158.0
+action_head,DiT,30,cross-attn k,1,34,action_head.model.transformer_blocks.30.attn1.to_k,0.8561984586012933,14.38015413987067,0,#bfcbe1,321.0,166.0
+action_head,DiT,30,cross-attn v,2,34,action_head.model.transformer_blocks.30.attn1.to_v,0.8542852265504157,14.571477344958428,0,#becae0,321.0,174.0
+action_head,DiT,30,cross-attn out,3,34,action_head.model.transformer_blocks.30.attn1.to_out.0,0.5440245544449018,45.59754455550981,0,#2c487d,321.0,182.0
+action_head,DiT,30,ff-up,4,34,action_head.model.transformer_blocks.30.ff.net.0.proj,0.7956649219495902,20.433507805040986,0,#a3b3d2,321.0,190.0
+action_head,DiT,30,ff-down,5,34,action_head.model.transformer_blocks.30.ff.net.2,0.5960538273611079,40.39461726388921,0,#405f96,321.0,198.0
+action_head,DiT,31,self-attn q,0,35,action_head.model.transformer_blocks.31.attn1.to_q,0.7489367848674003,25.106321513259967,0,#8ba0c6,329.0,158.0
+action_head,DiT,31,self-attn k,1,35,action_head.model.transformer_blocks.31.attn1.to_k,0.7449964933985079,25.500350660149206,0,#899fc5,329.0,166.0
+action_head,DiT,31,self-attn v,2,35,action_head.model.transformer_blocks.31.attn1.to_v,0.7486125099873555,25.13874900126445,0,#8ba0c6,329.0,174.0
+action_head,DiT,31,self-attn out,3,35,action_head.model.transformer_blocks.31.attn1.to_out.0,0.7660119360376688,23.39880639623312,0,#94a7cb,329.0,182.0
+action_head,DiT,31,ff-up,4,35,action_head.model.transformer_blocks.31.ff.net.0.proj,0.8025169958393417,19.748300416065835,0,#a5b5d4,329.0,190.0
+action_head,DiT,31,ff-down,5,35,action_head.model.transformer_blocks.31.ff.net.2,0.7429595907312458,25.704040926875415,0,#889ec5,329.0,198.0

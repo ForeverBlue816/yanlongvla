@@ -66,3 +66,46 @@ spread out (D / A = 0.47 on the top direction, 0.20 on the top five, 0.46 on the
 explains it either.
 
 Colours: `figures/loopq_style.py` is a placeholder palette (no paper style file existed on the cluster).
+
+
+---
+
+# Second attempt (2026-11-13): output error per layer
+
+`scripts/paper_fig2b_layers.py`, reusing the ranking's per-layer errors. One row per quantized Linear of the deployed model
+(216 backbone + 216 action head; action-head errors are the mean over the four suite checkpoints, ratios are ratios of those means,
+per-suite values kept in `layers.csv`). ratio = D / A of the relative output error tr(ΔW H ΔWᵀ) / tr(W H Wᵀ).
+
+| module | layers | ratio_policy, median [p10, p90] | ratio_demo, median [p10, p90] | layers with ratio_policy < 1 | parameter-weighted ratio_policy | parameter-weighted ratio_demo | worse on both / better on both |
+|---|---|---|---|---|---|---|---|
+| Vision encoder | 104 | 0.974 [0.919, 0.987] | 1.008 [1.004, 1.019] | 101 | 0.958 | 1.012 | 3 / 3 |
+| LLM | 112 | 0.972 [0.943, 0.980] | 1.010 [1.005, 1.020] | 112 | 0.963 | 1.011 | 0 / 2 |
+| Action head | 216 | 0.855 [0.664, 0.979] | 1.023 [1.001, 1.061] | 214 | 0.840 | 1.026 | 2 / 20 |
+| Backbone (vision + LLM) | 216 | 0.972 [0.936, 0.985] | 1.009 [1.004, 1.019] | 213 | 0.962 | 1.012 | 3 / 5 |
+| All | 432 | 0.954 [0.742, 0.984] | 1.011 [1.004, 1.037] | 427 | 0.903 | 1.018 | 5 / 25 |
+
+By layer type (median ratio_policy): DiT cross-attention out 0.54, DiT ff-down 0.82, DiT self-attention out 0.83,
+DiT q / k / v 0.86–0.89, DiT ff-up 0.91; VL self-attention ff-down 0.76, out 0.82; LLM 0.94–0.98; vision blocks 0.95–0.99, patch mergers 0.93.
+
+**What the two pictures show.** The heat-map: closed-loop calibration lowers the error on the policy's own states in 427 of 432 layers,
+but almost all of the gain is in the action head (median −14 %, up to −50 % in the cross-attention output projections and the
+feed-forward output layers of the later DiT blocks), while the backbone moves by a median of −2.8 %.
+The scatter: the gain is bought with error on the demonstrations, along a nearly straight line in the action head (about 4.6 %
+less on-policy error per 1 % more demonstration error, r = -0.95; backbone slope 2.2, r = -0.62).
+
+**What does not fit.** Five layers are worse on both measures, all by less than 0.3 % on-policy: vision blocks 1 and 2 (`attn.qkv`,
+`attn.proj`, `attn.qkv`), DiT block 5 `to_k` and DiT block 3 `ff.net.0.proj` (light-coral cells). Twenty-five layers are better on
+both (20 in the action head). No layer trades the other way (better on demonstrations, worse on-policy). The LLM, the largest
+module by parameters, changes least (median −2.8 %).
+
+Files: `layers.csv` (432 rows), `numbers_layers.json`, `heatmap.{svg,pdf,png}` + `heatmap_values.csv`, `tradeoff.{svg,pdf,png}`,
+`tradeoff_marginals.{svg,pdf,png}`, `contact_sheet_layers.png`.
+- `heatmap.svg` is written by hand: every cell is its own `<rect>` (432 cells, each with a `<title>` naming the layer and its value),
+  the colour bar is 60 vector `<rect>` slices, all labels are `<text>` in Times, no embedded raster. The PDF / PNG use the same layout.
+  Colour = 100·(1 − ratio_policy) on one scale from 0 to the 99th percentile (49.0 %); negative cells light coral.
+  `heatmap_values.csv` has one row per cell (value, fill colour, position in points).
+- The scatter SVGs are matplotlib vector output with text kept as text (font TeX Gyre Termes, the Times clone on the cluster) and no raster.
+- Columns: vision blocks 0–23 then the four patch mergers (MLP rows only); LLM layers 0–15; action head: the four VL self-attention
+  blocks, then DiT blocks 0–31 (even blocks cross-attend to the backbone tokens, odd blocks self-attend).
+- `figures/loopq_style.py`: `CMAP_SEQ` is now white → navy as the request describes; the earlier dark-to-hot map used by the attention
+  overlays and the first-attempt maps is kept as `CMAP_HEAT`. Both are placeholders for the paper's palette.
