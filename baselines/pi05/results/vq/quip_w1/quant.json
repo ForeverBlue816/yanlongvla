@@ -1,0 +1,52 @@
+{
+  "method": "quip_sharp_e81b",
+  "bits_nominal": 1,
+  "linear_payload_bytes": 343839744,
+  "quantizable_linear_bpw": 1.017162175056912,
+  "whole_model_bpw": 2.1137618281920902,
+  "retained_bytes": 542205320,
+  "active_original_elements": 3353433872,
+  "convention": "all stored tensors counted; retained tensors at deployable dtypes (int8 embedding, BF16 norms/projections, FP32 tables); denominator = active original elements with both language heads removed",
+  "backbone_bits": 1,
+  "expert_bits": 1,
+  "quip_commit": "1d8f873e9a2a8b86b12bb1064c312c5689b77d98",
+  "quip_settings": {
+    "codebook": "E81B",
+    "scale_override": -1,
+    "sigma_reg": 0.01,
+    "sigma_reg2": 0.01,
+    "incoh_mode": "had",
+    "lora_rank": 0,
+    "resid_scale_override": -1,
+    "quip_tune_iters": 10,
+    "use_fp64": false,
+    "full_svd": false,
+    "no_use_buffered": false,
+    "rescale_WH": false,
+    "lowmem_ldlq": false
+  },
+  "padding": {
+    "4304": 4480
+  },
+  "seed": "torch.manual_seed(0) before each layer",
+  "codebook_table_bytes": 9216,
+  "calibration_index_sha256": "b603e07144e64b7d655568878cc94af20701715a1a46e83567bc43feb85d73b8",
+  "payload_rule": "packed E81B indices (all stages as stored by the official code; 16 bits per 8 weights per stage at 2 bits) incl. padded rows/columns + FP16 SU and SV sign vectors (scales fused into SV) per layer + the shared lattice tables once",
+  "notes": "pure PTQ, no layer-wise or end-to-end fine-tuning; official QuIP# per-layer quantizer (RHT + LDLQ, E8P12) on the shared per-layer Hessians; no block or end-to-end fine-tuning",
+  "exact_command": "quantize_quip.py --layers /home/d250009/projects/pi05-handover/runs/readme_baselines/layers --calibration /home/d250009/projects/pi05-handover/runs/readme_baselines/calibration --checkpoint /home/d250009/projects/pi05-handover/runs/checkpoints/pi05_libero_pytorch --quip-repo /home/d250009/projects/pi05-handover/runs/toolkits/quip-sharp --bits 1 --out /home/d250009/projects/pi05-handover/runs/readme_baselines/quip_layers/quip_w1",
+  "e81b": {
+    "opt_scale": 0.6058900137383997,
+    "gaussian_mse_per_dim": 0.3182968199253082,
+    "procedure": "official opt_scale search (E8P12RVQ3B_codebook comment block) on 1e6 N(0, I_8) samples, seed 0"
+  },
+  "official": false,
+  "external_accounting": "/home/d250009/projects/pi05-handover/runs/readme_baselines/quip_layers/quip_w1/accounting.json",
+  "hessian_damping": {
+    "fraction_of_mean_diagonal": 0.01
+  },
+  "replaced_layers": 414,
+  "checkpoint_sha256": "f7b07e084824eb451c1751987d43c1f7d1ac31d8a86919f0942b47c7f6934a6c",
+  "source_checkpoint_sha256": "1869ec96c513899e96f7179ed65f1dd96aa0ed05c0301116be30ec5cc8579a3d",
+  "source_snapshot": "/home/d250009/projects/pi05-handover/runs/readme_baselines/source_20261113_141236",
+  "baseline_git_head": "95e462e17a03aa7337f588bc3cf3bc0da8b3c25a"
+}

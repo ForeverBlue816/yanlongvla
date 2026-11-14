@@ -1,0 +1,48 @@
+{
+  "method": "vptq_v8_k12288_r0",
+  "bits_nominal": 2,
+  "linear_payload_bytes": 581724720,
+  "quantized_linear_bpw": 1.9884441744896673,
+  "whole_model_bpw": 5.569725996305363,
+  "retained_bytes": 1607188736,
+  "active_parameters": 3144016000,
+  "quantized_parameters": 2340421632,
+  "convention": "per suite checkpoint; all stored tensors of the 432 quantized Linear layers counted; other inference tensors at stored dtype (BF16); lm_head excluded",
+  "backbone_bits": 2,
+  "expert_bits": 2,
+  "structure": {
+    "vector_len": 8,
+    "centroids": 12288,
+    "residual_centroids": 0,
+    "outlier_percent": 0,
+    "codebooks_per_layer": 1
+  },
+  "vptq_commit": "5a8dfb93d2a7475151f66c559a44e057fe5322f9",
+  "kmeans": {
+    "mode": "hessian",
+    "init": "random",
+    "seed": 0,
+    "iterations": 100,
+    "tol": 1e-05
+  },
+  "percdamp": 0.01,
+  "calibration_index_sha256": "b998d4ad52cbe6c5ee2b2191e642a88250d869abb40762a1303055e72d14937e",
+  "payload_rule": "13.58-bit index per 8-weight vector (packed) + FP16 12288x8 codebook per layer; padded output rows counted",
+  "notes": "pure PTQ, no layer-wise or end-to-end fine-tuning; Hessian-weighted k-means and VPTQ error feedback with the shared per-layer Hessians",
+  "exact_command": "quantize_vptq.py --bits 2 --layers /scratch/d250009/pi05-handover/runs/groot_baselines/s5bq/layers/head_bridge --calibration /scratch/d250009/pi05-handover/runs/groot_baselines/s5bq/calibration/head_bridge --checkpoint /scratch/d250009/pi05-handover/runs/groot_baselines/s5bq/checkpoints/bridge --out /scratch/d250009/pi05-handover/runs/groot_baselines/s5bq/q/vptq_v8k12288_w2/head_bridge --vptq-repo /home/d250009/projects/pi05-handover/runs/toolkits/VPTQ --vector-len 8 --centroids 12288",
+  "codebook_bytes": 42467328,
+  "damping_by_layer": {},
+  "suite": "bridge",
+  "backbone_payload_bytes": 298875096,
+  "head_payload_bytes": 282849624,
+  "external_accounting": {
+    "backbone": "/scratch/d250009/pi05-handover/runs/groot_baselines/s5bq/q/vptq_v8k12288_w2/backbone",
+    "head_bridge": "/scratch/d250009/pi05-handover/runs/groot_baselines/s5bq/q/vptq_v8k12288_w2/head_bridge"
+  },
+  "replaced_layers": 432,
+  "checkpoint_sha256": "edb1e56e4be1ec1ce6e415c70e3dcef934290496f2eca7850255e180434b443f",
+  "source_checkpoint_sha256": "1ebe6066410efd4fdfb5705fed087a25691b0308bdcdd469de840a6c92121767",
+  "source_snapshot": "/scratch/d250009/pi05-handover/runs/groot_baselines/src/manual_20261114_vptqv8",
+  "baseline_git_head": "625191814656bc4e0ead0feb2e61320ec967745b",
+  "row": "vptq_v8k12288_w2"
+}

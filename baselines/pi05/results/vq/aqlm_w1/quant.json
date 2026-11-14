@@ -1,0 +1,50 @@
+{
+  "method": "aqlm_1x8g8",
+  "bits_nominal": 1,
+  "linear_payload_bytes": 342157536,
+  "quantizable_linear_bpw": 1.012185791791055,
+  "whole_model_bpw": 2.1097487286309606,
+  "retained_bytes": 542205320,
+  "active_original_elements": 3353433872,
+  "convention": "all stored tensors counted; retained tensors at deployable dtypes (int8 embedding, BF16 norms/projections, FP32 tables); denominator = active original elements with both language heads removed",
+  "backbone_bits": 1,
+  "expert_bits": 1,
+  "structure": {
+    "num_codebooks": 1,
+    "nbits_per_codebook": 8,
+    "in_group_size": 8,
+    "out_group_size": 1,
+    "scales": "FP16 per output row"
+  },
+  "aqlm_commit": "e79a896ed6656fe4ed06193d42d004e7d0bbdbb2",
+  "aqlm_settings": {
+    "out_group_size": 1,
+    "in_group_size": 8,
+    "nbits_per_codebook": 8,
+    "codebook_value_nbits": 16,
+    "codebook_value_num_groups": 1,
+    "scale_nbits": 0,
+    "init_max_iter": 100,
+    "init_max_points_per_centroid": null,
+    "lr": 0.0001,
+    "max_epochs": 1000,
+    "steps_per_epoch": 100,
+    "relative_mse_tolerance": 0.01,
+    "beam_size": 1
+  },
+  "percdamp": 0.01,
+  "seed": "random.seed(0) and torch.manual_seed(0) before each layer",
+  "calibration_index_sha256": "b603e07144e64b7d655568878cc94af20701715a1a46e83567bc43feb85d73b8",
+  "payload_rule": "uint8 code per codebook per 8 input weights + FP16 codebooks + FP16 per-row scale, all counted",
+  "notes": "pure PTQ, no layer-wise or end-to-end fine-tuning; official AQLM layer quantizer (AQEngine.quantize) with the shared per-layer Hessians (+1% diagonal damping) as XTX; no block or global fine-tuning",
+  "exact_command": "quantize_aqlm.py --bits 1 --layers /home/d250009/projects/pi05-handover/runs/readme_baselines/layers --calibration /home/d250009/projects/pi05-handover/runs/readme_baselines/calibration --checkpoint /home/d250009/projects/pi05-handover/runs/checkpoints/pi05_libero_pytorch --aqlm-repo /home/d250009/projects/pi05-handover/runs/toolkits/AQLM --out /home/d250009/projects/pi05-handover/runs/readme_baselines/aqlm_layers/aqlm_w1",
+  "external_accounting": "/home/d250009/projects/pi05-handover/runs/readme_baselines/aqlm_layers/aqlm_w1/accounting.json",
+  "hessian_damping": {
+    "fraction_of_mean_diagonal": 0.01
+  },
+  "replaced_layers": 414,
+  "checkpoint_sha256": "6080435c8b050356e3d45ff6a63ad99437b9e4236fb1efaf613bf618fdb125ae",
+  "source_checkpoint_sha256": "1869ec96c513899e96f7179ed65f1dd96aa0ed05c0301116be30ec5cc8579a3d",
+  "source_snapshot": "/home/d250009/projects/pi05-handover/runs/readme_baselines/source_20261112_224450",
+  "baseline_git_head": "9b59dafa69900fa71b896ec77f1a729e7cfc7ee4"
+}

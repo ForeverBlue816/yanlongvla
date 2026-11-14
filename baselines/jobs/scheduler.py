@@ -39,10 +39,10 @@ PY = '/home/d250009/projects/openpi/.venv/bin/python'
 REFS = Path('/home/d250009/yanlongvla-clean/results')
 SUITES = ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10')
 PARTS = 4
-MAX_WAITING = 7
+MAX_WAITING = 10   # counts all waiting jobs of the account (Q, H, W, T)
 MAX_ATTEMPTS = 4
 NOT_YET_PORTED = ('aqlm', 'quip', 'qtip')   # rows of these methods are parked until their quantizer is in this repository
-BUDGET_HOURS = 13.75                        # estimated work per 15-hour job (the estimates are conservative; parts resume at the walltime)
+BUDGET_HOURS = 3.0   # 13 Nov 15:20: smaller bundles so the parts of one row spread over all free GPUs (was 13.75; parts resume per unit)
 # Early stop (collapse): after at least MIN_EPISODES finished episodes, a row with success rate <= COLLAPSE_RATE while the
 # reference rows succeed on >= REFERENCE_RATE of the same episodes is stopped and gets one debug job (jobs/debug.pbs).
 # Two collapsed rows pause all submissions (touch $RUN/STOP): that points at a shared bug, not a quantizer.
@@ -53,7 +53,7 @@ REFERENCE_RATE = 0.5
 PART_HOURS = dict(build=11.0, sanity=0.5, plus=1.35, libero_spatial=1.9, libero_object=2.3, libero_goal=2.4, libero_10=3.2)
 SANITY_UNITS = 50   # Plus units in the sanity sample (with 5 episodes per LIBERO spatial task: 100 episodes)
 CALIBRATION_HOURS = 1.0
-QUANTIZE_HOURS = dict(rtn=0.2, gptq_best=4.0, gptq=1.5, awq=1.0, vptq=3.5, aqlm=0.2, quip=1.0, quipt0=1.0, qtip=2.0)   # aqlm: import only; the helpers build the layers first
+QUANTIZE_HOURS = dict(fpdz=0.0, rtn=0.2, gptq_best=4.0, gptq=1.5, awq=1.0, vptq=3.5, aqlm=0.2, quip=1.0, quipt0=1.0, qtip=2.0)   # aqlm: import only; the helpers build the layers first
 AQLM_HELPERS = 4   # jobs that quantize AQLM layers side by side (LM layers with 16384 inputs take over an hour each)
 
 
@@ -242,7 +242,8 @@ def reset(row, reason):
     if holding:
         sys.exit(f'{row}: bundles {holding} still hold its parts; qdel them first')
     for path in (RUN / 'checkpoints' / row, RUN / 'sanity' / row, RUN / 'evaluation' / row):
-        shutil.rmtree(path, ignore_errors=True)
+        if path.exists():   # never delete checkpoints; keep the old copy beside it
+            path.rename(path.with_name(f"{path.name}.old_{time.strftime('%Y%m%d_%H%M%S')}"))
     (RUN / 'stopped' / row).unlink(missing_ok=True)
     plan.get('stopped', {}).pop(row, None)
     save(RUN / 'plan.json', plan)
@@ -291,14 +292,14 @@ def monitor(plan):
             if l.strip():
                 r = json.loads(l); cand.append(r['success']); ref.append(libero[(r['suite'], r['task'], r['episode'])])
         verdict = dict(episodes=len(cand), successes=sum(cand), reference_successes=sum(ref), judged=now())
-        if sum(cand) == 0 or (sum(cand) <= COLLAPSE_RATE * len(cand) and sum(ref) >= REFERENCE_RATE * len(ref)):
+        if (sum(cand) == 0 or (sum(cand) <= COLLAPSE_RATE * len(cand) and sum(ref) >= REFERENCE_RATE * len(ref))) and row not in plan.get('no_collapse_stop', []):
             stop(row, f"collapse in the sanity sample: {sum(cand)}/{len(cand)} successes, reference {sum(ref)}/{len(ref)} on the same episodes")
             plan = load(RUN / 'plan.json', None)
         else:
             save(sample / 'passed.json', verdict)
             log(f"sanity passed {row}: {sum(cand)}/{len(cand)} successes, reference {sum(ref)}/{len(ref)}; full evaluation can start")
     for row in plan['rows']:
-        if row in plan.get('stopped', {}) or row in plan['parked']:
+        if row in plan.get('stopped', {}) or row in plan['parked'] or row in plan.get('no_collapse_stop', []):   # benchmark rows run to the end even if they collapse
             continue
         out, cand, ref = RUN / 'evaluation' / row, [], []
         for f in sorted((out / 'plus_parts').glob('*.jsonl')) if (out / 'plus_parts').exists() else []:
@@ -339,7 +340,8 @@ def qsub(bundle, lines):
     (RUN / 'bundles').mkdir(exist_ok=True)
     (RUN / 'bundles' / f'{bundle}.tsv').write_text(''.join('\t'.join(l) + '\n' for l in lines))
     # -l overrides the walltime directive of the frozen script
-    args = ['qsub', '-l', 'walltime=15:00:00', '-o', str(RUN / 'logs'), '-N', f'bl_{bundle}'[:15], '-v', f'RUN={RUN},BUNDLE={bundle}',
+    # submitted held; jobs/gpu_gate.py releases them up to its GPU limit
+    args = ['qsub', '-h', '-l', 'walltime=15:00:00', '-o', str(RUN / 'logs'), '-N', f'bl_{bundle}'[:15], '-v', f'RUN={RUN},BUNDLE={bundle}',
             str(Path(lines[0][4]) / 'jobs/evaluate.pbs')]
     return subprocess.run(args, capture_output=True, text=True, check=True).stdout.strip()
 
@@ -424,7 +426,7 @@ def step():
             need = []
             if item['kind'] not in ('build', 'exp') and not quantized(row) and row not in building and row not in builds:
                 need.append(row)
-                cost += QUANTIZE_HOURS[row.split('_w')[0]]
+                cost += QUANTIZE_HOURS.get(row.split('_w')[0], QUANTIZE_HOURS.get(row.split('_')[0], 4.0))
                 if not row.startswith('rtn') and not calibrated and 'calibration' not in builds and 'calibration' not in building:
                     need.append('calibration')
                     cost += CALIBRATION_HOURS

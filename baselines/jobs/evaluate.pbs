@@ -32,7 +32,7 @@ AQLM_REPO=$HANDOVER/runs/toolkits/AQLM   # github.com/Vahe1994/AQLM
 QUIP_REPO=$HANDOVER/runs/toolkits/quip-sharp   # github.com/Cornell-RelaxML/quip-sharp
 QTIP_REPO=$HANDOVER/runs/toolkits/qtip   # github.com/Cornell-RelaxML/qtip
 PY="$OPENPI_ROOT/.venv/bin/python"
-SIM_SITE=/scratch/d250009/home-moved/openvla-ptq-stage1/.venv-bf16-stage/lib/python3.11/site-packages   # simulator dependencies only
+SIM_SITE=/scratch/d250009/pi05-handover/runs/envs/sim-site   # simulator dependencies only (12 Nov: the home-moved path no longer exists; same site as the A13 FP Plus 1000 run, 774)
 PLUS_SITE="$HANDOVER/runs/envs/libero-plus/site-packages"
 MAGICK="$HANDOVER/runs/envs/libero-plus/imagemagick"
 PROGRESS="$RUN/bundles/$BUNDLE.progress"
@@ -75,14 +75,15 @@ quantize() {   # quantize <row>
     rtn) "$PY" quantize.py --method rtn --bits "$bits" --group 128 --checkpoint "$BASE_CKPT" --out "$ckpt" ;;
     gptq|awq) "$PY" quantize.py --method "$method" --bits "$bits" --group 128 --checkpoint "$BASE_CKPT" --calibration "$CALIBRATION" --out "$ckpt" ;;
     gptq_best) "$PY" quantize.py --method gptq --select --bits "$bits" --group 128 --checkpoint "$BASE_CKPT" --calibration "$CALIBRATION" --out "$ckpt" ;;   # GOAL 1 Nov 1.1: per layer the best official-option variant
-    vptq)
+    vptq|vptq_v*)   # vptq_v<L>k<K>[r<R>]_w<b>: other true-b-bit structures, e.g. vptq_v8k14080_w2, vptq_v8k13824r256_w3, vptq_v4k16_w1
+      local vopt=(); if [[ $method =~ ^vptq_v([0-9]+)k([0-9]+)(r([0-9]+))?$ ]]; then vopt=(--vector-len "${BASH_REMATCH[1]}" --centroids "${BASH_REMATCH[2]}" --residual "${BASH_REMATCH[4]:-0}"); fi
       [[ "$(git -C "$VPTQ_REPO" rev-parse HEAD)" == 5a8dfb93d2a7475151f66c559a44e057fe5322f9 ]] || { echo "VPTQ commit changed" >&2; return 3; }
       # cuml (VPTQ's k-means) loads the CUDA math libraries of the openpi venv and the RAPIDS libraries of the VPTQ env
       local vsite="$HANDOVER/runs/envs/vptq/site-packages" osite="$OPENPI_ROOT/.venv/lib/python3.11/site-packages"
       LD_LIBRARY_PATH="$(ls -d "$osite"/nvidia/*/lib | tr '\n' ':')$vsite/libcudf/lib64:$vsite/libkvikio/lib64:$vsite/nvidia/nvcomp:$vsite/libcudf_cu12.libs:$vsite/cuml_cu12.libs:/usr/local/gcc-12.3/lib64:$LD_LIBRARY_PATH" \
       PYTHONPATH="$SRC:$VPTQ_REPO:$vsite:$HANDOVER/runs/envs/external-toolkit/site-packages:$OPENPI_ROOT" \
         "$PY" quantize_vptq.py --bits "$bits" --layers "$LAYERS" --calibration "$CALIBRATION" --checkpoint "$BASE_CKPT" \
-          --vptq-repo "$VPTQ_REPO" --out "$RUN/vptq_layers/$row" &&
+          --vptq-repo "$VPTQ_REPO" --out "$RUN/vptq_layers/$row" "${vopt[@]}" &&
       "$PY" import_external.py --checkpoint "$BASE_CKPT" --quantized "$RUN/vptq_layers/$row" \
         --accounting "$RUN/vptq_layers/$row/accounting.json" --out "$ckpt" ;;
     aqlm)

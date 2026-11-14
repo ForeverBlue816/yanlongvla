@@ -49,6 +49,11 @@ method_of() { local m=${1%%_*}; [[ $m == quip10 ]] && m=quip; echo "$m"; }   # g
 suite_of() { [[ ${GROOT_PROFILE:-} == fractal || ${GROOT_PROFILE:-} == bridge ]] && { echo "$GROOT_PROFILE"; return; }; [[ $1 == backbone ]] && echo libero_spatial || echo "${1#head_}"; }
 ckpt_of() { [[ $1 == fp ]] && echo "$G/checkpoints" || echo "$G/ckpt/$1"; }
 
+
+keep_ckpt() {   # never delete quantized weights or checkpoints; log what the old rule would have deleted
+  local d; for d in "$@"; do [[ -e $d ]] && echo "$(date -Is) kept $d ($(du -sh "$d" 2>/dev/null | cut -f1))" >> "${GRUN:-/scratch/d250009/pi05-handover/runs/groot_baselines}/kept_ckpts.log"; done; return 0
+}
+
 t_prepare() { cd "$SRC/groot" && "$PY_G" prepare_checkpoints.py --out "$G/checkpoints" --hf-cache "$G/hf"; }
 
 t_calibrate() {
@@ -152,8 +157,8 @@ PY
   run_plus "$ck" "$G/sanity50.json" "$G/sanity/$row.plus.jsonl" || return 1
   "$PY_G" "$SRC/groot/jobs/gate.py" --row "$row" --candidate "$G/sanity/$row.plus.jsonl" --reference "$SRC/groot/data/reference/groot_fp.plus_1000.jsonl" --stopped-dir "$G/stopped" --out "$G/sanity/$row.json"
   local rc=$?
-  [[ $row == vptq_?* && $row != vptq_w2 && -e "$G/stopped/$row" ]] && rm -rf "$G/q/$row"
-  [[ $row != fp && -e "$G/stopped/$row" ]] && rm -rf "$G/ckpt/$row"   # a row stopped by the gate does not need its 26 GB fake-quant checkpoint (scratch quota, decision G22)
+  [[ $row == vptq_?* && $row != vptq_w2 && -e "$G/stopped/$row" ]] && keep_ckpt "$G/q/$row"
+  [[ $row != fp && -e "$G/stopped/$row" ]] && keep_ckpt "$G/ckpt/$row"   # a row stopped by the gate does not need its 26 GB fake-quant checkpoint (scratch quota, decision G22)
   return $rc
 }
 
@@ -169,9 +174,9 @@ t_ev() {   # t_ev <row>
   [[ -s "$G/eval/fp/plus_1000.jsonl" && $row != fp ]] && "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$G/paired/${row}_vs_fp_my_gpu.json"
   if [[ $row != fp && -s "$G/paired/${row}_vs_fp_reference.json" ]]; then
     for f in "$G"/q/"$row"/*/accounting.json; do [[ -s $f ]] && cp "$f" "$out/q_accounting_$(basename "$(dirname "$f")").json"; done
-    [[ $row == vptq_?* && $row != vptq_w2 ]] && rm -rf "$G/q/$row"   # new VPTQ rows: the 13 GB quantizer output goes too once the row is evaluated (accounting kept in eval/)
+    [[ $row == vptq_?* && $row != vptq_w2 ]] && keep_ckpt "$G/q/$row"   # new VPTQ rows: the 13 GB quantizer output goes too once the row is evaluated (accounting kept in eval/)
   fi
-  [[ $row != fp && -s "$G/paired/${row}_vs_fp_reference.json" ]] && rm -rf "$G/ckpt/$row"   # results and paired stats exist: free the checkpoint (rebuild with imp__<row> from q/<row>)
+  [[ $row != fp && -s "$G/paired/${row}_vs_fp_reference.json" ]] && keep_ckpt "$G/ckpt/$row"   # results and paired stats exist: free the checkpoint (rebuild with imp__<row> from q/<row>)
   return 0
 }
 
@@ -195,7 +200,7 @@ mx_sel() {   # mx_sel <component> -> MX_ONLY, MX_SKIP, MX_OVER (override for GPT
 
 t_mx() {   # t_mx <component> <row>
   local comp=$1 row=$2 m v flags=() sel=() out="$G/ckpt/mx_${2}__$1" ev="$G/mix/${1}__${2}"; m=$(method_of "$row"); v=${row#*_}; v=${v%_w2}
-  trap 'rm -rf "$out"' RETURN   # a failed or finished test never leaves its 26 GB checkpoint behind (scratch quota, 2 Nov)
+  trap 'keep_ckpt "$out"' RETURN   # a failed or finished test never leaves its 26 GB checkpoint behind (scratch quota, 2 Nov)
   mx_sel "$comp" || return 2
   mkdir -p "$G/mix"; echo "$GPU_NAME" > "$G/mix/${comp}__${row}.gpu.txt"
   [[ -n $MX_REPL ]] && sel+=(--replace "$MX_REPL"); [[ -n $MX_ONLY ]] && sel+=(--only "$MX_ONLY"); [[ -n $MX_SKIP ]] && sel+=(--skip "$MX_SKIP"); [[ -n $MX_OVER ]] && sel+=(--override "$MX_OVER")
@@ -215,7 +220,7 @@ PY
   run_plus "$out" "$G/sanity200.json" "$ev.plus_200.jsonl" || return 1
   cd "$SRC" || return 1
   "$PY_G" paired_stats.py plus --candidate "$ev.plus_200.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$ev.vs_fp_my_gpu.json"
-  rm -rf "$out"
+  keep_ckpt "$out"
   return 0
 }
 
@@ -240,7 +245,7 @@ t_lp() {   # t_lp <sh95|sh90>: W6 (9 Nov): FP x 0.<NN> on the 432 linear weights
   mkdir -p "$G/kernel"
   run_plus "$ck" "$G/sanity200.json" "$G/kernel/${row}lp.plus_200.jsonl" || return 1
   cd "$SRC" || return 1
-  "$PY_G" paired_stats.py plus --candidate "$G/kernel/${row}lp.plus_200.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$G/kernel/${row}lp.vs_our_fp.json" && rm -rf "$ck"
+  "$PY_G" paired_stats.py plus --candidate "$G/kernel/${row}lp.plus_200.jsonl" --reference "$G/eval/fp/plus_1000.jsonl" > "$G/kernel/${row}lp.vs_our_fp.json" && keep_ckpt "$ck"
 }
 
 t_rr() {   # t_rr <row>: noise floor (GOAL 1 Nov item 0): evaluate the row a second time, same units and seeds, and compare unit by unit with the first run
@@ -250,7 +255,7 @@ t_rr() {   # t_rr <row>: noise floor (GOAL 1 Nov item 0): evaluate the row a sec
   cd "$SRC" || return 1
   "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$G/eval/$row/plus_1000.jsonl" > "$G/paired/${row}_rerun_vs_first.json"
   "$PY_G" paired_stats.py plus --candidate "$out/plus_1000.jsonl" --reference "$SRC/groot/data/reference/groot_fp.plus_1000.jsonl" > "$G/paired/${row}_rerun_vs_fp_reference.json"
-  [[ $row != fp ]] && rm -rf "$ck"
+  [[ $row != fp ]] && keep_ckpt "$ck"
   return 0
 }
 
@@ -260,7 +265,7 @@ t_sd() {   # t_sd <row>: rigour R3, evaluation-seed sensitivity: the row on the 
   EVAL_SEED=8 run_plus "$ck" - "$out/plus_1000.jsonl" || return 1
   cd "$SRC" || return 1
   "$PY_G" paired_stats.py plus --other-seeds --candidate "$out/plus_1000.jsonl" --reference "$G/eval/$row/plus_1000.jsonl" > "$G/paired/${row}_seed8_vs_seed7.json" || return 1
-  [[ $row != fp ]] && rm -rf "$ck"
+  [[ $row != fp ]] && keep_ckpt "$ck"
   return 0
 }
 
@@ -268,7 +273,7 @@ t_dj() {   # t_dj <row>: rigour R7, disjoint-units replication: the row on 500 u
   local row=$1 ck out="$G/eval/${1}_disjoint500"; mkdir -p "$out"; echo "$GPU_NAME" > "$out/gpu.txt"
   if [[ $row == fp ]]; then ck="$G/checkpoints"; else ck="$G/ckpt/$row.dj"; t_imp "$row" "$ck" || return 1; fi   # own copy per task kind: sd and dj of one row ran at once on 7 Nov and broke each other's checkpoint
   run_plus "$ck" "$SRC/data/plus_units_disjoint_500.json" "$out/plus_500.jsonl" || return 1
-  [[ $row != fp ]] && rm -rf "$ck"
+  [[ $row != fp ]] && keep_ckpt "$ck"
   return 0
 }
 
@@ -350,9 +355,9 @@ t_f5() {   # t_f5 <task>
       mkdir -p "$G/eval/$row"; s5_run "$G/ckpt/$row/fractal" "$key" "$G/eval/$row" || return 1
       if [[ $key == pick_coke_can && $row != gptq_w2 ]]; then
         local k; k=$(grep -m1 "^success rate" "$G/eval/$row/$key.log" | awk '{print $3}')
-        python3 -c "import sys; sys.exit(0 if float('$k') > 0.05 else 1)" || { echo "pick_coke_can $k: row stopped by the gate" > "$G0/stopped/f5_$row"; rm -rf "$G/ckpt/$row"; }
+        python3 -c "import sys; sys.exit(0 if float('$k') > 0.05 else 1)" || { echo "pick_coke_can $k: row stopped by the gate" > "$G0/stopped/f5_$row"; keep_ckpt "$G/ckpt/$row"; }
       fi ;;
-    fin) python3 "$SRC/simpler/s5_stats.py" --fp "$S5/eval/fp" --row "$G/eval/$row" --out "$G/paired/$row.json" && rm -rf "$G/ckpt/$row" ;;
+    fin) python3 "$SRC/simpler/s5_stats.py" --fp "$S5/eval/fp" --row "$G/eval/$row" --out "$G/paired/$row.json" && keep_ckpt "$G/ckpt/$row" ;;
     *) echo "unknown f5 step $step" >&2; return 2 ;;
   esac
 }
@@ -371,20 +376,26 @@ t_bq() {   # t_bq <task>: GOAL v6 2c, 2-bit rows on SimplerEnv-Bridge (as t_f5; 
       "$PY_G" calibrate.py --checkpoints "$G/checkpoints" --manifest "$SRC/groot/simpler/data/bridge-heldout/observation_manifest.json" --noise-seed 1 --out "$G/calibration_heldout" || return 1
       "$PY_G" export_layers.py --checkpoints "$G/checkpoints" --calibration "$G/calibration" --out "$G/layers" ;;
     qk) t_qk "$row" "$key" ;;
-    imp) t_imp "$row" && rm -rf "$G/q/$row" ;;   # quantizer outputs are not needed once the checkpoint and its quant.json exist (GOAL v6 2c disk budget)
+    imp) t_imp "$row" && keep_ckpt "$G/q/$row" ;;   # quantizer outputs are not needed once the checkpoint and its quant.json exist (disk budget)
     fin) local tk=(); [[ $row == nz* ]] && tk=(--tasks widowx_spoon_on_towel,widowx_carrot_on_plate,widowx_stack_cube)   # H4 levels run 3 tasks
-      [[ $row == mx* || $row == gr105 || $row == quip_w2s* ]] && tk=(--tasks widowx_carrot_on_plate,widowx_stack_cube)   # X5 / X6 mixed rows and A5 seed rows run 2 tasks
+      [[ $row == mx* || $row == gr105 || $row == quip_w2s* || $row == wf90 || $row == wf50 ]] && tk=(--tasks widowx_carrot_on_plate,widowx_stack_cube)   # X5 / X6 mixed rows and A5 seed rows run 2 tasks
+      [[ $row == orbb || $row == orhd ]] && tk=(--tasks widowx_carrot_on_plate,widowx_stack_cube,widowx_put_eggplant_in_basket)   # B4 (10 Nov): orth error on one group, 3 tasks
       [[ $row == s6bb84 ]] && tk=(--tasks widowx_spoon_on_towel,widowx_carrot_on_plate,widowx_stack_cube,widowx_put_eggplant_in_basket)   # S6: AQLM-sized backbone shrink
       [[ $row == w7s92 ]] && tk=(--tasks widowx_spoon_on_towel,widowx_put_eggplant_in_basket,widowx_put_eggplant_in_sink,widowx_open_drawer,widowx_close_drawer)   # W7: carrot / stack_cube of 0.92 W are mxs92
-      [[ $row == w6s95 ]] && { rm -rf "$G/ckpt/$row"; return 0; }   # W6: official-command runs only, no seeded pairing
-      "$PY_G" "$SRC/simpler/b5_stats.py" --fp "$G0/s5b/eval/fp" --row "$G0/s5b/eval/$row" "${tk[@]}" --out "$G/paired/$row.json" && rm -rf "$G/ckpt/$row" ;;
+      [[ $row == w6s95 ]] && { keep_ckpt "$G/ckpt/$row"; return 0; }   # W6: official-command runs only, no seeded pairing
+      "$PY_G" "$SRC/simpler/b5_stats.py" --fp "$G0/s5b/eval/fp" --row "$G0/s5b/eval/$row" "${tk[@]}" --out "$G/paired/$row.json" && keep_ckpt "$G/ckpt/$row" ;;
     nz)   # H4: FP + Gaussian noise of relative rms 0.<NN> on the 432 quantized linear weights (row nzNN, seed 0; row nzNNs<K>, seed K)
       local lvl=${row#nz} sd=0; [[ $lvl == *s* ]] && { sd=${lvl#*s}; lvl=${lvl%%s*}; }
       "$PY_G" "$SRC/groot/perturb.py" --source "$G/checkpoints/bridge" --error-json "$G/perturb/aqlm_w2_error.json" --rel "0.$lvl" --seed "$sd" --out "$G/ckpt/$row/bridge" ;;
     mix)   # X5 / X6 (GOAL v7 Q3 / Q4): FP + alpha (QuIP# 0 sweeps - FP) on part of the 432 quantized weights; mxbb backbone only, mxhd action head only, mxh50 everything at alpha 0.5; X10-X12: mxq25 alpha 0.25, mxneg alpha -1 (error sign flipped), mxpar only the part along W
-      local mx=(); case $row in mxbb) mx=(--prefix backbone.) ;; mxhd) mx=(--prefix action_head.) ;; mxh50) mx=(--alpha 0.5) ;; mxq25) mx=(--alpha 0.25) ;; mxneg) mx=(--alpha -1) ;; mxpar) mx=(--parallel) ;; sh95|w6s95) mx=(--scale 0.95) ;; w7s92) mx=(--scale 0.92) ;; s6bb84) mx=(--scale 0.84 --prefix backbone.) ;; mxorq) mx=(--orth --post-scale 0.95) ;;   # X26: orth with its +5% output gain removed (c_a about 0)
-      gr105) mx=(--scale 1.05) ;; mxs[0-9][0-9]) mx=(--scale 0.${row#mxs}) ;; mxsbb) mx=(--scale 0.95 --prefix backbone.) ;; mxshd) mx=(--scale 0.95 --prefix action_head.) ;; mxsqk) mx=(--scale 0.95 --match '(to_q|to_k|q_proj|k_proj)\.weight$') ;; mxsvo) mx=(--scale 0.95 --match '(to_v|to_out\.0|v_proj|o_proj|attn\.proj)\.weight$') ;; mxsmlp) mx=(--scale 0.95 --match '(ff\.net|mlp\.|merger)') ;; orth) mx=(--orth) ;; mxsq) mx=(--post-scale 0.95) ;; *) echo "unknown mix row $row" >&2; return 2 ;; esac
-      "$PY_G" "$SRC/groot/mix.py" --source "$G/checkpoints/bridge" --other "$G/ckpt/quip_w2/bridge" --error-json "$G/perturb/aqlm_w2_error.json" "${mx[@]}" --out "$G/ckpt/$row/bridge" ;;
+      local mx=(); case $row in mxbb) mx=(--prefix backbone.) ;; mxhd) mx=(--prefix action_head.) ;; mxh50) mx=(--alpha 0.5) ;; mxq25) mx=(--alpha 0.25) ;; mxneg) mx=(--alpha -1) ;; mxpar) mx=(--parallel) ;; sh95|w6s95) mx=(--scale 0.95) ;; w7s92) mx=(--scale 0.92) ;; s6bb84) mx=(--scale 0.84 --prefix backbone.) ;; orbb) mx=(--orth --prefix backbone.) ;; orhd) mx=(--orth --prefix action_head.) ;; mxorq) mx=(--orth --post-scale 0.95) ;;   # X26: orth with its +5% output gain removed (c_a about 0)
+      gr105) mx=(--scale 1.05) ;; mxs[0-9][0-9]) mx=(--scale 0.${row#mxs}) ;; mxsbb) mx=(--scale 0.95 --prefix backbone.) ;; mxshd) mx=(--scale 0.95 --prefix action_head.) ;; mxsqk) mx=(--scale 0.95 --match '(to_q|to_k|q_proj|k_proj)\.weight$') ;; mxsvo) mx=(--scale 0.95 --match '(to_v|to_out\.0|v_proj|o_proj|attn\.proj)\.weight$') ;; mxsmlp) mx=(--scale 0.95 --match '(ff\.net|mlp\.|merger)') ;; orth) mx=(--orth) ;; mxsq) mx=(--post-scale 0.95) ;; wf[0-9][0-9]) mx=() ;;   # built by wise.py below
+      *) echo "unknown mix row $row" >&2; return 2 ;; esac
+      if [[ $row =~ ^wf([0-9][0-9])$ ]]; then   # B3 (10 Nov): WiSE-FT, Bridge checkpoint interpolated toward the pretrained N1.7 base (alpha = 0.NN) on the 432 weights
+        "$PY_G" "$SRC/groot/wise.py" --source "$G/checkpoints/bridge" --base "$G0/base/GR00T-N1.7-3B" --error-json "$G/perturb/aqlm_w2_error.json" --alpha "0.${BASH_REMATCH[1]}" --out "$G/ckpt/$row/bridge"
+      else
+        "$PY_G" "$SRC/groot/mix.py" --source "$G/checkpoints/bridge" --other "$G/ckpt/quip_w2/bridge" --error-json "$G/perturb/aqlm_w2_error.json" "${mx[@]}" --out "$G/ckpt/$row/bridge"
+      fi ;;
     *) echo "unknown bq step $step" >&2; return 2 ;;
   esac
 }

@@ -121,6 +121,12 @@ assert done == len(keys), (done, len(keys))
 shutil.rmtree(out, ignore_errors=True); part.rename(out); print('scaled', done, 'tensors into', out)
 PY
       ;;
+    wf75mk)   # X28 (10 Nov): Fractal checkpoint moved 25% of the way back to the pretrained base (alpha 0.75, 432 weights), sharded; wise.py
+      "$PY_G" "$SRC/groot/wise.py" --source "$S5/checkpoints/fractal" --base "$G/base/GR00T-N1.7-3B" --error-json "$G/s5bq/perturb/aqlm_w2_error.json" --alpha 0.75 --out "$S5/ckpt_wf75/fractal" ;;
+    wf75_*)   # X28: wf75 on one Google Robot family, seed 7, 100 episodes (as fp_* and sh95_*)
+      s5_run "$S5/ckpt_wf75/fractal" "${step#wf75_}" "$S5/eval/wf75" 7 ;;
+    wf75big_*)   # X28: wf75, 500 seeded episodes, flash-attn (as fpbig and sh95big)
+      S5_NEP=500 FA_SITE=$HANDOVER/runs/envs/flash-attn s5_run "$S5/ckpt_wf75/fractal" "${step#*_}" "$S5/eval/wf75_big" 7 ;;
     sh95_*)   # W6: 0.95 W on one Google Robot family, seed 7, 100 episodes (as fp_*, SDPA)
       s5_run "$S5/ckpt_sh95/fractal" "${step#sh95_}" "$S5/eval/sh95" 7 ;;
     sh95big_*)   # W6: 0.95 W, 500 seeded episodes, flash-attn (as fpbig)
@@ -194,7 +200,7 @@ env = simpler_env.make('widowx_spoon_on_towel'); env.reset(seed=0); print('vulka
       [[ $rc -eq 0 ]] && python3 -c "import json,sys; r=json.load(open('$out/$task.json')); sys.exit(0 if len(r) >= 120 else 1)" || return 1
       if [[ $row != fp* && $task == widowx_spoon_on_towel ]]; then   # sanity gate of a 2-bit row (FP 101 of 120): 5% or less stops the row and frees its checkpoint
         python3 -c "import json,sys; r=json.load(open('$out/$task.json')); sys.exit(0 if sum(bool(x['success']) for x in r) / len(r) > 0.05 else 1)" \
-          || { echo "spoon_on_towel at 5% or less: row stopped by the gate" > "$G/stopped/b5_$row"; rm -rf "$G/s5bq/ckpt/$row"; }
+          || { echo "spoon_on_towel at 5% or less: row stopped by the gate" > "$G/stopped/b5_$row"; keep_ckpt "$G/s5bq/ckpt/$row"; }
       fi ;;
     of)   # GOAL v7 B1 (H6): NVIDIA's own Bridge command (run_gr00t_server --use-sim-policy-wrapper, rollout_policy, 100 episodes, 5 async envs, n-action-steps 4, no seed); b5__of__<row>__<fa|sdpa>__<task>__r<k>
       local attn rep; t=${t#of__}; row=${t%%__*}; t=${t#*__}; attn=${t%%__*}; t=${t#*__}; task=${t%%__*}; rep=${t#*__}
