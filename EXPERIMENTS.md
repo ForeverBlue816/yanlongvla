@@ -2179,6 +2179,7 @@ DEPLOY_TCQ_2026-11-14.md, results deploy/results.csv + deploy/table.md. RTX 6000
 median: FP 81.6 ms / 10-step chunk, 54.6 ms / 2-step chunk, 6.65 GB peak, 6.47 GB on disk. W2A8 decoded at load 74.6 / 42.8 ms (1.09× /
 1.28×), 3.72 GB; on the fly 79.8 / 47.2 ms (1.02× / 1.16×), 1.92 GB; hybrid 78.7 / 47.5 ms, 2.15 GB; 1.58 GB on disk. Prefill 38.2 vs
 51.8 ms; expert step 3.66 vs 3.43 ms. W2 without A8 on the fly: 133 ms (0.61×). Correctness: 414 / 414 layers and 40 / 40 held-out
-observations bit-identical to the PyTorch W2A8 reference for all three operating points. RTX A6000 (10-step rows only): W2A8 0.96× /
-0.89× of FP, i.e. no speed-up on that card. No LIBERO-Plus number exists for this model with 8-bit activations; none queued.
+observations bit-identical to the PyTorch W2A8 reference for all three operating points. RTX A6000: W2A8 0.96× / 0.97× (decoded at load) and
+0.89× / 0.90× (on the fly) of FP at 10 / 2 steps, i.e. no speed-up on that card. Kernel code published in the public report repository
+(user 2026-11-14). No LIBERO-Plus number exists for this model with 8-bit activations; none queued.
 

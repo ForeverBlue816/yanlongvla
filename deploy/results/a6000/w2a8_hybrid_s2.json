@@ -1,0 +1,96 @@
+{
+ "row": "w2a8_hybrid",
+ "steps": 2,
+ "info": {
+  "row": "tcq_raqft_d1",
+  "steps": 2,
+  "runtime": "hybrid",
+  "layers": 414,
+  "norm_tensors": 147,
+  "fused_mlps": 63,
+  "groups": 252,
+  "shared_rotations": 162,
+  "modes": {
+   "resident": 0,
+   "fly": 180,
+   "chunk": 72
+  }
+ },
+ "device": {
+  "nvrtc": "12.6",
+  "arch": "compute_86",
+  "torch": "2.7.1+cu126",
+  "cuda_runtime": "12.6",
+  "cudnn": 90501,
+  "gpu": "NVIDIA RTX A6000"
+ },
+ "load": {
+  "seconds": 76.33078074455261,
+  "peak_allocated": 7113208832,
+  "peak_reserved": 7790919680
+ },
+ "vision": {
+  "median_ms": 18.121216773986816,
+  "p95_ms": 18.268467044830324,
+  "mean_ms": 18.143953533172606,
+  "min_ms": 18.02547264099121,
+  "n": 200,
+  "warmup": 20
+ },
+ "vs_per_image_max_abs": 0.0,
+ "vs_per_image_rel": 0.0,
+ "chunk": {
+  "median_ms": 86.16704177856445,
+  "p95_ms": 86.56435470581054,
+  "mean_ms": 86.15957500457763,
+  "min_ms": 84.9991683959961,
+  "n": 200,
+  "warmup": 20
+ },
+ "memory": {
+  "resident_allocated": 1549343744,
+  "peak_allocated": 1828000768,
+  "peak_reserved": 2982150144,
+  "steady_allocated": 1576723968,
+  "steady_reserved": 2982150144
+ },
+ "graph_vs_eager_max_abs": 0.0,
+ "actions_finite": true,
+ "prefill": {
+  "median_ms": 77.20243072509766,
+  "p95_ms": 77.68033561706542,
+  "mean_ms": 77.28454669952393,
+  "min_ms": 76.87577819824219,
+  "n": 200,
+  "warmup": 20
+ },
+ "llm_prefill": {
+  "median_ms": 58.936832427978516,
+  "p95_ms": 59.326567840576175,
+  "mean_ms": 58.9513317489624,
+  "min_ms": 58.599422454833984,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_step": {
+  "median_ms": 3.876863956451416,
+  "p95_ms": 3.880959987640381,
+  "mean_ms": 3.877006998062134,
+  "min_ms": 3.87174391746521,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_all_steps": {
+  "median_ms": 8.546303749084473,
+  "p95_ms": 8.553471565246582,
+  "mean_ms": 8.546231861114501,
+  "min_ms": 8.538111686706543,
+  "n": 200,
+  "warmup": 20
+ },
+ "stats": {
+  "group_runs": 2286,
+  "regroup_misses": 0,
+  "fused_mlps": 1143
+ }
+}

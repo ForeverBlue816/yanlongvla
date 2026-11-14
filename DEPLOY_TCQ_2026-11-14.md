@@ -9,8 +9,8 @@ action expert decoded per chunk. Batch 1, 10 and 2 denoising steps, 20 warm-up a
 Model: the π₀.₅ LoopQ main row **`tcq_raqft_d1`** (bitshift trellis L = 16, 2 bits / weight, V = 2, 16 × 16 tiles, 512 × 2 table per layer,
 FP16 row scales, two-sided randomized block-Walsh rotation; 414 Linear layers) with 8-bit activations taken per token in the rotated
 space. Code: `deploy/tcq_kernels/` (README there), one command `bash deploy/tcq_kernels/run_bench.sh`. Results: `deploy/results.csv`,
-`deploy/table.md`, per-row JSON in `deploy/results/`. The kernel code is in the private repository; the public report repository carries
-this document and the results.
+`deploy/table.md`, per-row JSON in `deploy/results/`. The kernel code is published with this report (`deploy/tcq_kernels/`, user 2026-11-14); the policy loader, checkpoints
+and observation sets it plugs into are not.
 
 GPU: NVIDIA RTX 6000 Ada Generation (48 GB), driver 595.71.05, PyTorch 2.7.1+cu126 (CUDA 12.6, cuDNN 9.5.1), NVRTC 12.6. Every row of
 the result table was measured in one job on one card (job 1738590, gpu-6000ada-2, 2026-11-14); the Stage 0 profile and the tuning
@@ -115,9 +115,20 @@ are not deployment numbers.
   the BF16-activation rows lockstep is not bit-neutral on this card (max |Δ| 2e-3 to 3e-3 in the actions: cuBLAS BF16 products depend
   on the token count); for the W2A8 rows it is exact.
 
-Second GPU model, RTX A6000 (same code, thread plan not re-tuned, 10-step rows only; job preempted before the 2-step rows): FP 114.8 ms,
-W2A8 (i) 119.3 (0.96×), (iii) 125.6 (0.91×), (ii) 129.3 (0.89×); prefill 72.3 vs 70.9 ms. On that card the INT8 products gain less and the
-2-bit policy is not faster than FP; the speed-up above is specific to the RTX 6000 Ada.
+Second GPU model, RTX A6000 (gpu-a6000-1; same code, thread plan not re-tuned; 10-step rows from job 1738557, 2-step rows from job
+1738769; `deploy/results/a6000/`):
+
+| Row | Prefill, ms | Full chunk, 10 steps, ms | Full chunk, 2 steps, ms | vs FP, 10 / 2 steps |
+|---|---:|---:|---:|---:|
+| Full precision (BF16), official path | 70.9 | 114.8 | 77.6 | 1.00× / 1.00× |
+| 2-bit weights, (i) decoded at load | 70.7 | 115.3 | 77.6 | 1.00× / 1.00× |
+| 2-bit weights, (ii) on the fly | 132.3 | 197.8 | 142.4 | 0.58× / 0.55× |
+| W2A8, (i) decoded at load | 72.3 | 119.3 | 80.0 | 0.96× / 0.97× |
+| W2A8, (ii) on the fly | 77.7 | 129.3 | 86.2 | 0.89× / 0.90× |
+| W2A8, (iii) hybrid | 77.7 | 125.6 | 86.2 | 0.91× / 0.90× |
+
+On that card the 2-bit policy is not faster than FP (memory is the same as on the Ada: 3.72 / 1.92 / 2.15 GB against 6.65). The
+speed-up above is specific to the RTX 6000 Ada.
 
 ## What makes it fast, and what does not
 

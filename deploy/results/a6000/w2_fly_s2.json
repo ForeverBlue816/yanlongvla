@@ -1,0 +1,96 @@
+{
+ "row": "w2_fly",
+ "steps": 2,
+ "info": {
+  "row": "tcq_raqft_d1",
+  "steps": 2,
+  "runtime": "fly",
+  "layers": 414,
+  "norm_tensors": 147,
+  "fused_mlps": 0,
+  "groups": 252,
+  "shared_rotations": 162,
+  "modes": {
+   "resident": 0,
+   "fly": 252,
+   "chunk": 0
+  }
+ },
+ "device": {
+  "nvrtc": "12.6",
+  "arch": "compute_86",
+  "torch": "2.7.1+cu126",
+  "cuda_runtime": "12.6",
+  "cudnn": 90501,
+  "gpu": "NVIDIA RTX A6000"
+ },
+ "load": {
+  "seconds": 77.2917206287384,
+  "peak_allocated": 7113208832,
+  "peak_reserved": 7793016832
+ },
+ "vision": {
+  "median_ms": 27.470848083496094,
+  "p95_ms": 27.52614402770996,
+  "mean_ms": 27.427112836837768,
+  "min_ms": 27.314176559448242,
+  "n": 200,
+  "warmup": 20
+ },
+ "vs_per_image_max_abs": 0.004562735557556152,
+ "vs_per_image_rel": 0.006036445032805204,
+ "chunk": {
+  "median_ms": 142.43993377685547,
+  "p95_ms": 143.29206237792968,
+  "mean_ms": 142.54040031433107,
+  "min_ms": 141.55673217773438,
+  "n": 200,
+  "warmup": 20
+ },
+ "memory": {
+  "resident_allocated": 1315163136,
+  "peak_allocated": 1661958144,
+  "peak_reserved": 3047161856,
+  "steady_allocated": 1342674432,
+  "steady_reserved": 3047161856
+ },
+ "graph_vs_eager_max_abs": 0.0,
+ "actions_finite": true,
+ "prefill": {
+  "median_ms": 131.59679412841797,
+  "p95_ms": 131.7501998901367,
+  "mean_ms": 131.5912550354004,
+  "min_ms": 131.26553344726562,
+  "n": 200,
+  "warmup": 20
+ },
+ "llm_prefill": {
+  "median_ms": 103.71123123168945,
+  "p95_ms": 104.13777732849121,
+  "mean_ms": 103.80875797271729,
+  "min_ms": 103.61344146728516,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_step": {
+  "median_ms": 5.805567979812622,
+  "p95_ms": 5.811200141906738,
+  "mean_ms": 5.806013267040253,
+  "min_ms": 5.799935817718506,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_all_steps": {
+  "median_ms": 11.616255760192871,
+  "p95_ms": 11.62342357635498,
+  "mean_ms": 11.616992835998536,
+  "min_ms": 11.609087944030762,
+  "n": 200,
+  "warmup": 20
+ },
+ "stats": {
+  "group_runs": 4572,
+  "regroup_misses": 0,
+  "fused_mlps": 0
+ }
+}
