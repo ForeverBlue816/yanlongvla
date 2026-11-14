@@ -1,0 +1,96 @@
+{
+ "row": "w2_hybrid",
+ "steps": 2,
+ "info": {
+  "row": "tcq_raqft_d1",
+  "steps": 2,
+  "runtime": "hybrid",
+  "layers": 414,
+  "norm_tensors": 147,
+  "fused_mlps": 0,
+  "groups": 252,
+  "shared_rotations": 162,
+  "modes": {
+   "resident": 0,
+   "fly": 180,
+   "chunk": 72
+  }
+ },
+ "device": {
+  "nvrtc": "12.6",
+  "arch": "compute_89",
+  "torch": "2.7.1+cu126",
+  "cuda_runtime": "12.6",
+  "cudnn": 90501,
+  "gpu": "NVIDIA RTX 6000 Ada Generation"
+ },
+ "load": {
+  "seconds": 59.376975536346436,
+  "peak_allocated": 7113208832,
+  "peak_reserved": 7793016832
+ },
+ "vision": {
+  "median_ms": 18.185216903686523,
+  "p95_ms": 18.208819961547853,
+  "mean_ms": 18.185389909744263,
+  "min_ms": 18.151424407958984,
+  "n": 200,
+  "warmup": 20
+ },
+ "vs_per_image_max_abs": 0.006127715110778809,
+ "vs_per_image_rel": 0.007581802085042,
+ "chunk": {
+  "median_ms": 93.72251510620117,
+  "p95_ms": 94.20400009155273,
+  "mean_ms": 93.73079181671143,
+  "min_ms": 92.32275390625,
+  "n": 200,
+  "warmup": 20
+ },
+ "memory": {
+  "resident_allocated": 1549933568,
+  "peak_allocated": 1896597504,
+  "peak_reserved": 3068133376,
+  "steady_allocated": 1577313792,
+  "steady_reserved": 3068133376
+ },
+ "graph_vs_eager_max_abs": 0.0,
+ "actions_finite": true,
+ "prefill": {
+  "median_ms": 87.0271987915039,
+  "p95_ms": 87.29461860656738,
+  "mean_ms": 87.00703483581543,
+  "min_ms": 85.61248016357422,
+  "n": 200,
+  "warmup": 20
+ },
+ "llm_prefill": {
+  "median_ms": 68.4139518737793,
+  "p95_ms": 68.56206893920898,
+  "mean_ms": 68.42162101745606,
+  "min_ms": 68.18790435791016,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_step": {
+  "median_ms": 3.6485118865966797,
+  "p95_ms": 3.6577279567718506,
+  "mean_ms": 3.650024791955948,
+  "min_ms": 3.6441919803619385,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_all_steps": {
+  "median_ms": 7.916543960571289,
+  "p95_ms": 7.926784038543701,
+  "mean_ms": 7.917139229774475,
+  "min_ms": 7.901984214782715,
+  "n": 200,
+  "warmup": 20
+ },
+ "stats": {
+  "group_runs": 4572,
+  "regroup_misses": 0,
+  "fused_mlps": 0
+ }
+}

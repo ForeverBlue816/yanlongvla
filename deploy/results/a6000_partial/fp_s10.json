@@ -1,0 +1,85 @@
+{
+ "row": "fp",
+ "steps": 10,
+ "info": {
+  "row": "fp",
+  "steps": 10
+ },
+ "device": {
+  "nvrtc": "12.6",
+  "arch": "compute_86",
+  "torch": "2.7.1+cu126",
+  "cuda_runtime": "12.6",
+  "cudnn": 90501,
+  "gpu": "NVIDIA RTX A6000"
+ },
+ "load": {
+  "seconds": 196.1233811378479,
+  "peak_allocated": 6958362624,
+  "peak_reserved": 6989807616
+ },
+ "vision": {
+  "median_ms": 14.629887580871582,
+  "p95_ms": 14.76920289993286,
+  "mean_ms": 14.651211514472962,
+  "min_ms": 14.615551948547363,
+  "n": 200,
+  "warmup": 20
+ },
+ "vs_per_image_max_abs": 0.0,
+ "vs_per_image_rel": 0.0,
+ "chunk": {
+  "median_ms": 114.75558471679688,
+  "p95_ms": 115.41545028686524,
+  "mean_ms": 114.67556644439698,
+  "min_ms": 113.46431732177734,
+  "n": 200,
+  "warmup": 20
+ },
+ "memory": {
+  "resident_allocated": 6958362624,
+  "peak_allocated": 7135128576,
+  "peak_reserved": 7281311744,
+  "steady_allocated": 6985746944,
+  "steady_reserved": 7281311744
+ },
+ "graph_vs_eager_max_abs": 0.0,
+ "actions_finite": true,
+ "prefill": {
+  "median_ms": 70.90073776245117,
+  "p95_ms": 71.3598476409912,
+  "mean_ms": 70.94678974151611,
+  "min_ms": 70.43993377685547,
+  "n": 200,
+  "warmup": 20
+ },
+ "llm_prefill": {
+  "median_ms": 55.84947204589844,
+  "p95_ms": 56.20070343017578,
+  "mean_ms": 55.96560285568237,
+  "min_ms": 55.432193756103516,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_step": {
+  "median_ms": 4.40831995010376,
+  "p95_ms": 4.412467193603516,
+  "mean_ms": 4.408880231380462,
+  "min_ms": 4.404223918914795,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_all_steps": {
+  "median_ms": 44.071937561035156,
+  "p95_ms": 44.0832498550415,
+  "mean_ms": 44.072700901031496,
+  "min_ms": 44.053504943847656,
+  "n": 200,
+  "warmup": 20
+ },
+ "stats": {
+  "group_runs": 0,
+  "regroup_misses": 0,
+  "fused_mlps": 0
+ }
+}

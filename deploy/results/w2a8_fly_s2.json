@@ -1,0 +1,96 @@
+{
+ "row": "w2a8_fly",
+ "steps": 2,
+ "info": {
+  "row": "tcq_raqft_d1",
+  "steps": 2,
+  "runtime": "fly",
+  "layers": 414,
+  "norm_tensors": 147,
+  "fused_mlps": 63,
+  "groups": 252,
+  "shared_rotations": 162,
+  "modes": {
+   "resident": 0,
+   "fly": 252,
+   "chunk": 0
+  }
+ },
+ "device": {
+  "nvrtc": "12.6",
+  "arch": "compute_89",
+  "torch": "2.7.1+cu126",
+  "cuda_runtime": "12.6",
+  "cudnn": 90501,
+  "gpu": "NVIDIA RTX 6000 Ada Generation"
+ },
+ "load": {
+  "seconds": 60.23117995262146,
+  "peak_allocated": 7113208832,
+  "peak_reserved": 7790919680
+ },
+ "vision": {
+  "median_ms": 10.569535732269287,
+  "p95_ms": 10.663986873626708,
+  "mean_ms": 10.588698863983154,
+  "min_ms": 10.536959648132324,
+  "n": 200,
+  "warmup": 20
+ },
+ "vs_per_image_max_abs": 0.0,
+ "vs_per_image_rel": 0.0,
+ "chunk": {
+  "median_ms": 47.178592681884766,
+  "p95_ms": 48.015566444396974,
+  "mean_ms": 47.08273775100708,
+  "min_ms": 45.78611373901367,
+  "n": 200,
+  "warmup": 20
+ },
+ "memory": {
+  "resident_allocated": 1314704384,
+  "peak_allocated": 1593361408,
+  "peak_reserved": 2969567232,
+  "steady_allocated": 1342084608,
+  "steady_reserved": 2969567232
+ },
+ "graph_vs_eager_max_abs": 0.0,
+ "actions_finite": true,
+ "prefill": {
+  "median_ms": 40.47411346435547,
+  "p95_ms": 41.630259132385255,
+  "mean_ms": 40.7072945022583,
+  "min_ms": 39.985023498535156,
+  "n": 200,
+  "warmup": 20
+ },
+ "llm_prefill": {
+  "median_ms": 31.342991828918457,
+  "p95_ms": 31.924378395080566,
+  "mean_ms": 31.406310501098634,
+  "min_ms": 30.625791549682617,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_step": {
+  "median_ms": 3.027967929840088,
+  "p95_ms": 3.034163177013397,
+  "mean_ms": 3.0287388360500334,
+  "min_ms": 3.022847890853882,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_all_steps": {
+  "median_ms": 6.079296112060547,
+  "p95_ms": 6.088577437400818,
+  "mean_ms": 6.080196266174316,
+  "min_ms": 6.0733442306518555,
+  "n": 200,
+  "warmup": 20
+ },
+ "stats": {
+  "group_runs": 2286,
+  "regroup_misses": 0,
+  "fused_mlps": 1143
+ }
+}

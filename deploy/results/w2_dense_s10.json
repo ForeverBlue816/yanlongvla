@@ -1,0 +1,88 @@
+{
+ "row": "w2_dense",
+ "steps": 10,
+ "info": {
+  "row": "tcq_raqft_d1",
+  "steps": 10,
+  "runtime": "dense",
+  "layers": 414,
+  "norm_tensors": 147
+ },
+ "device": {
+  "nvrtc": "12.6",
+  "arch": "compute_89",
+  "torch": "2.7.1+cu126",
+  "cuda_runtime": "12.6",
+  "cudnn": 90501,
+  "gpu": "NVIDIA RTX 6000 Ada Generation"
+ },
+ "load": {
+  "seconds": 88.23604559898376,
+  "peak_allocated": 7586718208,
+  "peak_reserved": 7623147520
+ },
+ "vision": {
+  "median_ms": 8.576000213623047,
+  "p95_ms": 8.583979368209839,
+  "mean_ms": 8.576565155982971,
+  "min_ms": 8.566783905029297,
+  "n": 200,
+  "warmup": 20
+ },
+ "vs_per_image_max_abs": 0.0,
+ "vs_per_image_rel": 0.0,
+ "chunk": {
+  "median_ms": 82.13452911376953,
+  "p95_ms": 85.260538482666,
+  "mean_ms": 81.16649284362794,
+  "min_ms": 74.18038177490234,
+  "n": 200,
+  "warmup": 20
+ },
+ "memory": {
+  "resident_allocated": 6432743936,
+  "peak_allocated": 6609509888,
+  "peak_reserved": 6754926592,
+  "steady_allocated": 6460128256,
+  "steady_reserved": 6754926592
+ },
+ "graph_vs_eager_max_abs": 0.0,
+ "actions_finite": true,
+ "prefill": {
+  "median_ms": 52.35558319091797,
+  "p95_ms": 52.887603187561034,
+  "mean_ms": 52.312279319763185,
+  "min_ms": 48.948062896728516,
+  "n": 200,
+  "warmup": 20
+ },
+ "llm_prefill": {
+  "median_ms": 43.9893913269043,
+  "p95_ms": 45.395219993591304,
+  "mean_ms": 44.137722969055176,
+  "min_ms": 42.86463928222656,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_step": {
+  "median_ms": 3.4293758869171143,
+  "p95_ms": 3.4449920058250427,
+  "mean_ms": 3.433149290084839,
+  "min_ms": 3.4242560863494873,
+  "n": 200,
+  "warmup": 20
+ },
+ "expert_all_steps": {
+  "median_ms": 34.30334281921387,
+  "p95_ms": 34.32848129272461,
+  "mean_ms": 34.30541000366211,
+  "min_ms": 34.27635192871094,
+  "n": 200,
+  "warmup": 20
+ },
+ "stats": {
+  "group_runs": 0,
+  "regroup_misses": 0,
+  "fused_mlps": 0
+ }
+}

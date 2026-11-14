@@ -1,0 +1,199 @@
+{
+ "reference": "w2a8_ref",
+ "observations": [
+  0,
+  9,
+  10,
+  22,
+  28,
+  43,
+  45,
+  50,
+  53,
+  55,
+  57,
+  72,
+  74,
+  80,
+  84,
+  87,
+  98,
+  106,
+  116,
+  118,
+  123,
+  125,
+  129,
+  136,
+  140,
+  155,
+  166,
+  173,
+  187,
+  200,
+  202,
+  220,
+  227,
+  230,
+  233,
+  241,
+  242,
+  245,
+  251,
+  254
+ ],
+ "noise_seed": 0,
+ "rows": {
+  "w2a8_ref": {
+   "identical_observations": 40,
+   "max_abs": 0.0,
+   "rel_err_max": 0.0,
+   "rel_err_mean": 0.0,
+   "rel_err_pooled": 0.0
+  },
+  "w2a8_resident": {
+   "identical_observations": 40,
+   "max_abs": 0.0,
+   "rel_err_max": 0.0,
+   "rel_err_mean": 0.0,
+   "rel_err_pooled": 0.0
+  },
+  "w2a8_fly": {
+   "identical_observations": 40,
+   "max_abs": 0.0,
+   "rel_err_max": 0.0,
+   "rel_err_mean": 0.0,
+   "rel_err_pooled": 0.0
+  },
+  "w2a8_hybrid": {
+   "identical_observations": 40,
+   "max_abs": 0.0,
+   "rel_err_max": 0.0,
+   "rel_err_mean": 0.0,
+   "rel_err_pooled": 0.0
+  },
+  "w2_dense": {
+   "identical_observations": 0,
+   "max_abs": 1.6428213888367713,
+   "rel_err_max": 0.4298588894939058,
+   "rel_err_mean": 0.012845146769344135,
+   "rel_err_pooled": 0.06640842823133966
+  },
+  "w2_fly": {
+   "identical_observations": 0,
+   "max_abs": 0.2527045020736456,
+   "rel_err_max": 0.06629671962360235,
+   "rel_err_mean": 0.003510016264931445,
+   "rel_err_pooled": 0.010408400901251098
+  },
+  "w2_hybrid": {
+   "identical_observations": 0,
+   "max_abs": 0.22088840764260298,
+   "rel_err_max": 0.05796412421779682,
+   "rel_err_mean": 0.003297930856308339,
+   "rel_err_pooled": 0.009144763654484463
+  },
+  "fp": {
+   "identical_observations": 0,
+   "max_abs": 1.990632767317891,
+   "rel_err_max": 0.6124799167044631,
+   "rel_err_mean": 0.05670701114075816,
+   "rel_err_pooled": 0.11974001557753877
+  }
+ },
+ "info": {
+  "w2a8_ref": {
+   "row": "tcq_raqft_d1",
+   "steps": 10,
+   "runtime": "reference",
+   "layers": 414,
+   "norm_tensors": 147
+  },
+  "w2a8_resident": {
+   "row": "tcq_raqft_d1",
+   "steps": 10,
+   "runtime": "resident",
+   "layers": 414,
+   "norm_tensors": 147,
+   "fused_mlps": 63,
+   "groups": 252,
+   "shared_rotations": 162,
+   "modes": {
+    "resident": 252,
+    "fly": 0,
+    "chunk": 0
+   }
+  },
+  "w2a8_fly": {
+   "row": "tcq_raqft_d1",
+   "steps": 10,
+   "runtime": "fly",
+   "layers": 414,
+   "norm_tensors": 147,
+   "fused_mlps": 63,
+   "groups": 252,
+   "shared_rotations": 162,
+   "modes": {
+    "resident": 0,
+    "fly": 252,
+    "chunk": 0
+   }
+  },
+  "w2a8_hybrid": {
+   "row": "tcq_raqft_d1",
+   "steps": 10,
+   "runtime": "hybrid",
+   "layers": 414,
+   "norm_tensors": 147,
+   "fused_mlps": 63,
+   "groups": 252,
+   "shared_rotations": 162,
+   "modes": {
+    "resident": 0,
+    "fly": 180,
+    "chunk": 72
+   }
+  },
+  "w2_dense": {
+   "row": "tcq_raqft_d1",
+   "steps": 10,
+   "runtime": "dense",
+   "layers": 414,
+   "norm_tensors": 147
+  },
+  "w2_fly": {
+   "row": "tcq_raqft_d1",
+   "steps": 10,
+   "runtime": "fly",
+   "layers": 414,
+   "norm_tensors": 147,
+   "fused_mlps": 0,
+   "groups": 252,
+   "shared_rotations": 162,
+   "modes": {
+    "resident": 0,
+    "fly": 252,
+    "chunk": 0
+   }
+  },
+  "w2_hybrid": {
+   "row": "tcq_raqft_d1",
+   "steps": 10,
+   "runtime": "hybrid",
+   "layers": 414,
+   "norm_tensors": 147,
+   "fused_mlps": 0,
+   "groups": 252,
+   "shared_rotations": 162,
+   "modes": {
+    "resident": 0,
+    "fly": 180,
+    "chunk": 72
+   }
+  },
+  "fp": {
+   "row": "fp",
+   "steps": 10
+  }
+ }
+}

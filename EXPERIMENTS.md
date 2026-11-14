@@ -2163,3 +2163,22 @@ Files: results/lambda_1bit_20261112/pi05_1bit_*.libero_full.json(l).
 Fine-tune 768 updates (held-out readout 279.2 → 212.8; held-out action MSE 0.0195 → 0.0142). Plus selection 1000 (RTX 6000 Ada): 733
 (camera 364, robot-init 369). vs tcq_d1 734 −0.1 [−2.60, +2.39]; vs 2-bit base 704 +2.9 [−1.00, +6.91]; vs raqft_studentq 749 −1.6
 [−5.38, +2.26]; vs W2A8 741 −0.8 [−4.74, +3.10]; vs FP 765 −3.2 [−6.77, −0.03]. The fine-tune gives no closed-loop gain over its PTQ base.
+
+### E218 — π₀.₅ main row tcq_raqft_d1 on the added 1000: 700; expanded 2000 = 1433 (2026-11-14 12:20 UTC)
+User: test the fine-tuned main row on the added 1000 and compare on the full 2000; also run raqft_studentq (749) on the added 1000.
+RTX 6000 Ada (1738178, 1738366). tcq_raqft_d1 added 700 (camera 331, robot-init 369) → 733 + 700 = 1433. raqft_studentq added 699 →
+1448. On 2000: vs FP 1483 −2.5 [−5.07, +0.12]; vs 2-bit base 1361 +3.6 [+0.44, +6.90]; vs raqft_studentq 1448 −0.75 [−3.67, +2.10];
+vs a8_studentq 1439 −0.3 [−3.09, +2.48]; vs a8_raqft 1429 +0.2 [−2.32, +2.90]. Table in PI05_TCQ_2026-11-10.md; per-episode files in
+public-reports/baselines/pi05/results (…plus_added_1000.jsonl). `pi05_tcq.py` runs older-format rows through the same Plus stage;
+`scripts/pi05_added_pairs.sh` builds the 2000-unit files and the pairs.
+
+### E219 — Inference kernels for the trellis-coded format; π₀.₅ W2A8 speed and memory (2026-11-14 12:40 UTC)
+User task: kernels for the TCQ format, π₀.₅ W2A8 at least as fast as FP end to end; three operating points; offline, one GPU.
+Row tcq_raqft_d1. Code deploy/tcq_kernels (NVRTC + CUDA driver through ctypes; `bash deploy/tcq_kernels/run_bench.sh`), report
+DEPLOY_TCQ_2026-11-14.md, results deploy/results.csv + deploy/table.md. RTX 6000 Ada (job 1738590), batch 1, CUDA graphs, 20 + 200 replays,
+median: FP 81.6 ms / 10-step chunk, 54.6 ms / 2-step chunk, 6.65 GB peak, 6.47 GB on disk. W2A8 decoded at load 74.6 / 42.8 ms (1.09× /
+1.28×), 3.72 GB; on the fly 79.8 / 47.2 ms (1.02× / 1.16×), 1.92 GB; hybrid 78.7 / 47.5 ms, 2.15 GB; 1.58 GB on disk. Prefill 38.2 vs
+51.8 ms; expert step 3.66 vs 3.43 ms. W2 without A8 on the fly: 133 ms (0.61×). Correctness: 414 / 414 layers and 40 / 40 held-out
+observations bit-identical to the PyTorch W2A8 reference for all three operating points. RTX A6000 (10-step rows only): W2A8 0.96× /
+0.89× of FP, i.e. no speed-up on that card. No LIBERO-Plus number exists for this model with 8-bit activations; none queued.
+

@@ -1,0 +1,1300 @@
+{
+ "device": {
+  "nvrtc": "12.6",
+  "arch": "compute_89",
+  "torch": "2.7.1+cu126",
+  "cuda_runtime": "12.6",
+  "cudnn": 90501,
+  "gpu": "NVIDIA RTX 6000 Ada Generation"
+ },
+ "rows": {
+  "fp": {
+   "row": "fp",
+   "info": {
+    "row": "fp",
+    "steps": 10
+   },
+   "stages": {
+    "vision": {
+     "graph": {
+      "median_ms": 8.355664253234863,
+      "p95_ms": 8.381491374969482,
+      "mean_ms": 8.359909820556641,
+      "min_ms": 8.345439910888672,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 8.463744163513184,
+      "kernel_ms": 8.024232000000003,
+      "gaps_ms": 0.43951216351318045,
+      "launches": 1492,
+      "by_class_ms": {
+       "matrix product": 5.534,
+       "copies / casts": 0.759,
+       "attention": 0.706,
+       "norm": 0.584,
+       "other elementwise": 0.253,
+       "activation fn": 0.189
+      },
+      "launches_by_class": {
+       "copies / casts": 416,
+       "other elementwise": 176,
+       "matrix product": 492,
+       "norm": 165,
+       "attention": 162,
+       "activation fn": 81
+      },
+      "top": [
+       [
+        "ampere_bf16_s16816gemm_bf16_128x64_ldg8_relu_f2f_stages_64x3_tn",
+        3.146
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x64_32x6_tn_align8>(",
+        2.292
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.664
+       ],
+       [
+        "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<c10::BFloat16, float>",
+        0.584
+       ],
+       [
+        "void pytorch_flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<96, 64, 128, 4, false",
+        0.479
+       ],
+       [
+        "void pytorch_flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<96, 64, 128, ",
+        0.227
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::BFloat1",
+        0.206
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::Tenso",
+        0.189
+       ],
+       [
+        "sm80_xmma_fprop_implicit_gemm_indexed_wo_smem_tf32f32_tf32f32_f32_nhwckrsc_nhwc_tilesize12",
+        0.068
+       ],
+       [
+        "Memset (Unknown)",
+        0.063
+       ]
+      ]
+     }
+    },
+    "llm_prefill": {
+     "graph": {
+      "median_ms": 41.96438407897949,
+      "p95_ms": 44.02715091705322,
+      "mean_ms": 42.14288345336914,
+      "min_ms": 40.19279861450195,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 42.50700759887695,
+      "kernel_ms": 42.091300999999994,
+      "gaps_ms": 0.4157065988769588,
+      "launches": 915,
+      "by_class_ms": {
+       "matrix product": 34.129,
+       "other elementwise": 4.41,
+       "copies / casts": 2.397,
+       "activation fn": 0.601,
+       "attention": 0.554
+      },
+      "launches_by_class": {
+       "copies / casts": 301,
+       "other elementwise": 379,
+       "matrix product": 199,
+       "attention": 18,
+       "activation fn": 18
+      },
+      "top": [
+       [
+        "ampere_bf16_s1688gemm_bf16_64x128_sliced1x2_ldg8_f2f_tn",
+        29.273
+       ],
+       [
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+        3.449
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<c10::BFloat16,",
+        1.542
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::CUDAFu",
+        0.939
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.853
+       ],
+       [
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+        0.735
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::Tenso",
+        0.601
+       ],
+       [
+        "void (anonymous namespace)::softmax_warp_forward<float, float, float, 10, false, false>(fl",
+        0.554
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::Binary",
+        0.548
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_64x128_32x6_tn_align8>",
+        0.534
+       ]
+      ]
+     }
+    },
+    "expert_step": {
+     "graph": {
+      "median_ms": 3.522336006164551,
+      "p95_ms": 3.7162656664848326,
+      "mean_ms": 3.567628800868988,
+      "min_ms": 3.4996800422668457,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 5.111648082733154,
+      "kernel_ms": 3.47389600000001,
+      "gaps_ms": 1.6377520827331442,
+      "launches": 1131,
+      "by_class_ms": {
+       "matrix product": 2.173,
+       "copies / casts": 0.67,
+       "other elementwise": 0.529,
+       "attention": 0.075,
+       "activation fn": 0.027
+      },
+      "launches_by_class": {
+       "other elementwise": 391,
+       "copies / casts": 438,
+       "matrix product": 264,
+       "activation fn": 20,
+       "attention": 18
+      },
+      "top": [
+       [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x2_tn_align8",
+        1.155
+       ],
+       [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float",
+        0.734
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.235
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_32x32_128x2_nn_align2",
+        0.141
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::Binary",
+        0.106
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.102
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at",
+        0.088
+       ],
+       [
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::Tenso",
+        0.082
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy_contig<at::native::(anonymous ",
+        0.08
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespa",
+        0.079
+       ]
+      ]
+     }
+    }
+   },
+   "memory": {
+    "allocated": 7024688128,
+    "peak": 7164777472,
+    "reserved": 7130316800
+   }
+  },
+  "w2a8_ref": {
+   "row": "w2a8_ref",
+   "info": {
+    "row": "tcq_raqft_d1",
+    "steps": 10,
+    "runtime": "reference",
+    "layers": 414,
+    "norm_tensors": 147
+   },
+   "stages": {
+    "vision": {
+     "eager_ops_ms": {
+      "hadamard": 915.484,
+      "activation quantize": 72.081,
+      "matrix product": 40.241,
+      "scale": 26.355,
+      "everything_else": 38.845,
+      "wall_timed": 1093.006,
+      "wall_untimed": 1004.25
+     },
+     "graph": {
+      "median_ms": 131.31842803955078,
+      "p95_ms": 133.33754272460936,
+      "mean_ms": 129.11437576293946,
+      "min_ms": 123.00662231445312,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 148.85250854492188,
+      "kernel_ms": 121.70297600000012,
+      "gaps_ms": 27.149532544921755,
+      "launches": 70745,
+      "by_class_ms": {
+       "copies / casts": 109.89,
+       "other elementwise": 6.584,
+       "int8 matrix product": 3.701,
+       "attention": 0.696,
+       "norm": 0.571,
+       "activation fn": 0.188,
+       "matrix product": 0.073
+      },
+      "launches_by_class": {
+       "other elementwise": 4548,
+       "copies / casts": 65298,
+       "norm": 165,
+       "int8 matrix product": 486,
+       "attention": 162,
+       "activation fn": 81,
+       "matrix product": 5
+      },
+      "top": [
+       [
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native:",
+        64.186
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy_aligned16_contig<at::native::(",
+        38.106
+       ],
+       [
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::Tenso",
+        5.699
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        3.701
+       ],
+       [
+        "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrappe",
+        1.703
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launc",
+        0.814
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::round_kernel_cuda(at::Tensor",
+        0.8
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::AbsFunctor<float>, std::arra",
+        0.772
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::arr",
+        0.749
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at",
+        0.665
+       ]
+      ]
+     }
+    },
+    "llm_prefill": {
+     "eager_ops_ms": {
+      "hadamard": 388.931,
+      "activation quantize": 27.268,
+      "matrix product": 19.777,
+      "scale": 18.807,
+      "everything_else": 19.862,
+      "wall_timed": 474.645,
+      "wall_untimed": 379.145
+     },
+     "graph": {
+      "median_ms": 367.1425476074219,
+      "p95_ms": 367.5889556884766,
+      "mean_ms": 367.11887786865236,
+      "min_ms": 366.0281982421875,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 371.2875671386719,
+      "kernel_ms": 365.4471120000037,
+      "gaps_ms": 5.840455138668176,
+      "launches": 12227,
+      "by_class_ms": {
+       "copies / casts": 340.031,
+       "other elementwise": 12.153,
+       "int8 matrix product": 11.206,
+       "matrix product": 1.035,
+       "attention": 0.622,
+       "activation fn": 0.4
+      },
+      "launches_by_class": {
+       "other elementwise": 1508,
+       "copies / casts": 10520,
+       "matrix product": 37,
+       "int8 matrix product": 126,
+       "attention": 18,
+       "activation fn": 18
+      },
+      "top": [
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy_aligned16_contig<at::native::(",
+        180.766
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native:",
+        147.038
+       ],
+       [
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::Tenso",
+        8.306
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_256x128_64x3_tn_align16>(cutlass_8",
+        5.798
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        5.408
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at",
+        2.948
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::AbsFunctor<float>, std::arra",
+        2.763
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::round_kernel_cuda(at::Tensor",
+        2.431
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::(anonymous namespace)::launc",
+        2.426
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<c10::BFloat16,",
+        1.345
+       ]
+      ]
+     }
+    },
+    "expert_step": {
+     "eager_ops_ms": {
+      "hadamard": 131.623,
+      "activation quantize": 18.014,
+      "matrix product": 10.932,
+      "scale": 6.797,
+      "everything_else": 21.286,
+      "wall_timed": 188.652,
+      "wall_untimed": 168.595
+     },
+     "graph": {
+      "median_ms": 17.470463752746582,
+      "p95_ms": 18.057223415374757,
+      "mean_ms": 17.41416036605835,
+      "min_ms": 16.894527435302734,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 33.8757438659668,
+      "kernel_ms": 16.263674999999594,
+      "gaps_ms": 17.612068865967203,
+      "launches": 11867,
+      "by_class_ms": {
+       "copies / casts": 12.492,
+       "other elementwise": 1.875,
+       "matrix product": 0.979,
+       "int8 matrix product": 0.814,
+       "attention": 0.076,
+       "activation fn": 0.027
+      },
+      "launches_by_class": {
+       "other elementwise": 1642,
+       "copies / casts": 9977,
+       "matrix product": 84,
+       "activation fn": 20,
+       "int8 matrix product": 126,
+       "attention": 18
+      },
+      "top": [
+       [
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native:",
+        7.467
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy_aligned16_contig<at::native::(",
+        2.992
+       ],
+       [
+        "void at::native::unrolled_elementwise_kernel<at::native::direct_copy_kernel_cuda(at::Tenso",
+        1.306
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        0.814
+       ],
+       [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float",
+        0.755
+       ],
+       [
+        "void at::native::reduce_kernel<512, 1, at::native::ReduceOp<float, at::native::func_wrappe",
+        0.315
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.239
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at",
+        0.212
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::FillFunctor<float>, std::arr",
+        0.196
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_32x32_128x2_nn_align2",
+        0.143
+       ]
+      ]
+     }
+    }
+   },
+   "memory": {
+    "allocated": 4517356032,
+    "peak": 7629326848,
+    "reserved": 5387583488
+   }
+  },
+  "w2a8_resident": {
+   "row": "w2a8_resident",
+   "info": {
+    "row": "tcq_raqft_d1",
+    "steps": 10,
+    "runtime": "resident",
+    "layers": 414,
+    "norm_tensors": 147,
+    "groups": 252,
+    "shared_rotations": 162,
+    "modes": {
+     "resident": 252,
+     "fly": 0,
+     "chunk": 0
+    }
+   },
+   "stages": {
+    "vision": {
+     "graph": {
+      "median_ms": 11.961632251739502,
+      "p95_ms": 11.999367952346802,
+      "mean_ms": 11.969358730316163,
+      "min_ms": 11.934080123901367,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 14.652192115783691,
+      "kernel_ms": 11.744630999999977,
+      "gaps_ms": 2.9075611157837145,
+      "launches": 2048,
+      "by_class_ms": {
+       "tcq scale+rotate": 3.558,
+       "int8 matrix product": 3.233,
+       "tcq rotate+quantize": 2.539,
+       "attention": 0.688,
+       "copies / casts": 0.67,
+       "norm": 0.557,
+       "other elementwise": 0.237,
+       "activation fn": 0.19,
+       "matrix product": 0.073
+      },
+      "launches_by_class": {
+       "copies / casts": 334,
+       "attention": 162,
+       "tcq rotate+quantize": 323,
+       "int8 matrix product": 323,
+       "tcq scale+rotate": 483,
+       "other elementwise": 173,
+       "norm": 164,
+       "activation fn": 81,
+       "matrix product": 5
+      },
+      "top": [
+       [
+        "k_post_i32_bf16",
+        3.558
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        3.233
+       ],
+       [
+        "k_pre_bf16",
+        2.539
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.641
+       ],
+       [
+        "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<c10::BFloat16, float>",
+        0.557
+       ],
+       [
+        "void pytorch_flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<96, 64, 128, 4, false",
+        0.469
+       ],
+       [
+        "void pytorch_flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<96, 64, 128, ",
+        0.22
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::BFloat1",
+        0.204
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::Tenso",
+        0.19
+       ],
+       [
+        "sm80_xmma_fprop_implicit_gemm_indexed_wo_smem_tf32f32_tf32f32_f32_nhwckrsc_nhwc_tilesize12",
+        0.045
+       ]
+      ]
+     }
+    },
+    "llm_prefill": {
+     "graph": {
+      "median_ms": 32.297183990478516,
+      "p95_ms": 32.58180656433105,
+      "mean_ms": 32.30296413421631,
+      "min_ms": 31.972768783569336,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 34.098976135253906,
+      "kernel_ms": 32.31171699999994,
+      "gaps_ms": 1.7872591352539686,
+      "launches": 990,
+      "by_class_ms": {
+       "int8 matrix product": 11.862,
+       "tcq scale+rotate": 9.343,
+       "tcq rotate+quantize": 3.953,
+       "other elementwise": 2.945,
+       "copies / casts": 1.599,
+       "activation fn": 1.174,
+       "matrix product": 1.003,
+       "attention": 0.433
+      },
+      "launches_by_class": {
+       "copies / casts": 277,
+       "matrix product": 37,
+       "other elementwise": 370,
+       "tcq rotate+quantize": 72,
+       "int8 matrix product": 72,
+       "tcq scale+rotate": 126,
+       "attention": 18,
+       "activation fn": 18
+      },
+      "top": [
+       [
+        "k_post_i32_bf16",
+        9.343
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_256x128_64x3_tn_align16>(cutlass_8",
+        6.285
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        5.577
+       ],
+       [
+        "k_pre_bf16",
+        3.953
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::Tenso",
+        1.174
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<c10::BFloat16,",
+        0.976
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::CUDAFu",
+        0.58
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.527
+       ],
+       [
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+        0.525
+       ],
+       [
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+        0.476
+       ]
+      ]
+     }
+    },
+    "expert_step": {
+     "graph": {
+      "median_ms": 3.8577600717544556,
+      "p95_ms": 3.882759964466095,
+      "mean_ms": 3.8613212871551514,
+      "min_ms": 3.8356800079345703,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 5.780543804168701,
+      "kernel_ms": 3.785456000000003,
+      "gaps_ms": 1.9950878041686981,
+      "launches": 1206,
+      "by_class_ms": {
+       "matrix product": 0.953,
+       "tcq product": 0.683,
+       "copies / casts": 0.66,
+       "tcq scale+rotate": 0.567,
+       "other elementwise": 0.509,
+       "tcq rotate+quantize": 0.31,
+       "attention": 0.076,
+       "activation fn": 0.028
+      },
+      "launches_by_class": {
+       "matrix product": 82,
+       "activation fn": 20,
+       "other elementwise": 381,
+       "copies / casts": 435,
+       "tcq rotate+quantize": 72,
+       "tcq product": 72,
+       "tcq scale+rotate": 126,
+       "attention": 18
+      },
+      "top": [
+       [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float",
+        0.737
+       ],
+       [
+        "k_gemm_w8",
+        0.683
+       ],
+       [
+        "k_post_f32_bf16",
+        0.567
+       ],
+       [
+        "k_pre_bf16",
+        0.31
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.235
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_32x32_128x2_nn_align2",
+        0.141
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::Binary",
+        0.102
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.095
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at",
+        0.089
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy_contig<at::native::(anonymous ",
+        0.081
+       ]
+      ]
+     }
+    }
+   },
+   "memory": {
+    "allocated": 3866371584,
+    "peak": 7654889984,
+    "reserved": 5121245184
+   }
+  },
+  "w2a8_fly": {
+   "row": "w2a8_fly",
+   "info": {
+    "row": "tcq_raqft_d1",
+    "steps": 10,
+    "runtime": "fly",
+    "layers": 414,
+    "norm_tensors": 147,
+    "groups": 252,
+    "shared_rotations": 162,
+    "modes": {
+     "resident": 0,
+     "fly": 252,
+     "chunk": 0
+    }
+   },
+   "stages": {
+    "vision": {
+     "graph": {
+      "median_ms": 13.833807945251465,
+      "p95_ms": 13.970892667770386,
+      "mean_ms": 13.8366978931427,
+      "min_ms": 13.720352172851562,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 17.159456253051758,
+      "kernel_ms": 13.508341000000021,
+      "gaps_ms": 3.651115253051737,
+      "launches": 2530,
+      "by_class_ms": {
+       "tcq scale+rotate": 3.554,
+       "int8 matrix product": 3.148,
+       "tcq rotate+quantize": 2.534,
+       "tcq decode": 1.856,
+       "attention": 0.691,
+       "copies / casts": 0.668,
+       "norm": 0.556,
+       "other elementwise": 0.237,
+       "activation fn": 0.193,
+       "matrix product": 0.071
+      },
+      "launches_by_class": {
+       "copies / casts": 333,
+       "attention": 162,
+       "tcq rotate+quantize": 323,
+       "tcq decode": 483,
+       "int8 matrix product": 323,
+       "tcq scale+rotate": 483,
+       "other elementwise": 173,
+       "norm": 164,
+       "activation fn": 81,
+       "matrix product": 5
+      },
+      "top": [
+       [
+        "k_post_i32_bf16",
+        3.554
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        3.148
+       ],
+       [
+        "k_pre_bf16",
+        2.534
+       ],
+       [
+        "k_decode",
+        1.856
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.639
+       ],
+       [
+        "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<c10::BFloat16, float>",
+        0.556
+       ],
+       [
+        "void pytorch_flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<96, 64, 128, 4, false",
+        0.472
+       ],
+       [
+        "void pytorch_flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<96, 64, 128, ",
+        0.219
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::BFloat1",
+        0.204
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::Tenso",
+        0.193
+       ]
+      ]
+     }
+    },
+    "llm_prefill": {
+     "graph": {
+      "median_ms": 35.161760330200195,
+      "p95_ms": 36.278652572631835,
+      "mean_ms": 35.33029430389404,
+      "min_ms": 34.33433532714844,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 36.998046875,
+      "kernel_ms": 34.94058799999999,
+      "gaps_ms": 2.057458875000009,
+      "launches": 1112,
+      "by_class_ms": {
+       "int8 matrix product": 11.838,
+       "tcq scale+rotate": 9.421,
+       "tcq rotate+quantize": 3.955,
+       "other elementwise": 2.885,
+       "tcq decode": 2.554,
+       "copies / casts": 1.633,
+       "activation fn": 1.152,
+       "matrix product": 1.028,
+       "attention": 0.474
+      },
+      "launches_by_class": {
+       "other elementwise": 369,
+       "copies / casts": 275,
+       "tcq rotate+quantize": 72,
+       "tcq decode": 126,
+       "int8 matrix product": 72,
+       "tcq scale+rotate": 126,
+       "matrix product": 36,
+       "attention": 18,
+       "activation fn": 18
+      },
+      "top": [
+       [
+        "k_post_i32_bf16",
+        9.421
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_256x128_64x3_tn_align16>(cutlass_8",
+        6.382
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        5.456
+       ],
+       [
+        "k_pre_bf16",
+        3.955
+       ],
+       [
+        "k_decode",
+        2.554
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::Tenso",
+        1.152
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<c10::BFloat16,",
+        0.946
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::CUDAFu",
+        0.633
+       ],
+       [
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+        0.552
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.546
+       ]
+      ]
+     }
+    },
+    "expert_step": {
+     "graph": {
+      "median_ms": 3.9879839420318604,
+      "p95_ms": 4.034644937515258,
+      "mean_ms": 3.992957134246826,
+      "min_ms": 3.9606080055236816,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 5.887167930603027,
+      "kernel_ms": 3.8861240000000103,
+      "gaps_ms": 2.001043930603017,
+      "launches": 1202,
+      "by_class_ms": {
+       "matrix product": 0.936,
+       "tcq decode+product": 0.818,
+       "copies / casts": 0.658,
+       "tcq scale+rotate": 0.557,
+       "other elementwise": 0.507,
+       "tcq rotate+quantize": 0.308,
+       "attention": 0.075,
+       "activation fn": 0.027
+      },
+      "launches_by_class": {
+       "matrix product": 79,
+       "activation fn": 19,
+       "other elementwise": 381,
+       "copies / casts": 435,
+       "tcq rotate+quantize": 72,
+       "tcq decode+product": 72,
+       "tcq scale+rotate": 126,
+       "attention": 18
+      },
+      "top": [
+       [
+        "k_gemm_tcq",
+        0.818
+       ],
+       [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float",
+        0.723
+       ],
+       [
+        "k_post_f32_bf16",
+        0.557
+       ],
+       [
+        "k_pre_bf16",
+        0.308
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.236
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_32x32_128x2_nn_align2",
+        0.141
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::Binary",
+        0.101
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.094
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at",
+        0.088
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespa",
+        0.08
+       ]
+      ]
+     }
+    }
+   },
+   "memory": {
+    "allocated": 1922918912,
+    "peak": 7680449024,
+    "reserved": 2940207104
+   }
+  },
+  "w2a8_hybrid": {
+   "row": "w2a8_hybrid",
+   "info": {
+    "row": "tcq_raqft_d1",
+    "steps": 10,
+    "runtime": "hybrid",
+    "layers": 414,
+    "norm_tensors": 147,
+    "groups": 252,
+    "shared_rotations": 162,
+    "modes": {
+     "resident": 0,
+     "fly": 180,
+     "chunk": 72
+    }
+   },
+   "stages": {
+    "vision": {
+     "graph": {
+      "median_ms": 13.80076789855957,
+      "p95_ms": 13.964765977859496,
+      "mean_ms": 13.820109424591065,
+      "min_ms": 13.749983787536621,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 16.968128204345703,
+      "kernel_ms": 13.455505999999993,
+      "gaps_ms": 3.5126222043457105,
+      "launches": 2526,
+      "by_class_ms": {
+       "tcq scale+rotate": 3.543,
+       "int8 matrix product": 3.159,
+       "tcq rotate+quantize": 2.526,
+       "tcq decode": 1.838,
+       "attention": 0.677,
+       "copies / casts": 0.661,
+       "norm": 0.553,
+       "other elementwise": 0.237,
+       "activation fn": 0.19,
+       "matrix product": 0.072
+      },
+      "launches_by_class": {
+       "tcq rotate+quantize": 323,
+       "tcq decode": 483,
+       "int8 matrix product": 323,
+       "tcq scale+rotate": 483,
+       "other elementwise": 173,
+       "norm": 164,
+       "activation fn": 81,
+       "copies / casts": 331,
+       "attention": 160,
+       "matrix product": 5
+      },
+      "top": [
+       [
+        "k_post_i32_bf16",
+        3.543
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        3.159
+       ],
+       [
+        "k_pre_bf16",
+        2.526
+       ],
+       [
+        "k_decode",
+        1.838
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.632
+       ],
+       [
+        "void at::native::(anonymous namespace)::vectorized_layer_norm_kernel<c10::BFloat16, float>",
+        0.553
+       ],
+       [
+        "void pytorch_flash::flash_fwd_splitkv_kernel<Flash_fwd_kernel_traits<96, 64, 128, 4, false",
+        0.462
+       ],
+       [
+        "void pytorch_flash::flash_fwd_splitkv_combine_kernel<Flash_fwd_kernel_traits<96, 64, 128, ",
+        0.216
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::BFloat1",
+        0.203
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::Tenso",
+        0.19
+       ]
+      ]
+     }
+    },
+    "llm_prefill": {
+     "graph": {
+      "median_ms": 34.925167083740234,
+      "p95_ms": 36.130951499938966,
+      "mean_ms": 35.06491161346435,
+      "min_ms": 34.21356964111328,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 36.686912536621094,
+      "kernel_ms": 34.82346699999992,
+      "gaps_ms": 1.863445536621171,
+      "launches": 1107,
+      "by_class_ms": {
+       "int8 matrix product": 11.779,
+       "tcq scale+rotate": 9.348,
+       "tcq rotate+quantize": 3.939,
+       "other elementwise": 2.877,
+       "tcq decode": 2.565,
+       "copies / casts": 1.648,
+       "activation fn": 1.187,
+       "matrix product": 1.031,
+       "attention": 0.449
+      },
+      "launches_by_class": {
+       "copies / casts": 273,
+       "other elementwise": 366,
+       "tcq rotate+quantize": 72,
+       "tcq decode": 126,
+       "int8 matrix product": 72,
+       "tcq scale+rotate": 126,
+       "matrix product": 36,
+       "attention": 18,
+       "activation fn": 18
+      },
+      "top": [
+       [
+        "k_post_i32_bf16",
+        9.348
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_256x128_64x3_tn_align16>(cutlass_8",
+        6.351
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_tensorop_i16832gemm_s8_64x64_64x6_tn_align16>(cutlass_80_",
+        5.428
+       ],
+       [
+        "k_pre_bf16",
+        3.939
+       ],
+       [
+        "k_decode",
+        2.565
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::GeluCUDAKernelImpl(at::Tenso",
+        1.187
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::BinaryFunctor<c10::BFloat16,",
+        0.945
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::CUDAFu",
+        0.643
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.557
+       ],
+       [
+        "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+        0.555
+       ]
+      ]
+     }
+    },
+    "expert_step": {
+     "graph": {
+      "median_ms": 3.844048023223877,
+      "p95_ms": 3.8627840161323546,
+      "mean_ms": 3.847577610015869,
+      "min_ms": 3.8321919441223145,
+      "n": 100,
+      "warmup": 20
+     },
+     "kernels": {
+      "wall_ms": 5.537919998168945,
+      "kernel_ms": 3.7501129999999883,
+      "gaps_ms": 1.787806998168957,
+      "launches": 1197,
+      "by_class_ms": {
+       "matrix product": 0.927,
+       "tcq product": 0.684,
+       "copies / casts": 0.658,
+       "tcq scale+rotate": 0.564,
+       "other elementwise": 0.507,
+       "tcq rotate+quantize": 0.309,
+       "attention": 0.075,
+       "activation fn": 0.025
+      },
+      "launches_by_class": {
+       "copies / casts": 435,
+       "other elementwise": 380,
+       "matrix product": 76,
+       "tcq rotate+quantize": 72,
+       "tcq product": 72,
+       "tcq scale+rotate": 126,
+       "attention": 18,
+       "activation fn": 18
+      },
+      "top": [
+       [
+        "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, float, float, float",
+        0.718
+       ],
+       [
+        "k_gemm_w8",
+        0.684
+       ],
+       [
+        "k_post_f32_bf16",
+        0.564
+       ],
+       [
+        "k_pre_bf16",
+        0.309
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.235
+       ],
+       [
+        "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_32x32_128x2_nn_align2",
+        0.141
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 4, at::native::gpu_kernel_impl<at::native::Binary",
+        0.102
+       ],
+       [
+        "void at::native::elementwise_kernel<128, 2, at::native::gpu_kernel_impl_nocast<at::native:",
+        0.094
+       ],
+       [
+        "void at::native::vectorized_elementwise_kernel<4, at::native::bfloat16_copy_kernel_cuda(at",
+        0.089
+       ],
+       [
+        "void at::native::(anonymous namespace)::CatArrayBatchedCopy<at::native::(anonymous namespa",
+        0.08
+       ]
+      ]
+     }
+    }
+   },
+   "memory": {
+    "allocated": 2189388288,
+    "peak": 7706008064,
+    "reserved": 3107979264
+   }
+  }
+ }
+}
