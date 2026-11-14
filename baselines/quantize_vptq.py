@@ -30,7 +30,7 @@ from common import dump_json, sha256
 VECTOR_LEN = 4
 CENTROIDS = 256
 RESIDUAL_CENTROIDS = {1: 0, 2: 0, 3: 16}
-ONE_BIT = dict(vector_len=8, centroids=256)   # NON-OFFICIAL 1-bit structure v8-k256 (the VPTQ paper and README have nothing below 2 bits)
+ONE_BIT = dict(vector_len=4, centroids=16)   # NON-OFFICIAL 1-bit structure v4-k16 (the VPTQ paper and README have nothing below 2 bits)
 PERCDAMP = 0.01
 KMEANS_ITER = 100
 KMEANS_TOL = 1e-5
