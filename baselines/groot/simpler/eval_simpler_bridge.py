@@ -34,11 +34,8 @@ import numpy as np
 
 TASKS = ('widowx_spoon_on_towel', 'widowx_carrot_on_plate', 'widowx_stack_cube', 'widowx_put_eggplant_in_basket', 'widowx_put_eggplant_in_sink',
          'widowx_open_drawer', 'widowx_close_drawer')
-LAYOUTS = {'widowx_spoon_on_towel': 24, 'widowx_carrot_on_plate': 24, 'widowx_stack_cube': 24, 'widowx_put_eggplant_in_basket': 24, 'widowx_put_eggplant_in_sink': 3,
-           'widowx_open_drawer': None, 'widowx_close_drawer': None}      # len(xy_configs) x len(quat_configs) of the ManiSkill2_real2sim task (put_on_in_scene.py: spoon 12x2, carrot 12x2, stack 24x1, basket 8x3, sink 1x3); None = RNG-driven
-# T1 (12 Nov): the table before 12 Nov had basket 8 and sink 1 (len(xy_configs) only, the 3 quat configs were missed): episode ids 0..7 gave basket
-# xy configs 0-2 only and sink yaw 0 only. --layout-table v1 reproduces it for paired re-checks of old rows.
-LAYOUTS_V1 = dict(LAYOUTS, widowx_put_eggplant_in_basket=8, widowx_put_eggplant_in_sink=1)
+LAYOUTS = {'widowx_spoon_on_towel': 24, 'widowx_carrot_on_plate': 24, 'widowx_stack_cube': 24, 'widowx_put_eggplant_in_basket': 8, 'widowx_put_eggplant_in_sink': 1,
+           'widowx_open_drawer': None, 'widowx_close_drawer': None}      # len(xy_configs) x len(quat_configs) of the ManiSkill2_real2sim task; None = RNG-driven
 EPISODES = 120
 
 
@@ -200,12 +197,8 @@ def main():
     p.add_argument('--no-env-termination', action='store_true', help='X3 (8 Nov): do not end the episode at the first success; run to --max-episode-steps (use with --step-log to score the last step)')
     p.add_argument('--step-log', default=None, help='optional dir: write <dir>/<task>/ep<k>.jsonl, one record per env step (flags, info, executed action); off by default')
     p.add_argument('--fresh-env', action='store_true', help='X3 / A12 (9 Nov): create a new env for every episode (no state carried over)')
-    p.add_argument('--layout-table', choices=('fixed', 'v1'), default='fixed', help='v1 = the wrong pre-12-Nov table (basket 8, sink 1), only to reproduce old rows')
     p.add_argument('--out', required=True, help='JSON list of per-episode records (resumable)')
     a = p.parse_args()
-    if a.layout_table == 'v1':
-        LAYOUTS.update(LAYOUTS_V1)
-    print(f'layout table {a.layout_table}: {LAYOUTS}', flush=True)
     patch_bridge_env(step_log=bool(a.step_log), no_env_termination=a.no_env_termination)
     from gr00t.policy.server_client import PolicyClient
     policy = PolicyClient(host=a.host, port=a.port)

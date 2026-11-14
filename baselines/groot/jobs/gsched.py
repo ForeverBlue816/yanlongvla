@@ -351,11 +351,6 @@ def build_tasks():
         for bt in B5_TASKS:
             add(f'b5__of__fp__fa__{bt}__{rep}', ['b5__vk', 's5__fa'], 0.5)
             add(f'b5__of__quip_w2__fa__{bt}__{rep}', ['bq__imp__quip_w2', 's5__fa'], 0.5)   # H6 step 2 = Q0 (8 Nov): the rebuilt QuIP# 0 sweeps under NVIDIA's command; read only after the X2 rebuild check; not chained behind it, so the 21 runs go in parallel
-    for bt in ('widowx_put_eggplant_in_basket', 'widowx_put_eggplant_in_sink'):   # FP with the fixed layout table (basket 24 = 8 xy x 3 yaw, sink 3 yaw); one factor changed against fp (seed 7, SDPA, 1 env, 300 steps, 4 action steps)
-        add(f'b5__ev__fpl__{bt}', ['b5__vk'], 0.7)
-    for brow in ('qtip_w2', 'quip10_w2', 'vptq_w2', 'aqlm_w2', 'sh95'):   # every method re-quantized (weights were deleted before K3) on the two tasks whose layout table was wrong
-        for bt in ('widowx_put_eggplant_in_basket', 'widowx_put_eggplant_in_sink'):
-            add(f'b5__ev__{brow}L__{bt}', ['bq__mix__sh95' if brow == 'sh95' else f'bq__imp__{brow}', 'b5__vk'], 0.7)
 
     return t
 

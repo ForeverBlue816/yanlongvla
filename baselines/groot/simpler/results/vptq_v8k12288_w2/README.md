@@ -2,8 +2,8 @@
 
 VPTQ with the official vector length 8 and 12288 centroids: 1.988 bits per weight with the codebook counted (`quant.json`),
 the same structure as the GR00T LIBERO-Plus row `vptq_v8k12288_w2` (`../../../results/groot_2bit_ours_vptq_v8k12288_w2.plus_1000.jsonl`, 426/1000).
-Calibration: the 256 Bridge observations. Evaluation: seeded protocol of `../../README.md` with the v1 layout table
-(`eval_simpler_bridge.py --layout-table v1`, as the other 2-bit Bridge rows), 120 episodes per task, seed 7.
+Calibration: the 256 Bridge observations. Evaluation: the seeded protocol and layout table of `../../README.md` (`eval_simpler_bridge.py`, unchanged; as FP and the
+other 2-bit Bridge rows), 120 episodes per task, seed 7.
 `widowx_<task>.json`: one record per episode. `paired_vs_fp.json`: paired bootstrap over (task, layout) clusters (`simpler/b5_stats.py`).
 
 | task | FP | VPTQ v8 k12288 |

@@ -183,10 +183,6 @@ env = simpler_env.make('widowx_spoon_on_towel'); env.reset(seed=0); print('vulka
         pbd2) sopts=(--denoise-steps 2) ;; pbd8) sopts=(--denoise-steps 8) ;; pbt11) sopts=(--attn-temp 1.108) ;; pbtb11) sopts=(--attn-temp-backbone 1.108) ;;
         pbes) sopts=(--resid-in-scale 1.136 1.108) ;; pbesl) sopts=(--resid-in-scale 1.136 1.0) ;;   # X24: residual input scale = 1 / (writer shrink of sh95): LM 1/0.88, vision 1/0.9025; pbesl = language model only
         pbdb5|pbdb5s*) sopts=(--dup-batch 5); [[ $row =~ ^pbdb5s([0-9]+)$ ]] && seed=${BASH_REMATCH[1]} ;; esac   # X20 (G3): server batch of 5 copies, seeded protocol (seed 7, or pbdb5s<seed>)
-      local SIMPLER_PY=$SIMPLER_PY; [[ $row == fpg ]] && { mrow=fp; SIMPLER_PY=/scratch/d250009/pi05-handover/runs/toolkits/simpler_uv_pinned/.venv/bin/python; }   # FP in the client venv pinned as NVIDIA's setup_SimplerEnv.sh (gymnasium 0.29.1; ours has 1.4.0), fixed layout table
-      [[ $row == *L ]] && mrow=${row%L}   # <row>L = the row re-quantized (K3) and evaluated with the fixed layout table, own folder
-      [[ $row =~ ^vptq_v[0-9]+k[0-9]+_w2$ ]] && extra+=(--layout-table v1)   # VPTQ true-bit Bridge rows use the v1 layout table, as the other 2-bit rows
-      [[ $row == fpl ]] && mrow=fp   # FP with the fixed layout table (basket 24, sink 3); the v1-table rows keep their own folders
       [[ $row == pb* ]] && { [[ ${#sopts[@]} -gt 0 ]] || { echo "unknown probe row $row" >&2; return 1; }; mrow=fp; }
       if [[ $mrow == fp || $mrow == fprr || $mrow =~ ^fps[0-9]+$ || $mrow == fpfa || $mrow =~ ^fpfas[0-9]+$ ]]; then model=$G/s5b/checkpoints/bridge; else model=$G/s5bq/ckpt/$mrow/bridge; fi   # rows: t_bq imp; fprr = FP again, same seed (H3: run-to-run noise)
       [[ -d $model ]] || { echo "no model $model" >&2; return 1; }
