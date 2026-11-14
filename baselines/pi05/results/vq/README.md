@@ -5,7 +5,7 @@ Per-row folders: `quant.json` (structure, bits per weight with codebooks and sca
 (2nd 1000 = added units) and `paired_stats/` (paired bootstrap 95% CIs; `libero_vs_original_fp`, `plus_1000_vs_original_fp`,
 `plus_2000_vs_original_2bit_expanded`). Tables: `python3 baselines/jobs/experiments/report_tables.py <run folder>`.
 A `-` is a part that has not finished; `vptq_v8k14080_w2` and `vptq_v8k13824r256_w3` are still being evaluated
-(their `quant.json` is final), and `vptq_v4k16_w1` LIBERO-10 is running. The 2- and 3-bit rows of the other methods are in the earlier tables.
+(their `quant.json` is final). The 2- and 3-bit rows of the other methods are in the earlier tables.
 
 ## Settings
 
@@ -41,7 +41,7 @@ bits per weight once the codebook is counted. The v4 rows (`vptq_w2` v4 k256, `v
 | AQLM 1-bit, 1x8g8 | 1.0122 | 2.1097 | 350 | 148 | 103 | 5 | 606 | -66.1 [-74.5, -57.1] |
 | QuIP# 1-bit, E81B (256-point E8) (NON-OFFICIAL) | 1.0172 | 2.1138 | 278 | 126 | 92 | 0 | 496 | -71.6 [-79.5, -63.0] |
 | VPTQ 1-bit, v8 k256 (NON-OFFICIAL) | 1.0050 | 2.1040 | 0 | 0 | 0 | 0 | 0 | -96.4 [-98.3, -93.8] |
-| VPTQ 1-bit, v4 k16 (NON-OFFICIAL) | 1.0002 | 2.1000 | 0 | 0 | 0 | - | - | - |
+| VPTQ 1-bit, v4 k16 (NON-OFFICIAL) | 1.0002 | 2.1000 | 0 | 0 | 0 | 0 | 0 | -96.4 [-98.3, -93.8] |
 | QTIP 2-bit, default recipe | 2.0237 | 2.9255 | 493 | 498 | 489 | 471 | 1951 | +1.1 [-0.5, +3.2] |
 | VPTQ 2-bit, v4 k256 | 2.0025 | 2.9084 | 492 | 493 | 490 | 465 | 1940 | +0.6 [-1.4, +3.0] |
 | VPTQ 2-bit, v8 k14080 | 1.9986 | 2.9052 | - | - | - | - | - | - |
@@ -69,6 +69,6 @@ bits per weight once the codebook is counted. The v4 rows (`vptq_w2` v4 k256, `v
 | AQLM 2-bit, 2x8g8 | 639 | -12.6 [-17.9, -7.4] | 589 | 1228 | -6.7 [-9.9, -3.2] |
 | QTIP 3-bit, default recipe | 755 | -1.0 [-4.2, +2.1] | 704 | 1459 | +4.9 [+0.7, +9.0] |
 | VPTQ 3-bit, v4 k256 + r16 | 753 | -1.2 [-4.7, +2.0] | 710 | 1463 | +5.1 [+1.7, +8.5] |
-| VPTQ 3-bit, v8 k13824 + r256 | - | - | - | - | - |
+| VPTQ 3-bit, v8 k13824 + r256 | 749 | -1.6 [-4.8, +1.5] | - | - | - |
 | QuIP# 3-bit, 10 sweeps | 746 | -1.9 [-4.7, +0.9] | 710 | 1456 | +4.8 [+1.3, +8.4] |
 | AQLM 3-bit, default recipe | 746 | -1.9 [-5.1, +1.1] | 704 | 1450 | +4.5 [+1.3, +7.7] |
