@@ -50,6 +50,7 @@ def main():
     p.add_argument('--episodes', type=int, default=50)
     p.add_argument('--suites', nargs='+', default=list(SUITES))
     p.add_argument('--out', required=True, help='directory; one <suite>.jsonl per suite')
+    p.add_argument('--tasks', type=int, nargs='+', default=None, help='only these task ids (for splitting a suite over jobs); output <suite>.task<k>.jsonl per task (env.seed reseeds numpy per task, so results equal the full-suite run)')
     a = p.parse_args()
     from libero.libero import benchmark, get_libero_path
     from libero.libero.envs import OffScreenRenderEnv
@@ -60,13 +61,13 @@ def main():
     for suite_name in a.suites:
         np.random.seed(a.seed)
         suite = benchmark.get_benchmark_dict()[suite_name]()
-        path = out / f'{suite_name}.jsonl'
-        done_keys = set()
-        if path.exists():
-            for line in path.read_text().splitlines():
-                r = json.loads(line)
-                done_keys.add((r['task'], r['episode']))
-        for task_id in range(suite.n_tasks):
+        for task_id in (a.tasks if a.tasks is not None else range(suite.n_tasks)):
+            path = out / (f'{suite_name}.task{task_id}.jsonl' if a.tasks is not None else f'{suite_name}.jsonl')
+            done_keys = set()
+            if path.exists():
+                for line in path.read_text().splitlines():
+                    r = json.loads(line)
+                    done_keys.add((r['task'], r['episode']))
             task = suite.get_task(task_id)
             states = suite.get_task_init_states(task_id)
             assert a.episodes <= len(states)

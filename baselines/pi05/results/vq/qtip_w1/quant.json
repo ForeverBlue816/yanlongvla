@@ -1,0 +1,42 @@
+{
+  "method": "qtip_bitshift_l16k1v2",
+  "bits_nominal": 1,
+  "linear_payload_bytes": 344680056,
+  "quantizable_linear_bpw": 1.019648023759866,
+  "whole_model_bpw": 2.115766488566082,
+  "retained_bytes": 542205320,
+  "active_original_elements": 3353433872,
+  "convention": "all stored tensors counted; retained tensors at deployable dtypes (int8 embedding, BF16 norms/projections, FP32 tables); denominator = active original elements with both language heads removed",
+  "backbone_bits": 1,
+  "expert_bits": 1,
+  "qtip_commit": "e90c6688c8dfae326a3a81b5eb032db7c6680ec0",
+  "qtip_settings": {
+    "codebook": "bitshift",
+    "L": 16,
+    "K": 1,
+    "V": 2,
+    "td_x": 16,
+    "td_y": 16,
+    "decode_mode": "quantlut_sym",
+    "tlut_bits": 9,
+    "scale_override": 0.9,
+    "sigma_reg": 0.01
+  },
+  "padding": {
+    "4304": 4480
+  },
+  "seed": "torch.manual_seed(0) before each layer",
+  "calibration_index_sha256": "b603e07144e64b7d655568878cc94af20701715a1a46e83567bc43feb85d73b8",
+  "payload_rule": "packed trellis (K=1 bits per weight) incl. padded rows/columns + FP16 SU and SV + FP32 Wscale + FP16 512x2 lookup table, per layer",
+  "notes": "pure PTQ, no layer-wise or end-to-end fine-tuning; official QTIP per-layer quantization (RHT + LDLQ, bitshift trellis) on the shared per-layer Hessians; the official layer and end-to-end fine-tuning are not run",
+  "exact_command": "quantize_qtip.py --layers /home/d250009/projects/pi05-handover/runs/readme_baselines/layers --calibration /home/d250009/projects/pi05-handover/runs/readme_baselines/calibration --checkpoint /home/d250009/projects/pi05-handover/runs/checkpoints/pi05_libero_pytorch --qtip-repo /home/d250009/projects/pi05-handover/runs/toolkits/qtip --bits 1 --out /home/d250009/projects/pi05-handover/runs/readme_baselines/qtip_layers/qtip_w1",
+  "external_accounting": "/home/d250009/projects/pi05-handover/runs/readme_baselines/qtip_layers/qtip_w1/accounting.json",
+  "hessian_damping": {
+    "fraction_of_mean_diagonal": 0.01
+  },
+  "replaced_layers": 414,
+  "checkpoint_sha256": "9ec5affee92d39620643c7c249bcc4e048884db10edd9c70ef2ccb49042ae1fa",
+  "source_checkpoint_sha256": "1869ec96c513899e96f7179ed65f1dd96aa0ed05c0301116be30ec5cc8579a3d",
+  "source_snapshot": "/home/d250009/projects/pi05-handover/runs/readme_baselines/source_20261112_210934",
+  "baseline_git_head": "8b69ebc6d4ea262ef8d4f8b3b2b8778436753752"
+}

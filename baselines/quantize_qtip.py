@@ -31,7 +31,7 @@ from common import dump_json, sha256
 PAD_TO = {4304: 4480}
 # 2 bits: the official example.sh (K 2, scale_override 0.9). 3 bits: the same recipe with K 3 and the default scale (the QuIP#
 # README advises default scales above 2 bits; QTIP's example.sh only shows 2 bits)
-SCALE_OVERRIDE = {2: 0.9, 3: 1.0}
+SCALE_OVERRIDE = {1: 0.9, 2: 0.9, 3: 1.0}   # 1 bit: NON-OFFICIAL; QTIP has no LLM recipe below 2 bits, 0.9 copied from the 2-bit recipe (our choice)
 SETTINGS = dict(codebook='bitshift', L=16, K=2, V=2, td_x=16, td_y=16, decode_mode='quantlut_sym', tlut_bits=9,
                 scale_override=0.9, sigma_reg=1e-2)
 
@@ -94,10 +94,11 @@ def main():
     p.add_argument('--checkpoint', required=True)
     p.add_argument('--qtip-repo', required=True, help='official QTIP checkout (github.com/Cornell-RelaxML/qtip)')
     p.add_argument('--out', required=True)
-    p.add_argument('--bits', type=int, choices=(2, 3), default=2, help='trellis bits per weight K')
+    p.add_argument('--scale-override', type=float, default=None, help='override the recipe scale (default: SCALE_OVERRIDE[bits])')
+    p.add_argument('--bits', type=int, choices=(1, 2, 3), default=2, help='trellis bits per weight K (1 = NON-OFFICIAL, no fast kernel: has_kernel is False for K < 2)')
     p.add_argument('--only', nargs='+', help='quantize only layers whose name contains one of these strings (tests)')
     a = p.parse_args()
-    SETTINGS.update(K=a.bits, scale_override=SCALE_OVERRIDE[a.bits])
+    SETTINGS.update(K=a.bits, scale_override=SCALE_OVERRIDE[a.bits] if a.scale_override is None else a.scale_override)
     import lib
     from lib.codebook import bitshift
     from lib import utils

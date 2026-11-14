@@ -121,6 +121,12 @@ assert done == len(keys), (done, len(keys))
 shutil.rmtree(out, ignore_errors=True); part.rename(out); print('scaled', done, 'tensors into', out)
 PY
       ;;
+    wf75mk)   # X28 (10 Nov): Fractal checkpoint moved 25% of the way back to the pretrained base (alpha 0.75, 432 weights), sharded; wise.py
+      "$PY_G" "$SRC/groot/wise.py" --source "$S5/checkpoints/fractal" --base "$G/base/GR00T-N1.7-3B" --error-json "$G/s5bq/perturb/aqlm_w2_error.json" --alpha 0.75 --out "$S5/ckpt_wf75/fractal" ;;
+    wf75_*)   # X28: wf75 on one Google Robot family, seed 7, 100 episodes (as fp_* and sh95_*)
+      s5_run "$S5/ckpt_wf75/fractal" "${step#wf75_}" "$S5/eval/wf75" 7 ;;
+    wf75big_*)   # X28: wf75, 500 seeded episodes, flash-attn (as fpbig and sh95big)
+      S5_NEP=500 FA_SITE=$HANDOVER/runs/envs/flash-attn s5_run "$S5/ckpt_wf75/fractal" "${step#*_}" "$S5/eval/wf75_big" 7 ;;
     sh95_*)   # W6: 0.95 W on one Google Robot family, seed 7, 100 episodes (as fp_*, SDPA)
       s5_run "$S5/ckpt_sh95/fractal" "${step#sh95_}" "$S5/eval/sh95" 7 ;;
     sh95big_*)   # W6: 0.95 W, 500 seeded episodes, flash-attn (as fpbig)
@@ -177,6 +183,10 @@ env = simpler_env.make('widowx_spoon_on_towel'); env.reset(seed=0); print('vulka
         pbd2) sopts=(--denoise-steps 2) ;; pbd8) sopts=(--denoise-steps 8) ;; pbt11) sopts=(--attn-temp 1.108) ;; pbtb11) sopts=(--attn-temp-backbone 1.108) ;;
         pbes) sopts=(--resid-in-scale 1.136 1.108) ;; pbesl) sopts=(--resid-in-scale 1.136 1.0) ;;   # X24: residual input scale = 1 / (writer shrink of sh95): LM 1/0.88, vision 1/0.9025; pbesl = language model only
         pbdb5|pbdb5s*) sopts=(--dup-batch 5); [[ $row =~ ^pbdb5s([0-9]+)$ ]] && seed=${BASH_REMATCH[1]} ;; esac   # X20 (G3): server batch of 5 copies, seeded protocol (seed 7, or pbdb5s<seed>)
+      local SIMPLER_PY=$SIMPLER_PY; [[ $row == fpg ]] && { mrow=fp; SIMPLER_PY=/scratch/d250009/pi05-handover/runs/toolkits/simpler_uv_pinned/.venv/bin/python; }   # FP in the client venv pinned as NVIDIA's setup_SimplerEnv.sh (gymnasium 0.29.1; ours has 1.4.0), fixed layout table
+      [[ $row == *L ]] && mrow=${row%L}   # <row>L = the row re-quantized (K3) and evaluated with the fixed layout table, own folder
+      [[ $row =~ ^vptq_v[0-9]+k[0-9]+_w2$ ]] && extra+=(--layout-table v1)   # VPTQ true-bit Bridge rows use the v1 layout table, as the other 2-bit rows
+      [[ $row == fpl ]] && mrow=fp   # FP with the fixed layout table (basket 24, sink 3); the v1-table rows keep their own folders
       [[ $row == pb* ]] && { [[ ${#sopts[@]} -gt 0 ]] || { echo "unknown probe row $row" >&2; return 1; }; mrow=fp; }
       if [[ $mrow == fp || $mrow == fprr || $mrow =~ ^fps[0-9]+$ || $mrow == fpfa || $mrow =~ ^fpfas[0-9]+$ ]]; then model=$G/s5b/checkpoints/bridge; else model=$G/s5bq/ckpt/$mrow/bridge; fi   # rows: t_bq imp; fprr = FP again, same seed (H3: run-to-run noise)
       [[ -d $model ]] || { echo "no model $model" >&2; return 1; }
@@ -194,7 +204,7 @@ env = simpler_env.make('widowx_spoon_on_towel'); env.reset(seed=0); print('vulka
       [[ $rc -eq 0 ]] && python3 -c "import json,sys; r=json.load(open('$out/$task.json')); sys.exit(0 if len(r) >= 120 else 1)" || return 1
       if [[ $row != fp* && $task == widowx_spoon_on_towel ]]; then   # sanity gate of a 2-bit row (FP 101 of 120): 5% or less stops the row and frees its checkpoint
         python3 -c "import json,sys; r=json.load(open('$out/$task.json')); sys.exit(0 if sum(bool(x['success']) for x in r) / len(r) > 0.05 else 1)" \
-          || { echo "spoon_on_towel at 5% or less: row stopped by the gate" > "$G/stopped/b5_$row"; rm -rf "$G/s5bq/ckpt/$row"; }
+          || { echo "spoon_on_towel at 5% or less: row stopped by the gate" > "$G/stopped/b5_$row"; keep_ckpt "$G/s5bq/ckpt/$row"; }
       fi ;;
     of)   # GOAL v7 B1 (H6): NVIDIA's own Bridge command (run_gr00t_server --use-sim-policy-wrapper, rollout_policy, 100 episodes, 5 async envs, n-action-steps 4, no seed); b5__of__<row>__<fa|sdpa>__<task>__r<k>
       local attn rep; t=${t#of__}; row=${t%%__*}; t=${t#*__}; attn=${t%%__*}; t=${t#*__}; task=${t%%__*}; rep=${t#*__}

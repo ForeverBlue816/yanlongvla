@@ -99,7 +99,7 @@ def main():
     p.add_argument('--calibration', required=True)
     p.add_argument('--checkpoint', required=True)
     p.add_argument('--aqlm-repo', required=True, help='official AQLM checkout (github.com/Vahe1994/AQLM)')
-    p.add_argument('--bits', type=int, choices=(2, 3), required=True)
+    p.add_argument('--bits', type=int, choices=(1, 2, 3), required=True, help='number of 8-bit codebooks (Kx8g8); 1 = the official 1-bit 1x8g8 of the AQLM README')
     p.add_argument('--out', required=True)
     p.add_argument('--max-layers', type=int, help='stop after this many layers (tests)')
     p.add_argument('--only', nargs='+', help='quantize only layers whose name contains one of these strings (tests)')

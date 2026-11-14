@@ -1,0 +1,26 @@
+{
+  "instances": 1000,
+  "unmatched_candidate_instances": 0,
+  "candidate_successes": 0,
+  "reference_successes": 704,
+  "difference_pp": -70.39999999999999,
+  "paired_difference_ci95_pp": [
+    -77.7290442950345,
+    -63.163415929750656
+  ],
+  "paired_improvements": 0,
+  "paired_regressions": 704,
+  "per_category": {
+    "Camera Viewpoints": {
+      "instances": 500,
+      "candidate": 0,
+      "reference": 346
+    },
+    "Robot Initial States": {
+      "instances": 500,
+      "candidate": 0,
+      "reference": 358
+    }
+  },
+  "method": "paired suite-stratified base-task/instance bootstrap, 2000 draws, seed 20260930, pointwise 95%, conditional on evaluation seed 7, no multiplicity adjustment"
+}

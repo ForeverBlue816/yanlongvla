@@ -225,7 +225,7 @@ def build_tasks():
         for bt in ('widowx_carrot_on_plate', 'widowx_stack_cube'):
             add(f'b5__ev__{brow}__{bt}', [f'bq__imp__{brow}', 'b5__vk'], 0.7)
         add(f'bq__fin__{brow}', [f'b5__ev__{brow}__{bt}' for bt in ('widowx_carrot_on_plate', 'widowx_stack_cube')], 0.1)
-    for brow in BQ_ROWS + ('quip10_w2',):   # quip10_w2: A15 (9 Nov), the 10-sweeps QuIP# row next to the 0-sweeps headline row
+    for brow in BQ_ROWS + ('quip10_w2', 'vptq_v8k12288_w2'):   # quip10_w2: A15 (9 Nov), the 10-sweeps QuIP# row next to the 0-sweeps headline row; vptq_v8k12288_w2: VPTQ v8 at true 2 bits per weight
         meth = brow.split('_')[0]
         for k in BQ_KEYS:
             add(f'bq__qk__{brow}__{k}', ['bq__cal'], (AQLM_EST['backbone'] if k == 'backbone' else AQLM_EST['head_libero_spatial']) if meth == 'aqlm' else EST['qk'] * (2 if k == 'backbone' else 1), attempts=8 if meth == 'aqlm' else 4)
@@ -261,6 +261,10 @@ def build_tasks():
         add(f'bq__fin__{mx}', [f'b5__ev__{mx}__{bt}' for bt in ('widowx_carrot_on_plate', 'widowx_stack_cube')], 0.1)
     for k in (1, 2):   # GOAL v8 X17 (G1): Fractal open_drawer with one env, no seed (2 repeats), and 500 seeded episodes
         add(f's5__fp1e{k}_open_drawer', ['s5__ckpt', 's5__env', 's5__fa'], 2.0)
+    add('s5__wf75mk', ['s5__ckpt'], 0.3)   # X28 (10 Nov): WiSE-FT alpha 0.75 on Fractal (base nvidia/GR00T-N1.7-3B on scratch), 6 families (seed 7) and open_drawer 500 seeded episodes
+    for fam in ('place_in_closed_drawer', 'open_drawer', 'close_drawer', 'pick_coke_can', 'move_near', 'pick_object'):
+        add(f's5__wf75_{fam}', ['s5__wf75mk', 's5__env'], 1.0)
+    add('s5__wf75big_open_drawer', ['s5__wf75mk', 's5__env', 's5__fa'], 3.5)
     add('s5__sh95mk', ['s5__ckpt'], 0.3)   # W6 (9 Nov): 0.95 W on Fractal, all 6 families (seed 7, as fp_*) and open_drawer with 500 seeded episodes (as fpbig)
     for fam in ('place_in_closed_drawer', 'open_drawer', 'close_drawer', 'pick_coke_can', 'move_near', 'pick_object'):
         add(f's5__sh95_{fam}', ['s5__sh95mk', 's5__env'], 1.0)
@@ -292,6 +296,23 @@ def build_tasks():
     for fe in ('fe1', 'fe2', 'fent1'):   # X3 / A12 (9 Nov): with a new env per episode, are two runs bit-identical (fe1 vs fe2) and is --no-env-termination identical before the first success (fe1 vs fent1)?
         for bt in ('widowx_carrot_on_plate', 'widowx_put_eggplant_in_basket'):
             add(f'b5__ev__{fe}__{bt}', ['b5__vk'], 1.0)
+    for wrow in ('wf90', 'wf75', 'wf50'):   # B3 (10 Nov): WiSE-FT, Bridge checkpoint x pretrained N1.7 base, alpha 0.9 / 0.75 / 0.5, carrot + stack_cube
+        add(f'bq__mix__{wrow}', ['bq__imp__quip_w2'], 0.2)
+        for bt in ('widowx_carrot_on_plate', 'widowx_stack_cube'):
+            add(f'b5__ev__{wrow}__{bt}', [f'bq__mix__{wrow}', 'b5__vk'], 0.7)
+        wtasks = ['widowx_carrot_on_plate', 'widowx_stack_cube']
+        if wrow == 'wf75':   # H10 (10 Nov, pre-registered): wf75 on all 7 tasks
+            wtasks = list(B5_TASKS)
+            for bt in B5_TASKS:
+                if bt not in ('widowx_carrot_on_plate', 'widowx_stack_cube'):
+                    add(f'b5__ev__{wrow}__{bt}', [f'bq__mix__{wrow}', 'b5__vk'], 0.7)
+        add(f'bq__fin__{wrow}', [f'b5__ev__{wrow}__{bt}' for bt in wtasks], 0.1)
+    for orow in ('orbb', 'orhd'):   # B4 (10 Nov): the orthogonal QuIP# error (no weight shrink) on the backbone only / the action head only; carrot, stack_cube, basket
+        ot = ['widowx_carrot_on_plate', 'widowx_stack_cube', 'widowx_put_eggplant_in_basket']
+        add(f'bq__mix__{orow}', ['bq__imp__quip_w2'], 0.2)
+        for bt in ot:
+            add(f'b5__ev__{orow}__{bt}', [f'bq__mix__{orow}', 'b5__vk'], 0.7)
+        add(f'bq__fin__{orow}', [f'b5__ev__{orow}__{bt}' for bt in ot], 0.1)
     add('bq__mix__s6bb84', ['bq__imp__quip_w2'], 0.2)   # S6 (9 Nov): AQLM shrinks the backbone by c = -0.156 (QuIP# -0.054); does a plain 0.84 W on the backbone give AQLM's pattern (spoon -46, basket +25)?
     s6 = ['widowx_spoon_on_towel', 'widowx_carrot_on_plate', 'widowx_stack_cube', 'widowx_put_eggplant_in_basket']
     for bt in s6:
@@ -330,6 +351,11 @@ def build_tasks():
         for bt in B5_TASKS:
             add(f'b5__of__fp__fa__{bt}__{rep}', ['b5__vk', 's5__fa'], 0.5)
             add(f'b5__of__quip_w2__fa__{bt}__{rep}', ['bq__imp__quip_w2', 's5__fa'], 0.5)   # H6 step 2 = Q0 (8 Nov): the rebuilt QuIP# 0 sweeps under NVIDIA's command; read only after the X2 rebuild check; not chained behind it, so the 21 runs go in parallel
+    for bt in ('widowx_put_eggplant_in_basket', 'widowx_put_eggplant_in_sink'):   # FP with the fixed layout table (basket 24 = 8 xy x 3 yaw, sink 3 yaw); one factor changed against fp (seed 7, SDPA, 1 env, 300 steps, 4 action steps)
+        add(f'b5__ev__fpl__{bt}', ['b5__vk'], 0.7)
+    for brow in ('qtip_w2', 'quip10_w2', 'vptq_w2', 'aqlm_w2', 'sh95'):   # every method re-quantized (weights were deleted before K3) on the two tasks whose layout table was wrong
+        for bt in ('widowx_put_eggplant_in_basket', 'widowx_put_eggplant_in_sink'):
+            add(f'b5__ev__{brow}L__{bt}', ['bq__mix__sh95' if brow == 'sh95' else f'bq__imp__{brow}', 'b5__vk'], 0.7)
 
     return t
 
