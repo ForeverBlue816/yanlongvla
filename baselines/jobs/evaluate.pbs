@@ -75,7 +75,7 @@ quantize() {   # quantize <row>
     rtn) "$PY" quantize.py --method rtn --bits "$bits" --group 128 --checkpoint "$BASE_CKPT" --out "$ckpt" ;;
     gptq|awq) "$PY" quantize.py --method "$method" --bits "$bits" --group 128 --checkpoint "$BASE_CKPT" --calibration "$CALIBRATION" --out "$ckpt" ;;
     gptq_best) "$PY" quantize.py --method gptq --select --bits "$bits" --group 128 --checkpoint "$BASE_CKPT" --calibration "$CALIBRATION" --out "$ckpt" ;;   # GOAL 1 Nov 1.1: per layer the best official-option variant
-    vptq|vptq_v*)   # vptq_v<L>k<K>[r<R>]_w<b>: other true-b-bit structures, e.g. vptq_v8k14080_w2, vptq_v8k13824r256_w3, vptq_v4k16_w1
+    vptq|vptq_v*)   # vptq_v<L>k<K>[r<R>]_w<b>: other true-b-bit structures, e.g. vptq_v4k16_w1
       local vopt=(); if [[ $method =~ ^vptq_v([0-9]+)k([0-9]+)(r([0-9]+))?$ ]]; then vopt=(--vector-len "${BASH_REMATCH[1]}" --centroids "${BASH_REMATCH[2]}" --residual "${BASH_REMATCH[4]:-0}"); fi
       [[ "$(git -C "$VPTQ_REPO" rev-parse HEAD)" == 5a8dfb93d2a7475151f66c559a44e057fe5322f9 ]] || { echo "VPTQ commit changed" >&2; return 3; }
       # cuml (VPTQ's k-means) loads the CUDA math libraries of the openpi venv and the RAPIDS libraries of the VPTQ env

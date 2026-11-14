@@ -5,14 +5,13 @@ import glob, json, os, sys
 
 RUN = sys.argv[1] if len(sys.argv) > 1 else '/home/d250009/projects/pi05-handover/runs/readme_baselines'
 SUITES = ('libero_spatial', 'libero_object', 'libero_goal', 'libero_10')
-NON_OFFICIAL = {'qtip_w1', 'vptq_w1', 'quip_w1', 'vptq_v4k16_w1'}   # no official 1-bit recipe: closest-to-official setting
+NON_OFFICIAL = {'qtip_w1', 'vptq_v4k16_w1', 'quip_w1'}   # no official 1-bit recipe: closest-to-official setting
 LABEL = {'qtip': 'QTIP', 'quip': 'QuIP#', 'vptq': 'VPTQ', 'aqlm': 'AQLM', 'gptq': 'GPTQ', 'awq': 'AWQ', 'rtn': 'RTN', 'fp': 'FP'}
-STRUCT = {'vptq_w1': 'v8 k256', 'vptq_w2': 'v4 k256', 'vptq_w3': 'v4 k256 + r16', 'vptq_v8k14080_w2': 'v8 k14080',
-          'vptq_v8k13824r256_w3': 'v8 k13824 + r256', 'vptq_v4k16_w1': 'v4 k16', 'aqlm_w1': '1x8g8', 'aqlm_w2': '2x8g8',
+STRUCT = {'vptq_w2': 'v4 k256', 'vptq_w3': 'v4 k256 + r16', 'vptq_v4k16_w1': 'v4 k16', 'aqlm_w1': '1x8g8', 'aqlm_w2': '2x8g8',
           'quip_w1': 'E81B (256-point E8)', 'qtip_w1': 'K=1', 'quip_w2': '10 sweeps', 'quip_w3': '10 sweeps'}
-ROWS = ['qtip_w1', 'aqlm_w1', 'quip_w1', 'vptq_w1', 'vptq_v4k16_w1',
-        'qtip_w2', 'vptq_w2', 'vptq_v8k14080_w2', 'quip_w2', 'aqlm_w2',
-        'qtip_w3', 'vptq_w3', 'vptq_v8k13824r256_w3', 'quip_w3', 'aqlm_w3']
+ROWS = ['qtip_w1', 'aqlm_w1', 'quip_w1', 'vptq_v4k16_w1',
+        'qtip_w2', 'vptq_w2', 'quip_w2', 'aqlm_w2',
+        'qtip_w3', 'vptq_w3', 'quip_w3', 'aqlm_w3']
 
 
 def count(path, n):
