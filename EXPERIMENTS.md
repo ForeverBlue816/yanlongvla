@@ -2183,3 +2183,29 @@ observations bit-identical to the PyTorch W2A8 reference for all three operating
 0.89× / 0.90× (on the fly) of FP at 10 / 2 steps, i.e. no speed-up on that card. Kernel code published in the public report repository
 (user 2026-11-14). No LIBERO-Plus number exists for this model with 8-bit activations; none queued.
 
+
+### E220 — π₀.₅ 2-bit main row on standard LIBERO: 1951 / 2000 (2026-11-14 20:07 UTC)
+User 2026-11-14: the four standard-LIBERO suites of the π₀.₅ main row. Did not exist for the 2-bit row (only the 1-bit rows, E216a).
+`tcq_raqft_d1`, 4 suites × 10 tasks × 50 episodes, seed 7, job 1739200 (RTX 6000 Ada, 3 h 56 min), `scripts/pi05_libero.py` (the Lambda
+script): **1951 / 2000 = 97.55 %**; Spatial 492, Object 496, Goal 489, LIBERO-10 474 (FP 491 / 494 / 484 / 459 = 1928). Paired with FP
+(`runs/g0`): +1.15 [−0.30, +3.00] pp; without LIBERO-10 tasks 8, 9: 1864 vs 1855 / 1900, +0.47 [−0.58, +1.47]. Lowest tasks:
+LIBERO-10 task 8 40 / 50, Spatial task 4 45 / 50. Files: `runs/plustrain_20261008/pi05_tcq/libero/tcq_raqft_d1/full/`; public
+`baselines/pi05/results/pi05_2bit_ours_tcq_raqft_d1.libero_full{.jsonl,.json,_vs_fp.json}`.
+
+### E221 — SimplerEnv-Bridge: fine-tune re-run with other hyper-parameters, on this cluster (started 2026-11-15 06:25 UTC)
+User 2026-11-15: the main row's fine-tune probably fails on Bridge because of its settings; re-run the fine-tune and test.
+What the Lambda run showed (E216): held-out L_readout 10,347 → 10,196 (−1.5 %) against −17 % for the same recipe on LIBERO
+(10,281 → 8,523); β·L_vel ≈ 15,500 against L_readout ≈ 10,300 (LIBERO 6,300 against 10,300); 22 skipped steps; main row − base
+−3.7 pp. The per-update history of that run is on the Lambda machine only.
+Rebuild here (the Lambda fits are not on this cluster): clean row `tcq_w2_rht` (Bridge calibration Hessians 275756) → H_D with the 256
+on-policy states of the Lambda run (`baselines/groot/simpler/main_row/data/onpolicy_rinit.tar`, not re-captured) → base
+`tcq_w2_rht_d1` → fine-tune variants (`groot_simpler_main.py --stage finetune --tag`, rows `tcq_raqft_d1_s<tag>`):
+  `''`      original settings (control; tables / norms 2e-5, log row scales 1e-4)
+  `_lr3`    the three learning rates × 3
+  `_lr10`   the three learning rates × 10
+  `_lr3op`  × 3, and the 256 on-policy states added to the 216 training observations (interleaved); same 40 held-out observations
+Everything else unchanged (768 updates, 8 latents, EMA 0.99, clip 1, 10 % anchor, executed window 4 of 8).
+Evaluation: SimplerEnv-Bridge 7 × 120, seed 7, on RTX 6000 Ada for every row (FP, clean row, base, each completed variant), paired
+with `baselines/simpler/b5_stats.py`. SimplerEnv runs on this cluster's GPU nodes (check job 1739941, A40).
+Driver: `slurm/bridge_chain.sbatch` (self-chaining CPU job) running `slurm/b_chain.sh` (scheduler loop, race copies through
+`race_fit.sbatch`, steps in `runs/plustrain_20261008/groot/simpler_bridge/steps/`, log `b_chain.log`, STOP file ends it).
