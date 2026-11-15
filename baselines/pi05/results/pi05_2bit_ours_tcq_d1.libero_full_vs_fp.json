@@ -1,0 +1,22 @@
+{
+  "all_tasks": {
+    "candidate_successes": 1962,
+    "reference_successes": 1928,
+    "episodes": 2000,
+    "difference_pp": 1.7000000000000002,
+    "paired_difference_ci95_pp": [
+      0.10000000000000853,
+      3.549999999999997
+    ]
+  },
+  "excluding_libero10_tasks8_9": {
+    "candidate_successes": 1874,
+    "reference_successes": 1855,
+    "episodes": 1900,
+    "difference_pp": 1.0,
+    "paired_difference_ci95_pp": [
+      -0.15789473684210975,
+      2.2105263157894797
+    ]
+  }
+}

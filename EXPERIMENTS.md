@@ -2209,3 +2209,28 @@ Evaluation: SimplerEnv-Bridge 7 × 120, seed 7, on RTX 6000 Ada for every row (F
 with `baselines/simpler/b5_stats.py`. SimplerEnv runs on this cluster's GPU nodes (check job 1739941, A40).
 Driver: `slurm/bridge_chain.sbatch` (self-chaining CPU job) running `slurm/b_chain.sh` (scheduler loop, race copies through
 `race_fit.sbatch`, steps in `runs/plustrain_20261008/groot/simpler_bridge/steps/`, log `b_chain.log`, STOP file ends it).
+
+**E221 addendum, 2026-11-15 13:30 UTC — project quota.** `/projects/yanlongvla` reached its 2 TB quota at 12:47 UTC (2,005 GB); every write
+failed with "Disk quota exceeded". Effects: Bridge `hd` job 1740261 failed while writing the on-policy source Hessians (the photometric and
+geometric sources and both clean fits were complete and are intact); Bridge FP evaluation job 1740225 started without being able to write
+its logs and exited (the 573 completed episodes are intact). No result file was damaged.
+Freed, on the user's decision: `runs/groot_harness_test` (183 GB, harness self-test of 10-30), `runs/plustrain_20261008/invalid/
+refit_plustrain_{b,c}_backbone_stale_0629` (25 GB), and six early-format GR00T rows in `models/groot_ptq`: `ptq_head`, `ptq_bb`, `ptq_w2`,
+`raqft_bb`, `raqft_b_am`, `raqft_rowb` (166 GB; these rows can no longer be re-evaluated without re-assembly); also the uv package cache
+(21 GB, re-downloadable). Usage after: 1,605 GB of 2,000 GB. Usage is read with `getfattr -n ceph.dir.rbytes /projects/yanlongvla`.
+
+### E222 — π0.5 closed-loop calibration only (`tcq_d1`) on standard LIBERO, 2026-11-15
+User: the row "Closed-loop calibration only (ours), 2.02 / 2.92 bpw, Plus 73.4" had no standard-LIBERO numbers. `scripts/pi05_libero.py
+--row tcq_d1 --port 24300`, 4 suites x 10 tasks x 50 episodes, seed 7, RTX 6000 Ada (jobs 1739960 killable, preempted three times and
+resumed per task; finished by rose copy 1740306).
+Result: Spatial 493, Object 498, Goal 491, LIBERO-10 480 = **1962 / 2000 (98.10 %)**. FP 491 / 494 / 484 / 459 = 1928; main row
+`tcq_raqft_d1` 492 / 496 / 489 / 474 = 1951. Paired with FP +1.70 [+0.10, +3.55] pp (1900: 1874 vs 1855, +1.00 [-0.16, +2.21]);
+`tcq_d1` - `tcq_raqft_d1` +0.55 [-0.35, +1.45] pp. Exports `public-reports/baselines/pi05/results/pi05_2bit_ours_tcq_d1.libero_full*`.
+
+**Disk, 2026-11-15 14:20 UTC (user: delete more, disk still too full).** User selected "early-round large files" only. Removed: 61 of
+the 63 `models/hd_srvq_*` (kept `hd_srvq_raqft_studentq` = the 749 row and `hd_srvq_bb_M2_ae_M2_fp32` = the skeleton `pi05_tcq.py`
+loads); files > 20 MB in `runs/plustrain_20261008/refit` (46 GB), `runs/causal_20261005/h5` (42 GB), `runs/backbone/calibration` (23 GB),
+`runs/d2` (17 GB); the `.npz` / `.pt` tensors in `runs/decisions_round` (23 GB); `runs/story_round/publication_snapshots` (13 GB). JSON /
+JSONL results, logs and manifests in those run directories are kept. The older pi0.5 rows (SRVQ / plus-train / causal / evening / alloc
+/ precision families) can no longer be re-evaluated or re-fitted from disk. Usage after: 1,358 GB of 2,000 GB. Not selected and kept:
+per-source Hessians, `shift/sigma_by_source`, the other assembled GR00T rows.
