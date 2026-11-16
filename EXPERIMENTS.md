@@ -2262,3 +2262,7 @@ falls while held-out L_vel rises (control: train L_vel 1.1e-4 at update 688, hel
 Two further variants started 04:50 UTC (`groot_simpler_main.FT_VARIANTS`): `_lr03` (learning rates x0.3; job 1741283) and `_n472`
 (lr x1, training pool 216 + the 256 observations of `datasets/bridge-heldout`, 64 other episodes, same 40 held-out; job 1741282; that
 row's offline chunk MSE is measured on bridge-heldout and is therefore not a held-out number). Chain table updated (`slurm/b_chain.sh`).
+
+**E221, 2026-11-16 07:16 UTC:** `_lr3` stopped by the non-finite rule (39 events > 38) after update 592 of 768 (job 1740669); its held-out
+L_readout never went below the value at update 0 (10217; 11492 at 448). Control at 752 / 768; `_lr03` at 48, `_n472` at 32 (both
+preempted on the killable queue and resumed).
