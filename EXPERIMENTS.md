@@ -2234,3 +2234,31 @@ loads); files > 20 MB in `runs/plustrain_20261008/refit` (46 GB), `runs/causal_2
 JSONL results, logs and manifests in those run directories are kept. The older pi0.5 rows (SRVQ / plus-train / causal / evening / alloc
 / precision families) can no longer be re-evaluated or re-fitted from disk. Usage after: 1,358 GB of 2,000 GB. Not selected and kept:
 per-source Hessians, `shift/sigma_by_source`, the other assembled GR00T rows.
+
+### E221 interim — Bridge fine-tune re-run on this cluster, 2026-11-16 04:50 UTC
+SimplerEnv-Bridge, 7 tasks x 120 episodes, seed 7, RTX 6000 Ada for every row (`runs/plustrain_20261008/groot/simpler_bridge/eval/<row>`;
+pairs in `.../paired/`, `b5_stats.py`):
+
+| row | successes / 840 | mean % | spoon | carrot | stack | eggplant basket | eggplant sink | open drawer | close drawer |
+|---|---|---|---|---|---|---|---|---|---|
+| FP | 507 | 60.36 | 96 | 76 | 45 | 55 | 0 | 119 | 116 |
+| clean 2-bit `tcq_w2_rht` (rebuilt here) | 536 | 63.81 | 101 | 71 | 47 | 76 | 1 | 120 | 120 |
+| base `tcq_w2_rht_d1` (rebuilt here) | 512 | 60.95 | 96 | 77 | 44 | 58 | 0 | 117 | 120 |
+
+Paired: clean - FP +3.45 [-0.24, +7.14]; base - FP +0.60 [-2.38, +3.45]; base - clean -2.86 [-6.67, +0.95].
+(H100 run of 2026-11-12: FP 522, clean 597, base 560.)
+
+Fine-tune variants, held-out L_readout of the EMA weights (40 observations; the exported snapshot is the best one):
+
+| variant | updates done | held-out L_readout at 0 / 64 / 128 / 192 / 256 / 320 / 384 / 448 / 512 / 576 / 640 | non-finite events | state |
+|---|---|---|---|---|
+| control (lr x1) | 688 / 768 | 10163 / 10172 / 10321 / 10331 / 10466 / 10502 / 10379 / 10168 / 10202 / 10226 / 10215 | 29 | running |
+| `_lr3` | 464 / 768 | 10217 / 10408 / 11983 / 11894 / 11312 / 11505 / 11705 / 11492 | 27 | running |
+| `_lr10` | 411 / 768 | 10163 / 11807 / 14174 / 15201 / 19574 / 29203 / 35343 | 39 | stopped by the non-finite rule (> 38), job 1740673 |
+| `_lr3op` | 184 / 768 | 10163 / 10289 / 11364 | 17 (10 on on-policy states) | cancelled by hand: would exceed the rule before 768 |
+
+In every variant the best held-out snapshot so far is update 0, i.e. the base. Larger steps raise the held-out loss; the training loss
+falls while held-out L_vel rises (control: train L_vel 1.1e-4 at update 688, held-out 6.2e-4 -> 6.8e-4). beta 3.55e7-3.89e7, L0 23.6k-24.0k, mu 52-53.
+Two further variants started 04:50 UTC (`groot_simpler_main.FT_VARIANTS`): `_lr03` (learning rates x0.3; job 1741283) and `_n472`
+(lr x1, training pool 216 + the 256 observations of `datasets/bridge-heldout`, 64 other episodes, same 40 held-out; job 1741282; that
+row's offline chunk MSE is measured on bridge-heldout and is therefore not a held-out number). Chain table updated (`slurm/b_chain.sh`).
