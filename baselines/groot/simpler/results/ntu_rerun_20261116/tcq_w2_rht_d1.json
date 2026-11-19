@@ -1,0 +1,18 @@
+{
+ "status": "complete",
+ "row": "tcq_w2_rht_d1",
+ "episodes": 840,
+ "successes": 512,
+ "mean_pct": 60.95,
+ "per_task": {
+  "widowx_spoon_on_towel": 96,
+  "widowx_carrot_on_plate": 77,
+  "widowx_stack_cube": 44,
+  "widowx_put_eggplant_in_basket": 58,
+  "widowx_put_eggplant_in_sink": 0,
+  "widowx_open_drawer": 117,
+  "widowx_close_drawer": 120
+ },
+ "gpu": "NVIDIA RTX 6000 Ada Generation",
+ "protocol": "7 tasks x 120 episodes, seed 7, 4 of 8 actions per call, 300 env steps"
+}

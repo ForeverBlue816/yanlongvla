@@ -2266,3 +2266,34 @@ row's offline chunk MSE is measured on bridge-heldout and is therefore not a hel
 **E221, 2026-11-16 07:16 UTC:** `_lr3` stopped by the non-finite rule (39 events > 38) after update 592 of 768 (job 1740669); its held-out
 L_readout never went below the value at update 0 (10217; 11492 at 448). Control at 752 / 768; `_lr03` at 48, `_n472` at 32 (both
 preempted on the killable queue and resumed).
+
+### E221 — Bridge control fine-tune `tcq_raqft_d1_s` on SimplerEnv, 2026-11-16 10:45 UTC
+RTX 6000 Ada, 7 × 120 episodes, seed 7 (job 1741598): **514 / 840 (61.19 %)** — spoon 96, carrot 77, stack 44, eggplant-basket 59,
+eggplant-sink 1, open drawer 117, close drawer 120. Paired (`simpler_bridge/paired/tcq_raqft_d1_s_vs_*.json`): vs FP 507
++0.83 [−2.38, +4.05] pp; vs base `tcq_w2_rht_d1` 512 +0.24 [−0.48, +1.07] pp; vs clean `tcq_w2_rht` 536 −2.62 [−6.67, +1.31] pp.
+The exported snapshot is the best held-out one, which the curve put at update 0, so the row is the base row up to the export
+path; the two extra successes are within the paired interval. Variants `_lr03` and `_n472` stay on hold behind another job.
+
+### E221 final — Bridge fine-tune re-run with other learning rates, 2026-11-19
+SimplerEnv-Bridge, RTX 6000 Ada, 7 × 120 episodes, seed 7. Tasks in order: spoon, carrot, stack, eggplant-basket, eggplant-sink,
+open drawer, close drawer.
+
+| row | successes / 840 | % | per task |
+|---|---:|---:|---|
+| FP | 507 | 60.36 | 96, 76, 45, 55, 0, 119, 116 |
+| clean `tcq_w2_rht` | 536 | 63.81 | 101, 71, 47, 76, 1, 120, 120 |
+| base `tcq_w2_rht_d1` (H_D, no fine-tune) | 512 | 60.95 | 96, 77, 44, 58, 0, 117, 120 |
+| fine-tune, original rates `tcq_raqft_d1_s` | 514 | 61.19 | 96, 77, 44, 59, 1, 117, 120 |
+| fine-tune, rates × 0.3 `tcq_raqft_d1_s_lr03` | 511 | 60.83 | 97, 80, 44, 52, 0, 120, 118 |
+
+Paired, `_lr03` minus: FP +0.48 [−2.74, +3.69] pp; base −0.12 [−2.74, +2.50]; original-rate fine-tune −0.36 [−2.98, +2.26];
+clean −2.98 [−6.19, +0.36] (`simpler_bridge/paired/tcq_raqft_d1_s_lr03_vs_*.json`).
+Held-out L_readout (40 observations), update 0 = 10,163 in every variant:
+- × 0.3: best 9,989 at update 448 (−1.7 %), 10,079 at 768; held-out L_vel 6.20e-4 → 6.39e-4 at the exported snapshot.
+- original: never below update 0 (10,172 at 64; 10,502 at 320; 10,186 at 768) → exported snapshot = update 0.
+- × 3: 11.4–12.0k, stopped by the non-finite rule at update 592. × 10: 35k at the last evaluation, stopped at 411.
+- × 3 with the on-policy states in the training pool: cancelled at 184 (on course to exceed the rule).
+- original rates with 472 training observations (`_n472`: 216 + the 256 of `bridge-heldout`): 10,157 at 64, 10,228–10,514 after,
+  10,324 at 704; stopped by the non-finite rule (39 > 38) at update 720 of 768 (job 1742021). No row exported.
+No variant moves SimplerEnv success off the base row (511–514 against 512); the largest held-out gain of any setting is 1.7 %,
+against 17 % for the same recipe on LIBERO. Scope: Bridge only; no learning-rate variants were run for the LIBERO-Plus rows.

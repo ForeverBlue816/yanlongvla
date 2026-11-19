@@ -1,0 +1,61 @@
+{
+  "per_task": {
+    "widowx_spoon_on_towel": {
+      "episodes": 120,
+      "fp": 96,
+      "row": 97,
+      "row_only": 18,
+      "fp_only": 17
+    },
+    "widowx_carrot_on_plate": {
+      "episodes": 120,
+      "fp": 76,
+      "row": 80,
+      "row_only": 20,
+      "fp_only": 16
+    },
+    "widowx_stack_cube": {
+      "episodes": 120,
+      "fp": 45,
+      "row": 44,
+      "row_only": 19,
+      "fp_only": 20
+    },
+    "widowx_put_eggplant_in_basket": {
+      "episodes": 120,
+      "fp": 55,
+      "row": 52,
+      "row_only": 22,
+      "fp_only": 25
+    },
+    "widowx_put_eggplant_in_sink": {
+      "episodes": 120,
+      "fp": 0,
+      "row": 0,
+      "row_only": 0,
+      "fp_only": 0
+    },
+    "widowx_open_drawer": {
+      "episodes": 120,
+      "fp": 119,
+      "row": 120,
+      "row_only": 1,
+      "fp_only": 0
+    },
+    "widowx_close_drawer": {
+      "episodes": 120,
+      "fp": 116,
+      "row": 118,
+      "row_only": 4,
+      "fp_only": 2
+    }
+  },
+  "fp_mean_pct": 60.357142857142854,
+  "row_mean_pct": 60.83333333333334,
+  "difference_pp": 0.4761904761904887,
+  "paired_difference_ci95_pp": [
+    -2.7380952380952404,
+    3.6904761904761894
+  ],
+  "method": "mean over 7 tasks; paired bootstrap clustered by (task, layout), stratified by task, 2000 draws, seed 20260930, pointwise 95%"
+}
