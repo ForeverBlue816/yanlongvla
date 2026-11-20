@@ -225,7 +225,7 @@ def build_tasks():
         for bt in ('widowx_carrot_on_plate', 'widowx_stack_cube'):
             add(f'b5__ev__{brow}__{bt}', [f'bq__imp__{brow}', 'b5__vk'], 0.7)
         add(f'bq__fin__{brow}', [f'b5__ev__{brow}__{bt}' for bt in ('widowx_carrot_on_plate', 'widowx_stack_cube')], 0.1)
-    for brow in BQ_ROWS + ('quip10_w2', 'vptq_v8k12288_w2'):   # quip10_w2: A15 (9 Nov), the 10-sweeps QuIP# row next to the 0-sweeps headline row; vptq_v8k12288_w2: VPTQ v8 at true 2 bits per weight
+    for brow in BQ_ROWS + ('quip10_w2',):   # quip10_w2: A15 (9 Nov), the 10-sweeps QuIP# row next to the 0-sweeps headline row
         meth = brow.split('_')[0]
         for k in BQ_KEYS:
             add(f'bq__qk__{brow}__{k}', ['bq__cal'], (AQLM_EST['backbone'] if k == 'backbone' else AQLM_EST['head_libero_spatial']) if meth == 'aqlm' else EST['qk'] * (2 if k == 'backbone' else 1), attempts=8 if meth == 'aqlm' else 4)
