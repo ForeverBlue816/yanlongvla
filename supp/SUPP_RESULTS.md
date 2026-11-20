@@ -1,6 +1,6 @@
 # Supplementary results for LoopQ
 
-Status of 2026-11-19 08:30 UTC. Experiment log entry: `EXPERIMENTS.md` E224. Every number below comes from a finished run; the
+Status of 2026-11-20 07:00 UTC. Experiment log entry: `EXPERIMENTS.md` E224. Every number below comes from a finished run; the
 log or result file and the commit that recorded it follow the number. Arms that have not finished are listed with their state and
 have no row in any table.
 
@@ -14,14 +14,14 @@ Conventions used in every LIBERO-Plus table:
 
 ## Relation to statements in the main text (与正文表述的关系)
 
-No arm of A–D has finished yet, so none of the six statements can be read against new numbers today. The table records what each
-statement will be checked with and the state of that run.
+Finished so far: A3 and A4. No arm of B, C or D has finished, so none of the six statements can be read against new numbers yet.
+The table records what each statement will be checked with and the state of that run.
 
-| Statement in the main text | Checked by | State on 2026-11-19 08:30 UTC | Supports / does not support |
+| Statement in the main text | Checked by | State on 2026-11-20 07:00 UTC | Supports / does not support |
 |---|---|---|---|
 | "We perform one fixed-point iteration" | C (second iteration, and the per-module distance between first and second on-policy second moments) | not started (second batch) | no result yet |
 | "Trace normalization gives every source the same total energy" | B1–B3 | not started (third batch) | no result yet; one recorded fact is given under B below |
-| "the two steps address different causes, and their effects add" | D1, D2 | fine-tunes running (started 08:16 UTC) | no result yet |
+| "the two steps address different causes, and their effects add" | D1, D2 | D1 at update 352 of 768, D2 at 640 of 768 | no result yet |
 | "constraining the projected attention outputs W_O·o … focuses the limited trainable capacity" | D3 | not started (second batch) | no result yet |
 | "student-side queries … essential for GR00T" | D4 | not started (second batch) | no result yet |
 | "standard codebook learning rates destabilize entire layers" | D5 | not started (second batch) | no result yet |
@@ -66,17 +66,33 @@ Held-out action error and readout error of the same rows (256 held-out observati
 H = H_demo + Σ_{s∈S} w_s H_s with w_s = tr(H_demo) / (|S| tr(H_s)), |S| = the number of sources used. The per-source second moments
 are the stored ones of the 57.5 row; the matrix is composed per layer at fit time. Composing {lighting, crop, on-policy} this way
 reproduces the stored matrix of the 57.5 row exactly (maximum absolute difference 0.0, checked on one backbone and one head layer).
+Table file `tables/A.tex`; per-instance files `results/A3.json`, `results/A4.json`; code commit 4a6c069 (private repository).
 
-| Arm | Sources | State |
+| Row | All | Camera | Init. state | Spatial | Object | Goal | Long | vs demonstration only, pp [95 %] | vs all three sources, pp [95 %] | File |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Demonstration only (reference) | 559 (55.9) | 272 (54.4) | 287 (57.4) | 175 (71.4) | 122 (48.6) | 154 (60.2) | 108 (43.5) | — | — | `groot_n17_tcq_w2_rht/plus/episodes.jsonl` |
+| All three sources (reference) | 575 (57.5) | 289 (57.8) | 286 (57.2) | 174 (71.0) | 127 (50.6) | 167 (65.2) | 107 (43.1) | — | — | `groot_n17_tcq_w2_rht_d1/plus/episodes.jsonl` |
+| A3: demo + on-policy | 548 (54.8) | 282 (56.4) | 266 (53.2) | 164 (66.9) | 118 (47.0) | 157 (61.3) | 109 (44.0) | −1.1 [−5.6, +3.4] | −2.7 [−6.4, +1.2] | `groot_n17_tcq_w2_rht_a3/plus/episodes.jsonl` |
+| A4: demo + lighting + crop | 554 (55.4) | 283 (56.6) | 271 (54.2) | 163 (66.5) | 125 (49.8) | 150 (58.6) | 116 (46.8) | −0.5 [−3.9, +3.0] | −2.1 [−5.6, +1.4] | `groot_n17_tcq_w2_rht_a4/plus/episodes.jsonl` |
+
+Files are under `runs/plustrain_20261008/groot/`; paired files `runs/plustrain_20261008/supp/paired/`. Both arms ran on the RTX 6000
+Ada (job 1747160). A3 − A4: −0.6 [−4.4, +3.4] pp.
+
+Held-out action error and readout error (256 held-out observations, RTX 6000 Ada; `runs/plustrain_20261008/supp/offline/`):
+
+| Row | Action MSE vs FP | Readout error |
 |---|---|---|
-| A1 | demo + lighting | queued (third batch) |
-| A2 | demo + crop | queued (third batch) |
-| A3 | demo + on-policy | fits running since 08:16 UTC (2 of 5 fit parts started) |
-| A4 | demo + lighting + crop | queued behind A3 |
-| A5 | demo + lighting + on-policy | queued (third batch) |
-| A6 | demo + crop + on-policy | queued (third batch) |
+| Demonstration only | 5.70e-3 | not recorded with this measure |
+| All three sources | 5.15e-3 | 7998 |
+| A3: demo + on-policy | 5.24e-3 | 8665 |
+| A4: demo + lighting + crop | 6.95e-3 | 8320 |
 
-Reference rows: demonstration only 559 (55.9), all three sources 575 (57.5).
+Direction of the numbers: with the on-policy source alone or with the two visual sources alone, success is not above the
+demonstration-only row (548 and 554 against 559) and is 2.1 to 2.7 points below the three-source row; none of these differences is
+separated from zero. On the camera half both arms are above the demonstration-only row (+10 and +11 instances) and on the
+initial-state half below it (−21 and −16).
+
+Not finished, no row: A1, A2, A5, A6 (third batch; A1 fits started 2026-11-20 05:10 UTC).
 
 ## B — weighting of the sources
 
@@ -106,8 +122,8 @@ held-out observations, including the arms that do not train the readout term (D2
 
 | Arm | Change | State |
 |---|---|---|
-| D1 | readout term only (β = 0) | running since 08:16 UTC (A40) |
-| D2 | velocity term only | running since 08:16 UTC (L40S) |
+| D1 | readout term only (β = 0) | update 352 of 768 (A40); held-out readout error 10311 → 7915 at update 320; 9 layers after the last reader block receive no gradient under this loss and stay at their calibrated values |
+| D2 | velocity term only | update 640 of 768 (L40S, preempted, resumes from its checkpoint); held-out readout error 10258 → 13116 at update 640, lowest 9827 at update 192 |
 | D3 | raw prefix K, V aligned instead of W_O·o | queued (second batch) |
 | D4 | teacher-side queries | queued (second batch) |
 | D5 | no per-step RMS renormalisation of the tables | queued (second batch) |
@@ -219,11 +235,51 @@ on one machine (H100), so they are paired per episode (`LAMBDA_1BIT_2026-11-12.m
   calibration on the same machine: 597 (71.1 %).
 - Paired differences (clustered by task and layout, 95 %): LoopQ − closed-loop calibration only −3.7 [−6.0, −1.3] pp;
   LoopQ − QTIP −8.3 [−12.4, −4.2] pp; LoopQ − FP +0.8 [−2.9, +4.4] pp.
-- Second machine (RTX 6000 Ada, same protocol, `baselines/groot/simpler/results/ntu_rerun_20261116/`, commit 6e881a3): FP 507
-  (60.4 %), demonstration-only trellis row 536 (63.8 %), closed-loop calibration only 512 (61.0 %), fine-tune 514 (61.2 %). No QTIP
-  toolkit row exists on that machine.
+On Bridge the fine-tuned row is not above the calibration-only row on either machine, and both are below the QTIP row.
 
-On Bridge the fine-tuned row is not above the calibration-only row on either machine, and both are below the QTIP row on the H100.
+### F2 — the same protocol on the RTX 6000 Ada, baselines re-run here (2026-11-19/20)
+
+Every row quantized and evaluated on this cluster (RTX 6000 Ada, 7 × 120, seed 7), so the rows are paired per episode. Baselines:
+the baseline harness unchanged with the Bridge profile and the 256 Bridge calibration observations (`runs/bridge_baselines/`);
+toolkit commits as in E2. Files: `runs/plustrain_20261008/groot/simpler_bridge/eval/<row>/`, paired `simpler_bridge/paired/`.
+
+| Task (of 120) | FP | QTIP | QuIP# (10 sweeps) | GPTQ (best variant per layer) | Trellis, demonstration only | Closed-loop calibration only | LoopQ |
+|---|---|---|---|---|---|---|---|
+| Spoon on towel | 96 | 101 | 91 | 84 | 101 | 96 | 96 |
+| Carrot on plate | 76 | 100 | 106 | 93 | 71 | 77 | 77 |
+| Stack cube | 45 | 66 | 73 | 69 | 47 | 44 | 44 |
+| Eggplant in basket | 55 | 51 | 26 | 80 | 76 | 58 | 59 |
+| Eggplant in sink | 0 | 0 | 0 | 4 | 1 | 0 | 1 |
+| Open drawer | 119 | 118 | 119 | 107 | 120 | 117 | 117 |
+| Close drawer | 116 | 115 | 118 | 118 | 120 | 120 | 120 |
+| Total (of 840) | 507 | 551 | 533 | 555 | 536 | 512 | 514 |
+| Mean (%) | 60.4 | 65.6 | 63.5 | 66.1 | 63.8 | 61.0 | 61.2 |
+| vs FP, pp [95 %] | | +5.2 [+1.6, +8.7] | +3.1 [−1.3, +7.4] | +5.7 [+1.4, +10.1] | +3.5 [−0.2, +7.1] | +0.6 [−2.4, +3.5] | +0.8 [−2.4, +4.0] |
+
+- LoopQ − QTIP: −4.4 [−8.0, −0.7] pp; closed-loop calibration only − QTIP: −4.6 [−8.1, −1.2]; demonstration-only trellis row − QTIP:
+  −1.8 [−5.6, +2.6].
+- LoopQ on this machine is the fine-tune whose exported snapshot is update 0 (the held-out readout error never fell below its
+  starting value), so it equals the calibration-only row up to the export path.
+- AWQ: 0 successes in the first 509 of 840 episodes; stopped by the harness's own gate rule, no row.
+- Not finished, no row: VPTQ (backbone quantization interrupted at 99 of 216 layers, re-queued), AQLM (quantized; evaluation at
+  47 of 840 episodes when its job was preempted).
+
+### F3 — action diagnostic on Bridge (2026-11-19)
+
+Actions of each row against FP at the same flow noise on the 256 held-out dataset observations (real images) and on 256 simulator
+states (the on-policy states; they are a calibration source of the closed-loop rows, not of the others).
+`simpler_bridge/diag/actions_NVIDIA_RTX_PRO_6000_Blackwell_Max-Q_Workstation_Edition.json`, code commit 58a3be1.
+
+| Row | Normalised MSE vs FP, real | Normalised MSE vs FP, simulator | Projection gain on motion, simulator | Mean abs. motion, simulator | Success (of 840) |
+|---|---|---|---|---|---|
+| FP | 0 | 0 | 1.000 | 0.0132 | 507 |
+| FP at another noise seed | 0.181 | 0.319 | 0.846 | 0.0130 | — |
+| Closed-loop calibration only | 0.130 | 0.143 | 0.830 | 0.0128 | 512 |
+| Trellis, demonstration only | 0.111 | 0.180 | 0.774 | 0.0124 | 536 |
+| GPTQ (best variant per layer) | 0.342 | 0.300 | 0.685 | 0.0115 | 555 |
+
+On simulator states the closed-loop calibration brings the actions closer to FP (0.180 → 0.143) and the success count goes to FP's
+(536 → 512, FP 507); the row farthest from FP, with the smallest motion, has the highest count. Four rows; an ordering, not a test.
 
 ## G — GR00T N1.7 at 1 bit
 
@@ -281,10 +337,12 @@ the expanded 2000 instances.
 
 | Row | Selection 1000 | Added 1000 | Expanded 2000 | State |
 |---|---|---|---|---|
-| Closed-loop calibration only (`tcq_d1`) | 734 | running | — | added 1000 started 08:16 UTC |
+| Closed-loop calibration only (`tcq_d1`) | 734 | 682 | 1416 | done (RTX 6000 Ada, job 1747160) |
 | Fine-tuned, default settings (`tcq_raqft_d1`) | 733 | 700 | 1433 | existing |
 | Earlier-format fine-tuned row (the 74.9 row) | 749 | 699 | 1448 | existing |
 | FP | 765 | 718 | 1483 | existing |
-| Variants: rates × 3, rates × 10, 2304 updates, velocity term weighted to the readout term's size | — | — | — | queued |
+| Variants: rates × 3, rates × 10, 2304 updates, velocity term weighted to the readout term's size | — | — | — | rates × 3 fine-tune at update 368 of 768 (held-out readout error 205.9 at update 320; default settings ended at 212.8); the others queued |
 
-Existing numbers: `PI05_TCQ_2026-11-10.md` (E215, E216, and the added-1000 section).
+Existing numbers: `PI05_TCQ_2026-11-10.md` (E215, E216, and the added-1000 section). On the 2000 instances, calibration only
+minus fine-tuned: −0.85 [−2.83, +1.05] pp; calibration only minus FP: −3.35 [−6.12, −0.76] pp
+(`runs/plustrain_20261008/pi05_tcq/expanded/paired_tcq_d1_expanded2000_vs_*.json`).

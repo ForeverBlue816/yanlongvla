@@ -1,0 +1,18 @@
+{
+ "status": "complete",
+ "row": "bl_gptq_best_w2",
+ "episodes": 840,
+ "successes": 555,
+ "mean_pct": 66.07,
+ "per_task": {
+  "widowx_spoon_on_towel": 84,
+  "widowx_carrot_on_plate": 93,
+  "widowx_stack_cube": 69,
+  "widowx_put_eggplant_in_basket": 80,
+  "widowx_put_eggplant_in_sink": 4,
+  "widowx_open_drawer": 107,
+  "widowx_close_drawer": 118
+ },
+ "gpu": "NVIDIA RTX 6000 Ada Generation",
+ "protocol": "7 tasks x 120 episodes, seed 7, 4 of 8 actions per call, 300 env steps"
+}

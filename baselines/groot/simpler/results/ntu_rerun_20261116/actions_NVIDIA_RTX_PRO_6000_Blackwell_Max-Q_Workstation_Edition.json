@@ -1,0 +1,114 @@
+{
+ "gpu": "NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition",
+ "observations": 256,
+ "noise": "SeedSequence([7, i, 0]) (FP noise floor: [7, i, 1])",
+ "rows": {
+  "fp": "FP",
+  "demo_only": "models/groot_ptq/tcq_w2_rht/simpler_bridge",
+  "closed_loop_cal": "models/groot_ptq/tcq_w2_rht_d1/simpler_bridge",
+  "fine_tuned": "models/groot_ptq/tcq_raqft_d1_s/simpler_bridge",
+  "gptq_best": "runs/bridge_baselines/ckpt/gptq_best_w2/bridge"
+ },
+ "sets": {
+  "real": {
+   "fp": {
+    "nmse_vs_fp": 0.0,
+    "mse_vs_fp": 0.0,
+    "projection_gain_motion": 1.0,
+    "mean_abs_motion": 0.012838318012654781,
+    "mean_abs_motion_executed4": 0.01404320914298296,
+    "gripper_agreement": 1.0
+   },
+   "demo_only": {
+    "nmse_vs_fp": 0.11125731468200684,
+    "mse_vs_fp": 0.004821615759283304,
+    "projection_gain_motion": 0.8764791488647461,
+    "mean_abs_motion": 0.012072709389030933,
+    "mean_abs_motion_executed4": 0.013058490119874477,
+    "gripper_agreement": 0.9619140625
+   },
+   "closed_loop_cal": {
+    "nmse_vs_fp": 0.1300692856311798,
+    "mse_vs_fp": 0.005398554261773825,
+    "projection_gain_motion": 0.8619950413703918,
+    "mean_abs_motion": 0.011956393718719482,
+    "mean_abs_motion_executed4": 0.013083199970424175,
+    "gripper_agreement": 0.9599609375
+   },
+   "fine_tuned": {
+    "nmse_vs_fp": 0.1300692856311798,
+    "mse_vs_fp": 0.005398554261773825,
+    "projection_gain_motion": 0.8619950413703918,
+    "mean_abs_motion": 0.011956393718719482,
+    "mean_abs_motion_executed4": 0.013083199970424175,
+    "gripper_agreement": 0.9599609375
+   },
+   "gptq_best": {
+    "nmse_vs_fp": 0.3417563736438751,
+    "mse_vs_fp": 0.009386266581714153,
+    "projection_gain_motion": 0.652147114276886,
+    "mean_abs_motion": 0.010905238799750805,
+    "mean_abs_motion_executed4": 0.011813533492386341,
+    "gripper_agreement": 0.931640625
+   },
+   "fp_other_noise_seed": {
+    "nmse_vs_fp": 0.18092741072177887,
+    "mse_vs_fp": 0.004462930373847485,
+    "projection_gain_motion": 0.9054297804832458,
+    "mean_abs_motion": 0.013013684190809727,
+    "mean_abs_motion_executed4": 0.014296011067926884,
+    "gripper_agreement": 0.966796875
+   }
+  },
+  "sim": {
+   "fp": {
+    "nmse_vs_fp": 0.0,
+    "mse_vs_fp": 0.0,
+    "projection_gain_motion": 1.0,
+    "mean_abs_motion": 0.01318246591836214,
+    "mean_abs_motion_executed4": 0.014741337858140469,
+    "gripper_agreement": 1.0
+   },
+   "demo_only": {
+    "nmse_vs_fp": 0.17957305908203125,
+    "mse_vs_fp": 0.006915226578712463,
+    "projection_gain_motion": 0.7744317054748535,
+    "mean_abs_motion": 0.012438878417015076,
+    "mean_abs_motion_executed4": 0.013845841400325298,
+    "gripper_agreement": 0.9501953125
+   },
+   "closed_loop_cal": {
+    "nmse_vs_fp": 0.14285656809806824,
+    "mse_vs_fp": 0.0051561458967626095,
+    "projection_gain_motion": 0.8296601176261902,
+    "mean_abs_motion": 0.012750557623803616,
+    "mean_abs_motion_executed4": 0.014393053017556667,
+    "gripper_agreement": 0.96142578125
+   },
+   "fine_tuned": {
+    "nmse_vs_fp": 0.14285656809806824,
+    "mse_vs_fp": 0.0051561458967626095,
+    "projection_gain_motion": 0.8296601176261902,
+    "mean_abs_motion": 0.012750557623803616,
+    "mean_abs_motion_executed4": 0.014393053017556667,
+    "gripper_agreement": 0.96142578125
+   },
+   "gptq_best": {
+    "nmse_vs_fp": 0.300175279378891,
+    "mse_vs_fp": 0.010654057376086712,
+    "projection_gain_motion": 0.6848630905151367,
+    "mean_abs_motion": 0.011511482298374176,
+    "mean_abs_motion_executed4": 0.013483976013958454,
+    "gripper_agreement": 0.92236328125
+   },
+   "fp_other_noise_seed": {
+    "nmse_vs_fp": 0.3189127743244171,
+    "mse_vs_fp": 0.00716808345168829,
+    "projection_gain_motion": 0.8456120491027832,
+    "mean_abs_motion": 0.01298273354768753,
+    "mean_abs_motion_executed4": 0.014317351393401623,
+    "gripper_agreement": 0.947265625
+   }
+  }
+ }
+}

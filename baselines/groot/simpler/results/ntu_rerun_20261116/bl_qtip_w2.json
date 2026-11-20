@@ -1,0 +1,18 @@
+{
+ "status": "complete",
+ "row": "bl_qtip_w2",
+ "episodes": 840,
+ "successes": 551,
+ "mean_pct": 65.6,
+ "per_task": {
+  "widowx_spoon_on_towel": 101,
+  "widowx_carrot_on_plate": 100,
+  "widowx_stack_cube": 66,
+  "widowx_put_eggplant_in_basket": 51,
+  "widowx_put_eggplant_in_sink": 0,
+  "widowx_open_drawer": 118,
+  "widowx_close_drawer": 115
+ },
+ "gpu": "NVIDIA RTX 6000 Ada Generation",
+ "protocol": "7 tasks x 120 episodes, seed 7, 4 of 8 actions per call, 300 env steps"
+}
