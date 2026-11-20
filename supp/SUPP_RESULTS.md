@@ -1,6 +1,6 @@
 # Supplementary results for LoopQ
 
-Status of 2026-11-20 07:00 UTC. Experiment log entry: `EXPERIMENTS.md` E224. Every number below comes from a finished run; the
+Status of 2026-11-20 15:30 UTC. Experiment log entry: `EXPERIMENTS.md` E224. Every number below comes from a finished run; the
 log or result file and the commit that recorded it follow the number. Arms that have not finished are listed with their state and
 have no row in any table.
 
@@ -17,11 +17,11 @@ Conventions used in every LIBERO-Plus table:
 Finished so far: A3 and A4. No arm of B, C or D has finished, so none of the six statements can be read against new numbers yet.
 The table records what each statement will be checked with and the state of that run.
 
-| Statement in the main text | Checked by | State on 2026-11-20 07:00 UTC | Supports / does not support |
+| Statement in the main text | Checked by | State on 2026-11-20 15:30 UTC | Supports / does not support |
 |---|---|---|---|
-| "We perform one fixed-point iteration" | C (second iteration, and the per-module distance between first and second on-policy second moments) | not started (second batch) | no result yet |
+| "We perform one fixed-point iteration" | C (second iteration, and the per-module distance between first and second on-policy second moments) | distance measured (table in C); the re-quantized model is being fitted (3 of 5 parts done), no LIBERO-Plus result yet | second moments: the second iteration moves them by 1.0 % (language), 1.4 % (vision) and 5.4 % (action head) on average, against 8 %, 14 % and 27 % for the first iteration; closed-loop effect not measured yet |
 | "Trace normalization gives every source the same total energy" | B1–B3 | not started (third batch) | no result yet; one recorded fact is given under B below |
-| "the two steps address different causes, and their effects add" | D1, D2 | D1 at update 352 of 768, D2 at 640 of 768 | no result yet |
+| "the two steps address different causes, and their effects add" | D1, D2 | D1 at update 480 of 768, D2 at 640 of 768 | no result yet |
 | "constraining the projected attention outputs W_O·o … focuses the limited trainable capacity" | D3 | not started (second batch) | no result yet |
 | "student-side queries … essential for GR00T" | D4 | not started (second batch) | no result yet |
 | "standard codebook learning rates destabilize entire layers" | D5 | not started (second batch) | no result yet |
@@ -109,10 +109,26 @@ and 3.00 times tr(H_demo)).
 
 ## C — second fixed-point iteration
 
-Not started. Plan: 256 rollouts of the 57.5 row from the same initial-state distribution, on-policy second moments from them, the
-calibration matrix rebuilt with the first-iteration lighting and crop sources, one more quantization pass, LIBERO-Plus. The
-per-module (vision / language / action head) relative Frobenius distance between the trace-normalised first and second on-policy
-second moments is reported with it.
+256 rollouts of the 57.5 row from the same initial-state draws as the first iteration (rollout seeds `SeedSequence([20261107, i])`,
+one state from the first 40 % of the policy calls): 240 of 256 rollouts succeed (first iteration, the 55.9 row: 243)
+(`runs/plustrain_20261008/groot/shift/onpolicy_tcq_w2_rht_d1_rinit/complete.json`, RTX 6000 Ada). On-policy second moments from
+them with the first iteration's procedure (`hessians/*_src2_onpolicy*`), code commit f2a923e.
+
+Relative Frobenius distance of the trace-normalised on-policy second moments, per layer, summarised per module
+(`runs/plustrain_20261008/supp/offline/onpolicy_round1_vs_round2.json`). For scale, the last three columns give the same distance
+between the demonstration second moments and the first-iteration on-policy second moments.
+
+| Module | Layers | First vs second iteration: mean | median | max | Demonstrations vs first iteration: mean | median | max |
+|---|---|---|---|---|---|---|---|
+| Vision | 104 | 0.014 | 0.013 | 0.042 | 0.140 | 0.140 | 0.306 |
+| Language | 112 | 0.010 | 0.008 | 0.022 | 0.083 | 0.077 | 0.155 |
+| Action head (four suites) | 864 | 0.054 | 0.036 | 0.364 | 0.268 | 0.209 | 1.042 |
+
+Direction of the numbers: the second iteration changes the on-policy second moments by about one tenth (vision, language) to one
+fifth (action head) of what the first iteration changed relative to the demonstrations.
+
+LIBERO-Plus of the model re-quantized with the second-iteration matrix: not finished, no row (3 of 5 fit parts done on
+2026-11-20 15:10 UTC).
 
 ## D — fine-tune objective
 
@@ -122,7 +138,7 @@ held-out observations, including the arms that do not train the readout term (D2
 
 | Arm | Change | State |
 |---|---|---|
-| D1 | readout term only (β = 0) | update 352 of 768 (A40); held-out readout error 10311 → 7915 at update 320; 9 layers after the last reader block receive no gradient under this loss and stay at their calibrated values |
+| D1 | readout term only (β = 0) | update 480 of 768 (A40); held-out readout error 10311 → 7737 at update 448; 9 layers after the last reader block receive no gradient under this loss and stay at their calibrated values |
 | D2 | velocity term only | update 640 of 768 (L40S, preempted, resumes from its checkpoint); held-out readout error 10258 → 13116 at update 640, lowest 9827 at update 192 |
 | D3 | raw prefix K, V aligned instead of W_O·o | queued (second batch) |
 | D4 | teacher-side queries | queued (second batch) |
@@ -261,8 +277,8 @@ toolkit commits as in E2. Files: `runs/plustrain_20261008/groot/simpler_bridge/e
 - LoopQ on this machine is the fine-tune whose exported snapshot is update 0 (the held-out readout error never fell below its
   starting value), so it equals the calibration-only row up to the export path.
 - AWQ: 0 successes in the first 509 of 840 episodes; stopped by the harness's own gate rule, no row.
-- Not finished, no row: VPTQ (backbone quantization interrupted at 99 of 216 layers, re-queued), AQLM (quantized; evaluation at
-  47 of 840 episodes when its job was preempted).
+- Not finished, no row, on hold since 2026-11-20 08:35 UTC (ablations first): VPTQ (backbone quantization at 99 of 216 layers),
+  AQLM (quantized; evaluation stopped at about 210 of 840 episodes).
 
 ### F3 — action diagnostic on Bridge (2026-11-19)
 
@@ -341,8 +357,11 @@ the expanded 2000 instances.
 | Fine-tuned, default settings (`tcq_raqft_d1`) | 733 | 700 | 1433 | existing |
 | Earlier-format fine-tuned row (the 74.9 row) | 749 | 699 | 1448 | existing |
 | FP | 765 | 718 | 1483 | existing |
-| Variants: rates × 3, rates × 10, 2304 updates, velocity term weighted to the readout term's size | — | — | — | rates × 3 fine-tune at update 368 of 768 (held-out readout error 205.9 at update 320; default settings ended at 212.8); the others queued |
+| Fine-tuned, learning rates × 3 (`tcq_raqft_d1_lr3`) | 738 | not run | — | done (RTX 6000 Ada, job 1747160); exported update 704, held-out readout error 191.6 (default settings 212.8), held-out action MSE vs FP 0.0139 relative (default 0.0142) |
+| Variants: rates × 10, 2304 updates, velocity term weighted to the readout term's size | — | — | — | on hold (decision of 2026-11-20: ablations first) |
 
-Existing numbers: `PI05_TCQ_2026-11-10.md` (E215, E216, and the added-1000 section). On the 2000 instances, calibration only
+Existing numbers: `PI05_TCQ_2026-11-10.md` (E215, E216, and the added-1000 section). Learning rates × 3 on the selection 1000: +0.4 [−2.3, +3.1] pp vs calibration only,
++0.5 [−1.6, +2.6] vs the default fine-tune, −1.1 [−5.0, +3.0] vs the 74.9 row, −2.7 [−6.2, +0.5] vs FP
+(`runs/plustrain_20261008/pi05_tcq/paired_tcq_raqft_d1_lr3_vs_*.json`). On the 2000 instances, calibration only
 minus fine-tuned: −0.85 [−2.83, +1.05] pp; calibration only minus FP: −3.35 [−6.12, −0.76] pp
 (`runs/plustrain_20261008/pi05_tcq/expanded/paired_tcq_d1_expanded2000_vs_*.json`).
