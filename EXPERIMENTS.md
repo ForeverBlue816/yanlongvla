@@ -2297,3 +2297,12 @@ Held-out L_readout (40 observations), update 0 = 10,163 in every variant:
   10,324 at 704; stopped by the non-finite rule (39 > 38) at update 720 of 768 (job 1742021). No row exported.
 No variant moves SimplerEnv success off the base row (511–514 against 512); the largest held-out gain of any setting is 1.7 %,
 against 17 % for the same recipe on LIBERO. Scope: Bridge only; no learning-rate variants were run for the LIBERO-Plus rows.
+
+### E224 results, 2026-11-21 13:40 UTC (B3)
+- **B3 (three sources, total weight × 2) 558**: −1.7 [−5.3, +1.9] vs 575, −0.1 [−4.3, +3.8] vs 559; camera 293, initial state 265;
+  Spatial 166, Object 122, Goal 163, Long 107; action MSE 4.48e-3, readout 7984 (job 1750169, RTX 6000 Ada). Weighting arms complete:
+  default 575, B1 544, B2 559, B3 558.
+- D4 at update 176 (L40S worker 1747163, 78 s per update). D5 at update 64: its preemptible Ada worker was requeued four times
+  between 10:39 and 12:49 UTC, so the step was moved to a `rose` Ada worker (1750482, 13:33 UTC).
+- `plustrain_controller.py` (systemd unit `plustrain-ctl` of the October round, still active) regenerated `REPORT.md` and
+  `results/plustrain_round.json` at 13:34 UTC with empty bpw cells (the model info files are gone); both restored from git, not committed.
