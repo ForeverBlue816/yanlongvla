@@ -2298,6 +2298,103 @@ Held-out L_readout (40 observations), update 0 = 10,163 in every variant:
 No variant moves SimplerEnv success off the base row (511–514 against 512); the largest held-out gain of any setting is 1.7 %,
 against 17 % for the same recipe on LIBERO. Scope: Bridge only; no learning-rate variants were run for the LIBERO-Plus rows.
 
+### E224 — supplementary-material runs for the LoopQ paper, and π0.5 fine-tune hyper-parameters (started 2026-11-19 08:15 UTC)
+User 2026-11-19: (1) tune the π0.5 trellis fine-tune towards the 749 row, and report the row before and after fine-tuning on the
+expanded 2000 (selection 1000 + added 1000); (2) fill the "in the supplementary material" items of the paper: arms A–D on GR00T N1.7
+(trellis, 2 bit), E hyper-parameters / costs (collation only), F Bridge, G GR00T 1 bit, H deployment (H2 Thor: not now, user
+same day). Deliverables under `supp/` (SUPP_RESULTS.md, tables/*.tex, results/*.json). Reference rows are not re-run.
+Arms (specs in `scripts/supp_rows.py`): A1–A6 subsets of {lighting, crop, on-policy} with trace normalisation over the sources
+used; B1 no trace normalisation, B2 / B3 total weight × 0.5 / × 2; C second fixed-point iteration (`c2`); D1–D6 fine-tune objective
+changes from the 57.5 row (`scripts/supp_ft.py`, variants `v0s_d1_<arm>` of `groot_tcq_raqft_s.py`). Rows `tcq_w2_rht_<arm>` and
+`tcq_raqft_d1_s_<arm>`. The A / B / C calibration matrix is composed per layer at fit time from the stored per-source second
+moments (`groot_tcq.py --metric arm --arm <arm>`); composing {three sources, trace, total 1} reproduces the stored `hd1` matrix
+exactly (max abs difference 0.0 on a backbone and a head layer). Assembled dense rows of the arms live on node-local storage
+during their evaluation job (`GROOT_PTQ_MODELS`), nothing existing is modified.
+Per arm: 5 fits (backbone + 4 suite heads, damping pinned to the demo-only row's per layer) → held-out action error and readout
+error (`groot_supp.py --stage offline`, RTX 6000 Ada, the quantities of 5.70e-3 → 5.15e-3 → 4.59e-3) → LIBERO-Plus selection 1000
+on RTX 6000 Ada with the references' units and noise seeds.
+π0.5 variants (`pi05_tcq_raqft.TUNE`, each from `tcq_d1`, everything else as `tcq_raqft_d1`): `_lr3` (rates × 3), `_lr10` (× 10),
+`_u3` (2304 updates), `_bv` (β = 1e6: β·L_vel of the size of L_readout at update 0; with the default β = 0.1 the velocity term is
+1e-7 of the loss). Each → Plus selection 1000; `tcq_d1` → added 1000.
+Scheduler: `slurm/supp_chain.sbatch` (self-chaining CPU driver, job 1747158) keeps up to five GPU workers queued
+(`slurm/supp_worker.sbatch`; specs 6000ada:rose, 6000ada / pro6000 / l40 killable, a40:rose); a worker claims the first runnable
+step of `slurm/supp_steps.sh` under a flock (evaluations on RTX 6000 Ada only; the long GR00T fine-tunes on the other workers).
+State in `runs/plustrain_20261008/supp/{steps,logs,workers.log,chain.log,offline}`; `steps/<name>.failed` = not retried;
+STOP file ends the driver. The Bridge driver was stopped (STOP file) — its table was complete.
+Found while taking stock (reported to the user, not changed): (a) every main-table row in this repository is one run per
+instance (noise seed `SeedSequence([7, suite, task, 0])`), no three-seed runs exist; the arms are run with that seed first;
+(b) the logged default fine-tune started from the 57.5 row is 581 (RTX 6000 Ada) / 594 (A40); 604 is the same recipe started from
+the 55.9 row.
+
+### E224 progress, 2026-11-19 15:40 UTC
+- **π0.5 `tcq_d1` (closed-loop calibration only) on the added 1000: 682** (camera 319, robot-init 363; RTX 6000 Ada, job 1747160).
+  Expanded 2000: before fine-tuning 734 + 682 = **1416**; after fine-tuning (`tcq_raqft_d1`, default settings) 733 + 700 = **1433**.
+  Paired on 2000 (`pi05_tcq/expanded/paired_tcq_d1_expanded2000_vs_*.json`): `tcq_d1` − `tcq_raqft_d1` −0.85 [−2.83, +1.05] pp;
+  − FP 1483 −3.35 [−6.12, −0.76]; − `raqft_studentq` 1448 −1.60 [−4.22, +1.14]; − old 2-bit base 1361 +2.75 [−0.39, +5.95].
+  Added 1000 alone: − `tcq_raqft_d1` 700 −1.8 [−4.52, +0.90]; − FP 718 −3.6 [−6.95, −0.31].
+- **Bridge baselines re-tested here** (user 08:45 UTC; baseline harness unchanged with `GROOT_PROFILE=bridge`, tree
+  `runs/bridge_baselines`, evaluation `slurm/bridge_eval_step.sh`, RTX 6000 Ada, 7 × 120, seed 7):
+  GPTQ best-variant-per-layer `bl_gptq_best_w2` **555 / 840 (66.07 %)**: spoon 84, carrot 93, stack 69, eggplant-basket 80,
+  eggplant-sink 4, open drawer 107, close drawer 118; paired − FP 507 +5.71 [+1.43, +10.12]; − clean trellis row 536 +2.26
+  [−2.98, +6.91]; − H_D base 512 +5.12 [+0.36, +10.00]; − fine-tuned 514 +4.88 [−0.24, +9.88].
+  AWQ `bl_awq_w2`: 0 successes in the first 509 of 840 episodes (269 + 240), stopped by the baseline gate rule
+  (`steps/bb-ev-awq_w2.hold`), no row. QTIP: first attempt failed in `torch.compile` (no Python.h on the GPU nodes); re-queued with
+  `TORCHDYNAMO_DISABLE=1`. QuIP# / VPTQ / AQLM: toolkit environments being built (`envs/bl_toolkits`, clones at the pinned commits).
+- A3: all five fits complete (15:02 UTC), evaluation started 15:28 UTC on RTX 6000 Ada. A4 fits running.
+- D2: update 272 of 768 (L40S). D1: the readout-only loss leaves 9 layers without gradient; the gate now records them and
+  lets the arm run. The arm was then killed for memory three times on RTX PRO 6000 nodes (33 GB RAM per GPU; 144 of 768 updates
+  done, resumable); fine-tunes are now kept off those nodes.
+
+### E224 results, 2026-11-20 07:00 UTC (first two arms, Bridge re-test, diagnostic)
+- **A3 (demo + on-policy): 548 / 1000** (camera 282, initial state 266; Spatial 164, Object 118, Goal 157, Long 109); vs demonstration
+  only 559 −1.1 [−5.6, +3.4]; vs three sources 575 −2.7 [−6.4, +1.2]; held-out action MSE 5.24e-3, readout 8665.
+  **A4 (demo + lighting + crop): 554 / 1000** (283 / 271; 163, 125, 150, 116); vs 559 −0.5 [−3.9, +3.0]; vs 575 −2.1 [−5.6, +1.4];
+  action MSE 6.95e-3, readout 8320. RTX 6000 Ada, job 1747160. Tables `supp/tables/A.tex`, per-instance `supp/results/A{3,4}.json`.
+- **Bridge on this cluster (RTX 6000 Ada, 840 episodes):** QTIP toolkit `bl_qtip_w2` **551 (65.6 %)** (101, 100, 66, 51, 0, 118, 115):
+  +5.2 [+1.6, +8.7] vs FP 507; +1.8 [−2.6, +5.6] vs our demonstration-only row 536; +4.6 [+1.2, +8.1] vs closed-loop calibration 512;
+  +4.4 [+0.7, +8.0] vs fine-tuned 514. QuIP# official 10 sweeps `bl_quip10_w2` **533 (63.5 %)** (91, 106, 73, 26, 0, 119, 118):
+  +3.1 [−1.3, +7.4] vs FP. GPTQ best-per-layer 555 (E224 progress). VPTQ: backbone run preempted at 99 / 216 layers and its
+  incremental accounting file was taken for complete (fixed: 216 layers required; re-queued). AQLM quantized (351 min, RTX PRO 6000);
+  evaluation preempted at 47 / 840.
+- **Bridge action diagnostic** (`scripts/bridge_diag.py`, `simpler_bridge/diag/`): normalised MSE vs FP on simulator states — demo-only
+  0.180, closed-loop calibration 0.143, GPTQ 0.300, FP at another noise seed 0.319; on real held-out 0.111 / 0.130 / 0.342 / 0.181;
+  projection gain on motion (simulator) 0.774 / 0.830 / 0.685; mean absolute motion 0.0124 / 0.0128 / 0.0115 (FP 0.0132). Success
+  536 / 512 / 555 (FP 507): closer to FP in the simulator ↔ success at FP's level.
+- Re-fit of the demonstration-only Bridge row with rotation seed 1: both fits complete, evaluation queued.
+- D1 at update 352 (held-out readout 10311 → 7915 at 320); D2 at 640 (held-out readout rising, 13116; lowest 9827 at 192).
+- π0.5 `_lr3`: update 368, held-out readout 205.9 at 320 (default run ended at 212.8). The openpi environment's torch has no kernels
+  for the RTX PRO 6000 (Blackwell): `_u3`, `_bv`, `_lr10` failed there at start and were re-queued for the other GPU types.
+
+### E224 results, 2026-11-20 15:30 UTC
+- **π0.5 fine-tune with learning rates × 3 (`tcq_raqft_d1_lr3`): Plus selection 1000 = 738** (camera 363, robot-init 375; RTX 6000
+  Ada, job 1747160). vs `tcq_d1` 734 +0.4 [−2.29, +3.08]; vs default fine-tune 733 +0.5 [−1.61, +2.59]; vs `raqft_studentq` 749
+  −1.1 [−4.98, +3.02]; vs FP 765 −2.7 [−6.20, +0.54]. Fine-tune: 768 updates, 0 non-finite events, exported update 704, held-out
+  readout 191.6 (default 212.8); held-out action MSE vs FP 0.0139 relative (default 0.0142).
+- **C, second-iteration on-policy statistics:** 256 rollouts of `tcq_w2_rht_d1`, 240 successes; relative Frobenius distance of
+  trace-normalised on-policy second moments, round 1 vs round 2: vision mean 0.014 (max 0.042), language 0.010 (0.022), action head
+  0.054 (median 0.036, max 0.364); demonstrations vs round 1: 0.140 / 0.083 / 0.268. Fits of arm `c2`: backbone, Spatial and Goal
+  heads done.
+- User 2026-11-20 08:35 UTC: ablations first; π0.5 `_u3` / `_bv` / `_lr10`, Bridge VPTQ / AQLM evaluation / re-fit evaluation on hold.
+- D1 at update 480 (A40, ~250 s per update); D2 waiting at 640 since its L40S worker was preempted — the preemptible Ada worker now
+  also takes fine-tunes. Project disk 1787 of 2000 GB.
+
+### E224 results, 2026-11-21 12:30 UTC (C, B1, B2, D1, D2; D3 stopped)
+LIBERO-Plus selection 1000, RTX 6000 Ada, paired with `baselines/paired_stats.py`; references demonstration-only 559, three sources 575,
+LoopQ row 604. Scope since 2026-11-20 16:05 UTC (user): C, B1–B3, D1–D5 only.
+- **C (second iteration) 567**: −0.8 [−4.7, +3.1] vs 575, +0.8 [−2.9, +4.4] vs 559; camera 297, initial state 270; action MSE 5.61e-3,
+  readout 8138.
+- **B1 (no trace normalisation) 544**: −3.1 [−6.7, +0.1] vs 575; action MSE 5.28e-3, readout 8153. **B2 (total × 0.5) 559**:
+  −1.6 [−5.0, +1.6] vs 575; 5.14e-3, 7965. B3 (× 2): offline 4.48e-3 / 7984, evaluation at 845 of 1000.
+- **D1 (readout term only) 586**: +1.1 [−2.0, +4.3] vs 575, −1.8 [−5.9, +2.2] vs 604; action MSE 4.00e-3, readout 6464; exported update
+  768, held-out readout 10311 → 7404, 0 non-finite events; 9 head layers (blocks 30, 31) without gradient.
+  **D2 (velocity term only) 579**: +0.4 [−2.8, +3.8] vs 575, −2.5 [−6.0, +1.1] vs 604; action MSE 4.60e-3, readout 7757; exported update
+  192 (held-out readout 10258 → 9827, then rising to 13429 at 768), 7 non-finite events.
+- **D3 (raw K, V) stopped** by the non-finite rule at update 245 (39 events, first at update 2; language layer 2 `mlp.down_proj` in
+  37); K, V loss 297,257 at update 0; held-out readout 10258 → 9579 at 192 before the stop. No export.
+- D4 at update 144 on the A40 after 10 h (250 s per update): moved to an Ada worker (A40 worker dropped from the driver's list; both
+  Ada workers now take fine-tunes). D5 at update 32.
+- Tables `supp/tables/{A,B,C,D}.tex`, per-instance `supp/results/{A3,A4,B1,B2,C,D1,D2}.json`.
+
 ### E224 results, 2026-11-21 13:40 UTC (B3)
 - **B3 (three sources, total weight × 2) 558**: −1.7 [−5.3, +1.9] vs 575, −0.1 [−4.3, +3.8] vs 559; camera 293, initial state 265;
   Spatial 166, Object 122, Goal 163, Long 107; action MSE 4.48e-3, readout 7984 (job 1750169, RTX 6000 Ada). Weighting arms complete:
