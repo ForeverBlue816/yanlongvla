@@ -1,6 +1,6 @@
 # Supplementary results for LoopQ
 
-Status of 2026-11-20 15:30 UTC. Experiment log entry: `EXPERIMENTS.md` E224. Every number below comes from a finished run; the
+Status of 2026-11-21 12:30 UTC. Experiment log entry: `EXPERIMENTS.md` E224. Every number below comes from a finished run; the
 log or result file and the commit that recorded it follow the number. Arms that have not finished are listed with their state and
 have no row in any table.
 
@@ -14,17 +14,18 @@ Conventions used in every LIBERO-Plus table:
 
 ## Relation to statements in the main text (与正文表述的关系)
 
-Finished so far: A3 and A4. No arm of B, C or D has finished, so none of the six statements can be read against new numbers yet.
-The table records what each statement will be checked with and the state of that run.
+Scope decided on 2026-11-20: only the arms tied to these six statements are run (C, B1–B3, D1–D5); A1, A2, A5, A6, D6 and the
+1-bit QTIP row of G are cut. Numbers are LIBERO-Plus successes of 1000 (GR00T N1.7, 2 bit, RTX 6000 Ada); intervals are paired 95 %.
+With 1000 instances a difference below about 4 points is not separated from zero; none of the differences below is.
 
-| Statement in the main text | Checked by | State on 2026-11-20 15:30 UTC | Supports / does not support |
+| Statement in the main text | Checked by | Result | Direction |
 |---|---|---|---|
-| "We perform one fixed-point iteration" | C (second iteration, and the per-module distance between first and second on-policy second moments) | distance measured (table in C); the re-quantized model is being fitted (3 of 5 parts done), no LIBERO-Plus result yet | second moments: the second iteration moves them by 1.0 % (language), 1.4 % (vision) and 5.4 % (action head) on average, against 8 %, 14 % and 27 % for the first iteration; closed-loop effect not measured yet |
-| "Trace normalization gives every source the same total energy" | B1–B3 | not started (third batch) | no result yet; one recorded fact is given under B below |
-| "the two steps address different causes, and their effects add" | D1, D2 | D1 at update 480 of 768, D2 at 640 of 768 | no result yet |
-| "constraining the projected attention outputs W_O·o … focuses the limited trainable capacity" | D3 | not started (second batch) | no result yet |
-| "student-side queries … essential for GR00T" | D4 | not started (second batch) | no result yet |
-| "standard codebook learning rates destabilize entire layers" | D5 | not started (second batch) | no result yet |
+| "We perform one fixed-point iteration" | C | Second iteration: 567 against 575 for one iteration (−0.8 [−4.7, +3.1]). On-policy second moments move by 1.0 % (language), 1.4 % (vision), 5.4 % (action head) in the second iteration, against 8 %, 14 %, 27 % in the first. Held-out action error 5.61e-3 against 5.15e-3. | Supports: a second iteration changes the statistics little and does not raise success. |
+| "Trace normalization gives every source the same total energy" | B1–B3 | No trace normalisation (B1): 544 against 575 (−3.1 [−6.7, +0.1]). Total weight × 0.5 (B2): 559 (−1.6 [−5.0, +1.6]). × 2 (B3): evaluation at 845 of 1000, no row yet; its held-out action error is the lowest of the calibration rows (4.48e-3 against 5.15e-3). The stored weights of the default row are 0.33 per source in every part of the model, so the sources already have nearly equal traces and B1 is close to "total weight × 3". | Direction supports the default over B1 and B2; not separated. The statement itself (equal energy per source) holds by construction; the untreated traces are already within a few percent of each other. |
+| "the two steps address different causes, and their effects add" | D1, D2 | Readout term only (D1): 586; velocity term only (D2): 579; calibration only 575; LoopQ 604. D1 lowers the readout error (7998 → 6464) and the action error (5.15e-3 → 4.00e-3). D2 lowers the action error (→ 4.60e-3) and leaves the readout error near its start (7757 offline; on the 40 held-out observations it rises from 10258 to 13429 during training). | The two terms act on different quantities (readout error falls only with the readout term). Success: each term alone is +1.1 and +0.4 over calibration only and −1.8 and −2.5 under LoopQ; whether the effects add is not resolved at this sample size. |
+| "constraining the projected attention outputs W_O·o … focuses the limited trainable capacity" | D3 | Raw K, V alignment (D3) did not finish: stopped by the non-finite-gradient rule at update 245 of 768 (39 events against a limit of 38, the first at update 2). The loss is 30 times larger than the default readout term at update 0 (297,257 against about 10,000). 37 of the 39 events involve language-model layer 2 `mlp.down_proj`. Before the stop its held-out readout error had fallen from 10258 to 9579 (update 192). | No success number. Recorded fact: with the default learning rates the raw-K, V objective is not trainable to the end; the cause visible in the log is its scale, not a comparison of capacity. |
+| "student-side queries … essential for GR00T" | D4 | Running: update 144 of 768. | no result yet |
+| "standard codebook learning rates destabilize entire layers" | D5 | Running: update 32 of 768; one non-finite gradient event so far (update 4, language-model layer 2 `mlp.down_proj`). | no result yet |
 
 ## Open points for the author
 
@@ -92,15 +93,31 @@ demonstration-only row (548 and 554 against 559) and is 2.1 to 2.7 points below 
 separated from zero. On the camera half both arms are above the demonstration-only row (+10 and +11 instances) and on the
 initial-state half below it (−21 and −16).
 
-Not finished, no row: A1, A2, A5, A6 (third batch; A1 fits started 2026-11-20 05:10 UTC).
+Not run: A1, A2, A5, A6 — cut on 2026-11-20 (only the arms tied to a statement of the main text are run). A1 was stopped
+with 3 of its 5 fit parts complete and has no row.
 
 ## B — weighting of the sources
 
-| Arm | Weighting | State |
+Three sources, as the 57.5 row, with a different weighting. Table file `tables/B.tex`; per-instance files `results/B1.json`,
+`results/B2.json`; code commit 4a6c069.
+
+| Row | All | Camera | Init. state | Spatial | Object | Goal | Long | vs demonstration only, pp [95 %] | vs default weighting, pp [95 %] | File |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Demonstration only (reference) | 559 (55.9) | 272 (54.4) | 287 (57.4) | 175 (71.4) | 122 (48.6) | 154 (60.2) | 108 (43.5) | — | — | `groot_n17_tcq_w2_rht/plus/episodes.jsonl` |
+| Default: trace-normalised, total weight 1 (reference) | 575 (57.5) | 289 (57.8) | 286 (57.2) | 174 (71.0) | 127 (50.6) | 167 (65.2) | 107 (43.1) | — | — | `groot_n17_tcq_w2_rht_d1/plus/episodes.jsonl` |
+| B1: no trace normalisation | 544 (54.4) | 270 (54.0) | 274 (54.8) | 166 (67.8) | 116 (46.2) | 159 (62.1) | 103 (41.5) | −1.5 [−6.5, +3.1] | −3.1 [−6.7, +0.1] | `groot_n17_tcq_w2_rht_b1/plus/episodes.jsonl` |
+| B2: total weight × 0.5 | 559 (55.9) | 283 (56.6) | 276 (55.2) | 163 (66.5) | 116 (46.2) | 165 (64.5) | 115 (46.4) | +0.0 [−3.7, +3.6] | −1.6 [−5.0, +1.6] | `groot_n17_tcq_w2_rht_b2/plus/episodes.jsonl` |
+
+Not finished, no row: B3 (total weight × 2), evaluation at 845 of 1000 instances.
+
+Held-out action error and readout error (256 held-out observations, RTX 6000 Ada; `runs/plustrain_20261008/supp/offline/`):
+
+| Row | Action MSE vs FP | Readout error |
 |---|---|---|
-| B1 | second moments added without trace normalisation | queued (third batch) |
-| B2 | normalised, total weight × 0.5 | queued (third batch) |
-| B3 | normalised, total weight × 2 | queued (third batch) |
+| Default (total weight 1) | 5.15e-3 | 7998 |
+| B1: no trace normalisation | 5.28e-3 | 8153 |
+| B2: total weight × 0.5 | 5.14e-3 | 7965 |
+| B3: total weight × 2 | 4.48e-3 | 7984 |
 
 Recorded fact that bears on B1: the per-layer weights of the 57.5 row have mean 0.333 to 0.343 per source in every part of the model
 (`runs/plustrain_20261008/groot/shift/hd1_summary.json`). The trace of each source's second moment is therefore within a few percent
@@ -127,23 +144,54 @@ between the demonstration second moments and the first-iteration on-policy secon
 Direction of the numbers: the second iteration changes the on-policy second moments by about one tenth (vision, language) to one
 fifth (action head) of what the first iteration changed relative to the demonstrations.
 
-LIBERO-Plus of the model re-quantized with the second-iteration matrix: not finished, no row (3 of 5 fit parts done on
-2026-11-20 15:10 UTC).
+LIBERO-Plus of the model re-quantized with the second-iteration matrix (lighting and crop sources of the first iteration, on-policy
+source of the second; table file `tables/C.tex`, per-instance file `results/C.json`):
+
+| Row | All | Camera | Init. state | Spatial | Object | Goal | Long | vs demonstration only, pp [95 %] | vs one iteration, pp [95 %] | File |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Demonstration only (reference) | 559 (55.9) | 272 (54.4) | 287 (57.4) | 175 (71.4) | 122 (48.6) | 154 (60.2) | 108 (43.5) | — | — | `groot_n17_tcq_w2_rht/plus/episodes.jsonl` |
+| One iteration (reference) | 575 (57.5) | 289 (57.8) | 286 (57.2) | 174 (71.0) | 127 (50.6) | 167 (65.2) | 107 (43.1) | — | — | `groot_n17_tcq_w2_rht_d1/plus/episodes.jsonl` |
+| C: second iteration | 567 (56.7) | 297 (59.4) | 270 (54.0) | 172 (70.2) | 124 (49.4) | 159 (62.1) | 112 (45.2) | +0.8 [−2.9, +4.4] | −0.8 [−4.7, +3.1] | `groot_n17_tcq_w2_rht_c2/plus/episodes.jsonl` |
+
+Held-out action error 5.61e-3 (one iteration 5.15e-3), readout error 8138 (7998)
+(`runs/plustrain_20261008/supp/offline/tcq_w2_rht_c2.json`).
 
 ## D — fine-tune objective
 
 Each arm starts from the 57.5 row and changes one thing in the default recipe (768 updates, 216 / 40 split, Adam, the default
-learning rates, EMA 0.99). Reference: the 60.4 row (604 / 1000). The exported checkpoint of every arm is chosen by the default rule: lowest readout error on the 40
-held-out observations, including the arms that do not train the readout term (D2, D3).
+learning rates, EMA 0.99). Reference: the 60.4 row (604 / 1000). The exported checkpoint of every arm is chosen by the default rule:
+lowest readout error on the 40 held-out observations, including the arms that do not train the readout term. Table file
+`tables/D.tex`; per-instance files `results/D1.json`, `results/D2.json`; code commits 4a6c069 and c0a97bc.
 
-| Arm | Change | State |
-|---|---|---|
-| D1 | readout term only (β = 0) | update 480 of 768 (A40); held-out readout error 10311 → 7737 at update 448; 9 layers after the last reader block receive no gradient under this loss and stay at their calibrated values |
-| D2 | velocity term only | update 640 of 768 (L40S, preempted, resumes from its checkpoint); held-out readout error 10258 → 13116 at update 640, lowest 9827 at update 192 |
-| D3 | raw prefix K, V aligned instead of W_O·o | queued (second batch) |
-| D4 | teacher-side queries | queued (second batch) |
-| D5 | no per-step RMS renormalisation of the tables | queued (second batch) |
-| D6 | no Frobenius anchor (μ = 0) | queued (second batch) |
+| Row | All | Camera | Init. state | Spatial | Object | Goal | Long | vs calibration only, pp [95 %] | vs LoopQ, pp [95 %] | File |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Closed-loop calibration only (reference) | 575 (57.5) | 289 (57.8) | 286 (57.2) | 174 (71.0) | 127 (50.6) | 167 (65.2) | 107 (43.1) | — | — | `groot_n17_tcq_w2_rht_d1/plus/episodes.jsonl` |
+| LoopQ, default objective (reference) | 604 (60.4) | 311 (62.2) | 293 (58.6) | 184 (75.1) | 123 (49.0) | 175 (68.4) | 122 (49.2) | — | — | `groot_n17_tcq_raqft_rht_s/plus/episodes.jsonl` |
+| D1: readout term only (β = 0) | 586 (58.6) | 305 (61.0) | 281 (56.2) | 176 (71.8) | 127 (50.6) | 163 (63.7) | 120 (48.4) | +1.1 [−2.0, +4.3] | −1.8 [−5.9, +2.2] | `groot_n17_tcq_raqft_d1_s_d1/plus/episodes.jsonl` |
+| D2: velocity term only | 579 (57.9) | 305 (61.0) | 274 (54.8) | 173 (70.6) | 119 (47.4) | 173 (67.6) | 114 (46.0) | +0.4 [−2.8, +3.8] | −2.5 [−6.0, +1.1] | `groot_n17_tcq_raqft_d1_s_d2/plus/episodes.jsonl` |
+
+Held-out action error and readout error (256 held-out observations, RTX 6000 Ada), and the training record:
+
+| Row | Action MSE vs FP | Readout error | Exported update | Readout error on the 40 held-out observations, start → exported | Non-finite events |
+|---|---|---|---|---|---|
+| Closed-loop calibration only | 5.15e-3 | 7998 | — | — | — |
+| Default objective, started from the 57.5 row (existing record) | 4.59e-3 | 7233 | 768 | 10281 → 8523 | 12 |
+| D1: readout term only | 4.00e-3 | 6464 | 768 | 10311 → 7404 | 0 |
+| D2: velocity term only | 4.60e-3 | 7757 | 192 | 10258 → 9827 (13429 at update 768) | 7 |
+
+- D1: 9 layers of the action head after the last reader block (blocks 30 and 31 of the suite head on the gate's first observation)
+  receive no gradient from the readout term and stay at their calibrated values. The run moved between GPU models when its jobs were
+  killed for memory or preempted (RTX PRO 6000, A40, RTX 6000 Ada); it resumed from its checkpoint each time.
+- D2: with the velocity term alone the readout error on the 40 held-out observations rises after update 192, so the default
+  selection rule exports update 192.
+- D3 (raw prefix K, V aligned instead of W_O·o): stopped by the non-finite-gradient rule at update 245 of 768 (39 events, limit
+  38; first event at update 2). Layers named in the events: language-model layer 2 `mlp.down_proj` (37 of 39), vision blocks 1, 23
+  and 0. The K, V loss at update 0 is 297,257 against about 10,000 for the default readout term. Readout error on the 40 held-out
+  observations before the stop: 10258 → 10272 (64) → 9820 (128) → 9579 (192). No model exported, no row
+  (`runs/plustrain_20261008/groot/ptq/raqft/backbone_tcq_raqft_d1_s_d3/divergence.json`).
+- D4 (teacher-side queries): running, update 144 of 768.
+- D5 (no per-step RMS renormalisation of the tables): running, update 32 of 768.
+- D6: cut (decision of 2026-11-20).
 
 ## E1 — LoopQ hyper-parameters
 
